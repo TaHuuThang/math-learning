@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "react": ["./types/offline/react.d.ts"],
+      "react/jsx-runtime": ["./types/offline/react.d.ts"],
+      "react-dom/server": ["./types/offline/react.d.ts"],
+      "react-dom/client": ["./types/offline/react.d.ts"]
+    }
+  },
+  "include": ["src", "test/unit", "types/*.d.ts", "types/offline/*.d.ts"]
+}

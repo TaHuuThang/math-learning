@@ -1,0 +1,6 @@
+node_modules
+.env
+test/e2e/screenshots/
+*.log
+math-learning-html/
+test/e2e/screenshots-html/
