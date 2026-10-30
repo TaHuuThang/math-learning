@@ -205,6 +205,6 @@ export function exportJson() {
 
 export function importJson(text: string) {
   const parsed = JSON.parse(text) as Store;
-  if (!parsed || parsed.v !== 1 || typeof parsed.completed !== 'object' || !Array.isArray(parsed.responses)) throw new Error('Tệp không phải bản sao lưu tiến độ MATH LEARNING.');
+  if (!parsed || parsed.v !== 1 || typeof parsed.completed !== 'object' || !Array.isArray(parsed.responses)) throw new Error('Tệp không phải bản sao lưu tiến độ của trang.');
   save({ ...empty(), ...parsed });
 }

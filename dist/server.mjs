@@ -29050,7 +29050,7 @@ async function seedToan8(db, log = console.log) {
       const row = await t.one(sql`
         insert into questions (exercise_type_id, textbook_id, lesson_id, topic_id, level, stem, settings, points, status, source)
         values ((select id from exercise_types where code = ${q.type}), ${textbookId}, ${lessonId}, ${topicId}, ${q.level}, ${q.stem},
-          ${settings}, 1, 'published', 'Câu hỏi mẫu MATH LEARNING')
+          ${settings}, 1, 'published', 'Câu hỏi mẫu – Tạ Hữu Thắng')
         returning id`);
       const qid = row.id;
       if (q.type === "mcq") {
@@ -29524,6 +29524,13 @@ function LuArrowLeft(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "m12 19-7-7 7-7" }, "child": [] }, { "tag": "path", "attr": { "d": "M19 12H5" }, "child": [] }] })(props);
 }
 
+// src/shared/brand.ts
+var BRAND = "TH\u1EAENG MATH LEARNING";
+var AUTHOR = "T\u1EA1 H\u1EEFu Th\u1EAFng";
+var COPYRIGHT_YEAR = 2026;
+var COPYRIGHT = `\xA9 ${COPYRIGHT_YEAR} ${AUTHOR}. M\u1ECDi quy\u1EC1n \u0111\u01B0\u1EE3c b\u1EA3o l\u01B0u.`;
+var COPYRIGHT_NOTE = "N\u1ED9i dung b\xE0i h\u1ECDc, c\xE2u h\u1ECFi v\xE0 m\xE3 ngu\u1ED3n thu\u1ED9c b\u1EA3n quy\u1EC1n c\u1EE7a t\xE1c gi\u1EA3. Kh\xF4ng sao ch\xE9p, ph\xE1t h\xE0nh l\u1EA1i khi ch\u01B0a \u0111\u01B0\u1EE3c cho ph\xE9p.";
+
 // src/ui/components/Logo.tsx
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
 function LogoMark({ size = 34 }) {
@@ -29535,9 +29542,9 @@ function LogoMark({ size = 34 }) {
   ] });
 }
 function Logo({ compact }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", { href: "/", className: "flex items-center gap-2.5 text-ink no-underline", "aria-label": "MATH LEARNING \u2013 Trang ch\u1EE7", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", { href: "/", className: "flex items-center gap-2.5 text-ink no-underline", "aria-label": `${BRAND} \u2013 Trang ch\u1EE7`, children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogoMark, {}),
-    !compact && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-[17px] font-extrabold tracking-tight leading-none", children: "MATH LEARNING" })
+    !compact && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-[17px] font-extrabold tracking-tight leading-none", children: BRAND })
   ] });
 }
 
@@ -29945,29 +29952,35 @@ function SiteHeader() {
   ] }) });
 }
 function SiteFooter() {
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("footer", { className: "site-footer mt-20 border-t border-line bg-white", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "mx-auto grid max-w-[1240px] gap-8 px-4 py-10 md:grid-cols-[1.4fr_1fr_1fr] md:px-6", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Logo, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "mt-3 max-w-sm text-sm text-ink-2", children: "H\u1ECDc To\xE1n THCS theo Ch\u01B0\u01A1ng tr\xECnh GDPT 2018. \u0110ang m\u1EDF To\xE1n 8 \u2013 b\u1ED9 s\xE1ch K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng; To\xE1n 6, 7, 9 \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n." })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "mb-2 text-sm font-bold text-ink", children: "H\u1ECDc t\u1EADp" }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("ul", { className: "space-y-1.5 text-sm text-ink-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/hoc/toan-8", children: "M\u1EE5c l\u1EE5c To\xE1n 8" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/luyen-tap", children: "Luy\u1EC7n t\u1EADp theo b\xE0i" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/thu-thach", children: "Th\u1EED th\xE1ch To\xE1n h\u1ECDc" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/chuong-trinh/toan-8/ppct", children: "Ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh" }) })
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("footer", { className: "site-footer mt-20 border-t border-line bg-white", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "mx-auto grid max-w-[1240px] gap-8 px-4 py-10 md:grid-cols-[1.4fr_1fr_1fr] md:px-6", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Logo, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "mt-3 max-w-sm text-sm text-ink-2", children: "H\u1ECDc To\xE1n THCS theo Ch\u01B0\u01A1ng tr\xECnh GDPT 2018. \u0110ang m\u1EDF To\xE1n 8 \u2013 b\u1ED9 s\xE1ch K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng; To\xE1n 6, 7, 9 \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n." })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "mb-2 text-sm font-bold text-ink", children: "H\u1ECDc t\u1EADp" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("ul", { className: "space-y-1.5 text-sm text-ink-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/hoc/toan-8", children: "M\u1EE5c l\u1EE5c To\xE1n 8" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/luyen-tap", children: "Luy\u1EC7n t\u1EADp theo b\xE0i" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/thu-thach", children: "Th\u1EED th\xE1ch To\xE1n h\u1ECDc" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/chuong-trinh/toan-8/ppct", children: "Ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh" }) })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "mb-2 text-sm font-bold text-ink", children: "Gi\xE1o vi\xEAn" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("ul", { className: "space-y-1.5 text-sm text-ink-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/giao-vien", children: "Trang gi\xE1o vi\xEAn" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/giao-vien/cau-hoi", children: "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/giao-vien/de-kiem-tra", children: "\u0110\u1EC1 ki\u1EC3m tra" }) })
+        ] })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { className: "mb-2 text-sm font-bold text-ink", children: "Gi\xE1o vi\xEAn" }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("ul", { className: "space-y-1.5 text-sm text-ink-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/giao-vien", children: "Trang gi\xE1o vi\xEAn" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/giao-vien/cau-hoi", children: "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { className: "hover:text-tim-700", href: "/giao-vien/de-kiem-tra", children: "\u0110\u1EC1 ki\u1EC3m tra" }) })
-      ] })
-    ] })
-  ] }) });
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "border-t border-line", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "mx-auto flex max-w-[1240px] flex-wrap justify-between gap-x-6 gap-y-1 px-4 py-4 text-[13px] text-ink-3 md:px-6", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "font-semibold text-ink-2", children: COPYRIGHT }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: COPYRIGHT_NOTE })
+    ] }) })
+  ] });
 }
 function SiteLayout({ children, wide }) {
   return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
@@ -30033,7 +30046,7 @@ function DashboardLayout({ children, section }) {
       /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("a", { href: "/giao-vien", className: "flex items-center gap-2.5 px-5 py-5", children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(LogoMark, {}),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: "leading-tight", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "block text-[15px] font-extrabold tracking-tight", children: "MATH LEARNING" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "block text-[15px] font-extrabold tracking-tight", children: BRAND }),
           /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "block text-[12px] text-ink-3", children: "Khu v\u1EF1c gi\xE1o vi\xEAn" })
         ] })
       ] }),
@@ -30043,6 +30056,7 @@ function DashboardLayout({ children, section }) {
           /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(LuHouse, { "aria-hidden": "true" }),
           " V\u1EC1 trang h\u1ECDc t\u1EADp"
         ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { className: "px-3 pt-1 text-[11px] text-ink-3", children: COPYRIGHT }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "mt-2 flex items-center justify-between gap-2 px-3", children: [
           /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "min-w-0", children: [
             /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "truncate text-sm font-semibold", children: user?.fullName }),
@@ -30064,7 +30078,7 @@ function DashboardLayout({ children, section }) {
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "font-extrabold tracking-tight", children: "MATH LEARNING" })
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "font-extrabold tracking-tight", children: BRAND })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("main", { id: "noi-dung", className: "mx-auto max-w-[1180px] px-4 py-6 md:px-8 md:py-8", children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "mb-4 empty:hidden", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(FlashBanner, {}) }),
@@ -30083,7 +30097,8 @@ function AuthLayout({ children }) {
       /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-4 empty:hidden", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(FlashBanner, {}) }),
       children
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mt-6 text-center text-sm text-ink-3", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("a", { href: "/", className: "hover:text-tim-700 hover:underline", children: "V\u1EC1 trang ch\u1EE7" }) })
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mt-6 text-center text-sm text-ink-3", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("a", { href: "/", className: "hover:text-tim-700 hover:underline", children: "V\u1EC1 trang ch\u1EE7" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { className: "mt-2 text-center text-[12px] text-ink-3", children: COPYRIGHT })
   ] }) });
 }
 
@@ -30116,7 +30131,7 @@ function page(ctx, opts, body) {
   const content = layout === "dashboard" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(DashboardLayout, { section: opts.section, children: body }) : layout === "auth" ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(AuthLayout, { children: body }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(SiteLayout, { wide: opts.wide, children: body });
   const markup = (0, import_server.renderToString)(/* @__PURE__ */ (0, import_jsx_runtime6.jsx)(AppContext.Provider, { value: v, children: content }));
   const dir = ctx.config.publicDir;
-  const title = opts.title === "MATH LEARNING" ? opts.title : `${opts.title} \u2013 MATH LEARNING`;
+  const title = opts.title === BRAND ? opts.title : `${opts.title} \u2013 ${BRAND}`;
   const html = `<!doctype html>
 <html lang="vi">
 <head>
@@ -30125,6 +30140,8 @@ function page(ctx, opts, body) {
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(opts.description ?? "H\u1ECDc To\xE1n THCS theo ch\u01B0\u01A1ng tr\xECnh GDPT 2018 \u2013 b\xE0i h\u1ECDc, luy\u1EC7n t\u1EADp, ki\u1EC3m tra v\xE0 theo d\xF5i ti\u1EBFn \u0111\u1ED9.")}">
 <meta name="csrf-token" content="${escapeHtml(ctx.csrfToken)}">
+<meta name="author" content="${escapeHtml(AUTHOR)}">
+<meta name="copyright" content="${escapeHtml(COPYRIGHT)}">
 <meta name="theme-color" content="#3B2A8C">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31289,7 +31306,7 @@ async function homePage(ctx) {
   const startHref = cont ? `/hoc/${cont.textbookSlug}/bai/${cont.slug}` : user ? firstLesson ? `/hoc/toan-8/bai/${firstLesson.slug}` : "/hoc/toan-8" : "/dang-ky";
   return page(
     ctx,
-    { title: "MATH LEARNING", description: "H\u1ECDc To\xE1n 8 theo b\u1ED9 s\xE1ch K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng: b\xE0i h\u1ECDc, luy\u1EC7n t\u1EADp, ki\u1EC3m tra v\xE0 theo d\xF5i ti\u1EBFn \u0111\u1ED9." },
+    { title: BRAND, description: "H\u1ECDc To\xE1n 8 theo b\u1ED9 s\xE1ch K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng: b\xE0i h\u1ECDc, luy\u1EC7n t\u1EADp, ki\u1EC3m tra v\xE0 theo d\xF5i ti\u1EBFn \u0111\u1ED9." },
     /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_jsx_runtime10.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("section", { className: "o-li le-vo overflow-hidden rounded-[28px] border border-line", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "grid items-center gap-10 px-6 py-10 sm:pl-24 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:py-16 md:pr-12 lg:pl-28", children: [
         /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
@@ -31845,7 +31862,7 @@ async function registerSubmit(ctx) {
   await audit(ctx.db, userId, "register", userId);
   const token = await createSession(ctx.db, userId, { ip: ctx.ip, userAgent: String(ctx.req.headers["user-agent"] ?? ""), days: ctx.config.sessionDays });
   setSessionCookie(ctx, token);
-  ctx.setFlash({ type: "success", message: joined ? `Ch\xE0o m\u1EEBng em! Em \u0111\xE3 v\xE0o l\u1EDBp ${joined}.` : "Ch\xE0o m\u1EEBng em \u0111\u1EBFn v\u1EDBi MATH LEARNING!" });
+  ctx.setFlash({ type: "success", message: joined ? `Ch\xE0o m\u1EEBng em! Em \u0111\xE3 v\xE0o l\u1EDBp ${joined}.` : `Ch\xE0o m\u1EEBng em \u0111\u1EBFn v\u1EDBi ${BRAND}!` });
   return redirect("/");
 }
 async function SetupView(ctx, values = {}, errors, status = 200) {
@@ -36185,9 +36202,9 @@ function Layout({ page: page2, children }) {
   const R3 = (to) => rel2(page2.file, to);
   return /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("header", { className: "site-header sticky top-0 z-20 border-b border-line bg-white/95 backdrop-blur", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mx-auto flex h-16 max-w-[1240px] items-center gap-4 px-4 md:px-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: R3("index.html"), className: "flex items-center gap-2.5 text-ink no-underline", "aria-label": "MATH LEARNING \u2013 Trang ch\u1EE7", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: R3("index.html"), className: "flex items-center gap-2.5 text-ink no-underline", "aria-label": `${BRAND} \u2013 Trang ch\u1EE7`, children: [
         /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LogoMark, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "text-[17px] font-extrabold leading-none tracking-tight", children: "MATH LEARNING" })
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "text-[17px] font-extrabold leading-none tracking-tight", children: BRAND })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh", className: "ml-6 hidden items-center gap-1 lg:flex", children: NAV2.map((n) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
         "a",
@@ -36205,26 +36222,32 @@ function Layout({ page: page2, children }) {
       ] })
     ] }) }),
     /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("main", { id: "noi-dung", className: "mx-auto max-w-[1240px] px-4 pt-6 md:px-6", children }),
-    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("footer", { className: "site-footer mt-20 border-t border-line bg-white", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mx-auto grid max-w-[1240px] gap-6 px-4 py-10 md:grid-cols-[1.4fr_1fr] md:px-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex items-center gap-2.5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LogoMark, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "text-[17px] font-extrabold tracking-tight", children: "MATH LEARNING" })
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("footer", { className: "site-footer mt-20 border-t border-line bg-white", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mx-auto grid max-w-[1240px] gap-6 px-4 py-10 md:grid-cols-[1.4fr_1fr] md:px-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex items-center gap-2.5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LogoMark, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "text-[17px] font-extrabold tracking-tight", children: BRAND })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "mt-3 max-w-md text-sm text-ink-2", children: "B\u1EA3n HTML ngo\u1EA1i tuy\u1EBFn \u2013 To\xE1n 8, K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng (GDPT 2018). Ti\u1EBFn \u0111\u1ED9 v\xE0 c\xE2u \u0111\xE3 l\xE0m \u0111\u01B0\u1EE3c l\u01B0u trong tr\xECnh duy\u1EC7t c\u1EE7a m\xE1y \u0111ang d\xF9ng." })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "mt-3 max-w-md text-sm text-ink-2", children: "B\u1EA3n HTML ngo\u1EA1i tuy\u1EBFn \u2013 To\xE1n 8, K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng (GDPT 2018). Ti\u1EBFn \u0111\u1ED9 v\xE0 c\xE2u \u0111\xE3 l\xE0m \u0111\u01B0\u1EE3c l\u01B0u trong tr\xECnh duy\u1EC7t c\u1EE7a m\xE1y \u0111ang d\xF9ng." })
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("p", { className: "text-sm text-ink-3", children: [
+          "L\u1EDBp h\u1ECDc, t\xE0i kho\u1EA3n, \u0111\u1EC1 ki\u1EC3m tra, gi\xE1o vi\xEAn ch\u1EA5m b\xE0i v\xE0 b\u1EA3ng x\u1EBFp h\u1EA1ng c\u1EA7n b\u1EA3n ch\u1EA1y tr\xEAn m\xE1y ch\u1EE7. Xu\u1EA5t b\u1EA3n ng\xE0y ",
+          formatDate(/* @__PURE__ */ new Date()),
+          "."
+        ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("p", { className: "text-sm text-ink-3", children: [
-        "L\u1EDBp h\u1ECDc, t\xE0i kho\u1EA3n, \u0111\u1EC1 ki\u1EC3m tra, gi\xE1o vi\xEAn ch\u1EA5m b\xE0i v\xE0 b\u1EA3ng x\u1EBFp h\u1EA1ng c\u1EA7n b\u1EA3n ch\u1EA1y tr\xEAn m\xE1y ch\u1EE7 (th\u01B0 m\u1EE5c m\xE3 ngu\u1ED3n MATH LEARNING). Xu\u1EA5t b\u1EA3n ng\xE0y ",
-        formatDate(/* @__PURE__ */ new Date()),
-        "."
-      ] })
-    ] }) })
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "border-t border-line", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mx-auto flex max-w-[1240px] flex-wrap justify-between gap-x-6 gap-y-1 px-4 py-4 text-[13px] text-ink-3 md:px-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "font-semibold text-ink-2", children: COPYRIGHT }),
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { children: COPYRIGHT_NOTE })
+      ] }) })
+    ] })
   ] });
 }
 function document_(page2) {
   const R3 = (to) => rel2(page2.file, to);
   const markup = (0, import_server3.renderToString)(/* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Layout, { page: page2, children: page2.body }));
-  const title = page2.title === "MATH LEARNING" ? page2.title : `${page2.title} \u2013 MATH LEARNING`;
+  const title = page2.title === BRAND ? page2.title : `${page2.title} \u2013 ${BRAND}`;
   return `<!doctype html>
 <html lang="vi">
 <head>
@@ -36232,6 +36255,8 @@ function document_(page2) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(page2.description ?? "H\u1ECDc To\xE1n 8 theo b\u1ED9 s\xE1ch K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng.")}">
+<meta name="author" content="${escapeHtml(AUTHOR)}">
+<meta name="copyright" content="${escapeHtml(COPYRIGHT)}">
 <meta name="theme-color" content="#3B2A8C">
 <link rel="icon" href="${R3("assets/favicon.svg")}" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
@@ -36299,7 +36324,7 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
   const challengeCount = full.filter((q) => q.level >= 3 && ["mcq", "true_false", "short_answer"].includes(q.type)).length;
   pages.push({
     file: "index.html",
-    title: "MATH LEARNING",
+    title: BRAND,
     nav: "home",
     body: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("section", { className: "o-li le-vo overflow-hidden rounded-[28px] border border-line", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "grid items-center gap-10 px-6 py-10 sm:pl-24 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:py-16 md:pr-12 lg:pl-28", children: [
@@ -36783,10 +36808,11 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
     for (const d of ["bai", "luyen-tap", "assets"]) fs4.rmSync(path5.join(outDir, d), { recursive: true, force: true });
     for (const f of fs4.readdirSync(outDir)) if (f.endsWith(".html")) fs4.rmSync(path5.join(outDir, f));
   } else if (fs4.existsSync(outDir) && fs4.readdirSync(outDir).some((f) => f.endsWith(".html") || f === "bai")) {
-    throw new Error(`Th\u01B0 m\u1EE5c ${outDir} \u0111\xE3 c\xF3 trang HTML kh\xF4ng do MATH LEARNING t\u1EA1o \u2013 h\xE3y ch\u1ECDn th\u01B0 m\u1EE5c kh\xE1c.`);
+    throw new Error(`Th\u01B0 m\u1EE5c ${outDir} \u0111\xE3 c\xF3 trang HTML kh\xF4ng do l\u1EC7nh export-html t\u1EA1o \u2013 h\xE3y ch\u1ECDn th\u01B0 m\u1EE5c kh\xE1c.`);
   }
   fs4.mkdirSync(outDir, { recursive: true });
-  fs4.writeFileSync(path5.join(outDir, MARK), "Th\u01B0 m\u1EE5c do l\u1EC7nh export-html c\u1EE7a MATH LEARNING t\u1EA1o. Xu\u1EA5t l\u1EA1i s\u1EBD thay to\xE0n b\u1ED9 trang.\n");
+  fs4.writeFileSync(path5.join(outDir, MARK), `Th\u01B0 m\u1EE5c do l\u1EC7nh export-html c\u1EE7a ${BRAND} t\u1EA1o. Xu\u1EA5t l\u1EA1i s\u1EBD thay to\xE0n b\u1ED9 trang.
+`);
   fs4.writeFileSync(path5.join(outDir, ".nojekyll"), "");
   for (const p of pages) {
     const file = path5.join(outDir, p.file);
@@ -36813,7 +36839,8 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
   fs4.writeFileSync(
     path5.join(outDir, "HUONG-DAN.txt"),
     [
-      "MATH LEARNING \u2013 B\u1EA2N HTML (To\xE1n 8, K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng)",
+      `${BRAND} \u2013 B\u1EA2N HTML (To\xE1n 8, K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng)`,
+      COPYRIGHT,
       "",
       '1. Gi\u1EA3i n\xE9n c\u1EA3 th\u01B0 m\u1EE5c (gi\u1EEF nguy\xEAn th\u01B0 m\u1EE5c "assets", "bai", "luyen-tap").',
       "2. M\u1EDF t\u1EC7p index.html b\u1EB1ng Chrome, Edge ho\u1EB7c Firefox.",
@@ -36823,7 +36850,7 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
       "   ho\u1EB7c trang web c\u1EE7a tr\u01B0\u1EDDng \u0111\u1EC3 h\u1ECDc sinh m\u1EDF b\u1EB1ng \u0111\u01B0\u1EDDng link.",
       "",
       "B\u1EA3n HTML kh\xF4ng c\xF3 t\xE0i kho\u1EA3n, l\u1EDBp h\u1ECDc, \u0111\u1EC1 ki\u1EC3m tra, gi\xE1o vi\xEAn ch\u1EA5m b\xE0i v\xE0 b\u1EA3ng x\u1EBFp h\u1EA1ng.",
-      "Nh\u1EEFng ch\u1EE9c n\u0103ng \u0111\xF3 c\u1EA7n b\u1EA3n ch\u1EA1y tr\xEAn m\xE1y ch\u1EE7 (m\xE3 ngu\u1ED3n MATH LEARNING + PostgreSQL).",
+      "Nh\u1EEFng ch\u1EE9c n\u0103ng \u0111\xF3 c\u1EA7n b\u1EA3n ch\u1EA1y tr\xEAn m\xE1y ch\u1EE7 (m\xE3 ngu\u1ED3n + PostgreSQL).",
       "\u0110\xE1p \xE1n \u0111\u01B0\u1EE3c ch\u1EA5m ngay tr\xEAn m\xE1y n\xEAn h\u1ECDc sinh c\xF3 th\u1EC3 xem \u0111\u01B0\u1EE3c \u0111\xE1p \xE1n trong m\xE3 trang:",
       "d\xF9ng b\u1EA3n HTML \u0111\u1EC3 t\u1EF1 h\u1ECDc, d\xF9ng b\u1EA3n m\xE1y ch\u1EE7 khi c\u1EA7n ki\u1EC3m tra l\u1EA5y \u0111i\u1EC3m.",
       "",
@@ -36853,7 +36880,7 @@ async function serve() {
   server.headersTimeout = 3e4;
   server.requestTimeout = 6e4;
   server.listen(cfg.port, cfg.host, () => {
-    console.log(`MATH LEARNING \u0111ang ch\u1EA1y t\u1EA1i http://${cfg.host === "0.0.0.0" ? "localhost" : cfg.host}:${cfg.port}`);
+    console.log(`${BRAND} \u0111ang ch\u1EA1y t\u1EA1i http://${cfg.host === "0.0.0.0" ? "localhost" : cfg.host}:${cfg.port}`);
   });
   const shutdown = () => {
     console.log("\u0110ang d\u1EEBng m\xE1y ch\u1EE7\u2026");

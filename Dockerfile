@@ -1,4 +1,4 @@
-# Ảnh chạy MATH LEARNING – bản dựng sẵn trong dist/ không cần thư viện ngoài khi chạy.
+# Ảnh chạy THẮNG MATH LEARNING (© Tạ Hữu Thắng) – bản dựng sẵn trong dist/ không cần thư viện ngoài khi chạy.
 FROM node:22-alpine AS build
 WORKDIR /app
 COPY package.json ./

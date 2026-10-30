@@ -17,6 +17,7 @@ import { useApp } from '../app-context';
 import { LogoMark } from '../components/Logo';
 import { FlashBanner, PostForm, cx } from '../components/ui';
 import { ROLE_LABELS } from '../../shared/labels';
+import { BRAND, COPYRIGHT } from '../../shared/brand';
 
 const TEACHER_NAV = [
   { key: 'overview', href: '/giao-vien', label: 'Tổng quan', icon: LuLayoutDashboard },
@@ -74,7 +75,7 @@ export function DashboardLayout({ children, section }: { children: ReactNode; se
         <a href="/giao-vien" className="flex items-center gap-2.5 px-5 py-5">
           <LogoMark />
           <span className="leading-tight">
-            <span className="block text-[15px] font-extrabold tracking-tight">MATH LEARNING</span>
+            <span className="block text-[15px] font-extrabold tracking-tight">{BRAND}</span>
             <span className="block text-[12px] text-ink-3">Khu vực giáo viên</span>
           </span>
         </a>
@@ -85,6 +86,7 @@ export function DashboardLayout({ children, section }: { children: ReactNode; se
           <a href="/" className="flex items-center gap-3 rounded-xl px-3 py-2 text-[14px] text-ink-2 hover:bg-tim-50">
             <LuHouse aria-hidden="true" /> Về trang học tập
           </a>
+          <p className="px-3 pt-1 text-[11px] text-ink-3">{COPYRIGHT}</p>
           <div className="mt-2 flex items-center justify-between gap-2 px-3">
             <div className="min-w-0">
               <div className="truncate text-sm font-semibold">{user?.fullName}</div>
@@ -111,7 +113,7 @@ export function DashboardLayout({ children, section }: { children: ReactNode; se
               </a>
             </div>
           </details>
-          <span className="font-extrabold tracking-tight">MATH LEARNING</span>
+          <span className="font-extrabold tracking-tight">{BRAND}</span>
         </header>
         <main id="noi-dung" className="mx-auto max-w-[1180px] px-4 py-6 md:px-8 md:py-8">
           <div className="mb-4 empty:hidden">

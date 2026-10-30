@@ -4,6 +4,7 @@ import { useApp } from '../app-context';
 import { Logo } from '../components/Logo';
 import { FlashBanner, PostForm, buttonClass, cx } from '../components/ui';
 import { ROLE_LABELS } from '../../shared/labels';
+import { COPYRIGHT, COPYRIGHT_NOTE } from '../../shared/brand';
 
 const NAV = [
   { href: '/', label: 'Trang chủ', match: (p: string) => p === '/' },
@@ -143,6 +144,12 @@ export function SiteFooter() {
             <li><a className="hover:text-tim-700" href="/giao-vien/cau-hoi">Ngân hàng câu hỏi</a></li>
             <li><a className="hover:text-tim-700" href="/giao-vien/de-kiem-tra">Đề kiểm tra</a></li>
           </ul>
+        </div>
+      </div>
+      <div className="border-t border-line">
+        <div className="mx-auto flex max-w-[1240px] flex-wrap justify-between gap-x-6 gap-y-1 px-4 py-4 text-[13px] text-ink-3 md:px-6">
+          <span className="font-semibold text-ink-2">{COPYRIGHT}</span>
+          <span>{COPYRIGHT_NOTE}</span>
         </div>
       </div>
     </footer>

@@ -8,6 +8,7 @@ import { createServer } from './http/server';
 import { buildRouter } from './routes';
 import { createUser, UserInputError } from '../domain/users';
 import { exportHtml } from '../static/export';
+import { BRAND } from '../shared/brand';
 
 // .env ở thư mục đang đứng, hoặc ở thư mục dự án (cạnh dist/)
 loadEnvFile();
@@ -29,7 +30,7 @@ async function serve() {
   server.headersTimeout = 30_000;
   server.requestTimeout = 60_000;
   server.listen(cfg.port, cfg.host, () => {
-    console.log(`MATH LEARNING đang chạy tại http://${cfg.host === '0.0.0.0' ? 'localhost' : cfg.host}:${cfg.port}`);
+    console.log(`${BRAND} đang chạy tại http://${cfg.host === '0.0.0.0' ? 'localhost' : cfg.host}:${cfg.port}`);
   });
   const shutdown = () => {
     console.log('Đang dừng máy chủ…');

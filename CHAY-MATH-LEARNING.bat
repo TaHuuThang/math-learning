@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 >nul
-title MATH LEARNING
+title THANG MATH LEARNING - Ta Huu Thang
 cd /d "%~dp0"
 where node >nul 2>nul
 if errorlevel 1 (
@@ -15,6 +15,6 @@ if not exist ".env" (
   pause
   exit /b 1
 )
-echo Dang khoi dong MATH LEARNING... Mo trinh duyet tai http://localhost:3000
+echo Dang khoi dong THANG MATH LEARNING... Mo trinh duyet tai http://localhost:3000
 node dist\server.mjs serve
 pause

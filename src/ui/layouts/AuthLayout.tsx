@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Logo } from '../components/Logo';
 import { FlashBanner } from '../components/ui';
+import { COPYRIGHT } from '../../shared/brand';
 
 export function AuthLayout({ children }: { children: ReactNode }) {
   return (
@@ -20,6 +21,7 @@ export function AuthLayout({ children }: { children: ReactNode }) {
             Về trang chủ
           </a>
         </p>
+        <p className="mt-2 text-center text-[12px] text-ink-3">{COPYRIGHT}</p>
       </div>
     </div>
   );

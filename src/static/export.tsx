@@ -33,6 +33,7 @@ import { LESSON_KIND_LABELS, LEVEL_LABELS, TYPE_LABELS, TYPE_SHORT, formatDate }
 import { QUESTION_TYPES, type QuestionType } from '../shared/grading';
 import { escapeHtml, plainExcerpt, renderRich, renderRichInline } from '../shared/richtext';
 import type { OfflineData, OfflinePractice, OfflineQuestion } from './types';
+import { AUTHOR, BRAND, COPYRIGHT, COPYRIGHT_NOTE } from '../shared/brand';
 
 interface Page {
   file: string;
@@ -62,9 +63,9 @@ function Layout({ page, children }: { page: Page; children: ReactNode }) {
     <>
       <header className="site-header sticky top-0 z-20 border-b border-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-[1240px] items-center gap-4 px-4 md:px-6">
-          <a href={R('index.html')} className="flex items-center gap-2.5 text-ink no-underline" aria-label="MATH LEARNING – Trang chủ">
+          <a href={R('index.html')} className="flex items-center gap-2.5 text-ink no-underline" aria-label={`${BRAND} – Trang chủ`}>
             <LogoMark />
-            <span className="text-[17px] font-extrabold leading-none tracking-tight">MATH LEARNING</span>
+            <span className="text-[17px] font-extrabold leading-none tracking-tight">{BRAND}</span>
           </a>
           <nav aria-label="Điều hướng chính" className="ml-6 hidden items-center gap-1 lg:flex">
             {NAV.map((n) => (
@@ -100,15 +101,21 @@ function Layout({ page, children }: { page: Page; children: ReactNode }) {
           <div>
             <div className="flex items-center gap-2.5">
               <LogoMark />
-              <span className="text-[17px] font-extrabold tracking-tight">MATH LEARNING</span>
+              <span className="text-[17px] font-extrabold tracking-tight">{BRAND}</span>
             </div>
             <p className="mt-3 max-w-md text-sm text-ink-2">
               Bản HTML ngoại tuyến – Toán 8, Kết nối tri thức với cuộc sống (GDPT 2018). Tiến độ và câu đã làm được lưu trong trình duyệt của máy đang dùng.
             </p>
           </div>
           <p className="text-sm text-ink-3">
-            Lớp học, tài khoản, đề kiểm tra, giáo viên chấm bài và bảng xếp hạng cần bản chạy trên máy chủ (thư mục mã nguồn MATH LEARNING). Xuất bản ngày {formatDate(new Date())}.
+            Lớp học, tài khoản, đề kiểm tra, giáo viên chấm bài và bảng xếp hạng cần bản chạy trên máy chủ. Xuất bản ngày {formatDate(new Date())}.
           </p>
+        </div>
+        <div className="border-t border-line">
+          <div className="mx-auto flex max-w-[1240px] flex-wrap justify-between gap-x-6 gap-y-1 px-4 py-4 text-[13px] text-ink-3 md:px-6">
+            <span className="font-semibold text-ink-2">{COPYRIGHT}</span>
+            <span>{COPYRIGHT_NOTE}</span>
+          </div>
         </div>
       </footer>
     </>
@@ -118,7 +125,7 @@ function Layout({ page, children }: { page: Page; children: ReactNode }) {
 function document_(page: Page) {
   const R = (to: string) => rel(page.file, to);
   const markup = renderToString(<Layout page={page}>{page.body}</Layout>);
-  const title = page.title === 'MATH LEARNING' ? page.title : `${page.title} – MATH LEARNING`;
+  const title = page.title === BRAND ? page.title : `${page.title} – ${BRAND}`;
   return `<!doctype html>
 <html lang="vi">
 <head>
@@ -126,6 +133,8 @@ function document_(page: Page) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(page.description ?? 'Học Toán 8 theo bộ sách Kết nối tri thức với cuộc sống.')}">
+<meta name="author" content="${escapeHtml(AUTHOR)}">
+<meta name="copyright" content="${escapeHtml(COPYRIGHT)}">
 <meta name="theme-color" content="#3B2A8C">
 <link rel="icon" href="${R('assets/favicon.svg')}" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
@@ -205,7 +214,7 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
   const challengeCount = full.filter((q) => q.level >= 3 && ['mcq', 'true_false', 'short_answer'].includes(q.type)).length;
   pages.push({
     file: 'index.html',
-    title: 'MATH LEARNING',
+    title: BRAND,
     nav: 'home',
     body: (
       <>
@@ -860,10 +869,10 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
     for (const d of ['bai', 'luyen-tap', 'assets']) fs.rmSync(path.join(outDir, d), { recursive: true, force: true });
     for (const f of fs.readdirSync(outDir)) if (f.endsWith('.html')) fs.rmSync(path.join(outDir, f));
   } else if (fs.existsSync(outDir) && fs.readdirSync(outDir).some((f) => f.endsWith('.html') || f === 'bai')) {
-    throw new Error(`Thư mục ${outDir} đã có trang HTML không do MATH LEARNING tạo – hãy chọn thư mục khác.`);
+    throw new Error(`Thư mục ${outDir} đã có trang HTML không do lệnh export-html tạo – hãy chọn thư mục khác.`);
   }
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, MARK), 'Thư mục do lệnh export-html của MATH LEARNING tạo. Xuất lại sẽ thay toàn bộ trang.\n');
+  fs.writeFileSync(path.join(outDir, MARK), `Thư mục do lệnh export-html của ${BRAND} tạo. Xuất lại sẽ thay toàn bộ trang.\n`);
   fs.writeFileSync(path.join(outDir, '.nojekyll'), ''); // GitHub Pages phục vụ nguyên tệp, không qua Jekyll
   for (const p of pages) {
     const file = path.join(outDir, p.file);
@@ -889,7 +898,8 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
   fs.writeFileSync(
     path.join(outDir, 'HUONG-DAN.txt'),
     [
-      'MATH LEARNING – BẢN HTML (Toán 8, Kết nối tri thức với cuộc sống)',
+      `${BRAND} – BẢN HTML (Toán 8, Kết nối tri thức với cuộc sống)`,
+      COPYRIGHT,
       '',
       '1. Giải nén cả thư mục (giữ nguyên thư mục "assets", "bai", "luyen-tap").',
       '2. Mở tệp index.html bằng Chrome, Edge hoặc Firefox.',
@@ -899,7 +909,7 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
       '   hoặc trang web của trường để học sinh mở bằng đường link.',
       '',
       'Bản HTML không có tài khoản, lớp học, đề kiểm tra, giáo viên chấm bài và bảng xếp hạng.',
-      'Những chức năng đó cần bản chạy trên máy chủ (mã nguồn MATH LEARNING + PostgreSQL).',
+      'Những chức năng đó cần bản chạy trên máy chủ (mã nguồn + PostgreSQL).',
       'Đáp án được chấm ngay trên máy nên học sinh có thể xem được đáp án trong mã trang:',
       'dùng bản HTML để tự học, dùng bản máy chủ khi cần kiểm tra lấy điểm.',
       '',

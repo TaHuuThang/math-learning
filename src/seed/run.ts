@@ -95,7 +95,7 @@ export async function seedToan8(db: Database, log: (m: string) => void = console
       const row = await t.one<{ id: number }>(sql`
         insert into questions (exercise_type_id, textbook_id, lesson_id, topic_id, level, stem, settings, points, status, source)
         values ((select id from exercise_types where code = ${q.type}), ${textbookId}, ${lessonId}, ${topicId}, ${q.level}, ${q.stem},
-          ${settings}, 1, 'published', 'Câu hỏi mẫu MATH LEARNING')
+          ${settings}, 1, 'published', 'Câu hỏi mẫu – Tạ Hữu Thắng')
         returning id`);
       const qid = row!.id;
       if (q.type === 'mcq') {

@@ -1,4 +1,5 @@
-MATH LEARNING – BẢN HTML (Toán 8, Kết nối tri thức với cuộc sống)
+THẮNG MATH LEARNING – BẢN HTML (Toán 8, Kết nối tri thức với cuộc sống)
+© 2026 Tạ Hữu Thắng. Mọi quyền được bảo lưu.
 
 1. Giải nén cả thư mục (giữ nguyên thư mục "assets", "bai", "luyen-tap").
 2. Mở tệp index.html bằng Chrome, Edge hoặc Firefox.
@@ -8,8 +9,8 @@ MATH LEARNING – BẢN HTML (Toán 8, Kết nối tri thức với cuộc sốn
    hoặc trang web của trường để học sinh mở bằng đường link.
 
 Bản HTML không có tài khoản, lớp học, đề kiểm tra, giáo viên chấm bài và bảng xếp hạng.
-Những chức năng đó cần bản chạy trên máy chủ (mã nguồn MATH LEARNING + PostgreSQL).
+Những chức năng đó cần bản chạy trên máy chủ (mã nguồn + PostgreSQL).
 Đáp án được chấm ngay trên máy nên học sinh có thể xem được đáp án trong mã trang:
 dùng bản HTML để tự học, dùng bản máy chủ khi cần kiểm tra lấy điểm.
 
-Xuất ngày 30/10/2026: 74 mục bài học, 30 câu hỏi, 97 trang.
+Xuất ngày 31/10/2026: 74 mục bài học, 30 câu hỏi, 97 trang.

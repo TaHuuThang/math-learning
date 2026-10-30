@@ -1,4 +1,6 @@
-# MATH LEARNING – nền tảng học Toán THCS
+# THẮNG MATH LEARNING – nền tảng học Toán THCS
+
+**Tác giả và chủ sở hữu: Tạ Hữu Thắng.** © 2026 Tạ Hữu Thắng – mọi quyền được bảo lưu (xem tệp `LICENSE`).
 
 Website học Toán cho học sinh THCS Việt Nam (Toán 6–9). Giai đoạn 1 mở **Toán 8 – Kết nối tri thức với cuộc sống (GDPT 2018)**; Toán 6, 7, 9 hiển thị "Sắp ra mắt" và được bổ sung bằng dữ liệu, không phải viết lại hệ thống.
 
@@ -144,3 +146,6 @@ Mật khẩu băm **scrypt** có muối; phiên lưu bằng mã băm SHA‑256, 
 - Ngân hàng câu hỏi mới có 30 câu mẫu (Chương I, II, Bài 10, 11, 35).
 - Chưa có: tải ảnh lên cho câu hỏi (bảng `images` đã hỗ trợ, giao diện chưa có nút tải), nhập câu hỏi từ Word/Excel, quên mật khẩu qua email, GeoGebra nhúng, ứng dụng di động riêng.
 - Kiểm tra kiểu TypeScript trong môi trường xây dựng dùng khai báo React rút gọn (`tsconfig.offline.json`) vì không tải được `@types/react`; khi có mạng hãy chạy `npm install && npm run typecheck`.
+
+## Tên và bản quyền
+Tên trang, tác giả và dòng bản quyền nằm ở một chỗ: `src/shared/brand.ts`. Sửa tệp đó, chạy `npm run build` và `npm run docs`, là đổi trên mọi trang của cả bản máy chủ và bản HTML.

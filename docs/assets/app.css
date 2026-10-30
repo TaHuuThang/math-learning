@@ -718,6 +718,9 @@
   .gap-x-5 {
     column-gap: calc(var(--spacing) * 5);
   }
+  .gap-x-6 {
+    column-gap: calc(var(--spacing) * 6);
+  }
   .gap-x-10 {
     column-gap: calc(var(--spacing) * 10);
   }
@@ -1121,6 +1124,9 @@
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .text-\[11px\] {
+    font-size: 11px;
   }
   .text-\[12px\] {
     font-size: 12px;

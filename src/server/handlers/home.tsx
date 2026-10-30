@@ -10,6 +10,7 @@ import { Badge, LinkButton, Panel, ProgressBar, buttonClass, cx } from '../../ui
 import { LEVEL_LABELS, TYPE_SHORT, percent } from '../../shared/labels';
 import { plainExcerpt } from '../../shared/richtext';
 import { sql } from '../db';
+import { BRAND } from '../../shared/brand';
 
 export async function homePage(ctx: Ctx): Promise<Res> {
   const db = ctx.db;
@@ -35,7 +36,7 @@ export async function homePage(ctx: Ctx): Promise<Res> {
 
   return page(
     ctx,
-    { title: 'MATH LEARNING', description: 'Học Toán 8 theo bộ sách Kết nối tri thức với cuộc sống: bài học, luyện tập, kiểm tra và theo dõi tiến độ.' },
+    { title: BRAND, description: 'Học Toán 8 theo bộ sách Kết nối tri thức với cuộc sống: bài học, luyện tập, kiểm tra và theo dõi tiến độ.' },
     <>
       {/* ===== HERO: trang vở ô li ===== */}
       <section className="o-li le-vo overflow-hidden rounded-[28px] border border-line">

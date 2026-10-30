@@ -8,6 +8,7 @@ import { DashboardLayout } from '../../ui/layouts/DashboardLayout';
 import { AuthLayout } from '../../ui/layouts/AuthLayout';
 import { escapeHtml } from '../../shared/richtext';
 import type { Ctx, Res } from './context';
+import { AUTHOR, BRAND, COPYRIGHT } from '../../shared/brand';
 
 let manifest: Record<string, string> | null = null;
 
@@ -61,7 +62,7 @@ export function page(ctx: Ctx, opts: PageOptions, body: ReactNode): Res {
     );
   const markup = renderToString(<AppContext.Provider value={v}>{content}</AppContext.Provider>);
   const dir = ctx.config.publicDir;
-  const title = opts.title === 'MATH LEARNING' ? opts.title : `${opts.title} – MATH LEARNING`;
+  const title = opts.title === BRAND ? opts.title : `${opts.title} – ${BRAND}`;
   const html = `<!doctype html>
 <html lang="vi">
 <head>
@@ -70,6 +71,8 @@ export function page(ctx: Ctx, opts: PageOptions, body: ReactNode): Res {
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(opts.description ?? 'Học Toán THCS theo chương trình GDPT 2018 – bài học, luyện tập, kiểm tra và theo dõi tiến độ.')}">
 <meta name="csrf-token" content="${escapeHtml(ctx.csrfToken)}">
+<meta name="author" content="${escapeHtml(AUTHOR)}">
+<meta name="copyright" content="${escapeHtml(COPYRIGHT)}">
 <meta name="theme-color" content="#3B2A8C">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">

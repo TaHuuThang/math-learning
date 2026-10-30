@@ -1,3 +1,5 @@
+import { BRAND } from '../../shared/brand';
+
 export function LogoMark({ size = 34 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
@@ -11,9 +13,9 @@ export function LogoMark({ size = 34 }: { size?: number }) {
 
 export function Logo({ compact }: { compact?: boolean }) {
   return (
-    <a href="/" className="flex items-center gap-2.5 text-ink no-underline" aria-label="MATH LEARNING – Trang chủ">
+    <a href="/" className="flex items-center gap-2.5 text-ink no-underline" aria-label={`${BRAND} – Trang chủ`}>
       <LogoMark />
-      {!compact && <span className="text-[17px] font-extrabold tracking-tight leading-none">MATH LEARNING</span>}
+      {!compact && <span className="text-[17px] font-extrabold tracking-tight leading-none">{BRAND}</span>}
     </a>
   );
 }

@@ -1,7 +1,9 @@
 {
   "name": "math-learning",
   "version": "0.2.0",
-  "description": "MATH LEARNING – nền tảng học Toán THCS (Toán 6–9), triển khai trước Toán 8 Kết nối tri thức với cuộc sống.",
+  "description": "THẮNG MATH LEARNING – website học Toán THCS (Toán 6–9) của Tạ Hữu Thắng, triển khai trước Toán 8 Kết nối tri thức với cuộc sống.",
+  "author": "Tạ Hữu Thắng",
+  "license": "UNLICENSED",
   "private": true,
   "type": "module",
   "engines": {

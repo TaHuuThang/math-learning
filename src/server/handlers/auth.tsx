@@ -6,6 +6,7 @@ import { audit, countAdmins, createUser, findLoginUser, normalizeUsername, UserI
 import { joinClassByCode } from '../../domain/classes';
 import { Button, ErrorList, Field, PostForm, Select } from '../../ui/components/ui';
 import { sql } from '../db';
+import { BRAND } from '../../shared/brand';
 
 const DUMMY_HASH = 'scrypt$16384$8$1$AAAAAAAAAAAAAAAAAAAAAA==$' + 'A'.repeat(86) + '==';
 
@@ -186,7 +187,7 @@ export async function registerSubmit(ctx: Ctx): Promise<Res> {
   await audit(ctx.db, userId, 'register', userId);
   const token = await createSession(ctx.db, userId, { ip: ctx.ip, userAgent: String(ctx.req.headers['user-agent'] ?? ''), days: ctx.config.sessionDays });
   setSessionCookie(ctx, token);
-  ctx.setFlash({ type: 'success', message: joined ? `Chào mừng em! Em đã vào lớp ${joined}.` : 'Chào mừng em đến với MATH LEARNING!' });
+  ctx.setFlash({ type: 'success', message: joined ? `Chào mừng em! Em đã vào lớp ${joined}.` : `Chào mừng em đến với ${BRAND}!` });
   return redirect('/');
 }
 
