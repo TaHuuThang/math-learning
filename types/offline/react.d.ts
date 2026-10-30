@@ -20,6 +20,7 @@ declare module 'react' {
   export function useEffect(fn: () => void | (() => void), deps?: readonly unknown[]): void;
   export function useRef<T>(init: T): { current: T };
   export function useRef<T>(init: T | null): { current: T | null };
+  export function useId(): string;
   export type CSSProperties = Record<string, string | number | undefined>;
   export interface DOMAttributes<T> {
     children?: ReactNode;

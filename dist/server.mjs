@@ -29524,6 +29524,9 @@ function LuArrowLeft(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "m12 19-7-7 7-7" }, "child": [] }, { "tag": "path", "attr": { "d": "M19 12H5" }, "child": [] }] })(props);
 }
 
+// src/ui/components/Logo.tsx
+var import_react4 = __toESM(require_react(), 1);
+
 // src/shared/brand.ts
 var BRAND = "TH\u1EAENG MATH LEARNING";
 var AUTHOR = "T\u1EA1 H\u1EEFu Th\u1EAFng";
@@ -29533,18 +29536,36 @@ var COPYRIGHT_NOTE = "N\u1ED9i dung b\xE0i h\u1ECDc, c\xE2u h\u1ECFi v\xE0 m\xE3
 
 // src/ui/components/Logo.tsx
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
+var M_POINTS = "6.5,25.5 10.5,12 16,20.5 21.5,12 25.5,25.5";
+var T_PATH = "M7 6.8H25M16 6.8V20.5";
 function LogoMark({ size = 34 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: size, height: size, viewBox: "0 0 32 32", "aria-hidden": "true", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", { width: "32", height: "32", rx: "9", fill: "#3B2A8C" }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M8 0v32M16 0v32M24 0v32M0 8h32M0 16h32M0 24h32", stroke: "#fff", strokeOpacity: ".13", strokeWidth: "1" }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "6.5,23.5 11.5,9.5 16,18.5 20.5,9.5 25.5,23.5", fill: "none", stroke: "#fff", strokeWidth: "3", strokeLinejoin: "round", strokeLinecap: "round" }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "25.5", cy: "23.5", r: "3.2", fill: "#FFD84D", stroke: "#3B2A8C", strokeWidth: "1.2" })
+  const gid = "ml-logo-" + (0, import_react4.useId)().replace(/[^a-zA-Z0-9_-]/g, "");
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: size, height: size, viewBox: "0 0 32 32", "aria-hidden": "true", className: "shrink-0", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("linearGradient", { id: gid, x1: "0", y1: "0", x2: "1", y2: "1", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("stop", { offset: "0", stopColor: "#5541C4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("stop", { offset: "1", stopColor: "#2B1E70" })
+    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", { width: "32", height: "32", rx: "9", fill: `url(#${gid})` }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M8 0v32M16 0v32M24 0v32M0 8h32M0 16h32M0 24h32", stroke: "#fff", strokeOpacity: ".1", strokeWidth: "1" }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", { transform: "translate(0 1.1)", opacity: ".45", fill: "none", stroke: "#170E4A", strokeWidth: "3.2", strokeLinecap: "round", strokeLinejoin: "round", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: M_POINTS }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: T_PATH })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: M_POINTS, fill: "none", stroke: "#fff", strokeWidth: "3.2", strokeLinejoin: "round", strokeLinecap: "round" }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: T_PATH, fill: "none", stroke: "#FFD84D", strokeWidth: "3.2", strokeLinecap: "round" })
+  ] });
+}
+function Wordmark({ className = "" }) {
+  const [first, ...rest] = BRAND.split(" ");
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: `font-extrabold tracking-tight ${className}`, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-tim-700", children: first }),
+    rest.length > 0 && " " + rest.join(" ")
   ] });
 }
 function Logo({ compact }) {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", { href: "/", className: "flex items-center gap-2.5 text-ink no-underline", "aria-label": `${BRAND} \u2013 Trang ch\u1EE7`, children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogoMark, {}),
-    !compact && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-[17px] font-extrabold tracking-tight leading-none", children: BRAND })
+    !compact && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wordmark, { className: "text-[17px] leading-none" })
   ] });
 }
 
@@ -30046,7 +30067,7 @@ function DashboardLayout({ children, section }) {
       /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("a", { href: "/giao-vien", className: "flex items-center gap-2.5 px-5 py-5", children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(LogoMark, {}),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: "leading-tight", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "block text-[15px] font-extrabold tracking-tight", children: BRAND }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Wordmark, { className: "block text-[15px]" }),
           /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "block text-[12px] text-ink-3", children: "Khu v\u1EF1c gi\xE1o vi\xEAn" })
         ] })
       ] }),
@@ -30078,7 +30099,7 @@ function DashboardLayout({ children, section }) {
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "font-extrabold tracking-tight", children: BRAND })
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Wordmark, {})
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("main", { id: "noi-dung", className: "mx-auto max-w-[1180px] px-4 py-6 md:px-8 md:py-8", children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "mb-4 empty:hidden", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(FlashBanner, {}) }),
@@ -32407,7 +32428,7 @@ async function submitPracticeAnswer(db, userId, questionId, rawResponse, context
 var import_server2 = __toESM(require_server_node(), 1);
 
 // src/islands/PracticeRunner.tsx
-var import_react4 = __toESM(require_react(), 1);
+var import_react5 = __toESM(require_react(), 1);
 
 // src/islands/shared.tsx
 var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
@@ -32618,13 +32639,13 @@ function PracticeCore({
   pendingText,
   pendingSummary
 }) {
-  const [index, setIndex] = (0, import_react4.useState)(0);
-  const [answers, setAnswers] = (0, import_react4.useState)({});
-  const [feedback, setFeedback] = (0, import_react4.useState)({});
-  const [showHint, setShowHint] = (0, import_react4.useState)({});
-  const [busy, setBusy] = (0, import_react4.useState)(false);
-  const [error, setError] = (0, import_react4.useState)(null);
-  const [done, setDone] = (0, import_react4.useState)(false);
+  const [index, setIndex] = (0, import_react5.useState)(0);
+  const [answers, setAnswers] = (0, import_react5.useState)({});
+  const [feedback, setFeedback] = (0, import_react5.useState)({});
+  const [showHint, setShowHint] = (0, import_react5.useState)({});
+  const [busy, setBusy] = (0, import_react5.useState)(false);
+  const [error, setError] = (0, import_react5.useState)(null);
+  const [done, setDone] = (0, import_react5.useState)(false);
   const q = questions[index];
   const fb = q ? feedback[q.id] : void 0;
   const total = questions.length;
@@ -32776,7 +32797,7 @@ function PracticeCore({
 }
 
 // src/islands/TestRunner.tsx
-var import_react5 = __toESM(require_react(), 1);
+var import_react6 = __toESM(require_react(), 1);
 var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
 function fmtRemaining(ms) {
   const s = Math.max(0, Math.floor(ms / 1e3));
@@ -32787,16 +32808,16 @@ function fmtRemaining(ms) {
   return h ? `${h}:${pad2(m)}:${pad2(sec)}` : `${pad2(m)}:${pad2(sec)}`;
 }
 function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) {
-  const [answers, setAnswers] = (0, import_react5.useState)(draft ?? {});
-  const [remaining, setRemaining] = (0, import_react5.useState)(deadline ? new Date(deadline).getTime() - new Date(serverNow).getTime() : null);
-  const [saveState, setSaveState] = (0, import_react5.useState)("idle");
-  const [confirming, setConfirming] = (0, import_react5.useState)(false);
-  const [submitting, setSubmitting] = (0, import_react5.useState)(false);
-  const [error, setError] = (0, import_react5.useState)(null);
-  const offset = (0, import_react5.useRef)(0);
-  const dirty = (0, import_react5.useRef)(false);
-  const latest = (0, import_react5.useRef)(answers);
-  const submitted = (0, import_react5.useRef)(false);
+  const [answers, setAnswers] = (0, import_react6.useState)(draft ?? {});
+  const [remaining, setRemaining] = (0, import_react6.useState)(deadline ? new Date(deadline).getTime() - new Date(serverNow).getTime() : null);
+  const [saveState, setSaveState] = (0, import_react6.useState)("idle");
+  const [confirming, setConfirming] = (0, import_react6.useState)(false);
+  const [submitting, setSubmitting] = (0, import_react6.useState)(false);
+  const [error, setError] = (0, import_react6.useState)(null);
+  const offset = (0, import_react6.useRef)(0);
+  const dirty = (0, import_react6.useRef)(false);
+  const latest = (0, import_react6.useRef)(answers);
+  const submitted = (0, import_react6.useRef)(false);
   latest.current = answers;
   const answeredCount = questions.filter((q) => isAnswered(q, answers[String(q.id)])).length;
   async function submit(auto = false) {
@@ -32813,7 +32834,7 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
       setError(err.message);
     }
   }
-  (0, import_react5.useEffect)(() => {
+  (0, import_react6.useEffect)(() => {
     if (!deadline) return;
     offset.current = new Date(serverNow).getTime() - Date.now();
     const end = new Date(deadline).getTime();
@@ -32826,7 +32847,7 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
     const id = window.setInterval(tick, 1e3);
     return () => window.clearInterval(id);
   }, []);
-  (0, import_react5.useEffect)(() => {
+  (0, import_react6.useEffect)(() => {
     if (!dirty.current) return;
     const id = window.setTimeout(async () => {
       setSaveState("saving");
@@ -32839,7 +32860,7 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
     }, 1500);
     return () => window.clearTimeout(id);
   }, [answers, resultId]);
-  (0, import_react5.useEffect)(() => {
+  (0, import_react6.useEffect)(() => {
     const handler = (e) => {
       if (!submitted.current) e.preventDefault();
     };
@@ -32931,7 +32952,7 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
 }
 
 // src/islands/RichField.tsx
-var import_react6 = __toESM(require_react(), 1);
+var import_react7 = __toESM(require_react(), 1);
 var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
 var SNIPPETS = [
   { label: "\\( \\)", title: "C\xF4ng th\u1EE9c c\xF9ng d\xF2ng", before: "\\(", after: "\\)" },
@@ -32946,13 +32967,13 @@ var SNIPPETS = [
   { label: "\u21D4", title: "T\u01B0\u01A1ng \u0111\u01B0\u01A1ng", before: " \\Leftrightarrow ", after: "" }
 ];
 function RichField({ name, label, defaultValue, initialHtml, rows = 4, hint, required, inline }) {
-  const [value, setValue] = (0, import_react6.useState)(defaultValue);
-  const [html, setHtml] = (0, import_react6.useState)(initialHtml);
-  const [errors, setErrors] = (0, import_react6.useState)([]);
-  const ref = (0, import_react6.useRef)(null);
-  const renderer = (0, import_react6.useRef)(null);
-  const first = (0, import_react6.useRef)(true);
-  (0, import_react6.useEffect)(() => {
+  const [value, setValue] = (0, import_react7.useState)(defaultValue);
+  const [html, setHtml] = (0, import_react7.useState)(initialHtml);
+  const [errors, setErrors] = (0, import_react7.useState)([]);
+  const ref = (0, import_react7.useRef)(null);
+  const renderer = (0, import_react7.useRef)(null);
+  const first = (0, import_react7.useRef)(true);
+  (0, import_react7.useEffect)(() => {
     if (first.current) {
       first.current = false;
       return;
@@ -33025,7 +33046,7 @@ function RichField({ name, label, defaultValue, initialHtml, rows = 4, hint, req
 }
 
 // src/islands/FigureField.tsx
-var import_react7 = __toESM(require_react(), 1);
+var import_react8 = __toESM(require_react(), 1);
 init_figure();
 var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
 var SAMPLE = `A(0,3) B(-2,0) C(4,0) H(0,0)
@@ -33033,11 +33054,11 @@ ABCA
 AH:dash
 vuong(A,H,C)`;
 function FigureField({ name, defaultValue, initialSvg, required }) {
-  const [value, setValue] = (0, import_react7.useState)(defaultValue);
-  const [svg, setSvg] = (0, import_react7.useState)(initialSvg);
-  const [errors, setErrors] = (0, import_react7.useState)([]);
-  const first = (0, import_react7.useRef)(true);
-  (0, import_react7.useEffect)(() => {
+  const [value, setValue] = (0, import_react8.useState)(defaultValue);
+  const [svg, setSvg] = (0, import_react8.useState)(initialSvg);
+  const [errors, setErrors] = (0, import_react8.useState)([]);
+  const first = (0, import_react8.useRef)(true);
+  (0, import_react8.useEffect)(() => {
     if (first.current) {
       first.current = false;
       return;
@@ -36204,7 +36225,7 @@ function Layout({ page: page2, children }) {
     /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("header", { className: "site-header sticky top-0 z-20 border-b border-line bg-white/95 backdrop-blur", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mx-auto flex h-16 max-w-[1240px] items-center gap-4 px-4 md:px-6", children: [
       /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: R3("index.html"), className: "flex items-center gap-2.5 text-ink no-underline", "aria-label": `${BRAND} \u2013 Trang ch\u1EE7`, children: [
         /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LogoMark, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "text-[17px] font-extrabold leading-none tracking-tight", children: BRAND })
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Wordmark, { className: "text-[17px] leading-none" })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh", className: "ml-6 hidden items-center gap-1 lg:flex", children: NAV2.map((n) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
         "a",
@@ -36227,7 +36248,7 @@ function Layout({ page: page2, children }) {
         /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex items-center gap-2.5", children: [
             /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LogoMark, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "text-[17px] font-extrabold tracking-tight", children: BRAND })
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Wordmark, { className: "text-[17px]" })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "mt-3 max-w-md text-sm text-ink-2", children: "B\u1EA3n HTML ngo\u1EA1i tuy\u1EBFn \u2013 To\xE1n 8, K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng (GDPT 2018). Ti\u1EBFn \u0111\u1ED9 v\xE0 c\xE2u \u0111\xE3 l\xE0m \u0111\u01B0\u1EE3c l\u01B0u trong tr\xECnh duy\u1EC7t c\u1EE7a m\xE1y \u0111ang d\xF9ng." })
         ] }),

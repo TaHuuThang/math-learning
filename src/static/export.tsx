@@ -27,7 +27,7 @@ import { getQuestions, imageHtml, latestQuestions, toView, type QuestionFull } f
 import { listAchievements } from '../domain/gamification';
 import { LessonBody } from '../ui/components/lesson';
 import { AreaModel, BadgeMark } from '../ui/components/learning';
-import { LogoMark } from '../ui/components/Logo';
+import { LogoMark, Wordmark } from '../ui/components/Logo';
 import { Badge, Breadcrumbs, Notice, PageTitle, Panel, buttonClass, cx } from '../ui/components/ui';
 import { LESSON_KIND_LABELS, LEVEL_LABELS, TYPE_LABELS, TYPE_SHORT, formatDate } from '../shared/labels';
 import { QUESTION_TYPES, type QuestionType } from '../shared/grading';
@@ -65,7 +65,7 @@ function Layout({ page, children }: { page: Page; children: ReactNode }) {
         <div className="mx-auto flex h-16 max-w-[1240px] items-center gap-4 px-4 md:px-6">
           <a href={R('index.html')} className="flex items-center gap-2.5 text-ink no-underline" aria-label={`${BRAND} – Trang chủ`}>
             <LogoMark />
-            <span className="text-[17px] font-extrabold leading-none tracking-tight">{BRAND}</span>
+            <Wordmark className="text-[17px] leading-none" />
           </a>
           <nav aria-label="Điều hướng chính" className="ml-6 hidden items-center gap-1 lg:flex">
             {NAV.map((n) => (
@@ -101,7 +101,7 @@ function Layout({ page, children }: { page: Page; children: ReactNode }) {
           <div>
             <div className="flex items-center gap-2.5">
               <LogoMark />
-              <span className="text-[17px] font-extrabold tracking-tight">{BRAND}</span>
+              <Wordmark className="text-[17px]" />
             </div>
             <p className="mt-3 max-w-md text-sm text-ink-2">
               Bản HTML ngoại tuyến – Toán 8, Kết nối tri thức với cuộc sống (GDPT 2018). Tiến độ và câu đã làm được lưu trong trình duyệt của máy đang dùng.
