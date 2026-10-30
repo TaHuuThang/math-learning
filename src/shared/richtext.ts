@@ -1,5 +1,6 @@
 import katex from 'katex';
 import { figureToSvg } from './figure';
+import { chartToSvg } from './chart';
 
 /**
  * Văn bản bài học / câu hỏi:
@@ -7,6 +8,8 @@ import { figureToSvg } from './figure';
  *  - dòng bắt đầu bằng "- " → danh sách; "1. " → danh sách đánh số
  *  - **chữ đậm**; dòng trống tách đoạn
  *  - hình vẽ hình học: [hinh] A(0,0) B(4,0) C(1,3)  ABCA [/hinh]  (xem shared/figure.ts)
+ *  - biểu đồ thống kê: [bieudo] loai: cot … [/bieudo]  (xem shared/chart.ts)
+ *  - bảng: các dòng liền nhau bắt đầu bằng "|", ví dụ "| Tháng | 1 | 2 |"; dòng "|---|---|" ngay sau dòng đầu → dòng đầu là tiêu đề
  * Mọi chữ thường đều được escape HTML; chỉ KaTeX sinh mã HTML (trust=false) → an toàn khi chèn.
  */
 
@@ -35,10 +38,17 @@ const TOKEN_RE = /\u0000(\d+)\u0000/g;
 
 interface Extracted {
   text: string;
-  math: { tex: string; display: boolean; figure?: boolean }[];
+  math: { tex: string; display: boolean; figure?: boolean; chart?: boolean }[];
 }
 
 const FIGURE_RE = /\[hinh\]([\s\S]*?)\[\/hinh\]/g;
+const CHART_RE = /\[bieudo\]([\s\S]*?)\[\/bieudo\]/g;
+
+function renderChartBlock(source: string): string {
+  const { svg, errors } = chartToSvg(source.trim());
+  if (errors.length) return `<span class="math-error">Biểu đồ lỗi: ${escapeHtml(errors[0])}</span>`;
+  return `<span class="lesson-chart">${svg}</span>`;
+}
 
 function renderFigureBlock(source: string): string {
   const { svg, errors } = figureToSvg(source.trim(), { maxWidth: 380, maxHeight: 280 });
@@ -48,7 +58,11 @@ function renderFigureBlock(source: string): string {
 
 function extractMath(src: string): Extracted {
   const math: Extracted['math'] = [];
-  const withFigures = src.replace(FIGURE_RE, (_, body: string) => {
+  const withCharts = src.replace(CHART_RE, (_, body: string) => {
+    math.push({ tex: body, display: true, chart: true });
+    return `\u0000${math.length - 1}\u0000`;
+  });
+  const withFigures = withCharts.replace(FIGURE_RE, (_, body: string) => {
     math.push({ tex: body, display: true, figure: true });
     return `\u0000${math.length - 1}\u0000`;
   });
@@ -67,6 +81,7 @@ function formatInline(text: string, math: Extracted['math']): string {
     const m = math[Number(n)];
     if (!m) return '';
     if (m.figure) return renderFigureBlock(m.tex);
+    if (m.chart) return renderChartBlock(m.tex);
     return m.display ? `<span class="math-display">${renderMath(m.tex, true)}</span>` : renderMath(m.tex, false);
   });
 }
@@ -85,13 +100,16 @@ export function renderRich(src: string): string {
   const out: string[] = [];
   let para: string[] = [];
   let list: { ordered: boolean; items: string[] } | null = null;
+  let table: string[] = [];
 
   const flushPara = () => {
     if (!para.length) return;
     const joined = para.join('\n');
     const onlyDisplay = /^\s*\u0000(\d+)\u0000\s*$/.exec(joined);
     const single = onlyDisplay ? math[Number(onlyDisplay[1])] : undefined;
-    if (single?.figure) {
+    if (single?.chart) {
+      out.push(`<figure class="chart-block">${renderChartBlock(single.tex)}</figure>`);
+    } else if (single?.figure) {
       out.push(`<figure class="figure-block">${renderFigureBlock(single.tex)}</figure>`);
     } else if (single?.display) {
       out.push(`<div class="math-block">${renderMath(single.tex, true)}</div>`);
@@ -99,6 +117,21 @@ export function renderRich(src: string): string {
       out.push(`<p>${formatInline(joined, math)}</p>`);
     }
     para = [];
+  };
+  const flushTable = () => {
+    if (!table.length) return;
+    const cells = (row: string) => row.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim());
+    const isSep = (row: string) => /^\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?$/.test(row.trim());
+    const rows = table.filter((r) => !isSep(r));
+    const header = table.length > 1 && isSep(table[1]);
+    const html = rows
+      .map((r, i) => {
+        const tag = header && i === 0 ? 'th' : 'td';
+        return `<tr>${cells(r).map((c) => `<${tag}>${formatInline(c, math)}</${tag}>`).join('')}</tr>`;
+      })
+      .join('');
+    out.push(`<div class="rich-table-wrap"><table class="rich-table">${header ? `<thead>${html.split('</tr>')[0]}</tr></thead><tbody>${html.slice(html.indexOf('</tr>') + 5)}</tbody>` : `<tbody>${html}</tbody>`}</table></div>`);
+    table = [];
   };
   const flushList = () => {
     if (!list) return;
@@ -111,6 +144,13 @@ export function renderRich(src: string): string {
     const line = raw.trimEnd();
     const bullet = /^\s*[-•]\s+(.*)$/.exec(line);
     const numbered = /^\s*\d+[.)]\s+(.*)$/.exec(line);
+    if (/^\s*\|/.test(line)) {
+      flushPara();
+      flushList();
+      table.push(line);
+      continue;
+    }
+    flushTable();
     if (!line.trim()) {
       flushPara();
       flushList();
@@ -127,6 +167,7 @@ export function renderRich(src: string): string {
       para.push(line);
     }
   }
+  flushTable();
   flushPara();
   flushList();
   return out.join('');
@@ -155,7 +196,7 @@ const SYMBOLS: [RegExp, string][] = [
 
 /** Bản rút gọn dạng chữ (cho bảng, tiêu đề): đổi kí hiệu LaTeX thường gặp sang kí tự Unicode. */
 export function plainExcerpt(src: string, max = 140): string {
-  let t = src.replace(/\[hinh\][\s\S]*?\[\/hinh\]/g, ' ').replace(/\\\(|\\\)|\\\[|\\\]/g, '');
+  let t = src.replace(/\[bieudo\][\s\S]*?\[\/bieudo\]/g, ' (biểu đồ) ').replace(/\[hinh\][\s\S]*?\[\/hinh\]/g, ' ').replace(/\\\(|\\\)|\\\[|\\\]/g, '');
   for (const [re, rep] of SYMBOLS) t = t.replace(re, rep);
   t = t
     .replace(/\^\{([0-9n-]+)\}/g, (_, d: string) => [...d].map((c) => SUP[c] ?? c).join(''))
@@ -183,6 +224,10 @@ export function findMathErrors(src: string): string[] {
     if (m.figure) {
       const { errors: figErrors } = figureToSvg(m.tex);
       for (const e of figErrors) errors.push('Hình vẽ: ' + e);
+      continue;
+    }
+    if (m.chart) {
+      for (const e of chartToSvg(m.tex).errors) errors.push('Biểu đồ: ' + e);
       continue;
     }
     try {
