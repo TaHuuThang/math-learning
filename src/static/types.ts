@@ -24,6 +24,8 @@ export interface OfflinePractice {
   questions: OfflineQuestion[];
   context: 'practice' | 'challenge';
   limit: number;
+  /** Đề theo cấu trúc mức độ (kiểm tra cuối chương): số câu mỗi mức. */
+  plan?: Record<number, number>;
   restartHref: string;
   backHref: string;
   backLabel: string;

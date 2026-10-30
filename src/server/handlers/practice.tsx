@@ -4,8 +4,10 @@ import { page } from '../http/render';
 import { requireBook, intParam } from './common';
 import { requireUser } from '../auth/guards';
 import { sql } from '../db';
-import { chapterLabel, getCourseTree, getLessonBySlug, lessonLabel } from '../../domain/curriculum';
-import { getQuestions, pickPracticeQuestionIds, toView, type PracticeScope } from '../../domain/questions';
+import { chapterLabel, getCourseTree, getLessonById, getLessonBySlug, lessonLabel } from '../../domain/curriculum';
+import { getQuestions, pickChapterTestIds, pickPracticeQuestionIds, toView, type PracticeScope } from '../../domain/questions';
+import { getChapterByCode, getTopicById, topicKey } from '../../domain/knowledge';
+import { CHAPTER_TEST_PLAN } from '../../ui/components/knowledge';
 import { PracticeError, submitPracticeAnswer } from '../../domain/practice';
 import { Island } from '../../ui/Island';
 import { EmptyState, LinkButton, Notice, PageTitle, Panel, buttonClass } from '../../ui/components/ui';
@@ -103,9 +105,21 @@ export async function practiceHub(ctx: Ctx): Promise<Res> {
   );
 }
 
-async function sessionPage(ctx: Ctx, opts: { scope: PracticeScope; title: string; sub: string; crumbs: { href?: string; label: string }[]; backHref: string; backLabel: string; context: 'practice' | 'challenge' }) {
+async function sessionPage(
+  ctx: Ctx,
+  opts: {
+    scope: PracticeScope;
+    title: string;
+    sub: string;
+    crumbs: { href?: string; label: string }[];
+    backHref: string;
+    backLabel: string;
+    context: 'practice' | 'challenge';
+    pick?: () => Promise<number[]>;
+  },
+) {
   const user = requireUser(ctx);
-  const ids = await pickPracticeQuestionIds(ctx.db, opts.scope, user.id, opts.context === 'challenge' ? 5 : SESSION_SIZE);
+  const ids = opts.pick ? await opts.pick() : await pickPracticeQuestionIds(ctx.db, opts.scope, user.id, opts.context === 'challenge' ? 5 : SESSION_SIZE);
   const questions = (await getQuestions(ctx.db, ids)).map((q) => toView(q));
   return page(
     ctx,
@@ -161,6 +175,43 @@ export async function practiceChapter(ctx: Ctx): Promise<Res> {
     backHref: '/luyen-tap',
     backLabel: 'Về trang luyện tập',
     context: 'practice',
+  });
+}
+
+export async function practiceTopic(ctx: Ctx): Promise<Res> {
+  const book = await requireBook(ctx);
+  const topic = await getTopicById(ctx.db, intParam(ctx, 'id'));
+  const lesson = topic ? await getLessonById(ctx.db, topic.lessonId) : null;
+  if (!topic || !lesson || lesson.textbookId !== book.id || topic.status !== 'published' || lesson.status !== 'published') {
+    throw new HttpError(404, 'Không tìm thấy dạng toán.');
+  }
+  const back = `/hoc/${book.slug}/bai/${lesson.slug}/dang/${topicKey(topic)}`;
+  return sessionPage(ctx, {
+    scope: { kind: 'topic', topicId: topic.id },
+    title: `Luyện tập dạng: ${topic.title}`,
+    sub: lessonLabel(lesson),
+    crumbs: [{ href: '/luyen-tap', label: 'Luyện tập' }, { href: back, label: topic.title }, { label: 'Luyện tập' }],
+    backHref: back,
+    backLabel: 'Về dạng toán',
+    context: 'practice',
+  });
+}
+
+export async function chapterTestPage(ctx: Ctx): Promise<Res> {
+  const book = await requireBook(ctx);
+  const chapter = await getChapterByCode(ctx.db, book.id, ctx.params.code);
+  if (!chapter || chapter.status !== 'published' || chapter.kind !== 'chapter') throw new HttpError(404, 'Không tìm thấy chương.');
+  const label = chapterLabel(chapter);
+  const back = `/hoc/${book.slug}/chuong/${encodeURIComponent(chapter.code)}`;
+  return sessionPage(ctx, {
+    scope: { kind: 'chapter', chapterId: chapter.id },
+    title: `Kiểm tra cuối chương: ${label}`,
+    sub: '10 câu chấm tự động, xếp từ dễ đến khó: 4 câu nhận biết, 3 câu thông hiểu, 2 câu vận dụng, 1 câu vận dụng cao (mức nào thiếu câu thì lấy câu ở mức gần nhất).',
+    crumbs: [{ href: back, label }, { label: 'Kiểm tra cuối chương' }],
+    backHref: back,
+    backLabel: 'Về trang chương',
+    context: 'practice',
+    pick: () => pickChapterTestIds(ctx.db, chapter.id, CHAPTER_TEST_PLAN),
   });
 }
 

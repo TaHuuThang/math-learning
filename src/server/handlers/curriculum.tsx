@@ -1,4 +1,4 @@
-import { LuArrowLeft, LuArrowRight, LuCircleCheck, LuClock, LuPencilRuler, LuPresentation } from 'react-icons/lu';
+import { LuArrowLeft, LuArrowRight, LuCircleCheck, LuClock, LuMap, LuPencilRuler, LuPresentation } from 'react-icons/lu';
 import { HttpError, redirect, type Ctx, type Res } from '../http/context';
 import { page } from '../http/render';
 import { requireBook } from './common';
@@ -10,7 +10,6 @@ import {
   getLessonBySlug,
   getLessonQuestionCounts,
   getLessonSections,
-  getLessonTopics,
   getTeachingPlan,
   lessonLabel,
   listGrades,
@@ -18,6 +17,9 @@ import {
   type LessonNode,
 } from '../../domain/curriculum';
 import { completeLesson, reopenLesson, touchLesson } from '../../domain/progress';
+import { CHAPTER_STATE_LABELS, getThemesByLesson, summarizeChapter, type ThemeNode } from '../../domain/knowledge';
+import { ChapterStats, mapTotals, MapTotalsBar, topicHref } from './knowledge';
+import { DifficultyBadge, LessonMetaPanel, VerifyBadge, VerifyNotice } from '../../ui/components/knowledge';
 import { Badge, LinkButton, Notice, Panel, PageTitle, PostForm, ProgressBar, buttonClass, cx, Breadcrumbs } from '../../ui/components/ui';
 import { LessonBody } from '../../ui/components/lesson';
 import { LESSON_KIND_LABELS, TYPE_LABELS, formatDate, percent } from '../../shared/labels';
@@ -35,6 +37,7 @@ export async function programPage(ctx: Ctx): Promise<Res> {
   const grades = await listGrades(ctx.db);
   const book = await requireBook(ctx);
   const tree = await getCourseTree(ctx.db, book.id, ctx.user?.id ?? null);
+  const themes = await getThemesByLesson(ctx.db, book.id);
   return page(
     ctx,
     { title: 'Chương trình học' },
@@ -79,9 +82,12 @@ export async function programPage(ctx: Ctx): Promise<Res> {
                   <li key={c.id} className="flex items-baseline gap-3">
                     <span className="w-10 shrink-0 text-right font-extrabold text-tim-400">{c.kind === 'chapter' ? c.code : '★'}</span>
                     <span className="min-w-0 flex-1">
-                      <span className="font-semibold">{c.title}</span>
-                      <span className="block text-[13px] text-ink-3">
-                        {c.lessons.length} mục · {c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0)} tiết
+                      <a href={`/hoc/${book.slug}/chuong/${encodeURIComponent(c.code)}`} className="font-semibold hover:text-tim-700 hover:underline">
+                        {c.title}
+                      </a>
+                      <span className="block">
+                        <ChapterStats c={c} themes={themes} />
+                        <span className="text-[13px] text-ink-3"> · {c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0)} tiết</span>
                       </span>
                     </span>
                   </li>
@@ -90,8 +96,11 @@ export async function programPage(ctx: Ctx): Promise<Res> {
             </Panel>
           ))}
         </div>
-        <div className="mt-6">
+        <div className="mt-6 flex flex-wrap gap-2">
           <LinkButton href={`/hoc/${book.slug}`}>Xem mục lục chi tiết</LinkButton>
+          <LinkButton href={`/hoc/${book.slug}/ban-do`} variant="secondary">
+            <LuMap aria-hidden="true" /> Bản đồ kiến thức
+          </LinkButton>
         </div>
       </section>
     </>,
@@ -103,6 +112,7 @@ export async function programPage(ctx: Ctx): Promise<Res> {
 export async function coursePage(ctx: Ctx): Promise<Res> {
   const book = await requireBook(ctx, ctx.params.book);
   const tree = await getCourseTree(ctx.db, book.id, ctx.user?.id ?? null);
+  const themes = await getThemesByLesson(ctx.db, book.id);
   const all = flattenLessons(tree);
   const done = all.filter((l) => l.progress === 'completed').length;
   const isStudent = ctx.user?.role === 'student';
@@ -113,9 +123,19 @@ export async function coursePage(ctx: Ctx): Promise<Res> {
       <PageTitle
         crumbs={[{ href: '/chuong-trinh', label: 'Chương trình học' }, { label: book.title }]}
         title={`${book.title} – mục lục`}
-        sub={`${book.series} · ${book.program}. Bài có biểu tượng bút chì đã có câu hỏi luyện tập.`}
-        actions={<LinkButton href={`/chuong-trinh/${book.slug}/ppct`} variant="secondary">Phân phối chương trình</LinkButton>}
+        sub={`${book.series} · ${book.program}. Bấm tên chương để xem mục tiêu, chủ đề, hệ thống dạng toán và kiểm tra cuối chương.`}
+        actions={
+          <>
+            <LinkButton href={`/hoc/${book.slug}/ban-do`}>
+              <LuMap aria-hidden="true" /> Bản đồ kiến thức
+            </LinkButton>
+            <LinkButton href={`/chuong-trinh/${book.slug}/ppct`} variant="secondary">
+              Phân phối chương trình
+            </LinkButton>
+          </>
+        }
       />
+      <MapTotalsBar t={mapTotals(tree, themes)} />
       {isStudent && (
         <Panel className="mb-8 flex flex-wrap items-center gap-6 p-5">
           <div className="min-w-[220px] flex-1">
@@ -137,7 +157,7 @@ export async function coursePage(ctx: Ctx): Promise<Res> {
             </h2>
             <div className="grid gap-5 lg:grid-cols-2">
               {s.chapters.map((c) => (
-                <ChapterCard key={c.id} c={c} bookSlug={book.slug} />
+                <ChapterCard key={c.id} c={c} bookSlug={book.slug} themes={themes} showProgress={isStudent} />
               ))}
             </div>
           </section>
@@ -147,15 +167,32 @@ export async function coursePage(ctx: Ctx): Promise<Res> {
   );
 }
 
-function ChapterCard({ c, bookSlug }: { c: ChapterNode; bookSlug: string }) {
+function ChapterCard({ c, bookSlug, themes, showProgress }: { c: ChapterNode; bookSlug: string; themes: Map<number, ThemeNode[]>; showProgress: boolean }) {
+  const sum = summarizeChapter(c, themes);
   return (
     <Panel className="overflow-hidden">
-      <div className="flex items-baseline gap-3 border-b border-line bg-mist/60 px-5 py-4">
-        <span className="text-[26px] font-extrabold leading-none text-tim-700">{c.kind === 'chapter' ? c.code : '★'}</span>
-        <div>
-          <h3 className="font-extrabold">{c.kind === 'chapter' ? c.title : c.title}</h3>
-          {c.description && <p className="text-[13px] text-ink-3">{c.description}</p>}
+      <div className="border-b border-line bg-mist/60 px-5 py-4">
+        <div className="flex items-baseline gap-3">
+          <span className="text-[26px] font-extrabold leading-none text-tim-700">{c.kind === 'chapter' ? c.code : '★'}</span>
+          <div className="min-w-0 flex-1">
+            <h3 className="font-extrabold">
+              <a href={`/hoc/${bookSlug}/chuong/${encodeURIComponent(c.code)}`} className="hover:text-tim-700 hover:underline">
+                {c.kind === 'chapter' ? `Chương ${c.code}. ${c.title}` : c.title}
+              </a>
+            </h3>
+            {c.description && <p className="text-[13px] text-ink-3">{c.description}</p>}
+            <ChapterStats c={c} themes={themes} />
+          </div>
+          {showProgress && <Badge tone={sum.state === 'done' ? 'tre' : sum.state === 'in_progress' ? 'hl' : 'gray'}>{CHAPTER_STATE_LABELS[sum.state]}</Badge>}
         </div>
+        {showProgress && (
+          <div className="mt-3">
+            <ProgressBar value={percent(sum.completed, sum.lessons)} tone="tre" label={`Tiến độ ${c.title}`} />
+            <div className="mt-1 text-[12px] text-ink-3">
+              {sum.completed}/{sum.lessons} mục đã học xong
+            </div>
+          </div>
+        )}
       </div>
       <ol className="divide-y divide-line">
         {c.lessons.map((l) => (
@@ -163,12 +200,16 @@ function ChapterCard({ c, bookSlug }: { c: ChapterNode; bookSlug: string }) {
             <a href={`/hoc/${bookSlug}/bai/${l.slug}`} className="flex items-center gap-3 px-5 py-3 hover:bg-tim-50/60">
               <LessonStatusIcon l={l} />
               <span className={cx('min-w-0 flex-1 text-[15px]', l.kind === 'lesson' ? 'font-medium' : 'text-ink-2')}>{lessonLabel(l)}</span>
-              {l.questionCount > 0 && <LuPencilRuler className="shrink-0 text-tim-400" aria-label={`${l.questionCount} câu luyện tập`} />}
+              {l.topicCount > 0 && <span className="hidden text-[12.5px] text-ink-3 sm:inline">{l.topicCount} dạng</span>}
+              {l.questionCount > 0 && <LuPencilRuler className="shrink-0 text-tim-400" aria-label={`${l.questionCount} bài tập`} />}
               <span className="w-12 shrink-0 text-right text-[13px] text-ink-3">{l.periods} tiết</span>
             </a>
           </li>
         ))}
       </ol>
+      <a href={`/hoc/${bookSlug}/chuong/${encodeURIComponent(c.code)}`} className="block border-t border-line px-5 py-2.5 text-[14px] font-semibold text-tim-700 hover:bg-tim-50">
+        Mở trang chương →
+      </a>
     </Panel>
   );
 }
@@ -229,14 +270,16 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
   const book = await requireBook(ctx, ctx.params.book);
   const lesson = await getLessonBySlug(ctx.db, book.id, ctx.params.slug);
   const staff = isStaff(ctx.user);
-  if (!lesson || (lesson.status !== 'published' && !staff)) throw new HttpError(404, 'Không tìm thấy bài học.');
+  if (!lesson || ((lesson.status !== 'published' || lesson.chapterStatus !== 'published') && !staff)) throw new HttpError(404, 'Không tìm thấy bài học.');
   if (ctx.user?.role === 'student') await touchLesson(ctx.db, ctx.user.id, lesson.id);
-  const [tree, sections, topics, counts] = await Promise.all([
+  const [tree, sections, themesAll, counts] = await Promise.all([
     getCourseTree(ctx.db, book.id, ctx.user?.id ?? null, staff),
     getLessonSections(ctx.db, lesson.id),
-    getLessonTopics(ctx.db, lesson.id),
+    getThemesByLesson(ctx.db, book.id, staff),
     getLessonQuestionCounts(ctx.db, lesson.id),
   ]);
+  const themes = themesAll.get(lesson.id) ?? [];
+  const topicCount = themes.reduce((n, th) => n + th.topics.length, 0);
   const flat = flattenLessons(tree);
   const idx = flat.findIndex((l) => l.id === lesson.id);
   const prev = idx > 0 ? flat[idx - 1] : null;
@@ -257,14 +300,17 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
           items={[
             { href: `/hoc/${book.slug}`, label: book.title },
             { href: `/hoc/${book.slug}#hk-${lesson.semesterNumber}`, label: lesson.semesterName },
-            { href: `/hoc/${book.slug}`, label: chapterName },
+            { href: `/hoc/${book.slug}/chuong/${encodeURIComponent(lesson.chapterCode)}`, label: chapterName },
             { label },
           ]}
         />
         <header className="o-li le-vo rounded-[22px] border border-line px-6 py-7 sm:pl-24">
           <div className="flex flex-wrap items-center gap-2 text-[13px]">
             {lesson.kind !== 'lesson' && <Badge tone="cam">{LESSON_KIND_LABELS[lesson.kind]}</Badge>}
+            {lesson.code && <Badge tone="gray">Mã bài {lesson.code}</Badge>}
+            <DifficultyBadge level={lesson.difficulty} />
             {lesson.status !== 'published' && <Badge tone="gray">Bản nháp – học sinh chưa thấy</Badge>}
+            {staff && <VerifyBadge status={lesson.verifyStatus} note={lesson.verifyNote} />}
             {completed ? <Badge tone="tre">Đã học xong</Badge> : me?.progress === 'in_progress' ? <Badge tone="hl">Đang học</Badge> : null}
           </div>
           <h1 className="mt-2 text-[30px] font-extrabold leading-tight tracking-tight md:text-[38px]">{label}</h1>
@@ -273,7 +319,8 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
             <span className="inline-flex items-center gap-1.5">
               <LuClock aria-hidden="true" /> {lesson.periods ?? 0} tiết{lesson.estimatedMinutes ? ` (khoảng ${lesson.estimatedMinutes} phút)` : ''}
             </span>
-            <span>{totalQuestions} câu luyện tập</span>
+            {topicCount > 0 && <span>{topicCount} dạng toán</span>}
+            <span>{totalQuestions} bài tập</span>
             <span>Cập nhật {formatDate(lesson.updatedAt)}</span>
           </div>
           <div className="no-print mt-5 flex flex-wrap gap-2">
@@ -290,14 +337,22 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
         </header>
 
         <div className="lesson-body mt-8 space-y-10">
+          {staff && <VerifyNotice status={lesson.verifyStatus} note={lesson.verifyNote} />}
           {sections.length === 0 && (
             <Notice tone="info">
-              Nội dung lý thuyết của mục này đang được biên soạn. {topics.length > 0 ? 'Em có thể xem trước các dạng toán bên dưới.' : ''}
+              Phần lí thuyết chi tiết của mục này đang được biên soạn.{' '}
+              {topicCount > 0 ? 'Em có thể xem tóm tắt bài học và học theo từng dạng toán bên dưới.' : ''}
               {staff ? ' Giáo viên có thể thêm nội dung bằng nút "Soạn nội dung".' : ''}
             </Notice>
           )}
 
-          <LessonBody sections={sections} topics={topics} />
+          <LessonBody
+            sections={sections}
+            themes={themes}
+            topicHref={(t) => topicHref(book.slug, lesson.slug, t)}
+            lessonObjectives={lesson.objectives}
+            meta={<LessonMetaPanel m={lesson} showFormulas={!sections.some((s) => s.kind === 'formula')} />}
+          />
 
           <section aria-labelledby="bai-tap">
             <h2 id="bai-tap" className="mb-3 text-xl font-extrabold">

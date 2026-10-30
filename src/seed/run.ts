@@ -2,7 +2,8 @@ import { sql, type Database, type Queryable } from '../server/db';
 import { ACHIEVEMENTS } from './achievements';
 import { TOAN8_CHAPTERS, TOAN8_PPCT_2026 } from './toan8-structure';
 import { TOAN8_CONTENT } from './toan8-content';
-import { TOAN8_QUESTIONS } from './toan8-questions';
+import { TOAN8_QUESTIONS, type SeedQuestion } from './toan8-questions';
+import { applyKnowledgeMap } from './knowledge-map';
 
 const LABELS_MCQ = ['A', 'B', 'C', 'D'];
 const LABELS_TF = ['a', 'b', 'c', 'd'];
@@ -91,43 +92,57 @@ export async function seedToan8(db: Database, log: (m: string) => void = console
       const lessonId = lessonIds.get(q.lesson);
       if (!lessonId) throw new Error('Câu hỏi mẫu tham chiếu bài không tồn tại: ' + q.lesson);
       const topicId = q.topic !== undefined ? (topicIds.get(q.lesson)?.[q.topic] ?? null) : null;
-      const settings = q.type === 'short_answer' ? { tolerance: 0, ...(q.unit ? { unit: q.unit } : {}) } : {};
-      const row = await t.one<{ id: number }>(sql`
-        insert into questions (exercise_type_id, textbook_id, lesson_id, topic_id, level, stem, settings, points, status, source)
-        values ((select id from exercise_types where code = ${q.type}), ${textbookId}, ${lessonId}, ${topicId}, ${q.level}, ${q.stem},
-          ${settings}, 1, 'published', 'Câu hỏi mẫu – Tạ Hữu Thắng')
-        returning id`);
-      const qid = row!.id;
-      if (q.type === 'mcq') {
-        for (const [i, opt] of q.options!.entries()) {
-          await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
-            values (${qid}, ${LABELS_MCQ[i]}, ${opt}, ${LABELS_MCQ[i] === q.correct}, ${i + 1})`);
-        }
-      } else if (q.type === 'true_false') {
-        for (const [i, [text, ok]] of q.statements!.entries()) {
-          await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
-            values (${qid}, ${LABELS_TF[i]}, ${text}, ${ok}, ${i + 1})`);
-        }
-      } else if (q.type === 'short_answer') {
-        for (const [i, a] of q.accepted!.entries()) {
-          await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
-            values (${qid}, ${String(i + 1)}, ${a}, true, ${i + 1})`);
-        }
-      }
-      await t.exec(sql`insert into solutions (question_id, kind, content) values (${qid}, 'full', ${q.solution})`);
-      if (q.hint) await t.exec(sql`insert into solutions (question_id, kind, content, sort_order) values (${qid}, 'hint', ${q.hint}, 1)`);
-      if (q.figure) {
-        const img = await t.one<{ id: number }>(sql`
-          insert into images (kind, figure_source, alt) values ('figure', ${q.figure}, 'Hình vẽ minh họa đề bài') returning id`);
-        await t.exec(sql`insert into question_images (question_id, image_id, sort_order) values (${qid}, ${img!.id}, 0)`);
-      }
+      await insertSeedQuestion(t, textbookId, lessonId, topicId, q, 'Câu hỏi mẫu – Tạ Hữu Thắng');
     }
   });
   log(`Đã tạo chương trình Toán 8 KNTT: ${TOAN8_CHAPTERS.length} chương, ${TOAN8_PPCT_2026.length} mục PPCT, ${TOAN8_QUESTIONS.length} câu hỏi mẫu.`);
   return true;
 }
 
+/** Thêm một câu hỏi mẫu (kèm đáp án, lời giải, hình vẽ) vào ngân hàng câu hỏi. */
+export async function insertSeedQuestion(
+  t: Queryable,
+  textbookId: number,
+  lessonId: number,
+  topicId: number | null,
+  q: Omit<SeedQuestion, 'lesson' | 'topic'>,
+  source: string,
+): Promise<number> {
+  const settings = q.type === 'short_answer' ? { tolerance: 0, ...(q.unit ? { unit: q.unit } : {}) } : {};
+  const row = await t.one<{ id: number }>(sql`
+    insert into questions (exercise_type_id, textbook_id, lesson_id, topic_id, level, stem, settings, points, status, source)
+    values ((select id from exercise_types where code = ${q.type}), ${textbookId}, ${lessonId}, ${topicId}, ${q.level}, ${q.stem},
+      ${settings}, 1, 'published', ${source})
+    returning id`);
+  const qid = row!.id;
+  if (q.type === 'mcq') {
+    for (const [i, opt] of q.options!.entries()) {
+      await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
+        values (${qid}, ${LABELS_MCQ[i]}, ${opt}, ${LABELS_MCQ[i] === q.correct}, ${i + 1})`);
+    }
+  } else if (q.type === 'true_false') {
+    for (const [i, [text, ok]] of q.statements!.entries()) {
+      await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
+        values (${qid}, ${LABELS_TF[i]}, ${text}, ${ok}, ${i + 1})`);
+    }
+  } else if (q.type === 'short_answer') {
+    for (const [i, a] of q.accepted!.entries()) {
+      await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
+        values (${qid}, ${String(i + 1)}, ${a}, true, ${i + 1})`);
+    }
+  }
+  await t.exec(sql`insert into solutions (question_id, kind, content) values (${qid}, 'full', ${q.solution})`);
+  if (q.hint) await t.exec(sql`insert into solutions (question_id, kind, content, sort_order) values (${qid}, 'hint', ${q.hint}, 1)`);
+  if (q.figure) {
+    const img = await t.one<{ id: number }>(sql`
+      insert into images (kind, figure_source, alt) values ('figure', ${q.figure}, 'Hình vẽ minh họa đề bài') returning id`);
+    await t.exec(sql`insert into question_images (question_id, image_id, sort_order) values (${qid}, ${img!.id}, 0)`);
+  }
+  return qid;
+}
+
 export async function seedAll(db: Database, log: (m: string) => void = console.log) {
   await seedBase(db);
   await seedToan8(db, log);
+  await applyKnowledgeMap(db, log);
 }

@@ -7,15 +7,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { ReactNode } from 'react';
 import { renderToString } from 'react-dom/server';
-import { LuArrowLeft, LuArrowRight, LuClock, LuMenu, LuPencilRuler, LuPresentation, LuRocket } from 'react-icons/lu';
+import { LuArrowLeft, LuArrowRight, LuBookOpen, LuClipboardCheck, LuClock, LuMap, LuMenu, LuPencilRuler, LuPresentation, LuRocket } from 'react-icons/lu';
 import { sql, type Database } from '../server/db';
 import {
   chapterLabel,
   flattenLessons,
   getCourseTree,
   getLessonQuestionCounts,
+  getLessonById,
   getLessonSections,
-  getLessonTopics,
   getTeachingPlan,
   getTextbook,
   lessonLabel,
@@ -26,6 +26,9 @@ import {
 import { getQuestions, imageHtml, latestQuestions, toView, type QuestionFull } from '../domain/questions';
 import { listAchievements } from '../domain/gamification';
 import { LessonBody } from '../ui/components/lesson';
+import { CHAPTER_TEST_PLAN, ChapterOverview, DifficultyBadge, LessonMetaPanel, LevelBadges, QuestionCoverage, ThemeList, TopicArticle } from '../ui/components/knowledge';
+import { LEVEL_LABELS as KLEVEL, countTopics, getChapterMetas, getThemesByLesson, getTopicById, getTopicQuestionCounts, summarizeChapter, topicKey, type Level, type TopicNode } from '../domain/knowledge';
+import { ChapterStats, KnowledgeTree, MapTotalsBar, mapTotals } from '../server/handlers/knowledge';
 import { AreaModel, BadgeMark } from '../ui/components/learning';
 import { LogoMark, Wordmark } from '../ui/components/Logo';
 import { Badge, Breadcrumbs, Notice, PageTitle, Panel, buttonClass, cx } from '../ui/components/ui';
@@ -182,6 +185,8 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
       where i.kind = 'upload' and qi.question_id = any(${full.map((q) => q.id)}::int[])`)).map((r) => [r.id, `data:${r.mime};base64,${r.data.toString('base64')}`]),
   );
   const lessonSlugById = new Map(flat.map((l) => [l.id, l.slug]));
+  const themes = await getThemesByLesson(db, book.id);
+  const chapterFile = (c: { code: string }) => `chuong-${c.code.toLowerCase()}.html`;
 
   const offline = (q: QuestionFull): OfflineQuestion => {
     const view = toView(q);
@@ -204,6 +209,15 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
     if (!byLesson.has(q.lessonId)) byLesson.set(q.lessonId, []);
     byLesson.get(q.lessonId)!.push(q);
   }
+
+  const byTopic = new Map<number, QuestionFull[]>();
+  for (const q of full) {
+    if (!q.topicId) continue;
+    if (!byTopic.has(q.topicId)) byTopic.set(q.topicId, []);
+    byTopic.get(q.topicId)!.push(q);
+  }
+  const chapterMetas = new Map((await getChapterMetas(db, book.id)).map((c) => [c.id, c]));
+  const topicFile = (lessonSlug: string, t: { id: number; slug: string | null }) => `dang/${lessonSlug}/${topicKey(t)}.html`;
 
   const pages: Page[] = [];
   const chapterSlugs = (c: ChapterNode) => c.lessons.map((l) => l.slug).join(',');
@@ -458,9 +472,12 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
                     <li key={c.id} className="flex items-baseline gap-3">
                       <span className="w-10 shrink-0 text-right font-extrabold text-tim-400">{c.kind === 'chapter' ? c.code : '★'}</span>
                       <span className="min-w-0 flex-1">
-                        <span className="font-semibold">{c.title}</span>
-                        <span className="block text-[13px] text-ink-3">
-                          {c.lessons.length} mục · {c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0)} tiết
+                        <a href={`chuong/${chapterFile(c)}`} className="font-semibold hover:text-tim-700 hover:underline">
+                          {c.title}
+                        </a>
+                        <span className="block">
+                          <ChapterStats c={c} themes={themes} />
+                          <span className="text-[13px] text-ink-3"> · {c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0)} tiết</span>
                         </span>
                       </span>
                     </li>
@@ -469,9 +486,14 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
               </Panel>
             ))}
           </div>
-          <a href="muc-luc.html" className={buttonClass('primary', 'md', 'mt-6')}>
-            Xem mục lục chi tiết
-          </a>
+          <div className="mt-6 flex flex-wrap gap-2">
+            <a href="muc-luc.html" className={buttonClass('primary', 'md')}>
+              Xem mục lục chi tiết
+            </a>
+            <a href="ban-do-kien-thuc.html" className={buttonClass('secondary', 'md')}>
+              <LuMap aria-hidden="true" /> Bản đồ kiến thức
+            </a>
+          </div>
         </section>
       </>
     ),
@@ -487,8 +509,14 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
         <PageTitle
           crumbs={[{ href: 'chuong-trinh.html', label: 'Chương trình học' }, { label: book.title }]}
           title={`${book.title} – mục lục`}
-          sub={`${book.series} · ${book.program}. Bài có biểu tượng bút chì đã có câu hỏi luyện tập; vòng tròn xanh là mục em đã học xong.`}
+          sub={`${book.series} · ${book.program}. Bấm tên chương để xem mục tiêu, chủ đề, hệ thống dạng toán và kiểm tra cuối chương; vòng tròn xanh là mục em đã học xong.`}
+          actions={
+            <a href="ban-do-kien-thuc.html" className={buttonClass('primary', 'md')}>
+              <LuMap aria-hidden="true" /> Bản đồ kiến thức
+            </a>
+          }
         />
+        <MapTotalsBar t={mapTotals(tree, themes)} />
         <div className="space-y-10">
           {tree.map((s) => (
             <section key={s.id} aria-labelledby={`hk-${s.number}`}>
@@ -498,11 +526,24 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
               <div className="grid gap-5 lg:grid-cols-2">
                 {s.chapters.map((c) => (
                   <Panel key={c.id} className="overflow-hidden">
-                    <div className="flex items-baseline gap-3 border-b border-line bg-mist/60 px-5 py-4">
-                      <span className="text-[26px] font-extrabold leading-none text-tim-700">{c.kind === 'chapter' ? c.code : '★'}</span>
-                      <div>
-                        <h3 className="font-extrabold">{c.title}</h3>
-                        {c.description && <p className="text-[13px] text-ink-3">{c.description}</p>}
+                    <div className="border-b border-line bg-mist/60 px-5 py-4">
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-[26px] font-extrabold leading-none text-tim-700">{c.kind === 'chapter' ? c.code : '★'}</span>
+                        <div className="min-w-0">
+                          <h3 className="font-extrabold">
+                            <a href={`chuong/${chapterFile(c)}`} className="hover:text-tim-700 hover:underline">
+                              {c.kind === 'chapter' ? `Chương ${c.code}. ${c.title}` : c.title}
+                            </a>
+                          </h3>
+                          {c.description && <p className="text-[13px] text-ink-3">{c.description}</p>}
+                          <ChapterStats c={c} themes={themes} />
+                        </div>
+                      </div>
+                      <div className="mt-3" data-cp={chapterSlugs(c)} hidden>
+                        <div className="bar bar-tre">
+                          <span style={{ width: '0%' }} />
+                        </div>
+                        <div className="mt-1 text-[12px] text-ink-3" data-cp-text />
                       </div>
                     </div>
                     <ol className="divide-y divide-line">
@@ -511,12 +552,16 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
                           <a href={`bai/${l.slug}.html`} className="flex items-center gap-3 px-5 py-3 hover:bg-tim-50/60">
                             <Status slug={l.slug} />
                             <span className={cx('min-w-0 flex-1 text-[15px]', l.kind === 'lesson' ? 'font-medium' : 'text-ink-2')}>{lessonLabel(l)}</span>
-                            {l.questionCount > 0 && <LuPencilRuler className="shrink-0 text-tim-400" aria-label={`${l.questionCount} câu luyện tập`} />}
+                            {l.topicCount > 0 && <span className="hidden text-[12.5px] text-ink-3 sm:inline">{l.topicCount} dạng</span>}
+                            {l.questionCount > 0 && <LuPencilRuler className="shrink-0 text-tim-400" aria-label={`${l.questionCount} bài tập`} />}
                             <span className="w-12 shrink-0 text-right text-[13px] text-ink-3">{l.periods} tiết</span>
                           </a>
                         </li>
                       ))}
                     </ol>
+                    <a href={`chuong/${chapterFile(c)}`} className="block border-t border-line px-5 py-2.5 text-[14px] font-semibold text-tim-700 hover:bg-tim-50">
+                      Mở trang chương →
+                    </a>
                   </Panel>
                 ))}
               </div>
@@ -586,7 +631,9 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
   // ---------------- Bài học ----------------
   for (const [idx, l] of flat.entries()) {
     const file = `bai/${l.slug}.html`;
-    const [sections, topics, counts] = await Promise.all([getLessonSections(db, l.id), getLessonTopics(db, l.id), getLessonQuestionCounts(db, l.id)]);
+    const [sections, counts, detail] = await Promise.all([getLessonSections(db, l.id), getLessonQuestionCounts(db, l.id), getLessonById(db, l.id)]);
+    const lessonThemes = themes.get(l.id) ?? [];
+    const topicTotal = countTopics(lessonThemes);
     const prev = flat[idx - 1];
     const next = flat[idx + 1];
     const total = Object.values(counts).reduce((a, b) => a + (b ?? 0), 0);
@@ -601,16 +648,28 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
       body: (
         <div className="lesson-grid grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
           <div className="lesson-main min-w-0">
-            <Breadcrumbs items={[{ href: '../muc-luc.html', label: book.title }, { href: `../muc-luc.html#hk-${l.semester.number}`, label: l.semester.name }, { href: '../muc-luc.html', label: chapterName }, { label }]} />
+            <Breadcrumbs
+              items={[
+                { href: '../muc-luc.html', label: book.title },
+                { href: `../muc-luc.html#hk-${l.semester.number}`, label: l.semester.name },
+                { href: `../chuong/${chapterFile(l.chapter)}`, label: chapterName },
+                { label },
+              ]}
+            />
             <header className="o-li le-vo rounded-[22px] border border-line px-6 py-7 sm:pl-24">
-              {l.kind !== 'lesson' && <Badge tone="cam">{LESSON_KIND_LABELS[l.kind]}</Badge>}
+              <div className="flex flex-wrap items-center gap-2 text-[13px]">
+                {l.kind !== 'lesson' && <Badge tone="cam">{LESSON_KIND_LABELS[l.kind]}</Badge>}
+                {l.code && <Badge tone="gray">Mã bài {l.code}</Badge>}
+                <DifficultyBadge level={detail?.difficulty ?? null} />
+              </div>
               <h1 className="mt-2 text-[30px] font-extrabold leading-tight tracking-tight md:text-[38px]">{label}</h1>
               {l.summary && <p className="mt-2 max-w-2xl text-[16px] text-ink-2">{l.summary}</p>}
               <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[14px] text-ink-2">
                 <span className="inline-flex items-center gap-1.5">
                   <LuClock aria-hidden="true" /> {l.periods ?? 0} tiết
                 </span>
-                <span>{total} câu luyện tập</span>
+                {topicTotal > 0 && <span>{topicTotal} dạng toán</span>}
+                <span>{total} bài tập</span>
               </div>
               <div className="no-print mt-5 flex flex-wrap gap-2">
                 {total > 0 && (
@@ -625,9 +684,17 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
             </header>
             <div className="lesson-body mt-8 space-y-10">
               {sections.length === 0 && (
-                <Notice tone="info">Nội dung lý thuyết của mục này đang được biên soạn. {topics.length > 0 ? 'Em có thể xem trước các dạng toán bên dưới.' : ''}</Notice>
+                <Notice tone="info">
+                  Phần lí thuyết chi tiết của mục này đang được biên soạn. {topicTotal > 0 ? 'Em có thể xem tóm tắt bài học và học theo từng dạng toán bên dưới.' : ''}
+                </Notice>
               )}
-              <LessonBody sections={sections} topics={topics} />
+              <LessonBody
+                sections={sections}
+                themes={lessonThemes}
+                topicHref={(t) => `../dang/${l.slug}/${topicKey(t)}.html`}
+                lessonObjectives={detail?.objectives}
+                meta={detail ? <LessonMetaPanel m={detail} showFormulas={!sections.some((s) => s.kind === 'formula')} /> : null}
+              />
               <section aria-labelledby="bai-tap">
                 <h2 id="bai-tap" className="mb-3 text-xl font-extrabold">
                   Bài tập
@@ -720,6 +787,379 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
     });
   }
 
+  // ---------------- Trang chương ----------------
+  const allChapters = tree.flatMap((sm) => sm.chapters.map((c) => ({ c, sm })));
+  for (const [ci, { c, sm }] of allChapters.entries()) {
+    const meta = chapterMetas.get(c.id)!;
+    const sum = summarizeChapter(c, themes);
+    const label = chapterLabel(c);
+    const lessonsOnly = c.lessons.filter((l) => l.kind === 'lesson');
+    const synth = c.lessons.filter((l) => l.kind === 'practice' || l.kind === 'review');
+    const chapterQs = c.lessons.flatMap((l) => byLesson.get(l.id) ?? []).filter((q) => ['mcq', 'true_false', 'short_answer'].includes(q.type));
+    const prevC = allChapters[ci - 1]?.c;
+    const nextC = allChapters[ci + 1]?.c;
+    pages.push({
+      file: `chuong/${chapterFile(c)}`,
+      title: label,
+      description: c.description ?? `${label} – ${book.title}`,
+      nav: 'program',
+      body: (
+        <>
+          <Breadcrumbs items={[{ href: '../muc-luc.html', label: book.title }, { href: `../muc-luc.html#hk-${sm.number}`, label: sm.name }, { label }]} />
+          <header className="o-li le-vo rounded-[22px] border border-line px-6 py-7 sm:pl-24">
+            <Badge>{sm.name}</Badge>
+            <h1 className="mt-2 text-[30px] font-extrabold leading-tight tracking-tight md:text-[38px]">{label}</h1>
+            {c.description && <p className="mt-2 max-w-2xl text-[16px] text-ink-2">{c.description}</p>}
+            <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-[14.5px] text-ink-2">
+              <span>
+                <strong className="text-ink">{c.kind === 'chapter' ? lessonsOnly.length : c.lessons.length}</strong> {c.kind === 'chapter' ? 'bài học' : 'hoạt động'}
+              </span>
+              <span>
+                <strong className="text-ink">{c.lessons.length}</strong> mục (kể cả luyện tập, ôn tập)
+              </span>
+              <span>
+                <strong className="text-ink">{sum.topics}</strong> dạng toán
+              </span>
+              <span>
+                <strong className="text-ink">{sum.questions}</strong> bài tập
+              </span>
+              <span>
+                <strong className="text-ink">{c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0)}</strong> tiết
+              </span>
+            </div>
+            <div className="mt-4 max-w-md" data-cp={chapterSlugs(c)} hidden>
+              <div className="bar bar-tre">
+                <span style={{ width: '0%' }} />
+              </div>
+              <div className="mt-1 text-[13px] text-ink-3" data-cp-text />
+            </div>
+            <div className="no-print mt-5 flex flex-wrap gap-2">
+              {c.lessons[0] && (
+                <a href={`../bai/${c.lessons[0].slug}.html`} className={buttonClass('primary', 'md')}>
+                  Bắt đầu học
+                </a>
+              )}
+              {sum.questions > 0 && (
+                <a href={`../luyen-tap/chuong-${c.code.toLowerCase()}.html`} className={buttonClass('secondary', 'md')}>
+                  <LuPencilRuler aria-hidden="true" /> Luyện tập cả chương
+                </a>
+              )}
+            </div>
+          </header>
+          <div className="mt-8 space-y-10">
+            <ChapterOverview c={meta} />
+            <section aria-labelledby="ds-bai">
+              <h2 id="ds-bai" className="mb-3 text-xl font-extrabold">
+                Danh sách bài học
+              </h2>
+              <Panel className="overflow-hidden">
+                <ol className="divide-y divide-line">
+                  {c.lessons.map((l) => (
+                    <li key={l.id}>
+                      <a href={`../bai/${l.slug}.html`} className="flex items-center gap-3 px-5 py-3 hover:bg-tim-50/60">
+                        <Status slug={l.slug} />
+                        <span className="min-w-0 flex-1">
+                          <span className={cx('block text-[15.5px]', l.kind === 'lesson' ? 'font-semibold' : 'text-ink-2')}>{lessonLabel(l)}</span>
+                          <span className="text-[12.5px] text-ink-3">
+                            {l.code}
+                            {l.kind !== 'lesson' ? ` · ${LESSON_KIND_LABELS[l.kind]}` : ''}
+                          </span>
+                        </span>
+                        {l.kind === 'lesson' && (
+                          <span className="hidden text-right text-[13px] text-ink-3 sm:block">
+                            {countTopics(themes.get(l.id))} dạng · {l.questionCount} bài tập
+                          </span>
+                        )}
+                        <span className="w-14 shrink-0 text-right text-[13px] text-ink-3">{l.periods} tiết</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </Panel>
+            </section>
+            {c.kind === 'chapter' && (
+              <section aria-labelledby="he-thong-dang">
+                <h2 id="he-thong-dang" className="mb-1 text-xl font-extrabold">
+                  Chủ đề và hệ thống dạng toán
+                </h2>
+                <p className="mb-4 text-[14.5px] text-ink-3">
+                  Kí hiệu mức độ: NB – {KLEVEL[1]}, TH – {KLEVEL[2]}, VD – {KLEVEL[3]}, VDC – {KLEVEL[4]}.
+                </p>
+                <div className="space-y-8">
+                  {lessonsOnly.map((l) => (
+                    <div key={l.id}>
+                      <h3 className="mb-2 flex flex-wrap items-baseline gap-2 text-[17px] font-extrabold">
+                        <a href={`../bai/${l.slug}.html`} className="hover:text-tim-700 hover:underline">
+                          {lessonLabel(l)}
+                        </a>
+                        <span className="text-[12.5px] font-semibold text-ink-3">{l.code}</span>
+                      </h3>
+                      {themes.get(l.id)?.length ? (
+                        <ThemeList themes={themes.get(l.id)!} topicHref={(t) => `../${topicFile(l.slug, t)}`} compact />
+                      ) : (
+                        <p className="text-[14px] text-ink-3">Bài này chưa có chủ đề, dạng toán.</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+            {c.kind === 'chapter' && (
+              <div className="grid gap-6 lg:grid-cols-2">
+                <Panel className="p-5">
+                  <h2 className="text-lg font-extrabold">Bài tập tổng hợp</h2>
+                  <p className="mt-1 text-[14.5px] text-ink-2">Các tiết luyện tập chung, bài tập cuối chương và lượt luyện tập trộn câu hỏi của mọi dạng trong chương.</p>
+                  <ul className="mt-3 space-y-1.5">
+                    {synth.map((l) => (
+                      <li key={l.id}>
+                        <a href={`../bai/${l.slug}.html`} className="flex items-center gap-2 text-[15px] font-medium text-tim-800 hover:underline">
+                          <LuBookOpen aria-hidden="true" className="shrink-0" /> {l.title}
+                          <span className="text-[12.5px] font-normal text-ink-3">({l.code})</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  {sum.questions > 0 && (
+                    <a href={`../luyen-tap/chuong-${c.code.toLowerCase()}.html`} className={buttonClass('secondary', 'sm', 'mt-4')}>
+                      Luyện tập trộn cả chương ({sum.questions} câu)
+                    </a>
+                  )}
+                </Panel>
+                <Panel className="p-5">
+                  <h2 className="flex items-center gap-2 text-lg font-extrabold">
+                    <LuClipboardCheck aria-hidden="true" className="text-tim-600" /> Kiểm tra cuối chương
+                  </h2>
+                  <p className="mt-1 text-[14.5px] text-ink-2">10 câu chấm tự động, xếp từ dễ đến khó. Làm xong xem ngay điểm, đáp án và lời giải.</p>
+                  <table className="mt-3 w-full text-[14px]">
+                    <thead>
+                      <tr className="text-left text-[12.5px] text-ink-3">
+                        <th className="py-1 font-semibold">Mức độ</th>
+                        <th className="py-1 text-right font-semibold">Số câu trong đề</th>
+                        <th className="py-1 text-right font-semibold">Câu có sẵn</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {([1, 2, 3, 4] as Level[]).map((lv) => (
+                        <tr key={lv} className="border-t border-line">
+                          <td className="py-1.5">{KLEVEL[lv]}</td>
+                          <td className="py-1.5 text-right">{CHAPTER_TEST_PLAN[lv]}</td>
+                          <td className="py-1.5 text-right text-ink-3">{chapterQs.filter((q) => q.level === lv).length}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  {chapterQs.length ? (
+                    <a href={`../luyen-tap/kiem-tra-chuong-${c.code.toLowerCase()}.html`} className={buttonClass('primary', 'md', 'mt-4')}>
+                      Làm bài kiểm tra cuối chương
+                    </a>
+                  ) : (
+                    <p className="mt-3 text-[14px] text-ink-3">Chương chưa có câu hỏi chấm tự động.</p>
+                  )}
+                </Panel>
+              </div>
+            )}
+            <nav className="no-print flex flex-wrap justify-between gap-3 border-t border-line pt-6" aria-label="Chuyển chương">
+              {prevC ? (
+                <a href={chapterFile(prevC)} className="flex max-w-[48%] items-center gap-2 text-[15px] text-ink-2 hover:text-tim-800">
+                  <LuArrowLeft aria-hidden="true" className="shrink-0" /> <span className="truncate">{chapterLabel(prevC)}</span>
+                </a>
+              ) : (
+                <span />
+              )}
+              {nextC && (
+                <a href={chapterFile(nextC)} className="ml-auto flex max-w-[48%] items-center gap-2 text-right text-[15px] font-semibold text-tim-800 hover:underline">
+                  <span className="truncate">{chapterLabel(nextC)}</span> <LuArrowRight aria-hidden="true" className="shrink-0" />
+                </a>
+              )}
+            </nav>
+          </div>
+        </>
+      ),
+    });
+  }
+
+  // ---------------- Trang dạng toán ----------------
+  const practicedTopics: { t: TopicNode; lessonSlug: string; label: string }[] = [];
+  for (const l of flat) {
+    const lessonThemes = themes.get(l.id) ?? [];
+    const all = lessonThemes.flatMap((th) => th.topics);
+    for (const [idx, tn] of all.entries()) {
+      const t = (await getTopicById(db, tn.id))!;
+      const counts = await getTopicQuestionCounts(db, t.id);
+      const qs = (byTopic.get(t.id) ?? []).sort((a, b) => a.level - b.level || a.id - b.id).slice(0, 30);
+      const label = lessonLabel(l);
+      if (qs.length) practicedTopics.push({ t: tn, lessonSlug: l.slug, label });
+      const here = topicFile(l.slug, t);
+      const sib = (x: TopicNode) => `${topicKey(x)}.html`;
+      pages.push({
+        file: here,
+        title: `${t.title} – ${label}`,
+        description: t.method ?? `Dạng toán ${t.title} – ${label}`,
+        nav: 'program',
+        body: (
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
+            <div className="min-w-0">
+              <Breadcrumbs
+                items={[
+                  { href: '../../muc-luc.html', label: book.title },
+                  { href: `../../muc-luc.html#hk-${l.semester.number}`, label: l.semester.name },
+                  { href: `../../chuong/${chapterFile(l.chapter)}`, label: chapterLabel(l.chapter) },
+                  { href: `../../bai/${l.slug}.html`, label },
+                  ...(t.themeTitle ? [{ href: `../../bai/${l.slug}.html#dang-toan`, label: t.themeTitle }] : []),
+                  { label: t.title },
+                ]}
+              />
+              <header className="rounded-[22px] border border-line bg-white px-6 py-6">
+                <div className="flex flex-wrap items-center gap-2 text-[13px]">
+                  <Badge>
+                    Dạng toán {idx + 1}/{all.length}
+                  </Badge>
+                  {t.code && <span className="font-semibold text-ink-3">{t.code}</span>}
+                </div>
+                <h1 className="mt-2 text-[28px] font-extrabold leading-tight tracking-tight md:text-[34px]">{t.title}</h1>
+                {t.themeTitle && <p className="mt-1 text-[15px] text-ink-2">Chủ đề: {t.themeTitle}</p>}
+                <div className="mt-3 flex flex-wrap items-center gap-3 text-[14px] text-ink-2">
+                  <span>Mức độ:</span>
+                  {t.levels.length ? <LevelBadges levels={t.levels} full /> : <span className="text-ink-3">chưa phân loại</span>}
+                  <span>· {counts.total} bài tập</span>
+                </div>
+                <div className="no-print mt-5 flex flex-wrap gap-2">
+                  {qs.length > 0 && (
+                    <a href={`../../luyen-tap/dang-${t.id}.html`} className={buttonClass('primary', 'md')}>
+                      <LuPencilRuler aria-hidden="true" /> Luyện tập dạng này
+                    </a>
+                  )}
+                  <a href={`../../bai/${l.slug}.html`} className={buttonClass('secondary', 'md')}>
+                    Về bài học
+                  </a>
+                </div>
+              </header>
+              <div className="mt-6 space-y-6">
+                <TopicArticle t={t} />
+                <section aria-labelledby="bai-tap-luyen-tap">
+                  <h2 id="bai-tap-luyen-tap" className="mb-3 text-xl font-extrabold">
+                    Bài tập luyện tập
+                  </h2>
+                  {qs.length ? (
+                    <ol className="space-y-3">
+                      {qs.map((q, i) => {
+                        const v = offline(q);
+                        return (
+                          <li key={q.id} className="rounded-2xl border border-line bg-white p-4">
+                            <div className="mb-1 flex flex-wrap items-center gap-2 text-[12.5px]">
+                              <strong className="text-tim-700">Bài {i + 1}</strong>
+                              <Badge tone="gray">{TYPE_LABELS[q.type]}</Badge>
+                              <LevelBadges levels={[q.level as Level]} />
+                            </div>
+                            <div className="prose-math text-[15.5px]" dangerouslySetInnerHTML={{ __html: v.stemHtml }} />
+                            {v.mediaHtml.map((m, k) => (
+                              <div key={k} className="mt-2" dangerouslySetInnerHTML={{ __html: m }} />
+                            ))}
+                            {v.options && (
+                              <ul className="mt-2 grid gap-1 text-[15px] sm:grid-cols-2">
+                                {v.options.map((o) => (
+                                  <li key={o.label} className="flex gap-2">
+                                    <strong>{o.label}.</strong> <span dangerouslySetInnerHTML={{ __html: o.html }} />
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                            {v.statements && (
+                              <ul className="mt-2 space-y-1 text-[15px]">
+                                {v.statements.map((o) => (
+                                  <li key={o.label} className="flex gap-2">
+                                    <strong>{o.label})</strong> <span dangerouslySetInnerHTML={{ __html: o.html }} />
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  ) : (
+                    <p className="text-[15px] text-ink-2">Dạng này chưa có bài tập trong ngân hàng câu hỏi.</p>
+                  )}
+                  {qs.length > 0 && <p className="mt-3 text-[14.5px] text-ink-2">Đáp án và lời giải hiện ngay sau khi em làm từng câu trong phần luyện tập.</p>}
+                </section>
+                <Panel className="p-5">
+                  <h2 className="mb-3 text-lg font-extrabold">Ngân hàng câu hỏi của dạng</h2>
+                  <QuestionCoverage byType={counts.byType} byLevel={counts.byLevel} levels={t.levels} />
+                </Panel>
+                <nav className="no-print flex flex-wrap justify-between gap-3 border-t border-line pt-6" aria-label="Chuyển dạng toán">
+                  {idx > 0 ? (
+                    <a href={sib(all[idx - 1])} className="flex max-w-[48%] items-center gap-2 text-[15px] text-ink-2 hover:text-tim-800">
+                      <LuArrowLeft aria-hidden="true" className="shrink-0" /> <span className="truncate">{all[idx - 1].title}</span>
+                    </a>
+                  ) : (
+                    <span />
+                  )}
+                  {idx < all.length - 1 && (
+                    <a href={sib(all[idx + 1])} className="ml-auto flex max-w-[48%] items-center gap-2 text-right text-[15px] font-semibold text-tim-800 hover:underline">
+                      <span className="truncate">{all[idx + 1].title}</span> <LuArrowRight aria-hidden="true" className="shrink-0" />
+                    </a>
+                  )}
+                </nav>
+              </div>
+            </div>
+            <aside className="no-print">
+              <div className="sticky top-20 rounded-[22px] border border-line bg-white p-4">
+                <div className="text-[13px] text-ink-3">{chapterLabel(l.chapter)}</div>
+                <a href={`../../bai/${l.slug}.html`} className="text-[15px] font-bold hover:underline">
+                  {label}
+                </a>
+                <nav aria-label="Các dạng toán của bài" className="mt-3 space-y-3">
+                  {lessonThemes.map((th, i) => (
+                    <div key={th.id || `k${i}`}>
+                      <div className="text-[12px] font-bold uppercase tracking-wide text-tim-500">{th.title}</div>
+                      <ul className="mt-1">
+                        {th.topics.map((x) => (
+                          <li key={x.id}>
+                            <a
+                              href={sib(x)}
+                              aria-current={x.id === t.id ? 'page' : undefined}
+                              className={cx('block rounded-lg px-2 py-1.5 text-[13.5px]', x.id === t.id ? 'bg-tim-700 font-semibold text-white' : 'text-ink-2 hover:bg-tim-50')}
+                            >
+                              {x.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </nav>
+              </div>
+            </aside>
+          </div>
+        ),
+      });
+    }
+  }
+
+  // ---------------- Bản đồ kiến thức ----------------
+  pages.push({
+    file: 'ban-do-kien-thuc.html',
+    title: `Bản đồ kiến thức ${book.title}`,
+    nav: 'program',
+    body: (
+      <>
+        <PageTitle
+          crumbs={[{ href: 'chuong-trinh.html', label: 'Chương trình học' }, { href: 'muc-luc.html', label: book.title }, { label: 'Bản đồ kiến thức' }]}
+          title={`Bản đồ kiến thức ${book.title}`}
+          sub={`${book.series} · ${book.program}. Học kì → Chương → Bài → Chủ đề → Dạng toán. Bấm vào tên để mở trang tương ứng.`}
+        />
+        <MapTotalsBar t={mapTotals(tree, themes)} />
+        <KnowledgeTree
+          tree={tree}
+          themes={themes}
+          chapterLink={(c) => `chuong/${chapterFile(c)}`}
+          lessonLink={(l) => `bai/${l.slug}.html`}
+          topicLink={(l, t) => topicFile(l.slug, t)}
+        />
+      </>
+    ),
+  });
+
   // ---------------- Luyện tập ----------------
   const practicePage = (file: string, title: string, sub: string, crumbs: { href?: string; label: string }[], data: OfflinePractice, lessonOf: Record<number, string>): Page => ({
     file,
@@ -763,6 +1203,42 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
         'Câu hỏi trộn từ tất cả các bài trong chương.',
         [{ href: '../luyen-tap.html', label: 'Luyện tập' }, { label }],
         { questions: qs.map(offline), context: 'practice', limit: 10, restartHref: `chuong-${c.code.toLowerCase()}.html`, backHref: '../luyen-tap.html', backLabel: 'Về trang luyện tập' },
+        lessonOfAll,
+      ),
+    );
+  }
+  for (const { t, lessonSlug, label } of practicedTopics) {
+    const qs = byTopic.get(t.id)!;
+    pages.push(
+      practicePage(
+        `luyen-tap/dang-${t.id}.html`,
+        `Luyện tập dạng: ${t.title}`,
+        label,
+        [{ href: '../luyen-tap.html', label: 'Luyện tập' }, { href: `../${topicFile(lessonSlug, t)}`, label: t.title }, { label: 'Luyện tập' }],
+        { questions: qs.map(offline), context: 'practice', limit: 10, restartHref: `dang-${t.id}.html`, backHref: `../${topicFile(lessonSlug, t)}`, backLabel: 'Về dạng toán' },
+        Object.fromEntries(qs.map((q) => [q.id, lessonSlug])),
+      ),
+    );
+  }
+  for (const c of tree.flatMap((sm) => sm.chapters).filter((x) => x.kind === 'chapter')) {
+    const qs = c.lessons.flatMap((l) => byLesson.get(l.id) ?? []).filter((q) => ['mcq', 'true_false', 'short_answer'].includes(q.type));
+    if (!qs.length) continue;
+    const label = chapterLabel(c);
+    pages.push(
+      practicePage(
+        `luyen-tap/kiem-tra-chuong-${c.code.toLowerCase()}.html`,
+        `Kiểm tra cuối chương: ${label}`,
+        '10 câu chấm tự động, xếp từ dễ đến khó: 4 câu nhận biết, 3 câu thông hiểu, 2 câu vận dụng, 1 câu vận dụng cao (mức nào thiếu câu thì lấy câu ở mức gần nhất).',
+        [{ href: `../chuong/${chapterFile(c)}`, label }, { label: 'Kiểm tra cuối chương' }],
+        {
+          questions: qs.map(offline),
+          context: 'practice',
+          limit: 10,
+          plan: CHAPTER_TEST_PLAN,
+          restartHref: `kiem-tra-chuong-${c.code.toLowerCase()}.html`,
+          backHref: `../chuong/${chapterFile(c)}`,
+          backLabel: 'Về trang chương',
+        },
         lessonOfAll,
       ),
     );

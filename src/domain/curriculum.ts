@@ -48,6 +48,7 @@ export type LessonKind = 'lesson' | 'practice' | 'review' | 'activity';
 
 export interface LessonNode {
   id: number;
+  code: string | null;
   slug: string;
   number: number | null;
   title: string;
@@ -68,6 +69,7 @@ export interface ChapterNode {
   title: string;
   description: string | null;
   kind: 'chapter' | 'activity';
+  status: 'draft' | 'published';
   lessons: LessonNode[];
 }
 
@@ -92,11 +94,12 @@ export async function getCourseTree(q: Queryable, textbookId: number, userId: st
     sql`select id, number, name from semesters where textbook_id = ${textbookId} order by number`,
   );
   const chapters = await q.many<ChapterNode & { semesterId: number }>(sql`
-    select id, code, title, description, kind, semester_id from chapters where textbook_id = ${textbookId} order by sort_order`);
+    select id, code, title, description, kind, status, semester_id from chapters
+    where textbook_id = ${textbookId} and (${includeDrafts}::boolean or status = 'published') order by sort_order`);
   const lessons = await q.many<LessonNode>(sql`
-    select l.id, l.slug, l.number, l.title, l.kind, l.periods, l.summary, l.status, l.chapter_id,
+    select l.id, l.code, l.slug, l.number, l.title, l.kind, l.periods, l.summary, l.status, l.chapter_id,
       (select count(*)::int from lesson_sections s where s.lesson_id = l.id) as section_count,
-      (select count(*)::int from topics t where t.lesson_id = l.id) as topic_count,
+      (select count(*)::int from topics t where t.lesson_id = l.id and (${includeDrafts}::boolean or t.status = 'published')) as topic_count,
       (select count(*)::int from questions qq where qq.lesson_id = l.id and qq.status = 'published') as question_count,
       lp.status as progress
     from lessons l
@@ -112,7 +115,7 @@ export async function getCourseTree(q: Queryable, textbookId: number, userId: st
     ...s,
     chapters: chapters
       .filter((c) => c.semesterId === s.id)
-      .map((c) => ({ id: c.id, code: c.code, title: c.title, description: c.description, kind: c.kind, lessons: byChapter.get(c.id) ?? [] })),
+      .map((c) => ({ id: c.id, code: c.code, title: c.title, description: c.description, kind: c.kind, status: c.status, lessons: byChapter.get(c.id) ?? [] })),
   }));
 }
 
@@ -155,22 +158,35 @@ export interface LessonDetail {
   chapterKind: 'chapter' | 'activity';
   semesterNumber: number;
   semesterName: string;
+  code: string | null;
+  objectives: string | null;
+  prerequisites: string | null;
+  concepts: string | null;
+  formulas: string | null;
+  properties: string | null;
+  theorems: string | null;
+  difficulty: 1 | 2 | 3 | 4 | null;
+  verifyStatus: 'verified' | 'needs_review' | 'unverified';
+  verifyNote: string | null;
+  chapterStatus: 'draft' | 'published';
+  sortOrder: number;
 }
+
+const LESSON_COLS = sql`l.id, l.textbook_id, l.slug, l.number, l.title, l.kind, l.summary, l.periods, l.estimated_minutes, l.status, l.updated_at,
+  l.code, l.objectives, l.prerequisites, l.concepts, l.formulas, l.properties, l.theorems, l.difficulty, l.verify_status, l.verify_note, l.sort_order,
+  c.id as chapter_id, c.code as chapter_code, c.title as chapter_title, c.kind as chapter_kind, c.status as chapter_status,
+  s.number as semester_number, s.name as semester_name`;
 
 export async function getLessonBySlug(q: Queryable, textbookId: number, slug: string) {
   return q.one<LessonDetail>(sql`
-    select l.id, l.textbook_id, l.slug, l.number, l.title, l.kind, l.summary, l.periods, l.estimated_minutes, l.status, l.updated_at,
-      c.id as chapter_id, c.code as chapter_code, c.title as chapter_title, c.kind as chapter_kind,
-      s.number as semester_number, s.name as semester_name
+    select ${LESSON_COLS}
     from lessons l join chapters c on c.id = l.chapter_id join semesters s on s.id = c.semester_id
     where l.textbook_id = ${textbookId} and l.slug = ${slug}`);
 }
 
 export async function getLessonById(q: Queryable, id: number) {
   return q.one<LessonDetail>(sql`
-    select l.id, l.textbook_id, l.slug, l.number, l.title, l.kind, l.summary, l.periods, l.estimated_minutes, l.status, l.updated_at,
-      c.id as chapter_id, c.code as chapter_code, c.title as chapter_title, c.kind as chapter_kind,
-      s.number as semester_number, s.name as semester_name
+    select ${LESSON_COLS}
     from lessons l join chapters c on c.id = l.chapter_id join semesters s on s.id = c.semester_id
     where l.id = ${id}`);
 }
@@ -229,7 +245,7 @@ export async function lessonOptions(q: Queryable, textbookId: number) {
 
 export async function topicOptions(q: Queryable, textbookId: number) {
   return q.many<{ id: number; lessonId: number; label: string; lesson: string }>(sql`
-    select t.id, t.lesson_id, t.title as label,
+    select t.id, t.lesson_id, case when t.code is not null then t.code || ' · ' || t.title else t.title end as label,
       case when l.kind = 'lesson' and l.number is not null then 'Bài ' || l.number || '. ' || l.title else l.title end as lesson
     from topics t join lessons l on l.id = t.lesson_id join chapters c on c.id = l.chapter_id
     where l.textbook_id = ${textbookId} order by c.sort_order, l.sort_order, t.sort_order`);

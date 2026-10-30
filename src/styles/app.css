@@ -172,6 +172,9 @@
   background: #fff;
   box-shadow: 6px 6px 0 0 var(--color-tim-100);
 }
+.formula-frame .prose-math .math-block {
+  margin: 0.15em 0;
+}
 
 .figure-svg {
   max-width: 100%;

@@ -5151,17 +5151,17 @@ var require_react_dom_server_legacy_node_production = __commonJS({
           return hoistableState = segment.id, segment.lastPushedText = false, segment.textEmbedded = false, request = request.renderState, destination.push('<template id="'), destination.push(request.placeholderPrefix), request = hoistableState.toString(16), destination.push(request), destination.push('"></template>');
         case 1:
           segment.status = 2;
-          var r3 = true, chunks = segment.chunks, chunkIdx = 0;
+          var r4 = true, chunks = segment.chunks, chunkIdx = 0;
           segment = segment.children;
           for (var childIdx = 0; childIdx < segment.length; childIdx++) {
-            for (r3 = segment[childIdx]; chunkIdx < r3.index; chunkIdx++)
+            for (r4 = segment[childIdx]; chunkIdx < r4.index; chunkIdx++)
               destination.push(chunks[chunkIdx]);
-            r3 = flushSegment(request, destination, r3, hoistableState);
+            r4 = flushSegment(request, destination, r4, hoistableState);
           }
           for (; chunkIdx < chunks.length - 1; chunkIdx++)
             destination.push(chunks[chunkIdx]);
-          chunkIdx < chunks.length && (r3 = destination.push(chunks[chunkIdx]));
-          return r3;
+          chunkIdx < chunks.length && (r4 = destination.push(chunks[chunkIdx]));
+          return r4;
         case 3:
           return true;
         default:
@@ -10477,17 +10477,17 @@ var require_react_dom_server_node_production = __commonJS({
           return hoistableState = segment.id, segment.lastPushedText = false, segment.textEmbedded = false, request = request.renderState, writeChunk(destination, placeholder1), writeChunk(destination, request.placeholderPrefix), request = hoistableState.toString(16), writeChunk(destination, request), writeChunkAndReturn(destination, placeholder2);
         case 1:
           segment.status = 2;
-          var r3 = true, chunks = segment.chunks, chunkIdx = 0;
+          var r4 = true, chunks = segment.chunks, chunkIdx = 0;
           segment = segment.children;
           for (var childIdx = 0; childIdx < segment.length; childIdx++) {
-            for (r3 = segment[childIdx]; chunkIdx < r3.index; chunkIdx++)
+            for (r4 = segment[childIdx]; chunkIdx < r4.index; chunkIdx++)
               writeChunk(destination, chunks[chunkIdx]);
-            r3 = flushSegment(request, destination, r3, hoistableState);
+            r4 = flushSegment(request, destination, r4, hoistableState);
           }
           for (; chunkIdx < chunks.length - 1; chunkIdx++)
             writeChunk(destination, chunks[chunkIdx]);
-          chunkIdx < chunks.length && (r3 = writeChunkAndReturn(destination, chunks[chunkIdx]));
-          return r3;
+          chunkIdx < chunks.length && (r4 = writeChunkAndReturn(destination, chunks[chunkIdx]));
+          return r4;
         case 3:
           return true;
         default:
@@ -12232,7 +12232,7 @@ function sizingGroup(value, options, baseOptions) {
 function isStyleStr(s) {
   return s in styleMap;
 }
-var ParseError, uppercase, hyphenate, ESCAPE_LOOKUP, ESCAPE_REGEX, escape, getBaseElem, characterNodesTypes, isCharacterBox, protocolFromUrl, SETTINGS_SCHEMA, Settings, Style, D, Dc, T, Tc, S, Sc, SS, SSc, styles, sup, sub, fracNum, fracDen, cramp, text$1, Style$1, scriptData, allBlocks, doubleBrushStroke, hLinePad, sqrtMain, sqrtSize1, sqrtSize2, sqrtSize3, sqrtSize4, phasePath, sqrtTall, sqrtPath, innerPath, path2, tallDelim, DocumentFragment, ptPerUnit, relativeUnit, validUnit, calculateSize, makeEm, createClass, cssStyleToString, initNode, toNode, invalidAttributeNameRegex, toMarkup, Span, Anchor, Img, iCombinations, SymbolNode, SvgNode, PathNode, LineNode, hasHtmlDomChildren, fontMetricsData, sigmasAndXis, extraCharacterMap, fontMetricsBySizeIndex, symbols, math, text, main, ams, accent, bin, close, inner, mathord, op, open, punct, rel, spacing, textord, ligatures, mathTextSymbols, ch, i, textSymbols, _ch, _i, letters, _ch2, _i2, wideChar, _ch3, _i3, _ch4, _i4, extraLatin, _ch5, _i5, boldUpright, italic, boldItalic, script, noFont, fraktur, doubleStruck, boldFraktur, sansSerif, boldSansSerif, italicSansSerif, monospace, wideLatinLetterData, wideNumeralData, wideCharacterFont, lookupSymbol, makeSymbol, mathsym, boldSymbol, makeOrd, canCombine, tryCombineChars, sizeElementFromChildren, makeSpan, makeSvgSpan, makeLineSpan, makeAnchor, makeFragment, wrapFragment, getVListChildrenAndDepth, makeVList, makeGlue, retrieveTextFontName, fontMap, svgData, staticSvg, thinspace, mediumspace, thickspace, spacings, tightSpacings, _functions, _htmlGroupBuilders, _mathmlGroupBuilders, normalizeArgument, ordargument, binLeftCanceller, binRightCanceller, styleMap$1, DomEnum, buildExpression$1, _traverseNonSpaceNodes, checkPartialGroup, _getOutermostNode, getTypeOfDomTree, makeNullDelimiter, buildGroup$1, MathNode, TextNode, SpaceNode, noVariantSymbols, rowLikeTypes, makeText, makeRow, mathFontVariants, getVariant, buildExpression2, buildExpressionRow, buildGroup2, sizeStyleMap, sizeMultipliers, sizeAtStyle, Options, optionsFromSettings, displayWrap, buildTree, buildHTMLTree, stretchyCodePoint, stretchyMathML, katexImagesData, wideAccentLabels, stretchySvg, stretchyEnclose, ATOMS, NON_ATOMS, getBaseSymbol, htmlBuilder$a, mathmlBuilder$9, NON_STRETCHY_ACCENT_REGEX, paddedNode, binrelClass, cdArrowFunctionName, newCell, isStartOfArrow, isLabelEnd, htmlBuilder$8, mathmlBuilder$7, globalMap, checkControlSequence, getRHS, letCommand, getMetrics, styleWrap, centerSpan, makeSmallDelim, mathrmSize, makeLargeDelim, makeGlyphSpan, makeInner, lapInEms, lap, verts, doubleVerts, makeStackedDelim, vbPad, emPad, sqrtSvg, makeSqrtImage, stackLargeDelimiters, stackAlwaysDelimiters, stackNeverDelimiters, sizeToMaxHeight, makeSizedDelim, stackNeverDelimiterSequence, stackAlwaysDelimiterSequence, stackLargeDelimiterSequence, delimTypeToFont, traverseSequence, makeCustomSizedDelim, makeLeftRightDelim, delimiterSizes, delimiters, htmlBuilder$7, mathmlBuilder$6, _environments, _macros, SourceLocation, Token, validateAmsEnvironmentContext, gatherEnvironments, htmlBuilder$6, alignMap, mathmlBuilder$5, alignedHandler, environments, htmlBuilder$5, mathmlBuilder$4, fontAliases, htmlBuilder$4, mathmlBuilder$3, wrapWithStyle, stylArray, delimFromValue, htmlBuilder$3, mathmlBuilder$2, sizeData, chooseMathStyle, assembleSupSub, noSuccessor, htmlBuilder$2, mathmlBuilder$1, singleCharBigOps, singleCharIntegrals, htmlBuilder$1, mathmlBuilder2, sizeFuncs, htmlBuilder2, styleMap, htmlBuilderDelegate, defaultVariant, cssSpace, regularSpace, pad, textFontFamilies, textFontWeights, textFontShapes, optionsWithFont, makeVerb, functions, spaceRegexString, controlWordRegexString, controlSymbolRegexString, controlWordWhitespaceRegexString, controlSpaceRegexString, combiningDiacriticalMarkString, combiningDiacriticalMarksEndRegex, tokenRegexString, Lexer, Namespace, macros, digitToNumber, newcommand, dotsByToken, dotsbGroups, spaceAfterDots, latexRaiseA, braketHelper, implicitCommands, MacroExpander, unicodeSubRegEx, uSubsAndSups, unicodeAccents, unicodeSymbols, Parser, parseTree, render, renderToString, generateParseTree, renderError, renderToDomTree, renderToHTMLTree, version, __domTree, katex;
+var ParseError, uppercase, hyphenate, ESCAPE_LOOKUP, ESCAPE_REGEX, escape, getBaseElem, characterNodesTypes, isCharacterBox, protocolFromUrl, SETTINGS_SCHEMA, Settings, Style, D, Dc, T, Tc, S, Sc, SS, SSc, styles, sup, sub, fracNum, fracDen, cramp, text$1, Style$1, scriptData, allBlocks, doubleBrushStroke, hLinePad, sqrtMain, sqrtSize1, sqrtSize2, sqrtSize3, sqrtSize4, phasePath, sqrtTall, sqrtPath, innerPath, path2, tallDelim, DocumentFragment, ptPerUnit, relativeUnit, validUnit, calculateSize, makeEm, createClass, cssStyleToString, initNode, toNode, invalidAttributeNameRegex, toMarkup, Span, Anchor, Img, iCombinations, SymbolNode, SvgNode, PathNode, LineNode, hasHtmlDomChildren, fontMetricsData, sigmasAndXis, extraCharacterMap, fontMetricsBySizeIndex, symbols, math, text, main, ams, accent, bin, close, inner, mathord, op, open, punct, rel, spacing, textord, ligatures, mathTextSymbols, ch, i, textSymbols, _ch, _i, letters, _ch2, _i2, wideChar, _ch3, _i3, _ch4, _i4, extraLatin, _ch5, _i5, boldUpright, italic, boldItalic, script, noFont, fraktur, doubleStruck, boldFraktur, sansSerif, boldSansSerif, italicSansSerif, monospace, wideLatinLetterData, wideNumeralData, wideCharacterFont, lookupSymbol, makeSymbol, mathsym, boldSymbol, makeOrd, canCombine, tryCombineChars, sizeElementFromChildren, makeSpan, makeSvgSpan, makeLineSpan, makeAnchor, makeFragment, wrapFragment, getVListChildrenAndDepth, makeVList, makeGlue, retrieveTextFontName, fontMap, svgData, staticSvg, thinspace, mediumspace, thickspace, spacings, tightSpacings, _functions, _htmlGroupBuilders, _mathmlGroupBuilders, normalizeArgument, ordargument, binLeftCanceller, binRightCanceller, styleMap$1, DomEnum, buildExpression$1, _traverseNonSpaceNodes, checkPartialGroup, _getOutermostNode, getTypeOfDomTree, makeNullDelimiter, buildGroup$1, MathNode, TextNode, SpaceNode, noVariantSymbols, rowLikeTypes, makeText, makeRow, mathFontVariants, getVariant, buildExpression2, buildExpressionRow, buildGroup2, sizeStyleMap, sizeMultipliers, sizeAtStyle, Options, optionsFromSettings, displayWrap, buildTree, buildHTMLTree, stretchyCodePoint, stretchyMathML, katexImagesData, wideAccentLabels, stretchySvg, stretchyEnclose, ATOMS, NON_ATOMS, getBaseSymbol, htmlBuilder$a, mathmlBuilder$9, NON_STRETCHY_ACCENT_REGEX, paddedNode, binrelClass, cdArrowFunctionName, newCell, isStartOfArrow, isLabelEnd, htmlBuilder$8, mathmlBuilder$7, globalMap, checkControlSequence, getRHS, letCommand, getMetrics, styleWrap, centerSpan, makeSmallDelim, mathrmSize, makeLargeDelim, makeGlyphSpan, makeInner, lapInEms, lap, verts, doubleVerts, makeStackedDelim, vbPad, emPad, sqrtSvg, makeSqrtImage, stackLargeDelimiters, stackAlwaysDelimiters, stackNeverDelimiters, sizeToMaxHeight, makeSizedDelim, stackNeverDelimiterSequence, stackAlwaysDelimiterSequence, stackLargeDelimiterSequence, delimTypeToFont, traverseSequence, makeCustomSizedDelim, makeLeftRightDelim, delimiterSizes, delimiters, htmlBuilder$7, mathmlBuilder$6, _environments, _macros, SourceLocation, Token, validateAmsEnvironmentContext, gatherEnvironments, htmlBuilder$6, alignMap, mathmlBuilder$5, alignedHandler, environments, htmlBuilder$5, mathmlBuilder$4, fontAliases, htmlBuilder$4, mathmlBuilder$3, wrapWithStyle, stylArray, delimFromValue, htmlBuilder$3, mathmlBuilder$2, sizeData, chooseMathStyle, assembleSupSub, noSuccessor, htmlBuilder$2, mathmlBuilder$1, singleCharBigOps, singleCharIntegrals, htmlBuilder$1, mathmlBuilder2, sizeFuncs, htmlBuilder2, styleMap, htmlBuilderDelegate, defaultVariant, cssSpace, regularSpace, pad2, textFontFamilies, textFontWeights, textFontShapes, optionsWithFont, makeVerb, functions, spaceRegexString, controlWordRegexString, controlSymbolRegexString, controlWordWhitespaceRegexString, controlSpaceRegexString, combiningDiacriticalMarkString, combiningDiacriticalMarksEndRegex, tokenRegexString, Lexer, Namespace, macros, digitToNumber, newcommand, dotsByToken, dotsbGroups, spaceAfterDots, latexRaiseA, braketHelper, implicitCommands, MacroExpander, unicodeSubRegEx, uSubsAndSups, unicodeAccents, unicodeSymbols, Parser, parseTree, render, renderToString, generateParseTree, renderError, renderToDomTree, renderToHTMLTree, version, __domTree, katex;
 var init_katex = __esm({
   "../../../opt/npm-tools/node_modules/katex/dist/katex.mjs"() {
     ParseError = class _ParseError extends Error {
@@ -19938,7 +19938,7 @@ var init_katex = __esm({
     };
     gatherEnvironments = /* @__PURE__ */ new Set(["gather", "gather*"]);
     htmlBuilder$6 = function htmlBuilder(group, options) {
-      var r3;
+      var r4;
       var c;
       var nr = group.body.length;
       var hLinesBeforeRow = group.hLinesBeforeRow;
@@ -19977,8 +19977,8 @@ var init_katex = __esm({
         }
       }
       setHLinePos(hLinesBeforeRow[0]);
-      for (r3 = 0; r3 < group.body.length; ++r3) {
-        var inrow = group.body[r3];
+      for (r4 = 0; r4 < group.body.length; ++r4) {
+        var inrow = group.body[r4];
         var height = arstrutHeight;
         var depth = arstrutDepth;
         if (nc < inrow.length) {
@@ -20000,7 +20000,7 @@ var init_katex = __esm({
           }
           outrow.cells[c] = elt;
         }
-        var rowGap = group.rowGaps[r3];
+        var rowGap = group.rowGaps[r4];
         var gap = 0;
         if (rowGap) {
           gap = calculateSize(rowGap, options);
@@ -20012,7 +20012,7 @@ var init_katex = __esm({
             gap = 0;
           }
         }
-        if (group.addJot && r3 < group.body.length - 1) {
+        if (group.addJot && r4 < group.body.length - 1) {
           depth += jot;
         }
         outrow.height = height;
@@ -20020,8 +20020,8 @@ var init_katex = __esm({
         totalHeight += height;
         outrow.pos = totalHeight;
         totalHeight += depth + gap;
-        body[r3] = outrow;
-        setHLinePos(hLinesBeforeRow[r3 + 1]);
+        body[r4] = outrow;
+        setHLinePos(hLinesBeforeRow[r4 + 1]);
       }
       var offset = totalHeight / 2 + options.fontMetrics().axisHeight;
       var colDescriptions = group.cols || [];
@@ -20030,10 +20030,10 @@ var init_katex = __esm({
       var colDescrNum;
       var tagSpans = [];
       if (group.tags && group.tags.some((tag2) => tag2)) {
-        for (r3 = 0; r3 < nr; ++r3) {
-          var rw = body[r3];
+        for (r4 = 0; r4 < nr; ++r4) {
+          var rw = body[r4];
           var shift = rw.pos - offset;
-          var tag = group.tags[r3];
+          var tag = group.tags[r4];
           var tagSpan = void 0;
           if (tag === true) {
             tagSpan = makeSpan(["eqn-num"], [], options);
@@ -20101,8 +20101,8 @@ var init_katex = __esm({
           }
         }
         var colElems = [];
-        for (r3 = 0; r3 < nr; ++r3) {
-          var row = body[r3];
+        for (r4 = 0; r4 < nr; ++r4) {
+          var row = body[r4];
           var elem = row.cells[c];
           if (!elem) {
             continue;
@@ -23114,7 +23114,7 @@ var init_katex = __esm({
         return node;
       }
     });
-    pad = () => {
+    pad2 = () => {
       var padNode = new MathNode("mtd", []);
       padNode.setAttribute("width", "50%");
       return padNode;
@@ -23122,7 +23122,7 @@ var init_katex = __esm({
     defineFunctionBuilders({
       type: "tag",
       mathmlBuilder(group, options) {
-        var table = new MathNode("mtable", [new MathNode("mtr", [pad(), new MathNode("mtd", [buildExpressionRow(group.body, options)]), pad(), new MathNode("mtd", [buildExpressionRow(group.tag, options)])])]);
+        var table = new MathNode("mtable", [new MathNode("mtr", [pad2(), new MathNode("mtd", [buildExpressionRow(group.body, options)]), pad2(), new MathNode("mtd", [buildExpressionRow(group.tag, options)])])]);
         table.setAttribute("width", "100%");
         return table;
       }
@@ -26048,12 +26048,12 @@ function parseFigure(src) {
             const item = { a: parts[0], v: parts[1], b: parts[2] };
             (cmd === "vuong" ? fig.rightAngles : fig.angles).push(item);
           } else if (cmd === "tron") {
-            const r3 = Number(parts[1]);
-            if (parts.length !== 2 || !byName.has(parts[0]) || !(r3 > 0)) {
+            const r4 = Number(parts[1]);
+            if (parts.length !== 2 || !byName.has(parts[0]) || !(r4 > 0)) {
               fig.errors.push(`D\xF2ng ${lineNo}: tron(O, r) c\u1EA7n t\xE2m \u0111\xE3 khai b\xE1o v\xE0 b\xE1n k\xEDnh d\u01B0\u01A1ng.`);
               return;
             }
-            fig.circles.push({ center: parts[0], r: r3 });
+            fig.circles.push({ center: parts[0], r: r4 });
           } else {
             fig.errors.push(`D\xF2ng ${lineNo}: kh\xF4ng hi\u1EC3u l\u1EC7nh "${name}(...)".`);
           }
@@ -26114,12 +26114,12 @@ function renderFigureSvg(fig, opts = {}) {
   }
   const w = Math.max(maxX - minX, 1e-6);
   const h = Math.max(maxY - minY, 1e-6);
-  const pad2 = 28;
-  const scale = Math.min((maxW - 2 * pad2) / w, (maxH - 2 * pad2) / h);
-  const width = Math.round(w * scale + 2 * pad2);
-  const height = Math.round(h * scale + 2 * pad2);
-  const X = (x) => pad2 + (x - minX) * scale;
-  const Y = (y) => height - pad2 - (y - minY) * scale;
+  const pad3 = 28;
+  const scale = Math.min((maxW - 2 * pad3) / w, (maxH - 2 * pad3) / h);
+  const width = Math.round(w * scale + 2 * pad3);
+  const height = Math.round(h * scale + 2 * pad3);
+  const X = (x) => pad3 + (x - minX) * scale;
+  const Y = (y) => height - pad3 - (y - minY) * scale;
   const cx2 = fig.points.reduce((s, p) => s + X(p.x), 0) / fig.points.length;
   const cy = fig.points.reduce((s, p) => s + Y(p.y), 0) / fig.points.length;
   const parts = [];
@@ -26138,8 +26138,8 @@ function renderFigureSvg(fig, opts = {}) {
     const len = Math.hypot(dx, dy) || 1;
     return [dx / len, dy / len];
   };
-  for (const r3 of fig.rightAngles) {
-    const v = byName.get(r3.v), a = byName.get(r3.a), b = byName.get(r3.b);
+  for (const r4 of fig.rightAngles) {
+    const v = byName.get(r4.v), a = byName.get(r4.a), b = byName.get(r4.b);
     const [ux, uy] = unit(v, a), [wx, wy] = unit(v, b);
     const s = 11, vx = X(v.x), vy = Y(v.y);
     parts.push(
@@ -26149,10 +26149,10 @@ function renderFigureSvg(fig, opts = {}) {
   for (const g of fig.angles) {
     const v = byName.get(g.v), a = byName.get(g.a), b = byName.get(g.b);
     const [ux, uy] = unit(v, a), [wx, wy] = unit(v, b);
-    const r3 = 20, vx = X(v.x), vy = Y(v.y);
+    const r4 = 20, vx = X(v.x), vy = Y(v.y);
     const cross = ux * wy - uy * wx;
     parts.push(
-      `<path d="M${fmt(vx + ux * r3)} ${fmt(vy + uy * r3)} A${r3} ${r3} 0 0 ${cross > 0 ? 1 : 0} ${fmt(vx + wx * r3)} ${fmt(vy + wy * r3)}" fill="none" stroke="var(--fig-accent, currentColor)" stroke-width="1.5"/>`
+      `<path d="M${fmt(vx + ux * r4)} ${fmt(vy + uy * r4)} A${r4} ${r4} 0 0 ${cross > 0 ? 1 : 0} ${fmt(vx + wx * r4)} ${fmt(vy + wy * r4)}" fill="none" stroke="var(--fig-accent, currentColor)" stroke-width="1.5"/>`
     );
   }
   for (const p of fig.points) {
@@ -27626,8 +27626,83 @@ create table audit_logs (
 );
 `;
 
+// migrations/002_knowledge_map.sql
+var knowledge_map_default = `-- Giai \u0111o\u1EA1n 2: b\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c  S\xE1ch \u2192 H\u1ECDc k\xEC \u2192 Ch\u01B0\u01A1ng \u2192 B\xE0i \u2192 Ch\u1EE7 \u0111\u1EC1 \u2192 D\u1EA1ng to\xE1n \u2192 B\xE0i t\u1EADp.
+-- Ch\u1EC9 TH\xCAM b\u1EA3ng/c\u1ED9t, kh\xF4ng x\xF3a hay \u0111\u1ED5i ngh\u0129a d\u1EEF li\u1EC7u c\u0169.
+--   * B\u1EA3ng topics (t\u1EEB giai \u0111o\u1EA1n 1, giao di\u1EC7n g\u1ECDi l\xE0 "D\u1EA1ng to\xE1n") ti\u1EBFp t\u1EE5c l\xE0 D\u1EA0NG TO\xC1N; questions.topic_id tr\u1ECF t\u1EDBi d\u1EA1ng to\xE1n.
+--   * B\u1EA3ng m\u1EDBi themes l\xE0 CH\u1EE6 \u0110\u1EC0 trong b\xE0i: m\u1ED9t b\xE0i c\xF3 nhi\u1EC1u ch\u1EE7 \u0111\u1EC1, m\u1ED7i ch\u1EE7 \u0111\u1EC1 c\xF3 nhi\u1EC1u d\u1EA1ng to\xE1n.
+
+-- Tr\u1EA1ng th\xE1i \u0111\u1ED1i chi\u1EBFu v\u1EDBi s\xE1ch gi\xE1o khoa: verified = \u0111\xE3 \u0111\u1ED1i chi\u1EBFu, needs_review = c\u1EA7n ki\u1EC3m tra, unverified = ch\u01B0a \u0111\u1ED1i chi\u1EBFu.
+
+alter table chapters
+  add column objectives text,
+  add column key_points text,
+  add column formulas text,
+  add column status text not null default 'published' check (status in ('draft', 'published')),
+  add column verify_status text not null default 'unverified' check (verify_status in ('verified', 'needs_review', 'unverified')),
+  add column verify_note text,
+  add column updated_at timestamptz not null default now(),
+  add column updated_by uuid references users(id) on delete set null;
+
+alter table lessons
+  add column code text check (code ~ '^[A-Z0-9.-]+$'),
+  add column objectives text,
+  add column prerequisites text,
+  add column concepts text,
+  add column formulas text,
+  add column properties text,
+  add column theorems text,
+  add column difficulty smallint check (difficulty between 1 and 4),
+  add column verify_status text not null default 'unverified' check (verify_status in ('verified', 'needs_review', 'unverified')),
+  add column verify_note text;
+create unique index lessons_code_key on lessons (textbook_id, code) where code is not null;
+
+create table themes (
+  id integer generated by default as identity primary key,
+  lesson_id integer not null references lessons(id) on delete cascade,
+  code text check (code ~ '^[A-Z0-9.-]+$'),
+  title text not null check (char_length(title) between 1 and 300),
+  description text,
+  status text not null default 'published' check (status in ('draft', 'published')),
+  sort_order smallint not null,
+  updated_at timestamptz not null default now()
+);
+create index themes_lesson_idx on themes (lesson_id, sort_order);
+create unique index themes_code_key on themes (code) where code is not null;
+
+alter table topics
+  add column theme_id integer references themes(id) on delete set null,
+  add column code text check (code ~ '^[A-Z0-9.-]+$'),
+  add column slug text check (slug ~ '^[a-z0-9-]+$'),
+  add column knowledge text,          -- Ki\u1EBFn th\u1EE9c s\u1EED d\u1EE5ng
+  add column signs text,              -- D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt
+  add column steps text,              -- C\xE1c b\u01B0\u1EDBc gi\u1EA3i
+  add column mistakes text,           -- L\u1ED7i sai th\u01B0\u1EDDng g\u1EB7p
+  add column example text,            -- V\xED d\u1EE5 minh h\u1ECDa (\u0111\u1EC1)
+  add column example_solution text,   -- L\u1EDDi gi\u1EA3i v\xED d\u1EE5
+  add column levels smallint[] not null default '{}'::smallint[], -- M\u1EE9c \u0111\u1ED9 ph\xF9 h\u1EE3p: 1 NB, 2 TH, 3 VD, 4 VDC
+  add column status text not null default 'published' check (status in ('draft', 'published')),
+  add column updated_at timestamptz not null default now(),
+  add column updated_by uuid references users(id) on delete set null;
+alter table topics add constraint topics_levels_check check (levels <@ array[1, 2, 3, 4]::smallint[]);
+create unique index topics_code_key on topics (code) where code is not null;
+create unique index topics_slug_key on topics (lesson_id, slug) where slug is not null;
+create index topics_theme_idx on topics (theme_id, sort_order);
+create index questions_topic_idx on questions (topic_id, status);
+
+-- M\u1ED1c n\u1EA1p d\u1EEF li\u1EC7u m\u1EABu: m\u1ED7i g\xF3i d\u1EEF li\u1EC7u ch\u1EC9 n\u1EA1p m\u1ED9t l\u1EA7n, kh\xF4ng ghi \u0111\xE8 ch\u1EC9nh s\u1EEDa c\u1EE7a gi\xE1o vi\xEAn.
+create table seed_marks (
+  key text primary key,
+  applied_at timestamptz not null default now(),
+  note text
+);
+`;
+
 // src/server/db/migrate.ts
-var MIGRATIONS = [{ version: "001_init", sql: init_default }];
+var MIGRATIONS = [
+  { version: "001_init", sql: init_default },
+  { version: "002_knowledge_map", sql: knowledge_map_default }
+];
 var LOCK_ID = 727001;
 async function migrate(db, log = console.log) {
   const applied = [];
@@ -27637,7 +27712,7 @@ async function migrate(db, log = console.log) {
       await conn.simpleQuery(
         "create table if not exists schema_migrations (version text primary key, applied_at timestamptz not null default now())"
       );
-      const done = new Set((await conn.query("select version from schema_migrations")).rows.map((r3) => r3.version));
+      const done = new Set((await conn.query("select version from schema_migrations")).rows.map((r4) => r4.version));
       for (const m of MIGRATIONS) {
         if (done.has(m.version)) continue;
         log(`\xC1p d\u1EE5ng migration ${m.version}\u2026`);
@@ -28964,6 +29039,751 @@ vuong(B,A,C)`,
   }
 ];
 
+// src/seed/toan8-map/types.ts
+var mcq = (level, stem, options, correct, solution, extra = {}) => ({
+  type: "mcq",
+  level,
+  stem,
+  options,
+  correct,
+  solution,
+  ...extra
+});
+var tf = (level, stem, statements, solution) => ({
+  type: "true_false",
+  level,
+  stem,
+  statements,
+  solution
+});
+var sa = (level, stem, accepted, solution, unit) => ({
+  type: "short_answer",
+  level,
+  stem,
+  accepted,
+  solution,
+  ...unit ? { unit } : {}
+});
+var es = (level, stem, solution, hint) => ({
+  type: "essay",
+  level,
+  stem,
+  solution,
+  ...hint ? { hint } : {}
+});
+var r3 = String.raw;
+
+// src/seed/toan8-map/chuong-1.ts
+var CHUONG_1 = {
+  code: "I",
+  objectives: `- Nh\u1EADn bi\u1EBFt \u0111\u01A1n th\u1EE9c, \u0111a th\u1EE9c nhi\u1EC1u bi\u1EBFn; x\xE1c \u0111\u1ECBnh h\u1EC7 s\u1ED1, ph\u1EA7n bi\u1EBFn, b\u1EADc.
+- Thu g\u1ECDn, c\u1ED9ng, tr\u1EEB, nh\xE2n \u0111a th\u1EE9c; chia \u0111a th\u1EE9c cho \u0111\u01A1n th\u1EE9c (tr\u01B0\u1EDDng h\u1EE3p chia h\u1EBFt).
+- T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a \u0111a th\u1EE9c; v\u1EADn d\u1EE5ng c\xE1c ph\xE9p t\xEDnh \u0111\u1EC3 ch\u1EE9ng minh \u0111\u1EB3ng th\u1EE9c v\xE0 gi\u1EA3i b\xE0i to\xE1n th\u1EF1c t\u1EBF.`,
+  keyPoints: `- \u0110\u01A1n th\u1EE9c thu g\u1ECDn, h\u1EC7 s\u1ED1, ph\u1EA7n bi\u1EBFn, b\u1EADc; \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng.
+- \u0110a th\u1EE9c thu g\u1ECDn v\xE0 b\u1EADc c\u1EE7a \u0111a th\u1EE9c.
+- Quy t\u1EAFc c\u1ED9ng, tr\u1EEB, nh\xE2n \u0111a th\u1EE9c; chia \u0111\u01A1n th\u1EE9c, \u0111a th\u1EE9c cho \u0111\u01A1n th\u1EE9c.`,
+  formulas: r3`\[x^m\cdot x^n = x^{m+n};\qquad x^m : x^n = x^{m-n}\ (m \ge n)\]
+\[A(B + C) = AB + AC\]
+\[(A + B)(C + D) = AC + AD + BC + BD\]`,
+  verify: { status: "verified", note: "T\xEAn ch\u01B0\u01A1ng, t\xEAn b\xE0i v\xE0 th\u1EE9 t\u1EF1 \u0111\u1ED1i chi\u1EBFu v\u1EDBi m\u1EE5c l\u1EE5c SGK To\xE1n 8 K\u1EBFt n\u1ED1i tri th\u1EE9c t\u1EADp 1 (VietJack, Hoatieu) v\xE0 PPCT 2026-2027." },
+  aux: [
+    { slug: "luyen-tap-chung-1a", objectives: "C\u1EE7ng c\u1ED1 B\xE0i 1 \u2013 B\xE0i 3: \u0111\u01A1n th\u1EE9c, \u0111a th\u1EE9c, c\u1ED9ng v\xE0 tr\u1EEB \u0111a th\u1EE9c; r\xE8n k\u0129 n\u0103ng thu g\u1ECDn, t\xECm b\u1EADc v\xE0 t\xEDnh gi\xE1 tr\u1ECB." },
+    { slug: "luyen-tap-chung-1b", objectives: "C\u1EE7ng c\u1ED1 B\xE0i 4 \u2013 B\xE0i 5: nh\xE2n \u0111a th\u1EE9c, chia \u0111a th\u1EE9c cho \u0111\u01A1n th\u1EE9c; ch\u1EE9ng minh bi\u1EC3u th\u1EE9c kh\xF4ng ph\u1EE5 thu\u1ED9c v\xE0o bi\u1EBFn." },
+    { slug: "bai-tap-cuoi-chuong-1", objectives: "\xD4n t\u1EADp to\xE0n Ch\u01B0\u01A1ng I: h\u1EC7 th\u1ED1ng ki\u1EBFn th\u1EE9c v\u1EC1 \u0111\u01A1n th\u1EE9c, \u0111a th\u1EE9c v\xE0 c\xE1c ph\xE9p t\xEDnh; chu\u1EA9n b\u1ECB ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng." }
+  ],
+  lessons: [
+    // ---------------- Bài 1 ----------------
+    {
+      slug: "bai-1-don-thuc",
+      difficulty: 1,
+      objectives: `- Nh\u1EADn bi\u1EBFt \u0111\u01A1n th\u1EE9c, \u0111\u01A1n th\u1EE9c thu g\u1ECDn; ch\u1EC9 ra h\u1EC7 s\u1ED1, ph\u1EA7n bi\u1EBFn v\xE0 b\u1EADc c\u1EE7a \u0111\u01A1n th\u1EE9c.
+- Nh\u1EADn bi\u1EBFt \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng; c\u1ED9ng, tr\u1EEB c\xE1c \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng.
+- T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a \u0111\u01A1n th\u1EE9c khi bi\u1EBFt gi\xE1 tr\u1ECB c\u1EE7a c\xE1c bi\u1EBFn.`,
+      prerequisites: r3`- Biểu thức đại số, giá trị của biểu thức (Toán 7).
+- Lũy thừa với số mũ tự nhiên: \(x^m\cdot x^n = x^{m+n}\).`,
+      concepts: "\u0110\u01A1n th\u1EE9c; \u0111\u01A1n th\u1EE9c thu g\u1ECDn; h\u1EC7 s\u1ED1; ph\u1EA7n bi\u1EBFn; b\u1EADc c\u1EE7a \u0111\u01A1n th\u1EE9c; \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng.",
+      formulas: r3`\(a\,x^my^n + b\,x^my^n = (a + b)\,x^my^n\); \(a\,x^my^n - b\,x^my^n = (a - b)\,x^my^n\)`,
+      properties: `- M\u1ED7i s\u1ED1 th\u1EF1c kh\xE1c 0 l\xE0 m\u1ED9t \u0111\u01A1n th\u1EE9c b\u1EADc 0; s\u1ED1 0 l\xE0 \u0111\u01A1n th\u1EE9c kh\xF4ng c\xF3 b\u1EADc.
+- Hai \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng l\xE0 hai \u0111\u01A1n th\u1EE9c c\xF3 h\u1EC7 s\u1ED1 kh\xE1c 0 v\xE0 c\xF3 c\xF9ng ph\u1EA7n bi\u1EBFn.`,
+      themes: [
+        {
+          title: "\u0110\u01A1n th\u1EE9c v\xE0 \u0111\u01A1n th\u1EE9c thu g\u1ECDn",
+          description: "Kh\xE1i ni\u1EC7m \u0111\u01A1n th\u1EE9c, \u0111\u01A1n th\u1EE9c thu g\u1ECDn, h\u1EC7 s\u1ED1, ph\u1EA7n bi\u1EBFn, b\u1EADc v\xE0 gi\xE1 tr\u1ECB c\u1EE7a \u0111\u01A1n th\u1EE9c.",
+          types: [
+            {
+              slug: "nhan-dien-don-thuc",
+              title: "Nh\u1EADn di\u1EC7n \u0111\u01A1n th\u1EE9c",
+              levels: [1],
+              knowledge: "\u0110\u01A1n th\u1EE9c l\xE0 bi\u1EC3u th\u1EE9c \u0111\u1EA1i s\u1ED1 ch\u1EC9 g\u1ED3m m\u1ED9t s\u1ED1, ho\u1EB7c m\u1ED9t bi\u1EBFn, ho\u1EB7c m\u1ED9t t\xEDch gi\u1EEFa c\xE1c s\u1ED1 v\xE0 c\xE1c bi\u1EBFn.",
+              signs: "\u0110\u1EC1 cho nhi\u1EC1u bi\u1EC3u th\u1EE9c, y\xEAu c\u1EA7u ch\u1EC9 ra bi\u1EC3u th\u1EE9c n\xE0o l\xE0 (ho\u1EB7c kh\xF4ng l\xE0) \u0111\u01A1n th\u1EE9c.",
+              method: "Ki\u1EC3m tra xem bi\u1EC3u th\u1EE9c c\xF3 ph\u1EA3i l\xE0 m\u1ED9t s\u1ED1, m\u1ED9t bi\u1EBFn hay m\u1ED9t t\xEDch gi\u1EEFa c\xE1c s\u1ED1 v\xE0 c\xE1c bi\u1EBFn hay kh\xF4ng.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE9t l\u1EA7n l\u01B0\u1EE3t t\u1EEBng bi\u1EC3u th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** Bi\u1EC3u th\u1EE9c c\xF3 ph\xE9p c\u1ED9ng, ph\xE9p tr\u1EEB gi\u1EEFa c\xE1c h\u1EA1ng t\u1EED ch\u1EE9a bi\u1EBFn, ho\u1EB7c c\xF3 ph\xE9p chia cho bi\u1EBFn, th\xEC kh\xF4ng ph\u1EA3i \u0111\u01A1n th\u1EE9c.
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn.`,
+              mistakes: r3`- Cho rằng \(\dfrac{x}{3}\) không phải đơn thức. Thực ra \(\dfrac{x}{3} = \dfrac{1}{3}x\) là đơn thức.
+- Cho rằng một số (như \(5\) hay \(-\dfrac{1}{2}\)) không phải đơn thức.
+- Nhầm \(\dfrac{3}{x}\) là đơn thức (biến nằm ở mẫu).`,
+              example: r3`Trong các biểu thức \(3x^2y\); \(x + y\); \(-\dfrac{1}{2}\); \(\dfrac{2}{x}\); \(\dfrac{xy}{3}\); \(4(x - 1)\), biểu thức nào là đơn thức?`,
+              solution: r3`Các đơn thức: \(3x^2y\); \(-\dfrac{1}{2}\); \(\dfrac{xy}{3} = \dfrac{1}{3}xy\).
+Không phải đơn thức: \(x + y\) và \(4(x - 1) = 4x - 4\) (có phép cộng, trừ); \(\dfrac{2}{x}\) (có phép chia cho biến).`,
+              exercises: [
+                mcq(1, r3`Biểu thức nào sau đây **không** là đơn thức?`, [r3`\(-5x^3\)`, r3`\(\dfrac{x^2y}{4}\)`, r3`\(7\)`, r3`\(2x + y\)`], "D", r3`\(2x + y\) là tổng của hai đơn thức nên không phải đơn thức. Các biểu thức còn lại là một số hoặc tích của số với các biến.`),
+                tf(1, "X\xE9t c\xE1c bi\u1EC3u th\u1EE9c sau. M\u1ED7i kh\u1EB3ng \u0111\u1ECBnh \u0111\xFAng hay sai?", [
+                  [r3`\(\dfrac{1}{3}x^2y^3\) là đơn thức.`, true],
+                  [r3`\(x - 2y\) là đơn thức.`, false],
+                  [r3`Số \(0\) là đơn thức.`, true],
+                  [r3`\(\dfrac{3}{y}\) là đơn thức.`, false]
+                ], r3`a) Đúng: tích của số \(\dfrac13\) với các biến. b) Sai: có phép trừ. c) Đúng: mỗi số là một đơn thức. d) Sai: có phép chia cho biến.`)
+              ]
+            },
+            {
+              slug: "thu-gon-don-thuc",
+              title: "Thu g\u1ECDn \u0111\u01A1n th\u1EE9c, x\xE1c \u0111\u1ECBnh h\u1EC7 s\u1ED1 v\xE0 ph\u1EA7n bi\u1EBFn",
+              levels: [1, 2],
+              knowledge: r3`Đơn thức thu gọn chỉ gồm một số, hoặc tích của một số với các biến, mỗi biến xuất hiện một lần với số mũ nguyên dương. Quy tắc \(x^m\cdot x^n = x^{m+n}\).`,
+              signs: "\u0110\u01A1n th\u1EE9c c\xF3 m\u1ED9t bi\u1EBFn xu\u1EA5t hi\u1EC7n nhi\u1EC1u l\u1EA7n ho\u1EB7c c\xF3 nhi\u1EC1u th\u1EEBa s\u1ED1 l\xE0 s\u1ED1.",
+              method: "Nh\xE2n c\xE1c th\u1EEBa s\u1ED1 l\xE0 s\u1ED1 v\u1EDBi nhau, nh\xE2n c\xE1c l\u0169y th\u1EEBa c\xF9ng bi\u1EBFn v\u1EDBi nhau.",
+              steps: r3`- **Bước 1.** Nhóm các thừa số là số với nhau, các lũy thừa cùng biến với nhau.
+- **Bước 2.** Tính tích các số (được hệ số); với mỗi biến dùng \(x^m\cdot x^n = x^{m+n}\).
+- **Bước 3.** Viết hệ số trước, phần biến sau; chỉ ra hệ số và phần biến.`,
+              mistakes: r3`- Nhân số mũ thay vì cộng: \(x^2\cdot x^3 = x^6\) là sai, đúng là \(x^5\).
+- Quên dấu âm của hệ số.
+- Tính sai lũy thừa của tích: \((-2x)^2 = 4x^2\), không phải \(-4x^2\).`,
+              example: r3`Thu gọn đơn thức \(A = -2x^2y\cdot\dfrac{3}{4}xy^3\) rồi chỉ ra hệ số và phần biến.`,
+              solution: r3`\(A = \left(-2\cdot\dfrac{3}{4}\right)\left(x^2\cdot x\right)\left(y\cdot y^3\right) = -\dfrac{3}{2}x^3y^4\).
+Hệ số là \(-\dfrac{3}{2}\), phần biến là \(x^3y^4\).`,
+              exercises: [
+                sa(1, r3`Thu gọn đơn thức \(3x\cdot(-2)xy^2\). Hệ số của đơn thức thu gọn bằng bao nhiêu?`, ["-6"], r3`\(3x\cdot(-2)xy^2 = \left[3\cdot(-2)\right](x\cdot x)y^2 = -6x^2y^2\). Hệ số là \(-6\).`),
+                mcq(2, r3`Thu gọn đơn thức \(\left(-\dfrac{1}{2}x^2y\right)\cdot 4xy^2z\cdot x\) ta được`, [r3`\(-2x^4y^3z\)`, r3`\(2x^4y^3z\)`, r3`\(-2x^3y^3z\)`, r3`\(-\dfrac{1}{2}x^4y^3z\)`], "A", r3`Hệ số: \(-\dfrac12\cdot4 = -2\). Phần biến: \(x^{2+1+1}y^{1+2}z = x^4y^3z\). Vậy kết quả là \(-2x^4y^3z\).`)
+              ]
+            },
+            {
+              slug: "tim-bac-cua-don-thuc",
+              title: "T\xECm b\u1EADc c\u1EE7a \u0111\u01A1n th\u1EE9c",
+              levels: [1, 2],
+              knowledge: "B\u1EADc c\u1EE7a \u0111\u01A1n th\u1EE9c c\xF3 h\u1EC7 s\u1ED1 kh\xE1c 0 l\xE0 t\u1ED5ng s\u1ED1 m\u0169 c\u1EE7a t\u1EA5t c\u1EA3 c\xE1c bi\u1EBFn trong \u0111\u01A1n th\u1EE9c \u0111\xF3 (sau khi thu g\u1ECDn).",
+              signs: "\u0110\u1EC1 h\u1ECFi b\u1EADc c\u1EE7a m\u1ED9t \u0111\u01A1n th\u1EE9c (\u0111\xE3 ho\u1EB7c ch\u01B0a thu g\u1ECDn).",
+              method: "Thu g\u1ECDn \u0111\u01A1n th\u1EE9c r\u1ED3i c\u1ED9ng s\u1ED1 m\u0169 c\u1EE7a t\u1EA5t c\u1EA3 c\xE1c bi\u1EBFn.",
+              steps: `- **B\u01B0\u1EDBc 1.** Thu g\u1ECDn \u0111\u01A1n th\u1EE9c (n\u1EBFu ch\u01B0a thu g\u1ECDn).
+- **B\u01B0\u1EDBc 2.** C\u1ED9ng s\u1ED1 m\u0169 c\u1EE7a t\u1EA5t c\u1EA3 c\xE1c bi\u1EBFn; bi\u1EBFn kh\xF4ng ghi s\u1ED1 m\u0169 c\xF3 s\u1ED1 m\u0169 1.
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn b\u1EADc c\u1EE7a \u0111\u01A1n th\u1EE9c.`,
+              mistakes: r3`- Cộng cả số mũ của hệ số: \(2^3x^2\) có bậc 2, không phải 5.
+- Bỏ sót biến có số mũ 1.
+- Quên rằng số khác 0 có bậc 0, còn số 0 không có bậc.`,
+              example: r3`Tìm bậc của đơn thức \(B = 5x^2y\cdot(-xy^2z)\).`,
+              solution: r3`Thu gọn: \(B = -5x^3y^3z\). Bậc của \(B\) là \(3 + 3 + 1 = 7\).`,
+              exercises: [
+                sa(1, r3`Bậc của đơn thức \(-\dfrac{2}{3}x^4y^2z\) là bao nhiêu?`, ["7"], r3`Tổng số mũ các biến: \(4 + 2 + 1 = 7\).`),
+                mcq(2, r3`Đơn thức \(2^3x^2y\cdot 3xy^2\) có bậc là`, ["6", "9", "5", "3"], "A", r3`Thu gọn: \(2^3x^2y\cdot3xy^2 = 24x^3y^3\). Bậc là \(3 + 3 = 6\). Số mũ 3 của cơ số 2 thuộc hệ số nên không tính.`)
+              ]
+            },
+            {
+              slug: "tinh-gia-tri-cua-don-thuc",
+              title: "T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a \u0111\u01A1n th\u1EE9c",
+              levels: [1, 2, 3],
+              knowledge: "Gi\xE1 tr\u1ECB c\u1EE7a bi\u1EC3u th\u1EE9c \u0111\u1EA1i s\u1ED1 t\u1EA1i c\xE1c gi\xE1 tr\u1ECB cho tr\u01B0\u1EDBc c\u1EE7a bi\u1EBFn; thu g\u1ECDn \u0111\u01A1n th\u1EE9c.",
+              signs: "\u0110\u1EC1 cho gi\xE1 tr\u1ECB c\u1EE5 th\u1EC3 c\u1EE7a c\xE1c bi\u1EBFn, y\xEAu c\u1EA7u t\xEDnh gi\xE1 tr\u1ECB c\u1EE7a \u0111\u01A1n th\u1EE9c (ho\u1EB7c \u0111\u1EA1i l\u01B0\u1EE3ng th\u1EF1c t\u1EBF \u0111\u01B0\u1EE3c bi\u1EC3u di\u1EC5n b\u1EB1ng \u0111\u01A1n th\u1EE9c).",
+              method: "Thu g\u1ECDn \u0111\u01A1n th\u1EE9c (n\u1EBFu c\u1EA7n), thay gi\xE1 tr\u1ECB c\u1EE7a c\xE1c bi\u1EBFn v\xE0o r\u1ED3i t\xEDnh.",
+              steps: `- **B\u01B0\u1EDBc 1.** Thu g\u1ECDn \u0111\u01A1n th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** Thay gi\xE1 tr\u1ECB c\u1EE7a c\xE1c bi\u1EBFn; s\u1ED1 \xE2m \u0111\u1EB7t trong ngo\u1EB7c.
+- **B\u01B0\u1EDBc 3.** T\xEDnh l\u0169y th\u1EEBa tr\u01B0\u1EDBc, nh\xE2n sau.`,
+              mistakes: r3`- Không đặt số âm trong ngoặc: \(-2^2 = -4\) nhưng \((-2)^2 = 4\).
+- Thay số khi chưa thu gọn làm phép tính dài, dễ sai.`,
+              example: r3`Tính giá trị của đơn thức \(C = -3x^2y\) tại \(x = -2\), \(y = \dfrac{1}{3}\).`,
+              solution: r3`\(C = -3\cdot(-2)^2\cdot\dfrac{1}{3} = -3\cdot4\cdot\dfrac13 = -4\).`,
+              exercises: [
+                sa(2, r3`Tính giá trị của đơn thức \(2xy^2\cdot(-x)\) tại \(x = 1\), \(y = -3\).`, ["-18"], r3`Thu gọn: \(2xy^2\cdot(-x) = -2x^2y^2\). Tại \(x = 1\), \(y = -3\): \(-2\cdot1^2\cdot(-3)^2 = -2\cdot9 = -18\).`),
+                sa(3, r3`Một bể cá dạng hình hộp chữ nhật có chiều dài \(2x\) (dm), chiều rộng \(x\) (dm), chiều cao \(3y\) (dm). Thể tích của bể là đơn thức \(V = 6x^2y\) (dm³). Tính \(V\) khi \(x = 5\), \(y = 2\).`, ["300"], r3`\(V = 2x\cdot x\cdot3y = 6x^2y\). Với \(x = 5\), \(y = 2\): \(V = 6\cdot25\cdot2 = 300\) (dm³).`, "dm\xB3")
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u0110\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng",
+          description: "Nh\u1EADn bi\u1EBFt \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng; c\u1ED9ng, tr\u1EEB c\xE1c \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng.",
+          types: [
+            {
+              slug: "cong-tru-don-thuc-dong-dang",
+              title: "C\u1ED9ng, tr\u1EEB c\xE1c \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng",
+              levels: [1, 2, 3],
+              knowledge: "Hai \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng c\xF3 h\u1EC7 s\u1ED1 kh\xE1c 0 v\xE0 c\xF9ng ph\u1EA7n bi\u1EBFn. Mu\u1ED1n c\u1ED9ng (tr\u1EEB) c\xE1c \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng, ta c\u1ED9ng (tr\u1EEB) c\xE1c h\u1EC7 s\u1ED1 v\xE0 gi\u1EEF nguy\xEAn ph\u1EA7n bi\u1EBFn.",
+              signs: "T\u1ED5ng ho\u1EB7c hi\u1EC7u c\u1EE7a c\xE1c \u0111\u01A1n th\u1EE9c c\xF3 c\xF9ng ph\u1EA7n bi\u1EBFn (sau khi thu g\u1ECDn).",
+              method: "Thu g\u1ECDn t\u1EEBng \u0111\u01A1n th\u1EE9c, nh\u1EADn ra c\xE1c \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng r\u1ED3i c\u1ED9ng, tr\u1EEB h\u1EC7 s\u1ED1.",
+              steps: `- **B\u01B0\u1EDBc 1.** Thu g\u1ECDn t\u1EEBng \u0111\u01A1n th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** Nh\u1EADn bi\u1EBFt c\xE1c \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng (c\xF9ng ph\u1EA7n bi\u1EBFn).
+- **B\u01B0\u1EDBc 3.** C\u1ED9ng, tr\u1EEB c\xE1c h\u1EC7 s\u1ED1 v\xE0 gi\u1EEF nguy\xEAn ph\u1EA7n bi\u1EBFn.`,
+              mistakes: r3`- Coi \(x^2y\) và \(xy^2\) là đồng dạng (phần biến khác nhau).
+- Cộng cả số mũ: \(2x^2 + 3x^2 = 5x^4\) là sai, đúng là \(5x^2\).`,
+              example: r3`Tính \(4x^2y - \dfrac{1}{2}x^2y + x\cdot(-3xy)\).`,
+              solution: r3`Ta có \(x\cdot(-3xy) = -3x^2y\). Ba đơn thức đồng dạng nên
+\[4x^2y - \dfrac12x^2y - 3x^2y = \left(4 - \dfrac12 - 3\right)x^2y = \dfrac12x^2y.\]`,
+              exercises: [
+                mcq(1, r3`Đơn thức nào đồng dạng với đơn thức \(-3xy^2\)?`, [r3`\(-3x^2y\)`, r3`\(\dfrac{1}{2}xy^2\)`, r3`\(3xy\)`, r3`\(xy^2z\)`], "B", r3`\(\dfrac12xy^2\) có hệ số khác 0 và cùng phần biến \(xy^2\) với \(-3xy^2\).`),
+                sa(2, r3`Thu gọn \(5xy^3 - 2xy^3 + \dfrac{1}{2}xy\cdot 4y^2\) được đơn thức \(a\,xy^3\). Tìm \(a\).`, ["5"], r3`\(\dfrac12xy\cdot4y^2 = 2xy^3\). Do đó tổng bằng \((5 - 2 + 2)xy^3 = 5xy^3\), suy ra \(a = 5\).`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 2 ----------------
+    {
+      slug: "bai-2-da-thuc",
+      difficulty: 1,
+      objectives: `- Nh\u1EADn bi\u1EBFt \u0111a th\u1EE9c, h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c, \u0111a th\u1EE9c thu g\u1ECDn.
+- Thu g\u1ECDn \u0111a th\u1EE9c v\xE0 t\xECm b\u1EADc c\u1EE7a \u0111a th\u1EE9c.
+- T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a \u0111a th\u1EE9c khi bi\u1EBFt gi\xE1 tr\u1ECB c\u1EE7a c\xE1c bi\u1EBFn.`,
+      prerequisites: "- \u0110\u01A1n th\u1EE9c, \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng, c\u1ED9ng tr\u1EEB \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng (B\xE0i 1).\n- \u0110a th\u1EE9c m\u1ED9t bi\u1EBFn (To\xE1n 7).",
+      concepts: "\u0110a th\u1EE9c; h\u1EA1ng t\u1EED; \u0111a th\u1EE9c thu g\u1ECDn; b\u1EADc c\u1EE7a \u0111a th\u1EE9c.",
+      properties: `- M\u1ED7i \u0111\u01A1n th\u1EE9c c\u0169ng \u0111\u01B0\u1EE3c coi l\xE0 m\u1ED9t \u0111a th\u1EE9c.
+- \u0110a th\u1EE9c thu g\u1ECDn l\xE0 \u0111a th\u1EE9c kh\xF4ng c\xF3 hai h\u1EA1ng t\u1EED n\xE0o \u0111\u1ED3ng d\u1EA1ng.
+- B\u1EADc c\u1EE7a \u0111a th\u1EE9c l\xE0 b\u1EADc c\u1EE7a h\u1EA1ng t\u1EED c\xF3 b\u1EADc cao nh\u1EA5t trong d\u1EA1ng thu g\u1ECDn c\u1EE7a \u0111a th\u1EE9c \u0111\xF3.`,
+      themes: [
+        {
+          title: "\u0110a th\u1EE9c v\xE0 \u0111a th\u1EE9c thu g\u1ECDn",
+          description: "Nh\u1EADn di\u1EC7n \u0111a th\u1EE9c, h\u1EA1ng t\u1EED; thu g\u1ECDn \u0111a th\u1EE9c; b\u1EADc c\u1EE7a \u0111a th\u1EE9c.",
+          types: [
+            {
+              slug: "nhan-dien-da-thuc",
+              title: "Nh\u1EADn di\u1EC7n \u0111a th\u1EE9c",
+              levels: [1],
+              knowledge: "\u0110a th\u1EE9c l\xE0 t\u1ED5ng c\u1EE7a nh\u1EEFng \u0111\u01A1n th\u1EE9c; m\u1ED7i \u0111\u01A1n th\u1EE9c trong t\u1ED5ng g\u1ECDi l\xE0 m\u1ED9t h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u ch\u1EC9 ra bi\u1EC3u th\u1EE9c n\xE0o l\xE0 \u0111a th\u1EE9c, ho\u1EB7c ch\u1EC9 ra c\xE1c h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c.",
+              method: "Vi\u1EBFt bi\u1EC3u th\u1EE9c th\xE0nh t\u1ED5ng c\xE1c \u0111\u01A1n th\u1EE9c; n\u1EBFu vi\u1EBFt \u0111\u01B0\u1EE3c th\xEC \u0111\xF3 l\xE0 \u0111a th\u1EE9c.",
+              steps: r3`- **Bước 1.** Coi phép trừ là cộng với số đối: \(x - 2y = x + (-2y)\).
+- **Bước 2.** Kiểm tra mỗi hạng tử có phải đơn thức không (không có biến ở mẫu).
+- **Bước 3.** Kết luận, chỉ ra các hạng tử kèm dấu.`,
+              mistakes: r3`- Quên dấu của hạng tử: các hạng tử của \(x^2 - 3y\) là \(x^2\) và \(-3y\).
+- Cho rằng một đơn thức không phải là đa thức.`,
+              example: r3`Biểu thức \(P = 3x^2y - \dfrac{1}{2}xy + 5\) có phải là đa thức không? Chỉ ra các hạng tử của \(P\).`,
+              solution: r3`\(P\) là tổng của ba đơn thức nên \(P\) là đa thức. Các hạng tử: \(3x^2y\); \(-\dfrac{1}{2}xy\); \(5\).`,
+              exercises: [
+                mcq(1, "Bi\u1EC3u th\u1EE9c n\xE0o sau \u0111\xE2y **kh\xF4ng** ph\u1EA3i l\xE0 \u0111a th\u1EE9c?", [r3`\(x^2 - 2xy + 1\)`, r3`\(5xy\)`, r3`\(\dfrac{x + 1}{y}\)`, r3`\(\dfrac{1}{2}x - y^3\)`], "C", r3`\(\dfrac{x + 1}{y}\) có biến ở mẫu nên không viết được thành tổng các đơn thức.`),
+                tf(1, r3`Cho đa thức \(Q = 2x^3 - xy + 4y - 7\). Mỗi khẳng định sau đúng hay sai?`, [
+                  [r3`\(Q\) có 4 hạng tử.`, true],
+                  [r3`Hạng tử thứ hai của \(Q\) là \(xy\).`, false],
+                  [r3`\(-7\) là một hạng tử của \(Q\).`, true],
+                  [r3`Mỗi hạng tử của \(Q\) là một đơn thức.`, true]
+                ], r3`\(Q = 2x^3 + (-xy) + 4y + (-7)\): có 4 hạng tử, hạng tử thứ hai là \(-xy\) (mang dấu âm), \(-7\) là một hạng tử, mỗi hạng tử đều là đơn thức.`)
+              ]
+            },
+            {
+              slug: "thu-gon-da-thuc",
+              title: "Thu g\u1ECDn \u0111a th\u1EE9c",
+              levels: [1, 2],
+              knowledge: "\u0110\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng; c\u1ED9ng, tr\u1EEB \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng.",
+              signs: "\u0110a th\u1EE9c c\xF3 c\xE1c h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng ho\u1EB7c h\u1EA1ng t\u1EED ch\u01B0a thu g\u1ECDn.",
+              method: "Thu g\u1ECDn t\u1EEBng h\u1EA1ng t\u1EED, nh\xF3m c\xE1c h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng r\u1ED3i c\u1ED9ng, tr\u1EEB ch\xFAng.",
+              steps: `- **B\u01B0\u1EDBc 1.** Thu g\u1ECDn t\u1EEBng h\u1EA1ng t\u1EED (n\u1EBFu c\u1EA7n).
+- **B\u01B0\u1EDBc 2.** Nh\xF3m c\xE1c h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng, gi\u1EEF nguy\xEAn d\u1EA5u \u0111\u1EE9ng tr\u01B0\u1EDBc m\u1ED7i h\u1EA1ng t\u1EED.
+- **B\u01B0\u1EDBc 3.** C\u1ED9ng, tr\u1EEB c\xE1c h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng; vi\u1EBFt \u0111a th\u1EE9c k\u1EBFt qu\u1EA3.`,
+              mistakes: "- \u0110\u1ED5i sai d\u1EA5u khi nh\xF3m c\xE1c h\u1EA1ng t\u1EED.\n- B\u1ECF s\xF3t h\u1EA1ng t\u1EED kh\xF4ng c\xF3 h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng v\u1EDBi n\xF3.",
+              example: r3`Thu gọn đa thức \(M = x^2y + 3xy - 2x^2y + 5 - xy\).`,
+              solution: r3`\(M = (x^2y - 2x^2y) + (3xy - xy) + 5 = -x^2y + 2xy + 5\).`,
+              exercises: [
+                sa(1, r3`Thu gọn đa thức \(4x^2 - 3xy + x^2 + 5xy - 2\). Hệ số của hạng tử \(xy\) trong đa thức thu gọn là bao nhiêu?`, ["2"], r3`\(4x^2 - 3xy + x^2 + 5xy - 2 = 5x^2 + 2xy - 2\). Hệ số của \(xy\) là \(2\).`),
+                mcq(2, r3`Thu gọn đa thức \(N = 2x^3y - x^2 + \dfrac{1}{2}x^3y + 3x^2 - x^3y\) ta được`, [r3`\(\dfrac{3}{2}x^3y + 2x^2\)`, r3`\(\dfrac{5}{2}x^3y + 2x^2\)`, r3`\(\dfrac{3}{2}x^3y - 2x^2\)`, r3`\(\dfrac{3}{2}x^3y + 4x^2\)`], "A", r3`\(N = \left(2 + \dfrac12 - 1\right)x^3y + (-1 + 3)x^2 = \dfrac32x^3y + 2x^2\).`)
+              ]
+            },
+            {
+              slug: "tim-bac-cua-da-thuc",
+              title: "T\xECm b\u1EADc c\u1EE7a \u0111a th\u1EE9c",
+              levels: [1, 2],
+              knowledge: "B\u1EADc c\u1EE7a \u0111a th\u1EE9c l\xE0 b\u1EADc c\u1EE7a h\u1EA1ng t\u1EED c\xF3 b\u1EADc cao nh\u1EA5t trong d\u1EA1ng thu g\u1ECDn.",
+              signs: "\u0110\u1EC1 h\u1ECFi b\u1EADc c\u1EE7a \u0111a th\u1EE9c (th\u01B0\u1EDDng cho \u0111a th\u1EE9c ch\u01B0a thu g\u1ECDn).",
+              method: "Thu g\u1ECDn \u0111a th\u1EE9c, t\xECm b\u1EADc c\u1EE7a t\u1EEBng h\u1EA1ng t\u1EED r\u1ED3i ch\u1ECDn b\u1EADc l\u1EDBn nh\u1EA5t.",
+              steps: `- **B\u01B0\u1EDBc 1.** Thu g\u1ECDn \u0111a th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** T\xECm b\u1EADc c\u1EE7a t\u1EEBng h\u1EA1ng t\u1EED.
+- **B\u01B0\u1EDBc 3.** B\u1EADc l\u1EDBn nh\u1EA5t l\xE0 b\u1EADc c\u1EE7a \u0111a th\u1EE9c.`,
+              mistakes: "- T\xECm b\u1EADc khi ch\u01B0a thu g\u1ECDn: h\u1EA1ng t\u1EED b\u1EADc cao c\xF3 th\u1EC3 b\u1ECB tri\u1EC7t ti\xEAu.\n- L\u1EA5y t\u1ED5ng b\u1EADc c\u1EE7a c\xE1c h\u1EA1ng t\u1EED.",
+              example: r3`Tìm bậc của đa thức \(P = x^4y - 2xy^2 + 3 - x^4y + x^2y^2\).`,
+              solution: r3`Thu gọn: \(P = -2xy^2 + x^2y^2 + 3\) (hai hạng tử \(x^4y\) và \(-x^4y\) triệt tiêu).
+Bậc các hạng tử lần lượt là 3; 4; 0. Vậy \(P\) có bậc 4 (không phải bậc 5).`,
+              exercises: [
+                sa(1, r3`Bậc của đa thức \(3x^2y^3 - xy + 7x^4\) là bao nhiêu?`, ["5"], r3`Bậc các hạng tử: \(3x^2y^3\) bậc 5; \(-xy\) bậc 2; \(7x^4\) bậc 4. Bậc của đa thức là 5.`),
+                sa(2, r3`Tìm bậc của đa thức \(2x^3y^2 - x + 4 - 2x^3y^2 + x^2y\).`, ["3"], r3`Thu gọn: \(-x + 4 + x^2y\). Bậc các hạng tử: 1; 0; 3. Bậc của đa thức là 3.`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "Gi\xE1 tr\u1ECB c\u1EE7a \u0111a th\u1EE9c",
+          description: "T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a \u0111a th\u1EE9c t\u1EA1i c\xE1c gi\xE1 tr\u1ECB cho tr\u01B0\u1EDBc c\u1EE7a bi\u1EBFn, k\u1EC3 c\u1EA3 trong b\xE0i to\xE1n th\u1EF1c t\u1EBF.",
+          types: [
+            {
+              slug: "tinh-gia-tri-cua-da-thuc",
+              title: "T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a \u0111a th\u1EE9c",
+              levels: [2, 3],
+              knowledge: "Thu g\u1ECDn \u0111a th\u1EE9c; thay gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn v\xE0 th\u1EF1c hi\u1EC7n ph\xE9p t\xEDnh.",
+              signs: "\u0110\u1EC1 cho gi\xE1 tr\u1ECB c\u1EE7a c\xE1c bi\u1EBFn (ho\u1EB7c \u0111\u1EA1i l\u01B0\u1EE3ng th\u1EF1c t\u1EBF bi\u1EC3u di\u1EC5n b\u1EB1ng \u0111a th\u1EE9c) v\xE0 y\xEAu c\u1EA7u t\xEDnh gi\xE1 tr\u1ECB.",
+              method: "Thu g\u1ECDn \u0111a th\u1EE9c tr\u01B0\u1EDBc, sau \u0111\xF3 thay gi\xE1 tr\u1ECB c\u1EE7a c\xE1c bi\u1EBFn v\xE0o \u0111a th\u1EE9c thu g\u1ECDn.",
+              steps: `- **B\u01B0\u1EDBc 1.** Thu g\u1ECDn \u0111a th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** Thay gi\xE1 tr\u1ECB c\u1EE7a c\xE1c bi\u1EBFn (s\u1ED1 \xE2m \u0111\u1EB7t trong ngo\u1EB7c).
+- **B\u01B0\u1EDBc 3.** T\xEDnh v\xE0 k\u1EBFt lu\u1EADn (k\xE8m \u0111\u01A1n v\u1ECB n\u1EBFu l\xE0 b\xE0i to\xE1n th\u1EF1c t\u1EBF).`,
+              mistakes: "- Thay s\u1ED1 khi ch\u01B0a thu g\u1ECDn khi\u1EBFn ph\xE9p t\xEDnh d\xE0i, d\u1EC5 sai.\n- Sai d\u1EA5u khi l\u0169y th\u1EEBa s\u1ED1 \xE2m.",
+              example: r3`Tính giá trị của đa thức \(A = x^2y - 2xy + 3x^2y + xy\) tại \(x = -1\), \(y = 2\).`,
+              solution: r3`Thu gọn: \(A = 4x^2y - xy\). Tại \(x = -1\), \(y = 2\): \(A = 4\cdot1\cdot2 - (-1)\cdot2 = 8 + 2 = 10\).`,
+              exercises: [
+                sa(2, r3`Tính giá trị của đa thức \(x^2 + 2xy - 3x^2 + y^2\) tại \(x = 2\), \(y = -1\).`, ["-11"], r3`Thu gọn: \(-2x^2 + 2xy + y^2\). Tại \(x = 2\), \(y = -1\): \(-8 + 2\cdot2\cdot(-1) + 1 = -8 - 4 + 1 = -11\).`),
+                sa(3, r3`Một mảnh vườn hình chữ nhật có chiều dài \(x\) (m), chiều rộng \(y\) (m). Người ta làm một lối đi rộng 1 m chạy dọc hết chiều dài mảnh vườn. Diện tích phần còn lại là \(S = xy - x\) (m²). Tính \(S\) khi \(x = 20\), \(y = 8\).`, ["140"], r3`\(S = 20\cdot8 - 20 = 160 - 20 = 140\) (m²).`, "m\xB2")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 3 ----------------
+    {
+      slug: "bai-3-phep-cong-va-phep-tru-da-thuc",
+      difficulty: 1,
+      objectives: `- Th\u1EF1c hi\u1EC7n ph\xE9p c\u1ED9ng, ph\xE9p tr\u1EEB hai \u0111a th\u1EE9c.
+- V\u1EADn d\u1EE5ng t\xECm \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt v\xE0 bi\u1EC3u di\u1EC5n \u0111\u1EA1i l\u01B0\u1EE3ng th\u1EF1c t\u1EBF.`,
+      prerequisites: "- Thu g\u1ECDn \u0111a th\u1EE9c (B\xE0i 2).\n- Quy t\u1EAFc d\u1EA5u ngo\u1EB7c.",
+      concepts: "T\u1ED5ng c\u1EE7a hai \u0111a th\u1EE9c; hi\u1EC7u c\u1EE7a hai \u0111a th\u1EE9c.",
+      properties: `- Ph\xE9p c\u1ED9ng \u0111a th\u1EE9c c\xF3 t\xEDnh ch\u1EA5t giao ho\xE1n v\xE0 k\u1EBFt h\u1EE3p.
+- B\u1ECF d\u1EA5u ngo\u1EB7c c\xF3 d\u1EA5u "\u2212" \u0111\u1EE9ng tr\u01B0\u1EDBc th\xEC ph\u1EA3i \u0111\u1ED5i d\u1EA5u t\u1EA5t c\u1EA3 c\xE1c h\u1EA1ng t\u1EED trong ngo\u1EB7c.`,
+      themes: [
+        {
+          title: "C\u1ED9ng, tr\u1EEB hai \u0111a th\u1EE9c",
+          description: "Quy t\u1EAFc c\u1ED9ng, tr\u1EEB \u0111a th\u1EE9c v\xE0 v\u1EADn d\u1EE5ng v\xE0o b\xE0i to\xE1n th\u1EF1c t\u1EBF.",
+          types: [
+            {
+              slug: "cong-tru-da-thuc",
+              title: "Th\u1EF1c hi\u1EC7n c\u1ED9ng, tr\u1EEB \u0111a th\u1EE9c",
+              levels: [1, 2],
+              knowledge: "Quy t\u1EAFc d\u1EA5u ngo\u1EB7c; c\u1ED9ng, tr\u1EEB c\xE1c h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng.",
+              signs: r3`Đề yêu cầu tính \(A + B\), \(A - B\) với \(A\), \(B\) là các đa thức.`,
+              method: "Vi\u1EBFt t\u1ED5ng (hi\u1EC7u) v\u1EDBi m\u1ED7i \u0111a th\u1EE9c trong ngo\u1EB7c, b\u1ECF ngo\u1EB7c, nh\xF3m c\xE1c h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng r\u1ED3i thu g\u1ECDn.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt hai \u0111a th\u1EE9c trong ngo\u1EB7c, n\u1ED1i b\u1EDFi d\u1EA5u "+" ho\u1EB7c "\u2212".
+- **B\u01B0\u1EDBc 2.** B\u1ECF ngo\u1EB7c (\u0111\u1ED5i d\u1EA5u c\xE1c h\u1EA1ng t\u1EED n\u1EBFu tr\u01B0\u1EDBc ngo\u1EB7c l\xE0 d\u1EA5u "\u2212").
+- **B\u01B0\u1EDBc 3.** Nh\xF3m c\xE1c h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng v\xE0 thu g\u1ECDn.`,
+              mistakes: "- Khi tr\u1EEB, ch\u1EC9 \u0111\u1ED5i d\u1EA5u h\u1EA1ng t\u1EED \u0111\u1EA7u ti\xEAn c\u1EE7a \u0111a th\u1EE9c b\u1ECB tr\u1EEB m\xE0 qu\xEAn \u0111\u1ED5i d\u1EA5u c\xE1c h\u1EA1ng t\u1EED c\xF2n l\u1EA1i.",
+              example: r3`Cho \(A = 3x^2 - 2xy + y^2\) và \(B = x^2 + xy - 4y^2\). Tính \(A - B\).`,
+              solution: r3`\(A - B = (3x^2 - 2xy + y^2) - (x^2 + xy - 4y^2) = 3x^2 - 2xy + y^2 - x^2 - xy + 4y^2 = 2x^2 - 3xy + 5y^2\).`,
+              exercises: [
+                mcq(1, r3`Cho \(A = x^2 + 2xy\) và \(B = 3x^2 - xy\). Tổng \(A + B\) bằng`, [r3`\(4x^2 + xy\)`, r3`\(4x^2 + 3xy\)`, r3`\(-2x^2 + 3xy\)`, r3`\(4x^2 - xy\)`], "A", r3`\(A + B = (x^2 + 3x^2) + (2xy - xy) = 4x^2 + xy\).`),
+                sa(2, r3`Cho \(M = 2x^2y - 3xy + 1\) và \(N = x^2y + xy - 4\). Thu gọn \(M - N\). Hệ số của hạng tử \(xy\) là bao nhiêu?`, ["-4"], r3`\(M - N = 2x^2y - 3xy + 1 - x^2y - xy + 4 = x^2y - 4xy + 5\). Hệ số của \(xy\) là \(-4\).`)
+              ]
+            },
+            {
+              slug: "bai-toan-thuc-te-cong-tru-da-thuc",
+              title: "Bi\u1EC3u di\u1EC5n \u0111\u1EA1i l\u01B0\u1EE3ng th\u1EF1c t\u1EBF b\u1EB1ng t\u1ED5ng, hi\u1EC7u \u0111a th\u1EE9c",
+              levels: [2, 3],
+              knowledge: "Bi\u1EC3u di\u1EC5n \u0111\u1EA1i l\u01B0\u1EE3ng b\u1EB1ng bi\u1EC3u th\u1EE9c \u0111\u1EA1i s\u1ED1; c\u1ED9ng, tr\u1EEB \u0111a th\u1EE9c.",
+              signs: "C\xE1c k\xEDch th\u01B0\u1EDBc, s\u1ED1 l\u01B0\u1EE3ng \u0111\u01B0\u1EE3c cho b\u1EB1ng bi\u1EC3u th\u1EE9c ch\u1EE9a bi\u1EBFn; \u0111\u1EC1 y\xEAu c\u1EA7u vi\u1EBFt \u0111a th\u1EE9c bi\u1EC3u th\u1ECB chu vi, t\u1ED5ng hay ph\u1EA7n ch\xEAnh l\u1EC7ch.",
+              method: "L\u1EADp bi\u1EC3u th\u1EE9c l\xE0 t\u1ED5ng (hi\u1EC7u) c\u1EE7a c\xE1c \u0111a th\u1EE9c theo n\u1ED9i dung b\xE0i to\xE1n r\u1ED3i thu g\u1ECDn.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh \u0111\u1EA1i l\u01B0\u1EE3ng c\u1EA7n t\xECm l\xE0 t\u1ED5ng hay hi\u1EC7u c\u1EE7a nh\u1EEFng \u0111\u1EA1i l\u01B0\u1EE3ng n\xE0o.
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt bi\u1EC3u th\u1EE9c, thu g\u1ECDn \u0111a th\u1EE9c.
+- **B\u01B0\u1EDBc 3.** Thay gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn (n\u1EBFu c\xF3) v\xE0 ghi \u0111\u01A1n v\u1ECB.`,
+              mistakes: "- Qu\xEAn nh\xE2n 2 khi t\xEDnh chu vi h\xECnh ch\u1EEF nh\u1EADt.\n- Thi\u1EBFu \u0111\u01A1n v\u1ECB ho\u1EB7c nh\u1EA7m \u0111\u01A1n v\u1ECB.",
+              example: r3`Một tam giác có độ dài ba cạnh là \(2x + y\), \(x + 3y\) và \(3x - y\) (cm). Viết đa thức biểu thị chu vi tam giác và tính chu vi khi \(x = 2\), \(y = 1\).`,
+              solution: r3`Chu vi: \((2x + y) + (x + 3y) + (3x - y) = 6x + 3y\) (cm). Khi \(x = 2\), \(y = 1\): chu vi bằng \(12 + 3 = 15\) (cm).`,
+              exercises: [
+                sa(2, r3`Một hình chữ nhật có chiều dài \(3x + 2\) (m) và chiều rộng \(x + 1\) (m). Chu vi hình chữ nhật là đa thức \(ax + b\). Tính \(a + b\).`, ["14"], r3`Chu vi: \(2\left[(3x + 2) + (x + 1)\right] = 2(4x + 3) = 8x + 6\). Vậy \(a + b = 8 + 6 = 14\).`),
+                sa(3, r3`Bạn An có \(5x + 20\) nghìn đồng. An mua vở hết \(2x + 7\) nghìn đồng và mua bút hết \(x + 3\) nghìn đồng. Tính số tiền An còn lại khi \(x = 10\).`, ["30"], r3`Số tiền còn lại: \((5x + 20) - (2x + 7) - (x + 3) = 2x + 10\) (nghìn đồng). Khi \(x = 10\): \(2\cdot10 + 10 = 30\) nghìn đồng.`, "ngh\xECn \u0111\u1ED3ng")
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u0110a th\u1EE9c ch\u01B0a bi\u1EBFt",
+          description: "T\xECm \u0111a th\u1EE9c th\u1ECFa m\xE3n m\u1ED9t \u0111\u1EB3ng th\u1EE9c c\u1ED9ng, tr\u1EEB cho tr\u01B0\u1EDBc.",
+          types: [
+            {
+              slug: "tim-da-thuc-chua-biet",
+              title: "T\xECm \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt",
+              levels: [2, 3],
+              knowledge: r3`Quan hệ giữa các thành phần của phép cộng, phép trừ: \(P + Q = R \Rightarrow P = R - Q\); \(P - Q = R \Rightarrow P = R + Q\); \(Q - P = R \Rightarrow P = Q - R\).`,
+              signs: r3`Đẳng thức có chứa đa thức chưa biết (thường kí hiệu \(P\), \(Q\), \(C\)…) trong phép cộng hoặc phép trừ.`,
+              method: "Bi\u1EC3u di\u1EC5n \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt qua t\u1ED5ng ho\u1EB7c hi\u1EC7u c\u1EE7a c\xE1c \u0111a th\u1EE9c \u0111\xE3 bi\u1EBFt r\u1ED3i thu g\u1ECDn.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt \u0111\xF3ng vai tr\xF2 s\u1ED1 h\u1EA1ng, s\u1ED1 b\u1ECB tr\u1EEB hay s\u1ED1 tr\u1EEB.
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt b\u1EB1ng t\u1ED5ng ho\u1EB7c hi\u1EC7u t\u01B0\u01A1ng \u1EE9ng.
+- **B\u01B0\u1EDBc 3.** B\u1ECF ngo\u1EB7c, thu g\u1ECDn.`,
+              mistakes: r3`- Nhầm vai trò số bị trừ và số trừ: từ \(Q - P = R\) suy ra \(P = Q - R\), không phải \(P = Q + R\).`,
+              example: r3`Tìm đa thức \(P\), biết \(P + (x^2 - 2xy) = 3x^2 + xy - 1\).`,
+              solution: r3`\(P = (3x^2 + xy - 1) - (x^2 - 2xy) = 3x^2 + xy - 1 - x^2 + 2xy = 2x^2 + 3xy - 1\).`,
+              exercises: [
+                sa(2, r3`Tìm đa thức \(P\), biết \(P - (2x^2 - y^2) = x^2 + 3y^2\). Đa thức \(P\) có dạng \(ax^2 + by^2\). Tính \(a + b\).`, ["5"], r3`\(P = (x^2 + 3y^2) + (2x^2 - y^2) = 3x^2 + 2y^2\). Vậy \(a + b = 3 + 2 = 5\).`),
+                mcq(3, r3`Cho \(A = x^2 - 2y + xy + 1\) và \(B = x^2 + y - x^2y^2 - 1\). Đa thức \(C\) thỏa mãn \(A - C = B\) là`, [r3`\(x^2y^2 + xy - 3y + 2\)`, r3`\(-x^2y^2 + xy - 3y + 2\)`, r3`\(x^2y^2 + xy - y\)`, r3`\(2x^2 - y + xy - x^2y^2\)`], "A", r3`Từ \(A - C = B\) suy ra \(C = A - B = x^2 - 2y + xy + 1 - x^2 - y + x^2y^2 + 1 = x^2y^2 + xy - 3y + 2\).`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 4 ----------------
+    {
+      slug: "bai-4-phep-nhan-da-thuc",
+      difficulty: 2,
+      objectives: `- Th\u1EF1c hi\u1EC7n nh\xE2n hai \u0111\u01A1n th\u1EE9c, nh\xE2n \u0111\u01A1n th\u1EE9c v\u1EDBi \u0111a th\u1EE9c, nh\xE2n hai \u0111a th\u1EE9c.
+- V\u1EADn d\u1EE5ng ph\xE9p nh\xE2n \u0111a th\u1EE9c \u0111\u1EC3 r\xFAt g\u1ECDn, ch\u1EE9ng minh \u0111\u1EB3ng th\u1EE9c, ch\u1EE9ng minh bi\u1EC3u th\u1EE9c kh\xF4ng ph\u1EE5 thu\u1ED9c v\xE0o bi\u1EBFn.`,
+      prerequisites: r3`- Đơn thức thu gọn, đa thức thu gọn (Bài 1, 2).
+- Tính chất phân phối \(a(b + c) = ab + ac\); quy tắc \(x^m\cdot x^n = x^{m+n}\).`,
+      concepts: "T\xEDch c\u1EE7a hai \u0111\u01A1n th\u1EE9c; t\xEDch c\u1EE7a \u0111\u01A1n th\u1EE9c v\u1EDBi \u0111a th\u1EE9c; t\xEDch c\u1EE7a hai \u0111a th\u1EE9c.",
+      formulas: r3`\[A(B + C) = AB + AC\]
+\[(A + B)(C + D) = AC + AD + BC + BD\]`,
+      properties: "- Ph\xE9p nh\xE2n \u0111a th\u1EE9c c\xF3 t\xEDnh ch\u1EA5t giao ho\xE1n, k\u1EBFt h\u1EE3p v\xE0 ph\xE2n ph\u1ED1i \u0111\u1ED1i v\u1EDBi ph\xE9p c\u1ED9ng.",
+      themes: [
+        {
+          title: "Nh\xE2n \u0111\u01A1n th\u1EE9c",
+          description: "Nh\xE2n hai \u0111\u01A1n th\u1EE9c; nh\xE2n \u0111\u01A1n th\u1EE9c v\u1EDBi \u0111a th\u1EE9c.",
+          types: [
+            {
+              slug: "nhan-hai-don-thuc",
+              title: "Nh\xE2n hai \u0111\u01A1n th\u1EE9c",
+              levels: [1, 2],
+              knowledge: r3`Nhân hệ số với hệ số, nhân phần biến với phần biến; \(x^m\cdot x^n = x^{m+n}\); \((ab)^n = a^nb^n\).`,
+              signs: "T\xEDch c\u1EE7a hai hay nhi\u1EC1u \u0111\u01A1n th\u1EE9c (c\xF3 th\u1EC3 c\xF3 l\u0169y th\u1EEBa c\u1EE7a \u0111\u01A1n th\u1EE9c).",
+              method: "Nh\xE2n c\xE1c h\u1EC7 s\u1ED1 v\u1EDBi nhau v\xE0 nh\xE2n c\xE1c l\u0169y th\u1EEBa c\xF9ng bi\u1EBFn v\u1EDBi nhau.",
+              steps: `- **B\u01B0\u1EDBc 1.** T\xEDnh l\u0169y th\u1EEBa c\u1EE7a \u0111\u01A1n th\u1EE9c (n\u1EBFu c\xF3).
+- **B\u01B0\u1EDBc 2.** Nh\xE2n c\xE1c h\u1EC7 s\u1ED1.
+- **B\u01B0\u1EDBc 3.** Nh\xE2n c\xE1c ph\u1EA7n bi\u1EBFn, c\u1ED9ng s\u1ED1 m\u0169 c\u1EE7a c\xF9ng m\u1ED9t bi\u1EBFn.`,
+              mistakes: r3`- \((2xy)^2 = 2x^2y^2\) là sai, đúng là \(4x^2y^2\).
+- Quên dấu âm khi nhân hệ số âm.`,
+              example: r3`Tính \((-2x^2y)\cdot(3xy^3)\).`,
+              solution: r3`\((-2x^2y)\cdot(3xy^3) = (-2\cdot3)\left(x^2\cdot x\right)\left(y\cdot y^3\right) = -6x^3y^4\).`,
+              exercises: [
+                sa(1, r3`Tích \(\left(-\dfrac{1}{3}x^2y\right)\cdot(6xy^2)\) là một đơn thức có hệ số bằng bao nhiêu?`, ["-2"], r3`\(\left(-\dfrac13\cdot6\right)x^3y^3 = -2x^3y^3\). Hệ số là \(-2\).`),
+                mcq(2, r3`Kết quả của phép nhân \((2xy)^2\cdot(-3x)\) là`, [r3`\(-12x^3y^2\)`, r3`\(-6x^3y^2\)`, r3`\(12x^3y^2\)`, r3`\(-12x^2y^2\)`], "A", r3`\((2xy)^2 = 4x^2y^2\). Do đó \(4x^2y^2\cdot(-3x) = -12x^3y^2\).`)
+              ]
+            },
+            {
+              slug: "nhan-don-thuc-voi-da-thuc",
+              title: "Nh\xE2n \u0111\u01A1n th\u1EE9c v\u1EDBi \u0111a th\u1EE9c",
+              levels: [1, 2],
+              knowledge: r3`Muốn nhân một đơn thức với một đa thức, ta nhân đơn thức với từng hạng tử của đa thức rồi cộng các tích: \(A(B + C) = AB + AC\).`,
+              signs: "M\u1ED9t \u0111\u01A1n th\u1EE9c nh\xE2n v\u1EDBi m\u1ED9t \u0111a th\u1EE9c (th\u01B0\u1EDDng \u1EDF d\u1EA1ng \u0111\u01A1n th\u1EE9c \u0111\u1EE9ng tr\u01B0\u1EDBc ngo\u1EB7c).",
+              method: "Nh\xE2n \u0111\u01A1n th\u1EE9c v\u1EDBi t\u1EEBng h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c, ch\xFA \xFD d\u1EA5u, r\u1ED3i thu g\u1ECDn.",
+              steps: `- **B\u01B0\u1EDBc 1.** Nh\xE2n \u0111\u01A1n th\u1EE9c v\u1EDBi t\u1EEBng h\u1EA1ng t\u1EED trong ngo\u1EB7c (k\u1EC3 c\u1EA3 d\u1EA5u).
+- **B\u01B0\u1EDBc 2.** C\u1ED9ng c\xE1c t\xEDch l\u1EA1i.
+- **B\u01B0\u1EDBc 3.** Thu g\u1ECDn n\u1EBFu c\xF3 h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng.`,
+              mistakes: "- Qu\xEAn nh\xE2n v\u1EDBi h\u1EA1ng t\u1EED cu\u1ED1i c\xF9ng ho\u1EB7c h\u1EA1ng t\u1EED l\xE0 s\u1ED1.\n- Sai d\u1EA5u khi \u0111\u01A1n th\u1EE9c c\xF3 h\u1EC7 s\u1ED1 \xE2m.",
+              example: r3`Tính \(2x(3x^2 - xy + 4)\).`,
+              solution: r3`\(2x(3x^2 - xy + 4) = 2x\cdot3x^2 - 2x\cdot xy + 2x\cdot4 = 6x^3 - 2x^2y + 8x\).`,
+              exercises: [
+                mcq(1, r3`Kết quả của phép nhân \(-3x(x^2 - 2y)\) là`, [r3`\(-3x^3 + 6xy\)`, r3`\(-3x^3 - 6xy\)`, r3`\(3x^3 - 6xy\)`, r3`\(-3x^2 + 6xy\)`], "A", r3`\(-3x\cdot x^2 + (-3x)\cdot(-2y) = -3x^3 + 6xy\).`),
+                sa(2, r3`Thu gọn biểu thức \(x(2x - 3) - 2x(x + 1)\) được đơn thức \(ax\). Tìm \(a\).`, ["-5"], r3`\(2x^2 - 3x - 2x^2 - 2x = -5x\). Vậy \(a = -5\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "Nh\xE2n \u0111a th\u1EE9c v\u1EDBi \u0111a th\u1EE9c",
+          description: "Quy t\u1EAFc nh\xE2n hai \u0111a th\u1EE9c.",
+          types: [
+            {
+              slug: "nhan-da-thuc-voi-da-thuc",
+              title: "Nh\xE2n \u0111a th\u1EE9c v\u1EDBi \u0111a th\u1EE9c",
+              levels: [2, 3],
+              knowledge: "Mu\u1ED1n nh\xE2n m\u1ED9t \u0111a th\u1EE9c v\u1EDBi m\u1ED9t \u0111a th\u1EE9c, ta nh\xE2n m\u1ED7i h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c n\xE0y v\u1EDBi t\u1EEBng h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c kia r\u1ED3i c\u1ED9ng c\xE1c t\xEDch v\u1EDBi nhau.",
+              signs: "T\xEDch c\u1EE7a hai \u0111a th\u1EE9c trong ngo\u1EB7c, m\u1ED7i \u0111a th\u1EE9c c\xF3 t\u1EEB hai h\u1EA1ng t\u1EED tr\u1EDF l\xEAn.",
+              method: "Nh\xE2n t\u1EEBng h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c th\u1EE9 nh\u1EA5t v\u1EDBi c\u1EA3 \u0111a th\u1EE9c th\u1EE9 hai, sau \u0111\xF3 thu g\u1ECDn.",
+              steps: `- **B\u01B0\u1EDBc 1.** Nh\xE2n h\u1EA1ng t\u1EED th\u1EE9 nh\u1EA5t c\u1EE7a \u0111a th\u1EE9c th\u1EE9 nh\u1EA5t v\u1EDBi t\u1EEBng h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c th\u1EE9 hai; l\xE0m t\u01B0\u01A1ng t\u1EF1 v\u1EDBi c\xE1c h\u1EA1ng t\u1EED c\xF2n l\u1EA1i.
+- **B\u01B0\u1EDBc 2.** C\u1ED9ng t\u1EA5t c\u1EA3 c\xE1c t\xEDch.
+- **B\u01B0\u1EDBc 3.** Nh\xF3m v\xE0 thu g\u1ECDn c\xE1c h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng.`,
+              mistakes: "- B\u1ECF s\xF3t t\xEDch (s\u1ED1 t\xEDch ph\u1EA3i b\u1EB1ng s\u1ED1 h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c th\u1EE9 nh\u1EA5t nh\xE2n v\u1EDBi s\u1ED1 h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c th\u1EE9 hai).\n- Sai d\u1EA5u khi nh\xE2n hai h\u1EA1ng t\u1EED \xE2m.",
+              example: r3`Tính \((x - 2)(x^2 + 3x - 1)\).`,
+              solution: r3`\((x - 2)(x^2 + 3x - 1) = x^3 + 3x^2 - x - 2x^2 - 6x + 2 = x^3 + x^2 - 7x + 2\).`,
+              exercises: [
+                mcq(2, r3`Kết quả của phép nhân \((2x - 1)(x + 3)\) là`, [r3`\(2x^2 + 5x - 3\)`, r3`\(2x^2 + 7x - 3\)`, r3`\(2x^2 - 5x - 3\)`, r3`\(2x^2 + 5x + 3\)`], "A", r3`\(2x\cdot x + 2x\cdot3 - x - 3 = 2x^2 + 6x - x - 3 = 2x^2 + 5x - 3\).`),
+                sa(2, r3`Khai triển và thu gọn \((x + 2y)(x - y)\). Hệ số của hạng tử \(xy\) là bao nhiêu?`, ["1"], r3`\((x + 2y)(x - y) = x^2 - xy + 2xy - 2y^2 = x^2 + xy - 2y^2\). Hệ số của \(xy\) là 1.`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng ph\xE9p nh\xE2n \u0111a th\u1EE9c",
+          description: "R\xFAt g\u1ECDn bi\u1EC3u th\u1EE9c \u0111\u1EC3 ch\u1EE9ng minh \u0111\u1EB3ng th\u1EE9c ho\u1EB7c ch\u1EE9ng minh gi\xE1 tr\u1ECB kh\xF4ng ph\u1EE5 thu\u1ED9c v\xE0o bi\u1EBFn.",
+          types: [
+            {
+              slug: "bieu-thuc-khong-phu-thuoc-bien",
+              title: "Ch\u1EE9ng minh gi\xE1 tr\u1ECB bi\u1EC3u th\u1EE9c kh\xF4ng ph\u1EE5 thu\u1ED9c v\xE0o bi\u1EBFn",
+              levels: [3, 4],
+              knowledge: "Nh\xE2n \u0111\u01A1n th\u1EE9c v\u1EDBi \u0111a th\u1EE9c, nh\xE2n \u0111a th\u1EE9c v\u1EDBi \u0111a th\u1EE9c; thu g\u1ECDn \u0111a th\u1EE9c.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u ch\u1EE9ng minh gi\xE1 tr\u1ECB c\u1EE7a bi\u1EC3u th\u1EE9c kh\xF4ng ph\u1EE5 thu\u1ED9c v\xE0o gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn (ho\u1EB7c t\xECm gi\xE1 tr\u1ECB kh\xF4ng \u0111\u1ED5i \u0111\xF3).",
+              method: "Th\u1EF1c hi\u1EC7n c\xE1c ph\xE9p nh\xE2n v\xE0 thu g\u1ECDn; n\u1EBFu k\u1EBFt qu\u1EA3 l\xE0 m\u1ED9t h\u1EB1ng s\u1ED1 th\xEC gi\xE1 tr\u1ECB bi\u1EC3u th\u1EE9c kh\xF4ng ph\u1EE5 thu\u1ED9c v\xE0o bi\u1EBFn.",
+              steps: `- **B\u01B0\u1EDBc 1.** Th\u1EF1c hi\u1EC7n c\xE1c ph\xE9p nh\xE2n trong bi\u1EC3u th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** Thu g\u1ECDn: c\xE1c h\u1EA1ng t\u1EED ch\u1EE9a bi\u1EBFn ph\u1EA3i tri\u1EC7t ti\xEAu h\u1EBFt.
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn bi\u1EC3u th\u1EE9c lu\xF4n b\u1EB1ng h\u1EB1ng s\u1ED1 t\xECm \u0111\u01B0\u1EE3c.`,
+              mistakes: '- Sai d\u1EA5u khi b\u1ECF ngo\u1EB7c c\xF3 d\u1EA5u "\u2212" \u0111\u1EE9ng tr\u01B0\u1EDBc t\xEDch.\n- K\u1EBFt lu\u1EADn khi c\xE1c h\u1EA1ng t\u1EED ch\u1EE9a bi\u1EBFn ch\u01B0a tri\u1EC7t ti\xEAu h\u1EBFt (c\u1EA7n ki\u1EC3m tra l\u1EA1i ph\xE9p t\xEDnh).',
+              example: r3`Chứng minh giá trị của biểu thức \(A = x(2x + 1) - 2x(x - 3) - 7x + 5\) không phụ thuộc vào giá trị của biến \(x\).`,
+              solution: r3`\(A = 2x^2 + x - 2x^2 + 6x - 7x + 5 = 5\). Vậy \(A = 5\) với mọi \(x\), tức là giá trị của \(A\) không phụ thuộc vào \(x\).`,
+              exercises: [
+                es(3, r3`Chứng minh giá trị của biểu thức \(B = (x - 1)(x + 2) - x(x + 1) + 7\) không phụ thuộc vào giá trị của biến.`, r3`\(B = x^2 + 2x - x - 2 - x^2 - x + 7 = 5\). Vậy \(B = 5\) với mọi \(x\).`),
+                sa(3, r3`Biểu thức \(C = (2x + 3)(x - 1) - 2x(x + 1) + x\) có giá trị không đổi với mọi \(x\). Giá trị đó bằng bao nhiêu?`, ["-3"], r3`\((2x + 3)(x - 1) = 2x^2 + x - 3\). Do đó \(C = 2x^2 + x - 3 - 2x^2 - 2x + x = -3\).`)
+              ]
+            },
+            {
+              slug: "chung-minh-dang-thuc-phep-nhan",
+              title: "Ch\u1EE9ng minh \u0111\u1EB3ng th\u1EE9c",
+              levels: [3, 4],
+              knowledge: "Nh\xE2n \u0111a th\u1EE9c v\u1EDBi \u0111a th\u1EE9c; thu g\u1ECDn \u0111a th\u1EE9c; t\xEDnh ch\u1EA5t chia h\u1EBFt.",
+              signs: "\u0110\u1EC1 cho m\u1ED9t \u0111\u1EB3ng th\u1EE9c ch\u1EE9a c\xE1c t\xEDch \u0111a th\u1EE9c, y\xEAu c\u1EA7u ch\u1EE9ng minh; ho\u1EB7c ch\u1EE9ng minh m\u1ED9t bi\u1EC3u th\u1EE9c chia h\u1EBFt cho m\u1ED9t s\u1ED1.",
+              method: "Bi\u1EBFn \u0111\u1ED5i v\u1EBF ph\u1EE9c t\u1EA1p th\xE0nh v\u1EBF c\xF2n l\u1EA1i, ho\u1EB7c bi\u1EBFn \u0111\u1ED5i c\u1EA3 hai v\u1EBF v\u1EC1 c\xF9ng m\u1ED9t bi\u1EC3u th\u1EE9c.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ch\u1ECDn v\u1EBF ph\u1EE9c t\u1EA1p h\u01A1n \u0111\u1EC3 khai tri\u1EC3n.
+- **B\u01B0\u1EDBc 2.** Th\u1EF1c hi\u1EC7n ph\xE9p nh\xE2n, thu g\u1ECDn.
+- **B\u01B0\u1EDBc 3.** So s\xE1nh v\u1EDBi v\u1EBF c\xF2n l\u1EA1i v\xE0 k\u1EBFt lu\u1EADn.`,
+              mistakes: "- Bi\u1EBFn \u0111\u1ED5i \u0111\u1ED3ng th\u1EDDi hai v\u1EBF nh\u01B0 gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh (chuy\u1EC3n v\u1EBF) r\u1ED3i k\u1EBFt lu\u1EADn ngay \u2013 c\xE1ch tr\xECnh b\xE0y n\xE0y d\u1EC5 sai logic.\n- V\u1EDBi b\xE0i chia h\u1EBFt: ch\u01B0a vi\u1EBFt \u0111\u01B0\u1EE3c bi\u1EC3u th\u1EE9c th\xE0nh t\xEDch c\xF3 th\u1EEBa s\u1ED1 l\xE0 s\u1ED1 chia \u0111\xE3 k\u1EBFt lu\u1EADn.",
+              example: r3`Chứng minh \((x + y)(x^2 - xy + y^2) = x^3 + y^3\).`,
+              solution: r3`Vế trái \(= x^3 - x^2y + xy^2 + x^2y - xy^2 + y^3 = x^3 + y^3\) = vế phải. Đẳng thức được chứng minh.`,
+              exercises: [
+                es(3, r3`Chứng minh \((x - 1)(x^2 + x + 1) = x^3 - 1\).`, r3`Vế trái \(= x^3 + x^2 + x - x^2 - x - 1 = x^3 - 1\) = vế phải.`),
+                es(4, r3`Chứng minh rằng với mọi số nguyên \(n\), biểu thức \(n(n + 5) - (n - 3)(n + 2)\) chia hết cho 6.`, r3`\(n(n + 5) - (n - 3)(n + 2) = n^2 + 5n - (n^2 - n - 6) = 6n + 6 = 6(n + 1)\).
+Vì \(n\) nguyên nên \(6(n + 1)\) chia hết cho 6.`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 5 ----------------
+    {
+      slug: "bai-5-phep-chia-da-thuc-cho-don-thuc",
+      difficulty: 2,
+      objectives: `- Nh\u1EADn bi\u1EBFt \u0111\u01A1n th\u1EE9c (\u0111a th\u1EE9c) chia h\u1EBFt cho \u0111\u01A1n th\u1EE9c.
+- Th\u1EF1c hi\u1EC7n chia \u0111\u01A1n th\u1EE9c cho \u0111\u01A1n th\u1EE9c, chia \u0111a th\u1EE9c cho \u0111\u01A1n th\u1EE9c trong tr\u01B0\u1EDDng h\u1EE3p chia h\u1EBFt.`,
+      prerequisites: r3`- Quy tắc \(x^m : x^n = x^{m-n}\) với \(m \ge n\).
+- Nhân đơn thức với đa thức (Bài 4).`,
+      concepts: "\u0110\u01A1n th\u1EE9c chia h\u1EBFt cho \u0111\u01A1n th\u1EE9c; th\u01B0\u01A1ng; \u0111a th\u1EE9c chia h\u1EBFt cho \u0111\u01A1n th\u1EE9c.",
+      formulas: r3`\(x^m : x^n = x^{m-n}\ (m \ge n)\); \((A + B) : C = A : C + B : C\)`,
+      properties: `- \u0110\u01A1n th\u1EE9c A chia h\u1EBFt cho \u0111\u01A1n th\u1EE9c B (B \u2260 0) khi m\u1ED7i bi\u1EBFn c\u1EE7a B \u0111\u1EC1u l\xE0 bi\u1EBFn c\u1EE7a A v\u1EDBi s\u1ED1 m\u0169 kh\xF4ng l\u1EDBn h\u01A1n s\u1ED1 m\u0169 c\u1EE7a n\xF3 trong A.
+- \u0110a th\u1EE9c A chia h\u1EBFt cho \u0111\u01A1n th\u1EE9c B khi m\u1ECDi h\u1EA1ng t\u1EED c\u1EE7a A \u0111\u1EC1u chia h\u1EBFt cho B.`,
+      themes: [
+        {
+          title: "Chia \u0111\u01A1n th\u1EE9c cho \u0111\u01A1n th\u1EE9c",
+          description: "\u0110i\u1EC1u ki\u1EC7n chia h\u1EBFt v\xE0 quy t\u1EAFc chia \u0111\u01A1n th\u1EE9c cho \u0111\u01A1n th\u1EE9c.",
+          types: [
+            {
+              slug: "chia-don-thuc-cho-don-thuc",
+              title: "Chia \u0111\u01A1n th\u1EE9c cho \u0111\u01A1n th\u1EE9c",
+              levels: [1, 2],
+              knowledge: r3`Đơn thức A chia hết cho đơn thức B khi mỗi biến của B là biến của A với số mũ không lớn hơn. Muốn chia, ta chia hệ số của A cho hệ số của B và chia lũy thừa của từng biến: \(x^m : x^n = x^{m-n}\).`,
+              signs: "Ph\xE9p chia hai \u0111\u01A1n th\u1EE9c, ho\u1EB7c c\xE2u h\u1ECFi \u0111\u01A1n th\u1EE9c n\xE0o chia h\u1EBFt cho \u0111\u01A1n th\u1EE9c n\xE0o.",
+              method: "Ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n chia h\u1EBFt, sau \u0111\xF3 chia h\u1EC7 s\u1ED1 cho h\u1EC7 s\u1ED1, l\u0169y th\u1EEBa c\u1EE7a t\u1EEBng bi\u1EBFn cho l\u0169y th\u1EEBa c\xF9ng bi\u1EBFn.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ki\u1EC3m tra A chia h\u1EBFt cho B.
+- **B\u01B0\u1EDBc 2.** Chia h\u1EC7 s\u1ED1 c\u1EE7a A cho h\u1EC7 s\u1ED1 c\u1EE7a B.
+- **B\u01B0\u1EDBc 3.** Chia l\u0169y th\u1EEBa t\u1EEBng bi\u1EBFn (tr\u1EEB s\u1ED1 m\u0169); nh\xE2n c\xE1c k\u1EBFt qu\u1EA3.`,
+              mistakes: r3`- Chia số mũ thay vì trừ: \(x^6 : x^2 = x^3\) là sai, đúng là \(x^4\).
+- Không kiểm tra điều kiện chia hết (ví dụ \(xy : x^2\) không chia hết).`,
+              example: r3`Tính \(12x^4y^3 : (-3x^2y)\).`,
+              solution: r3`\(12x^4y^3 : (-3x^2y) = \left[12 : (-3)\right]\left(x^4 : x^2\right)\left(y^3 : y\right) = -4x^2y^2\).`,
+              exercises: [
+                mcq(1, r3`Đơn thức nào sau đây **không** chia hết cho đơn thức \(2x^2y\)?`, [r3`\(4x^3y\)`, r3`\(-x^2y^2\)`, r3`\(6xy^3\)`, r3`\(\dfrac{1}{2}x^5y\)`], "C", r3`\(6xy^3\) có số mũ của \(x\) là 1, nhỏ hơn số mũ 2 của \(x\) trong \(2x^2y\), nên không chia hết.`),
+                sa(2, r3`Thực hiện phép chia \(\left(-15x^3y^4z\right) : \left(5xy^2z\right)\) được \(a\,x^2y^2\). Tìm \(a\).`, ["-3"], r3`\(-15 : 5 = -3\); \(x^3 : x = x^2\); \(y^4 : y^2 = y^2\); \(z : z = 1\). Vậy \(a = -3\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "Chia \u0111a th\u1EE9c cho \u0111\u01A1n th\u1EE9c",
+          description: "Quy t\u1EAFc chia \u0111a th\u1EE9c cho \u0111\u01A1n th\u1EE9c v\xE0 t\xECm \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt.",
+          types: [
+            {
+              slug: "chia-da-thuc-cho-don-thuc",
+              title: "Chia \u0111a th\u1EE9c cho \u0111\u01A1n th\u1EE9c",
+              levels: [1, 2, 3],
+              knowledge: "Mu\u1ED1n chia \u0111a th\u1EE9c A cho \u0111\u01A1n th\u1EE9c B (tr\u01B0\u1EDDng h\u1EE3p chia h\u1EBFt), ta chia m\u1ED7i h\u1EA1ng t\u1EED c\u1EE7a A cho B r\u1ED3i c\u1ED9ng c\xE1c k\u1EBFt qu\u1EA3.",
+              signs: "Ph\xE9p chia m\u1ED9t \u0111a th\u1EE9c (c\xF3 nhi\u1EC1u h\u1EA1ng t\u1EED) cho m\u1ED9t \u0111\u01A1n th\u1EE9c.",
+              method: "Chia t\u1EEBng h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c cho \u0111\u01A1n th\u1EE9c, gi\u1EEF nguy\xEAn d\u1EA5u t\u1EEBng h\u1EA1ng t\u1EED.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ki\u1EC3m tra m\u1ECDi h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c \u0111\u1EC1u chia h\u1EBFt cho \u0111\u01A1n th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** Chia t\u1EEBng h\u1EA1ng t\u1EED cho \u0111\u01A1n th\u1EE9c.
+- **B\u01B0\u1EDBc 3.** C\u1ED9ng c\xE1c th\u01B0\u01A1ng.`,
+              mistakes: "- Qu\xEAn h\u1EA1ng t\u1EED b\u1EB1ng ch\xEDnh s\u1ED1 chia (th\u01B0\u01A1ng c\u1EE7a n\xF3 l\xE0 1).\n- Sai d\u1EA5u khi \u0111\u01A1n th\u1EE9c chia c\xF3 h\u1EC7 s\u1ED1 \xE2m.",
+              example: r3`Tính \((6x^3y^2 - 9x^2y^3 + 3x^2y) : 3x^2y\).`,
+              solution: r3`\(= 6x^3y^2 : 3x^2y - 9x^2y^3 : 3x^2y + 3x^2y : 3x^2y = 2xy - 3y^2 + 1\).`,
+              exercises: [
+                mcq(1, r3`Kết quả của phép chia \((8x^3 - 4x^2 + 2x) : 2x\) là`, [r3`\(4x^2 - 2x + 1\)`, r3`\(4x^2 - 2x\)`, r3`\(4x^3 - 2x^2 + 1\)`, r3`\(4x^2 + 2x + 1\)`], "A", r3`\(8x^3 : 2x = 4x^2\); \(-4x^2 : 2x = -2x\); \(2x : 2x = 1\).`),
+                sa(3, r3`Đa thức \(5x^4y^3 - 2x^3y^2 + x^2y^4\) chia hết cho đơn thức \(x^ny^2\) (\(n\) là số tự nhiên). Giá trị lớn nhất của \(n\) là bao nhiêu?`, ["2"], r3`Mọi hạng tử phải chia hết cho \(x^ny^2\). Số mũ của \(x\) trong các hạng tử là 4; 3; 2 nên \(n \le 2\); số mũ của \(y\) đều lớn hơn hoặc bằng 2. Giá trị lớn nhất của \(n\) là 2.`)
+              ]
+            },
+            {
+              slug: "tim-da-thuc-khi-biet-tich-hoac-thuong",
+              title: "T\xECm \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt khi bi\u1EBFt t\xEDch ho\u1EB7c th\u01B0\u01A1ng",
+              legacy: ["T\xECm \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt khi bi\u1EBFt t\xEDch ho\u1EB7c th\u01B0\u01A1ng"],
+              levels: [2, 3],
+              knowledge: r3`Quan hệ giữa các thành phần của phép nhân, phép chia: \(A\cdot B = C \Rightarrow A = C : B\); \(A : B = Q \Rightarrow A = Q\cdot B\).`,
+              signs: "\u0110\u1EB3ng th\u1EE9c ch\u1EE9a \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt nh\xE2n v\u1EDBi (ho\u1EB7c chia cho) m\u1ED9t \u0111\u01A1n th\u1EE9c; b\xE0i to\xE1n th\u1EF1c t\u1EBF bi\u1EBFt di\u1EC7n t\xEDch v\xE0 m\u1ED9t k\xEDch th\u01B0\u1EDBc.",
+              method: "Bi\u1EC3u di\u1EC5n \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt qua ph\xE9p chia (khi bi\u1EBFt t\xEDch) ho\u1EB7c ph\xE9p nh\xE2n (khi bi\u1EBFt th\u01B0\u01A1ng).",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt l\xE0 th\u1EEBa s\u1ED1 hay s\u1ED1 b\u1ECB chia.
+- **B\u01B0\u1EDBc 2.** Th\u1EF1c hi\u1EC7n ph\xE9p chia ho\u1EB7c ph\xE9p nh\xE2n t\u01B0\u01A1ng \u1EE9ng.
+- **B\u01B0\u1EDBc 3.** Thu g\u1ECDn v\xE0 k\u1EBFt lu\u1EADn.`,
+              mistakes: "- Khi bi\u1EBFt th\u01B0\u01A1ng, l\u1EA1i \u0111em chia thay v\xEC nh\xE2n.",
+              example: r3`Tìm đa thức \(A\), biết \(A\cdot 2xy = 6x^3y^2 - 4x^2y\).`,
+              solution: r3`\(A = (6x^3y^2 - 4x^2y) : 2xy = 3x^2y - 2x\).`,
+              exercises: [
+                sa(2, r3`Tìm đa thức \(Q\), biết \(Q : (-3x) = x^2 - 2x + 5\). Hệ số của \(x^2\) trong \(Q\) là bao nhiêu?`, ["6"], r3`\(Q = (x^2 - 2x + 5)\cdot(-3x) = -3x^3 + 6x^2 - 15x\). Hệ số của \(x^2\) là 6.`),
+                sa(3, r3`Một hình chữ nhật có diện tích \(6x^2y + 9xy^2\) (cm²) và chiều rộng \(3xy\) (cm). Chiều dài hình chữ nhật là đa thức \(ax + by\). Tính \(a + b\).`, ["5"], r3`Chiều dài \(= (6x^2y + 9xy^2) : 3xy = 2x + 3y\). Vậy \(a + b = 2 + 3 = 5\).`)
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+// src/seed/toan8-map/index.ts
+var TN_NOTE = "T\xEAn c\xE1c ho\u1EA1t \u0111\u1ED9ng \u0111\u1ED1i chi\u1EBFu v\u1EDBi SGK t\u1EADp 1, 2 (VietJack, Hoatieu). Th\u1EE9 t\u1EF1 c\xE1c ho\u1EA1t \u0111\u1ED9ng trong m\u1EE5c n\xE0y l\u1EA5y theo PPCT 2026-2027, ch\u01B0a \u0111\u1ED1i chi\u1EBFu s\u1ED1 trang SGK \u2013 c\u1EA7n ki\u1EC3m tra.";
+var TN1 = {
+  code: "TN1",
+  objectives: "- V\u1EADn d\u1EE5ng ki\u1EBFn th\u1EE9c \u0111a th\u1EE9c, h\xECnh h\u1ECDc, th\u1ED1ng k\xEA v\xE0o t\xECnh hu\u1ED1ng th\u1EF1c ti\u1EC5n.\n- S\u1EED d\u1EE5ng ph\u1EA7n m\u1EC1m GeoGebra \u0111\u1EC3 t\xEDnh to\xE1n v\u1EDBi \u0111a th\u1EE9c v\xE0 v\u1EBD h\xECnh.",
+  keyPoints: "- C\xF4ng th\u1EE9c l\xE3i k\xE9p.\n- T\xEDnh to\xE1n \u0111a th\u1EE9c v\xE0 v\u1EBD h\xECnh b\u1EB1ng GeoGebra.\n- Ph\xE2n t\xEDch d\u1EEF li\u1EC7u kh\xED h\u1EADu b\u1EB1ng bi\u1EC3u \u0111\u1ED3.",
+  formulas: "",
+  verify: { status: "needs_review", note: TN_NOTE },
+  lessons: [],
+  aux: [
+    { slug: "hdtn-cong-thuc-lai-kep", objectives: "Hi\u1EC3u v\xE0 s\u1EED d\u1EE5ng c\xF4ng th\u1EE9c l\xE3i k\xE9p \u0111\u1EC3 t\xEDnh s\u1ED1 ti\u1EC1n nh\u1EADn \u0111\u01B0\u1EE3c sau m\u1ED9t s\u1ED1 k\xEC g\u1EEDi ti\u1EBFt ki\u1EC7m." },
+    { slug: "hdtn-tinh-toan-da-thuc-geogebra", objectives: "D\xF9ng GeoGebra \u0111\u1EC3 thu g\u1ECDn, c\u1ED9ng, tr\u1EEB, nh\xE2n, chia \u0111a th\u1EE9c v\xE0 ki\u1EC3m tra k\u1EBFt qu\u1EA3 t\xEDnh tay." },
+    { slug: "hdtn-ve-hinh-don-gian-geogebra", objectives: "D\xF9ng GeoGebra v\u1EBD c\xE1c h\xECnh t\u1EE9 gi\xE1c \u0111\u1EB7c bi\u1EC7t, ki\u1EC3m nghi\u1EC7m t\xEDnh ch\u1EA5t c\u1EE7a ch\xFAng." },
+    { slug: "hdtn-phan-tich-khi-hau-viet-nam", objectives: "Thu th\u1EADp, bi\u1EC3u di\u1EC5n v\xE0 ph\xE2n t\xEDch s\u1ED1 li\u1EC7u kh\xED h\u1EADu (nhi\u1EC7t \u0111\u1ED9, l\u01B0\u1EE3ng m\u01B0a) c\u1EE7a c\xE1c v\xF9ng \u1EDF Vi\u1EC7t Nam b\u1EB1ng bi\u1EC3u \u0111\u1ED3." }
+  ]
+};
+var TN2 = {
+  code: "TN2",
+  objectives: "- V\u1EADn d\u1EE5ng h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t, \u0111\u1ECBnh l\xED Thal\xE8s, \u0111\u1ECBnh l\xED Pythagore, tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng v\xE0o th\u1EF1c ti\u1EC5n.\n- S\u1EED d\u1EE5ng GeoGebra, Excel h\u1ED7 tr\u1EE3 t\xEDnh to\xE1n v\xE0 m\xF4 ph\u1ECFng th\xED nghi\u1EC7m ng\u1EABu nhi\xEAn.",
+  keyPoints: "- \u1EE8ng d\u1EE5ng h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t trong t\xE0i ch\xEDnh.\n- \u0110o chi\u1EC1u cao, kho\u1EA3ng c\xE1ch gi\xE1n ti\u1EBFp.\n- T\xEDnh to\xE1n ph\xE2n th\u1EE9c, v\u1EBD \u0111\u1ED3 th\u1ECB b\u1EB1ng GeoGebra; m\xF4 t\u1EA3 th\xED nghi\u1EC7m ng\u1EABu nhi\xEAn b\u1EB1ng Excel.",
+  formulas: "",
+  verify: { status: "needs_review", note: TN_NOTE },
+  lessons: [],
+  aux: [
+    { slug: "hdtn-ham-so-bac-nhat-trong-tai-chinh", objectives: "L\u1EADp h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t m\xF4 t\u1EA3 chi ph\xED, ti\u1EC1n l\xE3i, ti\u1EC1n c\u01B0\u1EDBc\u2026 v\xE0 d\xF9ng \u0111\u1ED3 th\u1ECB \u0111\u1EC3 so s\xE1nh c\xE1c ph\u01B0\u01A1ng \xE1n." },
+    { slug: "hdtn-do-chieu-cao-khoang-cach", objectives: "\u0110o chi\u1EC1u cao, kho\u1EA3ng c\xE1ch kh\xF4ng \u0111o tr\u1EF1c ti\u1EBFp \u0111\u01B0\u1EE3c b\u1EB1ng \u0111\u1ECBnh l\xED Thal\xE8s, \u0111\u1ECBnh l\xED Pythagore v\xE0 tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng." },
+    {
+      slug: "hdtn-phan-thuc-va-do-thi-geogebra",
+      objectives: "D\xF9ng GeoGebra r\xFAt g\u1ECDn, c\u1ED9ng, tr\u1EEB, nh\xE2n, chia ph\xE2n th\u1EE9c \u0111\u1EA1i s\u1ED1 v\xE0 v\u1EBD \u0111\u1ED3 th\u1ECB h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t.",
+      title: {
+        from: "Th\u1EF1c hi\u1EC7n t\xEDnh to\xE1n tr\xEAn ph\xE2n th\u1EE9c \u0111\u1EA1i s\u1ED1 v\xE0 v\u1EBD \u0111\u1ED3 th\u1ECB v\u1EDBi ph\u1EA7n m\u1EC1m GeoGebra",
+        to: "Th\u1EF1c h\xE0nh t\xEDnh to\xE1n tr\xEAn ph\xE2n th\u1EE9c \u0111\u1EA1i s\u1ED1 v\xE0 v\u1EBD \u0111\u1ED3 th\u1ECB h\xE0m s\u1ED1 v\u1EDBi ph\u1EA7n m\u1EC1m GeoGebra"
+      },
+      verify: { status: "verified", note: 'T\xEAn theo SGK (VietJack, Hoatieu). PPCT ghi "Th\u1EF1c hi\u1EC7n t\xEDnh to\xE1n tr\xEAn ph\xE2n th\u1EE9c \u0111\u1EA1i s\u1ED1 v\xE0 v\u1EBD \u0111\u1ED3 th\u1ECB v\u1EDBi ph\u1EA7n m\u1EC1m GeoGebra".' }
+    },
+    { slug: "hdtn-thi-nghiem-ngau-nhien-excel", objectives: "D\xF9ng Excel m\xF4 ph\u1ECFng th\xED nghi\u1EC7m ng\u1EABu nhi\xEAn, t\xEDnh x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m v\xE0 so s\xE1nh v\u1EDBi x\xE1c su\u1EA5t l\xED thuy\u1EBFt." }
+  ]
+};
+var TOAN8_MAP = [CHUONG_1, TN1, TN2];
+var ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
+var pad = (n) => String(n).padStart(2, "0");
+function lessonCodes() {
+  const codes = /* @__PURE__ */ new Map();
+  for (const ch2 of TOAN8_CHAPTERS) {
+    let lt = 0;
+    let hd = 0;
+    for (const l of ch2.lessons) {
+      if (l.kind === "lesson") codes.set(l.slug, `T8.B${pad(l.number)}`);
+      else if (l.kind === "practice") codes.set(l.slug, `T8.C${ROMAN[ch2.code]}.LT${++lt}`);
+      else if (l.kind === "review") codes.set(l.slug, `T8.C${ROMAN[ch2.code]}.ON`);
+      else codes.set(l.slug, `T8.${ch2.code}.HD${++hd}`);
+    }
+  }
+  return codes;
+}
+
+// src/seed/knowledge-map.ts
+var MAP_KEY = "toan8-map-v1";
+var MAP_SOURCE = "B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c To\xE1n 8 \u2013 c\xE2u m\u1EABu";
+async function applyKnowledgeMap(db, log = console.log) {
+  if (await db.one(sql`select 1 from seed_marks where key = ${MAP_KEY}`)) return false;
+  const book = await db.one(sql`select id from textbooks where slug = 'toan-8'`);
+  if (!book) return false;
+  const codes = lessonCodes();
+  const stats = { themes: 0, types: 0, linked: 0, questions: 0 };
+  await db.tx(async (t) => {
+    for (const [slug, code] of codes) {
+      await t.exec(sql`update lessons set code = ${code} where textbook_id = ${book.id} and slug = ${slug} and code is null
+        and not exists (select 1 from lessons x where x.textbook_id = ${book.id} and x.code = ${code})`);
+    }
+    for (const ch2 of TOAN8_MAP) {
+      await t.exec(sql`
+        update chapters set objectives = coalesce(objectives, ${ch2.objectives || null}), key_points = coalesce(key_points, ${ch2.keyPoints || null}),
+          formulas = coalesce(formulas, ${ch2.formulas || null}),
+          verify_status = case when verify_status = 'unverified' then ${ch2.verify.status} else verify_status end,
+          verify_note = coalesce(verify_note, ${ch2.verify.note})
+        where textbook_id = ${book.id} and code = ${ch2.code}`);
+      for (const a of ch2.aux) {
+        if (a.title) {
+          await t.exec(sql`update lessons set title = ${a.title.to} where textbook_id = ${book.id} and slug = ${a.slug} and title = ${a.title.from}`);
+        }
+        await setLessonMeta(t, book.id, a.slug, { objectives: a.objectives }, a.verify ?? ch2.verify);
+      }
+      for (const l of ch2.lessons) {
+        const lessonId = await setLessonMeta(t, book.id, l.slug, l, ch2.verify);
+        if (!lessonId) throw new Error(`B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c: kh\xF4ng t\xECm th\u1EA5y b\xE0i ${l.slug}`);
+        await applyLesson(t, book.id, lessonId, codes.get(l.slug), l, stats);
+      }
+    }
+    await t.exec(sql`insert into seed_marks (key, note) values (${MAP_KEY}, ${`${stats.themes} ch\u1EE7 \u0111\u1EC1, ${stats.types} d\u1EA1ng to\xE1n, ${stats.questions} c\xE2u`})`);
+  });
+  log(`\u0110\xE3 n\u1EA1p b\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c To\xE1n 8: ${stats.themes} ch\u1EE7 \u0111\u1EC1, ${stats.types} d\u1EA1ng to\xE1n (${stats.linked} d\u1EA1ng n\u1ED1i v\u1EDBi d\u1EEF li\u1EC7u c\u0169), ${stats.questions} c\xE2u luy\u1EC7n t\u1EADp.`);
+  return true;
+}
+async function setLessonMeta(t, textbookId, slug, m, verify2) {
+  const row = await t.one(sql`
+    update lessons set
+      objectives = coalesce(objectives, ${m.objectives ?? null}),
+      prerequisites = coalesce(prerequisites, ${m.prerequisites ?? null}),
+      concepts = coalesce(concepts, ${m.concepts ?? null}),
+      formulas = coalesce(formulas, ${m.formulas ?? null}),
+      properties = coalesce(properties, ${m.properties ?? null}),
+      theorems = coalesce(theorems, ${m.theorems ?? null}),
+      difficulty = coalesce(difficulty, ${m.difficulty ?? null}),
+      verify_status = case when verify_status = 'unverified' then ${verify2.status} else verify_status end,
+      verify_note = coalesce(verify_note, ${verify2.note})
+    where textbook_id = ${textbookId} and slug = ${slug}
+    returning id`);
+  return row?.id ?? null;
+}
+async function applyLesson(t, textbookId, lessonId, lessonCode, l, stats) {
+  const existing = await t.many(sql`
+    select id, title, code from topics where lesson_id = ${lessonId} order by sort_order, id`);
+  const used = /* @__PURE__ */ new Set();
+  let n = 0;
+  for (const [ti, th] of l.themes.entries()) {
+    const themeCode = `${lessonCode}.CD${ti + 1}`;
+    let theme = await t.one(sql`select id from themes where code = ${themeCode}`);
+    if (!theme) {
+      theme = await t.one(sql`
+        insert into themes (lesson_id, code, title, description, sort_order) values (${lessonId}, ${themeCode}, ${th.title}, ${th.description ?? null}, ${ti + 1})
+        returning id`);
+      stats.themes++;
+    }
+    for (const ty of th.types) {
+      n++;
+      const code = `${lessonCode}.D${n}`;
+      const names = [ty.title, ...ty.legacy ?? []];
+      const match = existing.find((e) => e.code === code) ?? existing.find((e) => !e.code && !used.has(e.id) && names.includes(e.title));
+      let topicId;
+      if (match) {
+        used.add(match.id);
+        stats.linked++;
+        await t.exec(sql`
+          update topics set code = coalesce(code, ${code}), slug = coalesce(slug, ${ty.slug}), theme_id = coalesce(theme_id, ${theme.id}),
+            title = case when title = any(${ty.legacy ?? []}::text[]) then ${ty.title} else title end,
+            knowledge = coalesce(knowledge, ${ty.knowledge}), signs = coalesce(signs, ${ty.signs}), method = coalesce(method, ${ty.method}),
+            steps = coalesce(steps, ${ty.steps}), mistakes = coalesce(mistakes, ${ty.mistakes}), example = coalesce(example, ${ty.example}),
+            example_solution = coalesce(example_solution, ${ty.solution}),
+            levels = case when cardinality(levels) = 0 then ${ty.levels}::smallint[] else levels end,
+            sort_order = ${n}, updated_at = now()
+          where id = ${match.id}`);
+        topicId = match.id;
+      } else {
+        const row = await t.one(sql`
+          insert into topics (lesson_id, theme_id, code, slug, title, knowledge, signs, method, steps, mistakes, example, example_solution, levels, sort_order)
+          values (${lessonId}, ${theme.id}, ${code}, ${ty.slug}, ${ty.title}, ${ty.knowledge}, ${ty.signs}, ${ty.method}, ${ty.steps}, ${ty.mistakes},
+            ${ty.example}, ${ty.solution}, ${ty.levels}::smallint[], ${n})
+          returning id`);
+        topicId = row.id;
+      }
+      stats.types++;
+      for (const ex of ty.exercises) {
+        await insertSeedQuestion(t, textbookId, lessonId, topicId, ex, MAP_SOURCE);
+        stats.questions++;
+      }
+    }
+  }
+  let k = n;
+  for (const e of existing) if (!used.has(e.id)) await t.exec(sql`update topics set sort_order = ${++k} where id = ${e.id}`);
+}
+
 // src/seed/run.ts
 var LABELS_MCQ = ["A", "B", "C", "D"];
 var LABELS_TF = ["a", "b", "c", "d"];
@@ -29046,44 +29866,49 @@ async function seedToan8(db, log = console.log) {
       const lessonId = lessonIds.get(q.lesson);
       if (!lessonId) throw new Error("C\xE2u h\u1ECFi m\u1EABu tham chi\u1EBFu b\xE0i kh\xF4ng t\u1ED3n t\u1EA1i: " + q.lesson);
       const topicId = q.topic !== void 0 ? topicIds.get(q.lesson)?.[q.topic] ?? null : null;
-      const settings = q.type === "short_answer" ? { tolerance: 0, ...q.unit ? { unit: q.unit } : {} } : {};
-      const row = await t.one(sql`
-        insert into questions (exercise_type_id, textbook_id, lesson_id, topic_id, level, stem, settings, points, status, source)
-        values ((select id from exercise_types where code = ${q.type}), ${textbookId}, ${lessonId}, ${topicId}, ${q.level}, ${q.stem},
-          ${settings}, 1, 'published', 'Câu hỏi mẫu – Tạ Hữu Thắng')
-        returning id`);
-      const qid = row.id;
-      if (q.type === "mcq") {
-        for (const [i2, opt] of q.options.entries()) {
-          await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
-            values (${qid}, ${LABELS_MCQ[i2]}, ${opt}, ${LABELS_MCQ[i2] === q.correct}, ${i2 + 1})`);
-        }
-      } else if (q.type === "true_false") {
-        for (const [i2, [text2, ok]] of q.statements.entries()) {
-          await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
-            values (${qid}, ${LABELS_TF[i2]}, ${text2}, ${ok}, ${i2 + 1})`);
-        }
-      } else if (q.type === "short_answer") {
-        for (const [i2, a] of q.accepted.entries()) {
-          await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
-            values (${qid}, ${String(i2 + 1)}, ${a}, true, ${i2 + 1})`);
-        }
-      }
-      await t.exec(sql`insert into solutions (question_id, kind, content) values (${qid}, 'full', ${q.solution})`);
-      if (q.hint) await t.exec(sql`insert into solutions (question_id, kind, content, sort_order) values (${qid}, 'hint', ${q.hint}, 1)`);
-      if (q.figure) {
-        const img = await t.one(sql`
-          insert into images (kind, figure_source, alt) values ('figure', ${q.figure}, 'Hình vẽ minh họa đề bài') returning id`);
-        await t.exec(sql`insert into question_images (question_id, image_id, sort_order) values (${qid}, ${img.id}, 0)`);
-      }
+      await insertSeedQuestion(t, textbookId, lessonId, topicId, q, "C\xE2u h\u1ECFi m\u1EABu \u2013 T\u1EA1 H\u1EEFu Th\u1EAFng");
     }
   });
   log(`\u0110\xE3 t\u1EA1o ch\u01B0\u01A1ng tr\xECnh To\xE1n 8 KNTT: ${TOAN8_CHAPTERS.length} ch\u01B0\u01A1ng, ${TOAN8_PPCT_2026.length} m\u1EE5c PPCT, ${TOAN8_QUESTIONS.length} c\xE2u h\u1ECFi m\u1EABu.`);
   return true;
 }
+async function insertSeedQuestion(t, textbookId, lessonId, topicId, q, source) {
+  const settings = q.type === "short_answer" ? { tolerance: 0, ...q.unit ? { unit: q.unit } : {} } : {};
+  const row = await t.one(sql`
+    insert into questions (exercise_type_id, textbook_id, lesson_id, topic_id, level, stem, settings, points, status, source)
+    values ((select id from exercise_types where code = ${q.type}), ${textbookId}, ${lessonId}, ${topicId}, ${q.level}, ${q.stem},
+      ${settings}, 1, 'published', ${source})
+    returning id`);
+  const qid = row.id;
+  if (q.type === "mcq") {
+    for (const [i2, opt] of q.options.entries()) {
+      await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
+        values (${qid}, ${LABELS_MCQ[i2]}, ${opt}, ${LABELS_MCQ[i2] === q.correct}, ${i2 + 1})`);
+    }
+  } else if (q.type === "true_false") {
+    for (const [i2, [text2, ok]] of q.statements.entries()) {
+      await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
+        values (${qid}, ${LABELS_TF[i2]}, ${text2}, ${ok}, ${i2 + 1})`);
+    }
+  } else if (q.type === "short_answer") {
+    for (const [i2, a] of q.accepted.entries()) {
+      await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
+        values (${qid}, ${String(i2 + 1)}, ${a}, true, ${i2 + 1})`);
+    }
+  }
+  await t.exec(sql`insert into solutions (question_id, kind, content) values (${qid}, 'full', ${q.solution})`);
+  if (q.hint) await t.exec(sql`insert into solutions (question_id, kind, content, sort_order) values (${qid}, 'hint', ${q.hint}, 1)`);
+  if (q.figure) {
+    const img = await t.one(sql`
+      insert into images (kind, figure_source, alt) values ('figure', ${q.figure}, 'Hình vẽ minh họa đề bài') returning id`);
+    await t.exec(sql`insert into question_images (question_id, image_id, sort_order) values (${qid}, ${img.id}, 0)`);
+  }
+  return qid;
+}
 async function seedAll(db, log = console.log) {
   await seedBase(db);
   await seedToan8(db, log);
+  await applyKnowledgeMap(db, log);
 }
 
 // src/server/http/server.ts
@@ -29097,13 +29922,13 @@ var N = 16384;
 var R2 = 8;
 var P2 = 1;
 var KEYLEN = 64;
-function scrypt(password, salt, n, r3, p) {
+function scrypt(password, salt, n, r4, p) {
   return new Promise((resolve, reject) => {
     crypto2.scrypt(
       password.normalize("NFKC"),
       salt,
       KEYLEN,
-      { N: n, r: r3, p, maxmem: 128 * n * r3 * 2 },
+      { N: n, r: r4, p, maxmem: 128 * n * r4 * 2 },
       (err, key) => err ? reject(err) : resolve(key)
     );
   });
@@ -29116,9 +29941,9 @@ async function hashPassword(password) {
 async function verifyPassword(password, stored) {
   const parts = stored.split("$");
   if (parts.length !== 6 || parts[0] !== "scrypt") return false;
-  const [, n, r3, p, saltB64, keyB64] = parts;
+  const [, n, r4, p, saltB64, keyB64] = parts;
   const expected = Buffer.from(keyB64, "base64");
-  const key = await scrypt(password, Buffer.from(saltB64, "base64"), Number(n), Number(r3), Number(p));
+  const key = await scrypt(password, Buffer.from(saltB64, "base64"), Number(n), Number(r4), Number(p));
   return key.length === expected.length && crypto2.timingSafeEqual(key, expected);
 }
 function passwordProblem(password) {
@@ -29323,19 +30148,19 @@ var IconContext = import_react2.default.createContext && /* @__PURE__ */ import_
 var _excluded = ["attr", "size", "title"];
 function _objectWithoutProperties(e, t) {
   if (null == e) return {};
-  var o, r3, i2 = _objectWithoutPropertiesLoose(e, t);
+  var o, r4, i2 = _objectWithoutPropertiesLoose(e, t);
   if (Object.getOwnPropertySymbols) {
     var n = Object.getOwnPropertySymbols(e);
-    for (r3 = 0; r3 < n.length; r3++) o = n[r3], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i2[o] = e[o]);
+    for (r4 = 0; r4 < n.length; r4++) o = n[r4], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i2[o] = e[o]);
   }
   return i2;
 }
-function _objectWithoutPropertiesLoose(r3, e) {
-  if (null == r3) return {};
+function _objectWithoutPropertiesLoose(r4, e) {
+  if (null == r4) return {};
   var t = {};
-  for (var n in r3) if ({}.hasOwnProperty.call(r3, n)) {
+  for (var n in r4) if ({}.hasOwnProperty.call(r4, n)) {
     if (-1 !== e.indexOf(n)) continue;
-    t[n] = r3[n];
+    t[n] = r4[n];
   }
   return t;
 }
@@ -29343,48 +30168,48 @@ function _extends() {
   return _extends = Object.assign ? Object.assign.bind() : function(n) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r3 in t) ({}).hasOwnProperty.call(t, r3) && (n[r3] = t[r3]);
+      for (var r4 in t) ({}).hasOwnProperty.call(t, r4) && (n[r4] = t[r4]);
     }
     return n;
   }, _extends.apply(null, arguments);
 }
-function ownKeys(e, r3) {
+function ownKeys(e, r4) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
-    r3 && (o = o.filter(function(r4) {
-      return Object.getOwnPropertyDescriptor(e, r4).enumerable;
+    r4 && (o = o.filter(function(r5) {
+      return Object.getOwnPropertyDescriptor(e, r5).enumerable;
     })), t.push.apply(t, o);
   }
   return t;
 }
 function _objectSpread(e) {
-  for (var r3 = 1; r3 < arguments.length; r3++) {
-    var t = null != arguments[r3] ? arguments[r3] : {};
-    r3 % 2 ? ownKeys(Object(t), true).forEach(function(r4) {
-      _defineProperty(e, r4, t[r4]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function(r4) {
-      Object.defineProperty(e, r4, Object.getOwnPropertyDescriptor(t, r4));
+  for (var r4 = 1; r4 < arguments.length; r4++) {
+    var t = null != arguments[r4] ? arguments[r4] : {};
+    r4 % 2 ? ownKeys(Object(t), true).forEach(function(r5) {
+      _defineProperty(e, r5, t[r5]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function(r5) {
+      Object.defineProperty(e, r5, Object.getOwnPropertyDescriptor(t, r5));
     });
   }
   return e;
 }
-function _defineProperty(e, r3, t) {
-  return (r3 = _toPropertyKey(r3)) in e ? Object.defineProperty(e, r3, { value: t, enumerable: true, configurable: true, writable: true }) : e[r3] = t, e;
+function _defineProperty(e, r4, t) {
+  return (r4 = _toPropertyKey(r4)) in e ? Object.defineProperty(e, r4, { value: t, enumerable: true, configurable: true, writable: true }) : e[r4] = t, e;
 }
 function _toPropertyKey(t) {
   var i2 = _toPrimitive(t, "string");
   return "symbol" == typeof i2 ? i2 : i2 + "";
 }
-function _toPrimitive(t, r3) {
+function _toPrimitive(t, r4) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
-    var i2 = e.call(t, r3 || "default");
+    var i2 = e.call(t, r4 || "default");
     if ("object" != typeof i2) return i2;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
-  return ("string" === r3 ? String : Number)(t);
+  return ("string" === r4 ? String : Number)(t);
 }
 function Tree2Element(tree) {
   return tree && tree.map((node, i2) => /* @__PURE__ */ import_react3.default.createElement(node.tag, _objectSpread({
@@ -29430,11 +30255,17 @@ function LuUser(props) {
 function LuTrophy(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M6 9H4.5a2.5 2.5 0 0 1 0-5H6" }, "child": [] }, { "tag": "path", "attr": { "d": "M18 9h1.5a2.5 2.5 0 0 0 0-5H18" }, "child": [] }, { "tag": "path", "attr": { "d": "M4 22h16" }, "child": [] }, { "tag": "path", "attr": { "d": "M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" }, "child": [] }, { "tag": "path", "attr": { "d": "M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" }, "child": [] }, { "tag": "path", "attr": { "d": "M18 2H6v7a6 6 0 0 0 12 0V2Z" }, "child": [] }] })(props);
 }
+function LuTriangleAlert(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" }, "child": [] }, { "tag": "path", "attr": { "d": "M12 9v4" }, "child": [] }, { "tag": "path", "attr": { "d": "M12 17h.01" }, "child": [] }] })(props);
+}
 function LuTarget(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "circle", "attr": { "cx": "12", "cy": "12", "r": "10" }, "child": [] }, { "tag": "circle", "attr": { "cx": "12", "cy": "12", "r": "6" }, "child": [] }, { "tag": "circle", "attr": { "cx": "12", "cy": "12", "r": "2" }, "child": [] }] })(props);
 }
 function LuStar(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" }, "child": [] }] })(props);
+}
+function LuSigma(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2" }, "child": [] }] })(props);
 }
 function LuShield(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" }, "child": [] }] })(props);
@@ -29442,8 +30273,14 @@ function LuShield(props) {
 function LuSettings(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" }, "child": [] }, { "tag": "circle", "attr": { "cx": "12", "cy": "12", "r": "3" }, "child": [] }] })(props);
 }
+function LuSearch(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "circle", "attr": { "cx": "11", "cy": "11", "r": "8" }, "child": [] }, { "tag": "path", "attr": { "d": "m21 21-4.3-4.3" }, "child": [] }] })(props);
+}
 function LuSchool(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M14 22v-4a2 2 0 1 0-4 0v4" }, "child": [] }, { "tag": "path", "attr": { "d": "m18 10 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7.382a1 1 0 0 1 .553-.894L6 10" }, "child": [] }, { "tag": "path", "attr": { "d": "M18 5v17" }, "child": [] }, { "tag": "path", "attr": { "d": "m4 6 7.106-3.553a2 2 0 0 1 1.788 0L20 6" }, "child": [] }, { "tag": "path", "attr": { "d": "M6 5v17" }, "child": [] }, { "tag": "circle", "attr": { "cx": "12", "cy": "9", "r": "2" }, "child": [] }] })(props);
+}
+function LuRoute(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "circle", "attr": { "cx": "6", "cy": "19", "r": "3" }, "child": [] }, { "tag": "path", "attr": { "d": "M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" }, "child": [] }, { "tag": "circle", "attr": { "cx": "18", "cy": "5", "r": "3" }, "child": [] }] })(props);
 }
 function LuRocket(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" }, "child": [] }, { "tag": "path", "attr": { "d": "m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" }, "child": [] }, { "tag": "path", "attr": { "d": "M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" }, "child": [] }, { "tag": "path", "attr": { "d": "M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" }, "child": [] }] })(props);
@@ -29463,11 +30300,17 @@ function LuMountain(props) {
 function LuMenu(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "line", "attr": { "x1": "4", "x2": "20", "y1": "12", "y2": "12" }, "child": [] }, { "tag": "line", "attr": { "x1": "4", "x2": "20", "y1": "6", "y2": "6" }, "child": [] }, { "tag": "line", "attr": { "x1": "4", "x2": "20", "y1": "18", "y2": "18" }, "child": [] }] })(props);
 }
+function LuMap(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z" }, "child": [] }, { "tag": "path", "attr": { "d": "M15 5.764v15" }, "child": [] }, { "tag": "path", "attr": { "d": "M9 3.236v15" }, "child": [] }] })(props);
+}
 function LuLogOut(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" }, "child": [] }, { "tag": "polyline", "attr": { "points": "16 17 21 12 16 7" }, "child": [] }, { "tag": "line", "attr": { "x1": "21", "x2": "9", "y1": "12", "y2": "12" }, "child": [] }] })(props);
 }
 function LuLock(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "rect", "attr": { "width": "18", "height": "11", "x": "3", "y": "11", "rx": "2", "ry": "2" }, "child": [] }, { "tag": "path", "attr": { "d": "M7 11V7a5 5 0 0 1 10 0v4" }, "child": [] }] })(props);
+}
+function LuListChecks(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "m3 17 2 2 4-4" }, "child": [] }, { "tag": "path", "attr": { "d": "m3 7 2 2 4-4" }, "child": [] }, { "tag": "path", "attr": { "d": "M13 6h8" }, "child": [] }, { "tag": "path", "attr": { "d": "M13 12h8" }, "child": [] }, { "tag": "path", "attr": { "d": "M13 18h8" }, "child": [] }] })(props);
 }
 function LuLibrary(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "m16 6 4 14" }, "child": [] }, { "tag": "path", "attr": { "d": "M12 6v14" }, "child": [] }, { "tag": "path", "attr": { "d": "M8 8v12" }, "child": [] }, { "tag": "path", "attr": { "d": "M4 4v16" }, "child": [] }] })(props);
@@ -29487,11 +30330,23 @@ function LuHouse(props) {
 function LuFlame(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" }, "child": [] }] })(props);
 }
+function LuFileSpreadsheet(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" }, "child": [] }, { "tag": "path", "attr": { "d": "M14 2v4a2 2 0 0 0 2 2h4" }, "child": [] }, { "tag": "path", "attr": { "d": "M8 13h2" }, "child": [] }, { "tag": "path", "attr": { "d": "M14 13h2" }, "child": [] }, { "tag": "path", "attr": { "d": "M8 17h2" }, "child": [] }, { "tag": "path", "attr": { "d": "M14 17h2" }, "child": [] }] })(props);
+}
 function LuFileQuestion(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M12 17h.01" }, "child": [] }, { "tag": "path", "attr": { "d": "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" }, "child": [] }, { "tag": "path", "attr": { "d": "M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3" }, "child": [] }] })(props);
 }
+function LuEye(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" }, "child": [] }, { "tag": "circle", "attr": { "cx": "12", "cy": "12", "r": "3" }, "child": [] }] })(props);
+}
+function LuEyeOff(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" }, "child": [] }, { "tag": "path", "attr": { "d": "M14.084 14.158a3 3 0 0 1-4.242-4.242" }, "child": [] }, { "tag": "path", "attr": { "d": "M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" }, "child": [] }, { "tag": "path", "attr": { "d": "m2 2 20 20" }, "child": [] }] })(props);
+}
 function LuCrown(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z" }, "child": [] }, { "tag": "path", "attr": { "d": "M5 21h14" }, "child": [] }] })(props);
+}
+function LuCompass(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" }, "child": [] }, { "tag": "circle", "attr": { "cx": "12", "cy": "12", "r": "10" }, "child": [] }] })(props);
 }
 function LuClock(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "circle", "attr": { "cx": "12", "cy": "12", "r": "10" }, "child": [] }, { "tag": "polyline", "attr": { "points": "12 6 12 12 16 14" }, "child": [] }] })(props);
@@ -29517,11 +30372,17 @@ function LuBrain(props) {
 function LuBookOpen(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M12 7v14" }, "child": [] }, { "tag": "path", "attr": { "d": "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" }, "child": [] }] })(props);
 }
+function LuArrowUp(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "m5 12 7-7 7 7" }, "child": [] }, { "tag": "path", "attr": { "d": "M12 19V5" }, "child": [] }] })(props);
+}
 function LuArrowRight(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M5 12h14" }, "child": [] }, { "tag": "path", "attr": { "d": "m12 5 7 7-7 7" }, "child": [] }] })(props);
 }
 function LuArrowLeft(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "m12 19-7-7 7-7" }, "child": [] }, { "tag": "path", "attr": { "d": "M19 12H5" }, "child": [] }] })(props);
+}
+function LuArrowDown(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M12 5v14" }, "child": [] }, { "tag": "path", "attr": { "d": "m19 12-7 7-7-7" }, "child": [] }] })(props);
 }
 
 // src/ui/components/Logo.tsx
@@ -30466,25 +31327,25 @@ var Router = class {
   }
   match(method, path7) {
     let pathMatched = false;
-    for (const r3 of this.routes) {
-      const m = r3.regex.exec(path7);
+    for (const r4 of this.routes) {
+      const m = r4.regex.exec(path7);
       if (!m) continue;
       pathMatched = true;
-      if (r3.method !== method && !(method === "HEAD" && r3.method === "GET")) continue;
+      if (r4.method !== method && !(method === "HEAD" && r4.method === "GET")) continue;
       const params = {};
-      r3.keys.forEach((k, i2) => {
+      r4.keys.forEach((k, i2) => {
         try {
           params[k] = decodeURIComponent(m[i2 + 1]);
         } catch {
           params[k] = m[i2 + 1];
         }
       });
-      return { handler: r3.handler, params };
+      return { handler: r4.handler, params };
     }
     return pathMatched ? "method-not-allowed" : null;
   }
   list() {
-    return this.routes.map((r3) => `${r3.method} ${r3.pattern}`);
+    return this.routes.map((r4) => `${r4.method} ${r4.pattern}`);
   }
 };
 
@@ -30519,11 +31380,12 @@ async function getCourseTree(q, textbookId, userId, includeDrafts = false) {
     sql`select id, number, name from semesters where textbook_id = ${textbookId} order by number`
   );
   const chapters = await q.many(sql`
-    select id, code, title, description, kind, semester_id from chapters where textbook_id = ${textbookId} order by sort_order`);
+    select id, code, title, description, kind, status, semester_id from chapters
+    where textbook_id = ${textbookId} and (${includeDrafts}::boolean or status = 'published') order by sort_order`);
   const lessons = await q.many(sql`
-    select l.id, l.slug, l.number, l.title, l.kind, l.periods, l.summary, l.status, l.chapter_id,
+    select l.id, l.code, l.slug, l.number, l.title, l.kind, l.periods, l.summary, l.status, l.chapter_id,
       (select count(*)::int from lesson_sections s where s.lesson_id = l.id) as section_count,
-      (select count(*)::int from topics t where t.lesson_id = l.id) as topic_count,
+      (select count(*)::int from topics t where t.lesson_id = l.id and (${includeDrafts}::boolean or t.status = 'published')) as topic_count,
       (select count(*)::int from questions qq where qq.lesson_id = l.id and qq.status = 'published') as question_count,
       lp.status as progress
     from lessons l
@@ -30537,25 +31399,25 @@ async function getCourseTree(q, textbookId, userId, includeDrafts = false) {
   }
   return semesters.map((s) => ({
     ...s,
-    chapters: chapters.filter((c) => c.semesterId === s.id).map((c) => ({ id: c.id, code: c.code, title: c.title, description: c.description, kind: c.kind, lessons: byChapter.get(c.id) ?? [] }))
+    chapters: chapters.filter((c) => c.semesterId === s.id).map((c) => ({ id: c.id, code: c.code, title: c.title, description: c.description, kind: c.kind, status: c.status, lessons: byChapter.get(c.id) ?? [] }))
   }));
 }
 function flattenLessons(tree) {
   return tree.flatMap((s) => s.chapters.flatMap((c) => c.lessons.map((l) => ({ ...l, chapter: c, semester: s }))));
 }
+var LESSON_COLS = sql`l.id, l.textbook_id, l.slug, l.number, l.title, l.kind, l.summary, l.periods, l.estimated_minutes, l.status, l.updated_at,
+  l.code, l.objectives, l.prerequisites, l.concepts, l.formulas, l.properties, l.theorems, l.difficulty, l.verify_status, l.verify_note, l.sort_order,
+  c.id as chapter_id, c.code as chapter_code, c.title as chapter_title, c.kind as chapter_kind, c.status as chapter_status,
+  s.number as semester_number, s.name as semester_name`;
 async function getLessonBySlug(q, textbookId, slug) {
   return q.one(sql`
-    select l.id, l.textbook_id, l.slug, l.number, l.title, l.kind, l.summary, l.periods, l.estimated_minutes, l.status, l.updated_at,
-      c.id as chapter_id, c.code as chapter_code, c.title as chapter_title, c.kind as chapter_kind,
-      s.number as semester_number, s.name as semester_name
+    select ${LESSON_COLS}
     from lessons l join chapters c on c.id = l.chapter_id join semesters s on s.id = c.semester_id
     where l.textbook_id = ${textbookId} and l.slug = ${slug}`);
 }
 async function getLessonById(q, id) {
   return q.one(sql`
-    select l.id, l.textbook_id, l.slug, l.number, l.title, l.kind, l.summary, l.periods, l.estimated_minutes, l.status, l.updated_at,
-      c.id as chapter_id, c.code as chapter_code, c.title as chapter_title, c.kind as chapter_kind,
-      s.number as semester_number, s.name as semester_name
+    select ${LESSON_COLS}
     from lessons l join chapters c on c.id = l.chapter_id join semesters s on s.id = c.semester_id
     where l.id = ${id}`);
 }
@@ -30563,17 +31425,11 @@ async function getLessonSections(q, lessonId) {
   return q.many(sql`
     select id, kind, title, body, solution, sort_order from lesson_sections where lesson_id = ${lessonId} order by sort_order, id`);
 }
-async function getLessonTopics(q, lessonId) {
-  return q.many(sql`
-    select t.id, t.title, t.method, t.sort_order,
-      (select count(*)::int from questions qq where qq.topic_id = t.id and qq.status = 'published') as question_count
-    from topics t where t.lesson_id = ${lessonId} order by t.sort_order, t.id`);
-}
 async function getLessonQuestionCounts(q, lessonId) {
   const rows = await q.many(sql`
     select et.code, count(*)::int as n from questions qq join exercise_types et on et.id = qq.exercise_type_id
     where qq.lesson_id = ${lessonId} and qq.status = 'published' group by et.code`);
-  return Object.fromEntries(rows.map((r3) => [r3.code, r3.n]));
+  return Object.fromEntries(rows.map((r4) => [r4.code, r4.n]));
 }
 async function getTeachingPlan(q, textbookId) {
   const plan = await q.one(sql`
@@ -30595,7 +31451,7 @@ async function lessonOptions(q, textbookId) {
 }
 async function topicOptions(q, textbookId) {
   return q.many(sql`
-    select t.id, t.lesson_id, t.title as label,
+    select t.id, t.lesson_id, case when t.code is not null then t.code || ' · ' || t.title else t.title end as label,
       case when l.kind = 'lesson' and l.number is not null then 'Bài ' || l.number || '. ' || l.title else l.title end as lesson
     from topics t join lessons l on l.id = t.lesson_id join chapters c on c.id = l.chapter_id
     where l.textbook_id = ${textbookId} order by c.sort_order, l.sort_order, t.sort_order`);
@@ -30610,8 +31466,8 @@ async function awardXp(q, userId, amount, reason, ref) {
   return n > 0 ? amount : 0;
 }
 async function totalXp(q, userId) {
-  const r3 = await q.one(sql`select coalesce(sum(amount), 0)::int as xp from xp_events where user_id = ${userId}`);
-  return r3?.xp ?? 0;
+  const r4 = await q.one(sql`select coalesce(sum(amount), 0)::int as xp from xp_events where user_id = ${userId}`);
+  return r4?.xp ?? 0;
 }
 async function practiceStreak(q, userId) {
   const rows = await q.many(sql`
@@ -30619,7 +31475,7 @@ async function practiceStreak(q, userId) {
     from question_responses where user_id = ${userId} and created_at > now() - interval '120 days'
     order by d desc`);
   if (!rows.length) return 0;
-  const days = rows.map((r3) => r3.d);
+  const days = rows.map((r4) => r4.d);
   const fmt2 = (t) => new Date(t).toLocaleDateString("en-CA", { timeZone: TIME_ZONE });
   const today = fmt2(Date.now());
   const yesterday = fmt2(Date.now() - 864e5);
@@ -30709,13 +31565,13 @@ async function leaderboard(q, opts) {
     limit ${opts.limit}`);
 }
 async function userRank(q, userId) {
-  const r3 = await q.one(sql`
+  const r4 = await q.one(sql`
     select rank from (
       select e.user_id, rank() over (order by sum(e.amount) desc)::int as rank
       from xp_events e join users u on u.id = e.user_id join roles r on r.id = u.role_id
       where r.code = 'student' group by e.user_id
     ) x where user_id = ${userId}`);
-  return r3?.rank ?? null;
+  return r4?.rank ?? null;
 }
 
 // src/shared/grading.ts
@@ -30746,23 +31602,23 @@ function normalizeText(s) {
 }
 function normalizeResponse(type, raw) {
   if (!raw || typeof raw !== "object") return null;
-  const r3 = raw;
+  const r4 = raw;
   switch (type) {
     case "mcq":
-      return typeof r3.choice === "string" && /^[A-D]$/.test(r3.choice) ? { kind: "mcq", choice: r3.choice } : null;
+      return typeof r4.choice === "string" && /^[A-D]$/.test(r4.choice) ? { kind: "mcq", choice: r4.choice } : null;
     case "true_false": {
-      if (!r3.values || typeof r3.values !== "object") return null;
+      if (!r4.values || typeof r4.values !== "object") return null;
       const values = {};
-      for (const [k, v] of Object.entries(r3.values)) {
+      for (const [k, v] of Object.entries(r4.values)) {
         if (/^[a-d]$/.test(k) && typeof v === "boolean") values[k] = v;
       }
       return { kind: "true_false", values };
     }
     case "short_answer":
-      return typeof r3.text === "string" && r3.text.length <= 100 ? { kind: "short_answer", text: r3.text.trim() } : null;
+      return typeof r4.text === "string" && r4.text.length <= 100 ? { kind: "short_answer", text: r4.text.trim() } : null;
     case "essay":
     case "geometry_essay":
-      return typeof r3.text === "string" && r3.text.length <= 1e4 ? { kind: "essay", text: r3.text.trim() } : null;
+      return typeof r4.text === "string" && r4.text.length <= 1e4 ? { kind: "essay", text: r4.text.trim() } : null;
   }
 }
 function isEmptyResponse(resp) {
@@ -30859,7 +31715,7 @@ async function continueLesson(q, userId) {
     order by (p.status = 'in_progress') desc, p.last_viewed_at desc limit 1`);
 }
 async function userStats(q, userId, textbookId) {
-  const r3 = await q.one(sql`
+  const r4 = await q.one(sql`
     select
       (select count(*)::int from learning_progress p join lessons l on l.id = p.lesson_id
         where p.user_id = ${userId} and p.status = 'completed' and (${textbookId}::int is null or l.textbook_id = ${textbookId})) as lessons_completed,
@@ -30873,8 +31729,8 @@ async function userStats(q, userId, textbookId) {
   const xp = await totalXp(q, userId);
   const lv = levelFromXp(xp);
   return {
-    ...r3,
-    accuracy: r3.graded ? Math.round(r3.correct / r3.graded * 100) : 0,
+    ...r4,
+    accuracy: r4.graded ? Math.round(r4.correct / r4.graded * 100) : 0,
     xp,
     level: lv.level,
     levelCurrent: lv.current,
@@ -30916,6 +31772,32 @@ async function platformStats(q) {
       (select count(*)::int from users u join roles r on r.id = u.role_id where r.code = 'student' and u.status = 'active') as students`);
 }
 
+// src/shared/pick.ts
+function chooseByLevel(rows, plan) {
+  const total = Object.values(plan).reduce((a, b) => a + b, 0);
+  const picked = [];
+  const left = [...rows];
+  for (const level of [1, 2, 3, 4]) {
+    for (let k = 0; k < (plan[level] ?? 0); k++) {
+      const i2 = left.findIndex((r4) => r4.level === level);
+      if (i2 < 0) break;
+      picked.push(left.splice(i2, 1)[0]);
+    }
+  }
+  const want = [];
+  for (const level of [1, 2, 3, 4]) {
+    const missing = (plan[level] ?? 0) - picked.filter((p) => p.level === level).length;
+    for (let k = 0; k < missing; k++) want.push(level);
+  }
+  for (const level of want) {
+    if (picked.length >= total || !left.length) break;
+    left.sort((a, b) => Math.abs(a.level - level) - Math.abs(b.level - level));
+    picked.push(left.shift());
+  }
+  return picked.sort((a, b) => a.level - b.level);
+}
+var CHAPTER_TEST_PLAN = { 1: 4, 2: 3, 3: 2, 4: 1 };
+
 // src/domain/questions.ts
 init_richtext();
 init_figure();
@@ -30935,15 +31817,15 @@ async function getQuestions(q, ids) {
     select qi.question_id, i.id, i.kind, i.figure_source, i.alt
     from question_images qi join images i on i.id = qi.image_id where qi.question_id = any(${ids}::int[]) order by qi.sort_order`);
   const byId = new Map(
-    rows.map((r3) => [
-      r3.id,
+    rows.map((r4) => [
+      r4.id,
       {
-        ...r3,
-        points: Number(r3.points),
-        answers: answers.filter((a) => a.questionId === r3.id),
-        solution: sols.find((s) => s.questionId === r3.id && s.kind === "full")?.content ?? null,
-        hint: sols.find((s) => s.questionId === r3.id && s.kind === "hint")?.content ?? null,
-        images: imgs.filter((i2) => i2.questionId === r3.id)
+        ...r4,
+        points: Number(r4.points),
+        answers: answers.filter((a) => a.questionId === r4.id),
+        solution: sols.find((s) => s.questionId === r4.id && s.kind === "full")?.content ?? null,
+        hint: sols.find((s) => s.questionId === r4.id && s.kind === "hint")?.content ?? null,
+        images: imgs.filter((i2) => i2.questionId === r4.id)
       }
     ])
   );
@@ -30989,6 +31871,7 @@ function filterSql(f) {
   return sql`
     where qq.textbook_id = ${f.textbookId}
       and (${f.lessonId ?? null}::int is null or qq.lesson_id = ${f.lessonId ?? null})
+      and (${f.topicId ?? null}::int is null or qq.topic_id = ${f.topicId ?? null})
       and (${type}::text is null or et.code = ${type})
       and (${f.level ?? null}::int is null or qq.level = ${f.level ?? null})
       and (${status}::text is null or qq.status = ${status})
@@ -31013,7 +31896,7 @@ async function listQuestions(q, f, limit, offset) {
     limit ${limit} offset ${offset}`);
   const total = await q.one(sql`
     select count(*)::int as n from questions qq join exercise_types et on et.id = qq.exercise_type_id ${where}`);
-  return { rows: rows.map((r3) => ({ ...r3, points: Number(r3.points) })), total: total?.n ?? 0 };
+  return { rows: rows.map((r4) => ({ ...r4, points: Number(r4.points) })), total: total?.n ?? 0 };
 }
 async function latestQuestions(q, textbookId, limit) {
   return q.many(sql`
@@ -31023,7 +31906,7 @@ async function latestQuestions(q, textbookId, limit) {
     order by qq.created_at desc, qq.id desc limit ${limit}`);
 }
 async function pickPracticeQuestionIds(q, scope, userId, limit) {
-  const where = scope.kind === "lesson" ? sql`qq.lesson_id = ${scope.lessonId}` : scope.kind === "chapter" ? sql`l.chapter_id = ${scope.chapterId}` : sql`qq.textbook_id = ${scope.textbookId} and qq.level >= 3 and et.code in ('mcq', 'true_false', 'short_answer')`;
+  const where = scope.kind === "lesson" ? sql`qq.lesson_id = ${scope.lessonId}` : scope.kind === "chapter" ? sql`l.chapter_id = ${scope.chapterId}` : scope.kind === "topic" ? sql`qq.topic_id = ${scope.topicId}` : sql`qq.textbook_id = ${scope.textbookId} and qq.level >= 3 and et.code in ('mcq', 'true_false', 'short_answer')`;
   const rows = await q.many(sql`
     select qq.id
     from questions qq join exercise_types et on et.id = qq.exercise_type_id
@@ -31032,7 +31915,16 @@ async function pickPracticeQuestionIds(q, scope, userId, limit) {
     order by exists (select 1 from question_responses r where r.question_id = qq.id and r.user_id = ${userId} and r.status = 'correct'),
       random()
     limit ${limit}`);
-  return rows.map((r3) => r3.id);
+  return rows.map((r4) => r4.id);
+}
+async function pickChapterTestIds(q, chapterId, plan) {
+  const rows = await q.many(sql`
+    select qq.id, qq.level
+    from questions qq join exercise_types et on et.id = qq.exercise_type_id join lessons l on l.id = qq.lesson_id
+    where l.chapter_id = ${chapterId} and qq.status = 'published' and l.status = 'published'
+      and et.code in ('mcq', 'true_false', 'short_answer')
+    order by random()`);
+  return chooseByLevel(rows, plan).map((r4) => r4.id);
 }
 function emptyQuestionInput(type) {
   return {
@@ -31490,14 +32382,14 @@ async function homePage(ctx) {
               /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h2", { id: "xep-hang", className: "text-xl font-extrabold tracking-tight", children: "B\u1EA3ng x\u1EBFp h\u1EA1ng" }),
               /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("a", { href: "/thanh-tich#xep-hang", className: "text-[14px] font-semibold text-tim-700 hover:underline", children: "Xem th\xEAm" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Panel, { className: "mt-4 p-2", children: leaders.length ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("ol", { children: leaders.map((r3) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("li", { className: cx("flex items-center gap-3 rounded-xl px-3 py-2.5", r3.userId === user?.id && "bg-hl-soft"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: cx("flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold", r3.rank === 1 ? "bg-hl text-ink" : "bg-mist text-ink-2"), children: r3.rank === 1 ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LuCrown, { "aria-label": "H\u1EA1ng 1" }) : r3.rank }),
-              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "min-w-0 flex-1 truncate font-medium", children: r3.fullName }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Panel, { className: "mt-4 p-2", children: leaders.length ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("ol", { children: leaders.map((r4) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("li", { className: cx("flex items-center gap-3 rounded-xl px-3 py-2.5", r4.userId === user?.id && "bg-hl-soft"), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: cx("flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold", r4.rank === 1 ? "bg-hl text-ink" : "bg-mist text-ink-2"), children: r4.rank === 1 ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LuCrown, { "aria-label": "H\u1EA1ng 1" }) : r4.rank }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "min-w-0 flex-1 truncate font-medium", children: r4.fullName }),
               /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { className: "text-[14px] font-bold tabular-nums text-tim-700", children: [
-                r3.xp,
+                r4.xp,
                 " XP"
               ] })
-            ] }, r3.userId)) }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { className: "px-3 py-4 text-[15px] text-ink-2", children: [
+            ] }, r4.userId)) }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { className: "px-3 py-4 text-[15px] text-ink-2", children: [
               /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LuTrophy, { className: "mr-1 inline text-tim-500", "aria-hidden": "true" }),
               "B\u1EA3ng x\u1EBFp h\u1EA1ng s\u1EBD xu\u1EA5t hi\u1EC7n khi h\u1ECDc sinh b\u1EAFt \u0111\u1EA7u h\u1ECDc v\xE0 luy\u1EC7n t\u1EADp."
             ] }) })
@@ -31590,8 +32482,8 @@ async function audit(q, actorId, action, target, detail) {
   await q.exec(sql`insert into audit_logs (actor_id, action, target, detail) values (${actorId}, ${action}, ${target}, ${detail ?? null})`);
 }
 async function countAdmins(q) {
-  const r3 = await q.one(sql`select count(*)::int as n from users u join roles r on r.id = u.role_id where r.code = 'admin'`);
-  return r3?.n ?? 0;
+  const r4 = await q.one(sql`select count(*)::int as n from users u join roles r on r.id = u.role_id where r.code = 'admin'`);
+  return r4?.n ?? 0;
 }
 async function listUsers(q, opts) {
   const role = opts.role && ["admin", "teacher", "student"].includes(opts.role) ? opts.role : null;
@@ -31706,9 +32598,9 @@ async function studentClasses(q, studentId) {
 }
 async function teacherCanManageStudent(q, user, studentId) {
   if (user.role === "admin") return true;
-  const r3 = await q.one(sql`
+  const r4 = await q.one(sql`
     select 1 from class_members m join classes c on c.id = m.class_id where m.student_id = ${studentId} and c.teacher_id = ${user.id}`);
-  return !!r3;
+  return !!r4;
 }
 async function teacherStudents(q, user, search) {
   const all = user.role === "admin";
@@ -31767,8 +32659,8 @@ async function loginSubmit(ctx) {
   const username = normalizeUsername(form.str("username", 60));
   const password = form.str("password", 200);
   const fail = (msg, status = 401) => {
-    const r3 = page(ctx, { title: "\u0110\u0103ng nh\u1EADp", layout: "auth", status }, /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(LoginForm, { next, username, errors: [msg] }));
-    return r3;
+    const r4 = page(ctx, { title: "\u0110\u0103ng nh\u1EADp", layout: "auth", status }, /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(LoginForm, { next, username, errors: [msg] }));
+    return r4;
   };
   if (!username || !password) return fail("Nh\u1EADp t\xEAn \u0111\u0103ng nh\u1EADp v\xE0 m\u1EADt kh\u1EA9u.", 422);
   if (await loginBlocked(ctx.db, username, ctx.ip)) {
@@ -31978,130 +32870,847 @@ function requireRole(ctx, ...roles) {
 }
 var requireTeacher = (ctx) => requireRole(ctx, "teacher", "admin");
 var requireAdmin = (ctx) => requireRole(ctx, "admin");
-function roleName(r3) {
-  return r3 === "admin" ? "qu\u1EA3n tr\u1ECB vi\xEAn" : r3 === "teacher" ? "gi\xE1o vi\xEAn" : "h\u1ECDc sinh";
+function roleName(r4) {
+  return r4 === "admin" ? "qu\u1EA3n tr\u1ECB vi\xEAn" : r4 === "teacher" ? "gi\xE1o vi\xEAn" : "h\u1ECDc sinh";
 }
 function isStaff(user) {
   return !!user && (user.role === "teacher" || user.role === "admin");
 }
 
-// src/ui/components/lesson.tsx
+// src/domain/knowledge.ts
+var topicKey = (t) => t.slug ?? `d-${t.id}`;
+async function getThemesByLesson(q, textbookId, includeDrafts = false) {
+  const themes = await q.many(sql`
+    select th.id, th.lesson_id, th.code, th.title, th.description, th.status, th.sort_order
+    from themes th join lessons l on l.id = th.lesson_id
+    where l.textbook_id = ${textbookId} and (${includeDrafts}::boolean or th.status = 'published')
+    order by th.lesson_id, th.sort_order, th.id`);
+  const hiddenThemes = includeDrafts ? /* @__PURE__ */ new Set() : new Set(
+    (await q.many(sql`
+          select th.id from themes th join lessons l on l.id = th.lesson_id where l.textbook_id = ${textbookId} and th.status <> 'published'`)).map((r4) => r4.id)
+  );
+  const topics = await q.many(sql`
+    select t.id, t.lesson_id, t.theme_id, t.code, t.slug, t.title, t.levels, t.status, t.method, t.sort_order,
+      (select count(*)::int from questions qq where qq.topic_id = t.id and qq.status = 'published') as question_count
+    from topics t join lessons l on l.id = t.lesson_id
+    where l.textbook_id = ${textbookId} and (${includeDrafts}::boolean or t.status = 'published')
+    order by t.lesson_id, t.sort_order, t.id`);
+  const out = /* @__PURE__ */ new Map();
+  const byId = /* @__PURE__ */ new Map();
+  for (const th of themes) {
+    const node = { ...th, topics: [] };
+    byId.set(th.id, node);
+    if (!out.has(th.lessonId)) out.set(th.lessonId, []);
+    out.get(th.lessonId).push(node);
+  }
+  for (const tp of topics) {
+    tp.levels = (tp.levels ?? []).map(Number).sort();
+    if (tp.themeId && hiddenThemes.has(tp.themeId)) continue;
+    const th = tp.themeId ? byId.get(tp.themeId) : void 0;
+    if (th) {
+      th.topics.push(tp);
+      continue;
+    }
+    if (!out.has(tp.lessonId)) out.set(tp.lessonId, []);
+    const list = out.get(tp.lessonId);
+    let other = list.find((x) => x.id === 0);
+    if (!other) {
+      other = { id: 0, lessonId: tp.lessonId, code: null, title: "D\u1EA1ng to\xE1n kh\xE1c", description: null, status: "published", sortOrder: 999, topics: [] };
+      list.push(other);
+    }
+    other.topics.push(tp);
+  }
+  return out;
+}
+async function getLessonThemes(q, textbookId, lessonId, includeDrafts = false) {
+  return (await getThemesByLesson(q, textbookId, includeDrafts)).get(lessonId) ?? [];
+}
+var countTopics = (themes) => (themes ?? []).reduce((n, th) => n + th.topics.length, 0);
+var CHAPTER_COLS = sql`c.id, c.textbook_id, c.semester_id, s.number as semester_number, s.name as semester_name, c.code, c.title, c.description, c.kind,
+  c.objectives, c.key_points, c.formulas, c.status, c.verify_status, c.verify_note, c.sort_order`;
+async function getChapterByCode(q, textbookId, code) {
+  return q.one(sql`
+    select ${CHAPTER_COLS} from chapters c join semesters s on s.id = c.semester_id where c.textbook_id = ${textbookId} and c.code = ${code}`);
+}
+async function getChapterById(q, id) {
+  return q.one(sql`select ${CHAPTER_COLS} from chapters c join semesters s on s.id = c.semester_id where c.id = ${id}`);
+}
+async function getChapterMetas(q, textbookId) {
+  return q.many(sql`
+    select ${CHAPTER_COLS} from chapters c join semesters s on s.id = c.semester_id where c.textbook_id = ${textbookId} order by c.sort_order`);
+}
+function summarizeChapter(c, themes) {
+  const lessons = c.lessons.length;
+  const completed = c.lessons.filter((l) => l.progress === "completed").length;
+  const started = c.lessons.filter((l) => l.progress).length;
+  const topics = c.lessons.reduce((n, l) => n + countTopics(themes.get(l.id)), 0);
+  const questions = c.lessons.reduce((n, l) => n + l.questionCount, 0);
+  const state = lessons > 0 && completed === lessons ? "done" : started > 0 ? "in_progress" : "not_started";
+  return { lessons, completed, started, topics, questions, state };
+}
+var CHAPTER_STATE_LABELS = {
+  done: "\u0110\xE3 ho\xE0n th\xE0nh",
+  in_progress: "\u0110ang h\u1ECDc",
+  not_started: "Ch\u01B0a b\u1EAFt \u0111\u1EA7u"
+};
+function findChapter(tree, code) {
+  for (const s of tree) for (const c of s.chapters) if (c.code === code) return { chapter: c, semester: s };
+  return null;
+}
+var TOPIC_COLS = sql`t.id, t.lesson_id, t.theme_id, t.code, t.slug, t.title, t.knowledge, t.signs, t.method, t.steps, t.mistakes, t.example,
+  t.example_solution, t.levels, t.status, t.sort_order, t.updated_at, th.title as theme_title, th.status as theme_status`;
+function fixLevels(t) {
+  if (t) t.levels = (t.levels ?? []).map(Number).sort();
+  return t;
+}
+async function getTopicByKey(q, lessonId, key) {
+  const m = /^d-(\d+)$/.exec(key);
+  const where = m ? sql`t.id = ${Number(m[1])}` : sql`t.slug = ${key}`;
+  return fixLevels(
+    await q.one(sql`
+      select ${TOPIC_COLS} from topics t left join themes th on th.id = t.theme_id where t.lesson_id = ${lessonId} and ${where}`)
+  );
+}
+async function getTopicById(q, id) {
+  return fixLevels(await q.one(sql`select ${TOPIC_COLS} from topics t left join themes th on th.id = t.theme_id where t.id = ${id}`));
+}
+async function getTopicQuestionCounts(q, topicId) {
+  const rows = await q.many(sql`
+    select et.code, qq.level, count(*)::int as n from questions qq join exercise_types et on et.id = qq.exercise_type_id
+    where qq.topic_id = ${topicId} and qq.status = 'published' group by et.code, qq.level`);
+  const byType = {};
+  const byLevel = {};
+  for (const r4 of rows) {
+    byType[r4.code] = (byType[r4.code] ?? 0) + r4.n;
+    byLevel[r4.level] = (byLevel[r4.level] ?? 0) + r4.n;
+  }
+  return { byType, byLevel, total: rows.reduce((n, r4) => n + r4.n, 0) };
+}
+var LEVEL_LABELS2 = { 1: "Nh\u1EADn bi\u1EBFt", 2: "Th\xF4ng hi\u1EC3u", 3: "V\u1EADn d\u1EE5ng", 4: "V\u1EADn d\u1EE5ng cao" };
+var LEVEL_SHORT = { 1: "NB", 2: "TH", 3: "VD", 4: "VDC" };
+var VERIFY_LABELS = { verified: "\u0110\xE3 \u0111\u1ED1i chi\u1EBFu SGK", needs_review: "C\u1EA7n ki\u1EC3m tra", unverified: "Ch\u01B0a \u0111\u1ED1i chi\u1EBFu" };
+var DIFFICULTY_LABELS = { 1: "C\u01A1 b\u1EA3n", 2: "Trung b\xECnh", 3: "Kh\xE1", 4: "Kh\xF3" };
+function slugify(s, max = 70) {
+  const out = s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[đĐ]/g, "d").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  return out.slice(0, max).replace(/-+$/g, "") || "muc";
+}
+
+// src/ui/components/knowledge.tsx
 var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
-function LessonBody({ sections, topics }) {
-  const objectives = sections.filter((s) => s.kind === "objective");
+var LEVEL_TONE = {
+  1: "border-tre/40 bg-tre-soft text-[#24613d]",
+  2: "border-tim-200 bg-tim-50 text-tim-800",
+  3: "border-hl bg-hl-soft text-[#7a5a00]",
+  4: "border-le/40 bg-le-soft text-[#a3262f]"
+};
+function LevelBadges({ levels, full }) {
+  if (!levels.length) return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "inline-flex flex-wrap gap-1", "aria-label": `M\u1EE9c \u0111\u1ED9: ${levels.map((l) => LEVEL_LABELS2[l]).join(", ")}`, children: levels.map((l) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { title: LEVEL_LABELS2[l], className: cx("rounded-md border px-1.5 text-[11.5px] font-bold leading-5", LEVEL_TONE[l]), children: full ? LEVEL_LABELS2[l] : LEVEL_SHORT[l] }, l)) });
+}
+function VerifyBadge({ status, note }) {
+  if (status === "verified") return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Badge, { tone: "tre", children: VERIFY_LABELS.verified });
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { title: note ?? void 0, children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Badge, { tone: status === "needs_review" ? "cam" : "gray", children: VERIFY_LABELS[status] }) });
+}
+function DifficultyBadge({ level }) {
+  if (!level) return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(Badge, { tone: "gray", children: [
+    "M\u1EE9c kh\xF3: ",
+    DIFFICULTY_LABELS[level]
+  ] });
+}
+function ThemeList({ themes, topicHref: topicHref2, compact }) {
+  let n = 0;
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("ol", { className: cx("space-y-4", compact && "space-y-3"), children: themes.map((th, i2) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("li", { className: "rounded-2xl border border-line bg-white", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-line px-4 py-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "text-[12px] font-bold uppercase tracking-wide text-tim-500", children: [
+        "Ch\u1EE7 \u0111\u1EC1 ",
+        th.id ? i2 + 1 : ""
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "font-bold", children: th.title }),
+      th.status === "draft" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Badge, { tone: "gray", children: "\u0110ang \u1EA9n" }),
+      !compact && th.description && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "basis-full text-[13.5px] text-ink-3", children: th.description })
+    ] }),
+    th.topics.length ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("ul", { className: "divide-y divide-line", children: th.topics.map((t) => {
+      n++;
+      return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("a", { href: topicHref2(t), className: "group flex items-center gap-3 px-4 py-2.5 hover:bg-tim-50/70", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-tim-700 text-[13px] font-bold text-white", children: n }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "min-w-0 flex-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "block text-[15px] font-semibold group-hover:text-tim-800 group-hover:underline", children: t.title }),
+          !compact && t.method && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "line-clamp-1 block text-[13px] text-ink-3", children: t.method })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LevelBadges, { levels: t.levels }),
+        t.status === "draft" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Badge, { tone: "gray", children: "\u1EA8n" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "hidden w-16 shrink-0 text-right text-[12.5px] text-ink-3 sm:block", children: [
+          t.questionCount,
+          " b\xE0i t\u1EADp"
+        ] })
+      ] }) }, t.id);
+    }) }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "px-4 py-3 text-[14px] text-ink-3", children: "Ch\u1EE7 \u0111\u1EC1 ch\u01B0a c\xF3 d\u1EA1ng to\xE1n." })
+  ] }, th.id || `khac-${i2}`)) });
+}
+function Block({ icon, title, children, tone = "plain", id }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("section", { "aria-labelledby": id, className: cx("rounded-2xl border px-5 py-4", tone === "warn" ? "border-hl bg-hl-soft" : tone === "tim" ? "border-tim-200 bg-tim-50" : "border-line bg-white"), children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("h2", { id, className: "mb-2 flex items-center gap-2 text-[17px] font-extrabold", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: tone === "warn" ? "text-[#a8781a]" : "text-tim-600", "aria-hidden": "true", children: icon }),
+      title
+    ] }),
+    children
+  ] });
+}
+function TopicArticle({ t }) {
+  const empty = !t.knowledge && !t.signs && !t.method && !t.steps && !t.example;
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "space-y-4", children: [
+    empty && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "rounded-2xl border border-dashed border-line-2 px-5 py-4 text-[15px] text-ink-3", children: "N\u1ED9i dung c\u1EE7a d\u1EA1ng to\xE1n n\xE0y \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n." }),
+    t.knowledge && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Block, { icon: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LuCompass, {}), title: "Ki\u1EBFn th\u1EE9c s\u1EED d\u1EE5ng", id: "kien-thuc-su-dung", tone: "tim", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: t.knowledge, className: "text-[16px]" }) }),
+    t.signs && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Block, { icon: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LuSearch, {}), title: "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt", id: "dau-hieu", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: t.signs, className: "text-[16px]" }) }),
+    (t.method || t.steps) && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(Block, { icon: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LuRoute, {}), title: "Ph\u01B0\u01A1ng ph\xE1p gi\u1EA3i", id: "phuong-phap", children: [
+      t.method && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: t.method, className: "text-[16px]" }),
+      t.steps && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "mt-3 rounded-xl bg-mist px-4 py-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "mb-1 flex items-center gap-1.5 text-[14px] font-bold text-tim-700", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LuListChecks, { "aria-hidden": "true" }),
+          " C\xE1c b\u01B0\u1EDBc gi\u1EA3i"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: t.steps, className: "text-[15.5px]" })
+      ] })
+    ] }),
+    t.mistakes && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Block, { icon: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LuTriangleAlert, {}), title: "L\u1ED7i sai th\u01B0\u1EDDng g\u1EB7p", id: "loi-sai", tone: "warn", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: t.mistakes, className: "text-[15.5px]" }) }),
+    t.example && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(Block, { icon: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LuSigma, {}), title: "V\xED d\u1EE5 minh h\u1ECDa", id: "vi-du-minh-hoa", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: t.example, className: "text-[16.5px]" }),
+      t.exampleSolution && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("details", { className: "mt-3 rounded-xl bg-mist px-4 py-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("summary", { className: "font-semibold text-tim-800", children: "Xem l\u1EDDi gi\u1EA3i" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: t.exampleSolution, className: "mt-2 text-[16px]" })
+      ] })
+    ] })
+  ] });
+}
+function QuestionCoverage({ byType, byLevel, levels }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "grid gap-4 sm:grid-cols-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "mb-1.5 text-[13px] font-bold text-ink-3", children: "Theo h\xECnh th\u1EE9c" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("ul", { className: "space-y-1 text-[14px]", children: QUESTION_TYPES.map((ty) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("li", { className: "flex justify-between gap-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { children: TYPE_LABELS[ty] }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: byType[ty] ? "font-semibold" : "text-ink-3", children: byType[ty] ? `${byType[ty]} c\xE2u` : "ch\u01B0a c\xF3" })
+      ] }, ty)) })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "mb-1.5 text-[13px] font-bold text-ink-3", children: "Theo m\u1EE9c \u0111\u1ED9" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("ul", { className: "space-y-1 text-[14px]", children: [1, 2, 3, 4].map((l) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("li", { className: cx("flex justify-between gap-3", !levels.includes(l) && "text-ink-3"), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { children: [
+          LEVEL_LABELS2[l],
+          !levels.includes(l) && " (kh\xF4ng \xE1p d\u1EE5ng)"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: byLevel[l] ? "font-semibold text-ink" : "text-ink-3", children: byLevel[l] ? `${byLevel[l]} c\xE2u` : levels.includes(l) ? "ch\u01B0a c\xF3" : "\u2013" })
+      ] }, l)) })
+    ] })
+  ] });
+}
+function LessonMetaPanel({ m, showFormulas = true }) {
+  const items = [
+    ["Ki\u1EBFn th\u1EE9c n\u1EC1n t\u1EA3ng", m.prerequisites],
+    ["Kh\xE1i ni\u1EC7m quan tr\u1ECDng", m.concepts],
+    ["T\xEDnh ch\u1EA5t", m.properties],
+    ["\u0110\u1ECBnh l\xED", m.theorems],
+    ...showFormulas ? [["C\xF4ng th\u1EE9c", m.formulas]] : []
+  ];
+  const shown = items.filter(([, v]) => v);
+  if (!shown.length) return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("section", { "aria-labelledby": "tom-tat-bai", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { id: "tom-tat-bai", className: "mb-3 text-xl font-extrabold", children: "T\xF3m t\u1EAFt b\xE0i h\u1ECDc" }),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "grid gap-3 md:grid-cols-2", children: shown.map(([k, v]) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: cx("rounded-2xl border border-line bg-white px-4 py-3", (k === "\u0110\u1ECBnh l\xED" || k === "C\xF4ng th\u1EE9c") && "md:col-span-2"), children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "mb-1 text-[13px] font-bold uppercase tracking-wide text-tim-600", children: k }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: v, className: "text-[15.5px]" })
+    ] }, k)) })
+  ] });
+}
+function ChapterOverview({ c }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "grid gap-4 lg:grid-cols-2", children: [
+    c.objectives && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(Panel, { className: "p-5", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { className: "mb-2 text-lg font-extrabold", children: "M\u1EE5c ti\xEAu c\u1EA7n \u0111\u1EA1t" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: c.objectives, className: "text-[15.5px]" })
+    ] }),
+    c.keyPoints && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(Panel, { className: "p-5", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { className: "mb-2 text-lg font-extrabold", children: "Ki\u1EBFn th\u1EE9c tr\u1ECDng t\xE2m" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: c.keyPoints, className: "text-[15.5px]" })
+    ] }),
+    c.formulas && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "formula-frame isolate px-5 py-4 lg:col-span-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { className: "mb-1 text-[15px] font-extrabold text-tim-700", children: "C\xF4ng th\u1EE9c c\u1EA7n nh\u1EDB" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: c.formulas, className: "text-[17px]" })
+    ] })
+  ] });
+}
+function VerifyNotice({ status, note }) {
+  if (status === "verified" || !note) return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("p", { className: "flex items-start gap-2 rounded-xl border border-cam/40 bg-[#fff4ea] px-4 py-2.5 text-[14px] text-[#8a4b12]", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(LuCircleAlert, { className: "mt-0.5 shrink-0", "aria-hidden": "true" }),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("strong", { children: [
+        VERIFY_LABELS[status],
+        ":"
+      ] }),
+      " ",
+      note
+    ] })
+  ] });
+}
+
+// src/server/handlers/knowledge.tsx
+var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
+var chapterHref = (book, code) => `/hoc/${book}/chuong/${encodeURIComponent(code)}`;
+var lessonHref = (book, slug) => `/hoc/${book}/bai/${slug}`;
+var topicHref = (book, lessonSlug, t) => `/hoc/${book}/bai/${lessonSlug}/dang/${topicKey(t)}`;
+function StatusDot({ l }) {
+  if (l.progress === "completed") return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "h-2.5 w-2.5 shrink-0 rounded-full bg-tre", "aria-label": "\u0110\xE3 h\u1ECDc xong" });
+  if (l.progress === "in_progress") return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "h-2.5 w-2.5 shrink-0 rounded-full bg-hl ring-2 ring-[#f2df95]", "aria-label": "\u0110ang h\u1ECDc" });
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "h-2.5 w-2.5 shrink-0 rounded-full border-2 border-line-2", "aria-label": "Ch\u01B0a h\u1ECDc" });
+}
+function ChapterStats({ c, themes }) {
+  const sum = summarizeChapter(c, themes);
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "text-[13px] text-ink-3", children: [
+    c.lessons.filter((l) => l.kind === "lesson").length || c.lessons.length,
+    " ",
+    c.kind === "chapter" ? "b\xE0i" : "ho\u1EA1t \u0111\u1ED9ng",
+    " \xB7 ",
+    sum.topics,
+    " d\u1EA1ng to\xE1n \xB7 ",
+    sum.questions,
+    " b\xE0i t\u1EADp"
+  ] });
+}
+async function chapterPage(ctx) {
+  const book = await requireBook(ctx, ctx.params.book);
+  const staff = isStaff(ctx.user);
+  const meta = await getChapterByCode(ctx.db, book.id, ctx.params.code);
+  if (!meta || meta.status !== "published" && !staff) throw new HttpError(404, "Kh\xF4ng t\xECm th\u1EA5y ch\u01B0\u01A1ng.");
+  const [tree, themes] = await Promise.all([getCourseTree(ctx.db, book.id, ctx.user?.id ?? null, staff), getThemesByLesson(ctx.db, book.id, staff)]);
+  const found = findChapter(tree, meta.code);
+  if (!found) throw new HttpError(404, "Kh\xF4ng t\xECm th\u1EA5y ch\u01B0\u01A1ng.");
+  const { chapter: c } = found;
+  const sum = summarizeChapter(c, themes);
+  const label = chapterLabel(c);
+  const isStudent = ctx.user?.role === "student";
+  const levelCounts = await ctx.db.many(sql`
+    select qq.level, count(*)::int as n from questions qq join exercise_types et on et.id = qq.exercise_type_id join lessons l on l.id = qq.lesson_id
+    where l.chapter_id = ${c.id} and qq.status = 'published' and l.status = 'published' and et.code in ('mcq', 'true_false', 'short_answer')
+    group by qq.level`);
+  const chapters = tree.flatMap((s) => s.chapters);
+  const ci = chapters.findIndex((x) => x.id === c.id);
+  const lessonsOnly = c.lessons.filter((l) => l.kind === "lesson");
+  const synth = c.lessons.filter((l) => l.kind === "practice" || l.kind === "review");
+  return page(
+    ctx,
+    { title: label, description: meta.description ?? `${label} \u2013 ${book.title}` },
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Breadcrumbs, { items: [{ href: `/hoc/${book.slug}`, label: book.title }, { href: `/hoc/${book.slug}#hk-${meta.semesterNumber}`, label: meta.semesterName }, { label }] }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("header", { className: "o-li le-vo rounded-[22px] border border-line px-6 py-7 sm:pl-24", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex flex-wrap items-center gap-2 text-[13px]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Badge, { children: meta.semesterName }),
+          isStudent && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Badge, { tone: sum.state === "done" ? "tre" : sum.state === "in_progress" ? "hl" : "gray", children: CHAPTER_STATE_LABELS[sum.state] }),
+          meta.status !== "published" && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Badge, { tone: "gray", children: "\u0110ang \u1EA9n \u2013 h\u1ECDc sinh ch\u01B0a th\u1EA5y" }),
+          staff && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(VerifyBadge, { status: meta.verifyStatus, note: meta.verifyNote })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h1", { className: "mt-2 text-[30px] font-extrabold leading-tight tracking-tight md:text-[38px]", children: label }),
+        meta.description && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "mt-2 max-w-2xl text-[16px] text-ink-2", children: meta.description }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mt-4 flex flex-wrap gap-x-6 gap-y-1 text-[14.5px] text-ink-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { className: "text-ink", children: c.kind === "chapter" ? lessonsOnly.length : c.lessons.length }),
+            " ",
+            c.kind === "chapter" ? "b\xE0i h\u1ECDc" : "ho\u1EA1t \u0111\u1ED9ng"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { className: "text-ink", children: c.lessons.length }),
+            " m\u1EE5c (k\u1EC3 c\u1EA3 luy\u1EC7n t\u1EADp, \xF4n t\u1EADp)"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { className: "text-ink", children: sum.topics }),
+            " d\u1EA1ng to\xE1n"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { className: "text-ink", children: sum.questions }),
+            " b\xE0i t\u1EADp"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { className: "text-ink", children: c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0) }),
+            " ti\u1EBFt"
+          ] })
+        ] }),
+        isStudent && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mt-4 max-w-md", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ProgressBar, { value: percent(sum.completed, sum.lessons), tone: "tre", label: "Ti\u1EBFn \u0111\u1ED9 ch\u01B0\u01A1ng" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mt-1 text-[13px] text-ink-3", children: [
+            sum.completed,
+            "/",
+            sum.lessons,
+            " m\u1EE5c \u0111\xE3 h\u1ECDc xong"
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "no-print mt-5 flex flex-wrap gap-2", children: [
+          c.lessons[0] && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkButton, { href: lessonHref(book.slug, (c.lessons.find((l) => l.progress !== "completed") ?? c.lessons[0]).slug), children: sum.started ? "H\u1ECDc ti\u1EBFp" : "B\u1EAFt \u0111\u1EA7u h\u1ECDc" }),
+          sum.questions > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(LinkButton, { href: `/luyen-tap/chuong/${encodeURIComponent(c.code)}`, variant: "secondary", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuPencilRuler, { "aria-hidden": "true" }),
+            " Luy\u1EC7n t\u1EADp c\u1EA3 ch\u01B0\u01A1ng"
+          ] }),
+          staff && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkButton, { href: `/giao-vien/chuong/${c.id}`, variant: "ghost", children: "Qu\u1EA3n l\xFD ch\u01B0\u01A1ng" })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mt-8 space-y-10", children: [
+        staff && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(VerifyNotice, { status: meta.verifyStatus, note: meta.verifyNote }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ChapterOverview, { c: meta }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("section", { "aria-labelledby": "ds-bai", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", { id: "ds-bai", className: "mb-3 text-xl font-extrabold", children: "Danh s\xE1ch b\xE0i h\u1ECDc" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Panel, { className: "overflow-hidden", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ol", { className: "divide-y divide-line", children: c.lessons.map((l) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("a", { href: lessonHref(book.slug, l.slug), className: "flex items-center gap-3 px-5 py-3 hover:bg-tim-50/60", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(StatusDot, { l }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "min-w-0 flex-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: cx("block text-[15.5px]", l.kind === "lesson" ? "font-semibold" : "text-ink-2"), children: lessonLabel(l) }),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "text-[12.5px] text-ink-3", children: [
+                l.code,
+                l.kind !== "lesson" ? ` \xB7 ${LESSON_KIND_LABELS[l.kind]}` : "",
+                l.status !== "published" ? " \xB7 b\u1EA3n nh\xE1p" : ""
+              ] })
+            ] }),
+            l.kind === "lesson" && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "hidden text-right text-[13px] text-ink-3 sm:block", children: [
+              countTopics(themes.get(l.id)),
+              " d\u1EA1ng \xB7 ",
+              l.questionCount,
+              " b\xE0i t\u1EADp"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "w-14 shrink-0 text-right text-[13px] text-ink-3", children: [
+              l.periods,
+              " ti\u1EBFt"
+            ] })
+          ] }) }, l.id)) }) })
+        ] }),
+        c.kind === "chapter" && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("section", { "aria-labelledby": "he-thong-dang", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", { id: "he-thong-dang", className: "mb-1 text-xl font-extrabold", children: "Ch\u1EE7 \u0111\u1EC1 v\xE0 h\u1EC7 th\u1ED1ng d\u1EA1ng to\xE1n" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { className: "mb-4 text-[14.5px] text-ink-3", children: [
+            "K\xED hi\u1EC7u m\u1EE9c \u0111\u1ED9: NB \u2013 ",
+            LEVEL_LABELS2[1],
+            ", TH \u2013 ",
+            LEVEL_LABELS2[2],
+            ", VD \u2013 ",
+            LEVEL_LABELS2[3],
+            ", VDC \u2013 ",
+            LEVEL_LABELS2[4],
+            "."
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "space-y-8", children: lessonsOnly.map((l) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("h3", { className: "mb-2 flex flex-wrap items-baseline gap-2 text-[17px] font-extrabold", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: lessonHref(book.slug, l.slug), className: "hover:text-tim-700 hover:underline", children: lessonLabel(l) }),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "text-[12.5px] font-semibold text-ink-3", children: l.code })
+            ] }),
+            themes.get(l.id)?.length ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ThemeList, { themes: themes.get(l.id), topicHref: (t) => topicHref(book.slug, l.slug, t), compact: true }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-[14px] text-ink-3", children: "B\xE0i n\xE0y ch\u01B0a c\xF3 ch\u1EE7 \u0111\u1EC1, d\u1EA1ng to\xE1n." })
+          ] }, l.id)) })
+        ] }),
+        c.kind === "chapter" && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "grid gap-6 lg:grid-cols-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", { className: "text-lg font-extrabold", children: "B\xE0i t\u1EADp t\u1ED5ng h\u1EE3p" }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "mt-1 text-[14.5px] text-ink-2", children: "C\xE1c ti\u1EBFt luy\u1EC7n t\u1EADp chung, b\xE0i t\u1EADp cu\u1ED1i ch\u01B0\u01A1ng v\xE0 l\u01B0\u1EE3t luy\u1EC7n t\u1EADp tr\u1ED9n c\xE2u h\u1ECFi c\u1EE7a m\u1ECDi d\u1EA1ng trong ch\u01B0\u01A1ng." }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { className: "mt-3 space-y-1.5", children: synth.map((l) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("a", { href: lessonHref(book.slug, l.slug), className: "flex items-center gap-2 text-[15px] font-medium text-tim-800 hover:underline", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuBookOpen, { "aria-hidden": "true", className: "shrink-0" }),
+              " ",
+              l.title,
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "text-[12.5px] font-normal text-ink-3", children: [
+                "(",
+                l.code,
+                ")"
+              ] })
+            ] }) }, l.id)) }),
+            sum.questions > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("a", { href: `/luyen-tap/chuong/${encodeURIComponent(c.code)}`, className: buttonClass("secondary", "sm", "mt-4"), children: [
+              "Luy\u1EC7n t\u1EADp tr\u1ED9n c\u1EA3 ch\u01B0\u01A1ng (",
+              sum.questions,
+              " c\xE2u)"
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("h2", { className: "flex items-center gap-2 text-lg font-extrabold", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuClipboardCheck, { "aria-hidden": "true", className: "text-tim-600" }),
+              " Ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "mt-1 text-[14.5px] text-ink-2", children: "10 c\xE2u ch\u1EA5m t\u1EF1 \u0111\u1ED9ng, x\u1EBFp t\u1EEB d\u1EC5 \u0111\u1EBFn kh\xF3. L\xE0m xong xem ngay \u0111i\u1EC3m, \u0111\xE1p \xE1n v\xE0 l\u1EDDi gi\u1EA3i." }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("table", { className: "mt-3 w-full text-[14px]", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("tr", { className: "text-left text-[12.5px] text-ink-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { className: "py-1 font-semibold", children: "M\u1EE9c \u0111\u1ED9" }),
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { className: "py-1 text-right font-semibold", children: "S\u1ED1 c\xE2u trong \u0111\u1EC1" }),
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { className: "py-1 text-right font-semibold", children: "C\xE2u c\xF3 s\u1EB5n" })
+              ] }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("tbody", { children: [1, 2, 3, 4].map((lv) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("tr", { className: "border-t border-line", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("td", { className: "py-1.5", children: LEVEL_LABELS2[lv] }),
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("td", { className: "py-1.5 text-right", children: CHAPTER_TEST_PLAN[lv] }),
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("td", { className: "py-1.5 text-right text-ink-3", children: levelCounts.find((r4) => Number(r4.level) === lv)?.n ?? 0 })
+              ] }, lv)) })
+            ] }),
+            levelCounts.length ? ctx.user ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkButton, { href: `/luyen-tap/chuong/${encodeURIComponent(c.code)}/kiem-tra`, className: "mt-4", children: "L\xE0m b\xE0i ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng" }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkButton, { href: `/dang-nhap?next=${encodeURIComponent(`/luyen-tap/chuong/${c.code}/kiem-tra`)}`, variant: "secondary", className: "mt-4", children: "\u0110\u0103ng nh\u1EADp \u0111\u1EC3 l\xE0m b\xE0i" }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "mt-3 text-[14px] text-ink-3", children: "Ch\u01B0\u01A1ng ch\u01B0a c\xF3 c\xE2u h\u1ECFi ch\u1EA5m t\u1EF1 \u0111\u1ED9ng." })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("nav", { className: "no-print flex flex-wrap justify-between gap-3 border-t border-line pt-6", "aria-label": "Chuy\u1EC3n ch\u01B0\u01A1ng", children: [
+          ci > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("a", { href: chapterHref(book.slug, chapters[ci - 1].code), className: "flex max-w-[48%] items-center gap-2 text-[15px] text-ink-2 hover:text-tim-800", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuArrowLeft, { "aria-hidden": "true", className: "shrink-0" }),
+            " ",
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "truncate", children: chapterLabel(chapters[ci - 1]) })
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", {}),
+          ci >= 0 && ci < chapters.length - 1 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("a", { href: chapterHref(book.slug, chapters[ci + 1].code), className: "ml-auto flex max-w-[48%] items-center gap-2 text-right text-[15px] font-semibold text-tim-800 hover:underline", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "truncate", children: chapterLabel(chapters[ci + 1]) }),
+            " ",
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuArrowRight, { "aria-hidden": "true", className: "shrink-0" })
+          ] })
+        ] })
+      ] })
+    ] })
+  );
+}
+async function topicPage(ctx) {
+  const book = await requireBook(ctx, ctx.params.book);
+  const staff = isStaff(ctx.user);
+  const lesson = await getLessonBySlug(ctx.db, book.id, ctx.params.slug);
+  if (!lesson || (lesson.status !== "published" || lesson.chapterStatus !== "published") && !staff) throw new HttpError(404, "Kh\xF4ng t\xECm th\u1EA5y b\xE0i h\u1ECDc.");
+  const topic = await getTopicByKey(ctx.db, lesson.id, ctx.params.key);
+  if (!topic || (topic.status !== "published" || topic.themeStatus === "draft") && !staff) throw new HttpError(404, "Kh\xF4ng t\xECm th\u1EA5y d\u1EA1ng to\xE1n.");
+  const [themes, counts] = await Promise.all([getThemesByLesson(ctx.db, book.id, staff), getTopicQuestionCounts(ctx.db, topic.id)]);
+  const lessonThemes = themes.get(lesson.id) ?? [];
+  const all = lessonThemes.flatMap((th) => th.topics);
+  const idx = all.findIndex((t) => t.id === topic.id);
+  const qids = await ctx.db.many(sql`
+    select id from questions where topic_id = ${topic.id} and status = 'published' order by level, id limit 30`);
+  const questions = (await getQuestions(ctx.db, qids.map((r4) => r4.id))).map((q) => toView(q, false));
+  const label = lessonLabel(lesson);
+  const chapterName = chapterLabel({ kind: lesson.chapterKind, code: lesson.chapterCode, title: lesson.chapterTitle });
+  return page(
+    ctx,
+    { title: `${topic.title} \u2013 ${label}`, description: topic.method ?? `D\u1EA1ng to\xE1n ${topic.title} \u2013 ${label}` },
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "min-w-0", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+          Breadcrumbs,
+          {
+            items: [
+              { href: `/hoc/${book.slug}`, label: book.title },
+              { href: `/hoc/${book.slug}#hk-${lesson.semesterNumber}`, label: lesson.semesterName },
+              { href: chapterHref(book.slug, lesson.chapterCode), label: chapterName },
+              { href: lessonHref(book.slug, lesson.slug), label },
+              ...topic.themeTitle ? [{ href: `${lessonHref(book.slug, lesson.slug)}#dang-toan`, label: topic.themeTitle }] : [],
+              { label: topic.title }
+            ]
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("header", { className: "rounded-[22px] border border-line bg-white px-6 py-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex flex-wrap items-center gap-2 text-[13px]", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Badge, { children: [
+              "D\u1EA1ng to\xE1n",
+              idx >= 0 ? ` ${idx + 1}/${all.length}` : ""
+            ] }),
+            topic.code && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "font-semibold text-ink-3", children: topic.code }),
+            topic.status !== "published" && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Badge, { tone: "gray", children: "\u0110ang \u1EA9n" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h1", { className: "mt-2 text-[28px] font-extrabold leading-tight tracking-tight md:text-[34px]", children: topic.title }),
+          topic.themeTitle && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { className: "mt-1 text-[15px] text-ink-2", children: [
+            "Ch\u1EE7 \u0111\u1EC1: ",
+            topic.themeTitle
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mt-3 flex flex-wrap items-center gap-3 text-[14px] text-ink-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { children: "M\u1EE9c \u0111\u1ED9:" }),
+            topic.levels.length ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LevelBadges, { levels: topic.levels, full: true }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "text-ink-3", children: "ch\u01B0a ph\xE2n lo\u1EA1i" }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { children: [
+              "\xB7 ",
+              counts.total,
+              " b\xE0i t\u1EADp"
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "no-print mt-5 flex flex-wrap gap-2", children: [
+            counts.total > 0 && (ctx.user ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(LinkButton, { href: `/luyen-tap/dang/${topic.id}`, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuPencilRuler, { "aria-hidden": "true" }),
+              " Luy\u1EC7n t\u1EADp d\u1EA1ng n\xE0y"
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkButton, { href: `/dang-nhap?next=${encodeURIComponent(`/luyen-tap/dang/${topic.id}`)}`, children: "\u0110\u0103ng nh\u1EADp \u0111\u1EC3 luy\u1EC7n t\u1EADp" })),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkButton, { href: lessonHref(book.slug, lesson.slug), variant: "secondary", children: "V\u1EC1 b\xE0i h\u1ECDc" }),
+            staff && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkButton, { href: `/giao-vien/dang-toan/${topic.id}`, variant: "ghost", children: "S\u1EEDa d\u1EA1ng to\xE1n" })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mt-6 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(TopicArticle, { t: topic }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("section", { "aria-labelledby": "bai-tap-luyen-tap", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", { id: "bai-tap-luyen-tap", className: "mb-3 text-xl font-extrabold", children: "B\xE0i t\u1EADp luy\u1EC7n t\u1EADp" }),
+            questions.length ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ol", { className: "space-y-3", children: questions.map((q, i2) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("li", { className: "rounded-2xl border border-line bg-white p-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mb-1 flex flex-wrap items-center gap-2 text-[12.5px]", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("strong", { className: "text-tim-700", children: [
+                  "B\xE0i ",
+                  i2 + 1
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Badge, { tone: "gray", children: TYPE_LABELS[q.type] }),
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LevelBadges, { levels: [q.level] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Html, { html: q.stemHtml, className: "prose-math text-[15.5px]" }),
+              q.mediaHtml.map((m, k) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Html, { html: m, className: "mt-2" }, k)),
+              q.options && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { className: "mt-2 grid gap-1 text-[15px] sm:grid-cols-2", children: q.options.map((o) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("li", { className: "flex gap-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("strong", { children: [
+                  o.label,
+                  "."
+                ] }),
+                " ",
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Html, { html: o.html })
+              ] }, o.label)) }),
+              q.statements && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { className: "mt-2 space-y-1 text-[15px]", children: q.statements.map((o) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("li", { className: "flex gap-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("strong", { children: [
+                  o.label,
+                  ")"
+                ] }),
+                " ",
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Html, { html: o.html })
+              ] }, o.label)) })
+            ] }, q.id)) }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-[15px] text-ink-2", children: "D\u1EA1ng n\xE0y ch\u01B0a c\xF3 b\xE0i t\u1EADp trong ng\xE2n h\xE0ng c\xE2u h\u1ECFi." }),
+            counts.total > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "mt-3 text-[14.5px] text-ink-2", children: "\u0110\xE1p \xE1n v\xE0 l\u1EDDi gi\u1EA3i hi\u1EC7n ngay sau khi em l\xE0m t\u1EEBng c\xE2u trong ph\u1EA7n luy\u1EC7n t\u1EADp." })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi c\u1EE7a d\u1EA1ng" }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(QuestionCoverage, { byType: counts.byType, byLevel: counts.byLevel, levels: topic.levels })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("nav", { className: "no-print flex flex-wrap justify-between gap-3 border-t border-line pt-6", "aria-label": "Chuy\u1EC3n d\u1EA1ng to\xE1n", children: [
+            idx > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("a", { href: topicHref(book.slug, lesson.slug, all[idx - 1]), className: "flex max-w-[48%] items-center gap-2 text-[15px] text-ink-2 hover:text-tim-800", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuArrowLeft, { "aria-hidden": "true", className: "shrink-0" }),
+              " ",
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "truncate", children: all[idx - 1].title })
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", {}),
+            idx >= 0 && idx < all.length - 1 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("a", { href: topicHref(book.slug, lesson.slug, all[idx + 1]), className: "ml-auto flex max-w-[48%] items-center gap-2 text-right text-[15px] font-semibold text-tim-800 hover:underline", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "truncate", children: all[idx + 1].title }),
+              " ",
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuArrowRight, { "aria-hidden": "true", className: "shrink-0" })
+            ] })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("aside", { className: "no-print", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "sticky top-20 rounded-[22px] border border-line bg-white p-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "text-[13px] text-ink-3", children: chapterName }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: lessonHref(book.slug, lesson.slug), className: "text-[15px] font-bold hover:underline", children: label }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("nav", { "aria-label": "C\xE1c d\u1EA1ng to\xE1n c\u1EE7a b\xE0i", className: "mt-3 space-y-3", children: lessonThemes.map((th, i2) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "text-[12px] font-bold uppercase tracking-wide text-tim-500", children: th.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { className: "mt-1", children: th.topics.map((t) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+            "a",
+            {
+              href: topicHref(book.slug, lesson.slug, t),
+              "aria-current": t.id === topic.id ? "page" : void 0,
+              className: cx("block rounded-lg px-2 py-1.5 text-[13.5px]", t.id === topic.id ? "bg-tim-700 font-semibold text-white" : "text-ink-2 hover:bg-tim-50"),
+              children: t.title
+            }
+          ) }, t.id)) })
+        ] }, th.id || `k${i2}`)) })
+      ] }) })
+    ] })
+  );
+}
+function mapTotals(tree, themes) {
+  const flat = flattenLessons(tree);
+  return {
+    chapters: tree.flatMap((s) => s.chapters).filter((c) => c.kind === "chapter").length,
+    lessons: flat.filter((l) => l.kind === "lesson").length,
+    items: flat.length,
+    themes: flat.reduce((n, l) => n + (themes.get(l.id)?.filter((th) => th.id).length ?? 0), 0),
+    topics: flat.reduce((n, l) => n + countTopics(themes.get(l.id)), 0),
+    questions: flat.reduce((n, l) => n + l.questionCount, 0)
+  };
+}
+function KnowledgeTree({
+  tree,
+  themes,
+  chapterLink,
+  lessonLink,
+  topicLink
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "space-y-8", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("section", { "aria-labelledby": `bd-hk-${s.number}`, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", { id: `bd-hk-${s.number}`, className: "mb-3 text-xl font-extrabold", children: s.name }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "space-y-3", children: s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("details", { className: "group rounded-[20px] border border-line bg-white", open: c.kind === "chapter", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("summary", { className: "flex cursor-pointer flex-wrap items-baseline gap-x-3 gap-y-1 px-5 py-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "text-[22px] font-extrabold leading-none text-tim-700", children: c.kind === "chapter" ? c.code : "\u2605" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "font-extrabold", children: c.title }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ChapterStats, { c, themes }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: chapterLink(c), className: "ml-auto text-[14px] font-semibold text-tim-700 hover:underline", children: "M\u1EDF ch\u01B0\u01A1ng" })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ol", { className: "space-y-4 border-t border-line px-5 py-4", children: c.lessons.map((l) => {
+        const ths = themes.get(l.id) ?? [];
+        return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("li", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex flex-wrap items-baseline gap-x-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: lessonLink(l), className: cx("text-[15.5px] hover:underline", l.kind === "lesson" ? "font-bold" : "text-ink-2"), children: lessonLabel(l) }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "text-[12px] text-ink-3", children: l.code })
+          ] }),
+          ths.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { className: "mt-1.5 space-y-1.5 border-l-2 border-tim-100 pl-4", children: ths.map((th, i2) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("li", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "text-[13px] font-semibold text-tim-600", children: th.title }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ml-1 inline-flex flex-wrap gap-1.5 align-middle", children: th.topics.map((t) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: topicLink(l, t), className: "rounded-lg bg-mist px-2 py-0.5 text-[13px] text-ink-2 hover:bg-tim-50 hover:text-tim-800", children: t.title }, t.id)) })
+          ] }, th.id || `k${i2}`)) })
+        ] }, l.id);
+      }) })
+    ] }, c.id)) })
+  ] }, s.id)) });
+}
+function MapTotalsBar({ t }) {
+  const items = [
+    [t.chapters, "ch\u01B0\u01A1ng"],
+    [t.lessons, "b\xE0i h\u1ECDc"],
+    [t.items, "m\u1EE5c trong m\u1EE5c l\u1EE5c"],
+    [t.themes, "ch\u1EE7 \u0111\u1EC1"],
+    [t.topics, "d\u1EA1ng to\xE1n"],
+    [t.questions, "b\xE0i t\u1EADp"]
+  ];
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "mb-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6", children: items.map(([n, k]) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "rounded-2xl border border-line bg-white px-4 py-3", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "text-[26px] font-extrabold leading-none text-tim-700", children: n }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "mt-1 text-[13px] text-ink-3", children: k })
+  ] }, k)) });
+}
+async function knowledgeMapPage(ctx) {
+  const book = await requireBook(ctx, ctx.params.book);
+  const staff = isStaff(ctx.user);
+  const [tree, themes] = await Promise.all([getCourseTree(ctx.db, book.id, ctx.user?.id ?? null, staff), getThemesByLesson(ctx.db, book.id, staff)]);
+  return page(
+    ctx,
+    { title: `B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c ${book.title}`, wide: true },
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+        PageTitle,
+        {
+          crumbs: [{ href: "/chuong-trinh", label: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc" }, { href: `/hoc/${book.slug}`, label: book.title }, { label: "B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c" }],
+          title: `B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c ${book.title}`,
+          sub: `${book.series} \xB7 ${book.program}. H\u1ECDc k\xEC \u2192 Ch\u01B0\u01A1ng \u2192 B\xE0i \u2192 Ch\u1EE7 \u0111\u1EC1 \u2192 D\u1EA1ng to\xE1n. B\u1EA5m v\xE0o t\xEAn \u0111\u1EC3 m\u1EDF trang t\u01B0\u01A1ng \u1EE9ng.`,
+          actions: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(LinkButton, { href: `/hoc/${book.slug}`, variant: "secondary", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuMap, { "aria-hidden": "true" }),
+            " M\u1EE5c l\u1EE5c"
+          ] })
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(MapTotalsBar, { t: mapTotals(tree, themes) }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+        KnowledgeTree,
+        {
+          tree,
+          themes,
+          chapterLink: (c) => chapterHref(book.slug, c.code),
+          lessonLink: (l) => lessonHref(book.slug, l.slug),
+          topicLink: (l, t) => topicHref(book.slug, l.slug, t)
+        }
+      ),
+      !ctx.user && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Notice, { tone: "info", className: "mt-8", children: "\u0110\u0103ng nh\u1EADp \u0111\u1EC3 l\u01B0u ti\u1EBFn \u0111\u1ED9 v\xE0 l\xE0m b\xE0i luy\u1EC7n t\u1EADp theo t\u1EEBng d\u1EA1ng to\xE1n." })
+    ] })
+  );
+}
+
+// src/ui/components/lesson.tsx
+var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
+function LessonBody({
+  sections,
+  themes,
+  topicHref: topicHref2,
+  lessonObjectives,
+  meta
+}) {
+  const objectiveSections = sections.filter((s) => s.kind === "objective");
+  const objectives = objectiveSections.length ? objectiveSections : lessonObjectives ? [{ id: "muc-tieu-bai", body: lessonObjectives }] : [];
   const knowledge = sections.filter((s) => s.kind === "knowledge" || s.kind === "note");
   const formulas = sections.filter((s) => s.kind === "formula");
   const examples = sections.filter((s) => s.kind === "example");
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [
-    objectives.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("section", { "aria-labelledby": "muc-tieu", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { id: "muc-tieu", className: "mb-3 text-xl font-extrabold", children: "M\u1EE5c ti\xEAu" }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "rounded-2xl border-l-4 border-tim-700 bg-tim-50 px-5 py-4", children: objectives.map((s) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: s.body }, s.id)) })
+  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(import_jsx_runtime14.Fragment, { children: [
+    objectives.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("section", { "aria-labelledby": "muc-tieu", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("h2", { id: "muc-tieu", className: "mb-3 text-xl font-extrabold", children: "M\u1EE5c ti\xEAu ki\u1EBFn th\u1EE9c" }),
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "rounded-2xl border-l-4 border-tim-700 bg-tim-50 px-5 py-4", children: objectives.map((s) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Rich, { src: s.body }, s.id)) })
     ] }),
-    knowledge.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("section", { "aria-labelledby": "kien-thuc", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { id: "kien-thuc", className: "mb-3 text-xl font-extrabold", children: "Ki\u1EBFn th\u1EE9c" }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "space-y-6", children: knowledge.map((s) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: s.kind === "note" ? "rounded-2xl border border-hl bg-hl-soft px-5 py-4" : "", children: [
-        (s.title || s.kind === "note") && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h3", { className: "mb-1.5 text-[17px] font-bold", children: s.title ?? SECTION_LABELS.note }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: s.body, className: "text-[16.5px]" })
+    meta,
+    knowledge.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("section", { "aria-labelledby": "kien-thuc", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("h2", { id: "kien-thuc", className: "mb-3 text-xl font-extrabold", children: "Ki\u1EBFn th\u1EE9c" }),
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "space-y-6", children: knowledge.map((s) => /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: s.kind === "note" ? "rounded-2xl border border-hl bg-hl-soft px-5 py-4" : "", children: [
+        (s.title || s.kind === "note") && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("h3", { className: "mb-1.5 text-[17px] font-bold", children: s.title ?? SECTION_LABELS.note }),
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Rich, { src: s.body, className: "text-[16.5px]" })
       ] }, s.id)) })
     ] }),
-    formulas.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("section", { "aria-labelledby": "cong-thuc", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { id: "cong-thuc", className: "mb-4 text-xl font-extrabold", children: "C\xF4ng th\u1EE9c" }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "grid gap-6 md:grid-cols-2", children: formulas.map((s) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: cx("formula-frame isolate px-5 py-4", formulas.length === 1 && "md:col-span-2"), children: [
-        s.title && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "text-[14px] font-bold text-tim-700", children: s.title }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: s.body, className: "text-[17px]" })
+    formulas.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("section", { "aria-labelledby": "cong-thuc", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("h2", { id: "cong-thuc", className: "mb-4 text-xl font-extrabold", children: "C\xF4ng th\u1EE9c" }),
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "grid gap-6 md:grid-cols-2", children: formulas.map((s) => /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: cx("formula-frame isolate px-5 py-4", formulas.length === 1 && "md:col-span-2"), children: [
+        s.title && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "text-[14px] font-bold text-tim-700", children: s.title }),
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Rich, { src: s.body, className: "text-[17px]" })
       ] }, s.id)) })
     ] }),
-    examples.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("section", { "aria-labelledby": "vi-du", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { id: "vi-du", className: "mb-3 text-xl font-extrabold", children: "V\xED d\u1EE5" }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "space-y-4", children: examples.map((s, i2) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(Panel, { className: "p-5", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "mb-1 text-[14px] font-bold text-tim-700", children: [
+    examples.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("section", { "aria-labelledby": "vi-du", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("h2", { id: "vi-du", className: "mb-3 text-xl font-extrabold", children: "V\xED d\u1EE5" }),
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "space-y-4", children: examples.map((s, i2) => /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(Panel, { className: "p-5", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "mb-1 text-[14px] font-bold text-tim-700", children: [
           "V\xED d\u1EE5 ",
           i2 + 1,
           s.title ? `. ${s.title}` : ""
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: s.body, className: "text-[16.5px]" }),
-        s.solution && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("details", { className: "mt-3 rounded-xl bg-mist px-4 py-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("summary", { className: "font-semibold text-tim-800", children: "Xem l\u1EDDi gi\u1EA3i" }),
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Rich, { src: s.solution, className: "mt-2 text-[16px]" })
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Rich, { src: s.body, className: "text-[16.5px]" }),
+        s.solution && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("details", { className: "mt-3 rounded-xl bg-mist px-4 py-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("summary", { className: "font-semibold text-tim-800", children: "Xem l\u1EDDi gi\u1EA3i" }),
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Rich, { src: s.solution, className: "mt-2 text-[16px]" })
         ] })
       ] }, s.id)) })
     ] }),
-    topics.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("section", { "aria-labelledby": "dang-toan", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("h2", { id: "dang-toan", className: "mb-3 text-xl font-extrabold", children: "C\xE1c d\u1EA1ng to\xE1n" }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("ol", { className: "space-y-3", children: topics.map((t, i2) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("li", { className: "flex gap-4 rounded-2xl border border-line bg-white p-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-tim-700 font-bold text-white", children: i2 + 1 }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "min-w-0", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "font-semibold", children: t.title }),
-          t.method ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "mt-1 text-[15px] text-ink-2", children: t.method }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { className: "mt-1 text-[14px] text-ink-3", children: "Ph\u01B0\u01A1ng ph\xE1p gi\u1EA3i \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n." }),
-          t.questionCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("p", { className: "mt-1 text-[13px] text-tim-700", children: [
-            t.questionCount,
-            " c\xE2u luy\u1EC7n t\u1EADp"
-          ] })
-        ] })
-      ] }, t.id)) })
+    themes.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("section", { "aria-labelledby": "dang-toan", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("h2", { id: "dang-toan", className: "mb-1 text-xl font-extrabold", children: "Ch\u1EE7 \u0111\u1EC1 v\xE0 d\u1EA1ng to\xE1n" }),
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "mb-3 text-[14.5px] text-ink-3", children: "B\u1EA5m v\xE0o t\u1EEBng d\u1EA1ng \u0111\u1EC3 xem d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt, ph\u01B0\u01A1ng ph\xE1p, c\xE1c b\u01B0\u1EDBc gi\u1EA3i, l\u1ED7i sai th\u01B0\u1EDDng g\u1EB7p v\xE0 b\xE0i t\u1EADp luy\u1EC7n t\u1EADp." }),
+      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(ThemeList, { themes, topicHref: topicHref2 })
     ] })
   ] });
 }
 
 // src/server/handlers/curriculum.tsx
-var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
 function LessonStatusIcon({ l }) {
-  if (l.progress === "completed") return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuCircleCheck, { className: "shrink-0 text-tre", "aria-label": "\u0110\xE3 h\u1ECDc xong" });
-  if (l.progress === "in_progress") return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mx-[3px] h-2.5 w-2.5 shrink-0 rounded-full bg-hl ring-2 ring-[#f2df95]", "aria-label": "\u0110ang h\u1ECDc" });
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "mx-[3px] h-2.5 w-2.5 shrink-0 rounded-full border-2 border-line-2", "aria-hidden": "true" });
+  if (l.progress === "completed") return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LuCircleCheck, { className: "shrink-0 text-tre", "aria-label": "\u0110\xE3 h\u1ECDc xong" });
+  if (l.progress === "in_progress") return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "mx-[3px] h-2.5 w-2.5 shrink-0 rounded-full bg-hl ring-2 ring-[#f2df95]", "aria-label": "\u0110ang h\u1ECDc" });
+  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "mx-[3px] h-2.5 w-2.5 shrink-0 rounded-full border-2 border-line-2", "aria-hidden": "true" });
 }
 async function programPage(ctx) {
   const grades = await listGrades(ctx.db);
   const book = await requireBook(ctx);
   const tree = await getCourseTree(ctx.db, book.id, ctx.user?.id ?? null);
+  const themes = await getThemesByLesson(ctx.db, book.id);
   return page(
     ctx,
     { title: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc" },
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(PageTitle, { title: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc", sub: "To\xE1n THCS theo Ch\u01B0\u01A1ng tr\xECnh gi\xE1o d\u1EE5c ph\u1ED5 th\xF4ng 2018. M\u1ED7i kh\u1ED1i l\u1EDBp theo m\u1ED9t b\u1ED9 s\xE1ch gi\xE1o khoa." }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "grid gap-4 md:grid-cols-4", children: grades.map((g) => {
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(PageTitle, { title: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc", sub: "To\xE1n THCS theo Ch\u01B0\u01A1ng tr\xECnh gi\xE1o d\u1EE5c ph\u1ED5 th\xF4ng 2018. M\u1ED7i kh\u1ED1i l\u1EDBp theo m\u1ED9t b\u1ED9 s\xE1ch gi\xE1o khoa." }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "grid gap-4 md:grid-cols-4", children: grades.map((g) => {
         const active = g.status === "active" && g.textbookSlug;
-        return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: cx("rounded-[22px] border p-5", active ? "border-tim-700 bg-white shadow-[0_3px_0_0_#3b2a8c]" : "o-li border-line"), children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex items-start justify-between", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: cx("text-[44px] font-extrabold leading-none", active ? "text-tim-700" : "text-line-2"), children: g.level }),
-            active ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Badge, { tone: "tre", children: "\u0110ang m\u1EDF" }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Badge, { tone: "gray", children: "S\u1EAFp ra m\u1EAFt" })
+        return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: cx("rounded-[22px] border p-5", active ? "border-tim-700 bg-white shadow-[0_3px_0_0_#3b2a8c]" : "o-li border-line"), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "flex items-start justify-between", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: cx("text-[44px] font-extrabold leading-none", active ? "text-tim-700" : "text-line-2"), children: g.level }),
+            active ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Badge, { tone: "tre", children: "\u0110ang m\u1EDF" }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Badge, { tone: "gray", children: "S\u1EAFp ra m\u1EAFt" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mt-3 font-bold", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mt-3 font-bold", children: [
             "To\xE1n ",
             g.level
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "text-[14px] text-ink-3", children: active ? `K\u1EBFt n\u1ED1i tri th\u1EE9c \xB7 ${g.lessonCount} b\xE0i` : "N\u1ED9i dung \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n" }),
-          active && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("a", { href: `/hoc/${g.textbookSlug}`, className: buttonClass("primary", "sm", "mt-4"), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "text-[14px] text-ink-3", children: active ? `K\u1EBFt n\u1ED1i tri th\u1EE9c \xB7 ${g.lessonCount} b\xE0i` : "N\u1ED9i dung \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n" }),
+          active && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("a", { href: `/hoc/${g.textbookSlug}`, className: buttonClass("primary", "sm", "mt-4"), children: [
             "V\xE0o h\u1ECDc To\xE1n ",
             g.level
           ] })
         ] }, g.id);
       }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("section", { className: "mt-12", "aria-labelledby": "tong-quan", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex flex-wrap items-end justify-between gap-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("h2", { id: "tong-quan", className: "text-2xl font-extrabold tracking-tight", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("section", { className: "mt-12", "aria-labelledby": "tong-quan", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "flex flex-wrap items-end justify-between gap-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("h2", { id: "tong-quan", className: "text-2xl font-extrabold tracking-tight", children: [
             book.title,
             " \u2013 ",
             book.series
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: `/chuong-trinh/${book.slug}/ppct`, className: "text-[15px] font-semibold text-tim-700 hover:underline", children: "Ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh n\u0103m h\u1ECDc" })
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("a", { href: `/chuong-trinh/${book.slug}/ppct`, className: "text-[15px] font-semibold text-tim-700 hover:underline", children: "Ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh n\u0103m h\u1ECDc" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "mt-5 grid gap-6 md:grid-cols-2", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Panel, { className: "p-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h3", { className: "text-lg font-extrabold", children: s.name }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { className: "mt-3 space-y-2.5", children: s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("li", { className: "flex items-baseline gap-3", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "w-10 shrink-0 text-right font-extrabold text-tim-400", children: c.kind === "chapter" ? c.code : "\u2605" }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "min-w-0 flex-1", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "font-semibold", children: c.title }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "block text-[13px] text-ink-3", children: [
-                c.lessons.length,
-                " m\u1EE5c \xB7 ",
-                c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0),
-                " ti\u1EBFt"
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "mt-5 grid gap-6 md:grid-cols-2", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Panel, { className: "p-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h3", { className: "text-lg font-extrabold", children: s.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("ul", { className: "mt-3 space-y-2.5", children: s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("li", { className: "flex items-baseline gap-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "w-10 shrink-0 text-right font-extrabold text-tim-400", children: c.kind === "chapter" ? c.code : "\u2605" }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "min-w-0 flex-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("a", { href: `/hoc/${book.slug}/chuong/${encodeURIComponent(c.code)}`, className: "font-semibold hover:text-tim-700 hover:underline", children: c.title }),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "block", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(ChapterStats, { c, themes }),
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "text-[13px] text-ink-3", children: [
+                  " \xB7 ",
+                  c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0),
+                  " ti\u1EBFt"
+                ] })
               ] })
             ] })
           ] }, c.id)) })
         ] }, s.id)) }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "mt-6", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkButton, { href: `/hoc/${book.slug}`, children: "Xem m\u1EE5c l\u1EE5c chi ti\u1EBFt" }) })
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mt-6 flex flex-wrap gap-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LinkButton, { href: `/hoc/${book.slug}`, children: "Xem m\u1EE5c l\u1EE5c chi ti\u1EBFt" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(LinkButton, { href: `/hoc/${book.slug}/ban-do`, variant: "secondary", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LuMap, { "aria-hidden": "true" }),
+            " B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c"
+          ] })
+        ] })
       ] })
     ] })
   );
@@ -32109,59 +33718,86 @@ async function programPage(ctx) {
 async function coursePage(ctx) {
   const book = await requireBook(ctx, ctx.params.book);
   const tree = await getCourseTree(ctx.db, book.id, ctx.user?.id ?? null);
+  const themes = await getThemesByLesson(ctx.db, book.id);
   const all = flattenLessons(tree);
   const done = all.filter((l) => l.progress === "completed").length;
   const isStudent = ctx.user?.role === "student";
   return page(
     ctx,
     { title: `M\u1EE5c l\u1EE5c ${book.title}` },
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         PageTitle,
         {
           crumbs: [{ href: "/chuong-trinh", label: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc" }, { label: book.title }],
           title: `${book.title} \u2013 m\u1EE5c l\u1EE5c`,
-          sub: `${book.series} \xB7 ${book.program}. B\xE0i c\xF3 bi\u1EC3u t\u01B0\u1EE3ng b\xFAt ch\xEC \u0111\xE3 c\xF3 c\xE2u h\u1ECFi luy\u1EC7n t\u1EADp.`,
-          actions: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkButton, { href: `/chuong-trinh/${book.slug}/ppct`, variant: "secondary", children: "Ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh" })
+          sub: `${book.series} \xB7 ${book.program}. B\u1EA5m t\xEAn ch\u01B0\u01A1ng \u0111\u1EC3 xem m\u1EE5c ti\xEAu, ch\u1EE7 \u0111\u1EC1, h\u1EC7 th\u1ED1ng d\u1EA1ng to\xE1n v\xE0 ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng.`,
+          actions: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(LinkButton, { href: `/hoc/${book.slug}/ban-do`, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LuMap, { "aria-hidden": "true" }),
+              " B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LinkButton, { href: `/chuong-trinh/${book.slug}/ppct`, variant: "secondary", children: "Ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh" })
+          ] })
         }
       ),
-      isStudent && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Panel, { className: "mb-8 flex flex-wrap items-center gap-6 p-5", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "min-w-[220px] flex-1", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mb-2 flex justify-between text-[15px]", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "font-semibold", children: "Ti\u1EBFn \u0111\u1ED9 c\u1EE7a em" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "text-ink-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(MapTotalsBar, { t: mapTotals(tree, themes) }),
+      isStudent && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Panel, { className: "mb-8 flex flex-wrap items-center gap-6 p-5", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "min-w-[220px] flex-1", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mb-2 flex justify-between text-[15px]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "font-semibold", children: "Ti\u1EBFn \u0111\u1ED9 c\u1EE7a em" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "text-ink-3", children: [
             done,
             "/",
             all.length,
             " m\u1EE5c \u0111\xE3 h\u1ECDc xong"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ProgressBar, { value: percent(done, all.length), tone: "tre", label: "Ti\u1EBFn \u0111\u1ED9 to\xE0n ch\u01B0\u01A1ng tr\xECnh" })
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(ProgressBar, { value: percent(done, all.length), tone: "tre", label: "Ti\u1EBFn \u0111\u1ED9 to\xE0n ch\u01B0\u01A1ng tr\xECnh" })
       ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "space-y-10", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("section", { "aria-labelledby": `hk-${s.number}`, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", { id: `hk-${s.number}`, className: "mb-4 text-xl font-extrabold", children: s.name }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "grid gap-5 lg:grid-cols-2", children: s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ChapterCard, { c, bookSlug: book.slug }, c.id)) })
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "space-y-10", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("section", { "aria-labelledby": `hk-${s.number}`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h2", { id: `hk-${s.number}`, className: "mb-4 text-xl font-extrabold", children: s.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "grid gap-5 lg:grid-cols-2", children: s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(ChapterCard, { c, bookSlug: book.slug, themes, showProgress: isStudent }, c.id)) })
       ] }, s.id)) })
     ] })
   );
 }
-function ChapterCard({ c, bookSlug }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Panel, { className: "overflow-hidden", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex items-baseline gap-3 border-b border-line bg-mist/60 px-5 py-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "text-[26px] font-extrabold leading-none text-tim-700", children: c.kind === "chapter" ? c.code : "\u2605" }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h3", { className: "font-extrabold", children: c.kind === "chapter" ? c.title : c.title }),
-        c.description && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-[13px] text-ink-3", children: c.description })
+function ChapterCard({ c, bookSlug, themes, showProgress }) {
+  const sum = summarizeChapter(c, themes);
+  return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Panel, { className: "overflow-hidden", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "border-b border-line bg-mist/60 px-5 py-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "flex items-baseline gap-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "text-[26px] font-extrabold leading-none text-tim-700", children: c.kind === "chapter" ? c.code : "\u2605" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "min-w-0 flex-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h3", { className: "font-extrabold", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("a", { href: `/hoc/${bookSlug}/chuong/${encodeURIComponent(c.code)}`, className: "hover:text-tim-700 hover:underline", children: c.kind === "chapter" ? `Ch\u01B0\u01A1ng ${c.code}. ${c.title}` : c.title }) }),
+          c.description && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "text-[13px] text-ink-3", children: c.description }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(ChapterStats, { c, themes })
+        ] }),
+        showProgress && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Badge, { tone: sum.state === "done" ? "tre" : sum.state === "in_progress" ? "hl" : "gray", children: CHAPTER_STATE_LABELS[sum.state] })
+      ] }),
+      showProgress && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mt-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(ProgressBar, { value: percent(sum.completed, sum.lessons), tone: "tre", label: `Ti\u1EBFn \u0111\u1ED9 ${c.title}` }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mt-1 text-[12px] text-ink-3", children: [
+          sum.completed,
+          "/",
+          sum.lessons,
+          " m\u1EE5c \u0111\xE3 h\u1ECDc xong"
+        ] })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ol", { className: "divide-y divide-line", children: c.lessons.map((l) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("a", { href: `/hoc/${bookSlug}/bai/${l.slug}`, className: "flex items-center gap-3 px-5 py-3 hover:bg-tim-50/60", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LessonStatusIcon, { l }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: cx("min-w-0 flex-1 text-[15px]", l.kind === "lesson" ? "font-medium" : "text-ink-2"), children: lessonLabel(l) }),
-      l.questionCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuPencilRuler, { className: "shrink-0 text-tim-400", "aria-label": `${l.questionCount} c\xE2u luy\u1EC7n t\u1EADp` }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "w-12 shrink-0 text-right text-[13px] text-ink-3", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("ol", { className: "divide-y divide-line", children: c.lessons.map((l) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("a", { href: `/hoc/${bookSlug}/bai/${l.slug}`, className: "flex items-center gap-3 px-5 py-3 hover:bg-tim-50/60", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LessonStatusIcon, { l }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: cx("min-w-0 flex-1 text-[15px]", l.kind === "lesson" ? "font-medium" : "text-ink-2"), children: lessonLabel(l) }),
+      l.topicCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "hidden text-[12.5px] text-ink-3 sm:inline", children: [
+        l.topicCount,
+        " d\u1EA1ng"
+      ] }),
+      l.questionCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LuPencilRuler, { className: "shrink-0 text-tim-400", "aria-label": `${l.questionCount} b\xE0i t\u1EADp` }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "w-12 shrink-0 text-right text-[13px] text-ink-3", children: [
         l.periods,
         " ti\u1EBFt"
       ] })
-    ] }) }, l.id)) })
+    ] }) }, l.id)) }),
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("a", { href: `/hoc/${bookSlug}/chuong/${encodeURIComponent(c.code)}`, className: "block border-t border-line px-5 py-2.5 text-[14px] font-semibold text-tim-700 hover:bg-tim-50", children: "M\u1EDF trang ch\u01B0\u01A1ng \u2192" })
   ] });
 }
 async function teachingPlanPage(ctx) {
@@ -32172,8 +33808,8 @@ async function teachingPlanPage(ctx) {
   return page(
     ctx,
     { title: plan.title, wide: true },
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         PageTitle,
         {
           crumbs: [{ href: "/chuong-trinh", label: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc" }, { href: `/hoc/${book.slug}`, label: book.title }, { label: "Ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh" }],
@@ -32181,25 +33817,25 @@ async function teachingPlanPage(ctx) {
           sub: `${plan.items.length} m\u1EE5c, ${total} ti\u1EBFt, 35 tu\u1EA7n. B\u1EA5m v\xE0o t\xEAn b\xE0i \u0111\u1EC3 m\u1EDF b\xE0i h\u1ECDc.`
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("table", { className: "data-table min-w-[820px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("tr", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { className: "w-12", children: "STT" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { children: "B\xE0i h\u1ECDc" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { className: "w-20", children: "S\u1ED1 ti\u1EBFt" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { className: "w-24", children: "Ti\u1EBFt th\u1EE9" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { className: "w-24", children: "Tu\u1EA7n" }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("th", { children: "Thi\u1EBFt b\u1ECB d\u1EA1y h\u1ECDc / ghi ch\xFA" })
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("table", { className: "data-table min-w-[820px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { className: "w-12", children: "STT" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { children: "B\xE0i h\u1ECDc" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { className: "w-20", children: "S\u1ED1 ti\u1EBFt" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { className: "w-24", children: "Ti\u1EBFt th\u1EE9" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { className: "w-24", children: "Tu\u1EA7n" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("th", { children: "Thi\u1EBFt b\u1ECB d\u1EA1y h\u1ECDc / ghi ch\xFA" })
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("tbody", { children: plan.items.map((i2) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("tr", { className: i2.lessonSlug ? "" : "bg-hl-soft/50", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("td", { className: "text-ink-3", children: i2.position }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("td", { children: i2.lessonSlug ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { className: "font-medium text-tim-800 hover:underline", href: `/hoc/${book.slug}/bai/${i2.lessonSlug}`, children: i2.title }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { children: i2.title }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("td", { children: i2.periods }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("td", { className: "tabular-nums", children: i2.periodFrom === i2.periodTo ? i2.periodFrom : `${i2.periodFrom}\u2013${i2.periodTo}` }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("td", { children: i2.weeks }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("td", { className: "text-[14px] text-ink-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("tbody", { children: plan.items.map((i2) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("tr", { className: i2.lessonSlug ? "" : "bg-hl-soft/50", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { className: "text-ink-3", children: i2.position }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { children: i2.lessonSlug ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("a", { className: "font-medium text-tim-800 hover:underline", href: `/hoc/${book.slug}/bai/${i2.lessonSlug}`, children: i2.title }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: i2.title }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { children: i2.periods }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { className: "tabular-nums", children: i2.periodFrom === i2.periodTo ? i2.periodFrom : `${i2.periodFrom}\u2013${i2.periodTo}` }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("td", { children: i2.weeks }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("td", { className: "text-[14px] text-ink-2", children: [
             i2.equipment,
-            i2.equipment && i2.note ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("br", {}) : null,
-            i2.note && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Badge, { tone: "cam", children: i2.note })
+            i2.equipment && i2.note ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("br", {}) : null,
+            i2.note && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Badge, { tone: "cam", children: i2.note })
           ] })
         ] }, i2.position)) })
       ] }) })
@@ -32210,14 +33846,16 @@ async function lessonPage(ctx) {
   const book = await requireBook(ctx, ctx.params.book);
   const lesson = await getLessonBySlug(ctx.db, book.id, ctx.params.slug);
   const staff = isStaff(ctx.user);
-  if (!lesson || lesson.status !== "published" && !staff) throw new HttpError(404, "Kh\xF4ng t\xECm th\u1EA5y b\xE0i h\u1ECDc.");
+  if (!lesson || (lesson.status !== "published" || lesson.chapterStatus !== "published") && !staff) throw new HttpError(404, "Kh\xF4ng t\xECm th\u1EA5y b\xE0i h\u1ECDc.");
   if (ctx.user?.role === "student") await touchLesson(ctx.db, ctx.user.id, lesson.id);
-  const [tree, sections, topics, counts] = await Promise.all([
+  const [tree, sections, themesAll, counts] = await Promise.all([
     getCourseTree(ctx.db, book.id, ctx.user?.id ?? null, staff),
     getLessonSections(ctx.db, lesson.id),
-    getLessonTopics(ctx.db, lesson.id),
+    getThemesByLesson(ctx.db, book.id, staff),
     getLessonQuestionCounts(ctx.db, lesson.id)
   ]);
+  const themes = themesAll.get(lesson.id) ?? [];
+  const topicCount = themes.reduce((n, th) => n + th.topics.length, 0);
   const flat = flattenLessons(tree);
   const idx = flat.findIndex((l) => l.id === lesson.id);
   const prev = idx > 0 ? flat[idx - 1] : null;
@@ -32231,106 +33869,127 @@ async function lessonPage(ctx) {
   return page(
     ctx,
     { title: label, description: lesson.summary ?? `${label} \u2013 ${book.title}` },
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "lesson-grid grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "lesson-main min-w-0", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "lesson-grid grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "lesson-main min-w-0", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
           Breadcrumbs,
           {
             items: [
               { href: `/hoc/${book.slug}`, label: book.title },
               { href: `/hoc/${book.slug}#hk-${lesson.semesterNumber}`, label: lesson.semesterName },
-              { href: `/hoc/${book.slug}`, label: chapterName },
+              { href: `/hoc/${book.slug}/chuong/${encodeURIComponent(lesson.chapterCode)}`, label: chapterName },
               { label }
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("header", { className: "o-li le-vo rounded-[22px] border border-line px-6 py-7 sm:pl-24", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "flex flex-wrap items-center gap-2 text-[13px]", children: [
-            lesson.kind !== "lesson" && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Badge, { tone: "cam", children: LESSON_KIND_LABELS[lesson.kind] }),
-            lesson.status !== "published" && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Badge, { tone: "gray", children: "B\u1EA3n nh\xE1p \u2013 h\u1ECDc sinh ch\u01B0a th\u1EA5y" }),
-            completed ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Badge, { tone: "tre", children: "\u0110\xE3 h\u1ECDc xong" }) : me?.progress === "in_progress" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Badge, { tone: "hl", children: "\u0110ang h\u1ECDc" }) : null
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "o-li le-vo rounded-[22px] border border-line px-6 py-7 sm:pl-24", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "flex flex-wrap items-center gap-2 text-[13px]", children: [
+            lesson.kind !== "lesson" && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Badge, { tone: "cam", children: LESSON_KIND_LABELS[lesson.kind] }),
+            lesson.code && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Badge, { tone: "gray", children: [
+              "M\xE3 b\xE0i ",
+              lesson.code
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(DifficultyBadge, { level: lesson.difficulty }),
+            lesson.status !== "published" && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Badge, { tone: "gray", children: "B\u1EA3n nh\xE1p \u2013 h\u1ECDc sinh ch\u01B0a th\u1EA5y" }),
+            staff && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(VerifyBadge, { status: lesson.verifyStatus, note: lesson.verifyNote }),
+            completed ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Badge, { tone: "tre", children: "\u0110\xE3 h\u1ECDc xong" }) : me?.progress === "in_progress" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Badge, { tone: "hl", children: "\u0110ang h\u1ECDc" }) : null
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h1", { className: "mt-2 text-[30px] font-extrabold leading-tight tracking-tight md:text-[38px]", children: label }),
-          lesson.summary && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "mt-2 max-w-2xl text-[16px] text-ink-2", children: lesson.summary }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[14px] text-ink-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "inline-flex items-center gap-1.5", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuClock, { "aria-hidden": "true" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h1", { className: "mt-2 text-[30px] font-extrabold leading-tight tracking-tight md:text-[38px]", children: label }),
+          lesson.summary && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "mt-2 max-w-2xl text-[16px] text-ink-2", children: lesson.summary }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[14px] text-ink-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "inline-flex items-center gap-1.5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LuClock, { "aria-hidden": "true" }),
               " ",
               lesson.periods ?? 0,
               " ti\u1EBFt",
               lesson.estimatedMinutes ? ` (kho\u1EA3ng ${lesson.estimatedMinutes} ph\xFAt)` : ""
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { children: [
-              totalQuestions,
-              " c\xE2u luy\u1EC7n t\u1EADp"
+            topicCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { children: [
+              topicCount,
+              " d\u1EA1ng to\xE1n"
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { children: [
+              totalQuestions,
+              " b\xE0i t\u1EADp"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { children: [
               "C\u1EADp nh\u1EADt ",
               formatDate(lesson.updatedAt)
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "no-print mt-5 flex flex-wrap gap-2", children: [
-            totalQuestions > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkButton, { href: `/luyen-tap/bai/${lesson.slug}`, children: "Luy\u1EC7n t\u1EADp b\xE0i n\xE0y" }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("button", { type: "button", "data-present-toggle": true, "aria-pressed": "false", className: buttonClass("secondary", "md"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuPresentation, { "aria-hidden": "true" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "no-print mt-5 flex flex-wrap gap-2", children: [
+            totalQuestions > 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LinkButton, { href: `/luyen-tap/bai/${lesson.slug}`, children: "Luy\u1EC7n t\u1EADp b\xE0i n\xE0y" }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("button", { type: "button", "data-present-toggle": true, "aria-pressed": "false", className: buttonClass("secondary", "md"), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LuPresentation, { "aria-hidden": "true" }),
               " ",
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { "data-present-label": true, children: "Tr\xECnh chi\u1EBFu" })
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { "data-present-label": true, children: "Tr\xECnh chi\u1EBFu" })
             ] }),
-            staff && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkButton, { href: `/giao-vien/bai-hoc/${lesson.id}`, variant: "ghost", children: "So\u1EA1n n\u1ED9i dung" })
+            staff && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LinkButton, { href: `/giao-vien/bai-hoc/${lesson.id}`, variant: "ghost", children: "So\u1EA1n n\u1ED9i dung" })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "lesson-body mt-8 space-y-10", children: [
-          sections.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Notice, { tone: "info", children: [
-            "N\u1ED9i dung l\xFD thuy\u1EBFt c\u1EE7a m\u1EE5c n\xE0y \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n. ",
-            topics.length > 0 ? "Em c\xF3 th\u1EC3 xem tr\u01B0\u1EDBc c\xE1c d\u1EA1ng to\xE1n b\xEAn d\u01B0\u1EDBi." : "",
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "lesson-body mt-8 space-y-10", children: [
+          staff && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(VerifyNotice, { status: lesson.verifyStatus, note: lesson.verifyNote }),
+          sections.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Notice, { tone: "info", children: [
+            "Ph\u1EA7n l\xED thuy\u1EBFt chi ti\u1EBFt c\u1EE7a m\u1EE5c n\xE0y \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n.",
+            " ",
+            topicCount > 0 ? "Em c\xF3 th\u1EC3 xem t\xF3m t\u1EAFt b\xE0i h\u1ECDc v\xE0 h\u1ECDc theo t\u1EEBng d\u1EA1ng to\xE1n b\xEAn d\u01B0\u1EDBi." : "",
             staff ? ' Gi\xE1o vi\xEAn c\xF3 th\u1EC3 th\xEAm n\u1ED9i dung b\u1EB1ng n\xFAt "So\u1EA1n n\u1ED9i dung".' : ""
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LessonBody, { sections, topics }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("section", { "aria-labelledby": "bai-tap", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("h2", { id: "bai-tap", className: "mb-3 text-xl font-extrabold", children: "B\xE0i t\u1EADp" }),
-            totalQuestions > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Panel, { className: "p-5", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { className: "flex flex-wrap gap-2", children: Object.entries(counts).map(([type, n]) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Badge, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+            LessonBody,
+            {
+              sections,
+              themes,
+              topicHref: (t) => topicHref(book.slug, lesson.slug, t),
+              lessonObjectives: lesson.objectives,
+              meta: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LessonMetaPanel, { m: lesson, showFormulas: !sections.some((s) => s.kind === "formula") })
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("section", { "aria-labelledby": "bai-tap", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h2", { id: "bai-tap", className: "mb-3 text-xl font-extrabold", children: "B\xE0i t\u1EADp" }),
+            totalQuestions > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Panel, { className: "p-5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("ul", { className: "flex flex-wrap gap-2", children: Object.entries(counts).map(([type, n]) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Badge, { children: [
                 TYPE_LABELS[type],
                 ": ",
                 n
               ] }) }, type)) }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "mt-3 text-[15px] text-ink-2", children: "L\xE0m t\u1EEBng c\xE2u, xem \u0111\xE1p \xE1n v\xE0 l\u1EDDi gi\u1EA3i ngay sau khi ki\u1EC3m tra. M\u1ED7i c\xE2u \u0111\xFAng l\u1EA7n \u0111\u1EA7u \u0111\u01B0\u1EE3c 10 XP." }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LinkButton, { href: `/luyen-tap/bai/${lesson.slug}`, className: "mt-4", children: "B\u1EAFt \u0111\u1EA7u luy\u1EC7n t\u1EADp" })
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-[15px] text-ink-2", children: "B\xE0i n\xE0y ch\u01B0a c\xF3 c\xE2u h\u1ECFi luy\u1EC7n t\u1EADp." })
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "mt-3 text-[15px] text-ink-2", children: "L\xE0m t\u1EEBng c\xE2u, xem \u0111\xE1p \xE1n v\xE0 l\u1EDDi gi\u1EA3i ngay sau khi ki\u1EC3m tra. M\u1ED7i c\xE2u \u0111\xFAng l\u1EA7n \u0111\u1EA7u \u0111\u01B0\u1EE3c 10 XP." }),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LinkButton, { href: `/luyen-tap/bai/${lesson.slug}`, className: "mt-4", children: "B\u1EAFt \u0111\u1EA7u luy\u1EC7n t\u1EADp" })
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "text-[15px] text-ink-2", children: "B\xE0i n\xE0y ch\u01B0a c\xF3 c\xE2u h\u1ECFi luy\u1EC7n t\u1EADp." })
           ] }),
-          ctx.user?.role === "student" && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("section", { className: "no-print rounded-[22px] border-2 border-dashed border-tim-200 p-6 text-center", children: completed ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "font-semibold text-tre", children: "Em \u0111\xE3 \u0111\xE1nh d\u1EA5u h\u1ECDc xong m\u1EE5c n\xE0y." }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(PostForm, { action: `/hoc/${book.slug}/bai/${lesson.slug}/hoc-lai`, className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("button", { className: buttonClass("quiet", "sm"), children: "\u0110\xE1nh d\u1EA5u l\xE0 \u0111ang h\u1ECDc l\u1EA1i" }) })
-          ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { className: "text-[15px] text-ink-2", children: "\u0110\u1ECDc xong l\xFD thuy\u1EBFt v\xE0 v\xED d\u1EE5? \u0110\xE1nh d\u1EA5u \u0111\u1EC3 l\u01B0u ti\u1EBFn \u0111\u1ED9 (+20 XP l\u1EA7n \u0111\u1EA7u)." }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(PostForm, { action: `/hoc/${book.slug}/bai/${lesson.slug}/hoan-thanh`, className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("button", { className: buttonClass("primary", "lg"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuCircleCheck, { "aria-hidden": "true" }),
+          ctx.user?.role === "student" && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("section", { className: "no-print rounded-[22px] border-2 border-dashed border-tim-200 p-6 text-center", children: completed ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "font-semibold text-tre", children: "Em \u0111\xE3 \u0111\xE1nh d\u1EA5u h\u1ECDc xong m\u1EE5c n\xE0y." }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(PostForm, { action: `/hoc/${book.slug}/bai/${lesson.slug}/hoc-lai`, className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { className: buttonClass("quiet", "sm"), children: "\u0110\xE1nh d\u1EA5u l\xE0 \u0111ang h\u1ECDc l\u1EA1i" }) })
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "text-[15px] text-ink-2", children: "\u0110\u1ECDc xong l\xFD thuy\u1EBFt v\xE0 v\xED d\u1EE5? \u0110\xE1nh d\u1EA5u \u0111\u1EC3 l\u01B0u ti\u1EBFn \u0111\u1ED9 (+20 XP l\u1EA7n \u0111\u1EA7u)." }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(PostForm, { action: `/hoc/${book.slug}/bai/${lesson.slug}/hoan-thanh`, className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("button", { className: buttonClass("primary", "lg"), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LuCircleCheck, { "aria-hidden": "true" }),
               " \u0110\xE1nh d\u1EA5u \u0111\xE3 h\u1ECDc xong"
             ] }) })
           ] }) }),
-          !ctx.user && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Notice, { tone: "info", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: `/dang-nhap?next=${encodeURIComponent(ctx.path)}`, className: "font-semibold underline", children: "\u0110\u0103ng nh\u1EADp" }),
+          !ctx.user && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Notice, { tone: "info", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("a", { href: `/dang-nhap?next=${encodeURIComponent(ctx.path)}`, className: "font-semibold underline", children: "\u0110\u0103ng nh\u1EADp" }),
             " ",
             "\u0111\u1EC3 l\u01B0u ti\u1EBFn \u0111\u1ED9 h\u1ECDc v\xE0 l\xE0m b\xE0i luy\u1EC7n t\u1EADp."
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("nav", { className: "no-print flex flex-wrap justify-between gap-3 border-t border-line pt-6", "aria-label": "Chuy\u1EC3n b\xE0i", children: [
-            prev ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("a", { href: `/hoc/${book.slug}/bai/${prev.slug}`, className: "group flex max-w-[48%] items-center gap-2 text-[15px] text-ink-2 hover:text-tim-800", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuArrowLeft, { "aria-hidden": "true", className: "shrink-0" }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "truncate", children: lessonLabel(prev) })
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", {}),
-            next && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("a", { href: `/hoc/${book.slug}/bai/${next.slug}`, className: "group ml-auto flex max-w-[48%] items-center gap-2 text-right text-[15px] font-semibold text-tim-800 hover:underline", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "truncate", children: lessonLabel(next) }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LuArrowRight, { "aria-hidden": "true", className: "shrink-0" })
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("nav", { className: "no-print flex flex-wrap justify-between gap-3 border-t border-line pt-6", "aria-label": "Chuy\u1EC3n b\xE0i", children: [
+            prev ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("a", { href: `/hoc/${book.slug}/bai/${prev.slug}`, className: "group flex max-w-[48%] items-center gap-2 text-[15px] text-ink-2 hover:text-tim-800", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LuArrowLeft, { "aria-hidden": "true", className: "shrink-0" }),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "truncate", children: lessonLabel(prev) })
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", {}),
+            next && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("a", { href: `/hoc/${book.slug}/bai/${next.slug}`, className: "group ml-auto flex max-w-[48%] items-center gap-2 text-right text-[15px] font-semibold text-tim-800 hover:underline", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "truncate", children: lessonLabel(next) }),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LuArrowRight, { "aria-hidden": "true", className: "shrink-0" })
             ] })
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("aside", { className: "lesson-sidebar no-print", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-[22px] border border-line bg-white p-3", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "px-2 pb-2 pt-1", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "text-[13px] text-ink-3", children: book.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "text-[15px] font-bold", children: chapterName }),
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mt-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("aside", { className: "lesson-sidebar no-print", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-[22px] border border-line bg-white p-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "px-2 pb-2 pt-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "text-[13px] text-ink-3", children: book.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "text-[15px] font-bold", children: chapterName }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mt-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
               ProgressBar,
               {
                 tone: "tre",
@@ -32338,7 +33997,7 @@ async function lessonPage(ctx) {
                 label: "Ti\u1EBFn \u0111\u1ED9 ch\u01B0\u01A1ng"
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "mt-1 text-[12px] text-ink-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mt-1 text-[12px] text-ink-3", children: [
               chapterDone.filter((l) => l.progress === "completed").length,
               "/",
               chapterDone.length,
@@ -32346,13 +34005,13 @@ async function lessonPage(ctx) {
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("nav", { "aria-label": "Danh s\xE1ch ch\u01B0\u01A1ng v\xE0 b\xE0i", children: tree.flatMap(
-          (s) => s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("details", { open: c.id === lesson.chapterId, className: "group border-t border-line", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("summary", { className: "flex items-center gap-2 rounded-lg px-2 py-2 text-[14px] font-semibold hover:bg-tim-50", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "w-7 shrink-0 text-tim-400", children: c.kind === "chapter" ? c.code : "\u2605" }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "min-w-0 flex-1 truncate", children: c.title })
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("nav", { "aria-label": "Danh s\xE1ch ch\u01B0\u01A1ng v\xE0 b\xE0i", children: tree.flatMap(
+          (s) => s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("details", { open: c.id === lesson.chapterId, className: "group border-t border-line", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("summary", { className: "flex items-center gap-2 rounded-lg px-2 py-2 text-[14px] font-semibold hover:bg-tim-50", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "w-7 shrink-0 text-tim-400", children: c.kind === "chapter" ? c.code : "\u2605" }),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "min-w-0 flex-1 truncate", children: c.title })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { className: "pb-2", children: c.lessons.map((l) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("ul", { className: "pb-2", children: c.lessons.map((l) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
               "a",
               {
                 href: `/hoc/${book.slug}/bai/${l.slug}`,
@@ -32362,8 +34021,8 @@ async function lessonPage(ctx) {
                   l.id === lesson.id ? "bg-tim-700 font-semibold text-white" : "text-ink-2 hover:bg-tim-50"
                 ),
                 children: [
-                  l.id !== lesson.id && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(LessonStatusIcon, { l }),
-                  /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "min-w-0 flex-1 truncate", children: lessonLabel(l) })
+                  l.id !== lesson.id && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LessonStatusIcon, { l }),
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "min-w-0 flex-1 truncate", children: lessonLabel(l) })
                 ]
               }
             ) }, l.id)) })
@@ -32431,7 +34090,7 @@ var import_server2 = __toESM(require_server_node(), 1);
 var import_react5 = __toESM(require_react(), 1);
 
 // src/islands/shared.tsx
-var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
 function csrfToken() {
   if (typeof document === "undefined") return "";
   return document.querySelector('meta[name="csrf-token"]')?.content ?? "";
@@ -32469,9 +34128,9 @@ function cls(...p) {
   return p.filter(Boolean).join(" ");
 }
 function QuestionBody({ q }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "space-y-3", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "prose-math text-[17px] leading-relaxed", dangerouslySetInnerHTML: { __html: q.stemHtml } }),
-    q.mediaHtml.map((h, i2) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "flex justify-center rounded-xl border border-line bg-white p-3", dangerouslySetInnerHTML: { __html: h } }, i2))
+  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "space-y-3", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "prose-math text-[17px] leading-relaxed", dangerouslySetInnerHTML: { __html: q.stemHtml } }),
+    q.mediaHtml.map((h, i2) => /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "flex justify-center rounded-xl border border-line bg-white p-3", dangerouslySetInnerHTML: { __html: h } }, i2))
   ] });
 }
 function AnswerInput({
@@ -32482,11 +34141,11 @@ function AnswerInput({
   reveal
 }) {
   if (q.type === "mcq") {
-    return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "grid gap-3 md:grid-cols-2", role: "radiogroup", "aria-label": "Ch\u1ECDn ph\u01B0\u01A1ng \xE1n", children: q.options.map((o) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "grid gap-3 md:grid-cols-2", role: "radiogroup", "aria-label": "Ch\u1ECDn ph\u01B0\u01A1ng \xE1n", children: q.options.map((o) => {
       const chosen = value?.choice === o.label;
       const isRight = reveal?.correctChoice === o.label;
       const isWrong = reveal && chosen && !isRight;
-      return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+      return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
         "button",
         {
           type: "button",
@@ -32504,7 +34163,7 @@ function AnswerInput({
             disabled && "cursor-default"
           ),
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
               "span",
               {
                 className: cls(
@@ -32514,7 +34173,7 @@ function AnswerInput({
                 children: o.label
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "prose-math min-w-0 pt-0.5", dangerouslySetInnerHTML: { __html: o.html } })
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "prose-math min-w-0 pt-0.5", dangerouslySetInnerHTML: { __html: o.html } })
           ]
         },
         o.label
@@ -32523,20 +34182,20 @@ function AnswerInput({
   }
   if (q.type === "true_false") {
     const values = value?.values ?? {};
-    return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "overflow-hidden rounded-2xl border border-line bg-white", children: q.statements.map((s, i2) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "overflow-hidden rounded-2xl border border-line bg-white", children: q.statements.map((s, i2) => {
       const v = values[s.label];
       const correct = reveal?.correctValues?.[s.label];
       const ok = reveal && v !== void 0 && v === correct;
-      return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: cls("flex flex-wrap items-center gap-3 px-4 py-3", i2 > 0 && "border-t border-line", reveal && (ok ? "bg-tre-soft/60" : "bg-le-soft/50")), children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { className: "font-bold text-tim-700", children: [
+      return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: cls("flex flex-wrap items-center gap-3 px-4 py-3", i2 > 0 && "border-t border-line", reveal && (ok ? "bg-tre-soft/60" : "bg-le-soft/50")), children: [
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "font-bold text-tim-700", children: [
           s.label,
           ")"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "prose-math min-w-[200px] flex-1", dangerouslySetInnerHTML: { __html: s.html } }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "flex gap-2", role: "radiogroup", "aria-label": `\xDD ${s.label}`, children: [true, false].map((b) => {
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "prose-math min-w-[200px] flex-1", dangerouslySetInnerHTML: { __html: s.html } }),
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "flex gap-2", role: "radiogroup", "aria-label": `\xDD ${s.label}`, children: [true, false].map((b) => {
           const chosen = v === b;
           const isAnswer = reveal && correct === b;
-          return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+          return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
             "button",
             {
               type: "button",
@@ -32561,10 +34220,10 @@ function AnswerInput({
     }) });
   }
   if (q.type === "short_answer") {
-    return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("label", { className: "mb-1.5 block text-sm font-semibold text-ink-2", htmlFor: `ans-${q.id}`, children: "\u0110\xE1p s\u1ED1" }),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "flex max-w-sm items-center gap-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("label", { className: "mb-1.5 block text-sm font-semibold text-ink-2", htmlFor: `ans-${q.id}`, children: "\u0110\xE1p s\u1ED1" }),
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "flex max-w-sm items-center gap-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
           "input",
           {
             id: `ans-${q.id}`,
@@ -32582,19 +34241,19 @@ function AnswerInput({
             placeholder: "V\xED d\u1EE5: -1,5 ho\u1EB7c 3/4"
           }
         ),
-        q.unit && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "text-lg font-semibold text-ink-2", children: q.unit })
+        q.unit && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "text-lg font-semibold text-ink-2", children: q.unit })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "mt-1.5 text-[13px] text-ink-3", children: "Ghi s\u1ED1 nguy\xEAn, s\u1ED1 th\u1EADp ph\xE2n (d\u1EA5u ph\u1EA9y ho\u1EB7c d\u1EA5u ch\u1EA5m) ho\u1EB7c ph\xE2n s\u1ED1 d\u1EA1ng a/b." }),
-      reveal?.acceptedHtml && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { className: "mt-2 text-[15px]", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "mt-1.5 text-[13px] text-ink-3", children: "Ghi s\u1ED1 nguy\xEAn, s\u1ED1 th\u1EADp ph\xE2n (d\u1EA5u ph\u1EA9y ho\u1EB7c d\u1EA5u ch\u1EA5m) ho\u1EB7c ph\xE2n s\u1ED1 d\u1EA1ng a/b." }),
+      reveal?.acceptedHtml && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("p", { className: "mt-2 text-[15px]", children: [
         "\u0110\xE1p s\u1ED1 \u0111\xFAng: ",
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { dangerouslySetInnerHTML: { __html: reveal.acceptedHtml.join(" ho\u1EB7c ") } }),
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("strong", { dangerouslySetInnerHTML: { __html: reveal.acceptedHtml.join(" ho\u1EB7c ") } }),
         q.unit ? ` ${q.unit}` : ""
       ] })
     ] });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("label", { className: "mb-1.5 block text-sm font-semibold text-ink-2", htmlFor: `ans-${q.id}`, children: "B\xE0i l\xE0m c\u1EE7a em" }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("label", { className: "mb-1.5 block text-sm font-semibold text-ink-2", htmlFor: `ans-${q.id}`, children: "B\xE0i l\xE0m c\u1EE7a em" }),
+    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
       "textarea",
       {
         id: `ans-${q.id}`,
@@ -32607,12 +34266,12 @@ function AnswerInput({
         placeholder: "Tr\xECnh b\xE0y l\u1EDDi gi\u1EA3i. C\xF3 th\u1EC3 vi\u1EBFt c\xF4ng th\u1EE9c d\u1EA1ng \\( x^2 + 1 \\)."
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "mt-1.5 text-[13px] text-ink-3", children: "C\xE2u t\u1EF1 lu\u1EADn do gi\xE1o vi\xEAn ch\u1EA5m." })
+    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "mt-1.5 text-[13px] text-ink-3", children: "C\xE2u t\u1EF1 lu\u1EADn do gi\xE1o vi\xEAn ch\u1EA5m." })
   ] });
 }
 
 // src/islands/PracticeRunner.tsx
-var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
 var serverGrade = (q, answer, context) => postJson("/api/luyen-tap/tra-loi", { questionId: q.id, response: answer, context });
 function statusText(f, total, pendingText) {
   switch (f.status) {
@@ -32627,7 +34286,7 @@ function statusText(f, total, pendingText) {
   }
 }
 function PracticeRunner(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(PracticeCore, { ...props, grade: serverGrade, pendingText: "\u0110\xE3 g\u1EEDi b\xE0i l\xE0m \u2013 gi\xE1o vi\xEAn s\u1EBD ch\u1EA5m.", pendingSummary: "c\xE2u t\u1EF1 lu\u1EADn \u0111ang ch\u1EDD gi\xE1o vi\xEAn ch\u1EA5m." });
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(PracticeCore, { ...props, grade: serverGrade, pendingText: "\u0110\xE3 g\u1EEDi b\xE0i l\xE0m \u2013 gi\xE1o vi\xEAn s\u1EBD ch\u1EA5m.", pendingSummary: "c\xE2u t\u1EF1 lu\u1EADn \u0111ang ch\u1EDD gi\xE1o vi\xEAn ch\u1EA5m." });
 }
 function PracticeCore({
   questions,
@@ -32668,58 +34327,58 @@ function PracticeCore({
     const correct = graded.filter((f) => f.status === "correct").length;
     const xp = list.reduce((s, f) => s + f.xpGained, 0);
     const badges = list.flatMap((f) => f.achievements);
-    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "rounded-[22px] border border-line bg-white p-6 md:p-10", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h2", { className: "text-2xl font-extrabold", children: "K\u1EBFt qu\u1EA3 l\u01B0\u1EE3t luy\u1EC7n t\u1EADp" }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mt-6 grid gap-4 sm:grid-cols-3", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "rounded-2xl bg-tim-50 p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "text-[13px] text-ink-3", children: "C\xE2u \u0111\xFAng" }),
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "text-3xl font-extrabold text-tim-800", children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "rounded-[22px] border border-line bg-white p-6 md:p-10", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("h2", { className: "text-2xl font-extrabold", children: "K\u1EBFt qu\u1EA3 l\u01B0\u1EE3t luy\u1EC7n t\u1EADp" }),
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mt-6 grid gap-4 sm:grid-cols-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "rounded-2xl bg-tim-50 p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-[13px] text-ink-3", children: "C\xE2u \u0111\xFAng" }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "text-3xl font-extrabold text-tim-800", children: [
             correct,
             "/",
             graded.length
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "rounded-2xl bg-tre-soft p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "text-[13px] text-ink-3", children: "T\u1EC9 l\u1EC7 ch\xEDnh x\xE1c" }),
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "text-3xl font-extrabold text-tre", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "rounded-2xl bg-tre-soft p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-[13px] text-ink-3", children: "T\u1EC9 l\u1EC7 ch\xEDnh x\xE1c" }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "text-3xl font-extrabold text-tre", children: [
             graded.length ? Math.round(correct / graded.length * 100) : 0,
             "%"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "rounded-2xl bg-hl-soft p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "text-[13px] text-ink-3", children: "\u0110i\u1EC3m kinh nghi\u1EC7m nh\u1EADn \u0111\u01B0\u1EE3c" }),
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "text-3xl font-extrabold text-[#7a5a00]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "rounded-2xl bg-hl-soft p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-[13px] text-ink-3", children: "\u0110i\u1EC3m kinh nghi\u1EC7m nh\u1EADn \u0111\u01B0\u1EE3c" }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "text-3xl font-extrabold text-[#7a5a00]", children: [
             "+",
             xp,
             " XP"
           ] })
         ] })
       ] }),
-      list.length > graded.length && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("p", { className: "mt-4 text-[15px] text-ink-2", children: [
+      list.length > graded.length && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("p", { className: "mt-4 text-[15px] text-ink-2", children: [
         list.length - graded.length,
         " ",
         pendingSummary
       ] }),
-      badges.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mt-5 rounded-2xl border-2 border-hl bg-hl-soft p-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "font-bold", children: "Huy hi\u1EC7u m\u1EDBi" }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("ul", { className: "mt-1 list-disc pl-5 text-[15px]", children: badges.map((b) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("li", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: b.name }),
+      badges.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mt-5 rounded-2xl border-2 border-hl bg-hl-soft p-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "font-bold", children: "Huy hi\u1EC7u m\u1EDBi" }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("ul", { className: "mt-1 list-disc pl-5 text-[15px]", children: badges.map((b) => /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("li", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("strong", { children: b.name }),
           " \u2013 ",
           b.description
         ] }, b.code)) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mt-8 flex flex-wrap gap-3", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("a", { href: restartHref, className: "inline-flex items-center rounded-xl bg-tim-700 px-5 py-3 font-semibold text-white hover:bg-tim-800", children: "Luy\u1EC7n th\xEAm l\u01B0\u1EE3t m\u1EDBi" }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("a", { href: backHref, className: "inline-flex items-center rounded-xl border-2 border-tim-700 px-5 py-3 font-semibold text-tim-800 hover:bg-tim-50", children: backLabel })
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mt-8 flex flex-wrap gap-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("a", { href: restartHref, className: "inline-flex items-center rounded-xl bg-tim-700 px-5 py-3 font-semibold text-white hover:bg-tim-800", children: "Luy\u1EC7n th\xEAm l\u01B0\u1EE3t m\u1EDBi" }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("a", { href: backHref, className: "inline-flex items-center rounded-xl border-2 border-tim-700 px-5 py-3 font-semibold text-tim-800 hover:bg-tim-50", children: backLabel })
       ] })
     ] });
   }
   if (!q) return null;
   const answered = isComplete(q, answers[q.id]);
-  return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("ol", { className: "mb-5 flex flex-wrap gap-2", "aria-label": "Ti\u1EBFn \u0111\u1ED9 l\u01B0\u1EE3t luy\u1EC7n t\u1EADp", children: questions.map((qq, i2) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("ol", { className: "mb-5 flex flex-wrap gap-2", "aria-label": "Ti\u1EBFn \u0111\u1ED9 l\u01B0\u1EE3t luy\u1EC7n t\u1EADp", children: questions.map((qq, i2) => {
       const f = feedback[qq.id];
-      return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
         "span",
         {
           "aria-current": i2 === index ? "step" : void 0,
@@ -32733,25 +34392,25 @@ function PracticeCore({
         }
       ) }, qq.id);
     }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("article", { className: "rounded-[22px] border border-line bg-white p-5 md:p-8", "aria-labelledby": `q-title-${q.id}`, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "mb-4 flex flex-wrap items-center gap-2 text-[13px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("h2", { id: `q-title-${q.id}`, className: "mr-2 text-lg font-extrabold text-ink", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("article", { className: "rounded-[22px] border border-line bg-white p-5 md:p-8", "aria-labelledby": `q-title-${q.id}`, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("header", { className: "mb-4 flex flex-wrap items-center gap-2 text-[13px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("h2", { id: `q-title-${q.id}`, className: "mr-2 text-lg font-extrabold text-ink", children: [
           "C\xE2u ",
           index + 1,
           "/",
           total
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "rounded-md bg-tim-50 px-2 py-0.5 font-semibold text-tim-700", children: TYPE_LABELS[q.type] }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "rounded-md bg-mist px-2 py-0.5 font-semibold text-ink-2", children: LEVEL_LABELS[q.level] })
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { className: "rounded-md bg-tim-50 px-2 py-0.5 font-semibold text-tim-700", children: TYPE_LABELS[q.type] }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { className: "rounded-md bg-mist px-2 py-0.5 font-semibold text-ink-2", children: LEVEL_LABELS[q.level] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(QuestionBody, { q }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "mt-6", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(AnswerInput, { q, value: answers[q.id], disabled: !!fb || busy, reveal: fb, onChange: (v) => setAnswers((a) => ({ ...a, [q.id]: v })) }) }),
-      q.hintHtml && !fb && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "mt-4", children: showHint[q.id] ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "rounded-xl border border-hl bg-hl-soft px-4 py-3", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "text-sm font-bold", children: "G\u1EE3i \xFD" }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "prose-math text-[15px]", dangerouslySetInnerHTML: { __html: q.hintHtml } })
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { type: "button", className: "text-[15px] font-semibold text-tim-700 underline-offset-2 hover:underline", onClick: () => setShowHint((h) => ({ ...h, [q.id]: true })), children: "Xem g\u1EE3i \xFD" }) }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { role: "alert", className: "mt-4 rounded-xl border border-[#f6c4c6] bg-le-soft px-4 py-3 text-[15px] text-[#9b1c22]", children: error }),
-      fb && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(QuestionBody, { q }),
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "mt-6", children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(AnswerInput, { q, value: answers[q.id], disabled: !!fb || busy, reveal: fb, onChange: (v) => setAnswers((a) => ({ ...a, [q.id]: v })) }) }),
+      q.hintHtml && !fb && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "mt-4", children: showHint[q.id] ? /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "rounded-xl border border-hl bg-hl-soft px-4 py-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-sm font-bold", children: "G\u1EE3i \xFD" }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "prose-math text-[15px]", dangerouslySetInnerHTML: { __html: q.hintHtml } })
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("button", { type: "button", className: "text-[15px] font-semibold text-tim-700 underline-offset-2 hover:underline", onClick: () => setShowHint((h) => ({ ...h, [q.id]: true })), children: "Xem g\u1EE3i \xFD" }) }),
+      error && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { role: "alert", className: "mt-4 rounded-xl border border-[#f6c4c6] bg-le-soft px-4 py-3 text-[15px] text-[#9b1c22]", children: error }),
+      fb && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
         "div",
         {
           role: "status",
@@ -32760,27 +34419,27 @@ function PracticeCore({
             fb.status === "correct" ? "border-tre bg-tre-soft" : fb.status === "pending" ? "border-tim-300 bg-tim-50" : fb.status === "partial" ? "border-hl bg-hl-soft" : "border-le bg-le-soft"
           ].join(" "),
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "flex flex-wrap items-center justify-between gap-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { className: "text-lg", children: statusText(fb, q.statements?.length, pendingText) }),
-              fb.xpGained > 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "rounded-lg bg-white px-2.5 py-1 text-sm font-bold text-[#7a5a00]", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "flex flex-wrap items-center justify-between gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("strong", { className: "text-lg", children: statusText(fb, q.statements?.length, pendingText) }),
+              fb.xpGained > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("span", { className: "rounded-lg bg-white px-2.5 py-1 text-sm font-bold text-[#7a5a00]", children: [
                 "+",
                 fb.xpGained,
                 " XP"
               ] })
             ] }),
-            fb.achievements.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("p", { className: "mt-2 text-[15px]", children: [
+            fb.achievements.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("p", { className: "mt-2 text-[15px]", children: [
               "Em v\u1EEBa nh\u1EADn huy hi\u1EC7u: ",
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: fb.achievements.map((a) => a.name).join(", ") })
+              /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("strong", { children: fb.achievements.map((a) => a.name).join(", ") })
             ] }),
-            fb.solutionHtml && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mt-3 rounded-xl bg-white/80 p-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "mb-1 text-sm font-bold text-ink-2", children: "L\u1EDDi gi\u1EA3i" }),
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "prose-math", dangerouslySetInnerHTML: { __html: fb.solutionHtml } })
+            fb.solutionHtml && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mt-3 rounded-xl bg-white/80 p-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "mb-1 text-sm font-bold text-ink-2", children: "L\u1EDDi gi\u1EA3i" }),
+              /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "prose-math", dangerouslySetInnerHTML: { __html: fb.solutionHtml } })
             ] })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "mt-6 flex flex-wrap items-center gap-3", children: [
-        !fb ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mt-6 flex flex-wrap items-center gap-3", children: [
+        !fb ? /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
           "button",
           {
             type: "button",
@@ -32789,8 +34448,8 @@ function PracticeCore({
             className: "rounded-xl bg-tim-700 px-6 py-3 font-semibold text-white shadow-[0_2px_0_0_#1e154b] hover:bg-tim-800 disabled:cursor-not-allowed disabled:opacity-50",
             children: busy ? "\u0110ang ch\u1EA5m\u2026" : q.type === "essay" || q.type === "geometry_essay" ? "G\u1EEDi b\xE0i l\xE0m" : "Ki\u1EC3m tra"
           }
-        ) : index + 1 < total ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { type: "button", onClick: () => setIndex(index + 1), className: "rounded-xl bg-tim-700 px-6 py-3 font-semibold text-white hover:bg-tim-800", children: "C\xE2u ti\u1EBFp theo" }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { type: "button", onClick: () => setDone(true), className: "rounded-xl bg-tim-700 px-6 py-3 font-semibold text-white hover:bg-tim-800", children: "Xem k\u1EBFt qu\u1EA3" }),
-        !fb && !answered && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "text-[14px] text-ink-3", children: q.type === "true_false" ? "Ch\u1ECDn \u0110\xFAng ho\u1EB7c Sai cho c\u1EA3 4 \xFD." : "Ch\u1ECDn ho\u1EB7c nh\u1EADp c\xE2u tr\u1EA3 l\u1EDDi \u0111\u1EC3 ki\u1EC3m tra." })
+        ) : index + 1 < total ? /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("button", { type: "button", onClick: () => setIndex(index + 1), className: "rounded-xl bg-tim-700 px-6 py-3 font-semibold text-white hover:bg-tim-800", children: "C\xE2u ti\u1EBFp theo" }) : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("button", { type: "button", onClick: () => setDone(true), className: "rounded-xl bg-tim-700 px-6 py-3 font-semibold text-white hover:bg-tim-800", children: "Xem k\u1EBFt qu\u1EA3" }),
+        !fb && !answered && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { className: "text-[14px] text-ink-3", children: q.type === "true_false" ? "Ch\u1ECDn \u0110\xFAng ho\u1EB7c Sai cho c\u1EA3 4 \xFD." : "Ch\u1ECDn ho\u1EB7c nh\u1EADp c\xE2u tr\u1EA3 l\u1EDDi \u0111\u1EC3 ki\u1EC3m tra." })
       ] })
     ] })
   ] });
@@ -32798,14 +34457,14 @@ function PracticeCore({
 
 // src/islands/TestRunner.tsx
 var import_react6 = __toESM(require_react(), 1);
-var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
 function fmtRemaining(ms) {
   const s = Math.max(0, Math.floor(ms / 1e3));
   const h = Math.floor(s / 3600);
   const m = Math.floor(s % 3600 / 60);
   const sec = s % 60;
-  const pad2 = (n) => String(n).padStart(2, "0");
-  return h ? `${h}:${pad2(m)}:${pad2(sec)}` : `${pad2(m)}:${pad2(sec)}`;
+  const pad3 = (n) => String(n).padStart(2, "0");
+  return h ? `${h}:${pad3(m)}:${pad3(sec)}` : `${pad3(m)}:${pad3(sec)}`;
 }
 function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) {
   const [answers, setAnswers] = (0, import_react6.useState)(draft ?? {});
@@ -32872,12 +34531,12 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
     setAnswers((a) => ({ ...a, [String(qid)]: v }));
   }
   const low = remaining !== null && remaining < 5 * 6e4;
-  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "lg:grid lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-8", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "sticky top-16 z-10 -mx-4 mb-5 flex flex-wrap items-center gap-3 border-b border-line bg-white/95 px-4 py-3 backdrop-blur md:mx-0 md:rounded-2xl md:border", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "min-w-0 flex-1", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "truncate font-bold", children: title }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "text-[13px] text-ink-3", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "lg:grid lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-8", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "sticky top-16 z-10 -mx-4 mb-5 flex flex-wrap items-center gap-3 border-b border-line bg-white/95 px-4 py-3 backdrop-blur md:mx-0 md:rounded-2xl md:border", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "min-w-0 flex-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "truncate font-bold", children: title }),
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "text-[13px] text-ink-3", children: [
             "\u0110\xE3 l\xE0m ",
             answeredCount,
             "/",
@@ -32888,7 +34547,7 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
             saveState === "error" && " \u2013 ch\u01B0a l\u01B0u \u0111\u01B0\u1EE3c, ki\u1EC3m tra m\u1EA1ng"
           ] })
         ] }),
-        remaining !== null && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+        remaining !== null && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
           "div",
           {
             className: ["rounded-xl px-3 py-1.5 font-mono text-lg font-bold tabular-nums", low ? "bg-le text-white" : "bg-tim-50 text-tim-800"].join(" "),
@@ -32897,7 +34556,7 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
             children: fmtRemaining(remaining)
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
           "button",
           {
             type: "button",
@@ -32908,34 +34567,34 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
           }
         )
       ] }),
-      confirming && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { role: "alertdialog", "aria-labelledby": "confirm-title", className: "mb-5 rounded-2xl border-2 border-tim-700 bg-tim-50 p-5", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("h2", { id: "confirm-title", className: "text-lg font-bold", children: "N\u1ED9p b\xE0i ngay?" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { className: "mt-1 text-[15px] text-ink-2", children: answeredCount < questions.length ? `Em c\xF2n ${questions.length - answeredCount} c\xE2u ch\u01B0a l\xE0m. Sau khi n\u1ED9p s\u1EBD kh\xF4ng s\u1EEDa \u0111\u01B0\u1EE3c b\xE0i.` : "Em \u0111\xE3 l\xE0m t\u1EA5t c\u1EA3 c\xE1c c\xE2u. Sau khi n\u1ED9p s\u1EBD kh\xF4ng s\u1EEDa \u0111\u01B0\u1EE3c b\xE0i." }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "mt-4 flex flex-wrap gap-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("button", { type: "button", onClick: () => submit(false), disabled: submitting, className: "rounded-xl bg-tim-700 px-5 py-2.5 font-semibold text-white hover:bg-tim-800 disabled:opacity-50", children: submitting ? "\u0110ang n\u1ED9p\u2026" : "N\u1ED9p b\xE0i" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("button", { type: "button", onClick: () => setConfirming(false), disabled: submitting, className: "rounded-xl border-2 border-tim-700 bg-white px-5 py-2.5 font-semibold text-tim-800", children: "L\xE0m ti\u1EBFp" })
+      confirming && /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { role: "alertdialog", "aria-labelledby": "confirm-title", className: "mb-5 rounded-2xl border-2 border-tim-700 bg-tim-50 p-5", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h2", { id: "confirm-title", className: "text-lg font-bold", children: "N\u1ED9p b\xE0i ngay?" }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "mt-1 text-[15px] text-ink-2", children: answeredCount < questions.length ? `Em c\xF2n ${questions.length - answeredCount} c\xE2u ch\u01B0a l\xE0m. Sau khi n\u1ED9p s\u1EBD kh\xF4ng s\u1EEDa \u0111\u01B0\u1EE3c b\xE0i.` : "Em \u0111\xE3 l\xE0m t\u1EA5t c\u1EA3 c\xE1c c\xE2u. Sau khi n\u1ED9p s\u1EBD kh\xF4ng s\u1EEDa \u0111\u01B0\u1EE3c b\xE0i." }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "mt-4 flex flex-wrap gap-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { type: "button", onClick: () => submit(false), disabled: submitting, className: "rounded-xl bg-tim-700 px-5 py-2.5 font-semibold text-white hover:bg-tim-800 disabled:opacity-50", children: submitting ? "\u0110ang n\u1ED9p\u2026" : "N\u1ED9p b\xE0i" }),
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { type: "button", onClick: () => setConfirming(false), disabled: submitting, className: "rounded-xl border-2 border-tim-700 bg-white px-5 py-2.5 font-semibold text-tim-800", children: "L\xE0m ti\u1EBFp" })
         ] })
       ] }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("p", { role: "alert", className: "mb-5 rounded-xl border border-[#f6c4c6] bg-le-soft px-4 py-3 text-[15px] text-[#9b1c22]", children: error }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "space-y-5", children: questions.map((q, i2) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("article", { id: `cau-${i2 + 1}`, className: "scroll-mt-36 rounded-[22px] border border-line bg-white p-5 md:p-7", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("header", { className: "mb-3 flex flex-wrap items-center gap-2 text-[13px]", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("h2", { className: "mr-1 text-lg font-extrabold", children: [
+      error && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { role: "alert", className: "mb-5 rounded-xl border border-[#f6c4c6] bg-le-soft px-4 py-3 text-[15px] text-[#9b1c22]", children: error }),
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "space-y-5", children: questions.map((q, i2) => /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("article", { id: `cau-${i2 + 1}`, className: "scroll-mt-36 rounded-[22px] border border-line bg-white p-5 md:p-7", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("header", { className: "mb-3 flex flex-wrap items-center gap-2 text-[13px]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("h2", { className: "mr-1 text-lg font-extrabold", children: [
             "C\xE2u ",
             i2 + 1
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "rounded-md bg-tim-50 px-2 py-0.5 font-semibold text-tim-700", children: TYPE_LABELS[q.type] }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "text-ink-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "rounded-md bg-tim-50 px-2 py-0.5 font-semibold text-tim-700", children: TYPE_LABELS[q.type] }),
+          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("span", { className: "text-ink-3", children: [
             q.testPoints.toLocaleString("vi-VN"),
             " \u0111i\u1EC3m"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(QuestionBody, { q }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "mt-5", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(AnswerInput, { q, value: answers[String(q.id)], onChange: (v) => update(q.id, v), disabled: submitting }) })
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(QuestionBody, { q }),
+        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "mt-5", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(AnswerInput, { q, value: answers[String(q.id)], onChange: (v) => update(q.id, v), disabled: submitting }) })
       ] }, q.id)) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("aside", { className: "hidden lg:block", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "sticky top-24 rounded-2xl border border-line bg-white p-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "mb-3 text-sm font-bold", children: "Danh s\xE1ch c\xE2u" }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "grid grid-cols-5 gap-2", children: questions.map((q, i2) => /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("aside", { className: "hidden lg:block", children: /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "sticky top-24 rounded-2xl border border-line bg-white p-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "mb-3 text-sm font-bold", children: "Danh s\xE1ch c\xE2u" }),
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "grid grid-cols-5 gap-2", children: questions.map((q, i2) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
         "a",
         {
           href: `#cau-${i2 + 1}`,
@@ -32953,7 +34612,7 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
 
 // src/islands/RichField.tsx
 var import_react7 = __toESM(require_react(), 1);
-var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime19 = __toESM(require_jsx_runtime(), 1);
 var SNIPPETS = [
   { label: "\\( \\)", title: "C\xF4ng th\u1EE9c c\xF9ng d\xF2ng", before: "\\(", after: "\\)" },
   { label: "\\[ \\]", title: "C\xF4ng th\u1EE9c d\xF2ng ri\xEAng", before: "\\[", after: "\\]" },
@@ -32980,9 +34639,9 @@ function RichField({ name, label, defaultValue, initialHtml, rows = 4, hint, req
     }
     const id2 = window.setTimeout(async () => {
       renderer.current ??= await Promise.resolve().then(() => (init_richtext(), richtext_exports));
-      const r3 = renderer.current;
-      setHtml(inline ? r3.renderRichInline(value) : r3.renderRich(value));
-      setErrors(r3.findMathErrors(value));
+      const r4 = renderer.current;
+      setHtml(inline ? r4.renderRichInline(value) : r4.renderRich(value));
+      setErrors(r4.findMathErrors(value));
     }, 200);
     return () => window.clearTimeout(id2);
   }, [value, inline]);
@@ -33001,13 +34660,13 @@ function RichField({ name, label, defaultValue, initialHtml, rows = 4, hint, req
     });
   }
   const id = `f-${name}`;
-  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mb-1.5 flex flex-wrap items-end justify-between gap-2", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("label", { htmlFor: id, className: "text-sm font-semibold text-ink-2", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "mb-1.5 flex flex-wrap items-end justify-between gap-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("label", { htmlFor: id, className: "text-sm font-semibold text-ink-2", children: [
         label,
-        required && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { className: "text-le", children: " *" })
+        required && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("span", { className: "text-le", children: " *" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "flex flex-wrap gap-1", "aria-label": "Ch\xE8n m\u1EABu c\xF4ng th\u1EE9c", children: SNIPPETS.map((s) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: "flex flex-wrap gap-1", "aria-label": "Ch\xE8n m\u1EABu c\xF4ng th\u1EE9c", children: SNIPPETS.map((s) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
         "button",
         {
           type: "button",
@@ -33020,8 +34679,8 @@ function RichField({ name, label, defaultValue, initialHtml, rows = 4, hint, req
         s.label
       )) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "grid gap-3 md:grid-cols-2", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "grid gap-3 md:grid-cols-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
         "textarea",
         {
           ref,
@@ -33035,20 +34694,20 @@ function RichField({ name, label, defaultValue, initialHtml, rows = 4, hint, req
           className: "w-full rounded-xl border border-line-2 bg-white px-3.5 py-2.5 font-mono text-[14px] leading-relaxed focus:border-tim-500 focus:outline-none focus:ring-4 focus:ring-tim-100"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "min-h-[3rem] rounded-xl border border-dashed border-line-2 bg-mist/60 px-3.5 py-2.5", "aria-live": "polite", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "mb-1 text-[12px] font-semibold text-ink-3", children: "Xem tr\u01B0\u1EDBc" }),
-        value.trim() ? /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "prose-math text-[15px]", dangerouslySetInnerHTML: { __html: html } }) : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "text-[14px] text-ink-3", children: "Ch\u01B0a c\xF3 n\u1ED9i dung." })
+      /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "min-h-[3rem] rounded-xl border border-dashed border-line-2 bg-mist/60 px-3.5 py-2.5", "aria-live": "polite", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: "mb-1 text-[12px] font-semibold text-ink-3", children: "Xem tr\u01B0\u1EDBc" }),
+        value.trim() ? /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: "prose-math text-[15px]", dangerouslySetInnerHTML: { __html: html } }) : /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: "text-[14px] text-ink-3", children: "Ch\u01B0a c\xF3 n\u1ED9i dung." })
       ] })
     ] }),
-    errors.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("ul", { className: "mt-1.5 list-disc pl-5 text-[13px] text-le", children: errors.map((e) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("li", { children: e }, e)) }),
-    hint && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "mt-1 text-[13px] text-ink-3", children: hint })
+    errors.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("ul", { className: "mt-1.5 list-disc pl-5 text-[13px] text-le", children: errors.map((e) => /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("li", { children: e }, e)) }),
+    hint && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("p", { className: "mt-1 text-[13px] text-ink-3", children: hint })
   ] });
 }
 
 // src/islands/FigureField.tsx
 var import_react8 = __toESM(require_react(), 1);
 init_figure();
-var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime20 = __toESM(require_jsx_runtime(), 1);
 var SAMPLE = `A(0,3) B(-2,0) C(4,0) H(0,0)
 ABCA
 AH:dash
@@ -33075,16 +34734,16 @@ function FigureField({ name, defaultValue, initialSvg, required }) {
     }, 150);
     return () => window.clearTimeout(id);
   }, [value]);
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "mb-1.5 flex flex-wrap items-end justify-between gap-2", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("label", { htmlFor: `f-${name}`, className: "text-sm font-semibold text-ink-2", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "mb-1.5 flex flex-wrap items-end justify-between gap-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("label", { htmlFor: `f-${name}`, className: "text-sm font-semibold text-ink-2", children: [
         "H\xECnh v\u1EBD",
-        required && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "text-le", children: " *" })
+        required && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { className: "text-le", children: " *" })
       ] }),
-      !value.trim() && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("button", { type: "button", onClick: () => setValue(SAMPLE), className: "rounded-md border border-line bg-white px-2 py-0.5 text-[12px] text-ink-2 hover:border-tim-300", children: "Ch\xE8n h\xECnh m\u1EABu" })
+      !value.trim() && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("button", { type: "button", onClick: () => setValue(SAMPLE), className: "rounded-md border border-line bg-white px-2 py-0.5 text-[12px] text-ink-2 hover:border-tim-300", children: "Ch\xE8n h\xECnh m\u1EABu" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "grid gap-3 md:grid-cols-2", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "grid gap-3 md:grid-cols-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
         "textarea",
         {
           id: `f-${name}`,
@@ -33097,25 +34756,25 @@ function FigureField({ name, defaultValue, initialSvg, required }) {
           placeholder: SAMPLE
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "flex min-h-[8rem] items-center justify-center rounded-xl border border-dashed border-line-2 bg-white p-3", "aria-live": "polite", children: svg ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { dangerouslySetInnerHTML: { __html: svg } }) : /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { className: "text-[14px] text-ink-3", children: "H\xECnh xem tr\u01B0\u1EDBc hi\u1EC7n \u1EDF \u0111\xE2y." }) })
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "flex min-h-[8rem] items-center justify-center rounded-xl border border-dashed border-line-2 bg-white p-3", "aria-live": "polite", children: svg ? /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { dangerouslySetInnerHTML: { __html: svg } }) : /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { className: "text-[14px] text-ink-3", children: "H\xECnh xem tr\u01B0\u1EDBc hi\u1EC7n \u1EDF \u0111\xE2y." }) })
     ] }),
-    errors.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("ul", { className: "mt-1.5 list-disc pl-5 text-[13px] text-le", children: errors.map((e) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("li", { children: e }, e)) }),
-    /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("p", { className: "mt-1 text-[13px] text-ink-3", children: [
+    errors.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("ul", { className: "mt-1.5 list-disc pl-5 text-[13px] text-le", children: errors.map((e) => /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("li", { children: e }, e)) }),
+    /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("p", { className: "mt-1 text-[13px] text-ink-3", children: [
       "\u0110i\u1EC3m: ",
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("code", { children: "A(0,3)" }),
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("code", { children: "A(0,3)" }),
       ". \u0110o\u1EA1n th\u1EB3ng: ",
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("code", { children: "AB BC" }),
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("code", { children: "AB BC" }),
       ", \u0111\u01B0\u1EDDng g\u1EA5p kh\xFAc ",
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("code", { children: "ABCA" }),
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("code", { children: "ABCA" }),
       ", n\xE9t \u0111\u1EE9t ",
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("code", { children: "AH:dash" }),
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("code", { children: "AH:dash" }),
       ". G\xF3c vu\xF4ng t\u1EA1i H: ",
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("code", { children: "vuong(A,H,C)" }),
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("code", { children: "vuong(A,H,C)" }),
       ". \u0110\xE1nh d\u1EA5u g\xF3c:",
       " ",
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("code", { children: "goc(B,A,C)" }),
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("code", { children: "goc(B,A,C)" }),
       ". \u0110\u01B0\u1EDDng tr\xF2n: ",
-      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("code", { children: "tron(O,2)" }),
+      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("code", { children: "tron(O,2)" }),
       "."
     ] })
   ] });
@@ -33130,15 +34789,15 @@ var islands = {
 };
 
 // src/ui/Island.tsx
-var import_jsx_runtime19 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime21 = __toESM(require_jsx_runtime(), 1);
 function Island({ name, props, className }) {
   const Comp = islands[name];
-  const html = (0, import_server2.renderToString)(/* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Comp, { ...props }));
-  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className, "data-island": name, "data-props": JSON.stringify(props), dangerouslySetInnerHTML: { __html: html } });
+  const html = (0, import_server2.renderToString)(/* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Comp, { ...props }));
+  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className, "data-island": name, "data-props": JSON.stringify(props), dangerouslySetInnerHTML: { __html: html } });
 }
 
 // src/server/handlers/practice.tsx
-var import_jsx_runtime20 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime22 = __toESM(require_jsx_runtime(), 1);
 var SESSION_SIZE = 10;
 async function practiceHub(ctx) {
   const book = await requireBook(ctx);
@@ -33147,58 +34806,58 @@ async function practiceHub(ctx) {
     select et.code, count(qq.id)::int as n from exercise_types et
     left join questions qq on qq.exercise_type_id = et.id and qq.status = 'published' and qq.textbook_id = ${book.id}
     group by et.code, et.sort_order order by et.sort_order`);
-  const total = typeCounts.reduce((s, r3) => s + r3.n, 0);
+  const total = typeCounts.reduce((s, r4) => s + r4.n, 0);
   return page(
     ctx,
     { title: "Luy\u1EC7n t\u1EADp" },
-    /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(import_jsx_runtime20.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(import_jsx_runtime22.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
         PageTitle,
         {
           title: "Luy\u1EC7n t\u1EADp",
           sub: "Ch\u1ECDn b\xE0i ho\u1EB7c ch\u01B0\u01A1ng \u0111\u1EC3 luy\u1EC7n. M\u1ED7i l\u01B0\u1EE3t g\u1ED3m t\u1ED1i \u0111a 10 c\xE2u, \u01B0u ti\xEAn nh\u1EEFng c\xE2u em ch\u01B0a l\xE0m \u0111\xFAng.",
-          actions: /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(LinkButton, { href: "/thu-thach", variant: "secondary", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(LuRocket, { "aria-hidden": "true" }),
+          actions: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(LinkButton, { href: "/thu-thach", variant: "secondary", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(LuRocket, { "aria-hidden": "true" }),
             " Th\u1EED th\xE1ch To\xE1n h\u1ECDc"
           ] })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(Panel, { className: "mb-8 p-5", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h2", { className: "text-[15px] font-bold", children: "5 h\xECnh th\u1EE9c b\xE0i t\u1EADp" }),
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("ul", { className: "mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-5", children: QUESTION_TYPES.map((t) => /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("li", { className: "rounded-xl bg-mist px-3 py-2.5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "text-[14px] font-semibold", children: TYPE_LABELS[t] }),
-          /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "text-[13px] text-ink-3", children: [
-            typeCounts.find((r3) => r3.code === t)?.n ?? 0,
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(Panel, { className: "mb-8 p-5", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h2", { className: "text-[15px] font-bold", children: "5 h\xECnh th\u1EE9c b\xE0i t\u1EADp" }),
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("ul", { className: "mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-5", children: QUESTION_TYPES.map((t) => /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("li", { className: "rounded-xl bg-mist px-3 py-2.5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "text-[14px] font-semibold", children: TYPE_LABELS[t] }),
+          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "text-[13px] text-ink-3", children: [
+            typeCounts.find((r4) => r4.code === t)?.n ?? 0,
             " c\xE2u"
           ] })
         ] }, t)) })
       ] }),
-      !ctx.user && /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(Notice, { tone: "info", className: "mb-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("a", { className: "font-semibold underline", href: "/dang-nhap?next=/luyen-tap", children: "\u0110\u0103ng nh\u1EADp" }),
+      !ctx.user && /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(Notice, { tone: "info", className: "mb-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("a", { className: "font-semibold underline", href: "/dang-nhap?next=/luyen-tap", children: "\u0110\u0103ng nh\u1EADp" }),
         " ",
         "\u0111\u1EC3 l\xE0m b\xE0i \u2013 k\u1EBFt qu\u1EA3, \u0111i\u1EC3m kinh nghi\u1EC7m v\xE0 huy hi\u1EC7u \u0111\u01B0\u1EE3c l\u01B0u v\xE0o t\xE0i kho\u1EA3n c\u1EE7a em."
       ] }),
-      total === 0 ? /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(EmptyState, { icon: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(LuPencilRuler, {}), title: "Ch\u01B0a c\xF3 c\xE2u h\u1ECFi luy\u1EC7n t\u1EADp", children: "Gi\xE1o vi\xEAn th\xEAm c\xE2u h\u1ECFi trong Ng\xE2n h\xE0ng c\xE2u h\u1ECFi; c\xE2u \u0111\xE3 xu\u1EA5t b\u1EA3n s\u1EBD hi\u1EC7n \u1EDF \u0111\xE2y." }) : /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "space-y-8", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("section", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h2", { className: "mb-3 text-xl font-extrabold", children: s.name }),
-        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", { className: "grid gap-4 lg:grid-cols-2", children: s.chapters.filter((c) => c.lessons.some((l) => l.questionCount > 0)).map((c) => {
+      total === 0 ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(EmptyState, { icon: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(LuPencilRuler, {}), title: "Ch\u01B0a c\xF3 c\xE2u h\u1ECFi luy\u1EC7n t\u1EADp", children: "Gi\xE1o vi\xEAn th\xEAm c\xE2u h\u1ECFi trong Ng\xE2n h\xE0ng c\xE2u h\u1ECFi; c\xE2u \u0111\xE3 xu\u1EA5t b\u1EA3n s\u1EBD hi\u1EC7n \u1EDF \u0111\xE2y." }) : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "space-y-8", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("section", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h2", { className: "mb-3 text-xl font-extrabold", children: s.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "grid gap-4 lg:grid-cols-2", children: s.chapters.filter((c) => c.lessons.some((l) => l.questionCount > 0)).map((c) => {
           const n = c.lessons.reduce((a, l) => a + l.questionCount, 0);
-          return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex flex-wrap items-start justify-between gap-3", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("h3", { className: "font-extrabold", children: chapterLabel(c) }),
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("a", { href: `/luyen-tap/chuong/${encodeURIComponent(c.code)}`, className: buttonClass("quiet", "sm"), children: [
+          return /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex flex-wrap items-start justify-between gap-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h3", { className: "font-extrabold", children: chapterLabel(c) }),
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("a", { href: `/luyen-tap/chuong/${encodeURIComponent(c.code)}`, className: buttonClass("quiet", "sm"), children: [
                 "Tr\u1ED9n c\u1EA3 ch\u01B0\u01A1ng (",
                 n,
                 " c\xE2u)"
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("ul", { className: "mt-3 divide-y divide-line", children: c.lessons.filter((l) => l.questionCount > 0).map((l) => /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("li", { className: "flex items-center justify-between gap-3 py-2.5", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { className: "min-w-0 text-[15px]", children: lessonLabel(l) }),
-              /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("span", { className: "flex shrink-0 items-center gap-3", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("span", { className: "text-[13px] text-ink-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("ul", { className: "mt-3 divide-y divide-line", children: c.lessons.filter((l) => l.questionCount > 0).map((l) => /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("li", { className: "flex items-center justify-between gap-3 py-2.5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { className: "min-w-0 text-[15px]", children: lessonLabel(l) }),
+              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { className: "flex shrink-0 items-center gap-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { className: "text-[13px] text-ink-3", children: [
                   l.questionCount,
                   " c\xE2u"
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("a", { href: `/luyen-tap/bai/${l.slug}`, className: buttonClass("primary", "sm"), children: "Luy\u1EC7n t\u1EADp" })
+                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("a", { href: `/luyen-tap/bai/${l.slug}`, className: buttonClass("primary", "sm"), children: "Luy\u1EC7n t\u1EADp" })
               ] })
             ] }, l.id)) })
           ] }, c.id);
@@ -33209,21 +34868,21 @@ async function practiceHub(ctx) {
 }
 async function sessionPage(ctx, opts) {
   const user = requireUser(ctx);
-  const ids = await pickPracticeQuestionIds(ctx.db, opts.scope, user.id, opts.context === "challenge" ? 5 : SESSION_SIZE);
+  const ids = opts.pick ? await opts.pick() : await pickPracticeQuestionIds(ctx.db, opts.scope, user.id, opts.context === "challenge" ? 5 : SESSION_SIZE);
   const questions = (await getQuestions(ctx.db, ids)).map((q) => toView(q));
   return page(
     ctx,
     { title: opts.title },
-    /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "mx-auto max-w-4xl", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(PageTitle, { crumbs: opts.crumbs, title: opts.title, sub: opts.sub }),
-      user.role !== "student" && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(Notice, { tone: "warn", className: "mb-5", children: "Em \u0111ang d\xF9ng t\xE0i kho\u1EA3n gi\xE1o vi\xEAn: b\xE0i l\xE0m v\u1EABn \u0111\u01B0\u1EE3c ch\u1EA5m \u0111\u1EC3 xem th\u1EED, nh\u01B0ng kh\xF4ng c\u1ED9ng \u0111i\u1EC3m kinh nghi\u1EC7m hay huy hi\u1EC7u." }),
-      questions.length ? /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mx-auto max-w-4xl", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(PageTitle, { crumbs: opts.crumbs, title: opts.title, sub: opts.sub }),
+      user.role !== "student" && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Notice, { tone: "warn", className: "mb-5", children: "Em \u0111ang d\xF9ng t\xE0i kho\u1EA3n gi\xE1o vi\xEAn: b\xE0i l\xE0m v\u1EABn \u0111\u01B0\u1EE3c ch\u1EA5m \u0111\u1EC3 xem th\u1EED, nh\u01B0ng kh\xF4ng c\u1ED9ng \u0111i\u1EC3m kinh nghi\u1EC7m hay huy hi\u1EC7u." }),
+      questions.length ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
         Island,
         {
           name: "PracticeRunner",
           props: { questions, context: opts.context, restartHref: ctx.path, backHref: opts.backHref, backLabel: opts.backLabel }
         }
-      ) : /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(EmptyState, { icon: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(LuPencilRuler, {}), title: "Ch\u01B0a c\xF3 c\xE2u h\u1ECFi", action: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(LinkButton, { href: opts.backHref, children: opts.backLabel }), children: "Ph\u1EA7n n\xE0y ch\u01B0a c\xF3 c\xE2u h\u1ECFi luy\u1EC7n t\u1EADp \u0111\xE3 xu\u1EA5t b\u1EA3n." })
+      ) : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(EmptyState, { icon: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(LuPencilRuler, {}), title: "Ch\u01B0a c\xF3 c\xE2u h\u1ECFi", action: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(LinkButton, { href: opts.backHref, children: opts.backLabel }), children: "Ph\u1EA7n n\xE0y ch\u01B0a c\xF3 c\xE2u h\u1ECFi luy\u1EC7n t\u1EADp \u0111\xE3 xu\u1EA5t b\u1EA3n." })
     ] })
   );
 }
@@ -33256,6 +34915,41 @@ async function practiceChapter(ctx) {
     backHref: "/luyen-tap",
     backLabel: "V\u1EC1 trang luy\u1EC7n t\u1EADp",
     context: "practice"
+  });
+}
+async function practiceTopic(ctx) {
+  const book = await requireBook(ctx);
+  const topic = await getTopicById(ctx.db, intParam(ctx, "id"));
+  const lesson = topic ? await getLessonById(ctx.db, topic.lessonId) : null;
+  if (!topic || !lesson || lesson.textbookId !== book.id || topic.status !== "published" || lesson.status !== "published") {
+    throw new HttpError(404, "Kh\xF4ng t\xECm th\u1EA5y d\u1EA1ng to\xE1n.");
+  }
+  const back = `/hoc/${book.slug}/bai/${lesson.slug}/dang/${topicKey(topic)}`;
+  return sessionPage(ctx, {
+    scope: { kind: "topic", topicId: topic.id },
+    title: `Luy\u1EC7n t\u1EADp d\u1EA1ng: ${topic.title}`,
+    sub: lessonLabel(lesson),
+    crumbs: [{ href: "/luyen-tap", label: "Luy\u1EC7n t\u1EADp" }, { href: back, label: topic.title }, { label: "Luy\u1EC7n t\u1EADp" }],
+    backHref: back,
+    backLabel: "V\u1EC1 d\u1EA1ng to\xE1n",
+    context: "practice"
+  });
+}
+async function chapterTestPage(ctx) {
+  const book = await requireBook(ctx);
+  const chapter = await getChapterByCode(ctx.db, book.id, ctx.params.code);
+  if (!chapter || chapter.status !== "published" || chapter.kind !== "chapter") throw new HttpError(404, "Kh\xF4ng t\xECm th\u1EA5y ch\u01B0\u01A1ng.");
+  const label = chapterLabel(chapter);
+  const back = `/hoc/${book.slug}/chuong/${encodeURIComponent(chapter.code)}`;
+  return sessionPage(ctx, {
+    scope: { kind: "chapter", chapterId: chapter.id },
+    title: `Ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng: ${label}`,
+    sub: "10 c\xE2u ch\u1EA5m t\u1EF1 \u0111\u1ED9ng, x\u1EBFp t\u1EEB d\u1EC5 \u0111\u1EBFn kh\xF3: 4 c\xE2u nh\u1EADn bi\u1EBFt, 3 c\xE2u th\xF4ng hi\u1EC3u, 2 c\xE2u v\u1EADn d\u1EE5ng, 1 c\xE2u v\u1EADn d\u1EE5ng cao (m\u1EE9c n\xE0o thi\u1EBFu c\xE2u th\xEC l\u1EA5y c\xE2u \u1EDF m\u1EE9c g\u1EA7n nh\u1EA5t).",
+    crumbs: [{ href: back, label }, { label: "Ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng" }],
+    backHref: back,
+    backLabel: "V\u1EC1 trang ch\u01B0\u01A1ng",
+    context: "practice",
+    pick: () => pickChapterTestIds(ctx.db, chapter.id, CHAPTER_TEST_PLAN)
   });
 }
 async function challengePage(ctx) {
@@ -33343,7 +35037,7 @@ async function testQuestions(q, testId) {
     from test_questions tq join questions qq on qq.id = tq.question_id join exercise_types et on et.id = qq.exercise_type_id
     left join lessons l on l.id = qq.lesson_id
     where tq.test_id = ${testId} order by tq.sort_order`);
-  return rows.map((r3) => ({ ...r3, points: Number(r3.points) }));
+  return rows.map((r4) => ({ ...r4, points: Number(r4.points) }));
 }
 async function hasSubmissions(q, testId) {
   return !!await q.one(sql`select 1 from test_results where test_id = ${testId}`);
@@ -33370,12 +35064,12 @@ async function removeQuestionFromTest(db, testId, questionId) {
 async function moveQuestionInTest(db, testId, questionId, dir) {
   await db.tx(async (t) => {
     const rows = await t.many(sql`select question_id from test_questions where test_id = ${testId} order by sort_order`);
-    const i2 = rows.findIndex((r3) => r3.questionId === questionId);
+    const i2 = rows.findIndex((r4) => r4.questionId === questionId);
     const j = i2 + dir;
     if (i2 < 0 || j < 0 || j >= rows.length) return;
     [rows[i2], rows[j]] = [rows[j], rows[i2]];
-    for (const [k, r3] of rows.entries()) {
-      await t.exec(sql`update test_questions set sort_order = ${k + 1} where test_id = ${testId} and question_id = ${r3.questionId}`);
+    for (const [k, r4] of rows.entries()) {
+      await t.exec(sql`update test_questions set sort_order = ${k + 1} where test_id = ${testId} and question_id = ${r4.questionId}`);
     }
   });
 }
@@ -33385,7 +35079,7 @@ async function setQuestionPoints(db, testId, questionId, points) {
   await db.exec(sql`update test_questions set points = ${points} where test_id = ${testId} and question_id = ${questionId}`);
 }
 async function testAssignments(q, testId) {
-  return (await q.many(sql`select class_id from test_assignments where test_id = ${testId}`)).map((r3) => r3.classId);
+  return (await q.many(sql`select class_id from test_assignments where test_id = ${testId}`)).map((r4) => r4.classId);
 }
 async function setAssignments(db, testId, user, classIds) {
   await db.tx(async (t) => {
@@ -33453,17 +35147,17 @@ async function startAttempt(db, testId, studentId) {
   });
 }
 async function getAttempt(q, resultId) {
-  const r3 = await q.one(sql`
+  const r4 = await q.one(sql`
     select r.id, r.test_id, r.student_id, u.full_name as student_name, r.attempt_no, r.status, r.draft_answers, r.started_at, r.deadline_at,
       r.submitted_at, r.score::float as score, r.max_score::float as max_score, r.pending_manual,
       t.title, t.show_answers, t.created_by as test_created_by, t.closes_at
     from test_results r join tests t on t.id = r.test_id join users u on u.id = r.student_id where r.id = ${resultId}`);
-  return r3;
+  return r4;
 }
 async function attemptQuestionViews(q, testId) {
   const tq = await testQuestions(q, testId);
-  const full = await getQuestions(q, tq.map((r3) => r3.questionId));
-  return full.map((f) => ({ ...toView(f, false), testPoints: tq.find((r3) => r3.questionId === f.id).points }));
+  const full = await getQuestions(q, tq.map((r4) => r4.questionId));
+  return full.map((f) => ({ ...toView(f, false), testPoints: tq.find((r4) => r4.questionId === f.id).points }));
 }
 async function saveDraft(q, attempt, answers) {
   if (attempt.status !== "in_progress") throw new UserInputError("B\xE0i \u0111\xE3 n\u1ED9p.");
@@ -33480,12 +35174,12 @@ async function submitAttempt(db, attempt, answers) {
     const late = attempt.deadlineAt && Date.now() > attempt.deadlineAt.getTime() + GRACE_MS;
     const source = !late && answers ? answers : locked.draftAnswers;
     const tq = await testQuestions(t, attempt.testId);
-    const full = await getQuestions(t, tq.map((r3) => r3.questionId));
+    const full = await getQuestions(t, tq.map((r4) => r4.questionId));
     let score = 0;
     let maxScore = 0;
     let pending = 0;
     for (const qf of full) {
-      const pts = tq.find((r3) => r3.questionId === qf.id).points;
+      const pts = tq.find((r4) => r4.questionId === qf.id).points;
       maxScore += pts;
       const resp = normalizeResponse(qf.type, source[String(qf.id)]);
       const grade = gradeResponse(qf.type, qf.answers, qf.settings, resp);
@@ -33509,21 +35203,21 @@ async function submitAttempt(db, attempt, answers) {
 }
 async function resultDetails(q, attempt, reveal) {
   const tq = await testQuestions(q, attempt.testId);
-  const full = await getQuestions(q, tq.map((r3) => r3.questionId));
+  const full = await getQuestions(q, tq.map((r4) => r4.questionId));
   const responses = await q.many(sql`
     select id, question_id, response, status, points_awarded::float as points_awarded, feedback
     from question_responses where test_result_id = ${attempt.id}`);
   return full.map((f) => {
-    const r3 = responses.find((x) => x.questionId === f.id);
+    const r4 = responses.find((x) => x.questionId === f.id);
     return {
       ...toView(f, false),
       ...reveal ? revealAnswer(f) : {},
       testPoints: tq.find((x) => x.questionId === f.id).points,
-      responseId: r3?.id ?? null,
-      response: r3?.response ?? null,
-      status: r3?.status ?? null,
-      pointsAwarded: r3?.pointsAwarded ?? null,
-      feedback: r3?.feedback ?? null,
+      responseId: r4?.id ?? null,
+      response: r4?.response ?? null,
+      status: r4?.status ?? null,
+      pointsAwarded: r4?.pointsAwarded ?? null,
+      feedback: r4?.feedback ?? null,
       autoGraded: isAutoGraded(f.type)
     };
   });
@@ -33586,15 +35280,15 @@ async function pendingGrading(q, user, limit = 10) {
 
 // src/server/handlers/tests-student.tsx
 init_richtext();
-var import_jsx_runtime21 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime23 = __toESM(require_jsx_runtime(), 1);
 function availabilityBadge(t) {
   const a = testAvailability(t);
-  if (a === "open") return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Badge, { tone: "tre", children: "\u0110ang m\u1EDF" });
-  if (a === "not_yet") return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(Badge, { tone: "cam", children: [
+  if (a === "open") return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Badge, { tone: "tre", children: "\u0110ang m\u1EDF" });
+  if (a === "not_yet") return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(Badge, { tone: "cam", children: [
     "M\u1EDF l\xFAc ",
     formatDateTime(t.opensAt)
   ] });
-  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Badge, { tone: "gray", children: "\u0110\xE3 \u0111\xF3ng" });
+  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Badge, { tone: "gray", children: "\u0110\xE3 \u0111\xF3ng" });
 }
 async function studentTestsPage(ctx) {
   const user = requireUser(ctx);
@@ -33602,9 +35296,9 @@ async function studentTestsPage(ctx) {
     return page(
       ctx,
       { title: "Ki\u1EC3m tra" },
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(import_jsx_runtime21.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(PageTitle, { title: "Ki\u1EC3m tra", sub: "Gi\xE1o vi\xEAn t\u1EA1o \u0111\u1EC1 t\u1EEB ng\xE2n h\xE0ng c\xE2u h\u1ECFi, giao cho l\u1EDBp v\xE0 xem k\u1EBFt qu\u1EA3 trong trang gi\xE1o vi\xEAn." }),
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(LinkButton, { href: "/giao-vien/de-kiem-tra", children: "Qu\u1EA3n l\xFD \u0111\u1EC1 ki\u1EC3m tra" })
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(import_jsx_runtime23.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(PageTitle, { title: "Ki\u1EC3m tra", sub: "Gi\xE1o vi\xEAn t\u1EA1o \u0111\u1EC1 t\u1EEB ng\xE2n h\xE0ng c\xE2u h\u1ECFi, giao cho l\u1EDBp v\xE0 xem k\u1EBFt qu\u1EA3 trong trang gi\xE1o vi\xEAn." }),
+        /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(LinkButton, { href: "/giao-vien/de-kiem-tra", children: "Qu\u1EA3n l\xFD \u0111\u1EC1 ki\u1EC3m tra" })
       ] })
     );
   }
@@ -33612,35 +35306,35 @@ async function studentTestsPage(ctx) {
   return page(
     ctx,
     { title: "Ki\u1EC3m tra" },
-    /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(import_jsx_runtime21.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(PageTitle, { title: "Ki\u1EC3m tra", sub: "C\xE1c \u0111\u1EC1 th\u1EA7y c\xF4 giao cho l\u1EDBp c\u1EE7a em. B\xE0i \u0111\u01B0\u1EE3c ch\u1EA5m t\u1EF1 \u0111\u1ED9ng; c\xE2u t\u1EF1 lu\u1EADn do th\u1EA7y c\xF4 ch\u1EA5m." }),
-      tests.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(EmptyState, { icon: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(LuClipboardCheck, {}), title: "Ch\u01B0a c\xF3 \u0111\u1EC1 ki\u1EC3m tra n\xE0o", action: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(LinkButton, { href: "/ca-nhan", children: "Nh\u1EADp m\xE3 l\u1EDBp" }), children: "Khi th\u1EA7y c\xF4 giao \u0111\u1EC1 cho l\u1EDBp c\u1EE7a em, \u0111\u1EC1 s\u1EBD hi\u1EC7n \u1EDF \u0111\xE2y. N\u1EBFu em ch\u01B0a v\xE0o l\u1EDBp, h\xE3y nh\u1EADp m\xE3 l\u1EDBp \u1EDF trang c\xE1 nh\xE2n." }) : /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "grid gap-4 md:grid-cols-2", children: tests.map((t) => {
+    /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(import_jsx_runtime23.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(PageTitle, { title: "Ki\u1EC3m tra", sub: "C\xE1c \u0111\u1EC1 th\u1EA7y c\xF4 giao cho l\u1EDBp c\u1EE7a em. B\xE0i \u0111\u01B0\u1EE3c ch\u1EA5m t\u1EF1 \u0111\u1ED9ng; c\xE2u t\u1EF1 lu\u1EADn do th\u1EA7y c\xF4 ch\u1EA5m." }),
+      tests.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(EmptyState, { icon: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(LuClipboardCheck, {}), title: "Ch\u01B0a c\xF3 \u0111\u1EC1 ki\u1EC3m tra n\xE0o", action: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(LinkButton, { href: "/ca-nhan", children: "Nh\u1EADp m\xE3 l\u1EDBp" }), children: "Khi th\u1EA7y c\xF4 giao \u0111\u1EC1 cho l\u1EDBp c\u1EE7a em, \u0111\u1EC1 s\u1EBD hi\u1EC7n \u1EDF \u0111\xE2y. N\u1EBFu em ch\u01B0a v\xE0o l\u1EDBp, h\xE3y nh\u1EADp m\xE3 l\u1EDBp \u1EDF trang c\xE1 nh\xE2n." }) : /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "grid gap-4 md:grid-cols-2", children: tests.map((t) => {
         const avail = testAvailability(t);
         const ten = t.bestScore !== null && t.bestMax ? toTenScale(t.bestScore, t.bestMax) : null;
-        return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(Panel, { className: "flex flex-col p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "flex flex-wrap items-center gap-2", children: availabilityBadge(t) }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("h2", { className: "mt-2 text-lg font-extrabold", children: t.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("p", { className: "mt-1 text-[14px] text-ink-3", children: [
+        return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(Panel, { className: "flex flex-col p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "flex flex-wrap items-center gap-2", children: availabilityBadge(t) }),
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("h2", { className: "mt-2 text-lg font-extrabold", children: t.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("p", { className: "mt-1 text-[14px] text-ink-3", children: [
             t.questionCount,
             " c\xE2u \xB7 ",
             t.durationMinutes ? `${t.durationMinutes} ph\xFAt` : "kh\xF4ng gi\u1EDBi h\u1EA1n th\u1EDDi gian",
             " \xB7 ",
             t.teacherName
           ] }),
-          t.closesAt && /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("p", { className: "text-[14px] text-ink-3", children: [
+          t.closesAt && /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("p", { className: "text-[14px] text-ink-3", children: [
             "H\u1EA1n n\u1ED9p: ",
             formatDateTime(t.closesAt)
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "mt-4 flex flex-1 flex-wrap items-end justify-between gap-3", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "text-[14px]", children: ten !== null ? /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("span", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "mt-4 flex flex-1 flex-wrap items-end justify-between gap-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "text-[14px]", children: ten !== null ? /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("span", { children: [
               "\u0110i\u1EC3m: ",
-              /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("strong", { className: "text-lg", children: formatNumber(ten) }),
+              /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("strong", { className: "text-lg", children: formatNumber(ten) }),
               "/10",
-              t.pendingManual > 0 && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("span", { className: "text-ink-3", children: " (ch\u1EDD ch\u1EA5m t\u1EF1 lu\u1EADn)" })
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("span", { className: "text-ink-3", children: "Ch\u01B0a l\xE0m" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex gap-2", children: [
-              t.lastResultId && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(LinkButton, { href: `/kiem-tra/ket-qua/${t.lastResultId}`, variant: "secondary", size: "sm", children: "Xem b\xE0i" }),
-              t.inProgressId ? /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(LinkButton, { href: `/kiem-tra/lam/${t.inProgressId}`, size: "sm", children: "L\xE0m ti\u1EBFp" }) : avail === "open" && t.attempts < t.maxAttempts ? /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(LinkButton, { href: `/kiem-tra/${t.id}`, size: "sm", children: t.attempts ? "L\xE0m l\u1EA1i" : "V\xE0o l\xE0m b\xE0i" }) : null
+              t.pendingManual > 0 && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("span", { className: "text-ink-3", children: " (ch\u1EDD ch\u1EA5m t\u1EF1 lu\u1EADn)" })
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("span", { className: "text-ink-3", children: "Ch\u01B0a l\xE0m" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "flex gap-2", children: [
+              t.lastResultId && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(LinkButton, { href: `/kiem-tra/ket-qua/${t.lastResultId}`, variant: "secondary", size: "sm", children: "Xem b\xE0i" }),
+              t.inProgressId ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(LinkButton, { href: `/kiem-tra/lam/${t.inProgressId}`, size: "sm", children: "L\xE0m ti\u1EBFp" }) : avail === "open" && t.attempts < t.maxAttempts ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(LinkButton, { href: `/kiem-tra/${t.id}`, size: "sm", children: t.attempts ? "L\xE0m l\u1EA1i" : "V\xE0o l\xE0m b\xE0i" }) : null
             ] })
           ] })
         ] }, t.id);
@@ -33659,41 +35353,41 @@ async function testIntroPage(ctx) {
   return page(
     ctx,
     { title: t.title },
-    /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "mx-auto max-w-2xl", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(PageTitle, { crumbs: [{ href: "/kiem-tra", label: "Ki\u1EC3m tra" }, { label: t.title }], title: t.title }),
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(Panel, { className: "p-6", children: [
-        t.description && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", { className: "mb-4 text-[15px] text-ink-2", children: t.description }),
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("dl", { className: "grid grid-cols-2 gap-4 text-[15px]", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("dt", { className: "text-ink-3", children: "S\u1ED1 c\xE2u" }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("dd", { className: "text-xl font-bold", children: t.questionCount })
+    /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "mx-auto max-w-2xl", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(PageTitle, { crumbs: [{ href: "/kiem-tra", label: "Ki\u1EC3m tra" }, { label: t.title }], title: t.title }),
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(Panel, { className: "p-6", children: [
+        t.description && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("p", { className: "mb-4 text-[15px] text-ink-2", children: t.description }),
+        /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("dl", { className: "grid grid-cols-2 gap-4 text-[15px]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("dt", { className: "text-ink-3", children: "S\u1ED1 c\xE2u" }),
+            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("dd", { className: "text-xl font-bold", children: t.questionCount })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("dt", { className: "text-ink-3", children: "Th\u1EDDi gian" }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("dd", { className: "text-xl font-bold", children: t.durationMinutes ? `${t.durationMinutes} ph\xFAt` : "Kh\xF4ng gi\u1EDBi h\u1EA1n" })
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("dt", { className: "text-ink-3", children: "Th\u1EDDi gian" }),
+            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("dd", { className: "text-xl font-bold", children: t.durationMinutes ? `${t.durationMinutes} ph\xFAt` : "Kh\xF4ng gi\u1EDBi h\u1EA1n" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("dt", { className: "text-ink-3", children: "S\u1ED1 l\u1EA7n l\xE0m" }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("dd", { className: "text-xl font-bold", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("dt", { className: "text-ink-3", children: "S\u1ED1 l\u1EA7n l\xE0m" }),
+            /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("dd", { className: "text-xl font-bold", children: [
               t.attempts,
               "/",
               t.maxAttempts
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("dt", { className: "text-ink-3", children: "Tr\u1EA1ng th\xE1i" }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("dd", { className: "mt-1", children: availabilityBadge(t) })
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("dt", { className: "text-ink-3", children: "Tr\u1EA1ng th\xE1i" }),
+            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("dd", { className: "mt-1", children: availabilityBadge(t) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("ul", { className: "mt-5 list-disc space-y-1 pl-5 text-[14px] text-ink-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("li", { children: "B\xE0i l\xE0m \u0111\u01B0\u1EE3c l\u01B0u nh\xE1p t\u1EF1 \u0111\u1ED9ng; n\u1EBFu m\u1EA5t m\u1EA1ng em c\xF3 th\u1EC3 m\u1EDF l\u1EA1i v\xE0 l\xE0m ti\u1EBFp." }),
-          t.durationMinutes && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("li", { children: "\u0110\u1ED3ng h\u1ED3 ch\u1EA1y theo gi\u1EDD m\xE1y ch\u1EE7, h\u1EBFt gi\u1EDD b\xE0i t\u1EF1 n\u1ED9p." }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("li", { children: "Sau khi n\u1ED9p kh\xF4ng s\u1EEDa \u0111\u01B0\u1EE3c b\xE0i." })
+        /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("ul", { className: "mt-5 list-disc space-y-1 pl-5 text-[14px] text-ink-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("li", { children: "B\xE0i l\xE0m \u0111\u01B0\u1EE3c l\u01B0u nh\xE1p t\u1EF1 \u0111\u1ED9ng; n\u1EBFu m\u1EA5t m\u1EA1ng em c\xF3 th\u1EC3 m\u1EDF l\u1EA1i v\xE0 l\xE0m ti\u1EBFp." }),
+          t.durationMinutes && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("li", { children: "\u0110\u1ED3ng h\u1ED3 ch\u1EA1y theo gi\u1EDD m\xE1y ch\u1EE7, h\u1EBFt gi\u1EDD b\xE0i t\u1EF1 n\u1ED9p." }),
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("li", { children: "Sau khi n\u1ED9p kh\xF4ng s\u1EEDa \u0111\u01B0\u1EE3c b\xE0i." })
         ] }),
-        canStart ? /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(PostForm, { action: `/kiem-tra/${t.id}/bat-dau`, className: "mt-6", children: /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(Button, { size: "lg", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(LuClock, { "aria-hidden": "true" }),
+        canStart ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(PostForm, { action: `/kiem-tra/${t.id}/bat-dau`, className: "mt-6", children: /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(Button, { size: "lg", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(LuClock, { "aria-hidden": "true" }),
           " B\u1EAFt \u0111\u1EA7u l\xE0m b\xE0i"
-        ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Notice, { tone: "info", className: "mt-6", children: avail !== "open" ? "\u0110\u1EC1 hi\u1EC7n kh\xF4ng m\u1EDF." : "Em \u0111\xE3 d\xF9ng h\u1EBFt s\u1ED1 l\u1EA7n l\xE0m b\xE0i." })
+        ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Notice, { tone: "info", className: "mt-6", children: avail !== "open" ? "\u0110\u1EC1 hi\u1EC7n kh\xF4ng m\u1EDF." : "Em \u0111\xE3 d\xF9ng h\u1EBFt s\u1ED1 l\u1EA7n l\xE0m b\xE0i." })
       ] })
     ] })
   );
@@ -33722,7 +35416,7 @@ async function takeTestPage(ctx) {
   return page(
     ctx,
     { title: attempt.title, wide: true },
-    /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
       Island,
       {
         name: "TestRunner",
@@ -33766,29 +35460,29 @@ async function submitTestApi(ctx) {
   return json({ redirect: `/kiem-tra/ket-qua/${attempt.id}` });
 }
 function describeResponse(q) {
-  const r3 = q.response;
-  if (!r3 || r3.kind === "empty") return "<em>Kh\xF4ng tr\u1EA3 l\u1EDDi</em>";
-  if (r3.kind === "mcq") return `Ch\u1ECDn <strong>${escapeHtml(r3.choice ?? "")}</strong>`;
-  if (r3.kind === "true_false")
-    return Object.entries(r3.values ?? {}).sort().map(([k, v]) => `${escapeHtml(k)}) ${v ? "\u0110\xFAng" : "Sai"}`).join("; ");
-  return `<span class="whitespace-pre-wrap">${escapeHtml(r3.text ?? "")}</span>`;
+  const r4 = q.response;
+  if (!r4 || r4.kind === "empty") return "<em>Kh\xF4ng tr\u1EA3 l\u1EDDi</em>";
+  if (r4.kind === "mcq") return `Ch\u1ECDn <strong>${escapeHtml(r4.choice ?? "")}</strong>`;
+  if (r4.kind === "true_false")
+    return Object.entries(r4.values ?? {}).sort().map(([k, v]) => `${escapeHtml(k)}) ${v ? "\u0110\xFAng" : "Sai"}`).join("; ");
+  return `<span class="whitespace-pre-wrap">${escapeHtml(r4.text ?? "")}</span>`;
 }
 function ResultQuestionList({ questions, reveal }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "space-y-4", children: questions.map((q, i2) => /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(Panel, { className: "p-5", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex flex-wrap items-center justify-between gap-2", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex flex-wrap items-center gap-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("h3", { className: "font-extrabold", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "space-y-4", children: questions.map((q, i2) => /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(Panel, { className: "p-5", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "flex flex-wrap items-center justify-between gap-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "flex flex-wrap items-center gap-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("h3", { className: "font-extrabold", children: [
           "C\xE2u ",
           i2 + 1
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Badge, { children: TYPE_LABELS[q.type] })
+        /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Badge, { children: TYPE_LABELS[q.type] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "flex items-center gap-2", children: [
-        q.status === "correct" && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Badge, { tone: "tre", children: "\u0110\xFAng" }),
-        q.status === "partial" && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Badge, { tone: "hl", children: "\u0110\xFAng m\u1ED9t ph\u1EA7n" }),
-        q.status === "incorrect" && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Badge, { tone: "le", children: "Ch\u01B0a \u0111\xFAng" }),
-        q.status === "pending" && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Badge, { tone: "cam", children: "Ch\u1EDD ch\u1EA5m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("span", { className: "text-[14px] font-semibold tabular-nums", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "flex items-center gap-2", children: [
+        q.status === "correct" && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Badge, { tone: "tre", children: "\u0110\xFAng" }),
+        q.status === "partial" && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Badge, { tone: "hl", children: "\u0110\xFAng m\u1ED9t ph\u1EA7n" }),
+        q.status === "incorrect" && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Badge, { tone: "le", children: "Ch\u01B0a \u0111\xFAng" }),
+        q.status === "pending" && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Badge, { tone: "cam", children: "Ch\u1EDD ch\u1EA5m" }),
+        /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("span", { className: "text-[14px] font-semibold tabular-nums", children: [
           q.pointsAwarded === null ? "\u2013" : formatNumber(q.pointsAwarded),
           "/",
           formatNumber(q.testPoints),
@@ -33796,39 +35490,39 @@ function ResultQuestionList({ questions, reveal }) {
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Html, { html: q.stemHtml, className: "prose-math mt-3" }),
-    q.mediaHtml.map((h, k) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Html, { html: h, className: "mt-2 flex justify-center" }, k)),
-    q.options && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("ul", { className: "mt-3 grid gap-2 md:grid-cols-2", children: q.options.map((o) => /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("li", { className: "flex gap-2 rounded-xl border px-3 py-2 " + (reveal && q.correctChoice === o.label ? "border-tre bg-tre-soft" : "border-line"), children: [
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("strong", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Html, { html: q.stemHtml, className: "prose-math mt-3" }),
+    q.mediaHtml.map((h, k) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Html, { html: h, className: "mt-2 flex justify-center" }, k)),
+    q.options && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("ul", { className: "mt-3 grid gap-2 md:grid-cols-2", children: q.options.map((o) => /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("li", { className: "flex gap-2 rounded-xl border px-3 py-2 " + (reveal && q.correctChoice === o.label ? "border-tre bg-tre-soft" : "border-line"), children: [
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("strong", { children: [
         o.label,
         "."
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Html, { html: o.html, className: "prose-math" })
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Html, { html: o.html, className: "prose-math" })
     ] }, o.label)) }),
-    q.statements && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("ul", { className: "mt-3 space-y-1.5", children: q.statements.map((s) => /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("li", { className: "flex gap-2", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("strong", { children: [
+    q.statements && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("ul", { className: "mt-3 space-y-1.5", children: q.statements.map((s) => /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("li", { className: "flex gap-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("strong", { children: [
         s.label,
         ")"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Html, { html: s.html, className: "prose-math flex-1" }),
-      reveal && q.correctValues && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("span", { className: "text-[14px] font-semibold text-tre", children: q.correctValues[s.label] ? "\u0110\xFAng" : "Sai" })
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Html, { html: s.html, className: "prose-math flex-1" }),
+      reveal && q.correctValues && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("span", { className: "text-[14px] font-semibold text-tre", children: q.correctValues[s.label] ? "\u0110\xFAng" : "Sai" })
     ] }, s.label)) }),
-    /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "mt-3 rounded-xl bg-mist px-4 py-3 text-[15px]", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("span", { className: "text-ink-3", children: "B\xE0i l\xE0m: " }),
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("span", { dangerouslySetInnerHTML: { __html: describeResponse(q) } })
+    /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "mt-3 rounded-xl bg-mist px-4 py-3 text-[15px]", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("span", { className: "text-ink-3", children: "B\xE0i l\xE0m: " }),
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("span", { dangerouslySetInnerHTML: { __html: describeResponse(q) } })
     ] }),
-    reveal && q.acceptedHtml && /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("p", { className: "mt-2 text-[15px]", children: [
+    reveal && q.acceptedHtml && /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("p", { className: "mt-2 text-[15px]", children: [
       "\u0110\xE1p s\u1ED1 \u0111\xFAng: ",
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("strong", { dangerouslySetInnerHTML: { __html: q.acceptedHtml.join(" ho\u1EB7c ") } })
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("strong", { dangerouslySetInnerHTML: { __html: q.acceptedHtml.join(" ho\u1EB7c ") } })
     ] }),
-    q.feedback && /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("p", { className: "mt-2 rounded-xl border border-hl bg-hl-soft px-4 py-2 text-[15px]", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("strong", { children: "Nh\u1EADn x\xE9t c\u1EE7a gi\xE1o vi\xEAn:" }),
+    q.feedback && /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("p", { className: "mt-2 rounded-xl border border-hl bg-hl-soft px-4 py-2 text-[15px]", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("strong", { children: "Nh\u1EADn x\xE9t c\u1EE7a gi\xE1o vi\xEAn:" }),
       " ",
       q.feedback
     ] }),
-    reveal && q.solutionHtml && /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("details", { className: "mt-3", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("summary", { className: "font-semibold text-tim-800", children: "Xem l\u1EDDi gi\u1EA3i" }),
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Html, { html: q.solutionHtml, className: "prose-math mt-2" })
+    reveal && q.solutionHtml && /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("details", { className: "mt-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("summary", { className: "font-semibold text-tim-800", children: "Xem l\u1EDDi gi\u1EA3i" }),
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Html, { html: q.solutionHtml, className: "prose-math mt-2" })
     ] })
   ] }, q.id)) });
 }
@@ -33846,49 +35540,49 @@ async function testResultPage(ctx) {
   return page(
     ctx,
     { title: `K\u1EBFt qu\u1EA3: ${attempt.title}` },
-    /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "mx-auto max-w-4xl", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "mx-auto max-w-4xl", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(
         PageTitle,
         {
           crumbs: isTeacher && !isOwner ? [{ href: `/giao-vien/de-kiem-tra/${attempt.testId}/ket-qua`, label: "K\u1EBFt qu\u1EA3 \u0111\u1EC1" }, { label: attempt.studentName }] : [{ href: "/kiem-tra", label: "Ki\u1EC3m tra" }, { label: "K\u1EBFt qu\u1EA3" }],
           title: attempt.title,
           sub: `${attempt.studentName} \xB7 l\u1EA7n ${attempt.attemptNo} \xB7 n\u1ED9p l\xFAc ${formatDateTime(attempt.submittedAt)}`,
-          actions: isTeacher && attempt.pendingManual > 0 ? /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(LinkButton, { href: `/giao-vien/cham-bai/${attempt.id}`, children: "Ch\u1EA5m t\u1EF1 lu\u1EADn" }) : void 0
+          actions: isTeacher && attempt.pendingManual > 0 ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(LinkButton, { href: `/giao-vien/cham-bai/${attempt.id}`, children: "Ch\u1EA5m t\u1EF1 lu\u1EADn" }) : void 0
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(Panel, { className: "mb-6 flex flex-wrap items-center gap-8 p-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "text-[14px] text-ink-3", children: "\u0110i\u1EC3m (thang 10)" }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: "text-[48px] font-extrabold leading-none text-tim-700", children: ten === null ? "\u2013" : formatNumber(ten) })
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(Panel, { className: "mb-6 flex flex-wrap items-center gap-8 p-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "text-[14px] text-ink-3", children: "\u0110i\u1EC3m (thang 10)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "text-[48px] font-extrabold leading-none text-tim-700", children: ten === null ? "\u2013" : formatNumber(ten) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "text-[15px] text-ink-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "text-[15px] text-ink-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { children: [
             "\u0110i\u1EC3m th\xF4: ",
             formatNumber(attempt.score ?? 0),
             "/",
             formatNumber(attempt.maxScore ?? 0)
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { children: [
             "C\xE2u \u0111\xFAng: ",
             questions.filter((q) => q.status === "correct").length,
             "/",
             questions.length
           ] }),
-          attempt.pendingManual > 0 && /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", { className: "font-semibold text-cam", children: [
+          attempt.pendingManual > 0 && /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "font-semibold text-cam", children: [
             attempt.pendingManual,
             " c\xE2u t\u1EF1 lu\u1EADn ch\u1EDD gi\xE1o vi\xEAn ch\u1EA5m \u2013 \u0111i\u1EC3m c\xF3 th\u1EC3 thay \u0111\u1ED5i."
           ] })
         ] })
       ] }),
-      !reveal && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Notice, { className: "mb-4", children: "Th\u1EA7y c\xF4 ch\u1ECDn kh\xF4ng hi\u1EC7n \u0111\xE1p \xE1n cho \u0111\u1EC1 n\xE0y." }),
-      /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(ResultQuestionList, { questions, reveal })
+      !reveal && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Notice, { className: "mb-4", children: "Th\u1EA7y c\xF4 ch\u1ECDn kh\xF4ng hi\u1EC7n \u0111\xE1p \xE1n cho \u0111\u1EC1 n\xE0y." }),
+      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(ResultQuestionList, { questions, reveal })
     ] })
   );
 }
 
 // src/server/handlers/profile.tsx
 init_richtext();
-var import_jsx_runtime22 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime24 = __toESM(require_jsx_runtime(), 1);
 async function achievementsPage(ctx) {
   const isStudent = ctx.user?.role === "student";
   const range = ctx.query.get("pham-vi") === "tuan" ? "week" : "all";
@@ -33898,23 +35592,23 @@ async function achievementsPage(ctx) {
   return page(
     ctx,
     { title: "Th\xE0nh t\xEDch" },
-    /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(import_jsx_runtime22.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(import_jsx_runtime24.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
         PageTitle,
         {
           title: "Th\xE0nh t\xEDch",
           sub: isStudent ? `Em \u0111\xE3 c\xF3 ${earned}/${achievements.length} huy hi\u1EC7u.` : "Huy hi\u1EC7u ghi nh\u1EADn s\u1EF1 ch\u0103m ch\u1EC9 v\xE0 ti\u1EBFn b\u1ED9 c\u1EE7a h\u1ECDc sinh."
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("section", { "aria-labelledby": "huy-hieu", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h2", { id: "huy-hieu", className: "mb-4 text-xl font-extrabold", children: "Huy hi\u1EC7u" }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("ul", { className: "grid gap-3 sm:grid-cols-2", children: achievements.map((a) => /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("li", { className: cx("flex items-center gap-4 rounded-2xl border bg-white p-4", a.earnedAt ? "border-line" : "border-dashed border-line-2"), children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(BadgeMark, { icon: a.icon, tier: a.tier, earned: !!a.earnedAt, size: 60 }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "min-w-0", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "font-bold", children: a.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "text-[14px] text-ink-2", children: a.description }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mt-1 text-[12px] text-ink-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("section", { "aria-labelledby": "huy-hieu", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h2", { id: "huy-hieu", className: "mb-4 text-xl font-extrabold", children: "Huy hi\u1EC7u" }),
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("ul", { className: "grid gap-3 sm:grid-cols-2", children: achievements.map((a) => /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { className: cx("flex items-center gap-4 rounded-2xl border bg-white p-4", a.earnedAt ? "border-line" : "border-dashed border-line-2"), children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(BadgeMark, { icon: a.icon, tier: a.tier, earned: !!a.earnedAt, size: 60 }),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "min-w-0", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "font-bold", children: a.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "text-[14px] text-ink-2", children: a.description }),
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "mt-1 text-[12px] text-ink-3", children: [
                 "Huy hi\u1EC7u ",
                 tierLabel(a.tier).toLowerCase(),
                 a.xpReward ? ` \xB7 th\u01B0\u1EDFng ${a.xpReward} XP` : "",
@@ -33923,23 +35617,23 @@ async function achievementsPage(ctx) {
             ] })
           ] }, a.code)) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("section", { "aria-labelledby": "xep-hang", id: "xep-hang", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mb-4 flex items-center justify-between", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h2", { id: "xep-hang-title", className: "text-xl font-extrabold", children: "B\u1EA3ng x\u1EBFp h\u1EA1ng" }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex rounded-xl bg-mist p-1 text-[14px]", role: "tablist", "aria-label": "Kho\u1EA3ng th\u1EDDi gian", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("a", { href: "/thanh-tich#xep-hang", role: "tab", "aria-selected": range === "all", className: cx("rounded-lg px-3 py-1", range === "all" ? "bg-white font-semibold shadow-sm" : "text-ink-2"), children: "T\u1EA5t c\u1EA3" }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("a", { href: "/thanh-tich?pham-vi=tuan#xep-hang", role: "tab", "aria-selected": range === "week", className: cx("rounded-lg px-3 py-1", range === "week" ? "bg-white font-semibold shadow-sm" : "text-ink-2"), children: "7 ng\xE0y qua" })
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("section", { "aria-labelledby": "xep-hang", id: "xep-hang", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "mb-4 flex items-center justify-between", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h2", { id: "xep-hang-title", className: "text-xl font-extrabold", children: "B\u1EA3ng x\u1EBFp h\u1EA1ng" }),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex rounded-xl bg-mist p-1 text-[14px]", role: "tablist", "aria-label": "Kho\u1EA3ng th\u1EDDi gian", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("a", { href: "/thanh-tich#xep-hang", role: "tab", "aria-selected": range === "all", className: cx("rounded-lg px-3 py-1", range === "all" ? "bg-white font-semibold shadow-sm" : "text-ink-2"), children: "T\u1EA5t c\u1EA3" }),
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("a", { href: "/thanh-tich?pham-vi=tuan#xep-hang", role: "tab", "aria-selected": range === "week", className: cx("rounded-lg px-3 py-1", range === "week" ? "bg-white font-semibold shadow-sm" : "text-ink-2"), children: "7 ng\xE0y qua" })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Panel, { className: "p-2", children: leaders.length ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("ol", { children: leaders.map((r3) => /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("li", { className: cx("flex items-center gap-3 rounded-xl px-3 py-2.5", r3.userId === ctx.user?.id && "bg-hl-soft"), children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { className: cx("flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold", r3.rank <= 3 ? "bg-tim-700 text-white" : "bg-mist text-ink-2"), children: r3.rank === 1 ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(LuCrown, { "aria-label": "H\u1EA1ng 1" }) : r3.rank }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { className: "min-w-0 flex-1 truncate font-medium", children: r3.fullName }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { className: "font-bold tabular-nums text-tim-700", children: [
-              r3.xp,
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Panel, { className: "p-2", children: leaders.length ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("ol", { children: leaders.map((r4) => /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { className: cx("flex items-center gap-3 rounded-xl px-3 py-2.5", r4.userId === ctx.user?.id && "bg-hl-soft"), children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: cx("flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold", r4.rank <= 3 ? "bg-tim-700 text-white" : "bg-mist text-ink-2"), children: r4.rank === 1 ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(LuCrown, { "aria-label": "H\u1EA1ng 1" }) : r4.rank }),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "min-w-0 flex-1 truncate font-medium", children: r4.fullName }),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("span", { className: "font-bold tabular-nums text-tim-700", children: [
+              r4.xp,
               " XP"
             ] })
-          ] }, r3.userId)) }) : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "px-3 py-6 text-center text-[15px] text-ink-2", children: "Ch\u01B0a c\xF3 h\u1ECDc sinh n\xE0o c\xF3 \u0111i\u1EC3m kinh nghi\u1EC7m trong kho\u1EA3ng th\u1EDDi gian n\xE0y." }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "mt-3 text-[13px] text-ink-3", children: "\u0110i\u1EC3m kinh nghi\u1EC7m: c\xE2u luy\u1EC7n t\u1EADp \u0111\xFAng l\u1EA7n \u0111\u1EA7u +10, c\xE2u th\u1EED th\xE1ch +20, h\u1ECDc xong m\u1ED9t m\u1EE5c +20, n\u1ED9p b\xE0i ki\u1EC3m tra +20 c\u1ED9ng \u0111i\u1EC3m theo k\u1EBFt qu\u1EA3." })
+          ] }, r4.userId)) }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "px-3 py-6 text-center text-[15px] text-ink-2", children: "Ch\u01B0a c\xF3 h\u1ECDc sinh n\xE0o c\xF3 \u0111i\u1EC3m kinh nghi\u1EC7m trong kho\u1EA3ng th\u1EDDi gian n\xE0y." }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "mt-3 text-[13px] text-ink-3", children: "\u0110i\u1EC3m kinh nghi\u1EC7m: c\xE2u luy\u1EC7n t\u1EADp \u0111\xFAng l\u1EA7n \u0111\u1EA7u +10, c\xE2u th\u1EED th\xE1ch +20, h\u1ECDc xong m\u1ED9t m\u1EE5c +20, n\u1ED9p b\xE0i ki\u1EC3m tra +20 c\u1ED9ng \u0111i\u1EC3m theo k\u1EBFt qu\u1EA3." })
         ] })
       ] })
     ] })
@@ -33960,35 +35654,35 @@ async function profilePage(ctx, errors, status = 200) {
   return page(
     ctx,
     { title: "Trang c\xE1 nh\xE2n", status },
-    /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(import_jsx_runtime22.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(PageTitle, { title: profile.fullName, sub: `${ROLE_LABELS[profile.role]}${profile.gradeLevel ? ` l\u1EDBp ${profile.gradeLevel}` : ""} \xB7 @${profile.username}${profile.school ? ` \xB7 ${profile.school}` : ""}` }),
-      stats && /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "grid gap-4 sm:grid-cols-2 lg:grid-cols-4", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(Panel, { className: "p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "text-[14px] text-ink-3", children: "\u0110i\u1EC3m kinh nghi\u1EC7m" }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "text-3xl font-extrabold text-tim-700", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(import_jsx_runtime24.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(PageTitle, { title: profile.fullName, sub: `${ROLE_LABELS[profile.role]}${profile.gradeLevel ? ` l\u1EDBp ${profile.gradeLevel}` : ""} \xB7 @${profile.username}${profile.school ? ` \xB7 ${profile.school}` : ""}` }),
+      stats && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "grid gap-4 sm:grid-cols-2 lg:grid-cols-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "text-[14px] text-ink-3", children: "\u0110i\u1EC3m kinh nghi\u1EC7m" }),
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "text-3xl font-extrabold text-tim-700", children: [
             stats.xp,
             " XP"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mt-2 flex justify-between text-[13px] text-ink-3", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "mt-2 flex justify-between text-[13px] text-ink-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("span", { children: [
               "C\u1EA5p ",
               stats.level
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("span", { children: [
               stats.levelCurrent,
               "/",
               stats.levelNext
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(ProgressBar, { value: percent(stats.levelCurrent, stats.levelNext), label: "Ti\u1EBFn t\u1EDBi c\u1EA5p ti\u1EBFp theo" })
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(ProgressBar, { value: percent(stats.levelCurrent, stats.levelNext), label: "Ti\u1EBFn t\u1EDBi c\u1EA5p ti\u1EBFp theo" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(Panel, { className: "p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "text-[14px] text-ink-3", children: "Ti\u1EBFn \u0111\u1ED9 h\u1ECDc t\u1EADp" }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "text-3xl font-extrabold", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "text-[14px] text-ink-3", children: "Ti\u1EBFn \u0111\u1ED9 h\u1ECDc t\u1EADp" }),
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "text-3xl font-extrabold", children: [
             percent(stats.lessonsCompleted, stats.lessonsTotal),
             "%"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mt-2 text-[13px] text-ink-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "mt-2 text-[13px] text-ink-3", children: [
             stats.lessonsCompleted,
             "/",
             stats.lessonsTotal,
@@ -33997,131 +35691,131 @@ async function profilePage(ctx, errors, status = 200) {
             " \u0111ang h\u1ECDc"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(Panel, { className: "p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "text-[14px] text-ink-3", children: "C\xE2u \u0111\xE3 l\xE0m" }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "text-3xl font-extrabold", children: stats.answered }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mt-2 text-[13px] text-ink-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "text-[14px] text-ink-3", children: "C\xE2u \u0111\xE3 l\xE0m" }),
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "text-3xl font-extrabold", children: stats.answered }),
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "mt-2 text-[13px] text-ink-3", children: [
             "T\u1EC9 l\u1EC7 ch\xEDnh x\xE1c ",
             stats.accuracy,
             "%"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(Panel, { className: "p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "text-[14px] text-ink-3", children: "Chu\u1ED7i luy\u1EC7n t\u1EADp" }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex items-center gap-2 text-3xl font-extrabold", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(LuFlame, { className: stats.streak ? "text-cam" : "text-line-2", "aria-hidden": "true" }),
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "text-[14px] text-ink-3", children: "Chu\u1ED7i luy\u1EC7n t\u1EADp" }),
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex items-center gap-2 text-3xl font-extrabold", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(LuFlame, { className: stats.streak ? "text-cam" : "text-line-2", "aria-hidden": "true" }),
             " ",
             stats.streak,
             " ng\xE0y"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "mt-2 text-[13px] text-ink-3", children: stats.rank ? `H\u1EA1ng ${stats.rank} tr\xEAn b\u1EA3ng x\u1EBFp h\u1EA1ng` : "Ch\u01B0a c\xF3 h\u1EA1ng" })
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "mt-2 text-[13px] text-ink-3", children: stats.rank ? `H\u1EA1ng ${stats.rank} tr\xEAn b\u1EA3ng x\u1EBFp h\u1EA1ng` : "Ch\u01B0a c\xF3 h\u1EA1ng" })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "min-w-0 space-y-8", children: [
-          isStudent && /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("section", { "aria-labelledby": "dang-hoc", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h2", { id: "dang-hoc", className: "mb-3 text-xl font-extrabold", children: "B\xE0i h\u1ECDc \u0111ang h\u1ECDc" }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Panel, { className: "p-5", children: cont ? /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex flex-wrap items-center justify-between gap-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "text-[14px] text-ink-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "min-w-0 space-y-8", children: [
+          isStudent && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("section", { "aria-labelledby": "dang-hoc", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h2", { id: "dang-hoc", className: "mb-3 text-xl font-extrabold", children: "B\xE0i h\u1ECDc \u0111ang h\u1ECDc" }),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Panel, { className: "p-5", children: cont ? /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex flex-wrap items-center justify-between gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "text-[14px] text-ink-3", children: [
                   "Ch\u01B0\u01A1ng ",
                   cont.chapterCode,
                   ". ",
                   cont.chapterTitle
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "text-lg font-bold", children: lessonLabel(cont) })
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "text-lg font-bold", children: lessonLabel(cont) })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(LinkButton, { href: `/hoc/${cont.textbookSlug}/bai/${cont.slug}`, children: "H\u1ECDc ti\u1EBFp" })
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "text-[15px] text-ink-2", children: "Em ch\u01B0a m\u1EDF b\xE0i h\u1ECDc n\xE0o." }) })
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(LinkButton, { href: `/hoc/${cont.textbookSlug}/bai/${cont.slug}`, children: "H\u1ECDc ti\u1EBFp" })
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "text-[15px] text-ink-2", children: "Em ch\u01B0a m\u1EDF b\xE0i h\u1ECDc n\xE0o." }) })
           ] }),
-          chapters.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("section", { "aria-labelledby": "tien-do", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h2", { id: "tien-do", className: "mb-3 text-xl font-extrabold", children: "Ti\u1EBFn \u0111\u1ED9 theo ch\u01B0\u01A1ng" }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Panel, { className: "divide-y divide-line", children: chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "grid items-center gap-3 px-5 py-3 sm:grid-cols-[minmax(0,1fr)_160px_110px]", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "min-w-0 truncate text-[15px] font-medium", children: c.kind === "chapter" ? `Ch\u01B0\u01A1ng ${c.code}. ${c.title}` : c.title }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(ProgressBar, { value: percent(c.completed, c.total), tone: "tre", label: `Ti\u1EBFn \u0111\u1ED9 ch\u01B0\u01A1ng ${c.code}` }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mt-0.5 text-[12px] text-ink-3", children: [
+          chapters.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("section", { "aria-labelledby": "tien-do", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h2", { id: "tien-do", className: "mb-3 text-xl font-extrabold", children: "Ti\u1EBFn \u0111\u1ED9 theo ch\u01B0\u01A1ng" }),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Panel, { className: "divide-y divide-line", children: chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "grid items-center gap-3 px-5 py-3 sm:grid-cols-[minmax(0,1fr)_160px_110px]", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "min-w-0 truncate text-[15px] font-medium", children: c.kind === "chapter" ? `Ch\u01B0\u01A1ng ${c.code}. ${c.title}` : c.title }),
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(ProgressBar, { value: percent(c.completed, c.total), tone: "tre", label: `Ti\u1EBFn \u0111\u1ED9 ch\u01B0\u01A1ng ${c.code}` }),
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "mt-0.5 text-[12px] text-ink-3", children: [
                   c.completed,
                   "/",
                   c.total,
                   " m\u1EE5c"
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "text-[13px] text-ink-3 sm:text-right", children: c.answered ? `\u0110\xFAng ${percent(c.correct, c.answered)}% (${c.answered} c\xE2u)` : "Ch\u01B0a luy\u1EC7n t\u1EADp" })
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "text-[13px] text-ink-3 sm:text-right", children: c.answered ? `\u0110\xFAng ${percent(c.correct, c.answered)}% (${c.answered} c\xE2u)` : "Ch\u01B0a luy\u1EC7n t\u1EADp" })
             ] }, c.code)) })
           ] }),
-          isStudent && /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("section", { "aria-labelledby": "lich-su", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h2", { id: "lich-su", className: "mb-3 text-xl font-extrabold", children: "L\u1ECBch s\u1EED luy\u1EC7n t\u1EADp" }),
-            history.length ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("table", { className: "data-table min-w-[560px]", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("tr", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("th", { children: "Th\u1EDDi gian" }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("th", { children: "C\xE2u h\u1ECFi" }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("th", { children: "H\xECnh th\u1EE9c" }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("th", { children: "K\u1EBFt qu\u1EA3" })
+          isStudent && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("section", { "aria-labelledby": "lich-su", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h2", { id: "lich-su", className: "mb-3 text-xl font-extrabold", children: "L\u1ECBch s\u1EED luy\u1EC7n t\u1EADp" }),
+            history.length ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("table", { className: "data-table min-w-[560px]", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("tr", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "Th\u1EDDi gian" }),
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "C\xE2u h\u1ECFi" }),
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "H\xECnh th\u1EE9c" }),
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "K\u1EBFt qu\u1EA3" })
               ] }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("tbody", { children: history.map((h) => /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("tr", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("td", { className: "whitespace-nowrap text-[13px] text-ink-3", children: formatDateTime(h.createdAt) }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("td", { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "text-[14px]", children: plainExcerpt(h.stem, 80) }),
-                  h.lessonTitle && /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "text-[12px] text-ink-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("tbody", { children: history.map((h) => /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("tr", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { className: "whitespace-nowrap text-[13px] text-ink-3", children: formatDateTime(h.createdAt) }),
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("td", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "text-[14px]", children: plainExcerpt(h.stem, 80) }),
+                  h.lessonTitle && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "text-[12px] text-ink-3", children: [
                     lessonLabel({ kind: h.lessonKind ?? "lesson", number: h.lessonNumber, title: h.lessonTitle }),
                     h.context === "test" ? " \xB7 b\xE0i ki\u1EC3m tra" : h.context === "challenge" ? " \xB7 th\u1EED th\xE1ch" : ""
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("td", { className: "text-[13px]", children: TYPE_SHORT[h.type] }),
-                /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("td", { children: [
-                  h.status === "correct" && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Badge, { tone: "tre", children: "\u0110\xFAng" }),
-                  h.status === "partial" && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Badge, { tone: "hl", children: "M\u1ED9t ph\u1EA7n" }),
-                  h.status === "incorrect" && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Badge, { tone: "le", children: "Sai" }),
-                  h.status === "pending" && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Badge, { tone: "cam", children: "Ch\u1EDD ch\u1EA5m" })
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { className: "text-[13px]", children: TYPE_SHORT[h.type] }),
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("td", { children: [
+                  h.status === "correct" && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Badge, { tone: "tre", children: "\u0110\xFAng" }),
+                  h.status === "partial" && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Badge, { tone: "hl", children: "M\u1ED9t ph\u1EA7n" }),
+                  h.status === "incorrect" && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Badge, { tone: "le", children: "Sai" }),
+                  h.status === "pending" && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Badge, { tone: "cam", children: "Ch\u1EDD ch\u1EA5m" })
                 ] })
               ] }, h.id)) })
-            ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(EmptyState, { title: "Ch\u01B0a c\xF3 l\u01B0\u1EE3t luy\u1EC7n t\u1EADp n\xE0o", action: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(LinkButton, { href: "/luyen-tap", children: "B\u1EAFt \u0111\u1EA7u luy\u1EC7n t\u1EADp" }) })
+            ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(EmptyState, { title: "Ch\u01B0a c\xF3 l\u01B0\u1EE3t luy\u1EC7n t\u1EADp n\xE0o", action: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(LinkButton, { href: "/luyen-tap", children: "B\u1EAFt \u0111\u1EA7u luy\u1EC7n t\u1EADp" }) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("aside", { className: "space-y-6", children: [
-          isStudent && /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("h2", { className: "text-lg font-extrabold", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("aside", { className: "space-y-6", children: [
+          isStudent && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("h2", { className: "text-lg font-extrabold", children: [
               "Huy hi\u1EC7u (",
               badges.length,
               ")"
             ] }),
-            badges.length ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("ul", { className: "mt-3 grid grid-cols-4 gap-2", children: badges.map((b) => /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("li", { title: `${b.name}: ${b.description}`, className: "flex justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(BadgeMark, { icon: b.icon, tier: b.tier, earned: true, size: 52 }) }, b.code)) }) : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "mt-2 text-[14px] text-ink-2", children: "H\u1ECDc xong m\u1ED9t m\u1EE5c ho\u1EB7c l\xE0m \u0111\xFAng c\xE2u h\u1ECFi \u0111\u1EC3 nh\u1EADn huy hi\u1EC7u \u0111\u1EA7u ti\xEAn." }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("a", { href: "/thanh-tich", className: buttonClass("quiet", "sm", "mt-4 w-full"), children: "Xem t\u1EA5t c\u1EA3 huy hi\u1EC7u" })
+            badges.length ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("ul", { className: "mt-3 grid grid-cols-4 gap-2", children: badges.map((b) => /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("li", { title: `${b.name}: ${b.description}`, className: "flex justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(BadgeMark, { icon: b.icon, tier: b.tier, earned: true, size: 52 }) }, b.code)) }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "mt-2 text-[14px] text-ink-2", children: "H\u1ECDc xong m\u1ED9t m\u1EE5c ho\u1EB7c l\xE0m \u0111\xFAng c\xE2u h\u1ECFi \u0111\u1EC3 nh\u1EADn huy hi\u1EC7u \u0111\u1EA7u ti\xEAn." }),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("a", { href: "/thanh-tich", className: buttonClass("quiet", "sm", "mt-4 w-full"), children: "Xem t\u1EA5t c\u1EA3 huy hi\u1EC7u" })
           ] }),
-          isStudent && /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h2", { className: "text-lg font-extrabold", children: "L\u1EDBp h\u1ECDc" }),
-            classes.length ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("ul", { className: "mt-2 space-y-1.5 text-[15px]", children: classes.map((c) => /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("li", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("strong", { children: c.name }),
+          isStudent && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h2", { className: "text-lg font-extrabold", children: "L\u1EDBp h\u1ECDc" }),
+            classes.length ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("ul", { className: "mt-2 space-y-1.5 text-[15px]", children: classes.map((c) => /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { children: c.name }),
               " ",
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { className: "text-ink-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("span", { className: "text-ink-3", children: [
                 "(",
                 c.schoolYear,
                 ") \u2013 ",
                 c.teacherName
               ] })
-            ] }, c.id)) }) : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "mt-2 text-[14px] text-ink-2", children: "Em ch\u01B0a \u1EDF l\u1EDBp n\xE0o." }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(PostForm, { action: "/ca-nhan/vao-lop", className: "mt-4 flex items-end gap-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Field, { label: "M\xE3 l\u1EDBp", name: "code", placeholder: "VD: K7P2QX", maxLength: 10, className: "flex-1", error: errors?.join }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Button, { size: "md", className: "mb-[1px]", children: "V\xE0o l\u1EDBp" })
+            ] }, c.id)) }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "mt-2 text-[14px] text-ink-2", children: "Em ch\u01B0a \u1EDF l\u1EDBp n\xE0o." }),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(PostForm, { action: "/ca-nhan/vao-lop", className: "mt-4 flex items-end gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Field, { label: "M\xE3 l\u1EDBp", name: "code", placeholder: "VD: K7P2QX", maxLength: 10, className: "flex-1", error: errors?.join }),
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Button, { size: "md", className: "mb-[1px]", children: "V\xE0o l\u1EDBp" })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h2", { className: "text-lg font-extrabold", children: "T\xE0i kho\u1EA3n" }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "mt-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(StatLine, { label: "T\xEAn \u0111\u0103ng nh\u1EADp", value: /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("span", { className: "text-[15px]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h2", { className: "text-lg font-extrabold", children: "T\xE0i kho\u1EA3n" }),
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "mt-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(StatLine, { label: "T\xEAn \u0111\u0103ng nh\u1EADp", value: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("span", { className: "text-[15px]", children: [
                 "@",
                 profile.username
               ] }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(StatLine, { label: "Ng\xE0y t\u1EA1o", value: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { className: "text-[15px]", children: formatDate(profile.createdAt) }) }),
-              profile.lastLoginAt && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(StatLine, { label: "\u0110\u0103ng nh\u1EADp g\u1EA7n nh\u1EA5t", value: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("span", { className: "text-[15px]", children: formatDateTime(profile.lastLoginAt) }) })
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(StatLine, { label: "Ng\xE0y t\u1EA1o", value: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "text-[15px]", children: formatDate(profile.createdAt) }) }),
+              profile.lastLoginAt && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(StatLine, { label: "\u0110\u0103ng nh\u1EADp g\u1EA7n nh\u1EA5t", value: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "text-[15px]", children: formatDateTime(profile.lastLoginAt) }) })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(PostForm, { action: "/ca-nhan/mat-khau", className: "mt-4 space-y-3", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h3", { className: "font-bold", children: "\u0110\u1ED5i m\u1EADt kh\u1EA9u" }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Field, { label: "M\u1EADt kh\u1EA9u hi\u1EC7n t\u1EA1i", name: "current", type: "password", required: true, autoComplete: "current-password", maxLength: 128 }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Field, { label: "M\u1EADt kh\u1EA9u m\u1EDBi", name: "password", type: "password", required: true, autoComplete: "new-password", hint: "\xCDt nh\u1EA5t 8 k\xED t\u1EF1, c\xF3 c\u1EA3 ch\u1EEF v\xE0 s\u1ED1.", maxLength: 128, error: errors?.password }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Field, { label: "Nh\u1EADp l\u1EA1i m\u1EADt kh\u1EA9u m\u1EDBi", name: "password2", type: "password", required: true, autoComplete: "new-password", maxLength: 128 }),
-              /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(Button, { variant: "secondary", children: "\u0110\u1ED5i m\u1EADt kh\u1EA9u" })
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(PostForm, { action: "/ca-nhan/mat-khau", className: "mt-4 space-y-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h3", { className: "font-bold", children: "\u0110\u1ED5i m\u1EADt kh\u1EA9u" }),
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Field, { label: "M\u1EADt kh\u1EA9u hi\u1EC7n t\u1EA1i", name: "current", type: "password", required: true, autoComplete: "current-password", maxLength: 128 }),
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Field, { label: "M\u1EADt kh\u1EA9u m\u1EDBi", name: "password", type: "password", required: true, autoComplete: "new-password", hint: "\xCDt nh\u1EA5t 8 k\xED t\u1EF1, c\xF3 c\u1EA3 ch\u1EEF v\xE0 s\u1ED1.", maxLength: 128, error: errors?.password }),
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Field, { label: "Nh\u1EADp l\u1EA1i m\u1EADt kh\u1EA9u m\u1EDBi", name: "password2", type: "password", required: true, autoComplete: "new-password", maxLength: 128 }),
+              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Button, { variant: "secondary", children: "\u0110\u1ED5i m\u1EADt kh\u1EA9u" })
             ] })
           ] })
         ] })
@@ -34237,7 +35931,7 @@ async function systemInfo(q) {
 }
 
 // src/server/handlers/teacher/overview.tsx
-var import_jsx_runtime23 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime25 = __toESM(require_jsx_runtime(), 1);
 async function teacherHome(ctx) {
   const user = requireTeacher(ctx);
   const o = await teacherOverview(ctx.db, user);
@@ -34252,24 +35946,24 @@ async function teacherHome(ctx) {
   return page(
     ctx,
     { title: "Trang gi\xE1o vi\xEAn", layout: "dashboard", section: "overview" },
-    /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(import_jsx_runtime23.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(PageTitle, { title: `Ch\xE0o ${user.fullName}`, sub: "T\u1ED5ng quan l\u1EDBp h\u1ECDc, c\xE2u h\u1ECFi v\xE0 b\xE0i ki\u1EC3m tra c\u1EE7a th\u1EA7y/c\xF4." }),
-      /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "grid gap-4 sm:grid-cols-2 xl:grid-cols-4", children: tiles.map((t) => {
+    /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(import_jsx_runtime25.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(PageTitle, { title: `Ch\xE0o ${user.fullName}`, sub: "T\u1ED5ng quan l\u1EDBp h\u1ECDc, c\xE2u h\u1ECFi v\xE0 b\xE0i ki\u1EC3m tra c\u1EE7a th\u1EA7y/c\xF4." }),
+      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "grid gap-4 sm:grid-cols-2 xl:grid-cols-4", children: tiles.map((t) => {
         const Icon = t.icon;
-        return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("a", { href: t.href, className: "rounded-[18px] border border-line bg-white p-5 hover:border-tim-300", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(Icon, { className: "text-2xl text-tim-600", "aria-hidden": "true" }),
-          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "mt-3 text-3xl font-extrabold tabular-nums", children: t.value }),
-          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "font-semibold", children: t.label }),
-          t.sub && /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "mt-0.5 text-[13px] text-ink-3", children: t.sub })
+        return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("a", { href: t.href, className: "rounded-[18px] border border-line bg-white p-5 hover:border-tim-300", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Icon, { className: "text-2xl text-tim-600", "aria-hidden": "true" }),
+          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "mt-3 text-3xl font-extrabold tabular-nums", children: t.value }),
+          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "font-semibold", children: t.label }),
+          t.sub && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "mt-0.5 text-[13px] text-ink-3", children: t.sub })
         ] }, t.label);
       }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "mt-8 grid gap-6 lg:grid-cols-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(Panel, { className: "p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("h2", { className: "text-lg font-extrabold", children: "B\xE0i c\u1EA7n ch\u1EA5m t\u1EF1 lu\u1EADn" }),
-          pending.length ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("ul", { className: "mt-3 divide-y divide-line", children: pending.map((p) => /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("li", { className: "flex items-center justify-between gap-3 py-2.5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "min-w-0", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "truncate font-medium", children: p.studentName }),
-              /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "truncate text-[13px] text-ink-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "mt-8 grid gap-6 lg:grid-cols-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Panel, { className: "p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("h2", { className: "text-lg font-extrabold", children: "B\xE0i c\u1EA7n ch\u1EA5m t\u1EF1 lu\u1EADn" }),
+          pending.length ? /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("ul", { className: "mt-3 divide-y divide-line", children: pending.map((p) => /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("li", { className: "flex items-center justify-between gap-3 py-2.5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "min-w-0", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "truncate font-medium", children: p.studentName }),
+              /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "truncate text-[13px] text-ink-3", children: [
                 p.title,
                 " \xB7 n\u1ED9p ",
                 formatDateTime(p.submittedAt),
@@ -34278,29 +35972,29 @@ async function teacherHome(ctx) {
                 " c\xE2u"
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(LinkButton, { href: `/giao-vien/cham-bai/${p.resultId}`, size: "sm", children: "Ch\u1EA5m" })
-          ] }, p.resultId)) }) : /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("p", { className: "mt-2 text-[15px] text-ink-2", children: "Kh\xF4ng c\xF3 b\xE0i n\xE0o \u0111ang ch\u1EDD ch\u1EA5m." })
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(LinkButton, { href: `/giao-vien/cham-bai/${p.resultId}`, size: "sm", children: "Ch\u1EA5m" })
+          ] }, p.resultId)) }) : /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", { className: "mt-2 text-[15px] text-ink-2", children: "Kh\xF4ng c\xF3 b\xE0i n\xE0o \u0111ang ch\u1EDD ch\u1EA5m." })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(Panel, { className: "p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("div", { className: "flex items-center justify-between", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("h2", { className: "text-lg font-extrabold", children: "L\u1EDBp h\u1ECDc" }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("a", { href: "/giao-vien/lop", className: "text-[14px] font-semibold text-tim-700 hover:underline", children: "Qu\u1EA3n l\xFD l\u1EDBp" })
+        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Panel, { className: "p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "flex items-center justify-between", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("h2", { className: "text-lg font-extrabold", children: "L\u1EDBp h\u1ECDc" }),
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("a", { href: "/giao-vien/lop", className: "text-[14px] font-semibold text-tim-700 hover:underline", children: "Qu\u1EA3n l\xFD l\u1EDBp" })
           ] }),
-          classes.length ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("ul", { className: "mt-3 divide-y divide-line", children: classes.map((c) => /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("a", { href: `/giao-vien/lop/${c.id}`, className: "flex items-center justify-between gap-3 py-2.5 hover:text-tim-800", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("span", { className: "font-medium", children: [
+          classes.length ? /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("ul", { className: "mt-3 divide-y divide-line", children: classes.map((c) => /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("a", { href: `/giao-vien/lop/${c.id}`, className: "flex items-center justify-between gap-3 py-2.5 hover:text-tim-800", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("span", { className: "font-medium", children: [
               c.name,
               " ",
-              /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("span", { className: "text-[13px] text-ink-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("span", { className: "text-[13px] text-ink-3", children: [
                 "(",
                 c.schoolYear,
                 ")"
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)("span", { className: "text-[14px] text-ink-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("span", { className: "text-[14px] text-ink-3", children: [
               c.memberCount,
               " h\u1ECDc sinh"
             ] })
-          ] }) }, c.id)) }) : /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(EmptyState, { title: "Ch\u01B0a c\xF3 l\u1EDBp n\xE0o", action: /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(LinkButton, { href: "/giao-vien/lop", children: "T\u1EA1o l\u1EDBp \u0111\u1EA7u ti\xEAn" }), children: "T\u1EA1o l\u1EDBp \u0111\u1EC3 c\xF3 m\xE3 l\u1EDBp cho h\u1ECDc sinh tham gia v\xE0 giao \u0111\u1EC1 ki\u1EC3m tra." })
+          ] }) }, c.id)) }) : /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(EmptyState, { title: "Ch\u01B0a c\xF3 l\u1EDBp n\xE0o", action: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(LinkButton, { href: "/giao-vien/lop", children: "T\u1EA1o l\u1EDBp \u0111\u1EA7u ti\xEAn" }), children: "T\u1EA1o l\u1EDBp \u0111\u1EC3 c\xF3 m\xE3 l\u1EDBp cho h\u1ECDc sinh tham gia v\xE0 giao \u0111\u1EC1 ki\u1EC3m tra." })
         ] })
       ] })
     ] })
@@ -34308,50 +36002,50 @@ async function teacherHome(ctx) {
 }
 
 // src/server/handlers/teacher/classes.tsx
-var import_jsx_runtime24 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime26 = __toESM(require_jsx_runtime(), 1);
 async function classesPage(ctx, errors, values) {
   const user = requireTeacher(ctx);
   const classes = await listClasses(ctx.db, user);
   return page(
     ctx,
     { title: "L\u1EDBp h\u1ECDc", layout: "dashboard", section: "classes", status: errors ? 422 : 200 },
-    /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(import_jsx_runtime24.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(PageTitle, { title: "L\u1EDBp h\u1ECDc", sub: "M\u1ED7i l\u1EDBp c\xF3 m\u1ED9t m\xE3 \u0111\u1EC3 h\u1ECDc sinh t\u1EF1 tham gia. Th\u1EA7y/c\xF4 c\u0169ng c\xF3 th\u1EC3 t\u1EA1o t\xE0i kho\u1EA3n cho h\u1ECDc sinh ngay trong l\u1EDBp." }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { children: classes.length ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("table", { className: "data-table min-w-[560px]", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("tr", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "L\u1EDBp" }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "N\u0103m h\u1ECDc" }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "M\xE3 l\u1EDBp" }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "H\u1ECDc sinh" }),
-            user.role === "admin" && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "Gi\xE1o vi\xEAn" }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", {})
+    /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(import_jsx_runtime26.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(PageTitle, { title: "L\u1EDBp h\u1ECDc", sub: "M\u1ED7i l\u1EDBp c\xF3 m\u1ED9t m\xE3 \u0111\u1EC3 h\u1ECDc sinh t\u1EF1 tham gia. Th\u1EA7y/c\xF4 c\u0169ng c\xF3 th\u1EC3 t\u1EA1o t\xE0i kho\u1EA3n cho h\u1ECDc sinh ngay trong l\u1EDBp." }),
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { children: classes.length ? /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("table", { className: "data-table min-w-[560px]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "L\u1EDBp" }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "N\u0103m h\u1ECDc" }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "M\xE3 l\u1EDBp" }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "H\u1ECDc sinh" }),
+            user.role === "admin" && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "Gi\xE1o vi\xEAn" }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", {})
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("tbody", { children: classes.map((c) => /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("tr", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("td", { className: "font-semibold", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("tbody", { children: classes.map((c) => /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("td", { className: "font-semibold", children: [
               c.name,
               " ",
-              c.status === "archived" && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Badge, { tone: "gray", children: "L\u01B0u tr\u1EEF" })
+              c.status === "archived" && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Badge, { tone: "gray", children: "L\u01B0u tr\u1EEF" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { children: c.schoolYear }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { className: "font-mono font-bold tracking-wider", children: c.joinCode }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { children: c.memberCount }),
-            user.role === "admin" && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { children: c.teacherName }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { className: "text-right", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("a", { href: `/giao-vien/lop/${c.id}`, className: buttonClass("quiet", "sm"), children: "M\u1EDF l\u1EDBp" }) })
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { children: c.schoolYear }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { className: "font-mono font-bold tracking-wider", children: c.joinCode }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { children: c.memberCount }),
+            user.role === "admin" && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { children: c.teacherName }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { className: "text-right", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("a", { href: `/giao-vien/lop/${c.id}`, className: buttonClass("quiet", "sm"), children: "M\u1EDF l\u1EDBp" }) })
           ] }, c.id)) })
-        ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(EmptyState, { title: "Ch\u01B0a c\xF3 l\u1EDBp n\xE0o", children: [
+        ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(EmptyState, { title: "Ch\u01B0a c\xF3 l\u1EDBp n\xE0o", children: [
           "T\u1EA1o l\u1EDBp \u1EDF khung b\xEAn c\u1EA1nh, v\xED d\u1EE5 8A1 n\u0103m h\u1ECDc ",
           currentSchoolYear(),
           "."
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "h-fit p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h2", { className: "text-lg font-extrabold", children: "T\u1EA1o l\u1EDBp m\u1EDBi" }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(ErrorList, { errors }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(PostForm, { action: "/giao-vien/lop", className: "space-y-3", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Field, { label: "T\xEAn l\u1EDBp", name: "name", required: true, maxLength: 40, placeholder: "8A1", defaultValue: values?.name }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Field, { label: "N\u0103m h\u1ECDc", name: "school_year", required: true, defaultValue: values?.schoolYear ?? currentSchoolYear(), hint: "D\u1EA1ng 2026-2027" }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Select, { label: "Kh\u1ED1i", name: "grade_level", defaultValue: values?.gradeLevel ?? "8", options: [6, 7, 8, 9].map((g) => ({ value: g, label: `L\u1EDBp ${g}` })) }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Button, { className: "w-full", children: "T\u1EA1o l\u1EDBp" })
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "h-fit p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h2", { className: "text-lg font-extrabold", children: "T\u1EA1o l\u1EDBp m\u1EDBi" }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(ErrorList, { errors }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(PostForm, { action: "/giao-vien/lop", className: "space-y-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Field, { label: "T\xEAn l\u1EDBp", name: "name", required: true, maxLength: 40, placeholder: "8A1", defaultValue: values?.name }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Field, { label: "N\u0103m h\u1ECDc", name: "school_year", required: true, defaultValue: values?.schoolYear ?? currentSchoolYear(), hint: "D\u1EA1ng 2026-2027" }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Select, { label: "Kh\u1ED1i", name: "grade_level", defaultValue: values?.gradeLevel ?? "8", options: [6, 7, 8, 9].map((g) => ({ value: g, label: `L\u1EDBp ${g}` })) }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Button, { className: "w-full", children: "T\u1EA1o l\u1EDBp" })
           ] })
         ] })
       ] })
@@ -34383,116 +36077,116 @@ async function classDetailPage(ctx, opts = {}) {
   return page(
     ctx,
     { title: `L\u1EDBp ${c.name}`, layout: "dashboard", section: "classes", status: opts.errors ? 422 : 200 },
-    /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(import_jsx_runtime24.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(import_jsx_runtime26.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
         PageTitle,
         {
           crumbs: [{ href: "/giao-vien/lop", label: "L\u1EDBp h\u1ECDc" }, { label: c.name }],
           title: `L\u1EDBp ${c.name}`,
           sub: `N\u0103m h\u1ECDc ${c.schoolYear} \xB7 ${c.memberCount} h\u1ECDc sinh \xB7 gi\xE1o vi\xEAn ${c.teacherName}`,
-          actions: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("a", { href: `/giao-vien/thong-ke?lop=${c.id}`, className: buttonClass("secondary", "md"), children: "Th\u1ED1ng k\xEA l\u1EDBp" })
+          actions: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("a", { href: `/giao-vien/thong-ke?lop=${c.id}`, className: buttonClass("secondary", "md"), children: "Th\u1ED1ng k\xEA l\u1EDBp" })
         }
       ),
-      opts.created && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Notice, { tone: "success", className: "mb-5", children: [
+      opts.created && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Notice, { tone: "success", className: "mb-5", children: [
         "\u0110\xE3 t\u1EA1o t\xE0i kho\u1EA3n cho ",
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { children: opts.created.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("strong", { children: opts.created.name }),
         ". T\xEAn \u0111\u0103ng nh\u1EADp: ",
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { className: "font-mono", children: opts.created.username }),
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("strong", { className: "font-mono", children: opts.created.username }),
         " \u2013 m\u1EADt kh\u1EA9u t\u1EA1m:",
         " ",
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("strong", { className: "font-mono", children: opts.created.password }),
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("strong", { className: "font-mono", children: opts.created.password }),
         ". H\xE3y ghi l\u1EA1i v\xE0 \u0111\u01B0a cho h\u1ECDc sinh; m\u1EADt kh\u1EA9u n\xE0y s\u1EBD kh\xF4ng hi\u1EC3n th\u1ECB l\u1EA1i."
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "min-w-0 space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "flex flex-wrap items-center justify-between gap-4 p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "text-[14px] text-ink-3", children: "M\xE3 l\u1EDBp \u2013 h\u1ECDc sinh nh\u1EADp \u1EDF trang c\xE1 nh\xE2n ho\u1EB7c khi \u0111\u0103ng k\xFD" }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "mt-1 font-mono text-[34px] font-extrabold tracking-[0.18em] text-tim-700", children: c.joinCode })
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "min-w-0 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "flex flex-wrap items-center justify-between gap-4 p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "text-[14px] text-ink-3", children: "M\xE3 l\u1EDBp \u2013 h\u1ECDc sinh nh\u1EADp \u1EDF trang c\xE1 nh\xE2n ho\u1EB7c khi \u0111\u0103ng k\xFD" }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "mt-1 font-mono text-[34px] font-extrabold tracking-[0.18em] text-tim-700", children: c.joinCode })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "flex gap-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("button", { type: "button", "data-copy": c.joinCode, className: buttonClass("secondary", "sm"), children: "Sao ch\xE9p m\xE3" }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(PostForm, { action: `/giao-vien/lop/${c.id}/ma-moi`, confirm: "T\u1EA1o m\xE3 l\u1EDBp m\u1EDBi? M\xE3 c\u0169 s\u1EBD kh\xF4ng d\xF9ng \u0111\u01B0\u1EE3c n\u1EEFa.", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("button", { className: buttonClass("quiet", "sm"), children: "T\u1EA1o m\xE3 m\u1EDBi" }) })
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "flex gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("button", { type: "button", "data-copy": c.joinCode, className: buttonClass("secondary", "sm"), children: "Sao ch\xE9p m\xE3" }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(PostForm, { action: `/giao-vien/lop/${c.id}/ma-moi`, confirm: "T\u1EA1o m\xE3 l\u1EDBp m\u1EDBi? M\xE3 c\u0169 s\u1EBD kh\xF4ng d\xF9ng \u0111\u01B0\u1EE3c n\u1EEFa.", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("button", { className: buttonClass("quiet", "sm"), children: "T\u1EA1o m\xE3 m\u1EDBi" }) })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Panel, { className: "overflow-x-auto", children: members.length ? /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("table", { className: "data-table min-w-[720px]", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "H\u1ECDc sinh" }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "B\xE0i h\u1ECDc xong" }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "C\xE2u \u0111\xE3 l\xE0m" }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "T\u1EC9 l\u1EC7 \u0111\xFAng" }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "XP" }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "\u0110\u0103ng nh\u1EADp g\u1EA7n nh\u1EA5t" }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", {})
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Panel, { className: "overflow-x-auto", children: members.length ? /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("table", { className: "data-table min-w-[720px]", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "H\u1ECDc sinh" }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "B\xE0i h\u1ECDc xong" }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "C\xE2u \u0111\xE3 l\xE0m" }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "T\u1EC9 l\u1EC7 \u0111\xFAng" }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "XP" }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "\u0110\u0103ng nh\u1EADp g\u1EA7n nh\u1EA5t" }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", {})
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("tbody", { children: members.map((m) => /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("td", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "font-semibold", children: m.fullName }),
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "font-mono text-[12px] text-ink-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("tbody", { children: members.map((m) => /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("td", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "font-semibold", children: m.fullName }),
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "font-mono text-[12px] text-ink-3", children: [
                   "@",
                   m.username
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { children: m.lessonsCompleted }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { children: m.answered }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { children: m.answered ? `${percent(m.correct, m.answered)}%` : "\u2013" }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { className: "font-semibold text-tim-700", children: m.xp }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { className: "text-[13px] text-ink-3", children: m.lastLoginAt ? formatDateTime(m.lastLoginAt) : "Ch\u01B0a \u0111\u0103ng nh\u1EADp" }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("td", { className: "whitespace-nowrap text-right", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(PostForm, { action: `/giao-vien/lop/${c.id}/dat-lai-mat-khau`, className: "inline", confirm: `\u0110\u1EB7t l\u1EA1i m\u1EADt kh\u1EA9u cho ${m.fullName}?`, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("input", { type: "hidden", name: "student_id", value: m.id }),
-                  /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("button", { className: buttonClass("quiet", "sm"), children: "\u0110\u1EB7t l\u1EA1i m\u1EADt kh\u1EA9u" })
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { children: m.lessonsCompleted }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { children: m.answered }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { children: m.answered ? `${percent(m.correct, m.answered)}%` : "\u2013" }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { className: "font-semibold text-tim-700", children: m.xp }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { className: "text-[13px] text-ink-3", children: m.lastLoginAt ? formatDateTime(m.lastLoginAt) : "Ch\u01B0a \u0111\u0103ng nh\u1EADp" }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("td", { className: "whitespace-nowrap text-right", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(PostForm, { action: `/giao-vien/lop/${c.id}/dat-lai-mat-khau`, className: "inline", confirm: `\u0110\u1EB7t l\u1EA1i m\u1EADt kh\u1EA9u cho ${m.fullName}?`, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("input", { type: "hidden", name: "student_id", value: m.id }),
+                  /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("button", { className: buttonClass("quiet", "sm"), children: "\u0110\u1EB7t l\u1EA1i m\u1EADt kh\u1EA9u" })
                 ] }),
                 " ",
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(PostForm, { action: `/giao-vien/lop/${c.id}/xoa-hoc-sinh`, className: "inline", confirm: `X\xF3a ${m.fullName} kh\u1ECFi l\u1EDBp? T\xE0i kho\u1EA3n v\xE0 k\u1EBFt qu\u1EA3 h\u1ECDc t\u1EADp v\u1EABn \u0111\u01B0\u1EE3c gi\u1EEF.`, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("input", { type: "hidden", name: "student_id", value: m.id }),
-                  /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("button", { className: buttonClass("ghost", "sm", "text-le hover:bg-le-soft"), children: "X\xF3a kh\u1ECFi l\u1EDBp" })
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(PostForm, { action: `/giao-vien/lop/${c.id}/xoa-hoc-sinh`, className: "inline", confirm: `X\xF3a ${m.fullName} kh\u1ECFi l\u1EDBp? T\xE0i kho\u1EA3n v\xE0 k\u1EBFt qu\u1EA3 h\u1ECDc t\u1EADp v\u1EABn \u0111\u01B0\u1EE3c gi\u1EEF.`, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("input", { type: "hidden", name: "student_id", value: m.id }),
+                  /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("button", { className: buttonClass("ghost", "sm", "text-le hover:bg-le-soft"), children: "X\xF3a kh\u1ECFi l\u1EDBp" })
                 ] })
               ] })
             ] }, m.id)) })
-          ] }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "p-5", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(EmptyState, { title: "L\u1EDBp ch\u01B0a c\xF3 h\u1ECDc sinh", children: "\u0110\u01B0a m\xE3 l\u1EDBp cho h\u1ECDc sinh, ho\u1EB7c t\u1EA1o t\xE0i kho\u1EA3n h\u1ECDc sinh \u1EDF khung b\xEAn c\u1EA1nh." }) }) })
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "p-5", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(EmptyState, { title: "L\u1EDBp ch\u01B0a c\xF3 h\u1ECDc sinh", children: "\u0110\u01B0a m\xE3 l\u1EDBp cho h\u1ECDc sinh, ho\u1EB7c t\u1EA1o t\xE0i kho\u1EA3n h\u1ECDc sinh \u1EDF khung b\xEAn c\u1EA1nh." }) }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h2", { className: "text-lg font-extrabold", children: "T\u1EA1o t\xE0i kho\u1EA3n h\u1ECDc sinh" }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(ErrorList, { errors: opts.errors }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(PostForm, { action: `/giao-vien/lop/${c.id}/them-hoc-sinh`, className: "space-y-3", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Field, { label: "H\u1ECD v\xE0 t\xEAn", name: "full_name", required: true, maxLength: 120 }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Field, { label: "T\xEAn \u0111\u0103ng nh\u1EADp", name: "username", required: true, maxLength: 40, hint: "Ch\u1EEF th\u01B0\u1EDDng kh\xF4ng d\u1EA5u, s\u1ED1, d\u1EA5u ch\u1EA5m. VD: an.nguyen" }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Field, { label: "M\u1EADt kh\u1EA9u (\u0111\u1EC3 tr\u1ED1ng \u0111\u1EC3 t\u1EA1o t\u1EF1 \u0111\u1ED9ng)", name: "password", maxLength: 128 }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Button, { className: "w-full", children: "T\u1EA1o v\xE0 th\xEAm v\xE0o l\u1EDBp" })
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h2", { className: "text-lg font-extrabold", children: "T\u1EA1o t\xE0i kho\u1EA3n h\u1ECDc sinh" }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(ErrorList, { errors: opts.errors }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(PostForm, { action: `/giao-vien/lop/${c.id}/them-hoc-sinh`, className: "space-y-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Field, { label: "H\u1ECD v\xE0 t\xEAn", name: "full_name", required: true, maxLength: 120 }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Field, { label: "T\xEAn \u0111\u0103ng nh\u1EADp", name: "username", required: true, maxLength: 40, hint: "Ch\u1EEF th\u01B0\u1EDDng kh\xF4ng d\u1EA5u, s\u1ED1, d\u1EA5u ch\u1EA5m. VD: an.nguyen" }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Field, { label: "M\u1EADt kh\u1EA9u (\u0111\u1EC3 tr\u1ED1ng \u0111\u1EC3 t\u1EA1o t\u1EF1 \u0111\u1ED9ng)", name: "password", maxLength: 128 }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Button, { className: "w-full", children: "T\u1EA1o v\xE0 th\xEAm v\xE0o l\u1EDBp" })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h2", { className: "text-lg font-extrabold", children: "Th\xEAm h\u1ECDc sinh \u0111\xE3 c\xF3 t\xE0i kho\u1EA3n" }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(PostForm, { action: `/giao-vien/lop/${c.id}/them-co-san`, className: "mt-3 flex items-end gap-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Field, { label: "T\xEAn \u0111\u0103ng nh\u1EADp", name: "username", required: true, maxLength: 40, className: "flex-1" }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Button, { variant: "secondary", className: "mb-[1px]", children: "Th\xEAm" })
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h2", { className: "text-lg font-extrabold", children: "Th\xEAm h\u1ECDc sinh \u0111\xE3 c\xF3 t\xE0i kho\u1EA3n" }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(PostForm, { action: `/giao-vien/lop/${c.id}/them-co-san`, className: "mt-3 flex items-end gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Field, { label: "T\xEAn \u0111\u0103ng nh\u1EADp", name: "username", required: true, maxLength: 40, className: "flex-1" }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Button, { variant: "secondary", className: "mb-[1px]", children: "Th\xEAm" })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h2", { className: "text-lg font-extrabold", children: "T\xEDch c\u1EF1c nh\u1EA5t 7 ng\xE0y qua" }),
-            top.length ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("ol", { className: "mt-2 space-y-1.5 text-[15px]", children: top.map((t) => /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("li", { className: "flex justify-between", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("span", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h2", { className: "text-lg font-extrabold", children: "T\xEDch c\u1EF1c nh\u1EA5t 7 ng\xE0y qua" }),
+            top.length ? /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("ol", { className: "mt-2 space-y-1.5 text-[15px]", children: top.map((t) => /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("li", { className: "flex justify-between", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("span", { children: [
                 t.rank,
                 ". ",
                 t.fullName
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("span", { className: "font-semibold text-tim-700", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("span", { className: "font-semibold text-tim-700", children: [
                 t.xp,
                 " XP"
               ] })
-            ] }, t.userId)) }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", { className: "mt-2 text-[14px] text-ink-2", children: "Ch\u01B0a c\xF3 ho\u1EA1t \u0111\u1ED9ng trong tu\u1EA7n." })
+            ] }, t.userId)) }) : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", { className: "mt-2 text-[14px] text-ink-2", children: "Ch\u01B0a c\xF3 ho\u1EA1t \u0111\u1ED9ng trong tu\u1EA7n." })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("h2", { className: "text-lg font-extrabold", children: "Th\xF4ng tin l\u1EDBp" }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(PostForm, { action: `/giao-vien/lop/${c.id}/sua`, className: "mt-3 space-y-3", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Field, { label: "T\xEAn l\u1EDBp", name: "name", required: true, defaultValue: c.name, maxLength: 40 }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Field, { label: "N\u0103m h\u1ECDc", name: "school_year", required: true, defaultValue: c.schoolYear }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Select, { label: "Tr\u1EA1ng th\xE1i", name: "status", defaultValue: c.status, options: [{ value: "active", label: "\u0110ang h\u1ECDc" }, { value: "archived", label: "L\u01B0u tr\u1EEF (kh\xF4ng nh\u1EADn h\u1ECDc sinh m\u1EDBi)" }] }),
-              /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Button, { variant: "secondary", children: "L\u01B0u th\xF4ng tin l\u1EDBp" })
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h2", { className: "text-lg font-extrabold", children: "Th\xF4ng tin l\u1EDBp" }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(PostForm, { action: `/giao-vien/lop/${c.id}/sua`, className: "mt-3 space-y-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Field, { label: "T\xEAn l\u1EDBp", name: "name", required: true, defaultValue: c.name, maxLength: 40 }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Field, { label: "N\u0103m h\u1ECDc", name: "school_year", required: true, defaultValue: c.schoolYear }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Select, { label: "Tr\u1EA1ng th\xE1i", name: "status", defaultValue: c.status, options: [{ value: "active", label: "\u0110ang h\u1ECDc" }, { value: "archived", label: "L\u01B0u tr\u1EEF (kh\xF4ng nh\u1EADn h\u1ECDc sinh m\u1EDBi)" }] }),
+              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Button, { variant: "secondary", children: "L\u01B0u th\xF4ng tin l\u1EDBp" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("p", { className: "mt-3 text-[12px] text-ink-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("p", { className: "mt-3 text-[12px] text-ink-3", children: [
               "T\u1EA1o ng\xE0y ",
               formatDate(c.createdAt)
             ] })
@@ -34563,10 +36257,10 @@ async function studentsPage(ctx) {
   return page(
     ctx,
     { title: "H\u1ECDc sinh", layout: "dashboard", section: "students" },
-    /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(import_jsx_runtime24.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(PageTitle, { title: "H\u1ECDc sinh", sub: "H\u1ECDc sinh trong c\xE1c l\u1EDBp th\u1EA7y/c\xF4 qu\u1EA3n l\xFD, k\xE8m ti\u1EBFn \u0111\u1ED9 v\xE0 k\u1EBFt qu\u1EA3 luy\u1EC7n t\u1EADp." }),
-      /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("form", { method: "get", className: "mb-4 flex max-w-md gap-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(import_jsx_runtime26.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(PageTitle, { title: "H\u1ECDc sinh", sub: "H\u1ECDc sinh trong c\xE1c l\u1EDBp th\u1EA7y/c\xF4 qu\u1EA3n l\xFD, k\xE8m ti\u1EBFn \u0111\u1ED9 v\xE0 k\u1EBFt qu\u1EA3 luy\u1EC7n t\u1EADp." }),
+      /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("form", { method: "get", className: "mb-4 flex max-w-md gap-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
           "input",
           {
             name: "q",
@@ -34576,36 +36270,36 @@ async function studentsPage(ctx) {
             className: "w-full rounded-xl border border-line-2 bg-white px-3.5 py-2.5 text-[15px] focus:border-tim-500 focus:outline-none"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("button", { className: buttonClass("secondary", "md"), children: "T\xECm" })
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("button", { className: buttonClass("secondary", "md"), children: "T\xECm" })
       ] }),
-      rows.length ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("table", { className: "data-table min-w-[760px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("tr", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "H\u1ECDc sinh" }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "L\u1EDBp" }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "B\xE0i h\u1ECDc xong" }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "C\xE2u \u0111\xE3 l\xE0m" }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "T\u1EC9 l\u1EC7 \u0111\xFAng" }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "XP" }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", { children: "Tr\u1EA1ng th\xE1i" }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("th", {})
+      rows.length ? /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("table", { className: "data-table min-w-[760px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "H\u1ECDc sinh" }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "L\u1EDBp" }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "B\xE0i h\u1ECDc xong" }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "C\xE2u \u0111\xE3 l\xE0m" }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "T\u1EC9 l\u1EC7 \u0111\xFAng" }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "XP" }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "Tr\u1EA1ng th\xE1i" }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", {})
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("tbody", { children: rows.map((s) => /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("tr", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("td", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "font-semibold", children: s.fullName }),
-            /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "font-mono text-[12px] text-ink-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("tbody", { children: rows.map((s) => /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("td", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "font-semibold", children: s.fullName }),
+            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "font-mono text-[12px] text-ink-3", children: [
               "@",
               s.username
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { children: s.classes }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { children: s.lessonsCompleted }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { children: s.answered }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { children: s.answered ? `${percent(s.correct, s.answered)}%` : "\u2013" }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { className: "font-semibold text-tim-700", children: s.xp }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { children: s.status === "active" ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Badge, { tone: "tre", children: "Ho\u1EA1t \u0111\u1ED9ng" }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Badge, { tone: "le", children: "B\u1ECB kh\xF3a" }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("td", { className: "text-right", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(PostForm, { action: `/giao-vien/hoc-sinh/${s.id}/dat-lai-mat-khau`, confirm: `\u0110\u1EB7t l\u1EA1i m\u1EADt kh\u1EA9u cho ${s.fullName}?`, children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("button", { className: buttonClass("quiet", "sm"), children: "\u0110\u1EB7t l\u1EA1i m\u1EADt kh\u1EA9u" }) }) })
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { children: s.classes }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { children: s.lessonsCompleted }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { children: s.answered }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { children: s.answered ? `${percent(s.correct, s.answered)}%` : "\u2013" }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { className: "font-semibold text-tim-700", children: s.xp }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { children: s.status === "active" ? /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Badge, { tone: "tre", children: "Ho\u1EA1t \u0111\u1ED9ng" }) : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Badge, { tone: "le", children: "B\u1ECB kh\xF3a" }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { className: "text-right", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(PostForm, { action: `/giao-vien/hoc-sinh/${s.id}/dat-lai-mat-khau`, confirm: `\u0110\u1EB7t l\u1EA1i m\u1EADt kh\u1EA9u cho ${s.fullName}?`, children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("button", { className: buttonClass("quiet", "sm"), children: "\u0110\u1EB7t l\u1EA1i m\u1EADt kh\u1EA9u" }) }) })
         ] }, s.id)) })
-      ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(EmptyState, { title: q ? "Kh\xF4ng t\xECm th\u1EA5y h\u1ECDc sinh ph\xF9 h\u1EE3p" : "Ch\u01B0a c\xF3 h\u1ECDc sinh", children: q ? "Th\u1EED t\u1EEB kh\xF3a kh\xE1c." : "H\u1ECDc sinh xu\u1EA5t hi\u1EC7n \u1EDF \u0111\xE2y khi tham gia l\u1EDBp c\u1EE7a th\u1EA7y/c\xF4." })
+      ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(EmptyState, { title: q ? "Kh\xF4ng t\xECm th\u1EA5y h\u1ECDc sinh ph\xF9 h\u1EE3p" : "Ch\u01B0a c\xF3 h\u1ECDc sinh", children: q ? "Th\u1EED t\u1EEB kh\xF3a kh\xE1c." : "H\u1ECDc sinh xu\u1EA5t hi\u1EC7n \u1EDF \u0111\xE2y khi tham gia l\u1EDBp c\u1EE7a th\u1EA7y/c\xF4." })
     ] })
   );
 }
@@ -34613,64 +36307,503 @@ async function studentResetAction(ctx) {
   return resetStudentPassword(ctx, uuidParam(ctx, "id"), "/giao-vien/hoc-sinh");
 }
 
+// src/domain/content-admin.ts
+init_richtext();
+var ContentError = class extends Error {
+};
+var STATUS = (v) => v === "draft" ? "draft" : "published";
+function mathErrors(fields) {
+  const out = [];
+  for (const [name, text2] of fields) if (text2) findMathErrors(text2).forEach((e) => out.push(`${name}: ${e}`));
+  return out;
+}
+async function renumberChapters(t, textbookId) {
+  const rows = await t.many(sql`
+    select c.id from chapters c join semesters s on s.id = c.semester_id where c.textbook_id = ${textbookId} order by s.number, c.sort_order, c.id`);
+  for (const [i2, r4] of rows.entries()) await t.exec(sql`update chapters set sort_order = ${i2 + 1} where id = ${r4.id}`);
+}
+async function createChapter(db, textbookId, input, userId) {
+  return db.tx(async (t) => {
+    const sem = await t.one(sql`select 1 from semesters where id = ${input.semesterId} and textbook_id = ${textbookId}`);
+    if (!sem) throw new ContentError("H\u1ECDc k\xEC kh\xF4ng h\u1EE3p l\u1EC7.");
+    if (await t.one(sql`select 1 from chapters where textbook_id = ${textbookId} and code = ${input.code}`)) {
+      throw new ContentError(`\u0110\xE3 c\xF3 ch\u01B0\u01A1ng mang m\xE3 "${input.code}".`);
+    }
+    const row = await t.one(sql`
+      insert into chapters (textbook_id, semester_id, code, title, description, kind, sort_order, status, verify_status, verify_note, updated_by)
+      values (${textbookId}, ${input.semesterId}, ${input.code}, ${input.title}, ${input.description}, ${input.kind}, 32000, 'draft',
+        'unverified', 'Chương do giáo viên thêm – cần đối chiếu với SGK.', ${userId})
+      returning id`);
+    await renumberChapters(t, textbookId);
+    return row.id;
+  });
+}
+async function moveChapter(db, chapterId, dir) {
+  await db.tx(async (t) => {
+    const c = await t.one(sql`select textbook_id, semester_id from chapters where id = ${chapterId}`);
+    if (!c) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y ch\u01B0\u01A1ng.");
+    const rows = await t.many(sql`select id from chapters where semester_id = ${c.semesterId} order by sort_order, id`);
+    const i2 = rows.findIndex((r4) => r4.id === chapterId);
+    const j = i2 + dir;
+    if (i2 < 0 || j < 0 || j >= rows.length) return;
+    const ids = rows.map((r4) => r4.id);
+    [ids[i2], ids[j]] = [ids[j], ids[i2]];
+    for (const [k, id] of ids.entries()) await t.exec(sql`update chapters set sort_order = ${k + 1} where id = ${id}`);
+    await renumberChapters(t, c.textbookId);
+  });
+}
+async function updateChapter(db, chapterId, u, userId) {
+  const c = await db.one(sql`select textbook_id from chapters where id = ${chapterId}`);
+  if (!c) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y ch\u01B0\u01A1ng.");
+  if (await db.one(sql`select 1 from chapters where textbook_id = ${c.textbookId} and code = ${u.code} and id <> ${chapterId}`)) {
+    throw new ContentError(`\u0110\xE3 c\xF3 ch\u01B0\u01A1ng kh\xE1c mang m\xE3 "${u.code}".`);
+  }
+  await db.exec(sql`
+    update chapters set code = ${u.code}, title = ${u.title}, description = ${u.description}, objectives = ${u.objectives},
+      key_points = ${u.keyPoints}, formulas = ${u.formulas}, status = ${u.status}, verify_status = ${u.verifyStatus},
+      verify_note = ${u.verifyNote}, updated_at = now(), updated_by = ${userId}
+    where id = ${chapterId}`);
+}
+async function setChapterStatus(db, chapterId, status) {
+  await db.exec(sql`update chapters set status = ${STATUS(status)}, updated_at = now() where id = ${chapterId}`);
+}
+async function uniqueLessonSlug(t, textbookId, base) {
+  let slug = base;
+  for (let k = 2; await t.one(sql`select 1 from lessons where textbook_id = ${textbookId} and slug = ${slug}`); k++) slug = `${base}-${k}`;
+  return slug;
+}
+async function createLesson(db, chapterId, input, userId) {
+  return db.tx(async (t) => {
+    const c = await t.one(sql`select textbook_id from chapters where id = ${chapterId}`);
+    if (!c) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y ch\u01B0\u01A1ng.");
+    if (input.code && await t.one(sql`select 1 from lessons where textbook_id = ${c.textbookId} and code = ${input.code}`)) {
+      throw new ContentError(`M\xE3 b\xE0i "${input.code}" \u0111\xE3 \u0111\u01B0\u1EE3c d\xF9ng.`);
+    }
+    const base = slugify(input.kind === "lesson" && input.number ? `bai ${input.number} ${input.title}` : input.title);
+    const slug = await uniqueLessonSlug(t, c.textbookId, base);
+    const row = await t.one(sql`
+      insert into lessons (textbook_id, chapter_id, number, slug, title, kind, periods, status, sort_order, code, verify_status, verify_note, updated_by)
+      values (${c.textbookId}, ${chapterId}, ${input.number}, ${slug}, ${input.title}, ${input.kind}, ${input.periods}, ${input.status},
+        (select coalesce(max(sort_order), 0) + 1 from lessons where chapter_id = ${chapterId}), ${input.code},
+        'unverified', 'Mục do giáo viên thêm – cần đối chiếu với SGK.', ${userId})
+      returning id`);
+    return { id: row.id, slug };
+  });
+}
+async function moveLesson(db, lessonId, dir) {
+  await db.tx(async (t) => {
+    const l = await t.one(sql`select chapter_id from lessons where id = ${lessonId}`);
+    if (!l) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y b\xE0i.");
+    const rows = await t.many(sql`select id from lessons where chapter_id = ${l.chapterId} order by sort_order, id`);
+    const i2 = rows.findIndex((r4) => r4.id === lessonId);
+    const j = i2 + dir;
+    if (i2 < 0 || j < 0 || j >= rows.length) return;
+    const ids = rows.map((r4) => r4.id);
+    [ids[i2], ids[j]] = [ids[j], ids[i2]];
+    for (const [k, id] of ids.entries()) await t.exec(sql`update lessons set sort_order = ${k + 1} where id = ${id}`);
+  });
+}
+async function setLessonStatus(db, lessonId, status, userId) {
+  await db.exec(sql`update lessons set status = ${STATUS(status)}, updated_at = now(), updated_by = ${userId} where id = ${lessonId}`);
+}
+async function updateLessonMeta(db, lessonId, m, userId) {
+  const l = await db.one(sql`select textbook_id from lessons where id = ${lessonId}`);
+  if (!l) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y b\xE0i.");
+  if (m.code && await db.one(sql`select 1 from lessons where textbook_id = ${l.textbookId} and code = ${m.code} and id <> ${lessonId}`)) {
+    throw new ContentError(`M\xE3 b\xE0i "${m.code}" \u0111\xE3 \u0111\u01B0\u1EE3c d\xF9ng cho b\xE0i kh\xE1c.`);
+  }
+  await db.exec(sql`
+    update lessons set code = ${m.code}, number = ${m.number}, difficulty = ${m.difficulty}, objectives = ${m.objectives},
+      prerequisites = ${m.prerequisites}, concepts = ${m.concepts}, formulas = ${m.formulas}, properties = ${m.properties},
+      theorems = ${m.theorems}, verify_status = ${m.verifyStatus}, verify_note = ${m.verifyNote}, updated_at = now(), updated_by = ${userId}
+    where id = ${lessonId}`);
+}
+async function nextCode(t, table, prefix) {
+  const rows = await t.many(
+    table === "themes" ? sql`select code from themes where code like ${prefix + "%"}` : sql`select code from topics where code like ${prefix + "%"}`
+  );
+  const used = new Set(rows.map((r4) => r4.code));
+  let k = 1;
+  while (used.has(`${prefix}${k}`)) k++;
+  return `${prefix}${k}`;
+}
+async function createTheme(db, lessonId, title, description, status) {
+  return db.tx(async (t) => {
+    const l = await t.one(sql`select code from lessons where id = ${lessonId}`);
+    if (!l) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y b\xE0i.");
+    const code = l.code ? await nextCode(t, "themes", `${l.code}.CD`) : null;
+    const row = await t.one(sql`
+      insert into themes (lesson_id, code, title, description, status, sort_order)
+      values (${lessonId}, ${code}, ${title}, ${description}, ${STATUS(status)}, (select coalesce(max(sort_order), 0) + 1 from themes where lesson_id = ${lessonId}))
+      returning id`);
+    return row.id;
+  });
+}
+async function updateTheme(db, lessonId, themeId, title, description, status) {
+  const n = await db.exec(sql`
+    update themes set title = ${title}, description = ${description}, status = ${STATUS(status)}, updated_at = now()
+    where id = ${themeId} and lesson_id = ${lessonId}`);
+  if (!n) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y ch\u1EE7 \u0111\u1EC1.");
+}
+async function deleteTheme(db, lessonId, themeId) {
+  await db.exec(sql`delete from themes where id = ${themeId} and lesson_id = ${lessonId}`);
+}
+async function moveTheme(db, lessonId, themeId, dir) {
+  await db.tx(async (t) => {
+    const rows = await t.many(sql`select id from themes where lesson_id = ${lessonId} order by sort_order, id`);
+    const i2 = rows.findIndex((r4) => r4.id === themeId);
+    const j = i2 + dir;
+    if (i2 < 0 || j < 0 || j >= rows.length) return;
+    const ids = rows.map((r4) => r4.id);
+    [ids[i2], ids[j]] = [ids[j], ids[i2]];
+    for (const [k, id] of ids.entries()) await t.exec(sql`update themes set sort_order = ${k + 1} where id = ${id}`);
+  });
+}
+async function uniqueTopicSlug(t, lessonId, base, exceptId) {
+  let slug = base;
+  for (let k = 2; await t.one(sql`select 1 from topics where lesson_id = ${lessonId} and slug = ${slug} and id <> ${exceptId ?? 0}`); k++) slug = `${base}-${k}`;
+  return slug;
+}
+async function checkTheme(t, lessonId, themeId) {
+  if (themeId && !await t.one(sql`select 1 from themes where id = ${themeId} and lesson_id = ${lessonId}`)) {
+    throw new ContentError("Ch\u1EE7 \u0111\u1EC1 kh\xF4ng thu\u1ED9c b\xE0i n\xE0y.");
+  }
+}
+async function createTopic(db, lessonId, themeId, title, userId) {
+  return db.tx(async (t) => {
+    const l = await t.one(sql`select code from lessons where id = ${lessonId}`);
+    if (!l) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y b\xE0i.");
+    await checkTheme(t, lessonId, themeId);
+    const code = l.code ? await nextCode(t, "topics", `${l.code}.D`) : null;
+    const slug = await uniqueTopicSlug(t, lessonId, slugify(title), null);
+    const row = await t.one(sql`
+      insert into topics (lesson_id, theme_id, code, slug, title, sort_order, status, updated_by)
+      values (${lessonId}, ${themeId}, ${code}, ${slug}, ${title}, (select coalesce(max(sort_order), 0) + 1 from topics where lesson_id = ${lessonId}), 'draft', ${userId})
+      returning id`);
+    return row.id;
+  });
+}
+async function updateTopic(db, topicId, u, userId) {
+  await db.tx(async (t) => {
+    const tp = await t.one(sql`select lesson_id from topics where id = ${topicId}`);
+    if (!tp) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y d\u1EA1ng to\xE1n.");
+    await checkTheme(t, tp.lessonId, u.themeId);
+    const slug = await uniqueTopicSlug(t, tp.lessonId, slugify(u.slug || u.title), topicId);
+    await t.exec(sql`
+      update topics set theme_id = ${u.themeId}, title = ${u.title}, slug = ${slug}, levels = ${u.levels}::smallint[], status = ${u.status},
+        knowledge = ${u.knowledge}, signs = ${u.signs}, method = ${u.method}, steps = ${u.steps}, mistakes = ${u.mistakes},
+        example = ${u.example}, example_solution = ${u.exampleSolution}, updated_at = now(), updated_by = ${userId}
+      where id = ${topicId}`);
+  });
+}
+async function deleteTopic(db, topicId) {
+  await db.exec(sql`delete from topics where id = ${topicId}`);
+}
+async function moveTopic(db, topicId, dir) {
+  await db.tx(async (t) => {
+    const tp = await t.one(sql`select lesson_id, theme_id from topics where id = ${topicId}`);
+    if (!tp) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y d\u1EA1ng to\xE1n.");
+    const rows = await t.many(sql`
+      select t.id, t.theme_id from topics t left join themes th on th.id = t.theme_id
+      where t.lesson_id = ${tp.lessonId} order by th.sort_order nulls last, t.sort_order, t.id`);
+    const i2 = rows.findIndex((r4) => r4.id === topicId);
+    let j = i2 + dir;
+    while (j >= 0 && j < rows.length && rows[j].themeId !== tp.themeId) j += dir;
+    if (i2 < 0 || j < 0 || j >= rows.length) return;
+    [rows[i2], rows[j]] = [rows[j], rows[i2]];
+    for (const [k, r4] of rows.entries()) await t.exec(sql`update topics set sort_order = ${k + 1} where id = ${r4.id}`);
+  });
+}
+async function setTopicStatus(db, topicId, status, userId) {
+  await db.exec(sql`update topics set status = ${STATUS(status)}, updated_at = now(), updated_by = ${userId} where id = ${topicId}`);
+}
+
 // src/server/handlers/teacher/content.tsx
 init_richtext();
-var import_jsx_runtime25 = __toESM(require_jsx_runtime(), 1);
-async function curriculumAdminPage(ctx) {
+var import_jsx_runtime27 = __toESM(require_jsx_runtime(), 1);
+var STATUS_OPTIONS = [
+  { value: "published", label: "Xu\u1EA5t b\u1EA3n \u2013 h\u1ECDc sinh th\u1EA5y" },
+  { value: "draft", label: "\u1EA8n \u2013 ch\u1EC9 gi\xE1o vi\xEAn th\u1EA5y" }
+];
+var VERIFY_OPTIONS = ["verified", "needs_review", "unverified"].map((v) => ({ value: v, label: VERIFY_LABELS[v] }));
+var RICH_HINT = 'C\xF4ng th\u1EE9c c\xF9ng d\xF2ng \\( \u2026 \\), d\xF2ng ri\xEAng \\[ \u2026 \\]. D\xF2ng b\u1EAFt \u0111\u1EA7u b\u1EB1ng "- " th\xE0nh danh s\xE1ch. **ch\u1EEF \u0111\u1EADm**.';
+var verify = (v) => ["verified", "needs_review", "unverified"].includes(v) ? v : "unverified";
+function ActionButton({ action, fields, label, children, confirm, danger, disabled }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action, confirm, children: [
+    Object.entries(fields).map(([k, v]) => /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: k, value: v }, k)),
+    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("button", { className: buttonClass("quiet", "sm", cx("px-2", danger && "text-le hover:bg-le-soft")), "aria-label": label, title: label, disabled, children })
+  ] });
+}
+function RichInput({ name, label, value, rows = 3, hint = RICH_HINT, required }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Island, { name: "RichField", props: { name, label, defaultValue: value ?? "", initialHtml: value ? renderRich(value) : "", rows, hint, required: !!required } });
+}
+var nullable = (s) => s.trim() ? s.trim() : null;
+async function curriculumAdminPage(ctx, errors) {
   requireTeacher(ctx);
   const book = await requireBook(ctx);
-  const tree = await getCourseTree(ctx.db, book.id, null, true);
+  const [tree, themes, chapters] = await Promise.all([
+    getCourseTree(ctx.db, book.id, null, true),
+    getThemesByLesson(ctx.db, book.id, true),
+    ctx.db.many(sql`
+      select id, status, verify_status, verify_note from chapters where textbook_id = ${book.id}`)
+  ]);
+  const chMeta = new Map(chapters.map((c) => [c.id, c]));
+  const A2 = "/giao-vien/chuong-trinh";
   return page(
     ctx,
-    { title: "Ch\u01B0\u01A1ng tr\xECnh & b\xE0i h\u1ECDc", layout: "dashboard", section: "curriculum" },
-    /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(import_jsx_runtime25.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+    { title: "Ch\u01B0\u01A1ng tr\xECnh & b\xE0i h\u1ECDc", layout: "dashboard", section: "curriculum", status: errors ? 422 : 200 },
+    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
         PageTitle,
         {
           title: "Ch\u01B0\u01A1ng tr\xECnh & b\xE0i h\u1ECDc",
-          sub: `${book.title} \u2013 ${book.series}. Ch\u1ECDn m\u1ED9t m\u1EE5c \u0111\u1EC3 so\u1EA1n m\u1EE5c ti\xEAu, ki\u1EBFn th\u1EE9c, c\xF4ng th\u1EE9c, v\xED d\u1EE5 v\xE0 d\u1EA1ng to\xE1n.`,
-          actions: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("a", { href: `/chuong-trinh/${book.slug}/ppct`, className: buttonClass("secondary", "md"), children: "Ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh" })
+          sub: `${book.title} \u2013 ${book.series}. Th\xEAm, s\u1EEDa, s\u1EAFp x\u1EBFp, \u1EA9n ho\u1EB7c xu\u1EA5t b\u1EA3n ch\u01B0\u01A1ng v\xE0 b\xE0i; b\u1EA5m "So\u1EA1n" \u0111\u1EC3 so\u1EA1n n\u1ED9i dung, ch\u1EE7 \u0111\u1EC1 v\xE0 d\u1EA1ng to\xE1n c\u1EE7a b\xE0i.`,
+          actions: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("a", { href: `/hoc/${book.slug}/ban-do`, className: buttonClass("secondary", "md"), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuMap, { "aria-hidden": "true" }),
+              " B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/chuong-trinh/${book.slug}/ppct`, className: buttonClass("quiet", "md"), children: "Ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh" })
+          ] })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "space-y-8", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("section", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("h2", { className: "mb-3 text-xl font-extrabold", children: s.name }),
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "space-y-4", children: s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Panel, { className: "overflow-x-auto", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "border-b border-line bg-mist/60 px-5 py-3 font-extrabold", children: chapterLabel(c) }),
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("table", { className: "data-table min-w-[720px]", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("th", { children: "M\u1EE5c" }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("th", { className: "w-20", children: "S\u1ED1 ti\u1EBFt" }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("th", { className: "w-28", children: "N\u1ED9i dung" }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("th", { className: "w-24", children: "D\u1EA1ng to\xE1n" }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("th", { className: "w-24", children: "C\xE2u h\u1ECFi" }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("th", { className: "w-32", children: "Tr\u1EA1ng th\xE1i" }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("th", { className: "w-24" })
-            ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("tbody", { children: c.lessons.map((l) => /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("a", { href: `/hoc/${book.slug}/bai/${l.slug}`, className: "font-medium hover:text-tim-700 hover:underline", children: lessonLabel(l) }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { children: l.periods }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { children: l.sectionCount ? `${l.sectionCount} m\u1EE5c` : /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", { className: "text-ink-3", children: "Ch\u01B0a c\xF3" }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { children: l.topicCount }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { children: l.questionCount }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { children: l.status === "published" ? /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Badge, { tone: "tre", children: "\u0110\xE3 xu\u1EA5t b\u1EA3n" }) : /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Badge, { tone: "gray", children: "B\u1EA3n nh\xE1p" }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-right", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("a", { href: `/giao-vien/bai-hoc/${l.id}`, className: buttonClass("quiet", "sm"), children: "So\u1EA1n" }) })
-            ] }, l.id)) })
-          ] })
-        ] }, c.id)) })
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ErrorList, { errors }),
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "space-y-10", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("section", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h2", { className: "mb-3 text-xl font-extrabold", children: s.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "space-y-4", children: s.chapters.map((c, ci) => {
+          const m = chMeta.get(c.id);
+          return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "overflow-x-auto", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "flex flex-wrap items-center gap-2 border-b border-line bg-mist/60 px-5 py-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "font-extrabold", children: chapterLabel(c) }),
+              c.status !== "published" && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "gray", children: "\u0110ang \u1EA9n" }),
+              m && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(VerifyBadge, { status: m.verifyStatus, note: m.verifyNote }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "ml-auto flex items-center gap-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ActionButton, { action: A2, fields: { _action: "move-chapter", id: c.id, dir: -1 }, label: "\u0110\u01B0a ch\u01B0\u01A1ng l\xEAn", disabled: ci === 0, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuArrowUp, { "aria-hidden": "true" }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ActionButton, { action: A2, fields: { _action: "move-chapter", id: c.id, dir: 1 }, label: "\u0110\u01B0a ch\u01B0\u01A1ng xu\u1ED1ng", disabled: ci === s.chapters.length - 1, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuArrowDown, { "aria-hidden": "true" }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+                  ActionButton,
+                  {
+                    action: A2,
+                    fields: { _action: "chapter-status", id: c.id, status: c.status === "published" ? "draft" : "published" },
+                    label: c.status === "published" ? "\u1EA8n ch\u01B0\u01A1ng" : "Xu\u1EA5t b\u1EA3n ch\u01B0\u01A1ng",
+                    children: c.status === "published" ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuEyeOff, { "aria-hidden": "true" }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuEye, { "aria-hidden": "true" })
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/giao-vien/chuong/${c.id}`, className: buttonClass("secondary", "sm"), children: "S\u1EEDa ch\u01B0\u01A1ng" })
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("table", { className: "data-table min-w-[860px]", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("tr", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { className: "w-24", children: "M\xE3" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { children: "M\u1EE5c" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { className: "w-16", children: "Ti\u1EBFt" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { className: "w-24", children: "N\u1ED9i dung" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { className: "w-28", children: "Ch\u1EE7 \u0111\u1EC1 / d\u1EA1ng" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { className: "w-20", children: "B\xE0i t\u1EADp" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { className: "w-28", children: "Tr\u1EA1ng th\xE1i" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { className: "w-44" })
+              ] }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("tbody", { children: c.lessons.map((l, li) => {
+                const ths = themes.get(l.id) ?? [];
+                return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("tr", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { className: "text-[13px] text-ink-3", children: l.code ?? "\u2014" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/hoc/${book.slug}/bai/${l.slug}`, className: "font-medium hover:text-tim-700 hover:underline", children: lessonLabel(l) }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { children: l.periods }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { children: l.sectionCount ? `${l.sectionCount} m\u1EE5c` : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "text-ink-3", children: "Ch\u01B0a c\xF3" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("td", { children: [
+                    ths.filter((th) => th.id).length,
+                    " / ",
+                    ths.reduce((n, th) => n + th.topics.length, 0)
+                  ] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { children: l.questionCount }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { children: l.status === "published" ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "tre", children: "Xu\u1EA5t b\u1EA3n" }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "gray", children: "\u1EA8n" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "flex items-center justify-end gap-1", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ActionButton, { action: A2, fields: { _action: "move-lesson", id: l.id, dir: -1 }, label: "\u0110\u01B0a b\xE0i l\xEAn", disabled: li === 0, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuArrowUp, { "aria-hidden": "true" }) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ActionButton, { action: A2, fields: { _action: "move-lesson", id: l.id, dir: 1 }, label: "\u0110\u01B0a b\xE0i xu\u1ED1ng", disabled: li === c.lessons.length - 1, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuArrowDown, { "aria-hidden": "true" }) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+                      ActionButton,
+                      {
+                        action: A2,
+                        fields: { _action: "lesson-status", id: l.id, status: l.status === "published" ? "draft" : "published" },
+                        label: l.status === "published" ? "\u1EA8n b\xE0i" : "Xu\u1EA5t b\u1EA3n b\xE0i",
+                        children: l.status === "published" ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuEyeOff, { "aria-hidden": "true" }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuEye, { "aria-hidden": "true" })
+                      }
+                    ),
+                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/giao-vien/bai-hoc/${l.id}`, className: buttonClass("quiet", "sm"), children: "So\u1EA1n" })
+                  ] }) })
+                ] }, l.id);
+              }) })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("details", { className: "border-t border-line px-5 py-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("summary", { className: "text-[14px] font-semibold text-tim-700", children: "Th\xEAm b\xE0i / m\u1EE5c v\xE0o ch\u01B0\u01A1ng n\xE0y" }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: A2, className: "mt-3 grid gap-3 md:grid-cols-[110px_minmax(0,1fr)_200px_90px_220px_auto] md:items-end", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "add-lesson" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "chapter_id", value: c.id }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "S\u1ED1 b\xE0i", name: "number", type: "number", min: 1, max: 200, hint: "B\u1ECF tr\u1ED1ng n\u1EBFu kh\xF4ng ph\u1EA3i b\xE0i h\u1ECDc" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "T\xEAn b\xE0i / m\u1EE5c", name: "title", required: true, maxLength: 200 }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "Lo\u1EA1i", name: "kind", defaultValue: "lesson", options: Object.entries(LESSON_KIND_LABELS).map(([value, label]) => ({ value, label })) }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "S\u1ED1 ti\u1EBFt", name: "periods", type: "number", min: 0, max: 20, defaultValue: 1 }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "Tr\u1EA1ng th\xE1i", name: "status", defaultValue: "draft", options: STATUS_OPTIONS }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { size: "sm", children: "Th\xEAm" })
+              ] })
+            ] })
+          ] }, c.id);
+        }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("details", { className: "mt-4 rounded-[18px] border border-dashed border-line-2 bg-white px-5 py-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("summary", { className: "text-[14px] font-semibold text-tim-700", children: [
+            "Th\xEAm ch\u01B0\u01A1ng v\xE0o ",
+            s.name
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: A2, className: "mt-3 grid gap-3 md:grid-cols-[110px_minmax(0,1fr)_220px_auto] md:items-end", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "add-chapter" }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "semester_id", value: s.id }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "M\xE3 ch\u01B0\u01A1ng", name: "code", required: true, maxLength: 8, hint: "V\xED d\u1EE5: XI, TN3" }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "T\xEAn ch\u01B0\u01A1ng", name: "title", required: true, maxLength: 200 }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "Lo\u1EA1i", name: "kind", defaultValue: "chapter", options: [{ value: "chapter", label: "Ch\u01B0\u01A1ng" }, { value: "activity", label: "Ho\u1EA1t \u0111\u1ED9ng tr\u1EA3i nghi\u1EC7m" }] }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { size: "sm", children: "Th\xEAm ch\u01B0\u01A1ng" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { className: "mt-2 text-[13px] text-ink-3", children: 'Ch\u01B0\u01A1ng m\u1EDBi \u1EDF tr\u1EA1ng th\xE1i \u1EA9n v\xE0 \u0111\u01B0\u1EE3c \u0111\xE1nh d\u1EA5u "Ch\u01B0a \u0111\u1ED1i chi\u1EBFu" cho t\u1EDBi khi gi\xE1o vi\xEAn ki\u1EC3m tra v\u1EDBi SGK.' })
+        ] })
       ] }, s.id)) })
     ] })
   );
 }
+async function curriculumAction(ctx) {
+  const user = requireTeacher(ctx);
+  const book = await requireBook(ctx);
+  const form = await ctx.form();
+  const action = form.str("_action");
+  const id = form.int("id");
+  const dir = form.int("dir") === -1 ? -1 : 1;
+  const back = "/giao-vien/chuong-trinh";
+  const inBook = async (table, rowId) => rowId !== null && !!await ctx.db.one(table === "chapters" ? sql`select 1 from chapters where id = ${rowId} and textbook_id = ${book.id}` : sql`select 1 from lessons where id = ${rowId} and textbook_id = ${book.id}`);
+  try {
+    if (action === "add-chapter") {
+      const code = form.str("code", 8).toUpperCase();
+      const title = form.str("title", 200);
+      const errs = [];
+      if (!/^[A-Z0-9]{1,8}$/.test(code)) errs.push("M\xE3 ch\u01B0\u01A1ng ch\u1EC9 g\u1ED3m ch\u1EEF in hoa kh\xF4ng d\u1EA5u v\xE0 ch\u1EEF s\u1ED1 (v\xED d\u1EE5 XI, TN3).");
+      if (!title) errs.push("Ch\u01B0a nh\u1EADp t\xEAn ch\u01B0\u01A1ng.");
+      if (errs.length) return curriculumAdminPage(ctx, errs);
+      const cid = await createChapter(ctx.db, book.id, { semesterId: form.int("semester_id") ?? 0, code, title, kind: form.str("kind") === "activity" ? "activity" : "chapter", description: null }, user.id);
+      return redirect(`/giao-vien/chuong/${cid}`, { type: "success", message: "\u0110\xE3 th\xEAm ch\u01B0\u01A1ng (\u0111ang \u1EA9n). H\xE3y so\u1EA1n m\u1EE5c ti\xEAu, ki\u1EBFn th\u1EE9c tr\u1ECDng t\xE2m r\u1ED3i xu\u1EA5t b\u1EA3n." }, ctx);
+    }
+    if (action === "move-chapter" && await inBook("chapters", id)) {
+      await moveChapter(ctx.db, id, dir);
+      return redirect(back);
+    }
+    if (action === "chapter-status" && await inBook("chapters", id)) {
+      await setChapterStatus(ctx.db, id, form.str("status"));
+      return redirect(back, { type: "success", message: form.str("status") === "draft" ? "\u0110\xE3 \u1EA9n ch\u01B0\u01A1ng." : "\u0110\xE3 xu\u1EA5t b\u1EA3n ch\u01B0\u01A1ng." }, ctx);
+    }
+    if (action === "add-lesson") {
+      const chapterId = form.int("chapter_id");
+      if (!await inBook("chapters", chapterId)) throw new HttpError(404);
+      const title = form.str("title", 200);
+      const periods = form.int("periods");
+      const number = form.int("number");
+      if (!title) return curriculumAdminPage(ctx, ["Ch\u01B0a nh\u1EADp t\xEAn b\xE0i."]);
+      if (periods !== null && (periods < 0 || periods > 20)) return curriculumAdminPage(ctx, ["S\u1ED1 ti\u1EBFt t\u1EEB 0 \u0111\u1EBFn 20."]);
+      const kind = ["lesson", "practice", "review", "activity"].includes(form.str("kind")) ? form.str("kind") : "lesson";
+      const res = await createLesson(ctx.db, chapterId, { number: kind === "lesson" ? number : null, title, kind, periods, status: form.str("status") === "published" ? "published" : "draft", code: null }, user.id);
+      return redirect(`/giao-vien/bai-hoc/${res.id}`, { type: "success", message: "\u0110\xE3 th\xEAm b\xE0i. So\u1EA1n m\xE3 b\xE0i, m\u1EE5c ti\xEAu, ch\u1EE7 \u0111\u1EC1 v\xE0 d\u1EA1ng to\xE1n \u1EDF trang n\xE0y." }, ctx);
+    }
+    if (action === "move-lesson" && await inBook("lessons", id)) {
+      await moveLesson(ctx.db, id, dir);
+      return redirect(back);
+    }
+    if (action === "lesson-status" && await inBook("lessons", id)) {
+      await setLessonStatus(ctx.db, id, form.str("status"), user.id);
+      return redirect(back, { type: "success", message: form.str("status") === "draft" ? "\u0110\xE3 \u1EA9n b\xE0i." : "\u0110\xE3 xu\u1EA5t b\u1EA3n b\xE0i." }, ctx);
+    }
+  } catch (err) {
+    if (err instanceof ContentError) return curriculumAdminPage(ctx, [err.message]);
+    throw err;
+  }
+  throw new HttpError(400, "Thao t\xE1c kh\xF4ng h\u1EE3p l\u1EC7.");
+}
+async function chapterEditorPage(ctx, errors) {
+  requireTeacher(ctx);
+  const chapter = await getChapterById(ctx.db, intParam(ctx, "id"));
+  if (!chapter) throw new HttpError(404, "Kh\xF4ng t\xECm th\u1EA5y ch\u01B0\u01A1ng.");
+  const book = await ctx.db.one(sql`select slug from textbooks where id = ${chapter.textbookId}`);
+  const label = chapterLabel(chapter);
+  const A2 = `/giao-vien/chuong/${chapter.id}`;
+  return page(
+    ctx,
+    { title: `S\u1EEDa: ${label}`, layout: "dashboard", section: "curriculum", status: errors ? 422 : 200 },
+    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+        PageTitle,
+        {
+          crumbs: [{ href: "/giao-vien/chuong-trinh", label: "Ch\u01B0\u01A1ng tr\xECnh & b\xE0i h\u1ECDc" }, { label }],
+          title: label,
+          sub: `${chapter.semesterName} \xB7 ${chapter.kind === "chapter" ? "Ch\u01B0\u01A1ng" : "Ho\u1EA1t \u0111\u1ED9ng th\u1EF1c h\xE0nh tr\u1EA3i nghi\u1EC7m"}`,
+          actions: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/hoc/${book.slug}/chuong/${encodeURIComponent(chapter.code)}`, className: buttonClass("secondary", "md"), children: "Xem nh\u01B0 h\u1ECDc sinh" })
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ErrorList, { errors }),
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: A2, className: "space-y-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "grid gap-4 p-5 md:grid-cols-[140px_minmax(0,1fr)_260px]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "M\xE3 ch\u01B0\u01A1ng", name: "code", required: true, maxLength: 8, defaultValue: chapter.code }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "T\xEAn ch\u01B0\u01A1ng", name: "title", required: true, maxLength: 200, defaultValue: chapter.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "Tr\u1EA1ng th\xE1i", name: "status", defaultValue: chapter.status, options: STATUS_OPTIONS }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(TextArea, { className: "md:col-span-3", label: "M\xF4 t\u1EA3 ng\u1EAFn", name: "description", defaultValue: chapter.description, rows: 2 })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "space-y-4 p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "objectives", label: "M\u1EE5c ti\xEAu c\u1EA7n \u0111\u1EA1t", value: chapter.objectives, rows: 4 }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "key_points", label: "Ki\u1EBFn th\u1EE9c tr\u1ECDng t\xE2m", value: chapter.keyPoints, rows: 4 }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "formulas", label: "C\xF4ng th\u1EE9c c\u1EA7n nh\u1EDB", value: chapter.formulas, rows: 4 })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "grid gap-4 p-5 md:grid-cols-[260px_minmax(0,1fr)]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "\u0110\u1ED1i chi\u1EBFu v\u1EDBi SGK", name: "verify_status", defaultValue: chapter.verifyStatus, options: VERIFY_OPTIONS }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(TextArea, { label: "Ghi ch\xFA \u0111\u1ED1i chi\u1EBFu (ngu\u1ED3n, \u0111i\u1EC3m c\u1EA7n ki\u1EC3m tra)", name: "verify_note", defaultValue: chapter.verifyNote, rows: 2 })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { children: "L\u01B0u ch\u01B0\u01A1ng" })
+      ] })
+    ] })
+  );
+}
+async function chapterEditorAction(ctx) {
+  const user = requireTeacher(ctx);
+  const chapterId = intParam(ctx, "id");
+  const form = await ctx.form();
+  const code = form.str("code", 8).toUpperCase();
+  const title = form.str("title", 200);
+  const u = {
+    code,
+    title,
+    description: nullable(form.text("description", 1e3)),
+    objectives: nullable(form.text("objectives", 8e3)),
+    keyPoints: nullable(form.text("key_points", 8e3)),
+    formulas: nullable(form.text("formulas", 8e3)),
+    status: form.str("status") === "draft" ? "draft" : "published",
+    verifyStatus: verify(form.str("verify_status")),
+    verifyNote: nullable(form.text("verify_note", 2e3))
+  };
+  const errors = [];
+  if (!/^[A-Z0-9]{1,8}$/.test(code)) errors.push("M\xE3 ch\u01B0\u01A1ng ch\u1EC9 g\u1ED3m ch\u1EEF in hoa kh\xF4ng d\u1EA5u v\xE0 ch\u1EEF s\u1ED1.");
+  if (!title) errors.push("T\xEAn ch\u01B0\u01A1ng kh\xF4ng \u0111\u01B0\u1EE3c \u0111\u1EC3 tr\u1ED1ng.");
+  errors.push(...mathErrors([["M\u1EE5c ti\xEAu", u.objectives], ["Ki\u1EBFn th\u1EE9c tr\u1ECDng t\xE2m", u.keyPoints], ["C\xF4ng th\u1EE9c", u.formulas]]));
+  if (errors.length) return chapterEditorPage(ctx, errors);
+  try {
+    await updateChapter(ctx.db, chapterId, u, user.id);
+  } catch (err) {
+    if (err instanceof ContentError) return chapterEditorPage(ctx, [err.message]);
+    throw err;
+  }
+  return redirect(`/giao-vien/chuong/${chapterId}`, { type: "success", message: "\u0110\xE3 l\u01B0u ch\u01B0\u01A1ng." }, ctx);
+}
 var SECTION_KINDS = ["objective", "knowledge", "formula", "example", "note"];
 function SectionForm({ lessonId, s, idx }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(PostForm, { action: `/giao-vien/bai-hoc/${lessonId}`, className: "space-y-3", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "_action", value: s ? "update-section" : "add-section" }),
-    s && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "section_id", value: s.id }),
-    /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "grid gap-3 sm:grid-cols-[200px_minmax(0,1fr)]", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Select, { label: "Lo\u1EA1i", name: "kind", defaultValue: s?.kind ?? "knowledge", options: SECTION_KINDS.map((k) => ({ value: k, label: SECTION_LABELS[k] })) }),
-      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Field, { label: "Ti\xEAu \u0111\u1EC1 (kh\xF4ng b\u1EAFt bu\u1ED9c)", name: "title", defaultValue: s?.title ?? "", maxLength: 200 })
+  return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: `/giao-vien/bai-hoc/${lessonId}`, className: "space-y-3", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: s ? "update-section" : "add-section" }),
+    s && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "section_id", value: s.id }),
+    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "grid gap-3 sm:grid-cols-[200px_minmax(0,1fr)]", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "Lo\u1EA1i", name: "kind", defaultValue: s?.kind ?? "knowledge", options: SECTION_KINDS.map((k) => ({ value: k, label: SECTION_LABELS[k] })) }),
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "Ti\xEAu \u0111\u1EC1 (kh\xF4ng b\u1EAFt bu\u1ED9c)", name: "title", defaultValue: s?.title ?? "", maxLength: 200 })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
       Island,
       {
         name: "RichField",
@@ -34686,7 +36819,7 @@ function SectionForm({ lessonId, s, idx }) {
       },
       `body-${idx}`
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
       Island,
       {
         name: "RichField",
@@ -34694,7 +36827,7 @@ function SectionForm({ lessonId, s, idx }) {
       },
       `sol-${idx}`
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Button, { children: s ? "L\u01B0u m\u1EE5c n\xE0y" : "Th\xEAm v\xE0o b\xE0i" })
+    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { children: s ? "L\u01B0u m\u1EE5c n\xE0y" : "Th\xEAm v\xE0o b\xE0i" })
   ] });
 }
 async function lessonEditorPage(ctx, errors) {
@@ -34702,128 +36835,184 @@ async function lessonEditorPage(ctx, errors) {
   const lesson = await getLessonById(ctx.db, intParam(ctx, "id"));
   if (!lesson) throw new HttpError(404, "Kh\xF4ng t\xECm th\u1EA5y b\xE0i h\u1ECDc.");
   const book = await ctx.db.one(sql`select slug, title from textbooks where id = ${lesson.textbookId}`);
-  const [sections, topics] = await Promise.all([getLessonSections(ctx.db, lesson.id), getLessonTopics(ctx.db, lesson.id)]);
+  const [sections, themes] = await Promise.all([getLessonSections(ctx.db, lesson.id), getLessonThemes(ctx.db, lesson.textbookId, lesson.id, true)]);
   const label = lessonLabel(lesson);
+  const A2 = `/giao-vien/bai-hoc/${lesson.id}`;
+  const realThemes = themes.filter((th) => th.id);
+  const topicCount = themes.reduce((n, th) => n + th.topics.length, 0);
   return page(
     ctx,
     { title: `So\u1EA1n: ${label}`, layout: "dashboard", section: "curriculum", status: errors ? 422 : 200 },
-    /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(import_jsx_runtime25.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
         PageTitle,
         {
-          crumbs: [{ href: "/giao-vien/chuong-trinh", label: "Ch\u01B0\u01A1ng tr\xECnh & b\xE0i h\u1ECDc" }, { label }],
+          crumbs: [{ href: "/giao-vien/chuong-trinh", label: "Ch\u01B0\u01A1ng tr\xECnh & b\xE0i h\u1ECDc" }, { href: `/giao-vien/chuong/${lesson.chapterId}`, label: chapterLabel({ kind: lesson.chapterKind, code: lesson.chapterCode, title: lesson.chapterTitle }) }, { label }],
           title: label,
-          sub: `${chapterLabel({ kind: lesson.chapterKind, code: lesson.chapterCode, title: lesson.chapterTitle })} \xB7 ${LESSON_KIND_LABELS[lesson.kind]} \xB7 c\u1EADp nh\u1EADt ${formatDateTime(lesson.updatedAt)}`,
-          actions: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(import_jsx_runtime25.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("a", { href: `/hoc/${book.slug}/bai/${lesson.slug}`, className: buttonClass("secondary", "md"), children: "Xem nh\u01B0 h\u1ECDc sinh" }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("a", { href: `/giao-vien/cau-hoi?bai=${lesson.id}`, className: buttonClass("quiet", "md"), children: "C\xE2u h\u1ECFi c\u1EE7a b\xE0i" })
+          sub: `${lesson.code ? lesson.code + " \xB7 " : ""}${LESSON_KIND_LABELS[lesson.kind]} \xB7 c\u1EADp nh\u1EADt ${formatDateTime(lesson.updatedAt)}`,
+          actions: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/hoc/${book.slug}/bai/${lesson.slug}`, className: buttonClass("secondary", "md"), children: "Xem nh\u01B0 h\u1ECDc sinh" }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/giao-vien/cau-hoi?bai=${lesson.id}`, className: buttonClass("quiet", "md"), children: "C\xE2u h\u1ECFi c\u1EE7a b\xE0i" })
           ] })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(ErrorList, { errors }),
-      /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "min-w-0 space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("section", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("h2", { className: "mb-3 text-lg font-extrabold", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ErrorList, { errors }),
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_380px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "min-w-0 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("h2", { className: "text-lg font-extrabold", children: [
+              "Ch\u1EE7 \u0111\u1EC1 v\xE0 d\u1EA1ng to\xE1n (",
+              realThemes.length,
+              " ch\u1EE7 \u0111\u1EC1, ",
+              topicCount,
+              " d\u1EA1ng)"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { className: "mt-1 text-[14px] text-ink-3", children: "B\xE0i \u2192 Ch\u1EE7 \u0111\u1EC1 \u2192 D\u1EA1ng to\xE1n \u2192 B\xE0i t\u1EADp. B\u1EA5m t\xEAn d\u1EA1ng to\xE1n \u0111\u1EC3 so\u1EA1n ki\u1EBFn th\u1EE9c, d\u1EA5u hi\u1EC7u, ph\u01B0\u01A1ng ph\xE1p, c\xE1c b\u01B0\u1EDBc, l\u1ED7i sai, v\xED d\u1EE5 v\xE0 m\u1EE9c \u0111\u1ED9." }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "mt-4 space-y-4", children: themes.map((th, ti) => /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "rounded-2xl border border-line", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "flex flex-wrap items-center gap-2 border-b border-line bg-mist/50 px-4 py-2.5", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "font-bold", children: th.title }),
+                th.code && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "text-[12px] text-ink-3", children: th.code }),
+                th.status === "draft" && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "gray", children: "\u0110ang \u1EA9n" }),
+                th.id > 0 && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "ml-auto flex items-center gap-1", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ActionButton, { action: A2, fields: { _action: "move-theme", theme_id: th.id, dir: -1 }, label: "\u0110\u01B0a ch\u1EE7 \u0111\u1EC1 l\xEAn", disabled: ti === 0, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuArrowUp, { "aria-hidden": "true" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ActionButton, { action: A2, fields: { _action: "move-theme", theme_id: th.id, dir: 1 }, label: "\u0110\u01B0a ch\u1EE7 \u0111\u1EC1 xu\u1ED1ng", disabled: ti === realThemes.length - 1, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuArrowDown, { "aria-hidden": "true" }) })
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("ul", { className: "divide-y divide-line", children: [
+                th.topics.map((t, k) => /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("li", { className: "flex flex-wrap items-center gap-2 px-4 py-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/giao-vien/dang-toan/${t.id}`, className: "min-w-0 flex-1 text-[15px] font-medium hover:text-tim-700 hover:underline", children: t.title }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "text-[12px] text-ink-3", children: t.code }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LevelBadges, { levels: t.levels }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "text-[12.5px] text-ink-3", children: [
+                    t.questionCount,
+                    " c\xE2u"
+                  ] }),
+                  t.status === "draft" && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "gray", children: "\u1EA8n" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "flex items-center gap-1", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ActionButton, { action: A2, fields: { _action: "move-topic", topic_id: t.id, dir: -1 }, label: "\u0110\u01B0a d\u1EA1ng l\xEAn", disabled: k === 0, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuArrowUp, { "aria-hidden": "true" }) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ActionButton, { action: A2, fields: { _action: "move-topic", topic_id: t.id, dir: 1 }, label: "\u0110\u01B0a d\u1EA1ng xu\u1ED1ng", disabled: k === th.topics.length - 1, children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuArrowDown, { "aria-hidden": "true" }) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+                      ActionButton,
+                      {
+                        action: A2,
+                        fields: { _action: "topic-status", topic_id: t.id, status: t.status === "published" ? "draft" : "published" },
+                        label: t.status === "published" ? "\u1EA8n d\u1EA1ng to\xE1n" : "Xu\u1EA5t b\u1EA3n d\u1EA1ng to\xE1n",
+                        children: t.status === "published" ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuEyeOff, { "aria-hidden": "true" }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuEye, { "aria-hidden": "true" })
+                      }
+                    )
+                  ] })
+                ] }, t.id)),
+                !th.topics.length && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("li", { className: "px-4 py-2 text-[14px] text-ink-3", children: "Ch\u01B0a c\xF3 d\u1EA1ng to\xE1n." })
+              ] }),
+              th.id > 0 && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("details", { className: "border-t border-line px-4 py-2.5", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("summary", { className: "text-[13.5px] font-semibold text-tim-700", children: "S\u1EEDa ch\u1EE7 \u0111\u1EC1" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: A2, className: "mt-3 space-y-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "update-theme" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "theme_id", value: th.id }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "T\xEAn ch\u1EE7 \u0111\u1EC1", name: "title", required: true, maxLength: 300, defaultValue: th.title }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(TextArea, { label: "M\xF4 t\u1EA3", name: "description", defaultValue: th.description, rows: 2 }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "Tr\u1EA1ng th\xE1i", name: "status", defaultValue: th.status, options: STATUS_OPTIONS }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { size: "sm", variant: "secondary", children: "L\u01B0u ch\u1EE7 \u0111\u1EC1" })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: A2, className: "mt-2", confirm: "X\xF3a ch\u1EE7 \u0111\u1EC1 n\xE0y? C\xE1c d\u1EA1ng to\xE1n c\u1EE7a ch\u1EE7 \u0111\u1EC1 v\u1EABn \u0111\u01B0\u1EE3c gi\u1EEF l\u1EA1i (chuy\u1EC3n sang nh\xF3m D\u1EA1ng to\xE1n kh\xE1c).", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "delete-theme" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "theme_id", value: th.id }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("button", { className: buttonClass("ghost", "sm", "text-le hover:bg-le-soft"), children: "X\xF3a ch\u1EE7 \u0111\u1EC1" })
+                ] })
+              ] })
+            ] }, th.id || "khac")) }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "mt-5 grid gap-4 border-t border-line pt-4 lg:grid-cols-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: A2, className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "add-theme" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h3", { className: "font-bold", children: "Th\xEAm ch\u1EE7 \u0111\u1EC1" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "T\xEAn ch\u1EE7 \u0111\u1EC1", name: "title", required: true, maxLength: 300 }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(TextArea, { label: "M\xF4 t\u1EA3 (kh\xF4ng b\u1EAFt bu\u1ED9c)", name: "description", rows: 2 }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { size: "sm", children: "Th\xEAm ch\u1EE7 \u0111\u1EC1" })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: A2, className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "add-topic" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h3", { className: "font-bold", children: "Th\xEAm d\u1EA1ng to\xE1n" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "T\xEAn d\u1EA1ng to\xE1n", name: "title", required: true, maxLength: 200 }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "Thu\u1ED9c ch\u1EE7 \u0111\u1EC1", name: "theme_id", defaultValue: realThemes[0]?.id ?? "", options: [...realThemes.map((th) => ({ value: th.id, label: th.title })), { value: "", label: "Ch\u01B0a x\u1EBFp ch\u1EE7 \u0111\u1EC1" }] }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { size: "sm", children: "Th\xEAm v\xE0 so\u1EA1n d\u1EA1ng to\xE1n" })
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("section", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("h2", { className: "mb-3 text-lg font-extrabold", children: [
               "N\u1ED9i dung b\xE0i h\u1ECDc (",
               sections.length,
               " m\u1EE5c)"
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "space-y-4", children: sections.map((s, i2) => /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Panel, { className: "p-5", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "mb-2 flex flex-wrap items-center justify-between gap-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "flex items-center gap-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Badge, { children: SECTION_LABELS[s.kind] }),
-                  s.title && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("strong", { children: s.title })
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "space-y-4", children: sections.map((s, i2) => /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "p-5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "mb-2 flex flex-wrap items-center justify-between gap-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "flex items-center gap-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { children: SECTION_LABELS[s.kind] }),
+                  s.title && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("strong", { children: s.title })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "flex gap-1", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(PostForm, { action: `/giao-vien/bai-hoc/${lesson.id}`, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "_action", value: "move-section" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "section_id", value: s.id }),
-                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "dir", value: "-1" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("button", { className: buttonClass("quiet", "sm"), disabled: i2 === 0, "aria-label": "\u0110\u01B0a l\xEAn", children: "L\xEAn" })
-                  ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(PostForm, { action: `/giao-vien/bai-hoc/${lesson.id}`, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "_action", value: "move-section" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "section_id", value: s.id }),
-                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "dir", value: "1" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("button", { className: buttonClass("quiet", "sm"), disabled: i2 === sections.length - 1, "aria-label": "\u0110\u01B0a xu\u1ED1ng", children: "Xu\u1ED1ng" })
-                  ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(PostForm, { action: `/giao-vien/bai-hoc/${lesson.id}`, confirm: "X\xF3a m\u1EE5c n\u1ED9i dung n\xE0y?", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "_action", value: "delete-section" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "section_id", value: s.id }),
-                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("button", { className: buttonClass("ghost", "sm", "text-le hover:bg-le-soft"), children: "X\xF3a" })
-                  ] })
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "flex gap-1", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ActionButton, { action: A2, fields: { _action: "move-section", section_id: s.id, dir: -1 }, label: "\u0110\u01B0a l\xEAn", disabled: i2 === 0, children: "L\xEAn" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ActionButton, { action: A2, fields: { _action: "move-section", section_id: s.id, dir: 1 }, label: "\u0110\u01B0a xu\u1ED1ng", disabled: i2 === sections.length - 1, children: "Xu\u1ED1ng" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ActionButton, { action: A2, fields: { _action: "delete-section", section_id: s.id }, label: "X\xF3a", confirm: "X\xF3a m\u1EE5c n\u1ED9i dung n\xE0y?", danger: true, children: "X\xF3a" })
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Rich, { src: s.body }),
-              s.solution && /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "mt-2 rounded-xl bg-mist px-4 py-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "text-[13px] font-semibold text-ink-3", children: "L\u1EDDi gi\u1EA3i" }),
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Rich, { src: s.solution })
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Rich, { src: s.body }),
+              s.solution && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "mt-2 rounded-xl bg-mist px-4 py-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "text-[13px] font-semibold text-ink-3", children: "L\u1EDDi gi\u1EA3i" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Rich, { src: s.solution })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("details", { className: "mt-3 border-t border-line pt-3", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("summary", { className: "text-[14px] font-semibold text-tim-700", children: "S\u1EEDa m\u1EE5c n\xE0y" }),
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(SectionForm, { lessonId: lesson.id, s, idx: String(s.id) }) })
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("details", { className: "mt-3 border-t border-line pt-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("summary", { className: "text-[14px] font-semibold text-tim-700", children: "S\u1EEDa m\u1EE5c n\xE0y" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(SectionForm, { lessonId: lesson.id, s, idx: String(s.id) }) })
               ] })
             ] }, s.id)) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Th\xEAm m\u1EE5c n\u1ED9i dung" }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(SectionForm, { lessonId: lesson.id, idx: "new" })
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Th\xEAm m\u1EE5c n\u1ED9i dung" }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(SectionForm, { lessonId: lesson.id, idx: "new" })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("h2", { className: "text-lg font-extrabold", children: "Th\xF4ng tin b\xE0i" }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(PostForm, { action: `/giao-vien/bai-hoc/${lesson.id}`, className: "mt-3 space-y-3", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "_action", value: "info" }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Field, { label: "T\xEAn b\xE0i", name: "title", required: true, defaultValue: lesson.title, maxLength: 200 }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(TextArea, { label: "T\xF3m t\u1EAFt", name: "summary", defaultValue: lesson.summary, rows: 3 }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "grid grid-cols-2 gap-3", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Field, { label: "S\u1ED1 ti\u1EBFt", name: "periods", type: "number", min: 0, max: 20, defaultValue: lesson.periods }),
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Field, { label: "Th\u1EDDi l\u01B0\u1EE3ng (ph\xFAt)", name: "minutes", type: "number", min: 0, max: 600, defaultValue: lesson.estimatedMinutes })
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h2", { className: "text-lg font-extrabold", children: "Th\xF4ng tin b\xE0i" }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: A2, className: "mt-3 space-y-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "info" }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "T\xEAn b\xE0i", name: "title", required: true, defaultValue: lesson.title, maxLength: 200 }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(TextArea, { label: "T\xF3m t\u1EAFt", name: "summary", defaultValue: lesson.summary, rows: 3 }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "grid grid-cols-2 gap-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "S\u1ED1 ti\u1EBFt", name: "periods", type: "number", min: 0, max: 20, defaultValue: lesson.periods }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "Th\u1EDDi l\u01B0\u1EE3ng (ph\xFAt)", name: "minutes", type: "number", min: 0, max: 600, defaultValue: lesson.estimatedMinutes })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Select, { label: "Tr\u1EA1ng th\xE1i", name: "status", defaultValue: lesson.status, options: [{ value: "published", label: "\u0110\xE3 xu\u1EA5t b\u1EA3n \u2013 h\u1ECDc sinh th\u1EA5y" }, { value: "draft", label: "B\u1EA3n nh\xE1p \u2013 ch\u1EC9 gi\xE1o vi\xEAn th\u1EA5y" }] }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Button, { variant: "secondary", children: "L\u01B0u th\xF4ng tin" })
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "Tr\u1EA1ng th\xE1i", name: "status", defaultValue: lesson.status, options: STATUS_OPTIONS }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { variant: "secondary", children: "L\u01B0u th\xF4ng tin" })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("h2", { className: "text-lg font-extrabold", children: [
-              "D\u1EA1ng to\xE1n (",
-              topics.length,
-              ")"
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("ol", { className: "mt-3 space-y-3", children: topics.map((t, i2) => /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("li", { className: "rounded-xl border border-line p-3", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("details", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("summary", { className: "text-[15px]", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("strong", { children: [
-                  i2 + 1,
-                  "."
-                ] }),
-                " ",
-                t.title,
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("span", { className: "block text-[12px] text-ink-3", children: [
-                  t.questionCount,
-                  " c\xE2u h\u1ECFi \xB7 ",
-                  t.method ? "c\xF3 ph\u01B0\u01A1ng ph\xE1p" : "ch\u01B0a c\xF3 ph\u01B0\u01A1ng ph\xE1p"
-                ] })
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h2", { className: "text-lg font-extrabold", children: "B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c c\u1EE7a b\xE0i" }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: A2, className: "mt-3 space-y-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "meta" }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "grid grid-cols-2 gap-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "M\xE3 b\xE0i", name: "code", maxLength: 20, defaultValue: lesson.code, hint: "V\xED d\u1EE5 T8.B12" }),
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "S\u1ED1 th\u1EE9 t\u1EF1 b\xE0i", name: "number", type: "number", min: 1, max: 200, defaultValue: lesson.number })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(PostForm, { action: `/giao-vien/bai-hoc/${lesson.id}`, className: "mt-3 space-y-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "_action", value: "update-topic" }),
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "topic_id", value: t.id }),
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Field, { label: "T\xEAn d\u1EA1ng to\xE1n", name: "title", required: true, defaultValue: t.title, maxLength: 200 }),
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(TextArea, { label: "Ph\u01B0\u01A1ng ph\xE1p gi\u1EA3i", name: "method", defaultValue: t.method, rows: 3 }),
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Button, { size: "sm", variant: "secondary", children: "L\u01B0u" })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(PostForm, { action: `/giao-vien/bai-hoc/${lesson.id}`, className: "mt-2", confirm: "X\xF3a d\u1EA1ng to\xE1n n\xE0y? C\xE2u h\u1ECFi thu\u1ED9c d\u1EA1ng n\xE0y v\u1EABn \u0111\u01B0\u1EE3c gi\u1EEF.", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "_action", value: "delete-topic" }),
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "topic_id", value: t.id }),
-                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("button", { className: buttonClass("ghost", "sm", "text-le hover:bg-le-soft"), children: "X\xF3a d\u1EA1ng to\xE1n" })
-              ] })
-            ] }) }, t.id)) }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(PostForm, { action: `/giao-vien/bai-hoc/${lesson.id}`, className: "mt-4 space-y-2 border-t border-line pt-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("input", { type: "hidden", name: "_action", value: "add-topic" }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Field, { label: "Th\xEAm d\u1EA1ng to\xE1n", name: "title", required: true, maxLength: 200 }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(TextArea, { label: "Ph\u01B0\u01A1ng ph\xE1p gi\u1EA3i", name: "method", rows: 3 }),
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Button, { size: "sm", children: "Th\xEAm d\u1EA1ng to\xE1n" })
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+                Select,
+                {
+                  label: "M\u1EE9c \u0111\u1ED9 kh\xF3 c\u1EE7a b\xE0i",
+                  name: "difficulty",
+                  defaultValue: lesson.difficulty ?? "",
+                  options: [{ value: "", label: "Ch\u01B0a x\xE1c \u0111\u1ECBnh" }, ...[1, 2, 3, 4].map((l) => ({ value: l, label: DIFFICULTY_LABELS[l] }))]
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "objectives", label: "M\u1EE5c ti\xEAu ki\u1EBFn th\u1EE9c", value: lesson.objectives }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "prerequisites", label: "Ki\u1EBFn th\u1EE9c n\u1EC1n t\u1EA3ng", value: lesson.prerequisites }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "concepts", label: "C\xE1c kh\xE1i ni\u1EC7m quan tr\u1ECDng", value: lesson.concepts }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "formulas", label: "C\xF4ng th\u1EE9c", value: lesson.formulas }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "properties", label: "T\xEDnh ch\u1EA5t", value: lesson.properties }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "theorems", label: "\u0110\u1ECBnh l\xED", value: lesson.theorems }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "\u0110\u1ED1i chi\u1EBFu v\u1EDBi SGK", name: "verify_status", defaultValue: lesson.verifyStatus, options: VERIFY_OPTIONS }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(TextArea, { label: "Ghi ch\xFA \u0111\u1ED1i chi\u1EBFu", name: "verify_note", defaultValue: lesson.verifyNote, rows: 2 }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { variant: "secondary", children: "L\u01B0u b\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c" })
             ] })
           ] })
         ] })
@@ -34840,86 +37029,618 @@ async function lessonEditorAction(ctx) {
   const back = `/giao-vien/bai-hoc/${lessonId}`;
   const touch = () => ctx.db.exec(sql`update lessons set updated_at = now(), updated_by = ${user.id} where id = ${lessonId}`);
   const action = form.str("_action");
-  if (action === "info") {
-    const title = form.str("title", 200);
-    if (!title) return lessonEditorPage(ctx, ["T\xEAn b\xE0i kh\xF4ng \u0111\u01B0\u1EE3c \u0111\u1EC3 tr\u1ED1ng."]);
-    const periods = form.int("periods");
-    const minutes = form.int("minutes");
-    if (periods !== null && (periods < 0 || periods > 20) || minutes !== null && (minutes < 0 || minutes > 600)) return lessonEditorPage(ctx, ["S\u1ED1 ti\u1EBFt t\u1EEB 0\u201320, th\u1EDDi l\u01B0\u1EE3ng t\u1EEB 0\u2013600 ph\xFAt."]);
-    await ctx.db.exec(sql`
-      update lessons set title = ${title}, summary = ${form.text("summary", 1e3).trim() || null}, periods = ${periods}, estimated_minutes = ${minutes},
-        status = ${form.str("status") === "draft" ? "draft" : "published"}, updated_at = now(), updated_by = ${user.id}
-      where id = ${lessonId}`);
-    return redirect(back, { type: "success", message: "\u0110\xE3 l\u01B0u th\xF4ng tin b\xE0i." }, ctx);
-  }
-  if (action === "add-section" || action === "update-section") {
-    const kind = form.str("kind");
-    const body = form.text("body", 2e4).trim();
-    const solution = form.text("solution", 2e4).trim();
-    const errors = [];
-    if (!SECTION_KINDS.includes(kind)) errors.push("Lo\u1EA1i m\u1EE5c kh\xF4ng h\u1EE3p l\u1EC7.");
-    if (!body) errors.push("N\u1ED9i dung kh\xF4ng \u0111\u01B0\u1EE3c \u0111\u1EC3 tr\u1ED1ng.");
-    errors.push(...findMathErrors(body), ...findMathErrors(solution).map((e) => "L\u1EDDi gi\u1EA3i: " + e));
-    if (errors.length) return lessonEditorPage(ctx, errors);
-    if (action === "add-section") {
+  const dir = form.int("dir") === -1 ? -1 : 1;
+  const topicOfLesson = async () => {
+    const id = form.int("topic_id");
+    if (!id || !await ctx.db.one(sql`select 1 from topics where id = ${id} and lesson_id = ${lessonId}`)) throw new HttpError(404);
+    return id;
+  };
+  try {
+    if (action === "info") {
+      const title = form.str("title", 200);
+      if (!title) return lessonEditorPage(ctx, ["T\xEAn b\xE0i kh\xF4ng \u0111\u01B0\u1EE3c \u0111\u1EC3 tr\u1ED1ng."]);
+      const periods = form.int("periods");
+      const minutes = form.int("minutes");
+      if (periods !== null && (periods < 0 || periods > 20) || minutes !== null && (minutes < 0 || minutes > 600)) return lessonEditorPage(ctx, ["S\u1ED1 ti\u1EBFt t\u1EEB 0\u201320, th\u1EDDi l\u01B0\u1EE3ng t\u1EEB 0\u2013600 ph\xFAt."]);
       await ctx.db.exec(sql`
-        insert into lesson_sections (lesson_id, kind, title, body, solution, sort_order)
-        values (${lessonId}, ${kind}, ${form.str("title", 200) || null}, ${body}, ${solution || null},
-          (select coalesce(max(sort_order), 0) + 1 from lesson_sections where lesson_id = ${lessonId}))`);
-    } else {
-      const n = await ctx.db.exec(sql`
-        update lesson_sections set kind = ${kind}, title = ${form.str("title", 200) || null}, body = ${body}, solution = ${solution || null}
-        where id = ${form.int("section_id")} and lesson_id = ${lessonId}`);
-      if (!n) throw new HttpError(404);
+        update lessons set title = ${title}, summary = ${form.text("summary", 1e3).trim() || null}, periods = ${periods}, estimated_minutes = ${minutes},
+          status = ${form.str("status") === "draft" ? "draft" : "published"}, updated_at = now(), updated_by = ${user.id}
+        where id = ${lessonId}`);
+      return redirect(back, { type: "success", message: "\u0110\xE3 l\u01B0u th\xF4ng tin b\xE0i." }, ctx);
     }
-    await touch();
-    return redirect(back, { type: "success", message: action === "add-section" ? "\u0110\xE3 th\xEAm m\u1EE5c n\u1ED9i dung." : "\u0110\xE3 l\u01B0u m\u1EE5c n\u1ED9i dung." }, ctx);
-  }
-  if (action === "delete-section") {
-    await ctx.db.exec(sql`delete from lesson_sections where id = ${form.int("section_id")} and lesson_id = ${lessonId}`);
-    await touch();
-    return redirect(back, { type: "success", message: "\u0110\xE3 x\xF3a m\u1EE5c n\u1ED9i dung." }, ctx);
-  }
-  if (action === "move-section") {
-    const id = form.int("section_id");
-    const dir = form.int("dir") === -1 ? -1 : 1;
-    await ctx.db.tx(async (t) => {
-      const rows = await t.many(sql`select id from lesson_sections where lesson_id = ${lessonId} order by sort_order, id`);
-      const i2 = rows.findIndex((r3) => r3.id === id);
-      const j = i2 + dir;
-      if (i2 < 0 || j < 0 || j >= rows.length) return;
-      [rows[i2], rows[j]] = [rows[j], rows[i2]];
-      for (const [k, r3] of rows.entries()) await t.exec(sql`update lesson_sections set sort_order = ${k + 1} where id = ${r3.id}`);
-    });
-    await touch();
-    return redirect(back);
-  }
-  if (action === "add-topic" || action === "update-topic") {
-    const title = form.str("title", 200);
-    if (!title) return lessonEditorPage(ctx, ["T\xEAn d\u1EA1ng to\xE1n kh\xF4ng \u0111\u01B0\u1EE3c \u0111\u1EC3 tr\u1ED1ng."]);
-    const method = form.text("method", 4e3).trim() || null;
+    if (action === "meta") {
+      const code = form.str("code", 20).toUpperCase() || null;
+      const difficulty = form.int("difficulty");
+      const m = {
+        code,
+        number: form.int("number"),
+        difficulty: difficulty && difficulty >= 1 && difficulty <= 4 ? difficulty : null,
+        objectives: nullable(form.text("objectives", 8e3)),
+        prerequisites: nullable(form.text("prerequisites", 8e3)),
+        concepts: nullable(form.text("concepts", 8e3)),
+        formulas: nullable(form.text("formulas", 8e3)),
+        properties: nullable(form.text("properties", 8e3)),
+        theorems: nullable(form.text("theorems", 8e3)),
+        verifyStatus: verify(form.str("verify_status")),
+        verifyNote: nullable(form.text("verify_note", 2e3))
+      };
+      const errors = [];
+      if (code && !/^[A-Z0-9.-]{1,20}$/.test(code)) errors.push("M\xE3 b\xE0i ch\u1EC9 g\u1ED3m ch\u1EEF in hoa kh\xF4ng d\u1EA5u, ch\u1EEF s\u1ED1, d\u1EA5u ch\u1EA5m v\xE0 g\u1EA1ch n\u1ED1i.");
+      errors.push(
+        ...mathErrors([
+          ["M\u1EE5c ti\xEAu", m.objectives],
+          ["Ki\u1EBFn th\u1EE9c n\u1EC1n t\u1EA3ng", m.prerequisites],
+          ["Kh\xE1i ni\u1EC7m", m.concepts],
+          ["C\xF4ng th\u1EE9c", m.formulas],
+          ["T\xEDnh ch\u1EA5t", m.properties],
+          ["\u0110\u1ECBnh l\xED", m.theorems]
+        ])
+      );
+      if (errors.length) return lessonEditorPage(ctx, errors);
+      await updateLessonMeta(ctx.db, lessonId, m, user.id);
+      return redirect(back, { type: "success", message: "\u0110\xE3 l\u01B0u b\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c c\u1EE7a b\xE0i." }, ctx);
+    }
+    if (action === "add-section" || action === "update-section") {
+      const kind = form.str("kind");
+      const body = form.text("body", 2e4).trim();
+      const solution = form.text("solution", 2e4).trim();
+      const errors = [];
+      if (!SECTION_KINDS.includes(kind)) errors.push("Lo\u1EA1i m\u1EE5c kh\xF4ng h\u1EE3p l\u1EC7.");
+      if (!body) errors.push("N\u1ED9i dung kh\xF4ng \u0111\u01B0\u1EE3c \u0111\u1EC3 tr\u1ED1ng.");
+      errors.push(...findMathErrors(body), ...findMathErrors(solution).map((e) => "L\u1EDDi gi\u1EA3i: " + e));
+      if (errors.length) return lessonEditorPage(ctx, errors);
+      if (action === "add-section") {
+        await ctx.db.exec(sql`
+          insert into lesson_sections (lesson_id, kind, title, body, solution, sort_order)
+          values (${lessonId}, ${kind}, ${form.str("title", 200) || null}, ${body}, ${solution || null},
+            (select coalesce(max(sort_order), 0) + 1 from lesson_sections where lesson_id = ${lessonId}))`);
+      } else {
+        const n = await ctx.db.exec(sql`
+          update lesson_sections set kind = ${kind}, title = ${form.str("title", 200) || null}, body = ${body}, solution = ${solution || null}
+          where id = ${form.int("section_id")} and lesson_id = ${lessonId}`);
+        if (!n) throw new HttpError(404);
+      }
+      await touch();
+      return redirect(back, { type: "success", message: action === "add-section" ? "\u0110\xE3 th\xEAm m\u1EE5c n\u1ED9i dung." : "\u0110\xE3 l\u01B0u m\u1EE5c n\u1ED9i dung." }, ctx);
+    }
+    if (action === "delete-section") {
+      await ctx.db.exec(sql`delete from lesson_sections where id = ${form.int("section_id")} and lesson_id = ${lessonId}`);
+      await touch();
+      return redirect(back, { type: "success", message: "\u0110\xE3 x\xF3a m\u1EE5c n\u1ED9i dung." }, ctx);
+    }
+    if (action === "move-section") {
+      const id = form.int("section_id");
+      await ctx.db.tx(async (t) => {
+        const rows = await t.many(sql`select id from lesson_sections where lesson_id = ${lessonId} order by sort_order, id`);
+        const i2 = rows.findIndex((r4) => r4.id === id);
+        const j = i2 + dir;
+        if (i2 < 0 || j < 0 || j >= rows.length) return;
+        [rows[i2], rows[j]] = [rows[j], rows[i2]];
+        for (const [k, r4] of rows.entries()) await t.exec(sql`update lesson_sections set sort_order = ${k + 1} where id = ${r4.id}`);
+      });
+      await touch();
+      return redirect(back);
+    }
+    if (action === "add-theme" || action === "update-theme") {
+      const title = form.str("title", 300);
+      if (!title) return lessonEditorPage(ctx, ["T\xEAn ch\u1EE7 \u0111\u1EC1 kh\xF4ng \u0111\u01B0\u1EE3c \u0111\u1EC3 tr\u1ED1ng."]);
+      const description = nullable(form.text("description", 2e3));
+      if (action === "add-theme") await createTheme(ctx.db, lessonId, title, description, "published");
+      else await updateTheme(ctx.db, lessonId, form.int("theme_id") ?? 0, title, description, form.str("status"));
+      await touch();
+      return redirect(back, { type: "success", message: "\u0110\xE3 l\u01B0u ch\u1EE7 \u0111\u1EC1." }, ctx);
+    }
+    if (action === "delete-theme") {
+      await deleteTheme(ctx.db, lessonId, form.int("theme_id") ?? 0);
+      await touch();
+      return redirect(back, { type: "success", message: "\u0110\xE3 x\xF3a ch\u1EE7 \u0111\u1EC1; c\xE1c d\u1EA1ng to\xE1n c\u1EE7a ch\u1EE7 \u0111\u1EC1 v\u1EABn \u0111\u01B0\u1EE3c gi\u1EEF." }, ctx);
+    }
+    if (action === "move-theme") {
+      await moveTheme(ctx.db, lessonId, form.int("theme_id") ?? 0, dir);
+      return redirect(back);
+    }
     if (action === "add-topic") {
-      await ctx.db.exec(sql`
-        insert into topics (lesson_id, title, method, sort_order)
-        values (${lessonId}, ${title}, ${method}, (select coalesce(max(sort_order), 0) + 1 from topics where lesson_id = ${lessonId}))`);
-    } else {
-      await ctx.db.exec(sql`update topics set title = ${title}, method = ${method} where id = ${form.int("topic_id")} and lesson_id = ${lessonId}`);
+      const title = form.str("title", 200);
+      if (!title) return lessonEditorPage(ctx, ["T\xEAn d\u1EA1ng to\xE1n kh\xF4ng \u0111\u01B0\u1EE3c \u0111\u1EC3 tr\u1ED1ng."]);
+      const id = await createTopic(ctx.db, lessonId, form.int("theme_id"), title, user.id);
+      await touch();
+      return redirect(`/giao-vien/dang-toan/${id}`, { type: "success", message: '\u0110\xE3 th\xEAm d\u1EA1ng to\xE1n (\u0111ang \u1EA9n). So\u1EA1n n\u1ED9i dung r\u1ED3i ch\u1ECDn "Xu\u1EA5t b\u1EA3n".' }, ctx);
     }
-    await touch();
-    return redirect(back, { type: "success", message: "\u0110\xE3 l\u01B0u d\u1EA1ng to\xE1n." }, ctx);
-  }
-  if (action === "delete-topic") {
-    await ctx.db.exec(sql`delete from topics where id = ${form.int("topic_id")} and lesson_id = ${lessonId}`);
-    await touch();
-    return redirect(back, { type: "success", message: "\u0110\xE3 x\xF3a d\u1EA1ng to\xE1n." }, ctx);
+    if (action === "move-topic") {
+      await moveTopic(ctx.db, await topicOfLesson(), dir);
+      return redirect(back);
+    }
+    if (action === "topic-status") {
+      await setTopicStatus(ctx.db, await topicOfLesson(), form.str("status"), user.id);
+      return redirect(back, { type: "success", message: form.str("status") === "draft" ? "\u0110\xE3 \u1EA9n d\u1EA1ng to\xE1n." : "\u0110\xE3 xu\u1EA5t b\u1EA3n d\u1EA1ng to\xE1n." }, ctx);
+    }
+  } catch (err) {
+    if (err instanceof ContentError) return lessonEditorPage(ctx, [err.message]);
+    throw err;
   }
   throw new HttpError(400, "Thao t\xE1c kh\xF4ng h\u1EE3p l\u1EC7.");
+}
+async function topicEditorPage(ctx, errors) {
+  requireTeacher(ctx);
+  const topic = await getTopicById(ctx.db, intParam(ctx, "id"));
+  if (!topic) throw new HttpError(404, "Kh\xF4ng t\xECm th\u1EA5y d\u1EA1ng to\xE1n.");
+  const lesson = await getLessonById(ctx.db, topic.lessonId);
+  const book = await ctx.db.one(sql`select slug from textbooks where id = ${lesson.textbookId}`);
+  const themes = (await getLessonThemes(ctx.db, lesson.textbookId, lesson.id, true)).filter((th) => th.id);
+  const counts = await getTopicQuestionCounts(ctx.db, topic.id);
+  const A2 = `/giao-vien/dang-toan/${topic.id}`;
+  const label = lessonLabel(lesson);
+  return page(
+    ctx,
+    { title: `D\u1EA1ng to\xE1n: ${topic.title}`, layout: "dashboard", section: "curriculum", status: errors ? 422 : 200 },
+    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+        PageTitle,
+        {
+          crumbs: [{ href: "/giao-vien/chuong-trinh", label: "Ch\u01B0\u01A1ng tr\xECnh & b\xE0i h\u1ECDc" }, { href: `/giao-vien/bai-hoc/${lesson.id}`, label }, { label: topic.title }],
+          title: topic.title,
+          sub: `${topic.code ?? "Ch\u01B0a c\xF3 m\xE3"} \xB7 ${label}`,
+          actions: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/hoc/${book.slug}/bai/${lesson.slug}/dang/${topicKey(topic)}`, className: buttonClass("secondary", "md"), children: "Xem nh\u01B0 h\u1ECDc sinh" }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("a", { href: `/giao-vien/cau-hoi?dang=${topic.id}`, className: buttonClass("quiet", "md"), children: [
+              "C\xE2u h\u1ECFi c\u1EE7a d\u1EA1ng (",
+              counts.total,
+              ")"
+            ] })
+          ] })
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ErrorList, { errors }),
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: A2, className: "min-w-0 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "save" }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "grid gap-4 p-5 md:grid-cols-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { className: "md:col-span-2", label: "T\xEAn d\u1EA1ng to\xE1n", name: "title", required: true, maxLength: 200, defaultValue: topic.title }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "Thu\u1ED9c ch\u1EE7 \u0111\u1EC1", name: "theme_id", defaultValue: topic.themeId ?? "", options: [...themes.map((th) => ({ value: th.id, label: th.title })), { value: "", label: "Ch\u01B0a x\u1EBFp ch\u1EE7 \u0111\u1EC1" }] }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "Tr\u1EA1ng th\xE1i", name: "status", defaultValue: topic.status, options: STATUS_OPTIONS }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "\u0110\u01B0\u1EDDng d\u1EABn (slug)", name: "slug", maxLength: 80, defaultValue: topic.slug ?? "", hint: "B\u1ECF tr\u1ED1ng \u0111\u1EC3 t\u1EA1o t\u1EF1 \u0111\u1ED9ng t\u1EEB t\xEAn." }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("fieldset", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("legend", { className: "mb-1.5 text-sm font-semibold text-ink-2", children: "M\u1EE9c \u0111\u1ED9 ph\xF9 h\u1EE3p" }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "flex flex-wrap gap-x-4 gap-y-1", children: [1, 2, 3, 4].map((l) => /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Checkbox, { name: "levels", value: String(l), label: LEVEL_LABELS2[l], defaultChecked: topic.levels.includes(l) }, l)) })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "space-y-4 p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "knowledge", label: "Ki\u1EBFn th\u1EE9c s\u1EED d\u1EE5ng", value: topic.knowledge }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "signs", label: "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt", value: topic.signs }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "method", label: "Ph\u01B0\u01A1ng ph\xE1p gi\u1EA3i", value: topic.method }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "steps", label: "C\xE1c b\u01B0\u1EDBc gi\u1EA3i", value: topic.steps, rows: 5, hint: 'M\u1ED7i b\u01B0\u1EDBc m\u1ED9t d\xF2ng, b\u1EAFt \u0111\u1EA7u b\u1EB1ng "- ", v\xED d\u1EE5: - **B\u01B0\u1EDBc 1.** \u2026' }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "mistakes", label: "L\u1ED7i sai th\u01B0\u1EDDng g\u1EB7p", value: topic.mistakes, rows: 4 }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "example", label: "V\xED d\u1EE5 minh h\u1ECDa (\u0111\u1EC1 b\xE0i)", value: topic.example, rows: 4 }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RichInput, { name: "example_solution", label: "L\u1EDDi gi\u1EA3i v\xED d\u1EE5", value: topic.exampleSolution, rows: 5 })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { children: "L\u01B0u d\u1EA1ng to\xE1n" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "B\xE0i t\u1EADp c\u1EE7a d\u1EA1ng" }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(QuestionCoverage, { byType: counts.byType, byLevel: counts.byLevel, levels: topic.levels }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "mt-4 flex flex-wrap gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/giao-vien/cau-hoi/moi?loai=mcq&dang=${topic.id}`, className: buttonClass("primary", "sm"), children: "Th\xEAm c\xE2u h\u1ECFi" }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: "/giao-vien/cau-hoi/nhap", className: buttonClass("secondary", "sm"), children: "Nh\u1EADp h\xE0ng lo\u1EA1t" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("p", { className: "mt-3 text-[13px] text-ink-3", children: [
+              "M\xE3 d\u1EA1ng \u0111\u1EC3 d\xF9ng khi nh\u1EADp c\xE2u h\u1ECFi h\xE0ng lo\u1EA1t: ",
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("strong", { children: topic.code ?? `#${topic.id}` })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h2", { className: "text-lg font-extrabold", children: "X\xF3a d\u1EA1ng to\xE1n" }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { className: "mt-1 text-[14px] text-ink-2", children: "C\xE2u h\u1ECFi c\u1EE7a d\u1EA1ng v\u1EABn \u0111\u01B0\u1EE3c gi\u1EEF trong ng\xE2n h\xE0ng c\xE2u h\u1ECFi (ch\u1EC9 b\u1ECF li\xEAn k\u1EBFt v\u1EDBi d\u1EA1ng)." }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: A2, className: "mt-3", confirm: "X\xF3a d\u1EA1ng to\xE1n n\xE0y?", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "delete" }),
+              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("button", { className: buttonClass("ghost", "sm", "text-le hover:bg-le-soft"), children: "X\xF3a d\u1EA1ng to\xE1n" })
+            ] })
+          ] })
+        ] })
+      ] })
+    ] })
+  );
+}
+async function topicEditorAction(ctx) {
+  const user = requireTeacher(ctx);
+  const topicId = intParam(ctx, "id");
+  const topic = await getTopicById(ctx.db, topicId);
+  if (!topic) throw new HttpError(404);
+  const form = await ctx.form();
+  if (form.str("_action") === "delete") {
+    await deleteTopic(ctx.db, topicId);
+    return redirect(`/giao-vien/bai-hoc/${topic.lessonId}`, { type: "success", message: "\u0110\xE3 x\xF3a d\u1EA1ng to\xE1n." }, ctx);
+  }
+  const u = {
+    themeId: form.int("theme_id"),
+    title: form.str("title", 200),
+    slug: form.str("slug", 80),
+    levels: [...new Set(form.all("levels").map(Number))].filter((n) => n >= 1 && n <= 4).sort(),
+    status: form.str("status") === "draft" ? "draft" : "published",
+    knowledge: nullable(form.text("knowledge", 8e3)),
+    signs: nullable(form.text("signs", 8e3)),
+    method: nullable(form.text("method", 8e3)),
+    steps: nullable(form.text("steps", 8e3)),
+    mistakes: nullable(form.text("mistakes", 8e3)),
+    example: nullable(form.text("example", 8e3)),
+    exampleSolution: nullable(form.text("example_solution", 8e3))
+  };
+  const errors = [];
+  if (!u.title) errors.push("T\xEAn d\u1EA1ng to\xE1n kh\xF4ng \u0111\u01B0\u1EE3c \u0111\u1EC3 tr\u1ED1ng.");
+  errors.push(
+    ...mathErrors([
+      ["Ki\u1EBFn th\u1EE9c", u.knowledge],
+      ["D\u1EA5u hi\u1EC7u", u.signs],
+      ["Ph\u01B0\u01A1ng ph\xE1p", u.method],
+      ["C\xE1c b\u01B0\u1EDBc", u.steps],
+      ["L\u1ED7i sai", u.mistakes],
+      ["V\xED d\u1EE5", u.example],
+      ["L\u1EDDi gi\u1EA3i v\xED d\u1EE5", u.exampleSolution]
+    ])
+  );
+  if (errors.length) return topicEditorPage(ctx, errors);
+  try {
+    await updateTopic(ctx.db, topicId, u, user.id);
+  } catch (err) {
+    if (err instanceof ContentError) return topicEditorPage(ctx, [err.message]);
+    throw err;
+  }
+  return redirect(`/giao-vien/dang-toan/${topicId}`, { type: "success", message: "\u0110\xE3 l\u01B0u d\u1EA1ng to\xE1n." }, ctx);
+}
+
+// src/domain/question-import.ts
+init_richtext();
+init_figure();
+var IMPORT_COLUMNS = ["ma_dang", "ma_bai", "hinh_thuc", "muc_do", "de_bai", "A", "B", "C", "D", "dap_an", "loi_giai", "goi_y", "hinh_ve", "don_vi", "diem"];
+var fold = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[đĐ]/g, "d").toLowerCase().trim();
+var HEADER_ALIASES = {
+  ma_dang: "ma_dang",
+  "ma dang": "ma_dang",
+  dang: "ma_dang",
+  "dang toan": "ma_dang",
+  "ma dang toan": "ma_dang",
+  ma_bai: "ma_bai",
+  "ma bai": "ma_bai",
+  bai: "ma_bai",
+  hinh_thuc: "hinh_thuc",
+  "hinh thuc": "hinh_thuc",
+  loai: "hinh_thuc",
+  "loai cau": "hinh_thuc",
+  muc_do: "muc_do",
+  "muc do": "muc_do",
+  muc: "muc_do",
+  de_bai: "de_bai",
+  "de bai": "de_bai",
+  de: "de_bai",
+  "noi dung": "de_bai",
+  "cau hoi": "de_bai",
+  a: "A",
+  b: "B",
+  c: "C",
+  d: "D",
+  dap_an: "dap_an",
+  "dap an": "dap_an",
+  loi_giai: "loi_giai",
+  "loi giai": "loi_giai",
+  "huong dan giai": "loi_giai",
+  goi_y: "goi_y",
+  "goi y": "goi_y",
+  hinh_ve: "hinh_ve",
+  "hinh ve": "hinh_ve",
+  hinh: "hinh_ve",
+  don_vi: "don_vi",
+  "don vi": "don_vi",
+  diem: "diem"
+};
+function parseTable(text2) {
+  const src = text2.replace(/^﻿/, "").replace(/\r\n?/g, "\n");
+  const firstLine = src.split("\n", 1)[0] ?? "";
+  const delim = firstLine.includes("	") ? "	" : (firstLine.match(/;/g)?.length ?? 0) > (firstLine.match(/,/g)?.length ?? 0) ? ";" : ",";
+  const rows = [];
+  let row = [];
+  let cell = "";
+  let quoted = false;
+  for (let i2 = 0; i2 < src.length; i2++) {
+    const ch2 = src[i2];
+    if (quoted) {
+      if (ch2 === '"') {
+        if (src[i2 + 1] === '"') {
+          cell += '"';
+          i2++;
+        } else quoted = false;
+      } else cell += ch2;
+      continue;
+    }
+    if (ch2 === '"' && cell === "") quoted = true;
+    else if (ch2 === delim) {
+      row.push(cell);
+      cell = "";
+    } else if (ch2 === "\n") {
+      row.push(cell);
+      rows.push(row);
+      row = [];
+      cell = "";
+    } else cell += ch2;
+  }
+  if (cell !== "" || row.length) {
+    row.push(cell);
+    rows.push(row);
+  }
+  return rows.filter((r4) => r4.some((c) => c.trim() !== ""));
+}
+function typeFromText(s) {
+  const v = fold(s).replace(/[_-]/g, " ");
+  if (QUESTION_TYPES.includes(s.trim())) return s.trim();
+  if (["tn", "trac nghiem", "trac nghiem 4 phuong an", "mcq", "tnkq"].includes(v)) return "mcq";
+  if (["ds", "dung sai", "dung/sai", "true false", "d/s"].includes(v)) return "true_false";
+  if (["tln", "tra loi ngan", "short answer", "tlngan"].includes(v)) return "short_answer";
+  if (["tl", "tu luan", "essay"].includes(v)) return "essay";
+  if (["hh", "tlhh", "tu luan hinh hoc", "hinh hoc", "geometry essay"].includes(v)) return "geometry_essay";
+  return null;
+}
+function levelFromText(s) {
+  const v = fold(s).replace(/\s+/g, " ");
+  const map = { "1": 1, "2": 2, "3": 3, "4": 4, nb: 1, "nhan biet": 1, th: 2, "thong hieu": 2, vd: 3, "van dung": 3, vdc: 4, "van dung cao": 4 };
+  return map[v] ?? null;
+}
+function truthsFromText(s) {
+  const v = fold(s).replace(/dung/g, "d").replace(/sai/g, "s");
+  let tokens = v.split(/[^a-z0-9]+/).filter(Boolean);
+  if (tokens.length === 1 && tokens[0].length === 4) tokens = tokens[0].split("");
+  return tokens.map((t) => ["d", "t", "1", "true"].includes(t) ? true : ["s", "f", "0", "false"].includes(t) ? false : null);
+}
+async function prepareImport(q, textbookId, text2, status) {
+  const table = parseTable(text2);
+  if (table.length < 2) return { rows: [], headerErrors: ["Ch\u01B0a c\xF3 d\u1EEF li\u1EC7u: c\u1EA7n d\xF2ng ti\xEAu \u0111\u1EC1 v\xE0 \xEDt nh\u1EA5t m\u1ED9t d\xF2ng c\xE2u h\u1ECFi."] };
+  const header = table[0].map((h) => HEADER_ALIASES[fold(h).replace(/_/g, " ")] ?? HEADER_ALIASES[fold(h)] ?? null);
+  const headerErrors = [];
+  for (const need of ["hinh_thuc", "de_bai"]) if (!header.includes(need)) headerErrors.push(`Thi\u1EBFu c\u1ED9t "${need}" \u1EDF d\xF2ng ti\xEAu \u0111\u1EC1.`);
+  if (!header.includes("ma_dang") && !header.includes("ma_bai")) headerErrors.push('C\u1EA7n c\u1ED9t "ma_dang" (m\xE3 d\u1EA1ng to\xE1n) ho\u1EB7c "ma_bai" (m\xE3 b\xE0i).');
+  if (headerErrors.length) return { rows: [], headerErrors };
+  const topics = await q.many(sql`
+    select t.id, t.lesson_id, t.code, t.title from topics t join lessons l on l.id = t.lesson_id where l.textbook_id = ${textbookId}`);
+  const lessons = await q.many(sql`select id, code from lessons where textbook_id = ${textbookId}`);
+  const topicByCode = new Map(topics.filter((t) => t.code).map((t) => [t.code.toUpperCase(), t]));
+  const topicById = new Map(topics.map((t) => [t.id, t]));
+  const lessonByCode = new Map(lessons.filter((l) => l.code).map((l) => [l.code.toUpperCase(), l.id]));
+  const rows = [];
+  for (const [i2, cells] of table.slice(1).entries()) {
+    const get = (c) => {
+      const k = header.indexOf(c);
+      return k >= 0 ? (cells[k] ?? "").trim() : "";
+    };
+    const errors = [];
+    const type = typeFromText(get("hinh_thuc"));
+    const input = emptyQuestionInput(type ?? "mcq");
+    input.status = status;
+    if (!type) errors.push(`H\xECnh th\u1EE9c "${get("hinh_thuc")}" kh\xF4ng h\u1EE3p l\u1EC7 (d\xF9ng TN, DS, TLN, TL ho\u1EB7c HH).`);
+    let topicLabel = null;
+    const dang = get("ma_dang");
+    if (dang) {
+      const m = /^#?(\d+)$/.exec(dang);
+      const tp = m ? topicById.get(Number(m[1])) : topicByCode.get(dang.toUpperCase());
+      if (!tp) errors.push(`Kh\xF4ng t\xECm th\u1EA5y d\u1EA1ng to\xE1n m\xE3 "${dang}".`);
+      else {
+        input.topicId = tp.id;
+        input.lessonId = tp.lessonId;
+        topicLabel = `${tp.code ?? "#" + tp.id} \xB7 ${tp.title}`;
+      }
+    } else if (get("ma_bai")) {
+      const lid = lessonByCode.get(get("ma_bai").toUpperCase());
+      if (!lid) errors.push(`Kh\xF4ng t\xECm th\u1EA5y b\xE0i m\xE3 "${get("ma_bai")}".`);
+      else input.lessonId = lid;
+    } else errors.push("Thi\u1EBFu m\xE3 d\u1EA1ng to\xE1n (ho\u1EB7c m\xE3 b\xE0i).");
+    const lv = get("muc_do") ? levelFromText(get("muc_do")) : 1;
+    if (!lv) errors.push(`M\u1EE9c \u0111\u1ED9 "${get("muc_do")}" kh\xF4ng h\u1EE3p l\u1EC7 (1\u20134 ho\u1EB7c NB, TH, VD, VDC).`);
+    input.level = lv ?? 1;
+    const pts = get("diem") ? Number(get("diem").replace(",", ".")) : 1;
+    if (!(pts > 0 && pts <= 100)) errors.push("\u0110i\u1EC3m ph\u1EA3i l\u1EDBn h\u01A1n 0 v\xE0 kh\xF4ng qu\xE1 100.");
+    input.points = pts > 0 ? pts : 1;
+    input.stem = get("de_bai");
+    input.solution = get("loi_giai");
+    input.hint = get("goi_y");
+    input.figure = get("hinh_ve");
+    if (!input.stem) errors.push("\u0110\u1EC1 b\xE0i \u0111ang \u0111\u1EC3 tr\u1ED1ng.");
+    const texts = [["\u0110\u1EC1 b\xE0i", input.stem], ["L\u1EDDi gi\u1EA3i", input.solution], ["G\u1EE3i \xFD", input.hint]];
+    const opts = ["A", "B", "C", "D"].map((c) => get(c));
+    const ans = get("dap_an");
+    if (type === "mcq") {
+      input.options = opts;
+      opts.forEach((o, k) => {
+        if (!o) errors.push(`Ph\u01B0\u01A1ng \xE1n ${"ABCD"[k]} \u0111ang \u0111\u1EC3 tr\u1ED1ng.`);
+        texts.push([`Ph\u01B0\u01A1ng \xE1n ${"ABCD"[k]}`, o]);
+      });
+      const c = fold(ans).toUpperCase();
+      if (!/^[A-D]$/.test(c)) errors.push("\u0110\xE1p \xE1n tr\u1EAFc nghi\u1EC7m ph\u1EA3i l\xE0 m\u1ED9t trong A, B, C, D.");
+      input.correct = c;
+      if (new Set(opts.filter(Boolean).map((o) => o.replace(/\s+/g, ""))).size < opts.filter(Boolean).length) errors.push("C\xF3 hai ph\u01B0\u01A1ng \xE1n tr\xF9ng nhau.");
+    } else if (type === "true_false") {
+      const values = truthsFromText(ans);
+      if (values.length !== 4 || values.some((v) => v === null)) errors.push('\u0110\xE1p \xE1n \u0110\xFAng/Sai c\u1EA7n \u0111\u1EE7 4 \xFD, v\xED d\u1EE5 "\u0110 S \u0110 S".');
+      input.statements = opts.map((t, k) => ({ text: t, value: values[k] ?? null }));
+      opts.forEach((o, k) => {
+        if (!o) errors.push(`\xDD ${"abcd"[k]}) \u0111ang \u0111\u1EC3 tr\u1ED1ng (\u0111i\u1EC1n \u1EDF c\u1ED9t ${"ABCD"[k]}).`);
+        texts.push([`\xDD ${"abcd"[k]})`, o]);
+      });
+    } else if (type === "short_answer") {
+      input.accepted = ans.split(/[;|\n]/).map((s) => s.trim()).filter(Boolean).slice(0, 10);
+      input.unit = get("don_vi").slice(0, 20);
+      if (!input.accepted.length) errors.push("C\xE2u tr\u1EA3 l\u1EDDi ng\u1EAFn c\u1EA7n \u0111\xE1p \xE1n \u1EDF c\u1ED9t dap_an (nhi\u1EC1u \u0111\xE1p \xE1n c\xE1ch nhau b\u1EDFi d\u1EA5u ;).");
+      for (const a of input.accepted) if (parseNumber(a) === null && !/[a-zA-Z\\]/.test(a)) errors.push(`\u0110\xE1p \xE1n "${a}" kh\xF4ng \u0111\u1ECDc \u0111\u01B0\u1EE3c th\xE0nh s\u1ED1.`);
+    }
+    if (type === "geometry_essay" && !input.figure) errors.push("C\xE2u t\u1EF1 lu\u1EADn h\xECnh h\u1ECDc c\u1EA7n h\xECnh v\u1EBD \u1EDF c\u1ED9t hinh_ve.");
+    if (input.figure) figureToSvg(input.figure).errors.forEach((e) => errors.push("H\xECnh v\u1EBD \u2013 " + e));
+    for (const [name, t] of texts) if (t) findMathErrors(t).forEach((e) => errors.push(`${name}: ${e}`));
+    rows.push({ line: i2 + 2, input, topicLabel, errors });
+  }
+  return { rows, headerErrors };
+}
+function templateCsv() {
+  const esc = (s) => /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  const rows = [
+    [...IMPORT_COLUMNS],
+    ["T8.B01.D1", "", "TN", "NB", "Bi\u1EC3u th\u1EE9c n\xE0o sau \u0111\xE2y l\xE0 \u0111\u01A1n th\u1EE9c?", "\\(x + 1\\)", "\\(3x^2y\\)", "\\(\\dfrac{1}{x}\\)", "\\(x - y\\)", "B", "Ch\u1EC9 \\(3x^2y\\) l\xE0 t\xEDch c\u1EE7a s\u1ED1 v\u1EDBi c\xE1c bi\u1EBFn.", "", "", "", "1"],
+    ["T8.B01.D1", "", "DS", "TH", "M\u1ED7i kh\u1EB3ng \u0111\u1ECBnh sau \u0111\xFAng hay sai?", "\\(5\\) l\xE0 \u0111\u01A1n th\u1EE9c.", "\\(x + y\\) l\xE0 \u0111\u01A1n th\u1EE9c.", "\\(\\dfrac{x}{2}\\) l\xE0 \u0111\u01A1n th\u1EE9c.", "\\(\\dfrac{2}{x}\\) l\xE0 \u0111\u01A1n th\u1EE9c.", "\u0110 S \u0110 S", "a) \u0110\xFAng. b) Sai. c) \u0110\xFAng. d) Sai.", "", "", "", "1"],
+    ["T8.B01.D3", "", "TLN", "NB", "B\u1EADc c\u1EE7a \u0111\u01A1n th\u1EE9c \\(4x^3y^2\\) l\xE0 bao nhi\xEAu?", "", "", "", "", "5", "T\u1ED5ng s\u1ED1 m\u0169: 3 + 2 = 5.", "", "", "", "1"],
+    ["T8.B04.D5", "", "TL", "VD", "Ch\u1EE9ng minh \\((x - 1)(x + 1) = x^2 - 1\\).", "", "", "", "", "", "V\u1EBF tr\xE1i \\(= x^2 + x - x - 1 = x^2 - 1\\).", "", "", "", "1"],
+    ["T8.B10.D1", "", "HH", "VD", "Cho t\u1EE9 gi\xE1c ABCD c\xF3 \\(\\widehat{A} = 80^\\circ\\), \\(\\widehat{B} = 100^\\circ\\), \\(\\widehat{C} = 2\\widehat{D}\\). T\xEDnh \\(\\widehat{C}\\), \\(\\widehat{D}\\).", "", "", "", "", "", "\\(\\widehat{C} = 120^\\circ\\), \\(\\widehat{D} = 60^\\circ\\).", "", "A(0,0) B(5,0) C(6,3) D(1,3)\nABCDA", "", "1"]
+  ];
+  return "\uFEFF" + rows.map((r4) => r4.map(esc).join(",")).join("\r\n") + "\r\n";
+}
+
+// src/server/handlers/teacher/import.tsx
+init_richtext();
+var import_jsx_runtime28 = __toESM(require_jsx_runtime(), 1);
+var GUIDE = [
+  ["ma_dang", "M\xE3 d\u1EA1ng to\xE1n, v\xED d\u1EE5 T8.B01.D2 (xem \u1EDF trang so\u1EA1n d\u1EA1ng to\xE1n). C\xF3 th\u1EC3 thay b\u1EB1ng ma_bai n\u1EBFu c\xE2u ch\u01B0a thu\u1ED9c d\u1EA1ng n\xE0o."],
+  ["hinh_thuc", "TN = tr\u1EAFc nghi\u1EC7m 4 ph\u01B0\u01A1ng \xE1n; DS = \u0110\xFAng/Sai 4 \xFD; TLN = tr\u1EA3 l\u1EDDi ng\u1EAFn; TL = t\u1EF1 lu\u1EADn; HH = t\u1EF1 lu\u1EADn h\xECnh h\u1ECDc."],
+  ["muc_do", "1\u20134 ho\u1EB7c NB, TH, VD, VDC."],
+  ["de_bai", "\u0110\u1EC1 b\xE0i. C\xF4ng th\u1EE9c vi\u1EBFt \\( \u2026 \\) ho\u1EB7c \\[ \u2026 \\]."],
+  ["A, B, C, D", "TN: b\u1ED1n ph\u01B0\u01A1ng \xE1n. DS: b\u1ED1n \xFD a), b), c), d)."],
+  ["dap_an", 'TN: A/B/C/D. DS: v\xED d\u1EE5 "\u0110 S \u0110 S". TLN: \u0111\xE1p \xE1n s\u1ED1, nhi\u1EC1u \u0111\xE1p \xE1n c\xE1ch nhau b\u1EDFi d\u1EA5u ;. TL, HH: \u0111\u1EC3 tr\u1ED1ng.'],
+  ["loi_giai, goi_y", "L\u1EDDi gi\u1EA3i chi ti\u1EBFt, g\u1EE3i \xFD (kh\xF4ng b\u1EAFt bu\u1ED9c)."],
+  ["hinh_ve", "H\xECnh v\u1EBD m\xF4 t\u1EA3 b\u1EB1ng v\u0103n b\u1EA3n (b\u1EAFt bu\u1ED9c v\u1EDBi HH), v\xED d\u1EE5: A(0,0) B(4,0) C(0,3) r\u1ED3i xu\u1ED1ng d\xF2ng ABCA."],
+  ["don_vi, diem", "\u0110\u01A1n v\u1ECB c\u1EE7a c\xE2u tr\u1EA3 l\u1EDDi ng\u1EAFn; \u0111i\u1EC3m m\u1EB7c \u0111\u1ECBnh (b\u1ECF tr\u1ED1ng = 1)."]
+];
+async function importPage(ctx, opts = {}) {
+  requireTeacher(ctx);
+  const rows = opts.rows;
+  const ok = rows?.filter((r4) => !r4.errors.length) ?? [];
+  const bad = rows?.filter((r4) => r4.errors.length) ?? [];
+  return page(
+    ctx,
+    { title: "Nh\u1EADp c\xE2u h\u1ECFi h\xE0ng lo\u1EA1t", layout: "dashboard", section: "questions", status: opts.headerErrors?.length ? 422 : 200 },
+    /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(import_jsx_runtime28.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
+        PageTitle,
+        {
+          crumbs: [{ href: "/giao-vien/cau-hoi", label: "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi" }, { label: "Nh\u1EADp h\xE0ng lo\u1EA1t" }],
+          title: "Nh\u1EADp c\xE2u h\u1ECFi h\xE0ng lo\u1EA1t",
+          sub: "So\u1EA1n nhi\u1EC1u c\xE2u trong Excel r\u1ED3i \u0111\u01B0a v\xE0o ng\xE2n h\xE0ng m\u1ED9t l\u1EA7n. M\u1ED7i d\xF2ng l\xE0 m\u1ED9t c\xE2u, g\u1EAFn v\xE0o d\u1EA1ng to\xE1n theo m\xE3 d\u1EA1ng.",
+          actions: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("a", { href: "/giao-vien/cau-hoi/nhap/mau.csv", className: buttonClass("secondary", "md"), children: [
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(LuFileSpreadsheet, { "aria-hidden": "true" }),
+            " T\u1EA3i t\u1EC7p m\u1EABu (CSV m\u1EDF b\u1EB1ng Excel)"
+          ] })
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_380px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "min-w-0 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(ErrorList, { errors: opts.headerErrors }),
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(PostForm, { action: "/giao-vien/cau-hoi/nhap", className: "space-y-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("input", { type: "hidden", name: "_action", value: "preview" }),
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("label", { htmlFor: "f-data", className: "block text-sm font-semibold text-ink-2", children: [
+              "D\xE1n b\u1EA3ng c\xE2u h\u1ECFi v\xE0o \u0111\xE2y ",
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "text-le", children: "*" })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
+              "textarea",
+              {
+                id: "f-data",
+                name: "data",
+                required: true,
+                rows: 12,
+                defaultValue: opts.text ?? "",
+                spellCheck: false,
+                className: "w-full rounded-xl border border-line-2 bg-white px-3 py-2 font-mono text-[13px] leading-relaxed focus:border-tim-500",
+                placeholder: IMPORT_COLUMNS.join("	")
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("p", { className: "text-[13px] text-ink-3", children: "Trong Excel: ch\u1ECDn c\u1EA3 b\u1EA3ng (k\u1EC3 c\u1EA3 d\xF2ng ti\xEAu \u0111\u1EC1), nh\u1EA5n Ctrl+C r\u1ED3i d\xE1n v\xE0o \xF4 tr\xEAn. C\u0169ng c\xF3 th\u1EC3 m\u1EDF t\u1EC7p .csv b\u1EB1ng Notepad, sao ch\xE9p to\xE0n b\u1ED9 v\xE0 d\xE1n." }),
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "flex flex-wrap items-end gap-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Select, { label: "Tr\u1EA1ng th\xE1i c\xE2u \u0111\u01B0\u1EE3c nh\u1EADp", name: "status", defaultValue: opts.status ?? "draft", options: [{ value: "draft", label: "B\u1EA3n nh\xE1p \u2013 ki\u1EC3m tra r\u1ED3i xu\u1EA5t b\u1EA3n sau" }, { value: "published", label: "Xu\u1EA5t b\u1EA3n ngay" }] }),
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Button, { variant: "secondary", children: "Ki\u1EC3m tra d\u1EEF li\u1EC7u" })
+            ] })
+          ] }),
+          rows && /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(Panel, { className: "overflow-x-auto", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "flex flex-wrap items-center gap-3 border-b border-line px-5 py-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("strong", { children: "K\u1EBFt qu\u1EA3 ki\u1EC3m tra" }),
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(Badge, { tone: "tre", children: [
+                ok.length,
+                " d\xF2ng h\u1EE3p l\u1EC7"
+              ] }),
+              bad.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(Badge, { tone: "le", children: [
+                bad.length,
+                " d\xF2ng c\xF3 l\u1ED7i"
+              ] }),
+              ok.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(PostForm, { action: "/giao-vien/cau-hoi/nhap", className: "ml-auto", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("input", { type: "hidden", name: "_action", value: "import" }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("input", { type: "hidden", name: "status", value: opts.status ?? "draft" }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("textarea", { name: "data", hidden: true, readOnly: true, defaultValue: opts.text ?? "" }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(Button, { size: "sm", children: [
+                  "Nh\u1EADp ",
+                  ok.length,
+                  " c\xE2u h\u1EE3p l\u1EC7",
+                  bad.length ? ` (b\u1ECF qua ${bad.length} d\xF2ng l\u1ED7i)` : ""
+                ] })
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("table", { className: "data-table min-w-[820px]", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("tr", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("th", { className: "w-14", children: "D\xF2ng" }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("th", { className: "w-60", children: "D\u1EA1ng to\xE1n" }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("th", { className: "w-36", children: "H\xECnh th\u1EE9c / m\u1EE9c" }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("th", { children: "\u0110\u1EC1 b\xE0i" }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("th", { className: "w-72", children: "Ki\u1EC3m tra" })
+              ] }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("tbody", { children: rows.map((r4) => /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("tr", { className: r4.errors.length ? "bg-le-soft/50" : "", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("td", { className: "text-ink-3", children: r4.line }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("td", { className: "text-[13.5px]", children: r4.topicLabel ?? /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "text-ink-3", children: "\u2014" }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("td", { className: "text-[13.5px]", children: [
+                  TYPE_LABELS[r4.input.type],
+                  /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("br", {}),
+                  /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "text-ink-3", children: LEVEL_LABELS[r4.input.level] })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("td", { className: "text-[14px]", children: plainExcerpt(r4.input.stem, 140) }),
+                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("td", { className: "text-[13px]", children: r4.errors.length ? /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("ul", { className: "list-disc space-y-0.5 pl-4 text-le", children: r4.errors.map((e, i2) => /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("li", { children: e }, i2)) }) : /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "font-semibold text-tre", children: "H\u1EE3p l\u1EC7" }) })
+              ] }, r4.line)) })
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(Panel, { className: "h-fit p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("h2", { className: "text-lg font-extrabold", children: "C\xE1c c\u1ED9t c\u1EE7a b\u1EA3ng" }),
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("dl", { className: "mt-3 space-y-2.5 text-[14px]", children: GUIDE.map(([k, v]) => /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("dt", { className: "font-mono text-[13px] font-semibold text-tim-700", children: k }),
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("dd", { className: "text-ink-2", children: v })
+          ] }, k)) }),
+          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Notice, { tone: "info", className: "mt-4", children: "D\xF2ng ti\xEAu \u0111\u1EC1 ph\u1EA3i c\xF3 t\xEAn c\u1ED9t nh\u01B0 t\u1EC7p m\u1EABu (th\u1EE9 t\u1EF1 c\u1ED9t t\xF9y \xFD). M\u1ED7i c\xE2u \u0111\u01B0\u1EE3c ki\u1EC3m tra nh\u01B0 khi so\u1EA1n tr\xEAn trang: ph\u01B0\u01A1ng \xE1n, \u0111\xE1p \xE1n, c\xF4ng th\u1EE9c, h\xECnh v\u1EBD." })
+        ] })
+      ] })
+    ] })
+  );
+}
+async function importAction(ctx) {
+  const user = requireTeacher(ctx);
+  const book = await requireBook(ctx);
+  const form = await ctx.form();
+  const text2 = form.text("data", 3e6);
+  const status = form.str("status") === "published" ? "published" : "draft";
+  const { rows, headerErrors } = await prepareImport(ctx.db, book.id, text2, status);
+  if (form.str("_action") !== "import" || headerErrors.length) return importPage(ctx, { text: text2, status, rows, headerErrors });
+  const ok = rows.filter((r4) => !r4.errors.length);
+  let saved = 0;
+  const failed = [];
+  for (const r4 of ok) {
+    const res = await saveQuestion(ctx.db, null, book.id, r4.input, user.id);
+    if (res.id) saved++;
+    else failed.push(`D\xF2ng ${r4.line}: ${res.error}`);
+  }
+  if (failed.length) return importPage(ctx, { text: text2, status, rows, headerErrors: [`\u0110\xE3 nh\u1EADp ${saved} c\xE2u. Kh\xF4ng nh\u1EADp \u0111\u01B0\u1EE3c:`, ...failed] });
+  const skipped = rows.length - ok.length;
+  return redirect(
+    `/giao-vien/cau-hoi${status === "draft" ? "?trang-thai=draft" : ""}`,
+    { type: "success", message: `\u0110\xE3 nh\u1EADp ${saved} c\xE2u h\u1ECFi${status === "draft" ? " \u1EDF tr\u1EA1ng th\xE1i b\u1EA3n nh\xE1p" : ""}.${skipped ? ` B\u1ECF qua ${skipped} d\xF2ng c\xF3 l\u1ED7i.` : ""}` },
+    ctx
+  );
+}
+async function importTemplate(ctx) {
+  requireTeacher(ctx);
+  return { type: "bytes", status: 200, contentType: "text/csv; charset=utf-8", body: templateCsv() };
 }
 
 // src/server/handlers/teacher/questions.tsx
 init_richtext();
 init_figure();
-var import_jsx_runtime26 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime29 = __toESM(require_jsx_runtime(), 1);
 var PER_PAGE = 30;
 async function questionBankPage(ctx) {
   const user = requireTeacher(ctx);
@@ -34930,37 +37651,47 @@ async function questionBankPage(ctx) {
     level: Number(ctx.query.get("muc")) || null,
     status: ctx.query.get("trang-thai") || null,
     mine: ctx.query.get("cua-toi") === "1",
-    search: ctx.query.get("q")?.slice(0, 80) || null
+    search: ctx.query.get("q")?.slice(0, 80) || null,
+    topicId: Number(ctx.query.get("dang")) || null
   };
   const pg = paging(ctx, PER_PAGE);
   const { rows, total } = await listQuestions(
     ctx.db,
-    { textbookId: book.id, lessonId: f.lessonId, type: f.type, level: f.level, status: f.status, mineOf: f.mine ? user.id : null, search: f.search },
+    { textbookId: book.id, lessonId: f.lessonId, type: f.type, level: f.level, status: f.status, mineOf: f.mine ? user.id : null, search: f.search, topicId: f.topicId },
     pg.limit,
     pg.offset
   );
   const lessons = await lessonOptions(ctx.db, book.id);
-  const qs = queryString({ bai: f.lessonId, loai: f.type, muc: f.level, "trang-thai": f.status, "cua-toi": f.mine ? 1 : null, q: f.search });
+  const qs = queryString({ bai: f.lessonId, dang: f.topicId, loai: f.type, muc: f.level, "trang-thai": f.status, "cua-toi": f.mine ? 1 : null, q: f.search });
   return page(
     ctx,
     { title: "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi", layout: "dashboard", section: "questions" },
-    /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(import_jsx_runtime26.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(import_jsx_runtime29.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
         PageTitle,
         {
           title: "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi",
           sub: `${total} c\xE2u h\u1ECFi ph\xF9 h\u1EE3p. C\xE2u \u0111\xE3 xu\u1EA5t b\u1EA3n xu\u1EA5t hi\u1EC7n trong luy\u1EC7n t\u1EADp c\u1EE7a h\u1ECDc sinh v\xE0 c\xF3 th\u1EC3 \u0111\u01B0a v\xE0o \u0111\u1EC1 ki\u1EC3m tra.`,
-          actions: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("details", { className: "relative", "data-menu": true, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("summary", { className: buttonClass("primary", "md"), children: "T\u1EA1o c\xE2u h\u1ECFi" }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "absolute right-0 z-20 mt-2 w-64 rounded-2xl border border-line bg-white p-2 shadow-lg", children: QUESTION_TYPES.map((t) => /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("a", { href: `/giao-vien/cau-hoi/moi?loai=${t}${f.lessonId ? `&bai=${f.lessonId}` : ""}`, className: "block rounded-lg px-3 py-2 text-[15px] hover:bg-tim-50", children: TYPE_LABELS[t] }, t)) })
+          actions: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(import_jsx_runtime29.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("a", { href: "/giao-vien/cau-hoi/nhap", className: buttonClass("secondary", "md"), children: "Nh\u1EADp h\xE0ng lo\u1EA1t t\u1EEB Excel" }),
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("details", { className: "relative", "data-menu": true, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("summary", { className: buttonClass("primary", "md"), children: "T\u1EA1o c\xE2u h\u1ECFi" }),
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "absolute right-0 z-20 mt-2 w-64 rounded-2xl border border-line bg-white p-2 shadow-lg", children: QUESTION_TYPES.map((t) => /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("a", { href: `/giao-vien/cau-hoi/moi?loai=${t}${f.lessonId ? `&bai=${f.lessonId}` : ""}${f.topicId ? `&dang=${f.topicId}` : ""}`, className: "block rounded-lg px-3 py-2 text-[15px] hover:bg-tim-50", children: TYPE_LABELS[t] }, t)) })
+            ] })
           ] })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("form", { method: "get", className: "mb-5 grid gap-3 rounded-[18px] border border-line bg-white p-4 md:grid-cols-[2fr_1.2fr_1fr_1fr_1.4fr_auto]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Select, { label: "B\xE0i h\u1ECDc", name: "bai", defaultValue: f.lessonId ?? "", autoSubmit: true, options: [{ value: "", label: "T\u1EA5t c\u1EA3 b\xE0i" }, ...lessons.map((l) => ({ value: l.id, label: l.label, group: l.chapter }))] }),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Select, { label: "H\xECnh th\u1EE9c", name: "loai", defaultValue: f.type ?? "", autoSubmit: true, options: [{ value: "", label: "T\u1EA5t c\u1EA3" }, ...QUESTION_TYPES.map((t) => ({ value: t, label: TYPE_SHORT[t] }))] }),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Select, { label: "M\u1EE9c \u0111\u1ED9", name: "muc", defaultValue: f.level ?? "", autoSubmit: true, options: [{ value: "", label: "T\u1EA5t c\u1EA3" }, ...[1, 2, 3, 4].map((l) => ({ value: l, label: LEVEL_LABELS[l] }))] }),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+      f.topicId && /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Notice, { tone: "info", className: "mb-4", children: [
+        "\u0110ang l\u1ECDc theo m\u1ED9t d\u1EA1ng to\xE1n.",
+        " ",
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("a", { className: "font-semibold underline", href: `/giao-vien/cau-hoi${queryString({ bai: f.lessonId, loai: f.type, muc: f.level, "trang-thai": f.status, q: f.search })}`, children: "B\u1ECF l\u1ECDc d\u1EA1ng to\xE1n" })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("form", { method: "get", className: "mb-5 grid gap-3 rounded-[18px] border border-line bg-white p-4 md:grid-cols-[2fr_1.2fr_1fr_1fr_1.4fr_auto]", children: [
+        f.topicId && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("input", { type: "hidden", name: "dang", value: f.topicId }),
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Select, { label: "B\xE0i h\u1ECDc", name: "bai", defaultValue: f.lessonId ?? "", autoSubmit: true, options: [{ value: "", label: "T\u1EA5t c\u1EA3 b\xE0i" }, ...lessons.map((l) => ({ value: l.id, label: l.label, group: l.chapter }))] }),
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Select, { label: "H\xECnh th\u1EE9c", name: "loai", defaultValue: f.type ?? "", autoSubmit: true, options: [{ value: "", label: "T\u1EA5t c\u1EA3" }, ...QUESTION_TYPES.map((t) => ({ value: t, label: TYPE_SHORT[t] }))] }),
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Select, { label: "M\u1EE9c \u0111\u1ED9", name: "muc", defaultValue: f.level ?? "", autoSubmit: true, options: [{ value: "", label: "T\u1EA5t c\u1EA3" }, ...[1, 2, 3, 4].map((l) => ({ value: l, label: LEVEL_LABELS[l] }))] }),
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
           Select,
           {
             label: "Tr\u1EA1ng th\xE1i",
@@ -34970,51 +37701,51 @@ async function questionBankPage(ctx) {
             options: [{ value: "", label: "\u0110ang d\xF9ng" }, { value: "published", label: "\u0110\xE3 xu\u1EA5t b\u1EA3n" }, { value: "draft", label: "B\u1EA3n nh\xE1p" }, { value: "archived", label: "L\u01B0u tr\u1EEF" }]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Field, { label: "T\xECm trong n\u1ED9i dung", name: "q", defaultValue: f.search ?? "" }),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "flex items-end gap-3 pb-1", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("label", { className: "flex items-center gap-2 text-[14px]", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("input", { type: "checkbox", name: "cua-toi", value: "1", defaultChecked: f.mine, className: "h-4 w-4 accent-[#3b2a8c]" }),
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Field, { label: "T\xECm trong n\u1ED9i dung", name: "q", defaultValue: f.search ?? "" }),
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "flex items-end gap-3 pb-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("label", { className: "flex items-center gap-2 text-[14px]", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("input", { type: "checkbox", name: "cua-toi", value: "1", defaultChecked: f.mine, className: "h-4 w-4 accent-[#3b2a8c]" }),
             " C\u1EE7a t\xF4i"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("button", { className: buttonClass("secondary", "md"), children: "L\u1ECDc" })
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("button", { className: buttonClass("secondary", "md"), children: "L\u1ECDc" })
         ] })
       ] }),
-      rows.length ? /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("table", { className: "data-table min-w-[900px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("tr", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { className: "w-14", children: "M\xE3" }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { children: "N\u1ED9i dung" }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { className: "w-48", children: "B\xE0i" }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { className: "w-28", children: "M\u1EE9c \u0111\u1ED9" }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { className: "w-24", children: "T\u1EC9 l\u1EC7 \u0111\xFAng" }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { className: "w-28", children: "Tr\u1EA1ng th\xE1i" }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("th", { className: "w-44" })
+      rows.length ? /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("table", { className: "data-table min-w-[900px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { className: "w-14", children: "M\xE3" }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { children: "N\u1ED9i dung" }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { className: "w-48", children: "B\xE0i" }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { className: "w-28", children: "M\u1EE9c \u0111\u1ED9" }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { className: "w-24", children: "T\u1EC9 l\u1EC7 \u0111\xFAng" }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { className: "w-28", children: "Tr\u1EA1ng th\xE1i" }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { className: "w-44" })
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("tbody", { children: rows.map((q) => /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("tr", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("td", { className: "font-mono text-[13px] text-ink-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("tbody", { children: rows.map((q) => /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("td", { className: "font-mono text-[13px] text-ink-3", children: [
             "#",
             q.id
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("td", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Badge, { className: "mb-1", children: TYPE_SHORT[q.type] }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "text-[14px]", children: plainExcerpt(q.stem, 120) }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "mt-0.5 text-[12px] text-ink-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("td", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Badge, { className: "mb-1", children: TYPE_SHORT[q.type] }),
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "text-[14px]", children: plainExcerpt(q.stem, 120) }),
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "mt-0.5 text-[12px] text-ink-3", children: [
               q.createdByName ? `${q.createdByName} \xB7 ` : q.source ? `${q.source} \xB7 ` : "",
               "s\u1EEDa ",
               formatDate(q.updatedAt)
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { className: "text-[13px]", children: q.lessonTitle ? lessonLabel({ kind: q.lessonKind ?? "lesson", number: q.lessonNumber, title: q.lessonTitle }) : "\u2013" }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { className: "text-[13px]", children: LEVEL_LABELS[q.level] }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { className: "text-[13px]", children: q.correctRate === null ? "\u2013" : `${q.correctRate}% (${q.responses})` }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Badge, { tone: q.status === "published" ? "tre" : "gray", children: STATUS_LABELS[q.status] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("td", { className: "whitespace-nowrap text-right", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("a", { href: `/giao-vien/cau-hoi/${q.id}/xem`, className: buttonClass("quiet", "sm"), children: "Xem" }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { className: "text-[13px]", children: q.lessonTitle ? lessonLabel({ kind: q.lessonKind ?? "lesson", number: q.lessonNumber, title: q.lessonTitle }) : "\u2013" }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { className: "text-[13px]", children: LEVEL_LABELS[q.level] }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { className: "text-[13px]", children: q.correctRate === null ? "\u2013" : `${q.correctRate}% (${q.responses})` }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Badge, { tone: q.status === "published" ? "tre" : "gray", children: STATUS_LABELS[q.status] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("td", { className: "whitespace-nowrap text-right", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("a", { href: `/giao-vien/cau-hoi/${q.id}/xem`, className: buttonClass("quiet", "sm"), children: "Xem" }),
             " ",
-            canEditQuestion(q, user) ? /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("a", { href: `/giao-vien/cau-hoi/${q.id}`, className: buttonClass("quiet", "sm"), children: "S\u1EEDa" }) : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(PostForm, { action: `/giao-vien/cau-hoi/${q.id}/nhan-ban`, className: "inline", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("button", { className: buttonClass("quiet", "sm"), children: "Nh\xE2n b\u1EA3n" }) })
+            canEditQuestion(q, user) ? /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("a", { href: `/giao-vien/cau-hoi/${q.id}`, className: buttonClass("quiet", "sm"), children: "S\u1EEDa" }) : /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(PostForm, { action: `/giao-vien/cau-hoi/${q.id}/nhan-ban`, className: "inline", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("button", { className: buttonClass("quiet", "sm"), children: "Nh\xE2n b\u1EA3n" }) })
           ] })
         ] }, q.id)) })
-      ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(EmptyState, { title: "Kh\xF4ng c\xF3 c\xE2u h\u1ECFi ph\xF9 h\u1EE3p", children: "\u0110\u1ED5i b\u1ED9 l\u1ECDc ho\u1EB7c t\u1EA1o c\xE2u h\u1ECFi m\u1EDBi." }),
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Pager, { page: pg.page, pages: pg.pages(total), base: `/giao-vien/cau-hoi${qs}` })
+      ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(EmptyState, { title: "Kh\xF4ng c\xF3 c\xE2u h\u1ECFi ph\xF9 h\u1EE3p", children: "\u0110\u1ED5i b\u1ED9 l\u1ECDc ho\u1EB7c t\u1EA1o c\xE2u h\u1ECFi m\u1EDBi." }),
+      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Pager, { page: pg.page, pages: pg.pages(total), base: `/giao-vien/cau-hoi${qs}` })
     ] })
   );
 }
@@ -35029,13 +37760,13 @@ async function editorPage(ctx, opts) {
   return page(
     ctx,
     { title, layout: "dashboard", section: "questions", status: opts.status ?? 200 },
-    /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(import_jsx_runtime26.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(PageTitle, { crumbs: [{ href: "/giao-vien/cau-hoi", label: "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi" }, { label: opts.id ? `#${opts.id}` : "C\xE2u m\u1EDBi" }], title, sub: TYPE_LABELS[t] }),
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(ErrorList, { errors: opts.errors }),
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(PostForm, { action, className: "space-y-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("input", { type: "hidden", name: "type", value: t }),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "grid gap-4 p-5 md:grid-cols-2 xl:grid-cols-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(import_jsx_runtime29.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(PageTitle, { crumbs: [{ href: "/giao-vien/cau-hoi", label: "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi" }, { label: opts.id ? `#${opts.id}` : "C\xE2u m\u1EDBi" }], title, sub: TYPE_LABELS[t] }),
+      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(ErrorList, { errors: opts.errors }),
+      /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(PostForm, { action, className: "space-y-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("input", { type: "hidden", name: "type", value: t }),
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Panel, { className: "grid gap-4 p-5 md:grid-cols-2 xl:grid-cols-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
             Select,
             {
               className: "xl:col-span-2",
@@ -35046,7 +37777,7 @@ async function editorPage(ctx, opts) {
               options: [{ value: "", label: "Ch\u1ECDn b\xE0i h\u1ECDc" }, ...lessons.map((l) => ({ value: l.id, label: l.label, group: l.chapter }))]
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
             Select,
             {
               className: "xl:col-span-3",
@@ -35057,42 +37788,42 @@ async function editorPage(ctx, opts) {
               options: [{ value: "", label: "Kh\xF4ng ch\u1ECDn" }, ...topics.map((tp) => ({ value: tp.id, label: tp.label, group: tp.lesson }))]
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Select, { label: "M\u1EE9c \u0111\u1ED9", name: "level", defaultValue: input.level, options: [1, 2, 3, 4].map((l) => ({ value: l, label: LEVEL_LABELS[l] })) }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Field, { label: "\u0110i\u1EC3m m\u1EB7c \u0111\u1ECBnh", name: "points", type: "number", step: "0.25", min: "0.25", max: "100", defaultValue: input.points }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Select, { label: "Tr\u1EA1ng th\xE1i", name: "status", defaultValue: input.status, options: [{ value: "published", label: "Xu\u1EA5t b\u1EA3n" }, { value: "draft", label: "B\u1EA3n nh\xE1p" }] })
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Select, { label: "M\u1EE9c \u0111\u1ED9", name: "level", defaultValue: input.level, options: [1, 2, 3, 4].map((l) => ({ value: l, label: LEVEL_LABELS[l] })) }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Field, { label: "\u0110i\u1EC3m m\u1EB7c \u0111\u1ECBnh", name: "points", type: "number", step: "0.25", min: "0.25", max: "100", defaultValue: input.points }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Select, { label: "Tr\u1EA1ng th\xE1i", name: "status", defaultValue: input.status, options: [{ value: "published", label: "Xu\u1EA5t b\u1EA3n" }, { value: "draft", label: "B\u1EA3n nh\xE1p" }] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "space-y-5 p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Island, { name: "RichField", props: { name: "stem", label: "\u0110\u1EC1 b\xE0i", defaultValue: input.stem, initialHtml: input.stem ? renderRich(input.stem) : "", rows: 5, required: true } }),
-          t === "mcq" && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("fieldset", { className: "space-y-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("legend", { className: "mb-2 text-sm font-semibold text-ink-2", children: "B\u1ED1n ph\u01B0\u01A1ng \xE1n \u2013 ch\u1ECDn ph\u01B0\u01A1ng \xE1n \u0111\xFAng" }),
-            ["A", "B", "C", "D"].map((l, i2) => /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "grid gap-3 md:grid-cols-[120px_minmax(0,1fr)]", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("label", { className: cx("flex h-fit items-center gap-2 rounded-xl border-2 px-3 py-2 font-bold", "border-line"), children: [
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("input", { type: "radio", name: "correct", value: l, defaultChecked: input.correct === l, className: "h-4 w-4 accent-[#18875c]", required: true }),
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Panel, { className: "space-y-5 p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Island, { name: "RichField", props: { name: "stem", label: "\u0110\u1EC1 b\xE0i", defaultValue: input.stem, initialHtml: input.stem ? renderRich(input.stem) : "", rows: 5, required: true } }),
+          t === "mcq" && /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("fieldset", { className: "space-y-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("legend", { className: "mb-2 text-sm font-semibold text-ink-2", children: "B\u1ED1n ph\u01B0\u01A1ng \xE1n \u2013 ch\u1ECDn ph\u01B0\u01A1ng \xE1n \u0111\xFAng" }),
+            ["A", "B", "C", "D"].map((l, i2) => /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "grid gap-3 md:grid-cols-[120px_minmax(0,1fr)]", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("label", { className: cx("flex h-fit items-center gap-2 rounded-xl border-2 px-3 py-2 font-bold", "border-line"), children: [
+                /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("input", { type: "radio", name: "correct", value: l, defaultChecked: input.correct === l, className: "h-4 w-4 accent-[#18875c]", required: true }),
                 " \u0110\xFAng: ",
                 l
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Island, { name: "RichField", props: { name: `option_${l}`, label: `Ph\u01B0\u01A1ng \xE1n ${l}`, defaultValue: input.options[i2], initialHtml: input.options[i2] ? renderRichInline(input.options[i2]) : "", rows: 2, inline: true } })
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Island, { name: "RichField", props: { name: `option_${l}`, label: `Ph\u01B0\u01A1ng \xE1n ${l}`, defaultValue: input.options[i2], initialHtml: input.options[i2] ? renderRichInline(input.options[i2]) : "", rows: 2, inline: true } })
             ] }, l))
           ] }),
-          t === "true_false" && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("fieldset", { className: "space-y-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("legend", { className: "mb-2 text-sm font-semibold text-ink-2", children: "B\u1ED1n \xFD a, b, c, d \u2013 ch\u1ECDn \u0110\xFAng/Sai cho t\u1EEBng \xFD" }),
-            ["a", "b", "c", "d"].map((l, i2) => /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "grid gap-3 md:grid-cols-[150px_minmax(0,1fr)]", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "flex h-fit flex-col gap-1.5 rounded-xl border border-line p-2.5 text-[14px]", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("span", { className: "font-bold", children: [
+          t === "true_false" && /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("fieldset", { className: "space-y-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("legend", { className: "mb-2 text-sm font-semibold text-ink-2", children: "B\u1ED1n \xFD a, b, c, d \u2013 ch\u1ECDn \u0110\xFAng/Sai cho t\u1EEBng \xFD" }),
+            ["a", "b", "c", "d"].map((l, i2) => /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "grid gap-3 md:grid-cols-[150px_minmax(0,1fr)]", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "flex h-fit flex-col gap-1.5 rounded-xl border border-line p-2.5 text-[14px]", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("span", { className: "font-bold", children: [
                   "\xDD ",
                   l,
                   ")"
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("label", { className: "flex items-center gap-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("input", { type: "radio", name: `tf_${l}`, value: "true", defaultChecked: input.statements[i2].value === true, className: "accent-[#18875c]" }),
+                /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("label", { className: "flex items-center gap-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("input", { type: "radio", name: `tf_${l}`, value: "true", defaultChecked: input.statements[i2].value === true, className: "accent-[#18875c]" }),
                   " \u0110\xFAng"
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("label", { className: "flex items-center gap-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("input", { type: "radio", name: `tf_${l}`, value: "false", defaultChecked: input.statements[i2].value === false, className: "accent-[#e5484d]" }),
+                /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("label", { className: "flex items-center gap-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("input", { type: "radio", name: `tf_${l}`, value: "false", defaultChecked: input.statements[i2].value === false, className: "accent-[#e5484d]" }),
                   " Sai"
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
                 Island,
                 {
                   name: "RichField",
@@ -35101,13 +37832,13 @@ async function editorPage(ctx, opts) {
               )
             ] }, l))
           ] }),
-          t === "short_answer" && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "grid gap-4 md:grid-cols-[2fr_1fr_1fr]", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("label", { htmlFor: "f-accepted", className: "mb-1.5 block text-sm font-semibold text-ink-2", children: [
+          t === "short_answer" && /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "grid gap-4 md:grid-cols-[2fr_1fr_1fr]", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("label", { htmlFor: "f-accepted", className: "mb-1.5 block text-sm font-semibold text-ink-2", children: [
                 "\u0110\xE1p \xE1n \u0111\u01B0\u1EE3c ch\u1EA5p nh\u1EADn ",
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", { className: "text-le", children: "*" })
+                /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("span", { className: "text-le", children: "*" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
                 "textarea",
                 {
                   id: "f-accepted",
@@ -35117,25 +37848,25 @@ async function editorPage(ctx, opts) {
                   className: "w-full rounded-xl border border-line-2 px-3.5 py-2.5 font-mono text-[14px] focus:border-tim-500 focus:outline-none"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", { className: "mt-1 text-[13px] text-ink-3", children: "M\u1ED7i d\xF2ng m\u1ED9t \u0111\xE1p \xE1n. S\u1ED1 \u0111\u01B0\u1EE3c so s\xE1nh theo gi\xE1 tr\u1ECB: 0,5 = 0.5 = 1/2." })
+              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("p", { className: "mt-1 text-[13px] text-ink-3", children: "M\u1ED7i d\xF2ng m\u1ED9t \u0111\xE1p \xE1n. S\u1ED1 \u0111\u01B0\u1EE3c so s\xE1nh theo gi\xE1 tr\u1ECB: 0,5 = 0.5 = 1/2." })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Field, { label: "Sai s\u1ED1 cho ph\xE9p", name: "tolerance", type: "number", step: "any", min: "0", defaultValue: input.tolerance, hint: "0 = ph\u1EA3i \u0111\xFAng tuy\u1EC7t \u0111\u1ED1i." }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Field, { label: "\u0110\u01A1n v\u1ECB (kh\xF4ng b\u1EAFt bu\u1ED9c)", name: "unit", defaultValue: input.unit, maxLength: 20, hint: "VD: cm, \xB0" })
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Field, { label: "Sai s\u1ED1 cho ph\xE9p", name: "tolerance", type: "number", step: "any", min: "0", defaultValue: input.tolerance, hint: "0 = ph\u1EA3i \u0111\xFAng tuy\u1EC7t \u0111\u1ED1i." }),
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Field, { label: "\u0110\u01A1n v\u1ECB (kh\xF4ng b\u1EAFt bu\u1ED9c)", name: "unit", defaultValue: input.unit, maxLength: 20, hint: "VD: cm, \xB0" })
           ] }),
-          (t === "essay" || t === "geometry_essay") && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Notice, { tone: "info", children: "C\xE2u t\u1EF1 lu\u1EADn do gi\xE1o vi\xEAn ch\u1EA5m. L\u1EDDi gi\u1EA3i b\xEAn d\u01B0\u1EDBi hi\u1EC3n th\u1ECB cho h\u1ECDc sinh sau khi n\u1ED9p v\xE0 d\xF9ng l\xE0m h\u01B0\u1EDBng d\u1EABn ch\u1EA5m." }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Island, { name: "FigureField", props: { name: "figure", defaultValue: input.figure, initialSvg: figure.svg, required: t === "geometry_essay" } })
+          (t === "essay" || t === "geometry_essay") && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Notice, { tone: "info", children: "C\xE2u t\u1EF1 lu\u1EADn do gi\xE1o vi\xEAn ch\u1EA5m. L\u1EDDi gi\u1EA3i b\xEAn d\u01B0\u1EDBi hi\u1EC3n th\u1ECB cho h\u1ECDc sinh sau khi n\u1ED9p v\xE0 d\xF9ng l\xE0m h\u01B0\u1EDBng d\u1EABn ch\u1EA5m." }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Island, { name: "FigureField", props: { name: "figure", defaultValue: input.figure, initialSvg: figure.svg, required: t === "geometry_essay" } })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "space-y-5 p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Island, { name: "RichField", props: { name: "solution", label: "L\u1EDDi gi\u1EA3i / h\u01B0\u1EDBng d\u1EABn ch\u1EA5m", defaultValue: input.solution, initialHtml: input.solution ? renderRich(input.solution) : "", rows: 5 } }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Island, { name: "RichField", props: { name: "hint", label: 'G\u1EE3i \xFD (hi\u1EC7n khi h\u1ECDc sinh b\u1EA5m "Xem g\u1EE3i \xFD")', defaultValue: input.hint, initialHtml: input.hint ? renderRich(input.hint) : "", rows: 2 } })
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Panel, { className: "space-y-5 p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Island, { name: "RichField", props: { name: "solution", label: "L\u1EDDi gi\u1EA3i / h\u01B0\u1EDBng d\u1EABn ch\u1EA5m", defaultValue: input.solution, initialHtml: input.solution ? renderRich(input.solution) : "", rows: 5 } }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Island, { name: "RichField", props: { name: "hint", label: 'G\u1EE3i \xFD (hi\u1EC7n khi h\u1ECDc sinh b\u1EA5m "Xem g\u1EE3i \xFD")', defaultValue: input.hint, initialHtml: input.hint ? renderRich(input.hint) : "", rows: 2 } })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "flex flex-wrap gap-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Button, { size: "lg", children: "L\u01B0u c\xE2u h\u1ECFi" }),
-          !opts.id && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Button, { size: "lg", variant: "secondary", name: "_next", value: "new", children: "L\u01B0u v\xE0 t\u1EA1o c\xE2u ti\u1EBFp" }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("a", { href: "/giao-vien/cau-hoi", className: buttonClass("ghost", "lg"), children: "H\u1EE7y" })
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "flex flex-wrap gap-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Button, { size: "lg", children: "L\u01B0u c\xE2u h\u1ECFi" }),
+          !opts.id && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Button, { size: "lg", variant: "secondary", name: "_next", value: "new", children: "L\u01B0u v\xE0 t\u1EA1o c\xE2u ti\u1EBFp" }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("a", { href: "/giao-vien/cau-hoi", className: buttonClass("ghost", "lg"), children: "H\u1EE7y" })
         ] })
       ] }),
-      opts.id && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(PostForm, { action: `/giao-vien/cau-hoi/${opts.id}/xoa`, className: "mt-8 border-t border-line pt-6", confirm: "X\xF3a c\xE2u h\u1ECFi n\xE0y? N\u1EBFu c\xE2u \u0111\xE3 c\xF3 b\xE0i l\xE0m ho\u1EB7c n\u1EB1m trong \u0111\u1EC1, c\xE2u s\u1EBD \u0111\u01B0\u1EE3c chuy\u1EC3n v\xE0o l\u01B0u tr\u1EEF.", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Button, { variant: "danger", children: "X\xF3a c\xE2u h\u1ECFi" }) })
+      opts.id && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(PostForm, { action: `/giao-vien/cau-hoi/${opts.id}/xoa`, className: "mt-8 border-t border-line pt-6", confirm: "X\xF3a c\xE2u h\u1ECFi n\xE0y? N\u1EBFu c\xE2u \u0111\xE3 c\xF3 b\xE0i l\xE0m ho\u1EB7c n\u1EB1m trong \u0111\u1EC1, c\xE2u s\u1EBD \u0111\u01B0\u1EE3c chuy\u1EC3n v\xE0o l\u01B0u tr\u1EEF.", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Button, { variant: "danger", children: "X\xF3a c\xE2u h\u1ECFi" }) })
     ] })
   );
 }
@@ -35145,6 +37876,14 @@ async function newQuestionPage(ctx) {
   if (!QUESTION_TYPES.includes(type)) throw new HttpError(404);
   const input = emptyQuestionInput(type);
   input.lessonId = Number(ctx.query.get("bai")) || null;
+  const dang = Number(ctx.query.get("dang")) || null;
+  if (dang) {
+    const tp = await ctx.db.one(sql`select lesson_id from topics where id = ${dang}`);
+    if (tp) {
+      input.topicId = dang;
+      input.lessonId = tp.lessonId;
+    }
+  }
   return editorPage(ctx, { id: null, input });
 }
 async function createQuestionAction(ctx) {
@@ -35156,7 +37895,7 @@ async function createQuestionAction(ctx) {
   const res = await saveQuestion(ctx.db, null, book.id, input, user.id);
   if (res.error) return editorPage(ctx, { id: null, input, errors: [res.error], status: 422 });
   if (form.str("_next") === "new") {
-    return redirect(`/giao-vien/cau-hoi/moi?loai=${input.type}&bai=${input.lessonId}`, { type: "success", message: `\u0110\xE3 l\u01B0u c\xE2u h\u1ECFi #${res.id}. So\u1EA1n c\xE2u ti\u1EBFp theo.` }, ctx);
+    return redirect(`/giao-vien/cau-hoi/moi?loai=${input.type}&bai=${input.lessonId}${input.topicId ? `&dang=${input.topicId}` : ""}`, { type: "success", message: `\u0110\xE3 l\u01B0u c\xE2u h\u1ECFi #${res.id}. So\u1EA1n c\xE2u ti\u1EBFp theo.` }, ctx);
   }
   return redirect(`/giao-vien/cau-hoi/${res.id}/xem`, { type: "success", message: `\u0110\xE3 l\u01B0u c\xE2u h\u1ECFi #${res.id}.` }, ctx);
 }
@@ -35206,44 +37945,44 @@ async function previewQuestionPage(ctx) {
   return page(
     ctx,
     { title: `C\xE2u h\u1ECFi #${q.id}`, layout: "dashboard", section: "questions" },
-    /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(import_jsx_runtime26.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(import_jsx_runtime29.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(
         PageTitle,
         {
           crumbs: [{ href: "/giao-vien/cau-hoi", label: "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi" }, { label: `#${q.id}` }],
           title: `C\xE2u h\u1ECFi #${q.id}`,
           sub: `${TYPE_LABELS[q.type]} \xB7 ${LEVEL_LABELS[q.level]} \xB7 ${q.points} \u0111i\u1EC3m \xB7 ${STATUS_LABELS[q.status]}${q.usedInTests ? ` \xB7 d\xF9ng trong ${q.usedInTests} \u0111\u1EC1` : ""}`,
-          actions: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(import_jsx_runtime26.Fragment, { children: [
-            canEditQuestion(q, user) && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("a", { href: `/giao-vien/cau-hoi/${q.id}`, className: buttonClass("primary", "md"), children: "S\u1EEDa" }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(PostForm, { action: `/giao-vien/cau-hoi/${q.id}/nhan-ban`, children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("button", { className: buttonClass("secondary", "md"), children: "Nh\xE2n b\u1EA3n" }) })
+          actions: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(import_jsx_runtime29.Fragment, { children: [
+            canEditQuestion(q, user) && /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("a", { href: `/giao-vien/cau-hoi/${q.id}`, className: buttonClass("primary", "md"), children: "S\u1EEDa" }),
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(PostForm, { action: `/giao-vien/cau-hoi/${q.id}/nhan-ban`, children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("button", { className: buttonClass("secondary", "md"), children: "Nh\xE2n b\u1EA3n" }) })
           ] })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "p-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "mb-3 text-[13px] font-semibold text-ink-3", children: "H\u1ECDc sinh nh\xECn th\u1EA5y (\u0111\xE3 \u0111\xE1nh d\u1EA5u \u0111\xE1p \xE1n \u0111\xFAng)" }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(QuestionBody, { q: view }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "mt-5", children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(AnswerInput, { q: view, value, onChange: () => void 0, disabled: true, reveal }) })
+      /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Panel, { className: "p-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "mb-3 text-[13px] font-semibold text-ink-3", children: "H\u1ECDc sinh nh\xECn th\u1EA5y (\u0111\xE3 \u0111\xE1nh d\u1EA5u \u0111\xE1p \xE1n \u0111\xFAng)" }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(QuestionBody, { q: view }),
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "mt-5", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(AnswerInput, { q: view, value, onChange: () => void 0, disabled: true, reveal }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { className: "space-y-4", children: [
-          reveal.solutionHtml && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h2", { className: "mb-2 font-extrabold", children: "L\u1EDDi gi\u1EA3i" }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Html, { html: reveal.solutionHtml, className: "prose-math" })
+        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "space-y-4", children: [
+          reveal.solutionHtml && /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("h2", { className: "mb-2 font-extrabold", children: "L\u1EDDi gi\u1EA3i" }),
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Html, { html: reveal.solutionHtml, className: "prose-math" })
           ] }),
-          view.hintHtml && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("h2", { className: "mb-2 font-extrabold", children: "G\u1EE3i \xFD" }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Html, { html: view.hintHtml, className: "prose-math" })
+          view.hintHtml && /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("h2", { className: "mb-2 font-extrabold", children: "G\u1EE3i \xFD" }),
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Html, { html: view.hintHtml, className: "prose-math" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "p-5 text-[14px] text-ink-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Panel, { className: "p-5 text-[14px] text-ink-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { children: [
               "T\u1EA1o b\u1EDFi: ",
               q.createdByName ?? q.source ?? "H\u1EC7 th\u1ED1ng"
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { children: [
               "Ng\xE0y t\u1EA1o: ",
               formatDate(q.createdAt)
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { children: [
               "S\u1EEDa l\u1EA7n cu\u1ED1i: ",
               formatDate(q.updatedAt)
             ] })
@@ -35256,8 +37995,8 @@ async function previewQuestionPage(ctx) {
 
 // src/server/handlers/teacher/tests.tsx
 init_richtext();
-var import_jsx_runtime27 = __toESM(require_jsx_runtime(), 1);
-var STATUS = {
+var import_jsx_runtime30 = __toESM(require_jsx_runtime(), 1);
+var STATUS2 = {
   draft: ["B\u1EA3n nh\xE1p", "gray"],
   published: ["\u0110ang ph\xE1t", "tre"],
   closed: ["\u0110\xE3 \u0111\xF3ng", "cam"]
@@ -35284,18 +38023,18 @@ function readTestForm(form) {
   };
 }
 function TestInfoFields({ t }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "space-y-3", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "T\xEAn \u0111\u1EC1", name: "title", required: true, defaultValue: t?.title, maxLength: 200, placeholder: "Ki\u1EC3m tra 15 ph\xFAt \u2013 Ch\u01B0\u01A1ng I" }),
-    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(TextArea, { label: "H\u01B0\u1EDBng d\u1EABn cho h\u1ECDc sinh", name: "description", defaultValue: t?.description ?? "", rows: 2 }),
-    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "grid grid-cols-2 gap-3", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "Th\u1EDDi gian (ph\xFAt)", name: "duration", type: "number", min: 1, max: 240, defaultValue: t?.durationMinutes ?? "", hint: "\u0110\u1EC3 tr\u1ED1ng: kh\xF4ng gi\u1EDBi h\u1EA1n" }),
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "S\u1ED1 l\u1EA7n l\xE0m t\u1ED1i \u0111a", name: "max_attempts", type: "number", min: 1, max: 10, defaultValue: t?.maxAttempts ?? 1 })
+  return /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "space-y-3", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Field, { label: "T\xEAn \u0111\u1EC1", name: "title", required: true, defaultValue: t?.title, maxLength: 200, placeholder: "Ki\u1EC3m tra 15 ph\xFAt \u2013 Ch\u01B0\u01A1ng I" }),
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(TextArea, { label: "H\u01B0\u1EDBng d\u1EABn cho h\u1ECDc sinh", name: "description", defaultValue: t?.description ?? "", rows: 2 }),
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "grid grid-cols-2 gap-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Field, { label: "Th\u1EDDi gian (ph\xFAt)", name: "duration", type: "number", min: 1, max: 240, defaultValue: t?.durationMinutes ?? "", hint: "\u0110\u1EC3 tr\u1ED1ng: kh\xF4ng gi\u1EDBi h\u1EA1n" }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Field, { label: "S\u1ED1 l\u1EA7n l\xE0m t\u1ED1i \u0111a", name: "max_attempts", type: "number", min: 1, max: 10, defaultValue: t?.maxAttempts ?? 1 })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "grid grid-cols-2 gap-3", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "M\u1EDF l\xFAc (kh\xF4ng b\u1EAFt bu\u1ED9c)", name: "opens_at", type: "datetime-local", defaultValue: toLocalInput(t?.opensAt ?? null) }),
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "\u0110\xF3ng l\xFAc (kh\xF4ng b\u1EAFt bu\u1ED9c)", name: "closes_at", type: "datetime-local", defaultValue: toLocalInput(t?.closesAt ?? null) })
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "grid grid-cols-2 gap-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Field, { label: "M\u1EDF l\xFAc (kh\xF4ng b\u1EAFt bu\u1ED9c)", name: "opens_at", type: "datetime-local", defaultValue: toLocalInput(t?.opensAt ?? null) }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Field, { label: "\u0110\xF3ng l\xFAc (kh\xF4ng b\u1EAFt bu\u1ED9c)", name: "closes_at", type: "datetime-local", defaultValue: toLocalInput(t?.closesAt ?? null) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Checkbox, { name: "show_answers", label: "Cho h\u1ECDc sinh xem \u0111\xE1p \xE1n v\xE0 l\u1EDDi gi\u1EA3i sau khi n\u1ED9p", defaultChecked: t?.showAnswers ?? true })
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Checkbox, { name: "show_answers", label: "Cho h\u1ECDc sinh xem \u0111\xE1p \xE1n v\xE0 l\u1EDDi gi\u1EA3i sau khi n\u1ED9p", defaultChecked: t?.showAnswers ?? true })
   ] });
 }
 async function testsPage(ctx, errors, values) {
@@ -35304,52 +38043,52 @@ async function testsPage(ctx, errors, values) {
   return page(
     ctx,
     { title: "\u0110\u1EC1 ki\u1EC3m tra", layout: "dashboard", section: "tests", status: errors ? 422 : 200 },
-    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(PageTitle, { title: "\u0110\u1EC1 ki\u1EC3m tra", sub: "T\u1EA1o \u0111\u1EC1 t\u1EEB ng\xE2n h\xE0ng c\xE2u h\u1ECFi, giao cho l\u1EDBp, theo d\xF5i b\xE0i n\u1ED9p v\xE0 ch\u1EA5m c\xE2u t\u1EF1 lu\u1EADn." }),
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { children: tests.length ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("table", { className: "data-table min-w-[760px]", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("tr", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { children: "\u0110\u1EC1" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { children: "C\xE2u / \u0111i\u1EC3m" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { children: "L\u1EDBp" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { children: "B\xE0i n\u1ED9p" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { children: "Tr\u1EA1ng th\xE1i" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", {})
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(PageTitle, { title: "\u0110\u1EC1 ki\u1EC3m tra", sub: "T\u1EA1o \u0111\u1EC1 t\u1EEB ng\xE2n h\xE0ng c\xE2u h\u1ECFi, giao cho l\u1EDBp, theo d\xF5i b\xE0i n\u1ED9p v\xE0 ch\u1EA5m c\xE2u t\u1EF1 lu\u1EADn." }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { children: tests.length ? /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("table", { className: "data-table min-w-[760px]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { children: "\u0110\u1EC1" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { children: "C\xE2u / \u0111i\u1EC3m" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { children: "L\u1EDBp" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { children: "B\xE0i n\u1ED9p" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { children: "Tr\u1EA1ng th\xE1i" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", {})
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("tbody", { children: tests.map((t) => /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("tr", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("td", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/giao-vien/de-kiem-tra/${t.id}`, className: "font-semibold hover:text-tim-700 hover:underline", children: t.title }),
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "text-[12px] text-ink-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("tbody", { children: tests.map((t) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("td", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: `/giao-vien/de-kiem-tra/${t.id}`, className: "font-semibold hover:text-tim-700 hover:underline", children: t.title }),
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "text-[12px] text-ink-3", children: [
                 t.durationMinutes ? `${t.durationMinutes} ph\xFAt` : "Kh\xF4ng gi\u1EDBi h\u1EA1n",
                 " \xB7 t\u1EA1o ",
                 formatDateTime(t.createdAt),
                 user.role === "admin" ? ` \xB7 ${t.createdByName}` : ""
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("td", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("td", { children: [
               t.questionCount,
               " c\xE2u / ",
               formatNumber(t.totalPoints),
               " \u0111"
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { className: "text-[14px]", children: t.classNames ?? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "text-ink-3", children: "Ch\u01B0a giao" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("td", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { className: "text-[14px]", children: t.classNames ?? /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "text-ink-3", children: "Ch\u01B0a giao" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("td", { children: [
               t.submissions,
-              t.pendingManual > 0 && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "text-[12px] font-semibold text-cam", children: [
+              t.pendingManual > 0 && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "text-[12px] font-semibold text-cam", children: [
                 t.pendingManual,
                 " c\xE2u ch\u1EDD ch\u1EA5m"
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: STATUS[t.status][1], children: STATUS[t.status][0] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { className: "whitespace-nowrap text-right", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/giao-vien/de-kiem-tra/${t.id}/ket-qua`, className: buttonClass("quiet", "sm"), children: "K\u1EBFt qu\u1EA3" }) })
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: STATUS2[t.status][1], children: STATUS2[t.status][0] }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { className: "whitespace-nowrap text-right", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: `/giao-vien/de-kiem-tra/${t.id}/ket-qua`, className: buttonClass("quiet", "sm"), children: "K\u1EBFt qu\u1EA3" }) })
           ] }, t.id)) })
-        ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(EmptyState, { title: "Ch\u01B0a c\xF3 \u0111\u1EC1 ki\u1EC3m tra", children: "T\u1EA1o \u0111\u1EC1 \u1EDF khung b\xEAn c\u1EA1nh, sau \u0111\xF3 th\xEAm c\xE2u h\u1ECFi v\xE0 giao cho l\u1EDBp." }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "h-fit p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "T\u1EA1o \u0111\u1EC1 m\u1EDBi" }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ErrorList, { errors }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: "/giao-vien/de-kiem-tra", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(TestInfoFields, { t: values }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { className: "mt-4 w-full", children: "T\u1EA1o \u0111\u1EC1" })
+        ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(EmptyState, { title: "Ch\u01B0a c\xF3 \u0111\u1EC1 ki\u1EC3m tra", children: "T\u1EA1o \u0111\u1EC1 \u1EDF khung b\xEAn c\u1EA1nh, sau \u0111\xF3 th\xEAm c\xE2u h\u1ECFi v\xE0 giao cho l\u1EDBp." }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { className: "h-fit p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "T\u1EA1o \u0111\u1EC1 m\u1EDBi" }),
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(ErrorList, { errors }),
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(PostForm, { action: "/giao-vien/de-kiem-tra", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(TestInfoFields, { t: values }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Button, { className: "mt-4 w-full", children: "T\u1EA1o \u0111\u1EC1" })
           ] })
         ] })
       ] })
@@ -35391,16 +38130,16 @@ async function testDetailPage(ctx, errors) {
   return page(
     ctx,
     { title: test.title, layout: "dashboard", section: "tests", status: errors ? 422 : 200 },
-    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
         PageTitle,
         {
           crumbs: [{ href: "/giao-vien/de-kiem-tra", label: "\u0110\u1EC1 ki\u1EC3m tra" }, { label: test.title }],
           title: test.title,
           sub: `${test.questionCount} c\xE2u \xB7 ${formatNumber(test.totalPoints)} \u0111i\u1EC3m (quy \u0111\u1ED5i thang 10) \xB7 ${test.durationMinutes ? `${test.durationMinutes} ph\xFAt` : "kh\xF4ng gi\u1EDBi h\u1EA1n th\u1EDDi gian"}`,
-          actions: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: STATUS[test.status][1], className: "self-center text-sm", children: STATUS[test.status][0] }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("a", { href: `${base}/ket-qua`, className: buttonClass("secondary", "md"), children: [
+          actions: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: STATUS2[test.status][1], className: "self-center text-sm", children: STATUS2[test.status][0] }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: `${base}/ket-qua`, className: buttonClass("secondary", "md"), children: [
               "K\u1EBFt qu\u1EA3 (",
               test.submissions,
               ")"
@@ -35408,34 +38147,34 @@ async function testDetailPage(ctx, errors) {
           ] })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ErrorList, { errors }),
-      locked && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Notice, { tone: "warn", className: "mb-5", children: "\u0110\xE3 c\xF3 h\u1ECDc sinh l\xE0m b\xE0i: kh\xF4ng th\u1EC3 thay \u0111\u1ED5i c\xE2u h\u1ECFi v\xE0 \u0111i\u1EC3m \u0111\u1EC3 \u0111\u1EA3m b\u1EA3o c\xF4ng b\u1EB1ng. V\u1EABn c\xF3 th\u1EC3 s\u1EEDa th\xF4ng tin, l\u1EDBp \u0111\u01B0\u1EE3c giao v\xE0 tr\u1EA1ng th\xE1i." }),
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "min-w-0 space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "border-b border-line px-5 py-3 font-extrabold", children: "C\xE2u h\u1ECFi trong \u0111\u1EC1" }),
-            questions.length ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("ol", { className: "divide-y divide-line", children: questions.map((q, i2) => /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("li", { className: "flex flex-wrap items-start gap-3 px-5 py-3", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "w-8 shrink-0 pt-0.5 font-bold text-tim-700", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(ErrorList, { errors }),
+      locked && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Notice, { tone: "warn", className: "mb-5", children: "\u0110\xE3 c\xF3 h\u1ECDc sinh l\xE0m b\xE0i: kh\xF4ng th\u1EC3 thay \u0111\u1ED5i c\xE2u h\u1ECFi v\xE0 \u0111i\u1EC3m \u0111\u1EC3 \u0111\u1EA3m b\u1EA3o c\xF4ng b\u1EB1ng. V\u1EABn c\xF3 th\u1EC3 s\u1EEDa th\xF4ng tin, l\u1EDBp \u0111\u01B0\u1EE3c giao v\xE0 tr\u1EA1ng th\xE1i." }),
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "min-w-0 space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "border-b border-line px-5 py-3 font-extrabold", children: "C\xE2u h\u1ECFi trong \u0111\u1EC1" }),
+            questions.length ? /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("ol", { className: "divide-y divide-line", children: questions.map((q, i2) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("li", { className: "flex flex-wrap items-start gap-3 px-5 py-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "w-8 shrink-0 pt-0.5 font-bold text-tim-700", children: [
                 i2 + 1,
                 "."
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "min-w-0 flex-1", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "flex flex-wrap gap-1.5", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { children: TYPE_SHORT[q.type] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "gray", children: LEVEL_LABELS[q.level] }),
-                  q.status !== "published" && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "le", children: "C\xE2u \u0111\xE3 b\u1ECB \u1EA9n" })
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "min-w-0 flex-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex flex-wrap gap-1.5", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { children: TYPE_SHORT[q.type] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "gray", children: LEVEL_LABELS[q.level] }),
+                  q.status !== "published" && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "le", children: "C\xE2u \u0111\xE3 b\u1ECB \u1EA9n" })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "mt-1 text-[14px]", children: plainExcerpt(q.stem, 140) }),
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "text-[12px] text-ink-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "mt-1 text-[14px]", children: plainExcerpt(q.stem, 140) }),
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "text-[12px] text-ink-3", children: [
                   "#",
                   q.questionId,
                   q.lessonTitle ? ` \xB7 ${lessonLabel({ kind: q.lessonKind ?? "lesson", number: q.lessonNumber, title: q.lessonTitle })}` : ""
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "flex shrink-0 items-center gap-1", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: `${base}/cau-hoi/${q.questionId}`, className: "flex items-center gap-1", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "points" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex shrink-0 items-center gap-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(PostForm, { action: `${base}/cau-hoi/${q.questionId}`, className: "flex items-center gap-1", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("input", { type: "hidden", name: "_action", value: "points" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
                     "input",
                     {
                       name: "points",
@@ -35449,92 +38188,92 @@ async function testDetailPage(ctx, errors) {
                       className: "w-20 rounded-lg border border-line-2 px-2 py-1 text-[14px]"
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("button", { className: buttonClass("quiet", "sm"), disabled: locked, children: "L\u01B0u \u0111i\u1EC3m" })
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("button", { className: buttonClass("quiet", "sm"), disabled: locked, children: "L\u01B0u \u0111i\u1EC3m" })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: `${base}/cau-hoi/${q.questionId}`, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "up" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("button", { className: buttonClass("quiet", "sm"), disabled: i2 === 0, "aria-label": "\u0110\u01B0a l\xEAn", children: "\u2191" })
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(PostForm, { action: `${base}/cau-hoi/${q.questionId}`, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("input", { type: "hidden", name: "_action", value: "up" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("button", { className: buttonClass("quiet", "sm"), disabled: i2 === 0, "aria-label": "\u0110\u01B0a l\xEAn", children: "\u2191" })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: `${base}/cau-hoi/${q.questionId}`, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "down" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("button", { className: buttonClass("quiet", "sm"), disabled: i2 === questions.length - 1, "aria-label": "\u0110\u01B0a xu\u1ED1ng", children: "\u2193" })
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(PostForm, { action: `${base}/cau-hoi/${q.questionId}`, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("input", { type: "hidden", name: "_action", value: "down" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("button", { className: buttonClass("quiet", "sm"), disabled: i2 === questions.length - 1, "aria-label": "\u0110\u01B0a xu\u1ED1ng", children: "\u2193" })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: `${base}/cau-hoi/${q.questionId}`, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "_action", value: "remove" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("button", { className: buttonClass("ghost", "sm", "text-le hover:bg-le-soft"), disabled: locked, children: "B\u1ECF" })
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(PostForm, { action: `${base}/cau-hoi/${q.questionId}`, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("input", { type: "hidden", name: "_action", value: "remove" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("button", { className: buttonClass("ghost", "sm", "text-le hover:bg-le-soft"), disabled: locked, children: "B\u1ECF" })
                 ] })
               ] })
-            ] }, q.questionId)) }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { className: "px-5 py-6 text-[15px] text-ink-2", children: "\u0110\u1EC1 ch\u01B0a c\xF3 c\xE2u h\u1ECFi. Ch\u1ECDn c\xE2u t\u1EEB ng\xE2n h\xE0ng \u1EDF khung b\xEAn d\u01B0\u1EDBi." })
+            ] }, q.questionId)) }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "px-5 py-6 text-[15px] text-ink-2", children: "\u0110\u1EC1 ch\u01B0a c\xF3 c\xE2u h\u1ECFi. Ch\u1ECDn c\xE2u t\u1EEB ng\xE2n h\xE0ng \u1EDF khung b\xEAn d\u01B0\u1EDBi." })
           ] }),
-          !locked && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "border-b border-line px-5 py-3 font-extrabold", children: "Th\xEAm c\xE2u t\u1EEB ng\xE2n h\xE0ng" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("form", { method: "get", className: "grid gap-3 border-b border-line px-5 py-4 md:grid-cols-[2fr_1fr_auto]", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "B\xE0i h\u1ECDc", name: "bai", defaultValue: pickLesson ?? "", autoSubmit: true, options: [{ value: "", label: "T\u1EA5t c\u1EA3 b\xE0i" }, ...lessons.map((l) => ({ value: l.id, label: l.label, group: l.chapter }))] }),
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Select, { label: "H\xECnh th\u1EE9c", name: "loai", defaultValue: pickType ?? "", autoSubmit: true, options: [{ value: "", label: "T\u1EA5t c\u1EA3" }, ...QUESTION_TYPES.map((t) => ({ value: t, label: TYPE_SHORT[t] }))] }),
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "flex items-end", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("button", { className: buttonClass("secondary", "md"), children: "L\u1ECDc" }) })
+          !locked && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "border-b border-line px-5 py-3 font-extrabold", children: "Th\xEAm c\xE2u t\u1EEB ng\xE2n h\xE0ng" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("form", { method: "get", className: "grid gap-3 border-b border-line px-5 py-4 md:grid-cols-[2fr_1fr_auto]", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Select, { label: "B\xE0i h\u1ECDc", name: "bai", defaultValue: pickLesson ?? "", autoSubmit: true, options: [{ value: "", label: "T\u1EA5t c\u1EA3 b\xE0i" }, ...lessons.map((l) => ({ value: l.id, label: l.label, group: l.chapter }))] }),
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Select, { label: "H\xECnh th\u1EE9c", name: "loai", defaultValue: pickType ?? "", autoSubmit: true, options: [{ value: "", label: "T\u1EA5t c\u1EA3" }, ...QUESTION_TYPES.map((t) => ({ value: t, label: TYPE_SHORT[t] }))] }),
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "flex items-end", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("button", { className: buttonClass("secondary", "md"), children: "L\u1ECDc" }) })
             ] }),
-            candidates.length ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: `${base}/cau-hoi`, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("ul", { className: "max-h-[480px] divide-y divide-line overflow-y-auto", children: candidates.map((q) => /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("label", { className: "flex cursor-pointer items-start gap-3 px-5 py-3 hover:bg-tim-50/60", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "checkbox", name: "question_id", value: q.id, className: "mt-1 h-4 w-4 accent-[#3b2a8c]" }),
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "min-w-0", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "flex flex-wrap gap-1.5", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { children: TYPE_SHORT[q.type] }),
-                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "gray", children: LEVEL_LABELS[q.level] })
+            candidates.length ? /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(PostForm, { action: `${base}/cau-hoi`, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("ul", { className: "max-h-[480px] divide-y divide-line overflow-y-auto", children: candidates.map((q) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("label", { className: "flex cursor-pointer items-start gap-3 px-5 py-3 hover:bg-tim-50/60", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("input", { type: "checkbox", name: "question_id", value: q.id, className: "mt-1 h-4 w-4 accent-[#3b2a8c]" }),
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "min-w-0", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "flex flex-wrap gap-1.5", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { children: TYPE_SHORT[q.type] }),
+                    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "gray", children: LEVEL_LABELS[q.level] })
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "mt-1 block text-[14px]", children: plainExcerpt(q.stem, 140) }),
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "block text-[12px] text-ink-3", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "mt-1 block text-[14px]", children: plainExcerpt(q.stem, 140) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "block text-[12px] text-ink-3", children: [
                     "#",
                     q.id,
                     q.lessonTitle ? ` \xB7 ${lessonLabel({ kind: q.lessonKind ?? "lesson", number: q.lessonNumber, title: q.lessonTitle })}` : ""
                   ] })
                 ] })
               ] }) }, q.id)) }),
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "border-t border-line px-5 py-3", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { children: "Th\xEAm c\xE1c c\xE2u \u0111\xE3 ch\u1ECDn" }) })
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { className: "px-5 py-6 text-[15px] text-ink-2", children: "Kh\xF4ng c\xF2n c\xE2u \u0111\xE3 xu\u1EA5t b\u1EA3n ph\xF9 h\u1EE3p b\u1ED9 l\u1ECDc." })
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "border-t border-line px-5 py-3", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Button, { children: "Th\xEAm c\xE1c c\xE2u \u0111\xE3 ch\u1ECDn" }) })
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "px-5 py-6 text-[15px] text-ink-2", children: "Kh\xF4ng c\xF2n c\xE2u \u0111\xE3 xu\u1EA5t b\u1EA3n ph\xF9 h\u1EE3p b\u1ED9 l\u1ECDc." })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "space-y-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Ph\xE1t \u0111\u1EC1" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("p", { className: "text-[14px] text-ink-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "space-y-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Ph\xE1t \u0111\u1EC1" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("p", { className: "text-[14px] text-ink-2", children: [
               test.status === "draft" && "\u0110\u1EC1 \u0111ang l\xE0 b\u1EA3n nh\xE1p \u2013 h\u1ECDc sinh ch\u01B0a th\u1EA5y.",
               test.status === "published" && "H\u1ECDc sinh trong c\xE1c l\u1EDBp \u0111\u01B0\u1EE3c giao \u0111ang th\u1EA5y \u0111\u1EC1.",
               test.status === "closed" && "\u0110\u1EC1 \u0111\xE3 \u0111\xF3ng \u2013 h\u1ECDc sinh xem l\u1EA1i \u0111\u01B0\u1EE3c k\u1EBFt qu\u1EA3 nh\u01B0ng kh\xF4ng l\xE0m m\u1EDBi."
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "mt-3 flex flex-wrap gap-2", children: [
-              test.status !== "published" && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: `${base}/trang-thai`, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "status", value: "published" }),
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { children: "Ph\xE1t \u0111\u1EC1" })
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mt-3 flex flex-wrap gap-2", children: [
+              test.status !== "published" && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(PostForm, { action: `${base}/trang-thai`, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("input", { type: "hidden", name: "status", value: "published" }),
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Button, { children: "Ph\xE1t \u0111\u1EC1" })
               ] }),
-              test.status === "published" && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: `${base}/trang-thai`, confirm: "\u0110\xF3ng \u0111\u1EC1? H\u1ECDc sinh s\u1EBD kh\xF4ng b\u1EAFt \u0111\u1EA7u l\u01B0\u1EE3t l\xE0m m\u1EDBi.", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "status", value: "closed" }),
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { variant: "secondary", children: "\u0110\xF3ng \u0111\u1EC1" })
+              test.status === "published" && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(PostForm, { action: `${base}/trang-thai`, confirm: "\u0110\xF3ng \u0111\u1EC1? H\u1ECDc sinh s\u1EBD kh\xF4ng b\u1EAFt \u0111\u1EA7u l\u01B0\u1EE3t l\xE0m m\u1EDBi.", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("input", { type: "hidden", name: "status", value: "closed" }),
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Button, { variant: "secondary", children: "\u0110\xF3ng \u0111\u1EC1" })
               ] }),
-              test.status === "published" && !locked && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: `${base}/trang-thai`, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "status", value: "draft" }),
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { variant: "quiet", children: "Chuy\u1EC3n v\u1EC1 nh\xE1p" })
+              test.status === "published" && !locked && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(PostForm, { action: `${base}/trang-thai`, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("input", { type: "hidden", name: "status", value: "draft" }),
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Button, { variant: "quiet", children: "Chuy\u1EC3n v\u1EC1 nh\xE1p" })
               ] })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Giao cho l\u1EDBp" }),
-            classes.length ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: `${base}/lop`, className: "space-y-2", children: [
-              classes.map((c) => /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Checkbox, { name: "class_id", value: String(c.id), defaultChecked: assigned.includes(c.id), label: `${c.name} (${c.schoolYear})`, hint: `${c.memberCount} h\u1ECDc sinh` }, c.id)),
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { variant: "secondary", className: "mt-2", children: "L\u01B0u l\u1EDBp \u0111\u01B0\u1EE3c giao" })
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("p", { className: "text-[14px] text-ink-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Giao cho l\u1EDBp" }),
+            classes.length ? /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(PostForm, { action: `${base}/lop`, className: "space-y-2", children: [
+              classes.map((c) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Checkbox, { name: "class_id", value: String(c.id), defaultChecked: assigned.includes(c.id), label: `${c.name} (${c.schoolYear})`, hint: `${c.memberCount} h\u1ECDc sinh` }, c.id)),
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Button, { variant: "secondary", className: "mt-2", children: "L\u01B0u l\u1EDBp \u0111\u01B0\u1EE3c giao" })
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("p", { className: "text-[14px] text-ink-2", children: [
               "Th\u1EA7y/c\xF4 ch\u01B0a c\xF3 l\u1EDBp.",
               " ",
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: "/giao-vien/lop", className: "font-semibold text-tim-700 underline", children: "T\u1EA1o l\u1EDBp" })
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: "/giao-vien/lop", className: "font-semibold text-tim-700 underline", children: "T\u1EA1o l\u1EDBp" })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Th\xF4ng tin \u0111\u1EC1" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: base, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(TestInfoFields, { t: test }),
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { variant: "secondary", className: "mt-4", children: "L\u01B0u th\xF4ng tin" })
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Th\xF4ng tin \u0111\u1EC1" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(PostForm, { action: base, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(TestInfoFields, { t: test }),
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Button, { variant: "secondary", className: "mt-4", children: "L\u01B0u th\xF4ng tin" })
             ] })
           ] }),
-          !locked && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(PostForm, { action: `${base}/xoa`, confirm: "X\xF3a \u0111\u1EC1 ki\u1EC3m tra n\xE0y?", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { variant: "danger", children: "X\xF3a \u0111\u1EC1" }) })
+          !locked && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(PostForm, { action: `${base}/xoa`, confirm: "X\xF3a \u0111\u1EC1 ki\u1EC3m tra n\xE0y?", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Button, { variant: "danger", children: "X\xF3a \u0111\u1EC1" }) })
         ] })
       ] })
     ] })
@@ -35615,14 +38354,14 @@ async function testQuestionAction(ctx) {
 async function testResultsPage(ctx) {
   const { test } = await loadTest(ctx);
   const [rows, qstats, questions] = await Promise.all([testResultsTable(ctx.db, test.id), testQuestionStats(ctx.db, test.id), testQuestions(ctx.db, test.id)]);
-  const submitted = rows.filter((r3) => r3.status && r3.status !== "in_progress");
-  const tens = submitted.map((r3) => toTenScale(r3.score ?? 0, r3.maxScore ?? 0));
+  const submitted = rows.filter((r4) => r4.status && r4.status !== "in_progress");
+  const tens = submitted.map((r4) => toTenScale(r4.score ?? 0, r4.maxScore ?? 0));
   const avg = tens.length ? tens.reduce((a, b) => a + b, 0) / tens.length : null;
   return page(
     ctx,
     { title: `K\u1EBFt qu\u1EA3: ${test.title}`, layout: "dashboard", section: "tests" },
-    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
         PageTitle,
         {
           crumbs: [{ href: "/giao-vien/de-kiem-tra", label: "\u0110\u1EC1 ki\u1EC3m tra" }, { href: `/giao-vien/de-kiem-tra/${test.id}`, label: test.title }, { label: "K\u1EBFt qu\u1EA3" }],
@@ -35630,68 +38369,68 @@ async function testResultsPage(ctx) {
           sub: `${submitted.length}/${rows.length} h\u1ECDc sinh \u0111\xE3 n\u1ED9p${avg !== null ? ` \xB7 \u0111i\u1EC3m trung b\xECnh ${formatNumber(avg)}/10` : ""}`
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Panel, { className: "overflow-x-auto", children: rows.length ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("table", { className: "data-table min-w-[640px]", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("tr", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { children: "H\u1ECDc sinh" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { children: "L\u1EDBp" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { children: "Tr\u1EA1ng th\xE1i" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { children: "\u0110i\u1EC3m (/10)" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", { children: "N\u1ED9p l\xFAc" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("th", {})
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Panel, { className: "overflow-x-auto", children: rows.length ? /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("table", { className: "data-table min-w-[640px]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { children: "H\u1ECDc sinh" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { children: "L\u1EDBp" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { children: "Tr\u1EA1ng th\xE1i" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { children: "\u0110i\u1EC3m (/10)" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { children: "N\u1ED9p l\xFAc" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", {})
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("tbody", { children: rows.map((r3) => /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("tr", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("td", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "font-semibold", children: r3.fullName }),
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "font-mono text-[12px] text-ink-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("tbody", { children: rows.map((r4) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("td", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "font-semibold", children: r4.fullName }),
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "font-mono text-[12px] text-ink-3", children: [
                 "@",
-                r3.username
+                r4.username
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { children: r3.className ?? "\u2013" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("td", { children: [
-              !r3.status && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "gray", children: "Ch\u01B0a l\xE0m" }),
-              r3.status === "in_progress" && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "hl", children: "\u0110ang l\xE0m" }),
-              r3.status === "submitted" && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Badge, { tone: "cam", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { children: r4.className ?? "\u2013" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("td", { children: [
+              !r4.status && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "gray", children: "Ch\u01B0a l\xE0m" }),
+              r4.status === "in_progress" && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "hl", children: "\u0110ang l\xE0m" }),
+              r4.status === "submitted" && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Badge, { tone: "cam", children: [
                 "Ch\u1EDD ch\u1EA5m ",
-                r3.pendingManual,
+                r4.pendingManual,
                 " c\xE2u"
               ] }),
-              r3.status === "graded" && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "tre", children: "\u0110\xE3 ch\u1EA5m" }),
-              r3.attempts > 1 && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "ml-1 text-[12px] text-ink-3", children: [
+              r4.status === "graded" && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "tre", children: "\u0110\xE3 ch\u1EA5m" }),
+              r4.attempts > 1 && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "ml-1 text-[12px] text-ink-3", children: [
                 "l\u1EA7n ",
-                r3.attempts
+                r4.attempts
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { className: "font-bold tabular-nums", children: r3.status && r3.status !== "in_progress" ? formatNumber(toTenScale(r3.score ?? 0, r3.maxScore ?? 0)) : "\u2013" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { className: "text-[13px] text-ink-3", children: r3.submittedAt ? formatDateTime(r3.submittedAt) : "" }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { className: "whitespace-nowrap text-right", children: r3.resultId && r3.status !== "in_progress" && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/kiem-tra/ket-qua/${r3.resultId}`, className: buttonClass("quiet", "sm"), children: "Xem b\xE0i" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { className: "font-bold tabular-nums", children: r4.status && r4.status !== "in_progress" ? formatNumber(toTenScale(r4.score ?? 0, r4.maxScore ?? 0)) : "\u2013" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { className: "text-[13px] text-ink-3", children: r4.submittedAt ? formatDateTime(r4.submittedAt) : "" }),
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { className: "whitespace-nowrap text-right", children: r4.resultId && r4.status !== "in_progress" && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: `/kiem-tra/ket-qua/${r4.resultId}`, className: buttonClass("quiet", "sm"), children: "Xem b\xE0i" }),
               " ",
-              r3.pendingManual > 0 && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: `/giao-vien/cham-bai/${r3.resultId}`, className: buttonClass("primary", "sm"), children: "Ch\u1EA5m" })
+              r4.pendingManual > 0 && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: `/giao-vien/cham-bai/${r4.resultId}`, className: buttonClass("primary", "sm"), children: "Ch\u1EA5m" })
             ] }) })
-          ] }, r3.studentId)) })
-        ] }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "p-5", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(EmptyState, { title: "Ch\u01B0a c\xF3 h\u1ECDc sinh \u0111\u01B0\u1EE3c giao \u0111\u1EC1", children: "Giao \u0111\u1EC1 cho l\u1EDBp trong trang chi ti\u1EBFt \u0111\u1EC1." }) }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "h-fit p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "T\u1EC9 l\u1EC7 \u0111\xFAng t\u1EEBng c\xE2u" }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("ol", { className: "space-y-2.5", children: questions.map((q, i2) => {
+          ] }, r4.studentId)) })
+        ] }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "p-5", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(EmptyState, { title: "Ch\u01B0a c\xF3 h\u1ECDc sinh \u0111\u01B0\u1EE3c giao \u0111\u1EC1", children: "Giao \u0111\u1EC1 cho l\u1EDBp trong trang chi ti\u1EBFt \u0111\u1EC1." }) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { className: "h-fit p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "T\u1EC9 l\u1EC7 \u0111\xFAng t\u1EEBng c\xE2u" }),
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("ol", { className: "space-y-2.5", children: questions.map((q, i2) => {
             const s = qstats.find((x) => x.questionId === q.questionId);
             const rate = s && s.answered ? percent(s.correct, s.answered) : null;
-            return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("li", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "flex justify-between text-[14px]", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { children: [
+            return /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("li", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex justify-between text-[14px]", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { children: [
                   "C\xE2u ",
                   i2 + 1,
                   " ",
-                  /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "text-ink-3", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "text-ink-3", children: [
                     "(",
                     TYPE_SHORT[q.type],
                     ")"
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "font-semibold", children: rate === null ? "ch\u01B0a c\xF3" : `${rate}%` })
+                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "font-semibold", children: rate === null ? "ch\u01B0a c\xF3" : `${rate}%` })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "bar mt-1", children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { style: { width: `${rate ?? 0}%`, background: rate !== null && rate < 50 ? "var(--color-le)" : void 0 } }) })
+              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "bar mt-1", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { style: { width: `${rate ?? 0}%`, background: rate !== null && rate < 50 ? "var(--color-le)" : void 0 } }) })
             ] }, q.questionId);
           }) })
         ] })
@@ -35712,8 +38451,8 @@ async function gradingPage(ctx, errors) {
   return page(
     ctx,
     { title: `Ch\u1EA5m b\xE0i: ${attempt.studentName}`, layout: "dashboard", section: "tests", status: errors ? 422 : 200 },
-    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
         PageTitle,
         {
           crumbs: [{ href: `/giao-vien/de-kiem-tra/${attempt.testId}/ket-qua`, label: "K\u1EBFt qu\u1EA3 \u0111\u1EC1" }, { label: attempt.studentName }],
@@ -35721,38 +38460,38 @@ async function gradingPage(ctx, errors) {
           sub: `${attempt.title} \xB7 \u0111i\u1EC3m hi\u1EC7n t\u1EA1i ${formatNumber(attempt.score ?? 0)}/${formatNumber(attempt.maxScore ?? 0)} \xB7 c\xF2n ${attempt.pendingManual} c\xE2u ch\u1EDD ch\u1EA5m`
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ErrorList, { errors }),
-      manual.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Notice, { children: "B\xE0i n\xE0y kh\xF4ng c\xF3 c\xE2u t\u1EF1 lu\u1EADn." }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "space-y-5", children: manual.map((q) => /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Panel, { className: "p-5", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "mb-2 flex flex-wrap items-center gap-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { children: TYPE_SHORT[q.type] }),
-          q.status === "pending" ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "cam", children: "Ch\u1EDD ch\u1EA5m" }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "tre", children: "\u0110\xE3 ch\u1EA5m" }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "text-[14px] text-ink-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(ErrorList, { errors }),
+      manual.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Notice, { children: "B\xE0i n\xE0y kh\xF4ng c\xF3 c\xE2u t\u1EF1 lu\u1EADn." }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "space-y-5", children: manual.map((q) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { className: "p-5", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mb-2 flex flex-wrap items-center gap-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { children: TYPE_SHORT[q.type] }),
+          q.status === "pending" ? /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "cam", children: "Ch\u1EDD ch\u1EA5m" }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "tre", children: "\u0110\xE3 ch\u1EA5m" }),
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "text-[14px] text-ink-3", children: [
             "T\u1ED1i \u0111a ",
             formatNumber(q.testPoints),
             " \u0111i\u1EC3m"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Html, { html: q.stemHtml, className: "prose-math" }),
-        q.mediaHtml.map((h, k) => /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Html, { html: h, className: "mt-2 flex justify-center" }, k)),
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "mt-4 rounded-xl border border-line bg-mist p-4", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "mb-1 text-[13px] font-semibold text-ink-3", children: "B\xE0i l\xE0m c\u1EE7a h\u1ECDc sinh" }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", { className: "whitespace-pre-wrap text-[15px]", children: q.response?.text || /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("em", { className: "text-ink-3", children: "Kh\xF4ng tr\u1EA3 l\u1EDDi" }) })
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Html, { html: q.stemHtml, className: "prose-math" }),
+        q.mediaHtml.map((h, k) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Html, { html: h, className: "mt-2 flex justify-center" }, k)),
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mt-4 rounded-xl border border-line bg-mist p-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "mb-1 text-[13px] font-semibold text-ink-3", children: "B\xE0i l\xE0m c\u1EE7a h\u1ECDc sinh" }),
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "whitespace-pre-wrap text-[15px]", children: q.response?.text || /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("em", { className: "text-ink-3", children: "Kh\xF4ng tr\u1EA3 l\u1EDDi" }) })
         ] }),
-        q.solutionHtml && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("details", { className: "mt-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("summary", { className: "text-[14px] font-semibold text-tim-700", children: "H\u01B0\u1EDBng d\u1EABn ch\u1EA5m / l\u1EDDi gi\u1EA3i" }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Html, { html: q.solutionHtml, className: "prose-math mt-2" })
+        q.solutionHtml && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("details", { className: "mt-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("summary", { className: "text-[14px] font-semibold text-tim-700", children: "H\u01B0\u1EDBng d\u1EABn ch\u1EA5m / l\u1EDDi gi\u1EA3i" }),
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Html, { html: q.solutionHtml, className: "prose-math mt-2" })
         ] }),
-        q.responseId && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(PostForm, { action: `/giao-vien/cham-bai/${attempt.id}`, className: "mt-4 grid gap-3 md:grid-cols-[160px_minmax(0,1fr)_auto] md:items-end", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "response_id", value: q.responseId }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("input", { type: "hidden", name: "max", value: q.testPoints }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "\u0110i\u1EC3m", name: "points", type: "number", step: "0.25", min: 0, max: q.testPoints, required: true, defaultValue: q.status === "pending" ? "" : q.pointsAwarded ?? "" }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Field, { label: "Nh\u1EADn x\xE9t (h\u1ECDc sinh xem \u0111\u01B0\u1EE3c)", name: "feedback", defaultValue: q.feedback ?? "", maxLength: 1e3 }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, { children: "L\u01B0u \u0111i\u1EC3m" })
+        q.responseId && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(PostForm, { action: `/giao-vien/cham-bai/${attempt.id}`, className: "mt-4 grid gap-3 md:grid-cols-[160px_minmax(0,1fr)_auto] md:items-end", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("input", { type: "hidden", name: "response_id", value: q.responseId }),
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("input", { type: "hidden", name: "max", value: q.testPoints }),
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Field, { label: "\u0110i\u1EC3m", name: "points", type: "number", step: "0.25", min: 0, max: q.testPoints, required: true, defaultValue: q.status === "pending" ? "" : q.pointsAwarded ?? "" }),
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Field, { label: "Nh\u1EADn x\xE9t (h\u1ECDc sinh xem \u0111\u01B0\u1EE3c)", name: "feedback", defaultValue: q.feedback ?? "", maxLength: 1e3 }),
+          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Button, { children: "L\u01B0u \u0111i\u1EC3m" })
         ] })
       ] }, q.id)) }),
-      /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", { className: "mt-8", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "To\xE0n b\u1ED9 b\xE0i l\xE0m" }),
-        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(ResultQuestionList, { questions, reveal: true })
+      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mt-8", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "To\xE0n b\u1ED9 b\xE0i l\xE0m" }),
+        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(ResultQuestionList, { questions, reveal: true })
       ] })
     ] })
   );
@@ -35777,7 +38516,7 @@ async function gradingAction(ctx) {
 
 // src/server/handlers/teacher/stats.tsx
 init_richtext();
-var import_jsx_runtime28 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime31 = __toESM(require_jsx_runtime(), 1);
 async function statsPage(ctx) {
   const user = requireTeacher(ctx);
   const book = await requireBook(ctx);
@@ -35785,7 +38524,7 @@ async function statsPage(ctx) {
   const classId = Number(ctx.query.get("lop")) || null;
   const selected = classes.find((c) => c.id === classId) ?? null;
   const scopeIds = selected ? [selected.id] : classes.map((c) => c.id);
-  const students = scopeIds.length ? (await ctx.db.many(sql`select distinct student_id as id from class_members where class_id = any(${scopeIds}::int[])`)).map((r3) => r3.id) : [];
+  const students = scopeIds.length ? (await ctx.db.many(sql`select distinct student_id as id from class_members where class_id = any(${scopeIds}::int[])`)).map((r4) => r4.id) : [];
   const [chapters, completion, hardest, tests] = await Promise.all([
     chapterStats(ctx.db, students, book.id),
     lessonCompletionStats(ctx.db, students, book.id),
@@ -35797,10 +38536,10 @@ async function statsPage(ctx) {
   return page(
     ctx,
     { title: "Th\u1ED1ng k\xEA k\u1EBFt qu\u1EA3", layout: "dashboard", section: "stats" },
-    /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(import_jsx_runtime28.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(PageTitle, { title: "Th\u1ED1ng k\xEA k\u1EBFt qu\u1EA3", sub: `${selected ? `L\u1EDBp ${selected.name}` : "T\u1EA5t c\u1EA3 l\u1EDBp c\u1EE7a th\u1EA7y/c\xF4"} \xB7 ${students.length} h\u1ECDc sinh \xB7 ${answered} l\u01B0\u1EE3t tr\u1EA3 l\u1EDDi \xB7 t\u1EC9 l\u1EC7 \u0111\xFAng ${percent(correct, answered)}%` }),
-      /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("form", { method: "get", className: "mb-6 flex max-w-sm items-end gap-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(import_jsx_runtime31.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(PageTitle, { title: "Th\u1ED1ng k\xEA k\u1EBFt qu\u1EA3", sub: `${selected ? `L\u1EDBp ${selected.name}` : "T\u1EA5t c\u1EA3 l\u1EDBp c\u1EE7a th\u1EA7y/c\xF4"} \xB7 ${students.length} h\u1ECDc sinh \xB7 ${answered} l\u01B0\u1EE3t tr\u1EA3 l\u1EDDi \xB7 t\u1EC9 l\u1EC7 \u0111\xFAng ${percent(correct, answered)}%` }),
+      /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("form", { method: "get", className: "mb-6 flex max-w-sm items-end gap-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(
           Select,
           {
             label: "Ph\u1EA1m vi",
@@ -35811,68 +38550,68 @@ async function statsPage(ctx) {
             options: [{ value: "", label: "T\u1EA5t c\u1EA3 l\u1EDBp" }, ...classes.map((c) => ({ value: c.id, label: `${c.name} (${c.schoolYear})` }))]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("button", { className: buttonClass("secondary", "md"), children: "Xem" })
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("button", { className: buttonClass("secondary", "md"), children: "Xem" })
       ] }),
-      students.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(EmptyState, { title: "Ch\u01B0a c\xF3 d\u1EEF li\u1EC7u", children: "Th\u1ED1ng k\xEA xu\u1EA5t hi\u1EC7n khi l\u1EDBp c\xF3 h\u1ECDc sinh h\u1ECDc v\xE0 luy\u1EC7n t\u1EADp." }) : /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "grid gap-6 xl:grid-cols-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(Panel, { className: "p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("h2", { className: "mb-1 text-lg font-extrabold", children: "T\u1EC9 l\u1EC7 tr\u1EA3 l\u1EDDi \u0111\xFAng theo ch\u01B0\u01A1ng" }),
-          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("p", { className: "mb-4 text-[13px] text-ink-3", children: "G\u1ED3m luy\u1EC7n t\u1EADp, th\u1EED th\xE1ch v\xE0 ki\u1EC3m tra (kh\xF4ng t\xEDnh c\xE2u ch\u1EDD ch\u1EA5m)." }),
-          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("ul", { className: "space-y-3", children: chapters.filter((c) => c.kind === "chapter").map((c) => {
+      students.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime31.jsx)(EmptyState, { title: "Ch\u01B0a c\xF3 d\u1EEF li\u1EC7u", children: "Th\u1ED1ng k\xEA xu\u1EA5t hi\u1EC7n khi l\u1EDBp c\xF3 h\u1ECDc sinh h\u1ECDc v\xE0 luy\u1EC7n t\u1EADp." }) : /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "grid gap-6 xl:grid-cols-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(Panel, { className: "p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("h2", { className: "mb-1 text-lg font-extrabold", children: "T\u1EC9 l\u1EC7 tr\u1EA3 l\u1EDDi \u0111\xFAng theo ch\u01B0\u01A1ng" }),
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("p", { className: "mb-4 text-[13px] text-ink-3", children: "G\u1ED3m luy\u1EC7n t\u1EADp, th\u1EED th\xE1ch v\xE0 ki\u1EC3m tra (kh\xF4ng t\xEDnh c\xE2u ch\u1EDD ch\u1EA5m)." }),
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("ul", { className: "space-y-3", children: chapters.filter((c) => c.kind === "chapter").map((c) => {
             const rate = c.answered ? percent(c.correct, c.answered) : null;
-            return /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("li", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "flex justify-between gap-3 text-[14px]", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("span", { className: "truncate", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("strong", { className: "text-tim-700", children: [
+            return /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("li", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "flex justify-between gap-3 text-[14px]", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("span", { className: "truncate", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("strong", { className: "text-tim-700", children: [
                     c.code,
                     "."
                   ] }),
                   " ",
                   c.title
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { className: "shrink-0 tabular-nums text-ink-2", children: rate === null ? "ch\u01B0a c\xF3" : `${rate}% \xB7 ${c.answered} l\u01B0\u1EE3t \xB7 ${c.students} HS` })
+                /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("span", { className: "shrink-0 tabular-nums text-ink-2", children: rate === null ? "ch\u01B0a c\xF3" : `${rate}% \xB7 ${c.answered} l\u01B0\u1EE3t \xB7 ${c.students} HS` })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: "bar mt-1", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { style: { width: `${rate ?? 0}%`, background: rate !== null && rate < 50 ? "var(--color-le)" : void 0 } }) })
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "bar mt-1", children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("span", { style: { width: `${rate ?? 0}%`, background: rate !== null && rate < 50 ? "var(--color-le)" : void 0 } }) })
             ] }, c.code);
           }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(Panel, { className: "p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("h2", { className: "mb-1 text-lg font-extrabold", children: "M\u1EE9c \u0111\u1ED9 ho\xE0n th\xE0nh b\xE0i h\u1ECDc" }),
-          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("p", { className: "mb-4 text-[13px] text-ink-3", children: "Trung b\xECnh s\u1ED1 m\u1EE5c m\u1ED7i h\u1ECDc sinh \u0111\xE3 \u0111\xE1nh d\u1EA5u h\u1ECDc xong / s\u1ED1 m\u1EE5c c\u1EE7a ch\u01B0\u01A1ng." }),
-          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("ul", { className: "space-y-3", children: completion.filter((c) => c.kind === "chapter").map((c) => {
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(Panel, { className: "p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("h2", { className: "mb-1 text-lg font-extrabold", children: "M\u1EE9c \u0111\u1ED9 ho\xE0n th\xE0nh b\xE0i h\u1ECDc" }),
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("p", { className: "mb-4 text-[13px] text-ink-3", children: "Trung b\xECnh s\u1ED1 m\u1EE5c m\u1ED7i h\u1ECDc sinh \u0111\xE3 \u0111\xE1nh d\u1EA5u h\u1ECDc xong / s\u1ED1 m\u1EE5c c\u1EE7a ch\u01B0\u01A1ng." }),
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("ul", { className: "space-y-3", children: completion.filter((c) => c.kind === "chapter").map((c) => {
             const avg = students.length ? c.completions / students.length : 0;
             const rate = percent(avg, c.lessons);
-            return /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("li", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "flex justify-between gap-3 text-[14px]", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("span", { className: "truncate", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("strong", { className: "text-tim-700", children: [
+            return /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("li", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "flex justify-between gap-3 text-[14px]", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("span", { className: "truncate", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("strong", { className: "text-tim-700", children: [
                     c.code,
                     "."
                   ] }),
                   " ",
                   c.title
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("span", { className: "shrink-0 tabular-nums text-ink-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("span", { className: "shrink-0 tabular-nums text-ink-2", children: [
                   formatNumber(avg, 1),
                   "/",
                   c.lessons,
                   " m\u1EE5c"
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", { className: "bar bar-tre mt-1", children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", { style: { width: `${rate}%` } }) })
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("div", { className: "bar bar-tre mt-1", children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("span", { style: { width: `${rate}%` } }) })
             ] }, c.code);
           }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(Panel, { className: "p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "C\xE2u h\u1ECFi nhi\u1EC1u h\u1ECDc sinh l\xE0m sai" }),
-          hardest.length ? /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("ol", { className: "divide-y divide-line", children: hardest.map((q) => /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("li", { className: "py-2.5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "flex justify-between gap-3", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("a", { href: `/giao-vien/cau-hoi/${q.id}/xem`, className: "min-w-0 text-[14px] hover:text-tim-700 hover:underline", children: plainExcerpt(q.stem, 100) }),
-              /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("span", { className: "shrink-0 text-[14px] font-bold text-le", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(Panel, { className: "p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "C\xE2u h\u1ECFi nhi\u1EC1u h\u1ECDc sinh l\xE0m sai" }),
+          hardest.length ? /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("ol", { className: "divide-y divide-line", children: hardest.map((q) => /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("li", { className: "py-2.5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "flex justify-between gap-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("a", { href: `/giao-vien/cau-hoi/${q.id}/xem`, className: "min-w-0 text-[14px] hover:text-tim-700 hover:underline", children: plainExcerpt(q.stem, 100) }),
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("span", { className: "shrink-0 text-[14px] font-bold text-le", children: [
                 q.rate,
                 "% \u0111\xFAng"
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: "text-[12px] text-ink-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("div", { className: "text-[12px] text-ink-3", children: [
               "#",
               q.id,
               " \xB7 ",
@@ -35882,22 +38621,22 @@ async function statsPage(ctx) {
               " l\u01B0\u1EE3t",
               q.lessonTitle ? ` \xB7 ${lessonLabel({ kind: q.lessonKind ?? "lesson", number: q.lessonNumber, title: q.lessonTitle })}` : ""
             ] })
-          ] }, q.id)) }) : /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("p", { className: "text-[14px] text-ink-2", children: "C\u1EA7n \xEDt nh\u1EA5t 3 l\u01B0\u1EE3t tr\u1EA3 l\u1EDDi cho m\u1ED9t c\xE2u \u0111\u1EC3 th\u1ED1ng k\xEA." })
+          ] }, q.id)) }) : /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("p", { className: "text-[14px] text-ink-2", children: "C\u1EA7n \xEDt nh\u1EA5t 3 l\u01B0\u1EE3t tr\u1EA3 l\u1EDDi cho m\u1ED9t c\xE2u \u0111\u1EC3 th\u1ED1ng k\xEA." })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(Panel, { className: "p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "\u0110i\u1EC3m trung b\xECnh b\xE0i ki\u1EC3m tra" }),
-          tests.length ? /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("table", { className: "data-table", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("th", { children: "\u0110\u1EC1" }),
-              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("th", { children: "B\xE0i n\u1ED9p" }),
-              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("th", { children: "TB (/10)" })
+        /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)(Panel, { className: "p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "\u0110i\u1EC3m trung b\xECnh b\xE0i ki\u1EC3m tra" }),
+          tests.length ? /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("table", { className: "data-table", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("th", { children: "\u0110\u1EC1" }),
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("th", { children: "B\xE0i n\u1ED9p" }),
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("th", { children: "TB (/10)" })
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("tbody", { children: tests.map((t) => /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("a", { href: `/giao-vien/de-kiem-tra/${t.id}/ket-qua`, className: "hover:text-tim-700 hover:underline", children: t.title }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("td", { children: t.submitted }),
-              /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("td", { className: "font-bold", children: t.avgTen === null ? "\u2013" : formatNumber(t.avgTen) })
+            /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("tbody", { children: tests.map((t) => /* @__PURE__ */ (0, import_jsx_runtime31.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("a", { href: `/giao-vien/de-kiem-tra/${t.id}/ket-qua`, className: "hover:text-tim-700 hover:underline", children: t.title }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("td", { children: t.submitted }),
+              /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("td", { className: "font-bold", children: t.avgTen === null ? "\u2013" : formatNumber(t.avgTen) })
             ] }, t.id)) })
-          ] }) : /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("p", { className: "text-[14px] text-ink-2", children: "Ch\u01B0a c\xF3 \u0111\u1EC1 ki\u1EC3m tra." })
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime31.jsx)("p", { className: "text-[14px] text-ink-2", children: "Ch\u01B0a c\xF3 \u0111\u1EC1 ki\u1EC3m tra." })
         ] })
       ] })
     ] })
@@ -35905,39 +38644,47 @@ async function statsPage(ctx) {
 }
 
 // src/server/handlers/teacher/routes.ts
-function registerTeacherRoutes(r3) {
-  r3.get("/giao-vien", teacherHome);
-  r3.get("/giao-vien/lop", (ctx) => classesPage(ctx));
-  r3.post("/giao-vien/lop", createClassAction);
-  r3.get("/giao-vien/lop/:id", (ctx) => classDetailPage(ctx));
-  r3.post("/giao-vien/lop/:id/:action", classAction);
-  r3.get("/giao-vien/hoc-sinh", studentsPage);
-  r3.post("/giao-vien/hoc-sinh/:id/dat-lai-mat-khau", studentResetAction);
-  r3.get("/giao-vien/chuong-trinh", curriculumAdminPage);
-  r3.get("/giao-vien/bai-hoc/:id", (ctx) => lessonEditorPage(ctx));
-  r3.post("/giao-vien/bai-hoc/:id", lessonEditorAction);
-  r3.get("/giao-vien/cau-hoi", questionBankPage);
-  r3.get("/giao-vien/cau-hoi/moi", newQuestionPage);
-  r3.post("/giao-vien/cau-hoi/moi", createQuestionAction);
-  r3.get("/giao-vien/cau-hoi/:id", editQuestionPage);
-  r3.post("/giao-vien/cau-hoi/:id", updateQuestionAction);
-  r3.get("/giao-vien/cau-hoi/:id/xem", previewQuestionPage);
-  r3.post("/giao-vien/cau-hoi/:id/xoa", deleteQuestionAction);
-  r3.post("/giao-vien/cau-hoi/:id/nhan-ban", duplicateQuestionAction);
-  r3.get("/giao-vien/de-kiem-tra", (ctx) => testsPage(ctx));
-  r3.post("/giao-vien/de-kiem-tra", createTestAction);
-  r3.get("/giao-vien/de-kiem-tra/:id", (ctx) => testDetailPage(ctx));
-  r3.post("/giao-vien/de-kiem-tra/:id", testAction);
-  r3.get("/giao-vien/de-kiem-tra/:id/ket-qua", testResultsPage);
-  r3.post("/giao-vien/de-kiem-tra/:id/cau-hoi/:qid", testQuestionAction);
-  r3.post("/giao-vien/de-kiem-tra/:id/:action", testAction);
-  r3.get("/giao-vien/cham-bai/:id", (ctx) => gradingPage(ctx));
-  r3.post("/giao-vien/cham-bai/:id", gradingAction);
-  r3.get("/giao-vien/thong-ke", statsPage);
+function registerTeacherRoutes(r4) {
+  r4.get("/giao-vien", teacherHome);
+  r4.get("/giao-vien/lop", (ctx) => classesPage(ctx));
+  r4.post("/giao-vien/lop", createClassAction);
+  r4.get("/giao-vien/lop/:id", (ctx) => classDetailPage(ctx));
+  r4.post("/giao-vien/lop/:id/:action", classAction);
+  r4.get("/giao-vien/hoc-sinh", studentsPage);
+  r4.post("/giao-vien/hoc-sinh/:id/dat-lai-mat-khau", studentResetAction);
+  r4.get("/giao-vien/chuong-trinh", (ctx) => curriculumAdminPage(ctx));
+  r4.post("/giao-vien/chuong-trinh", curriculumAction);
+  r4.get("/giao-vien/chuong/:id", (ctx) => chapterEditorPage(ctx));
+  r4.post("/giao-vien/chuong/:id", chapterEditorAction);
+  r4.get("/giao-vien/dang-toan/:id", (ctx) => topicEditorPage(ctx));
+  r4.post("/giao-vien/dang-toan/:id", topicEditorAction);
+  r4.get("/giao-vien/bai-hoc/:id", (ctx) => lessonEditorPage(ctx));
+  r4.post("/giao-vien/bai-hoc/:id", lessonEditorAction);
+  r4.get("/giao-vien/cau-hoi", questionBankPage);
+  r4.get("/giao-vien/cau-hoi/nhap", (ctx) => importPage(ctx));
+  r4.post("/giao-vien/cau-hoi/nhap", importAction);
+  r4.get("/giao-vien/cau-hoi/nhap/mau.csv", importTemplate);
+  r4.get("/giao-vien/cau-hoi/moi", newQuestionPage);
+  r4.post("/giao-vien/cau-hoi/moi", createQuestionAction);
+  r4.get("/giao-vien/cau-hoi/:id", editQuestionPage);
+  r4.post("/giao-vien/cau-hoi/:id", updateQuestionAction);
+  r4.get("/giao-vien/cau-hoi/:id/xem", previewQuestionPage);
+  r4.post("/giao-vien/cau-hoi/:id/xoa", deleteQuestionAction);
+  r4.post("/giao-vien/cau-hoi/:id/nhan-ban", duplicateQuestionAction);
+  r4.get("/giao-vien/de-kiem-tra", (ctx) => testsPage(ctx));
+  r4.post("/giao-vien/de-kiem-tra", createTestAction);
+  r4.get("/giao-vien/de-kiem-tra/:id", (ctx) => testDetailPage(ctx));
+  r4.post("/giao-vien/de-kiem-tra/:id", testAction);
+  r4.get("/giao-vien/de-kiem-tra/:id/ket-qua", testResultsPage);
+  r4.post("/giao-vien/de-kiem-tra/:id/cau-hoi/:qid", testQuestionAction);
+  r4.post("/giao-vien/de-kiem-tra/:id/:action", testAction);
+  r4.get("/giao-vien/cham-bai/:id", (ctx) => gradingPage(ctx));
+  r4.post("/giao-vien/cham-bai/:id", gradingAction);
+  r4.get("/giao-vien/thong-ke", statsPage);
 }
 
 // src/server/handlers/admin.tsx
-var import_jsx_runtime29 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime32 = __toESM(require_jsx_runtime(), 1);
 async function adminSystemPage(ctx) {
   requireAdmin(ctx);
   const grades = await ctx.db.many(sql`
@@ -35950,54 +38697,54 @@ async function adminSystemPage(ctx) {
   return page(
     ctx,
     { title: "Kh\u1ED1i l\u1EDBp & h\u1EC7 th\u1ED1ng", layout: "dashboard", section: "system" },
-    /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(import_jsx_runtime29.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(PageTitle, { title: "Kh\u1ED1i l\u1EDBp & h\u1EC7 th\u1ED1ng", sub: "M\u1EDF ho\u1EB7c \u1EA9n kh\u1ED1i l\u1EDBp; xem t\xECnh tr\u1EA1ng c\u01A1 s\u1EDF d\u1EEF li\u1EC7u v\xE0 nh\u1EADt k\xFD thao t\xE1c quan tr\u1ECDng." }),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "grid gap-6 xl:grid-cols-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Panel, { className: "p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Kh\u1ED1i l\u1EDBp" }),
-          /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("table", { className: "data-table", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { children: "Kh\u1ED1i" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { children: "B\u1ED9 s\xE1ch" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { children: "Tr\u1EA1ng th\xE1i" })
+    /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(import_jsx_runtime32.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(PageTitle, { title: "Kh\u1ED1i l\u1EDBp & h\u1EC7 th\u1ED1ng", sub: "M\u1EDF ho\u1EB7c \u1EA9n kh\u1ED1i l\u1EDBp; xem t\xECnh tr\u1EA1ng c\u01A1 s\u1EDF d\u1EEF li\u1EC7u v\xE0 nh\u1EADt k\xFD thao t\xE1c quan tr\u1ECDng." }),
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "grid gap-6 xl:grid-cols-2", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(Panel, { className: "p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Kh\u1ED1i l\u1EDBp" }),
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("table", { className: "data-table", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { children: "Kh\u1ED1i" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { children: "B\u1ED9 s\xE1ch" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { children: "Tr\u1EA1ng th\xE1i" })
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("tbody", { children: grades.map((g) => /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("td", { className: "font-semibold", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("tbody", { children: grades.map((g) => /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("td", { className: "font-semibold", children: [
                 "To\xE1n ",
                 g.level
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { children: g.textbooks ? `${g.textbooks} b\u1ED9 s\xE1ch` : /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("span", { className: "text-ink-3", children: "Ch\u01B0a c\xF3 n\u1ED9i dung" }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(PostForm, { action: "/quan-tri/khoi-lop", className: "flex items-center gap-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("input", { type: "hidden", name: "grade_id", value: g.id }),
-                /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("select", { name: "status", defaultValue: g.status, "aria-label": `Tr\u1EA1ng th\xE1i To\xE1n ${g.level}`, className: "rounded-lg border border-line-2 px-2 py-1 text-[14px]", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("option", { value: "active", children: "\u0110ang m\u1EDF" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("option", { value: "coming_soon", children: "S\u1EAFp ra m\u1EAFt" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("option", { value: "hidden", children: "\u1EA8n" })
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { children: g.textbooks ? `${g.textbooks} b\u1ED9 s\xE1ch` : /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: "text-ink-3", children: "Ch\u01B0a c\xF3 n\u1ED9i dung" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(PostForm, { action: "/quan-tri/khoi-lop", className: "flex items-center gap-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("input", { type: "hidden", name: "grade_id", value: g.id }),
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("select", { name: "status", defaultValue: g.status, "aria-label": `Tr\u1EA1ng th\xE1i To\xE1n ${g.level}`, className: "rounded-lg border border-line-2 px-2 py-1 text-[14px]", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("option", { value: "active", children: "\u0110ang m\u1EDF" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("option", { value: "coming_soon", children: "S\u1EAFp ra m\u1EAFt" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("option", { value: "hidden", children: "\u1EA8n" })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("button", { className: buttonClass("quiet", "sm"), children: "L\u01B0u" })
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("button", { className: buttonClass("quiet", "sm"), children: "L\u01B0u" })
               ] }) })
             ] }, g.id)) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("p", { className: "mt-3 text-[13px] text-ink-3", children: 'Ch\u1EC9 m\u1EDF kh\u1ED1i l\u1EDBp khi \u0111\xE3 c\xF3 b\u1ED9 s\xE1ch v\xE0 b\xE0i h\u1ECDc. Kh\u1ED1i "S\u1EAFp ra m\u1EAFt" hi\u1EC7n tr\xEAn trang ch\u1EE7 nh\u01B0ng kh\xF4ng v\xE0o \u0111\u01B0\u1EE3c.' })
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("p", { className: "mt-3 text-[13px] text-ink-3", children: 'Ch\u1EC9 m\u1EDF kh\u1ED1i l\u1EDBp khi \u0111\xE3 c\xF3 b\u1ED9 s\xE1ch v\xE0 b\xE0i h\u1ECDc. Kh\u1ED1i "S\u1EAFp ra m\u1EAFt" hi\u1EC7n tr\xEAn trang ch\u1EE7 nh\u01B0ng kh\xF4ng v\xE0o \u0111\u01B0\u1EE3c.' })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Panel, { className: "p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "H\u1EC7 th\u1ED1ng" }),
-          /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("dl", { className: "space-y-2 text-[14px]", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("dt", { className: "text-ink-3", children: "PostgreSQL" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("dd", { className: "font-mono text-[13px]", children: info.version.split(" on ")[0] })
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(Panel, { className: "p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "H\u1EC7 th\u1ED1ng" }),
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("dl", { className: "space-y-2 text-[14px]", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("dt", { className: "text-ink-3", children: "PostgreSQL" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("dd", { className: "font-mono text-[13px]", children: info.version.split(" on ")[0] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("dt", { className: "text-ink-3", children: "Phi\xEAn b\u1EA3n l\u01B0\u1EE3c \u0111\u1ED3" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("dd", { className: "font-mono text-[13px]", children: info.migrations })
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("dt", { className: "text-ink-3", children: "Phi\xEAn b\u1EA3n l\u01B0\u1EE3c \u0111\u1ED3" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("dd", { className: "font-mono text-[13px]", children: info.migrations })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("dt", { className: "text-ink-3", children: "Dung l\u01B0\u1EE3ng CSDL" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("dd", { children: info.dbSize })
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("dt", { className: "text-ink-3", children: "Dung l\u01B0\u1EE3ng CSDL" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("dd", { children: info.dbSize })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("dt", { className: "text-ink-3", children: "T\xE0i kho\u1EA3n / phi\xEAn \u0111\u0103ng nh\u1EADp c\xF2n h\u1EA1n" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("dd", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("dt", { className: "text-ink-3", children: "T\xE0i kho\u1EA3n / phi\xEAn \u0111\u0103ng nh\u1EADp c\xF2n h\u1EA1n" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("dd", { children: [
                 info.users,
                 " / ",
                 info.sessions
@@ -36005,22 +38752,22 @@ async function adminSystemPage(ctx) {
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Panel, { className: "p-5 xl:col-span-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Nh\u1EADt k\xFD thao t\xE1c g\u1EA7n \u0111\xE2y" }),
-          logs.length ? /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("table", { className: "data-table", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { children: "Th\u1EDDi gian" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { children: "Ng\u01B0\u1EDDi th\u1EF1c hi\u1EC7n" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { children: "Thao t\xE1c" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { children: "\u0110\u1ED1i t\u01B0\u1EE3ng" })
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(Panel, { className: "p-5 xl:col-span-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Nh\u1EADt k\xFD thao t\xE1c g\u1EA7n \u0111\xE2y" }),
+          logs.length ? /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("table", { className: "data-table", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { children: "Th\u1EDDi gian" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { children: "Ng\u01B0\u1EDDi th\u1EF1c hi\u1EC7n" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { children: "Thao t\xE1c" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { children: "\u0110\u1ED1i t\u01B0\u1EE3ng" })
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("tbody", { children: logs.map((l) => /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { className: "text-[13px]", children: formatDateTime(l.createdAt) }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { children: l.actor ?? "\u2013" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { className: "font-mono text-[13px]", children: l.action }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { className: "font-mono text-[12px] text-ink-3", children: l.target })
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("tbody", { children: logs.map((l) => /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { className: "text-[13px]", children: formatDateTime(l.createdAt) }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { children: l.actor ?? "\u2013" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { className: "font-mono text-[13px]", children: l.action }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { className: "font-mono text-[12px] text-ink-3", children: l.target })
             ] }, l.id)) })
-          ] }) : /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("p", { className: "text-[14px] text-ink-2", children: "Ch\u01B0a c\xF3 thao t\xE1c n\xE0o." })
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("p", { className: "text-[14px] text-ink-2", children: "Ch\u01B0a c\xF3 thao t\xE1c n\xE0o." })
         ] })
       ] })
     ] })
@@ -36044,69 +38791,69 @@ async function adminAccountsPage(ctx, opts = {}) {
   return page(
     ctx,
     { title: "T\xE0i kho\u1EA3n", layout: "dashboard", section: "accounts", status: opts.errors ? 422 : 200 },
-    /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(import_jsx_runtime29.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(PageTitle, { title: "T\xE0i kho\u1EA3n", sub: `${total} t\xE0i kho\u1EA3n. Gi\xE1o vi\xEAn do qu\u1EA3n tr\u1ECB vi\xEAn t\u1EA1o; h\u1ECDc sinh t\u1EF1 \u0111\u0103ng k\xFD ho\u1EB7c do gi\xE1o vi\xEAn t\u1EA1o trong l\u1EDBp.` }),
-      opts.created && /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Notice, { tone: "success", className: "mb-5", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(import_jsx_runtime32.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(PageTitle, { title: "T\xE0i kho\u1EA3n", sub: `${total} t\xE0i kho\u1EA3n. Gi\xE1o vi\xEAn do qu\u1EA3n tr\u1ECB vi\xEAn t\u1EA1o; h\u1ECDc sinh t\u1EF1 \u0111\u0103ng k\xFD ho\u1EB7c do gi\xE1o vi\xEAn t\u1EA1o trong l\u1EDBp.` }),
+      opts.created && /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(Notice, { tone: "success", className: "mb-5", children: [
         "\u0110\xE3 t\u1EA1o t\xE0i kho\u1EA3n ",
-        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("strong", { className: "font-mono", children: opts.created.username }),
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("strong", { className: "font-mono", children: opts.created.username }),
         " v\u1EDBi m\u1EADt kh\u1EA9u ",
-        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("strong", { className: "font-mono", children: opts.created.password }),
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("strong", { className: "font-mono", children: opts.created.password }),
         ". H\xE3y g\u1EEDi cho ng\u01B0\u1EDDi d\xF9ng v\xE0 nh\u1EAFc \u0111\u1ED5i m\u1EADt kh\u1EA9u sau khi \u0111\u0103ng nh\u1EADp."
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "min-w-0", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("form", { method: "get", className: "mb-4 flex flex-wrap items-end gap-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Select, { label: "Vai tr\xF2", name: "vai-tro", defaultValue: role, autoSubmit: true, options: [{ value: "", label: "T\u1EA5t c\u1EA3" }, { value: "admin", label: "Qu\u1EA3n tr\u1ECB vi\xEAn" }, { value: "teacher", label: "Gi\xE1o vi\xEAn" }, { value: "student", label: "H\u1ECDc sinh" }] }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Field, { label: "T\xECm", name: "q", defaultValue: q }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("button", { className: buttonClass("secondary", "md"), children: "L\u1ECDc" })
+      /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "min-w-0", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("form", { method: "get", className: "mb-4 flex flex-wrap items-end gap-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Select, { label: "Vai tr\xF2", name: "vai-tro", defaultValue: role, autoSubmit: true, options: [{ value: "", label: "T\u1EA5t c\u1EA3" }, { value: "admin", label: "Qu\u1EA3n tr\u1ECB vi\xEAn" }, { value: "teacher", label: "Gi\xE1o vi\xEAn" }, { value: "student", label: "H\u1ECDc sinh" }] }),
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Field, { label: "T\xECm", name: "q", defaultValue: q }),
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("button", { className: buttonClass("secondary", "md"), children: "L\u1ECDc" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("table", { className: "data-table min-w-[720px]", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { children: "Ng\u01B0\u1EDDi d\xF9ng" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { children: "Vai tr\xF2" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { children: "Tr\u1EA1ng th\xE1i" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", { children: "\u0110\u0103ng nh\u1EADp g\u1EA7n nh\u1EA5t" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("th", {})
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("table", { className: "data-table min-w-[720px]", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { children: "Ng\u01B0\u1EDDi d\xF9ng" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { children: "Vai tr\xF2" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { children: "Tr\u1EA1ng th\xE1i" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { children: "\u0110\u0103ng nh\u1EADp g\u1EA7n nh\u1EA5t" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", {})
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("tbody", { children: rows.map((u) => /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("tr", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("td", { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("div", { className: "font-semibold", children: u.fullName }),
-                /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("div", { className: "font-mono text-[12px] text-ink-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("tbody", { children: rows.map((u) => /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("tr", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("td", { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("div", { className: "font-semibold", children: u.fullName }),
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "font-mono text-[12px] text-ink-3", children: [
                   "@",
                   u.username
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)("td", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("td", { children: [
                 ROLE_LABELS[u.role],
                 u.gradeLevel ? ` l\u1EDBp ${u.gradeLevel}` : ""
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { children: u.status === "active" ? /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Badge, { tone: "tre", children: "Ho\u1EA1t \u0111\u1ED9ng" }) : /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Badge, { tone: "le", children: "B\u1ECB kh\xF3a" }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { className: "text-[13px] text-ink-3", children: u.lastLoginAt ? formatDateTime(u.lastLoginAt) : "Ch\u01B0a \u0111\u0103ng nh\u1EADp" }),
-              /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("td", { className: "whitespace-nowrap text-right", children: u.id !== me.id && /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(import_jsx_runtime29.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(PostForm, { action: `/quan-tri/tai-khoan/${u.id}`, className: "inline", confirm: `\u0110\u1EB7t l\u1EA1i m\u1EADt kh\u1EA9u cho ${u.fullName}?`, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("input", { type: "hidden", name: "_action", value: "reset" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("button", { className: buttonClass("quiet", "sm"), children: "\u0110\u1EB7t l\u1EA1i m\u1EADt kh\u1EA9u" })
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { children: u.status === "active" ? /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Badge, { tone: "tre", children: "Ho\u1EA1t \u0111\u1ED9ng" }) : /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Badge, { tone: "le", children: "B\u1ECB kh\xF3a" }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { className: "text-[13px] text-ink-3", children: u.lastLoginAt ? formatDateTime(u.lastLoginAt) : "Ch\u01B0a \u0111\u0103ng nh\u1EADp" }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { className: "whitespace-nowrap text-right", children: u.id !== me.id && /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(import_jsx_runtime32.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(PostForm, { action: `/quan-tri/tai-khoan/${u.id}`, className: "inline", confirm: `\u0110\u1EB7t l\u1EA1i m\u1EADt kh\u1EA9u cho ${u.fullName}?`, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("input", { type: "hidden", name: "_action", value: "reset" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("button", { className: buttonClass("quiet", "sm"), children: "\u0110\u1EB7t l\u1EA1i m\u1EADt kh\u1EA9u" })
                 ] }),
                 " ",
-                /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(PostForm, { action: `/quan-tri/tai-khoan/${u.id}`, className: "inline", confirm: u.status === "active" ? `Kh\xF3a t\xE0i kho\u1EA3n ${u.fullName}?` : void 0, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("input", { type: "hidden", name: "_action", value: u.status === "active" ? "lock" : "unlock" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("button", { className: buttonClass(u.status === "active" ? "ghost" : "quiet", "sm", u.status === "active" ? "text-le hover:bg-le-soft" : ""), children: u.status === "active" ? "Kh\xF3a" : "M\u1EDF kh\xF3a" })
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(PostForm, { action: `/quan-tri/tai-khoan/${u.id}`, className: "inline", confirm: u.status === "active" ? `Kh\xF3a t\xE0i kho\u1EA3n ${u.fullName}?` : void 0, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("input", { type: "hidden", name: "_action", value: u.status === "active" ? "lock" : "unlock" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("button", { className: buttonClass(u.status === "active" ? "ghost" : "quiet", "sm", u.status === "active" ? "text-le hover:bg-le-soft" : ""), children: u.status === "active" ? "Kh\xF3a" : "M\u1EDF kh\xF3a" })
                 ] })
               ] }) })
             ] }, u.id)) })
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Pager, { page: pg.page, pages: pg.pages(total), base: `/quan-tri/tai-khoan${queryString({ "vai-tro": role, q })}` })
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Pager, { page: pg.page, pages: pg.pages(total), base: `/quan-tri/tai-khoan${queryString({ "vai-tro": role, q })}` })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Panel, { className: "h-fit p-5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "T\u1EA1o t\xE0i kho\u1EA3n" }),
-          /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(ErrorList, { errors: opts.errors }),
-          /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(PostForm, { action: "/quan-tri/tai-khoan", className: "space-y-3", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Select, { label: "Vai tr\xF2", name: "role", defaultValue: "teacher", options: [{ value: "teacher", label: "Gi\xE1o vi\xEAn" }, { value: "admin", label: "Qu\u1EA3n tr\u1ECB vi\xEAn" }, { value: "student", label: "H\u1ECDc sinh (l\u1EDBp 8)" }] }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Field, { label: "H\u1ECD v\xE0 t\xEAn", name: "full_name", required: true, maxLength: 120 }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Field, { label: "T\xEAn \u0111\u0103ng nh\u1EADp", name: "username", required: true, maxLength: 40 }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Field, { label: "Tr\u01B0\u1EDDng", name: "school", maxLength: 120 }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Field, { label: "M\u1EADt kh\u1EA9u (\u0111\u1EC3 tr\u1ED1ng \u0111\u1EC3 t\u1EA1o t\u1EF1 \u0111\u1ED9ng)", name: "password", maxLength: 128 }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(Button, { className: "w-full", children: "T\u1EA1o t\xE0i kho\u1EA3n" })
+        /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(Panel, { className: "h-fit p-5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "T\u1EA1o t\xE0i kho\u1EA3n" }),
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(ErrorList, { errors: opts.errors }),
+          /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(PostForm, { action: "/quan-tri/tai-khoan", className: "space-y-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Select, { label: "Vai tr\xF2", name: "role", defaultValue: "teacher", options: [{ value: "teacher", label: "Gi\xE1o vi\xEAn" }, { value: "admin", label: "Qu\u1EA3n tr\u1ECB vi\xEAn" }, { value: "student", label: "H\u1ECDc sinh (l\u1EDBp 8)" }] }),
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Field, { label: "H\u1ECD v\xE0 t\xEAn", name: "full_name", required: true, maxLength: 120 }),
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Field, { label: "T\xEAn \u0111\u0103ng nh\u1EADp", name: "username", required: true, maxLength: 40 }),
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Field, { label: "Tr\u01B0\u1EDDng", name: "school", maxLength: 120 }),
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Field, { label: "M\u1EADt kh\u1EA9u (\u0111\u1EC3 tr\u1ED1ng \u0111\u1EC3 t\u1EA1o t\u1EF1 \u0111\u1ED9ng)", name: "password", maxLength: 128 }),
+            /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Button, { className: "w-full", children: "T\u1EA1o t\xE0i kho\u1EA3n" })
           ] })
         ] })
       ] })
@@ -36152,55 +38899,60 @@ async function adminAccountAction(ctx) {
   }
   throw new HttpError(400);
 }
-function registerAdminRoutes(r3) {
-  r3.get("/quan-tri", adminSystemPage);
-  r3.post("/quan-tri/khoi-lop", adminGradeAction);
-  r3.get("/quan-tri/tai-khoan", (ctx) => adminAccountsPage(ctx));
-  r3.post("/quan-tri/tai-khoan", adminCreateAccount);
-  r3.post("/quan-tri/tai-khoan/:id", adminAccountAction);
+function registerAdminRoutes(r4) {
+  r4.get("/quan-tri", adminSystemPage);
+  r4.post("/quan-tri/khoi-lop", adminGradeAction);
+  r4.get("/quan-tri/tai-khoan", (ctx) => adminAccountsPage(ctx));
+  r4.post("/quan-tri/tai-khoan", adminCreateAccount);
+  r4.post("/quan-tri/tai-khoan/:id", adminAccountAction);
 }
 
 // src/server/routes.ts
 function buildRouter() {
-  const r3 = new Router();
-  r3.get("/", homePage);
-  r3.get("/chuong-trinh", programPage);
-  r3.get("/chuong-trinh/:book/ppct", teachingPlanPage);
-  r3.get("/hoc/:book", coursePage);
-  r3.get("/hoc/:book/bai/:slug", lessonPage);
-  r3.post("/hoc/:book/bai/:slug/hoan-thanh", completeLessonAction);
-  r3.post("/hoc/:book/bai/:slug/hoc-lai", reopenLessonAction);
-  r3.get("/luyen-tap", practiceHub);
-  r3.get("/luyen-tap/bai/:slug", practiceLesson);
-  r3.get("/luyen-tap/chuong/:code", practiceChapter);
-  r3.get("/thu-thach", challengePage);
-  r3.post("/api/luyen-tap/tra-loi", practiceAnswerApi);
-  r3.get("/kiem-tra", studentTestsPage);
-  r3.get("/kiem-tra/:id", testIntroPage);
-  r3.post("/kiem-tra/:id/bat-dau", startTestAction);
-  r3.get("/kiem-tra/lam/:id", takeTestPage);
-  r3.get("/kiem-tra/ket-qua/:id", testResultPage);
-  r3.post("/api/kiem-tra/luu/:id", saveDraftApi);
-  r3.post("/api/kiem-tra/nop/:id", submitTestApi);
-  r3.get("/thanh-tich", achievementsPage);
-  r3.get("/ca-nhan", (ctx) => profilePage(ctx));
-  r3.post("/ca-nhan/vao-lop", joinClassAction);
-  r3.post("/ca-nhan/mat-khau", changePasswordAction);
-  r3.get("/media/:id", mediaFile);
-  r3.get("/dang-nhap", loginPage);
-  r3.post("/dang-nhap", loginSubmit);
-  r3.get("/dang-ky", registerPage);
-  r3.post("/dang-ky", registerSubmit);
-  r3.post("/dang-xuat", logout);
-  r3.get("/cai-dat-ban-dau", setupPage);
-  r3.post("/cai-dat-ban-dau", setupSubmit);
-  r3.get("/api/suc-khoe", async (ctx) => {
+  const r4 = new Router();
+  r4.get("/", homePage);
+  r4.get("/chuong-trinh", programPage);
+  r4.get("/chuong-trinh/:book/ppct", teachingPlanPage);
+  r4.get("/hoc/:book", coursePage);
+  r4.get("/hoc/:book/ban-do", knowledgeMapPage);
+  r4.get("/hoc/:book/chuong/:code", chapterPage);
+  r4.get("/hoc/:book/bai/:slug", lessonPage);
+  r4.get("/hoc/:book/bai/:slug/dang/:key", topicPage);
+  r4.post("/hoc/:book/bai/:slug/hoan-thanh", completeLessonAction);
+  r4.post("/hoc/:book/bai/:slug/hoc-lai", reopenLessonAction);
+  r4.get("/luyen-tap", practiceHub);
+  r4.get("/luyen-tap/bai/:slug", practiceLesson);
+  r4.get("/luyen-tap/chuong/:code", practiceChapter);
+  r4.get("/luyen-tap/chuong/:code/kiem-tra", chapterTestPage);
+  r4.get("/luyen-tap/dang/:id", practiceTopic);
+  r4.get("/thu-thach", challengePage);
+  r4.post("/api/luyen-tap/tra-loi", practiceAnswerApi);
+  r4.get("/kiem-tra", studentTestsPage);
+  r4.get("/kiem-tra/:id", testIntroPage);
+  r4.post("/kiem-tra/:id/bat-dau", startTestAction);
+  r4.get("/kiem-tra/lam/:id", takeTestPage);
+  r4.get("/kiem-tra/ket-qua/:id", testResultPage);
+  r4.post("/api/kiem-tra/luu/:id", saveDraftApi);
+  r4.post("/api/kiem-tra/nop/:id", submitTestApi);
+  r4.get("/thanh-tich", achievementsPage);
+  r4.get("/ca-nhan", (ctx) => profilePage(ctx));
+  r4.post("/ca-nhan/vao-lop", joinClassAction);
+  r4.post("/ca-nhan/mat-khau", changePasswordAction);
+  r4.get("/media/:id", mediaFile);
+  r4.get("/dang-nhap", loginPage);
+  r4.post("/dang-nhap", loginSubmit);
+  r4.get("/dang-ky", registerPage);
+  r4.post("/dang-ky", registerSubmit);
+  r4.post("/dang-xuat", logout);
+  r4.get("/cai-dat-ban-dau", setupPage);
+  r4.post("/cai-dat-ban-dau", setupSubmit);
+  r4.get("/api/suc-khoe", async (ctx) => {
     await ctx.db.one(sql`select 1`);
     return { type: "json", status: 200, data: { ok: true, time: (/* @__PURE__ */ new Date()).toISOString() } };
   });
-  registerTeacherRoutes(r3);
-  registerAdminRoutes(r3);
-  return r3;
+  registerTeacherRoutes(r4);
+  registerAdminRoutes(r4);
+  return r4;
 }
 
 // src/static/export.tsx
@@ -36208,7 +38960,7 @@ var import_server3 = __toESM(require_server_node(), 1);
 import fs4 from "node:fs";
 import path5 from "node:path";
 init_richtext();
-var import_jsx_runtime30 = __toESM(require_jsx_runtime(), 1);
+var import_jsx_runtime33 = __toESM(require_jsx_runtime(), 1);
 var depthOf = (file) => file.split("/").length - 1;
 function rel2(from, to) {
   return "../".repeat(depthOf(from)) + to;
@@ -36221,53 +38973,53 @@ var NAV2 = [
 ];
 function Layout({ page: page2, children }) {
   const R3 = (to) => rel2(page2.file, to);
-  return /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("header", { className: "site-header sticky top-0 z-20 border-b border-line bg-white/95 backdrop-blur", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mx-auto flex h-16 max-w-[1240px] items-center gap-4 px-4 md:px-6", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: R3("index.html"), className: "flex items-center gap-2.5 text-ink no-underline", "aria-label": `${BRAND} \u2013 Trang ch\u1EE7`, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LogoMark, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Wordmark, { className: "text-[17px] leading-none" })
+  return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("header", { className: "site-header sticky top-0 z-20 border-b border-line bg-white/95 backdrop-blur", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mx-auto flex h-16 max-w-[1240px] items-center gap-4 px-4 md:px-6", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: R3("index.html"), className: "flex items-center gap-2.5 text-ink no-underline", "aria-label": `${BRAND} \u2013 Trang ch\u1EE7`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LogoMark, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Wordmark, { className: "text-[17px] leading-none" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh", className: "ml-6 hidden items-center gap-1 lg:flex", children: NAV2.map((n) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh", className: "ml-6 hidden items-center gap-1 lg:flex", children: NAV2.map((n) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
         "a",
         {
           href: R3(n.file),
           "aria-current": page2.nav === n.key ? "page" : void 0,
           className: cx("rounded-lg px-3 py-2 text-[15px] font-medium hover:bg-tim-50 hover:text-tim-800", page2.nav === n.key ? "text-ink" : "text-ink-2"),
-          children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: page2.nav === n.key ? "hl font-semibold" : "", children: n.label })
+          children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: page2.nav === n.key ? "hl font-semibold" : "", children: n.label })
         },
         n.file
       )) }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("details", { className: "relative ml-auto lg:hidden", "data-menu": true, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("summary", { className: "flex h-10 w-10 items-center justify-center rounded-xl border border-line text-xl", "aria-label": "M\u1EDF menu", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LuMenu, { "aria-hidden": "true" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh (di \u0111\u1ED9ng)", className: "absolute right-0 z-30 mt-2 w-60 rounded-2xl border border-line bg-white p-2 shadow-[0_12px_32px_-12px_rgba(30,21,75,0.35)]", children: NAV2.map((n) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: R3(n.file), className: cx("block rounded-lg px-3 py-2.5 text-[15px] hover:bg-tim-50", page2.nav === n.key && "bg-tim-50 font-semibold text-tim-800"), children: n.label }, n.file)) })
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("details", { className: "relative ml-auto lg:hidden", "data-menu": true, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("summary", { className: "flex h-10 w-10 items-center justify-center rounded-xl border border-line text-xl", "aria-label": "M\u1EDF menu", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuMenu, { "aria-hidden": "true" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh (di \u0111\u1ED9ng)", className: "absolute right-0 z-30 mt-2 w-60 rounded-2xl border border-line bg-white p-2 shadow-[0_12px_32px_-12px_rgba(30,21,75,0.35)]", children: NAV2.map((n) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: R3(n.file), className: cx("block rounded-lg px-3 py-2.5 text-[15px] hover:bg-tim-50", page2.nav === n.key && "bg-tim-50 font-semibold text-tim-800"), children: n.label }, n.file)) })
       ] })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("main", { id: "noi-dung", className: "mx-auto max-w-[1240px] px-4 pt-6 md:px-6", children }),
-    /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("footer", { className: "site-footer mt-20 border-t border-line bg-white", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mx-auto grid max-w-[1240px] gap-6 px-4 py-10 md:grid-cols-[1.4fr_1fr] md:px-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex items-center gap-2.5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LogoMark, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Wordmark, { className: "text-[17px]" })
+    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("main", { id: "noi-dung", className: "mx-auto max-w-[1240px] px-4 pt-6 md:px-6", children }),
+    /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("footer", { className: "site-footer mt-20 border-t border-line bg-white", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mx-auto grid max-w-[1240px] gap-6 px-4 py-10 md:grid-cols-[1.4fr_1fr] md:px-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex items-center gap-2.5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LogoMark, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Wordmark, { className: "text-[17px]" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "mt-3 max-w-md text-sm text-ink-2", children: "B\u1EA3n HTML ngo\u1EA1i tuy\u1EBFn \u2013 To\xE1n 8, K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng (GDPT 2018). Ti\u1EBFn \u0111\u1ED9 v\xE0 c\xE2u \u0111\xE3 l\xE0m \u0111\u01B0\u1EE3c l\u01B0u trong tr\xECnh duy\u1EC7t c\u1EE7a m\xE1y \u0111ang d\xF9ng." })
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "mt-3 max-w-md text-sm text-ink-2", children: "B\u1EA3n HTML ngo\u1EA1i tuy\u1EBFn \u2013 To\xE1n 8, K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng (GDPT 2018). Ti\u1EBFn \u0111\u1ED9 v\xE0 c\xE2u \u0111\xE3 l\xE0m \u0111\u01B0\u1EE3c l\u01B0u trong tr\xECnh duy\u1EC7t c\u1EE7a m\xE1y \u0111ang d\xF9ng." })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("p", { className: "text-sm text-ink-3", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("p", { className: "text-sm text-ink-3", children: [
           "L\u1EDBp h\u1ECDc, t\xE0i kho\u1EA3n, \u0111\u1EC1 ki\u1EC3m tra, gi\xE1o vi\xEAn ch\u1EA5m b\xE0i v\xE0 b\u1EA3ng x\u1EBFp h\u1EA1ng c\u1EA7n b\u1EA3n ch\u1EA1y tr\xEAn m\xE1y ch\u1EE7. Xu\u1EA5t b\u1EA3n ng\xE0y ",
           formatDate(/* @__PURE__ */ new Date()),
           "."
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "border-t border-line", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mx-auto flex max-w-[1240px] flex-wrap justify-between gap-x-6 gap-y-1 px-4 py-4 text-[13px] text-ink-3 md:px-6", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "font-semibold text-ink-2", children: COPYRIGHT }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { children: COPYRIGHT_NOTE })
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "border-t border-line", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mx-auto flex max-w-[1240px] flex-wrap justify-between gap-x-6 gap-y-1 px-4 py-4 text-[13px] text-ink-3 md:px-6", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "font-semibold text-ink-2", children: COPYRIGHT }),
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { children: COPYRIGHT_NOTE })
       ] }) })
     ] })
   ] });
 }
 function document_(page2) {
   const R3 = (to) => rel2(page2.file, to);
-  const markup = (0, import_server3.renderToString)(/* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Layout, { page: page2, children: page2.body }));
+  const markup = (0, import_server3.renderToString)(/* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Layout, { page: page2, children: page2.body }));
   const title = page2.title === BRAND ? page2.title : `${page2.title} \u2013 ${BRAND}`;
   return `<!doctype html>
 <html lang="vi">
@@ -36292,12 +39044,12 @@ function document_(page2) {
 `;
 }
 function json2(id, value) {
-  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("script", { type: "application/json", id, dangerouslySetInnerHTML: { __html: JSON.stringify(value).replace(/</g, "\\u003c") } });
+  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("script", { type: "application/json", id, dangerouslySetInnerHTML: { __html: JSON.stringify(value).replace(/</g, "\\u003c") } });
 }
 function NoScript() {
-  return /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("noscript", { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Notice, { tone: "warn", children: "Ph\u1EA7n n\xE0y c\u1EA7n b\u1EADt JavaScript trong tr\xECnh duy\u1EC7t." }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("noscript", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Notice, { tone: "warn", children: "Ph\u1EA7n n\xE0y c\u1EA7n b\u1EADt JavaScript trong tr\xECnh duy\u1EC7t." }) });
 }
-var Status = ({ slug }) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "ml-status", "data-ls": slug, "aria-label": "Ch\u01B0a h\u1ECDc" });
+var Status = ({ slug }) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "ml-status", "data-ls": slug, "aria-label": "Ch\u01B0a h\u1ECDc" });
 async function exportHtml(db, outDir, assetsDir, log = console.log) {
   const book = await getTextbook(db, "toan-8");
   if (!book) throw new Error('Ch\u01B0a c\xF3 ch\u01B0\u01A1ng tr\xECnh To\xE1n 8 trong CSDL. Ch\u1EA1y "node dist/server.mjs seed" tr\u01B0\u1EDBc.');
@@ -36314,9 +39066,11 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
   const uploads = new Map(
     (await db.many(sql`
       select i.id, i.mime, i.data from images i join question_images qi on qi.image_id = i.id
-      where i.kind = 'upload' and qi.question_id = any(${full.map((q) => q.id)}::int[])`)).map((r3) => [r3.id, `data:${r3.mime};base64,${r3.data.toString("base64")}`])
+      where i.kind = 'upload' and qi.question_id = any(${full.map((q) => q.id)}::int[])`)).map((r4) => [r4.id, `data:${r4.mime};base64,${r4.data.toString("base64")}`])
   );
   const lessonSlugById = new Map(flat.map((l) => [l.id, l.slug]));
+  const themes = await getThemesByLesson(db, book.id);
+  const chapterFile = (c) => `chuong-${c.code.toLowerCase()}.html`;
   const offline = (q) => {
     const view = toView(q);
     view.mediaHtml = q.images.map(
@@ -36338,6 +39092,14 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
     if (!byLesson.has(q.lessonId)) byLesson.set(q.lessonId, []);
     byLesson.get(q.lessonId).push(q);
   }
+  const byTopic = /* @__PURE__ */ new Map();
+  for (const q of full) {
+    if (!q.topicId) continue;
+    if (!byTopic.has(q.topicId)) byTopic.set(q.topicId, []);
+    byTopic.get(q.topicId).push(q);
+  }
+  const chapterMetas = new Map((await getChapterMetas(db, book.id)).map((c) => [c.id, c]));
+  const topicFile = (lessonSlug, t) => `dang/${lessonSlug}/${topicKey(t)}.html`;
   const pages = [];
   const chapterSlugs = (c) => c.lessons.map((l) => l.slug).join(",");
   const firstLesson = flat[0];
@@ -36347,125 +39109,125 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
     file: "index.html",
     title: BRAND,
     nav: "home",
-    body: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("section", { className: "o-li le-vo overflow-hidden rounded-[28px] border border-line", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "grid items-center gap-10 px-6 py-10 sm:pl-24 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:py-16 md:pr-12 lg:pl-28", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("p", { className: "mb-4 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-[13px] font-semibold text-tim-700 shadow-[0_0_0_1px_var(--color-tim-200)]", children: [
+    body: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("section", { className: "o-li le-vo overflow-hidden rounded-[28px] border border-line", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "grid items-center gap-10 px-6 py-10 sm:pl-24 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:py-16 md:pr-12 lg:pl-28", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("p", { className: "mb-4 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-[13px] font-semibold text-tim-700 shadow-[0_0_0_1px_var(--color-tim-200)]", children: [
             book.title,
             " \xB7 ",
             book.series
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h1", { className: "text-[36px] font-extrabold leading-[1.12] tracking-tight text-ink md:text-[52px]", children: "H\u1ECDc To\xE1n 8 t\u1EEBng b\xE0i m\u1ED9t, hi\u1EC3u ch\u1EAFc t\u1EEB g\u1ED1c." }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "mt-5 max-w-xl text-[17px] leading-relaxed text-ink-2", children: "L\xFD thuy\u1EBFt ng\u1EAFn g\u1ECDn, c\xF4ng th\u1EE9c tr\xECnh b\xE0y r\xF5 r\xE0ng, luy\u1EC7n t\u1EADp ngay sau m\u1ED7i b\xE0i v\xE0 theo d\xF5i ti\u1EBFn \u0111\u1ED9 c\u1EE7a em \u2013 b\xE1m s\xE1t ch\u01B0\u01A1ng tr\xECnh GDPT 2018." }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mt-8 flex flex-wrap gap-3", children: [
-            firstLesson && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: `bai/${firstLesson.slug}.html`, className: buttonClass("primary", "lg"), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h1", { className: "text-[36px] font-extrabold leading-[1.12] tracking-tight text-ink md:text-[52px]", children: "H\u1ECDc To\xE1n 8 t\u1EEBng b\xE0i m\u1ED9t, hi\u1EC3u ch\u1EAFc t\u1EEB g\u1ED1c." }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "mt-5 max-w-xl text-[17px] leading-relaxed text-ink-2", children: "L\xFD thuy\u1EBFt ng\u1EAFn g\u1ECDn, c\xF4ng th\u1EE9c tr\xECnh b\xE0y r\xF5 r\xE0ng, luy\u1EC7n t\u1EADp ngay sau m\u1ED7i b\xE0i v\xE0 theo d\xF5i ti\u1EBFn \u0111\u1ED9 c\u1EE7a em \u2013 b\xE1m s\xE1t ch\u01B0\u01A1ng tr\xECnh GDPT 2018." }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mt-8 flex flex-wrap gap-3", children: [
+            firstLesson && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: `bai/${firstLesson.slug}.html`, className: buttonClass("primary", "lg"), children: [
               "B\u1EAFt \u0111\u1EA7u h\u1ECDc ",
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LuArrowRight, { "aria-hidden": "true" })
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuArrowRight, { "aria-hidden": "true" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: "chuong-trinh.html", className: buttonClass("secondary", "lg"), children: "Kh\xE1m ph\xE1 ch\u01B0\u01A1ng tr\xECnh" })
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: "chuong-trinh.html", className: buttonClass("secondary", "lg"), children: "Kh\xE1m ph\xE1 ch\u01B0\u01A1ng tr\xECnh" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("dl", { className: "mt-10 flex flex-wrap gap-x-10 gap-y-3 text-[15px]", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("dt", { className: "text-ink-3", children: "B\xE0i h\u1ECDc" }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("dd", { className: "text-2xl font-extrabold text-ink", children: flat.length })
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("dl", { className: "mt-10 flex flex-wrap gap-x-10 gap-y-3 text-[15px]", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("dt", { className: "text-ink-3", children: "B\xE0i h\u1ECDc" }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("dd", { className: "text-2xl font-extrabold text-ink", children: flat.length })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("dt", { className: "text-ink-3", children: "C\xE2u h\u1ECFi luy\u1EC7n t\u1EADp" }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("dd", { className: "text-2xl font-extrabold text-ink", children: full.length })
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("dt", { className: "text-ink-3", children: "C\xE2u h\u1ECFi luy\u1EC7n t\u1EADp" }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("dd", { className: "text-2xl font-extrabold text-ink", children: full.length })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("dt", { className: "text-ink-3", children: "H\xECnh th\u1EE9c b\xE0i t\u1EADp" }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("dd", { className: "text-2xl font-extrabold text-ink", children: "5" })
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("dt", { className: "text-ink-3", children: "H\xECnh th\u1EE9c b\xE0i t\u1EADp" }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("dd", { className: "text-2xl font-extrabold text-ink", children: "5" })
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "flex justify-center rounded-3xl bg-white/85 p-5 shadow-[0_0_0_1px_var(--color-line)] md:p-8", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(AreaModel, {}) })
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "flex justify-center rounded-3xl bg-white/85 p-5 shadow-[0_0_0_1px_var(--color-line)] md:p-8", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(AreaModel, {}) })
       ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("section", { className: "mt-14", "aria-labelledby": "khoi-lop", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { id: "khoi-lop", className: "text-2xl font-extrabold tracking-tight", children: "Ch\u1ECDn kh\u1ED1i l\u1EDBp" }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "mt-5 grid grid-cols-2 gap-4 md:grid-cols-4", children: grades.map((g) => {
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { className: "mt-14", "aria-labelledby": "khoi-lop", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: "khoi-lop", className: "text-2xl font-extrabold tracking-tight", children: "Ch\u1ECDn kh\u1ED1i l\u1EDBp" }),
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "mt-5 grid grid-cols-2 gap-4 md:grid-cols-4", children: grades.map((g) => {
           const active = g.level === book.gradeLevel;
-          const body = /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: cx("text-[15px] font-semibold", active ? "text-tim-100" : "text-ink-3"), children: "To\xE1n" }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: cx("block text-[64px] font-extrabold leading-none tracking-tight", active ? "text-white" : "text-line-2"), children: g.level }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "mt-4 block", children: active ? /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "inline-flex items-center gap-1.5 text-[15px] font-semibold text-white", children: [
+          const body = /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: cx("text-[15px] font-semibold", active ? "text-tim-100" : "text-ink-3"), children: "To\xE1n" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: cx("block text-[64px] font-extrabold leading-none tracking-tight", active ? "text-white" : "text-line-2"), children: g.level }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "mt-4 block", children: active ? /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "inline-flex items-center gap-1.5 text-[15px] font-semibold text-white", children: [
               flat.length,
               " b\xE0i h\u1ECDc ",
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LuArrowRight, { "aria-hidden": "true" })
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "gray", children: "S\u1EAFp ra m\u1EAFt" }) })
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuArrowRight, { "aria-hidden": "true" })
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Badge, { tone: "gray", children: "S\u1EAFp ra m\u1EAFt" }) })
           ] });
-          return active ? /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: "muc-luc.html", className: "rounded-[22px] bg-tim-700 p-5 shadow-[0_4px_0_0_#1e154b] transition-transform hover:-translate-y-0.5", children: body }, g.id) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { "aria-disabled": "true", className: "o-li rounded-[22px] border border-line p-5", children: body }, g.id);
+          return active ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: "muc-luc.html", className: "rounded-[22px] bg-tim-700 p-5 shadow-[0_4px_0_0_#1e154b] transition-transform hover:-translate-y-0.5", children: body }, g.id) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { "aria-disabled": "true", className: "o-li rounded-[22px] border border-line p-5", children: body }, g.id);
         }) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mt-14 grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "min-w-0 space-y-8", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("section", { "aria-labelledby": "tiep-tuc", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { id: "tiep-tuc", className: "text-2xl font-extrabold tracking-tight", children: "Ti\u1EBFp t\u1EE5c h\u1ECDc" }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Panel, { className: "mt-4 p-6", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { "data-panel": "continue", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NoScript, {}) }) })
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mt-14 grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "min-w-0 space-y-8", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { "aria-labelledby": "tiep-tuc", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: "tiep-tuc", className: "text-2xl font-extrabold tracking-tight", children: "Ti\u1EBFp t\u1EE5c h\u1ECDc" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Panel, { className: "mt-4 p-6", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { "data-panel": "continue", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(NoScript, {}) }) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("section", { "aria-labelledby": "chu-de", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex items-end justify-between gap-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { id: "chu-de", className: "text-2xl font-extrabold tracking-tight", children: "Ch\u1EE7 \u0111\u1EC1 n\u1ED5i b\u1EADt" }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: "muc-luc.html", className: "text-[15px] font-semibold text-tim-700 hover:underline", children: "Xem m\u1EE5c l\u1EE5c \u0111\u1EA7y \u0111\u1EE7" })
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { "aria-labelledby": "chu-de", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex items-end justify-between gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: "chu-de", className: "text-2xl font-extrabold tracking-tight", children: "Ch\u1EE7 \u0111\u1EC1 n\u1ED5i b\u1EADt" }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: "muc-luc.html", className: "text-[15px] font-semibold text-tim-700 hover:underline", children: "Xem m\u1EE5c l\u1EE5c \u0111\u1EA7y \u0111\u1EE7" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Panel, { className: "mt-4 divide-y divide-line", children: tree.flatMap((s) => s.chapters.map((c) => ({ ...c, semester: s.number }))).filter((c) => c.kind === "chapter").map((c) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: c.lessons[0] ? `bai/${c.lessons[0].slug}.html` : "muc-luc.html", className: "group flex items-center gap-4 px-5 py-4 hover:bg-tim-50/60", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "w-12 shrink-0 text-right text-[22px] font-extrabold text-tim-300 group-hover:text-tim-700", children: c.code }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "min-w-0 flex-1", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "flex items-baseline gap-3", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "truncate text-[16px] font-semibold", children: c.title }),
-                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "toc-leader hidden sm:block", "aria-hidden": "true" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "shrink-0 text-[14px] text-ink-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Panel, { className: "mt-4 divide-y divide-line", children: tree.flatMap((s) => s.chapters.map((c) => ({ ...c, semester: s.number }))).filter((c) => c.kind === "chapter").map((c) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: c.lessons[0] ? `bai/${c.lessons[0].slug}.html` : "muc-luc.html", className: "group flex items-center gap-4 px-5 py-4 hover:bg-tim-50/60", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "w-12 shrink-0 text-right text-[22px] font-extrabold text-tim-300 group-hover:text-tim-700", children: c.code }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "min-w-0 flex-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "flex items-baseline gap-3", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "truncate text-[16px] font-semibold", children: c.title }),
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "toc-leader hidden sm:block", "aria-hidden": "true" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "shrink-0 text-[14px] text-ink-3", children: [
                     c.lessons.length,
                     " b\xE0i \xB7 HK ",
                     c.semester === 1 ? "I" : "II"
                   ] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "mt-2 block max-w-xs", "data-cp": chapterSlugs(c), hidden: true, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "bar bar-tre block", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { style: { width: "0%" } }) }),
-                  /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "mt-0.5 block text-[12px] text-ink-3", "data-cp-text": true })
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "mt-2 block max-w-xs", "data-cp": chapterSlugs(c), hidden: true, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "bar bar-tre block", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { style: { width: "0%" } }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "mt-0.5 block text-[12px] text-ink-3", "data-cp-text": true })
                 ] })
               ] })
             ] }, c.id)) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("section", { "aria-labelledby": "bai-tap-moi", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex items-end justify-between gap-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { id: "bai-tap-moi", className: "text-2xl font-extrabold tracking-tight", children: "B\xE0i t\u1EADp m\u1EDBi" }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: "luyen-tap.html", className: "text-[15px] font-semibold text-tim-700 hover:underline", children: "T\u1EA5t c\u1EA3 b\xE0i luy\u1EC7n t\u1EADp" })
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { "aria-labelledby": "bai-tap-moi", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex items-end justify-between gap-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: "bai-tap-moi", className: "text-2xl font-extrabold tracking-tight", children: "B\xE0i t\u1EADp m\u1EDBi" }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: "luyen-tap.html", className: "text-[15px] font-semibold text-tim-700 hover:underline", children: "T\u1EA5t c\u1EA3 b\xE0i luy\u1EC7n t\u1EADp" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("ul", { className: "mt-4 grid gap-3 md:grid-cols-2", children: latest.map((q) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: `luyen-tap/${q.lessonSlug}.html`, className: "block h-full rounded-2xl border border-line bg-white p-4 hover:border-tim-300", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "flex flex-wrap gap-1.5", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { children: TYPE_SHORT[q.type] }),
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "gray", children: LEVEL_LABELS[q.level] })
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ul", { className: "mt-4 grid gap-3 md:grid-cols-2", children: latest.map((q) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: `luyen-tap/${q.lessonSlug}.html`, className: "block h-full rounded-2xl border border-line bg-white p-4 hover:border-tim-300", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "flex flex-wrap gap-1.5", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Badge, { children: TYPE_SHORT[q.type] }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Badge, { tone: "gray", children: LEVEL_LABELS[q.level] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "mt-2 block text-[15px] text-ink", children: plainExcerpt(q.stem, 110) }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "mt-2 block text-[13px] text-ink-3", children: lessonLabel({ kind: q.lessonKind, number: q.lessonNumber, title: q.lessonTitle }) })
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "mt-2 block text-[15px] text-ink", children: plainExcerpt(q.stem, 110) }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "mt-2 block text-[13px] text-ink-3", children: lessonLabel({ kind: q.lessonKind, number: q.lessonNumber, title: q.lessonTitle }) })
             ] }) }, q.id)) })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("aside", { className: "space-y-8", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("section", { "aria-labelledby": "thong-ke", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { id: "thong-ke", className: "text-xl font-extrabold tracking-tight", children: "Th\u1ED1ng k\xEA ti\u1EBFn \u0111\u1ED9" }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Panel, { className: "mt-4 p-5", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { "data-panel": "stats", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NoScript, {}) }) })
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("aside", { className: "space-y-8", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { "aria-labelledby": "thong-ke", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: "thong-ke", className: "text-xl font-extrabold tracking-tight", children: "Th\u1ED1ng k\xEA ti\u1EBFn \u0111\u1ED9" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Panel, { className: "mt-4 p-5", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { "data-panel": "stats", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(NoScript, {}) }) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("section", { "aria-labelledby": "thu-thach", className: "rounded-[22px] bg-tim-800 p-6 text-white", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LuRocket, { className: "text-3xl text-hl", "aria-hidden": "true" }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { id: "thu-thach", className: "mt-3 text-xl font-extrabold", children: "Th\u1EED th\xE1ch To\xE1n h\u1ECDc" }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("p", { className: "mt-2 text-[15px] text-tim-100", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { "aria-labelledby": "thu-thach", className: "rounded-[22px] bg-tim-800 p-6 text-white", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuRocket, { className: "text-3xl text-hl", "aria-hidden": "true" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: "thu-thach", className: "mt-3 text-xl font-extrabold", children: "Th\u1EED th\xE1ch To\xE1n h\u1ECDc" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("p", { className: "mt-2 text-[15px] text-tim-100", children: [
               "5 c\xE2u v\u1EADn d\u1EE5ng v\xE0 v\u1EADn d\u1EE5ng cao ch\u1ECDn ng\u1EABu nhi\xEAn t\u1EEB ",
               challengeCount,
               " c\xE2u. M\u1ED7i c\xE2u \u0111\xFAng l\u1EA7n \u0111\u1EA7u \u0111\u01B0\u1EE3c 20 XP."
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: "thu-thach.html", className: "mt-5 inline-flex items-center gap-2 rounded-xl bg-hl px-4 py-2.5 font-semibold text-ink hover:bg-white", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: "thu-thach.html", className: "mt-5 inline-flex items-center gap-2 rounded-xl bg-hl px-4 py-2.5 font-semibold text-ink hover:bg-white", children: [
               "Nh\u1EADn th\u1EED th\xE1ch ",
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LuArrowRight, { "aria-hidden": "true" })
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuArrowRight, { "aria-hidden": "true" })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("section", { "aria-labelledby": "thanh-tich", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex items-end justify-between", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { id: "thanh-tich", className: "text-xl font-extrabold tracking-tight", children: "Th\xE0nh t\xEDch h\u1ECDc t\u1EADp" }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: "tien-do.html", className: "text-[14px] font-semibold text-tim-700 hover:underline", children: "Xem huy hi\u1EC7u" })
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { "aria-labelledby": "thanh-tich", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex items-end justify-between", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: "thanh-tich", className: "text-xl font-extrabold tracking-tight", children: "Th\xE0nh t\xEDch h\u1ECDc t\u1EADp" }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: "tien-do.html", className: "text-[14px] font-semibold text-tim-700 hover:underline", children: "Xem huy hi\u1EC7u" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Panel, { className: "mt-4 grid grid-cols-4 gap-2 p-4", children: achievements.map((a) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { title: `${a.name}: ${a.description}`, className: "flex justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(BadgeMark, { icon: a.icon, tier: a.tier, earned: false, size: 46 }) }, a.code)) })
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Panel, { className: "mt-4 grid grid-cols-4 gap-2 p-4", children: achievements.map((a) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { title: `${a.name}: ${a.description}`, className: "flex justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(BadgeMark, { icon: a.icon, tier: a.tier, earned: false, size: 46 }) }, a.code)) })
           ] })
         ] })
       ] })
@@ -36475,54 +39237,62 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
     file: "chuong-trinh.html",
     title: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc",
     nav: "program",
-    body: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(PageTitle, { title: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc", sub: "To\xE1n THCS theo Ch\u01B0\u01A1ng tr\xECnh gi\xE1o d\u1EE5c ph\u1ED5 th\xF4ng 2018. B\u1EA3n HTML n\xE0y g\u1ED3m To\xE1n 8 \u2013 K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng." }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "grid gap-4 md:grid-cols-4", children: grades.map((g) => {
+    body: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(PageTitle, { title: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc", sub: "To\xE1n THCS theo Ch\u01B0\u01A1ng tr\xECnh gi\xE1o d\u1EE5c ph\u1ED5 th\xF4ng 2018. B\u1EA3n HTML n\xE0y g\u1ED3m To\xE1n 8 \u2013 K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng." }),
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "grid gap-4 md:grid-cols-4", children: grades.map((g) => {
         const active = g.level === book.gradeLevel;
-        return /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: cx("rounded-[22px] border p-5", active ? "border-tim-700 bg-white shadow-[0_3px_0_0_#3b2a8c]" : "o-li border-line"), children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex items-start justify-between", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: cx("text-[44px] font-extrabold leading-none", active ? "text-tim-700" : "text-line-2"), children: g.level }),
-            active ? /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "tre", children: "\u0110ang m\u1EDF" }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "gray", children: "S\u1EAFp ra m\u1EAFt" })
+        return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: cx("rounded-[22px] border p-5", active ? "border-tim-700 bg-white shadow-[0_3px_0_0_#3b2a8c]" : "o-li border-line"), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex items-start justify-between", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: cx("text-[44px] font-extrabold leading-none", active ? "text-tim-700" : "text-line-2"), children: g.level }),
+            active ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Badge, { tone: "tre", children: "\u0110ang m\u1EDF" }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Badge, { tone: "gray", children: "S\u1EAFp ra m\u1EAFt" })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mt-3 font-bold", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mt-3 font-bold", children: [
             "To\xE1n ",
             g.level
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "text-[14px] text-ink-3", children: active ? `K\u1EBFt n\u1ED1i tri th\u1EE9c \xB7 ${flat.length} b\xE0i` : "N\u1ED9i dung \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n" }),
-          active && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: "muc-luc.html", className: buttonClass("primary", "sm", "mt-4"), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "text-[14px] text-ink-3", children: active ? `K\u1EBFt n\u1ED1i tri th\u1EE9c \xB7 ${flat.length} b\xE0i` : "N\u1ED9i dung \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n" }),
+          active && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: "muc-luc.html", className: buttonClass("primary", "sm", "mt-4"), children: [
             "V\xE0o h\u1ECDc To\xE1n ",
             g.level
           ] })
         ] }, g.id);
       }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("section", { className: "mt-12", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex flex-wrap items-end justify-between gap-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("h2", { className: "text-2xl font-extrabold tracking-tight", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { className: "mt-12", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex flex-wrap items-end justify-between gap-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("h2", { className: "text-2xl font-extrabold tracking-tight", children: [
             book.title,
             " \u2013 ",
             book.series
           ] }),
-          plan && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: "ppct.html", className: "text-[15px] font-semibold text-tim-700 hover:underline", children: [
+          plan && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: "ppct.html", className: "text-[15px] font-semibold text-tim-700 hover:underline", children: [
             "Ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh ",
             plan.schoolYear
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "mt-5 grid gap-6 md:grid-cols-2", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { className: "p-6", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h3", { className: "text-lg font-extrabold", children: s.name }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("ul", { className: "mt-3 space-y-2.5", children: s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("li", { className: "flex items-baseline gap-3", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "w-10 shrink-0 text-right font-extrabold text-tim-400", children: c.kind === "chapter" ? c.code : "\u2605" }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "min-w-0 flex-1", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "font-semibold", children: c.title }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "block text-[13px] text-ink-3", children: [
-                c.lessons.length,
-                " m\u1EE5c \xB7 ",
-                c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0),
-                " ti\u1EBFt"
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "mt-5 grid gap-6 md:grid-cols-2", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Panel, { className: "p-6", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h3", { className: "text-lg font-extrabold", children: s.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ul", { className: "mt-3 space-y-2.5", children: s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("li", { className: "flex items-baseline gap-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "w-10 shrink-0 text-right font-extrabold text-tim-400", children: c.kind === "chapter" ? c.code : "\u2605" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "min-w-0 flex-1", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: `chuong/${chapterFile(c)}`, className: "font-semibold hover:text-tim-700 hover:underline", children: c.title }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "block", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(ChapterStats, { c, themes }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "text-[13px] text-ink-3", children: [
+                  " \xB7 ",
+                  c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0),
+                  " ti\u1EBFt"
+                ] })
               ] })
             ] })
           ] }, c.id)) })
         ] }, s.id)) }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: "muc-luc.html", className: buttonClass("primary", "md", "mt-6"), children: "Xem m\u1EE5c l\u1EE5c chi ti\u1EBFt" })
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mt-6 flex flex-wrap gap-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: "muc-luc.html", className: buttonClass("primary", "md"), children: "Xem m\u1EE5c l\u1EE5c chi ti\u1EBFt" }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: "ban-do-kien-thuc.html", className: buttonClass("secondary", "md"), children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuMap, { "aria-hidden": "true" }),
+            " B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c"
+          ] })
+        ] })
       ] })
     ] })
   });
@@ -36530,34 +39300,51 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
     file: "muc-luc.html",
     title: `M\u1EE5c l\u1EE5c ${book.title}`,
     nav: "program",
-    body: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
+    body: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
         PageTitle,
         {
           crumbs: [{ href: "chuong-trinh.html", label: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc" }, { label: book.title }],
           title: `${book.title} \u2013 m\u1EE5c l\u1EE5c`,
-          sub: `${book.series} \xB7 ${book.program}. B\xE0i c\xF3 bi\u1EC3u t\u01B0\u1EE3ng b\xFAt ch\xEC \u0111\xE3 c\xF3 c\xE2u h\u1ECFi luy\u1EC7n t\u1EADp; v\xF2ng tr\xF2n xanh l\xE0 m\u1EE5c em \u0111\xE3 h\u1ECDc xong.`
+          sub: `${book.series} \xB7 ${book.program}. B\u1EA5m t\xEAn ch\u01B0\u01A1ng \u0111\u1EC3 xem m\u1EE5c ti\xEAu, ch\u1EE7 \u0111\u1EC1, h\u1EC7 th\u1ED1ng d\u1EA1ng to\xE1n v\xE0 ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng; v\xF2ng tr\xF2n xanh l\xE0 m\u1EE5c em \u0111\xE3 h\u1ECDc xong.`,
+          actions: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: "ban-do-kien-thuc.html", className: buttonClass("primary", "md"), children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuMap, { "aria-hidden": "true" }),
+            " B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c"
+          ] })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "space-y-10", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("section", { "aria-labelledby": `hk-${s.number}`, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { id: `hk-${s.number}`, className: "mb-4 text-xl font-extrabold", children: s.name }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "grid gap-5 lg:grid-cols-2", children: s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { className: "overflow-hidden", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex items-baseline gap-3 border-b border-line bg-mist/60 px-5 py-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "text-[26px] font-extrabold leading-none text-tim-700", children: c.kind === "chapter" ? c.code : "\u2605" }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h3", { className: "font-extrabold", children: c.title }),
-              c.description && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "text-[13px] text-ink-3", children: c.description })
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(MapTotalsBar, { t: mapTotals(tree, themes) }),
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "space-y-10", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { "aria-labelledby": `hk-${s.number}`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: `hk-${s.number}`, className: "mb-4 text-xl font-extrabold", children: s.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "grid gap-5 lg:grid-cols-2", children: s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Panel, { className: "overflow-hidden", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "border-b border-line bg-mist/60 px-5 py-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex items-baseline gap-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "text-[26px] font-extrabold leading-none text-tim-700", children: c.kind === "chapter" ? c.code : "\u2605" }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "min-w-0", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h3", { className: "font-extrabold", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: `chuong/${chapterFile(c)}`, className: "hover:text-tim-700 hover:underline", children: c.kind === "chapter" ? `Ch\u01B0\u01A1ng ${c.code}. ${c.title}` : c.title }) }),
+                c.description && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-[13px] text-ink-3", children: c.description }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(ChapterStats, { c, themes })
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mt-3", "data-cp": chapterSlugs(c), hidden: true, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "bar bar-tre", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { style: { width: "0%" } }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "mt-1 text-[12px] text-ink-3", "data-cp-text": true })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("ol", { className: "divide-y divide-line", children: c.lessons.map((l) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: `bai/${l.slug}.html`, className: "flex items-center gap-3 px-5 py-3 hover:bg-tim-50/60", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Status, { slug: l.slug }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: cx("min-w-0 flex-1 text-[15px]", l.kind === "lesson" ? "font-medium" : "text-ink-2"), children: lessonLabel(l) }),
-            l.questionCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LuPencilRuler, { className: "shrink-0 text-tim-400", "aria-label": `${l.questionCount} c\xE2u luy\u1EC7n t\u1EADp` }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "w-12 shrink-0 text-right text-[13px] text-ink-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ol", { className: "divide-y divide-line", children: c.lessons.map((l) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: `bai/${l.slug}.html`, className: "flex items-center gap-3 px-5 py-3 hover:bg-tim-50/60", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Status, { slug: l.slug }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: cx("min-w-0 flex-1 text-[15px]", l.kind === "lesson" ? "font-medium" : "text-ink-2"), children: lessonLabel(l) }),
+            l.topicCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "hidden text-[12.5px] text-ink-3 sm:inline", children: [
+              l.topicCount,
+              " d\u1EA1ng"
+            ] }),
+            l.questionCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuPencilRuler, { className: "shrink-0 text-tim-400", "aria-label": `${l.questionCount} b\xE0i t\u1EADp` }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "w-12 shrink-0 text-right text-[13px] text-ink-3", children: [
               l.periods,
               " ti\u1EBFt"
             ] })
-          ] }) }, l.id)) })
+          ] }) }, l.id)) }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: `chuong/${chapterFile(c)}`, className: "block border-t border-line px-5 py-2.5 text-[14px] font-semibold text-tim-700 hover:bg-tim-50", children: "M\u1EDF trang ch\u01B0\u01A1ng \u2192" })
         ] }, c.id)) })
       ] }, s.id)) })
     ] })
@@ -36567,8 +39354,8 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
       file: "ppct.html",
       title: plan.title,
       nav: "program",
-      body: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
+      body: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
           PageTitle,
           {
             crumbs: [{ href: "chuong-trinh.html", label: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc" }, { href: "muc-luc.html", label: book.title }, { label: "Ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh" }],
@@ -36576,25 +39363,25 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
             sub: `${plan.items.length} m\u1EE5c, ${plan.items.reduce((n, i2) => n + i2.periods, 0)} ti\u1EBFt. B\u1EA5m v\xE0o t\xEAn b\xE0i \u0111\u1EC3 m\u1EDF b\xE0i h\u1ECDc.`
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("table", { className: "data-table min-w-[820px]", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("tr", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { className: "w-12", children: "STT" }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { children: "B\xE0i h\u1ECDc" }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { className: "w-20", children: "S\u1ED1 ti\u1EBFt" }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { className: "w-24", children: "Ti\u1EBFt th\u1EE9" }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { className: "w-24", children: "Tu\u1EA7n" }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("th", { children: "Thi\u1EBFt b\u1ECB d\u1EA1y h\u1ECDc / ghi ch\xFA" })
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("table", { className: "data-table min-w-[820px]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("tr", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("th", { className: "w-12", children: "STT" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("th", { children: "B\xE0i h\u1ECDc" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("th", { className: "w-20", children: "S\u1ED1 ti\u1EBFt" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("th", { className: "w-24", children: "Ti\u1EBFt th\u1EE9" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("th", { className: "w-24", children: "Tu\u1EA7n" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("th", { children: "Thi\u1EBFt b\u1ECB d\u1EA1y h\u1ECDc / ghi ch\xFA" })
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("tbody", { children: plan.items.map((i2) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("tr", { className: i2.lessonSlug ? "" : "bg-hl-soft/50", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { className: "text-ink-3", children: i2.position }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { children: i2.lessonSlug ? /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { className: "font-medium text-tim-800 hover:underline", href: `bai/${i2.lessonSlug}.html`, children: i2.title }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("strong", { children: i2.title }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { children: i2.periods }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { className: "tabular-nums", children: i2.periodFrom === i2.periodTo ? i2.periodFrom : `${i2.periodFrom}\u2013${i2.periodTo}` }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("td", { children: i2.weeks }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("td", { className: "text-[14px] text-ink-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("tbody", { children: plan.items.map((i2) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("tr", { className: i2.lessonSlug ? "" : "bg-hl-soft/50", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("td", { className: "text-ink-3", children: i2.position }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("td", { children: i2.lessonSlug ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { className: "font-medium text-tim-800 hover:underline", href: `bai/${i2.lessonSlug}.html`, children: i2.title }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("strong", { children: i2.title }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("td", { children: i2.periods }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("td", { className: "tabular-nums", children: i2.periodFrom === i2.periodTo ? i2.periodFrom : `${i2.periodFrom}\u2013${i2.periodTo}` }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("td", { children: i2.weeks }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("td", { className: "text-[14px] text-ink-2", children: [
               i2.equipment,
-              i2.equipment && i2.note ? /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("br", {}) : null,
-              i2.note && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "cam", children: i2.note })
+              i2.equipment && i2.note ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("br", {}) : null,
+              i2.note && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Badge, { tone: "cam", children: i2.note })
             ] })
           ] }, i2.position)) })
         ] }) })
@@ -36603,7 +39390,9 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
   }
   for (const [idx, l] of flat.entries()) {
     const file = `bai/${l.slug}.html`;
-    const [sections, topics, counts] = await Promise.all([getLessonSections(db, l.id), getLessonTopics(db, l.id), getLessonQuestionCounts(db, l.id)]);
+    const [sections, counts, detail] = await Promise.all([getLessonSections(db, l.id), getLessonQuestionCounts(db, l.id), getLessonById(db, l.id)]);
+    const lessonThemes = themes.get(l.id) ?? [];
+    const topicTotal = countTopics(lessonThemes);
     const prev = flat[idx - 1];
     const next = flat[idx + 1];
     const total = Object.values(counts).reduce((a, b) => a + (b ?? 0), 0);
@@ -36615,89 +39404,119 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
       description: l.summary ?? `${label} \u2013 ${book.title}`,
       nav: "program",
       lesson: l.slug,
-      body: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "lesson-grid grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "lesson-main min-w-0", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Breadcrumbs, { items: [{ href: "../muc-luc.html", label: book.title }, { href: `../muc-luc.html#hk-${l.semester.number}`, label: l.semester.name }, { href: "../muc-luc.html", label: chapterName }, { label }] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("header", { className: "o-li le-vo rounded-[22px] border border-line px-6 py-7 sm:pl-24", children: [
-            l.kind !== "lesson" && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Badge, { tone: "cam", children: LESSON_KIND_LABELS[l.kind] }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h1", { className: "mt-2 text-[30px] font-extrabold leading-tight tracking-tight md:text-[38px]", children: label }),
-            l.summary && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "mt-2 max-w-2xl text-[16px] text-ink-2", children: l.summary }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[14px] text-ink-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "inline-flex items-center gap-1.5", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LuClock, { "aria-hidden": "true" }),
+      body: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "lesson-grid grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "lesson-main min-w-0", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+            Breadcrumbs,
+            {
+              items: [
+                { href: "../muc-luc.html", label: book.title },
+                { href: `../muc-luc.html#hk-${l.semester.number}`, label: l.semester.name },
+                { href: `../chuong/${chapterFile(l.chapter)}`, label: chapterName },
+                { label }
+              ]
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("header", { className: "o-li le-vo rounded-[22px] border border-line px-6 py-7 sm:pl-24", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex flex-wrap items-center gap-2 text-[13px]", children: [
+              l.kind !== "lesson" && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Badge, { tone: "cam", children: LESSON_KIND_LABELS[l.kind] }),
+              l.code && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Badge, { tone: "gray", children: [
+                "M\xE3 b\xE0i ",
+                l.code
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(DifficultyBadge, { level: detail?.difficulty ?? null })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h1", { className: "mt-2 text-[30px] font-extrabold leading-tight tracking-tight md:text-[38px]", children: label }),
+            l.summary && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "mt-2 max-w-2xl text-[16px] text-ink-2", children: l.summary }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[14px] text-ink-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "inline-flex items-center gap-1.5", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuClock, { "aria-hidden": "true" }),
                 " ",
                 l.periods ?? 0,
                 " ti\u1EBFt"
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { children: [
+              topicTotal > 0 && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { children: [
+                topicTotal,
+                " d\u1EA1ng to\xE1n"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { children: [
                 total,
-                " c\xE2u luy\u1EC7n t\u1EADp"
+                " b\xE0i t\u1EADp"
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "no-print mt-5 flex flex-wrap gap-2", children: [
-              total > 0 && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: `../luyen-tap/${l.slug}.html`, className: buttonClass("primary", "md"), children: "Luy\u1EC7n t\u1EADp b\xE0i n\xE0y" }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("button", { type: "button", "data-present-toggle": true, "aria-pressed": "false", className: buttonClass("secondary", "md"), children: [
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LuPresentation, { "aria-hidden": "true" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "no-print mt-5 flex flex-wrap gap-2", children: [
+              total > 0 && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: `../luyen-tap/${l.slug}.html`, className: buttonClass("primary", "md"), children: "Luy\u1EC7n t\u1EADp b\xE0i n\xE0y" }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("button", { type: "button", "data-present-toggle": true, "aria-pressed": "false", className: buttonClass("secondary", "md"), children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuPresentation, { "aria-hidden": "true" }),
                 " ",
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { "data-present-label": true, children: "Tr\xECnh chi\u1EBFu" })
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { "data-present-label": true, children: "Tr\xECnh chi\u1EBFu" })
               ] })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "lesson-body mt-8 space-y-10", children: [
-            sections.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Notice, { tone: "info", children: [
-              "N\u1ED9i dung l\xFD thuy\u1EBFt c\u1EE7a m\u1EE5c n\xE0y \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n. ",
-              topics.length > 0 ? "Em c\xF3 th\u1EC3 xem tr\u01B0\u1EDBc c\xE1c d\u1EA1ng to\xE1n b\xEAn d\u01B0\u1EDBi." : ""
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "lesson-body mt-8 space-y-10", children: [
+            sections.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Notice, { tone: "info", children: [
+              "Ph\u1EA7n l\xED thuy\u1EBFt chi ti\u1EBFt c\u1EE7a m\u1EE5c n\xE0y \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n. ",
+              topicTotal > 0 ? "Em c\xF3 th\u1EC3 xem t\xF3m t\u1EAFt b\xE0i h\u1ECDc v\xE0 h\u1ECDc theo t\u1EEBng d\u1EA1ng to\xE1n b\xEAn d\u01B0\u1EDBi." : ""
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LessonBody, { sections, topics }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("section", { "aria-labelledby": "bai-tap", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { id: "bai-tap", className: "mb-3 text-xl font-extrabold", children: "B\xE0i t\u1EADp" }),
-              total > 0 ? /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { className: "p-5", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("ul", { className: "flex flex-wrap gap-2", children: Object.entries(counts).map(([type, n]) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Badge, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+              LessonBody,
+              {
+                sections,
+                themes: lessonThemes,
+                topicHref: (t) => `../dang/${l.slug}/${topicKey(t)}.html`,
+                lessonObjectives: detail?.objectives,
+                meta: detail ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LessonMetaPanel, { m: detail, showFormulas: !sections.some((s) => s.kind === "formula") }) : null
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { "aria-labelledby": "bai-tap", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: "bai-tap", className: "mb-3 text-xl font-extrabold", children: "B\xE0i t\u1EADp" }),
+              total > 0 ? /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Panel, { className: "p-5", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ul", { className: "flex flex-wrap gap-2", children: Object.entries(counts).map(([type, n]) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Badge, { children: [
                   TYPE_LABELS[type],
                   ": ",
                   n
                 ] }) }, type)) }),
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "mt-3 text-[15px] text-ink-2", children: "L\xE0m t\u1EEBng c\xE2u, xem \u0111\xE1p \xE1n v\xE0 l\u1EDDi gi\u1EA3i ngay sau khi ki\u1EC3m tra. M\u1ED7i c\xE2u \u0111\xFAng l\u1EA7n \u0111\u1EA7u \u0111\u01B0\u1EE3c 10 XP." }),
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: `../luyen-tap/${l.slug}.html`, className: buttonClass("primary", "md", "mt-4"), children: "B\u1EAFt \u0111\u1EA7u luy\u1EC7n t\u1EADp" })
-              ] }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("p", { className: "text-[15px] text-ink-2", children: "B\xE0i n\xE0y ch\u01B0a c\xF3 c\xE2u h\u1ECFi luy\u1EC7n t\u1EADp." })
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "mt-3 text-[15px] text-ink-2", children: "L\xE0m t\u1EEBng c\xE2u, xem \u0111\xE1p \xE1n v\xE0 l\u1EDDi gi\u1EA3i ngay sau khi ki\u1EC3m tra. M\u1ED7i c\xE2u \u0111\xFAng l\u1EA7n \u0111\u1EA7u \u0111\u01B0\u1EE3c 10 XP." }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: `../luyen-tap/${l.slug}.html`, className: buttonClass("primary", "md", "mt-4"), children: "B\u1EAFt \u0111\u1EA7u luy\u1EC7n t\u1EADp" })
+              ] }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-[15px] text-ink-2", children: "B\xE0i n\xE0y ch\u01B0a c\xF3 c\xE2u h\u1ECFi luy\u1EC7n t\u1EADp." })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("section", { className: "no-print rounded-[22px] border-2 border-dashed border-tim-200 p-6 text-center", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { "data-panel": "complete", "data-slug": l.slug, children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NoScript, {}) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("nav", { className: "no-print flex flex-wrap justify-between gap-3 border-t border-line pt-6", "aria-label": "Chuy\u1EC3n b\xE0i", children: [
-              prev ? /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: `${prev.slug}.html`, className: "flex max-w-[48%] items-center gap-2 text-[15px] text-ink-2 hover:text-tim-800", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LuArrowLeft, { "aria-hidden": "true", className: "shrink-0" }),
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "truncate", children: lessonLabel(prev) })
-              ] }) : /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", {}),
-              next && /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: `${next.slug}.html`, className: "ml-auto flex max-w-[48%] items-center gap-2 text-right text-[15px] font-semibold text-tim-800 hover:underline", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "truncate", children: lessonLabel(next) }),
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LuArrowRight, { "aria-hidden": "true", className: "shrink-0" })
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("section", { className: "no-print rounded-[22px] border-2 border-dashed border-tim-200 p-6 text-center", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { "data-panel": "complete", "data-slug": l.slug, children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(NoScript, {}) }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("nav", { className: "no-print flex flex-wrap justify-between gap-3 border-t border-line pt-6", "aria-label": "Chuy\u1EC3n b\xE0i", children: [
+              prev ? /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: `${prev.slug}.html`, className: "flex max-w-[48%] items-center gap-2 text-[15px] text-ink-2 hover:text-tim-800", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuArrowLeft, { "aria-hidden": "true", className: "shrink-0" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "truncate", children: lessonLabel(prev) })
+              ] }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", {}),
+              next && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: `${next.slug}.html`, className: "ml-auto flex max-w-[48%] items-center gap-2 text-right text-[15px] font-semibold text-tim-800 hover:underline", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "truncate", children: lessonLabel(next) }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuArrowRight, { "aria-hidden": "true", className: "shrink-0" })
               ] })
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("aside", { className: "lesson-sidebar no-print", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-[22px] border border-line bg-white p-3", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "px-2 pb-2 pt-1", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "text-[13px] text-ink-3", children: book.title }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "text-[15px] font-bold", children: chapterName }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mt-2", "data-cp": chapterSlugs(l.chapter), hidden: true, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "bar bar-tre", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { style: { width: "0%" } }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "mt-1 text-[12px] text-ink-3", "data-cp-text": true })
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("aside", { className: "lesson-sidebar no-print", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-[22px] border border-line bg-white p-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "px-2 pb-2 pt-1", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "text-[13px] text-ink-3", children: book.title }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "text-[15px] font-bold", children: chapterName }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mt-2", "data-cp": chapterSlugs(l.chapter), hidden: true, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "bar bar-tre", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { style: { width: "0%" } }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "mt-1 text-[12px] text-ink-3", "data-cp-text": true })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("nav", { "aria-label": "Danh s\xE1ch ch\u01B0\u01A1ng v\xE0 b\xE0i", children: tree.flatMap(
-            (s) => s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("details", { open: c.id === l.chapterId, className: "border-t border-line", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("summary", { className: "flex items-center gap-2 rounded-lg px-2 py-2 text-[14px] font-semibold hover:bg-tim-50", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "w-7 shrink-0 text-tim-400", children: c.kind === "chapter" ? c.code : "\u2605" }),
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "min-w-0 flex-1 truncate", children: c.title })
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("nav", { "aria-label": "Danh s\xE1ch ch\u01B0\u01A1ng v\xE0 b\xE0i", children: tree.flatMap(
+            (s) => s.chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("details", { open: c.id === l.chapterId, className: "border-t border-line", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("summary", { className: "flex items-center gap-2 rounded-lg px-2 py-2 text-[14px] font-semibold hover:bg-tim-50", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "w-7 shrink-0 text-tim-400", children: c.kind === "chapter" ? c.code : "\u2605" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "min-w-0 flex-1 truncate", children: c.title })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("ul", { className: "pb-2", children: c.lessons.map((x) => /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ul", { className: "pb-2", children: c.lessons.map((x) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(
                 "a",
                 {
                   href: `${x.slug}.html`,
                   "aria-current": x.id === l.id ? "page" : void 0,
                   className: cx("flex items-center gap-2 rounded-lg py-1.5 pl-9 pr-2 text-[13.5px]", x.id === l.id ? "bg-tim-700 font-semibold text-white" : "text-ink-2 hover:bg-tim-50"),
                   children: [
-                    x.id !== l.id && /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(Status, { slug: x.slug }),
-                    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "min-w-0 flex-1 truncate", children: lessonLabel(x) })
+                    x.id !== l.id && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Status, { slug: x.slug }),
+                    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "min-w-0 flex-1 truncate", children: lessonLabel(x) })
                   ]
                 }
               ) }, x.id)) })
@@ -36707,13 +39526,337 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
       ] })
     });
   }
+  const allChapters = tree.flatMap((sm) => sm.chapters.map((c) => ({ c, sm })));
+  for (const [ci, { c, sm }] of allChapters.entries()) {
+    const meta = chapterMetas.get(c.id);
+    const sum = summarizeChapter(c, themes);
+    const label = chapterLabel(c);
+    const lessonsOnly = c.lessons.filter((l) => l.kind === "lesson");
+    const synth = c.lessons.filter((l) => l.kind === "practice" || l.kind === "review");
+    const chapterQs = c.lessons.flatMap((l) => byLesson.get(l.id) ?? []).filter((q) => ["mcq", "true_false", "short_answer"].includes(q.type));
+    const prevC = allChapters[ci - 1]?.c;
+    const nextC = allChapters[ci + 1]?.c;
+    pages.push({
+      file: `chuong/${chapterFile(c)}`,
+      title: label,
+      description: c.description ?? `${label} \u2013 ${book.title}`,
+      nav: "program",
+      body: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Breadcrumbs, { items: [{ href: "../muc-luc.html", label: book.title }, { href: `../muc-luc.html#hk-${sm.number}`, label: sm.name }, { label }] }),
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("header", { className: "o-li le-vo rounded-[22px] border border-line px-6 py-7 sm:pl-24", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Badge, { children: sm.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h1", { className: "mt-2 text-[30px] font-extrabold leading-tight tracking-tight md:text-[38px]", children: label }),
+          c.description && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "mt-2 max-w-2xl text-[16px] text-ink-2", children: c.description }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mt-4 flex flex-wrap gap-x-6 gap-y-1 text-[14.5px] text-ink-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("strong", { className: "text-ink", children: c.kind === "chapter" ? lessonsOnly.length : c.lessons.length }),
+              " ",
+              c.kind === "chapter" ? "b\xE0i h\u1ECDc" : "ho\u1EA1t \u0111\u1ED9ng"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("strong", { className: "text-ink", children: c.lessons.length }),
+              " m\u1EE5c (k\u1EC3 c\u1EA3 luy\u1EC7n t\u1EADp, \xF4n t\u1EADp)"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("strong", { className: "text-ink", children: sum.topics }),
+              " d\u1EA1ng to\xE1n"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("strong", { className: "text-ink", children: sum.questions }),
+              " b\xE0i t\u1EADp"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("strong", { className: "text-ink", children: c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0) }),
+              " ti\u1EBFt"
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mt-4 max-w-md", "data-cp": chapterSlugs(c), hidden: true, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "bar bar-tre", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { style: { width: "0%" } }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "mt-1 text-[13px] text-ink-3", "data-cp-text": true })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "no-print mt-5 flex flex-wrap gap-2", children: [
+            c.lessons[0] && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: `../bai/${c.lessons[0].slug}.html`, className: buttonClass("primary", "md"), children: "B\u1EAFt \u0111\u1EA7u h\u1ECDc" }),
+            sum.questions > 0 && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: `../luyen-tap/chuong-${c.code.toLowerCase()}.html`, className: buttonClass("secondary", "md"), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuPencilRuler, { "aria-hidden": "true" }),
+              " Luy\u1EC7n t\u1EADp c\u1EA3 ch\u01B0\u01A1ng"
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mt-8 space-y-10", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(ChapterOverview, { c: meta }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { "aria-labelledby": "ds-bai", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: "ds-bai", className: "mb-3 text-xl font-extrabold", children: "Danh s\xE1ch b\xE0i h\u1ECDc" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Panel, { className: "overflow-hidden", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ol", { className: "divide-y divide-line", children: c.lessons.map((l) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: `../bai/${l.slug}.html`, className: "flex items-center gap-3 px-5 py-3 hover:bg-tim-50/60", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Status, { slug: l.slug }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "min-w-0 flex-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: cx("block text-[15.5px]", l.kind === "lesson" ? "font-semibold" : "text-ink-2"), children: lessonLabel(l) }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "text-[12.5px] text-ink-3", children: [
+                  l.code,
+                  l.kind !== "lesson" ? ` \xB7 ${LESSON_KIND_LABELS[l.kind]}` : ""
+                ] })
+              ] }),
+              l.kind === "lesson" && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "hidden text-right text-[13px] text-ink-3 sm:block", children: [
+                countTopics(themes.get(l.id)),
+                " d\u1EA1ng \xB7 ",
+                l.questionCount,
+                " b\xE0i t\u1EADp"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "w-14 shrink-0 text-right text-[13px] text-ink-3", children: [
+                l.periods,
+                " ti\u1EBFt"
+              ] })
+            ] }) }, l.id)) }) })
+          ] }),
+          c.kind === "chapter" && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { "aria-labelledby": "he-thong-dang", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: "he-thong-dang", className: "mb-1 text-xl font-extrabold", children: "Ch\u1EE7 \u0111\u1EC1 v\xE0 h\u1EC7 th\u1ED1ng d\u1EA1ng to\xE1n" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("p", { className: "mb-4 text-[14.5px] text-ink-3", children: [
+              "K\xED hi\u1EC7u m\u1EE9c \u0111\u1ED9: NB \u2013 ",
+              LEVEL_LABELS2[1],
+              ", TH \u2013 ",
+              LEVEL_LABELS2[2],
+              ", VD \u2013 ",
+              LEVEL_LABELS2[3],
+              ", VDC \u2013 ",
+              LEVEL_LABELS2[4],
+              "."
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "space-y-8", children: lessonsOnly.map((l) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("h3", { className: "mb-2 flex flex-wrap items-baseline gap-2 text-[17px] font-extrabold", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: `../bai/${l.slug}.html`, className: "hover:text-tim-700 hover:underline", children: lessonLabel(l) }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "text-[12.5px] font-semibold text-ink-3", children: l.code })
+              ] }),
+              themes.get(l.id)?.length ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(ThemeList, { themes: themes.get(l.id), topicHref: (t) => `../${topicFile(l.slug, t)}`, compact: true }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-[14px] text-ink-3", children: "B\xE0i n\xE0y ch\u01B0a c\xF3 ch\u1EE7 \u0111\u1EC1, d\u1EA1ng to\xE1n." })
+            ] }, l.id)) })
+          ] }),
+          c.kind === "chapter" && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "grid gap-6 lg:grid-cols-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Panel, { className: "p-5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { className: "text-lg font-extrabold", children: "B\xE0i t\u1EADp t\u1ED5ng h\u1EE3p" }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "mt-1 text-[14.5px] text-ink-2", children: "C\xE1c ti\u1EBFt luy\u1EC7n t\u1EADp chung, b\xE0i t\u1EADp cu\u1ED1i ch\u01B0\u01A1ng v\xE0 l\u01B0\u1EE3t luy\u1EC7n t\u1EADp tr\u1ED9n c\xE2u h\u1ECFi c\u1EE7a m\u1ECDi d\u1EA1ng trong ch\u01B0\u01A1ng." }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ul", { className: "mt-3 space-y-1.5", children: synth.map((l) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: `../bai/${l.slug}.html`, className: "flex items-center gap-2 text-[15px] font-medium text-tim-800 hover:underline", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuBookOpen, { "aria-hidden": "true", className: "shrink-0" }),
+                " ",
+                l.title,
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "text-[12.5px] font-normal text-ink-3", children: [
+                  "(",
+                  l.code,
+                  ")"
+                ] })
+              ] }) }, l.id)) }),
+              sum.questions > 0 && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: `../luyen-tap/chuong-${c.code.toLowerCase()}.html`, className: buttonClass("secondary", "sm", "mt-4"), children: [
+                "Luy\u1EC7n t\u1EADp tr\u1ED9n c\u1EA3 ch\u01B0\u01A1ng (",
+                sum.questions,
+                " c\xE2u)"
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Panel, { className: "p-5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("h2", { className: "flex items-center gap-2 text-lg font-extrabold", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuClipboardCheck, { "aria-hidden": "true", className: "text-tim-600" }),
+                " Ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "mt-1 text-[14.5px] text-ink-2", children: "10 c\xE2u ch\u1EA5m t\u1EF1 \u0111\u1ED9ng, x\u1EBFp t\u1EEB d\u1EC5 \u0111\u1EBFn kh\xF3. L\xE0m xong xem ngay \u0111i\u1EC3m, \u0111\xE1p \xE1n v\xE0 l\u1EDDi gi\u1EA3i." }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("table", { className: "mt-3 w-full text-[14px]", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("tr", { className: "text-left text-[12.5px] text-ink-3", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("th", { className: "py-1 font-semibold", children: "M\u1EE9c \u0111\u1ED9" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("th", { className: "py-1 text-right font-semibold", children: "S\u1ED1 c\xE2u trong \u0111\u1EC1" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("th", { className: "py-1 text-right font-semibold", children: "C\xE2u c\xF3 s\u1EB5n" })
+                ] }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("tbody", { children: [1, 2, 3, 4].map((lv) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("tr", { className: "border-t border-line", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("td", { className: "py-1.5", children: LEVEL_LABELS2[lv] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("td", { className: "py-1.5 text-right", children: CHAPTER_TEST_PLAN[lv] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("td", { className: "py-1.5 text-right text-ink-3", children: chapterQs.filter((q) => q.level === lv).length })
+                ] }, lv)) })
+              ] }),
+              chapterQs.length ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: `../luyen-tap/kiem-tra-chuong-${c.code.toLowerCase()}.html`, className: buttonClass("primary", "md", "mt-4"), children: "L\xE0m b\xE0i ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng" }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "mt-3 text-[14px] text-ink-3", children: "Ch\u01B0\u01A1ng ch\u01B0a c\xF3 c\xE2u h\u1ECFi ch\u1EA5m t\u1EF1 \u0111\u1ED9ng." })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("nav", { className: "no-print flex flex-wrap justify-between gap-3 border-t border-line pt-6", "aria-label": "Chuy\u1EC3n ch\u01B0\u01A1ng", children: [
+            prevC ? /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: chapterFile(prevC), className: "flex max-w-[48%] items-center gap-2 text-[15px] text-ink-2 hover:text-tim-800", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuArrowLeft, { "aria-hidden": "true", className: "shrink-0" }),
+              " ",
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "truncate", children: chapterLabel(prevC) })
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", {}),
+            nextC && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: chapterFile(nextC), className: "ml-auto flex max-w-[48%] items-center gap-2 text-right text-[15px] font-semibold text-tim-800 hover:underline", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "truncate", children: chapterLabel(nextC) }),
+              " ",
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuArrowRight, { "aria-hidden": "true", className: "shrink-0" })
+            ] })
+          ] })
+        ] })
+      ] })
+    });
+  }
+  const practicedTopics = [];
+  for (const l of flat) {
+    const lessonThemes = themes.get(l.id) ?? [];
+    const all = lessonThemes.flatMap((th) => th.topics);
+    for (const [idx, tn] of all.entries()) {
+      const t = await getTopicById(db, tn.id);
+      const counts = await getTopicQuestionCounts(db, t.id);
+      const qs = (byTopic.get(t.id) ?? []).sort((a, b) => a.level - b.level || a.id - b.id).slice(0, 30);
+      const label = lessonLabel(l);
+      if (qs.length) practicedTopics.push({ t: tn, lessonSlug: l.slug, label });
+      const here = topicFile(l.slug, t);
+      const sib = (x) => `${topicKey(x)}.html`;
+      pages.push({
+        file: here,
+        title: `${t.title} \u2013 ${label}`,
+        description: t.method ?? `D\u1EA1ng to\xE1n ${t.title} \u2013 ${label}`,
+        nav: "program",
+        body: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "min-w-0", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+              Breadcrumbs,
+              {
+                items: [
+                  { href: "../../muc-luc.html", label: book.title },
+                  { href: `../../muc-luc.html#hk-${l.semester.number}`, label: l.semester.name },
+                  { href: `../../chuong/${chapterFile(l.chapter)}`, label: chapterLabel(l.chapter) },
+                  { href: `../../bai/${l.slug}.html`, label },
+                  ...t.themeTitle ? [{ href: `../../bai/${l.slug}.html#dang-toan`, label: t.themeTitle }] : [],
+                  { label: t.title }
+                ]
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("header", { className: "rounded-[22px] border border-line bg-white px-6 py-6", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex flex-wrap items-center gap-2 text-[13px]", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Badge, { children: [
+                  "D\u1EA1ng to\xE1n ",
+                  idx + 1,
+                  "/",
+                  all.length
+                ] }),
+                t.code && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "font-semibold text-ink-3", children: t.code })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h1", { className: "mt-2 text-[28px] font-extrabold leading-tight tracking-tight md:text-[34px]", children: t.title }),
+              t.themeTitle && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("p", { className: "mt-1 text-[15px] text-ink-2", children: [
+                "Ch\u1EE7 \u0111\u1EC1: ",
+                t.themeTitle
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mt-3 flex flex-wrap items-center gap-3 text-[14px] text-ink-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { children: "M\u1EE9c \u0111\u1ED9:" }),
+                t.levels.length ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LevelBadges, { levels: t.levels, full: true }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "text-ink-3", children: "ch\u01B0a ph\xE2n lo\u1EA1i" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { children: [
+                  "\xB7 ",
+                  counts.total,
+                  " b\xE0i t\u1EADp"
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "no-print mt-5 flex flex-wrap gap-2", children: [
+                qs.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: `../../luyen-tap/dang-${t.id}.html`, className: buttonClass("primary", "md"), children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuPencilRuler, { "aria-hidden": "true" }),
+                  " Luy\u1EC7n t\u1EADp d\u1EA1ng n\xE0y"
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: `../../bai/${l.slug}.html`, className: buttonClass("secondary", "md"), children: "V\u1EC1 b\xE0i h\u1ECDc" })
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mt-6 space-y-6", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(TopicArticle, { t }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { "aria-labelledby": "bai-tap-luyen-tap", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: "bai-tap-luyen-tap", className: "mb-3 text-xl font-extrabold", children: "B\xE0i t\u1EADp luy\u1EC7n t\u1EADp" }),
+                qs.length ? /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ol", { className: "space-y-3", children: qs.map((q, i2) => {
+                  const v = offline(q);
+                  return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("li", { className: "rounded-2xl border border-line bg-white p-4", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mb-1 flex flex-wrap items-center gap-2 text-[12.5px]", children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("strong", { className: "text-tim-700", children: [
+                        "B\xE0i ",
+                        i2 + 1
+                      ] }),
+                      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Badge, { tone: "gray", children: TYPE_LABELS[q.type] }),
+                      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LevelBadges, { levels: [q.level] })
+                    ] }),
+                    /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "prose-math text-[15.5px]", dangerouslySetInnerHTML: { __html: v.stemHtml } }),
+                    v.mediaHtml.map((m, k) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "mt-2", dangerouslySetInnerHTML: { __html: m } }, k)),
+                    v.options && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ul", { className: "mt-2 grid gap-1 text-[15px] sm:grid-cols-2", children: v.options.map((o) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("li", { className: "flex gap-2", children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("strong", { children: [
+                        o.label,
+                        "."
+                      ] }),
+                      " ",
+                      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { dangerouslySetInnerHTML: { __html: o.html } })
+                    ] }, o.label)) }),
+                    v.statements && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ul", { className: "mt-2 space-y-1 text-[15px]", children: v.statements.map((o) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("li", { className: "flex gap-2", children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("strong", { children: [
+                        o.label,
+                        ")"
+                      ] }),
+                      " ",
+                      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { dangerouslySetInnerHTML: { __html: o.html } })
+                    ] }, o.label)) })
+                  ] }, q.id);
+                }) }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "text-[15px] text-ink-2", children: "D\u1EA1ng n\xE0y ch\u01B0a c\xF3 b\xE0i t\u1EADp trong ng\xE2n h\xE0ng c\xE2u h\u1ECFi." }),
+                qs.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "mt-3 text-[14.5px] text-ink-2", children: "\u0110\xE1p \xE1n v\xE0 l\u1EDDi gi\u1EA3i hi\u1EC7n ngay sau khi em l\xE0m t\u1EEBng c\xE2u trong ph\u1EA7n luy\u1EC7n t\u1EADp." })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Panel, { className: "p-5", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi c\u1EE7a d\u1EA1ng" }),
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(QuestionCoverage, { byType: counts.byType, byLevel: counts.byLevel, levels: t.levels })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("nav", { className: "no-print flex flex-wrap justify-between gap-3 border-t border-line pt-6", "aria-label": "Chuy\u1EC3n d\u1EA1ng to\xE1n", children: [
+                idx > 0 ? /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: sib(all[idx - 1]), className: "flex max-w-[48%] items-center gap-2 text-[15px] text-ink-2 hover:text-tim-800", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuArrowLeft, { "aria-hidden": "true", className: "shrink-0" }),
+                  " ",
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "truncate", children: all[idx - 1].title })
+                ] }) : /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", {}),
+                idx < all.length - 1 && /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: sib(all[idx + 1]), className: "ml-auto flex max-w-[48%] items-center gap-2 text-right text-[15px] font-semibold text-tim-800 hover:underline", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "truncate", children: all[idx + 1].title }),
+                  " ",
+                  /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuArrowRight, { "aria-hidden": "true", className: "shrink-0" })
+                ] })
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("aside", { className: "no-print", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "sticky top-20 rounded-[22px] border border-line bg-white p-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "text-[13px] text-ink-3", children: chapterLabel(l.chapter) }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: `../../bai/${l.slug}.html`, className: "text-[15px] font-bold hover:underline", children: label }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("nav", { "aria-label": "C\xE1c d\u1EA1ng to\xE1n c\u1EE7a b\xE0i", className: "mt-3 space-y-3", children: lessonThemes.map((th, i2) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "text-[12px] font-bold uppercase tracking-wide text-tim-500", children: th.title }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ul", { className: "mt-1", children: th.topics.map((x) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+                "a",
+                {
+                  href: sib(x),
+                  "aria-current": x.id === t.id ? "page" : void 0,
+                  className: cx("block rounded-lg px-2 py-1.5 text-[13.5px]", x.id === t.id ? "bg-tim-700 font-semibold text-white" : "text-ink-2 hover:bg-tim-50"),
+                  children: x.title
+                }
+              ) }, x.id)) })
+            ] }, th.id || `k${i2}`)) })
+          ] }) })
+        ] })
+      });
+    }
+  }
+  pages.push({
+    file: "ban-do-kien-thuc.html",
+    title: `B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c ${book.title}`,
+    nav: "program",
+    body: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+        PageTitle,
+        {
+          crumbs: [{ href: "chuong-trinh.html", label: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc" }, { href: "muc-luc.html", label: book.title }, { label: "B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c" }],
+          title: `B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c ${book.title}`,
+          sub: `${book.series} \xB7 ${book.program}. H\u1ECDc k\xEC \u2192 Ch\u01B0\u01A1ng \u2192 B\xE0i \u2192 Ch\u1EE7 \u0111\u1EC1 \u2192 D\u1EA1ng to\xE1n. B\u1EA5m v\xE0o t\xEAn \u0111\u1EC3 m\u1EDF trang t\u01B0\u01A1ng \u1EE9ng.`
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(MapTotalsBar, { t: mapTotals(tree, themes) }),
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+        KnowledgeTree,
+        {
+          tree,
+          themes,
+          chapterLink: (c) => `chuong/${chapterFile(c)}`,
+          lessonLink: (l) => `bai/${l.slug}.html`,
+          topicLink: (l, t) => topicFile(l.slug, t)
+        }
+      )
+    ] })
+  });
   const practicePage = (file, title, sub2, crumbs, data2, lessonOf) => ({
     file,
     title,
     nav: "practice",
-    body: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "mx-auto max-w-4xl", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(PageTitle, { crumbs, title, sub: sub2 }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { "data-local-practice": "du-lieu-luyen-tap", "data-lesson-of": "bai-cua-cau", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NoScript, {}) }),
+    body: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mx-auto max-w-4xl", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(PageTitle, { crumbs, title, sub: sub2 }),
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { "data-local-practice": "du-lieu-luyen-tap", "data-lesson-of": "bai-cua-cau", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(NoScript, {}) }),
       json2("du-lieu-luyen-tap", data2),
       json2("bai-cua-cau", lessonOf)
     ] })
@@ -36749,6 +39892,42 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
       )
     );
   }
+  for (const { t, lessonSlug, label } of practicedTopics) {
+    const qs = byTopic.get(t.id);
+    pages.push(
+      practicePage(
+        `luyen-tap/dang-${t.id}.html`,
+        `Luy\u1EC7n t\u1EADp d\u1EA1ng: ${t.title}`,
+        label,
+        [{ href: "../luyen-tap.html", label: "Luy\u1EC7n t\u1EADp" }, { href: `../${topicFile(lessonSlug, t)}`, label: t.title }, { label: "Luy\u1EC7n t\u1EADp" }],
+        { questions: qs.map(offline), context: "practice", limit: 10, restartHref: `dang-${t.id}.html`, backHref: `../${topicFile(lessonSlug, t)}`, backLabel: "V\u1EC1 d\u1EA1ng to\xE1n" },
+        Object.fromEntries(qs.map((q) => [q.id, lessonSlug]))
+      )
+    );
+  }
+  for (const c of tree.flatMap((sm) => sm.chapters).filter((x) => x.kind === "chapter")) {
+    const qs = c.lessons.flatMap((l) => byLesson.get(l.id) ?? []).filter((q) => ["mcq", "true_false", "short_answer"].includes(q.type));
+    if (!qs.length) continue;
+    const label = chapterLabel(c);
+    pages.push(
+      practicePage(
+        `luyen-tap/kiem-tra-chuong-${c.code.toLowerCase()}.html`,
+        `Ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng: ${label}`,
+        "10 c\xE2u ch\u1EA5m t\u1EF1 \u0111\u1ED9ng, x\u1EBFp t\u1EEB d\u1EC5 \u0111\u1EBFn kh\xF3: 4 c\xE2u nh\u1EADn bi\u1EBFt, 3 c\xE2u th\xF4ng hi\u1EC3u, 2 c\xE2u v\u1EADn d\u1EE5ng, 1 c\xE2u v\u1EADn d\u1EE5ng cao (m\u1EE9c n\xE0o thi\u1EBFu c\xE2u th\xEC l\u1EA5y c\xE2u \u1EDF m\u1EE9c g\u1EA7n nh\u1EA5t).",
+        [{ href: `../chuong/${chapterFile(c)}`, label }, { label: "Ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng" }],
+        {
+          questions: qs.map(offline),
+          context: "practice",
+          limit: 10,
+          plan: CHAPTER_TEST_PLAN,
+          restartHref: `kiem-tra-chuong-${c.code.toLowerCase()}.html`,
+          backHref: `../chuong/${chapterFile(c)}`,
+          backLabel: "V\u1EC1 trang ch\u01B0\u01A1ng"
+        },
+        lessonOfAll
+      )
+    );
+  }
   const challengeQs = full.filter((q) => q.level >= 3 && ["mcq", "true_false", "short_answer"].includes(q.type));
   pages.push({
     ...practicePage(
@@ -36764,50 +39943,50 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
     file: "luyen-tap.html",
     title: "Luy\u1EC7n t\u1EADp",
     nav: "practice",
-    body: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(
+    body: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
         PageTitle,
         {
           title: "Luy\u1EC7n t\u1EADp",
           sub: "Ch\u1ECDn b\xE0i ho\u1EB7c ch\u01B0\u01A1ng \u0111\u1EC3 luy\u1EC7n. M\u1ED7i l\u01B0\u1EE3t g\u1ED3m t\u1ED1i \u0111a 10 c\xE2u, \u01B0u ti\xEAn nh\u1EEFng c\xE2u em ch\u01B0a l\xE0m \u0111\xFAng. B\xE0i l\xE0m \u0111\u01B0\u1EE3c ch\u1EA5m ngay tr\xEAn m\xE1y.",
-          actions: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: "thu-thach.html", className: buttonClass("secondary", "md"), children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(LuRocket, { "aria-hidden": "true" }),
+          actions: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: "thu-thach.html", className: buttonClass("secondary", "md"), children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuRocket, { "aria-hidden": "true" }),
             " Th\u1EED th\xE1ch To\xE1n h\u1ECDc"
           ] })
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { className: "mb-8 p-5", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { className: "text-[15px] font-bold", children: "5 h\xECnh th\u1EE9c b\xE0i t\u1EADp" }),
-        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("ul", { className: "mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-5", children: QUESTION_TYPES.map((t) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("li", { className: "rounded-xl bg-mist px-3 py-2.5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "text-[14px] font-semibold", children: TYPE_LABELS[t] }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "text-[13px] text-ink-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Panel, { className: "mb-8 p-5", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { className: "text-[15px] font-bold", children: "5 h\xECnh th\u1EE9c b\xE0i t\u1EADp" }),
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ul", { className: "mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-5", children: QUESTION_TYPES.map((t) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("li", { className: "rounded-xl bg-mist px-3 py-2.5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "text-[14px] font-semibold", children: TYPE_LABELS[t] }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "text-[13px] text-ink-3", children: [
             full.filter((q) => q.type === t).length,
             " c\xE2u"
           ] })
         ] }, t)) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "space-y-8", children: tree.map((s) => {
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "space-y-8", children: tree.map((s) => {
         const chapters = s.chapters.filter((c) => practiceChapters.includes(c));
         if (!chapters.length) return null;
-        return /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("section", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h2", { className: "mb-3 text-xl font-extrabold", children: s.name }),
-          /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { className: "grid gap-4 lg:grid-cols-2", children: chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Panel, { className: "p-5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("div", { className: "flex flex-wrap items-start justify-between gap-3", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("h3", { className: "font-extrabold", children: chapterLabel(c) }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("a", { href: `luyen-tap/chuong-${c.code.toLowerCase()}.html`, className: buttonClass("quiet", "sm"), children: [
+        return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { className: "mb-3 text-xl font-extrabold", children: s.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { className: "grid gap-4 lg:grid-cols-2", children: chapters.map((c) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Panel, { className: "p-5", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex flex-wrap items-start justify-between gap-3", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h3", { className: "font-extrabold", children: chapterLabel(c) }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: `luyen-tap/chuong-${c.code.toLowerCase()}.html`, className: buttonClass("quiet", "sm"), children: [
                 "Tr\u1ED9n c\u1EA3 ch\u01B0\u01A1ng (",
                 c.lessons.reduce((a, l) => a + (byLesson.get(l.id)?.length ?? 0), 0),
                 " c\xE2u)"
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("ul", { className: "mt-3 divide-y divide-line", children: c.lessons.filter((l) => byLesson.get(l.id)?.length).map((l) => /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("li", { className: "flex items-center justify-between gap-3 py-2.5", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", { className: "min-w-0 text-[15px]", children: lessonLabel(l) }),
-              /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "flex shrink-0 items-center gap-3", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)("span", { className: "text-[13px] text-ink-3", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ul", { className: "mt-3 divide-y divide-line", children: c.lessons.filter((l) => byLesson.get(l.id)?.length).map((l) => /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("li", { className: "flex items-center justify-between gap-3 py-2.5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: "min-w-0 text-[15px]", children: lessonLabel(l) }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "flex shrink-0 items-center gap-3", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "text-[13px] text-ink-3", children: [
                   byLesson.get(l.id).length,
                   " c\xE2u"
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("a", { href: `luyen-tap/${l.slug}.html`, className: buttonClass("primary", "sm"), children: "Luy\u1EC7n t\u1EADp" })
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: `luyen-tap/${l.slug}.html`, className: buttonClass("primary", "sm"), children: "Luy\u1EC7n t\u1EADp" })
               ] })
             ] }, l.id)) })
           ] }, c.id)) })
@@ -36819,9 +39998,9 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
     file: "tien-do.html",
     title: "Ti\u1EBFn \u0111\u1ED9 & th\xE0nh t\xEDch",
     nav: "progress",
-    body: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(import_jsx_runtime30.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(PageTitle, { title: "Ti\u1EBFn \u0111\u1ED9 & th\xE0nh t\xEDch", sub: "B\xE0i \u0111\xE3 h\u1ECDc, c\xE2u \u0111\xE3 l\xE0m, \u0111i\u1EC3m kinh nghi\u1EC7m v\xE0 huy hi\u1EC7u c\u1EE7a em tr\xEAn m\xE1y n\xE0y." }),
-      /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("div", { "data-panel": "progress", children: /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(NoScript, {}) })
+    body: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(PageTitle, { title: "Ti\u1EBFn \u0111\u1ED9 & th\xE0nh t\xEDch", sub: "B\xE0i \u0111\xE3 h\u1ECDc, c\xE2u \u0111\xE3 l\xE0m, \u0111i\u1EC3m kinh nghi\u1EC7m v\xE0 huy hi\u1EC7u c\u1EE7a em tr\xEAn m\xE1y n\xE0y." }),
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("div", { "data-panel": "progress", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(NoScript, {}) })
     ] })
   });
   const MARK = ".math-learning-html";

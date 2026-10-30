@@ -1,3 +1,4 @@
+import { chooseByLevel } from '../shared/pick';
 import { sql, type Database, type Queryable } from '../server/db';
 import type { FormData } from '../server/http/context';
 import { QUESTION_TYPES, type AnswerKey, type QuestionSettings, type QuestionType } from '../shared/grading';
@@ -154,6 +155,7 @@ export interface QuestionFilters {
   status?: string | null;
   mineOf?: string | null;
   search?: string | null;
+  topicId?: number | null;
 }
 
 function filterSql(f: QuestionFilters) {
@@ -163,6 +165,7 @@ function filterSql(f: QuestionFilters) {
   return sql`
     where qq.textbook_id = ${f.textbookId}
       and (${f.lessonId ?? null}::int is null or qq.lesson_id = ${f.lessonId ?? null})
+      and (${f.topicId ?? null}::int is null or qq.topic_id = ${f.topicId ?? null})
       and (${type}::text is null or et.code = ${type})
       and (${f.level ?? null}::int is null or qq.level = ${f.level ?? null})
       and (${status}::text is null or qq.status = ${status})
@@ -201,7 +204,11 @@ export async function latestQuestions(q: Queryable, textbookId: number, limit: n
 
 // ---------------- Chọn câu hỏi để luyện tập ----------------
 
-export type PracticeScope = { kind: 'lesson'; lessonId: number } | { kind: 'chapter'; chapterId: number } | { kind: 'challenge'; textbookId: number };
+export type PracticeScope =
+  | { kind: 'lesson'; lessonId: number }
+  | { kind: 'chapter'; chapterId: number }
+  | { kind: 'topic'; topicId: number }
+  | { kind: 'challenge'; textbookId: number };
 
 /** Ưu tiên câu chưa làm đúng, sau đó ngẫu nhiên. */
 export async function pickPracticeQuestionIds(q: Queryable, scope: PracticeScope, userId: string, limit: number): Promise<number[]> {
@@ -210,7 +217,9 @@ export async function pickPracticeQuestionIds(q: Queryable, scope: PracticeScope
       ? sql`qq.lesson_id = ${scope.lessonId}`
       : scope.kind === 'chapter'
         ? sql`l.chapter_id = ${scope.chapterId}`
-        : sql`qq.textbook_id = ${scope.textbookId} and qq.level >= 3 and et.code in ('mcq', 'true_false', 'short_answer')`;
+        : scope.kind === 'topic'
+          ? sql`qq.topic_id = ${scope.topicId}`
+          : sql`qq.textbook_id = ${scope.textbookId} and qq.level >= 3 and et.code in ('mcq', 'true_false', 'short_answer')`;
   const rows = await q.many<{ id: number }>(sql`
     select qq.id
     from questions qq join exercise_types et on et.id = qq.exercise_type_id
@@ -220,6 +229,20 @@ export async function pickPracticeQuestionIds(q: Queryable, scope: PracticeScope
       random()
     limit ${limit}`);
   return rows.map((r) => r.id);
+}
+
+/**
+ * Đề kiểm tra cuối chương: chọn ngẫu nhiên câu chấm tự động theo số câu mỗi mức độ;
+ * mức nào thiếu câu thì bù bằng câu ở mức gần nhất. Câu xếp từ dễ đến khó.
+ */
+export async function pickChapterTestIds(q: Queryable, chapterId: number, plan: Record<number, number>): Promise<number[]> {
+  const rows = await q.many<{ id: number; level: number }>(sql`
+    select qq.id, qq.level
+    from questions qq join exercise_types et on et.id = qq.exercise_type_id join lessons l on l.id = qq.lesson_id
+    where l.chapter_id = ${chapterId} and qq.status = 'published' and l.status = 'published'
+      and et.code in ('mcq', 'true_false', 'short_answer')
+    order by random()`);
+  return chooseByLevel(rows, plan).map((r) => r.id);
 }
 
 // ---------------- Soạn câu hỏi (giáo viên) ----------------

@@ -1,6 +1,7 @@
 import { HttpError, redirect, type Ctx, type Res } from '../../http/context';
 import { page } from '../../http/render';
 import { requireTeacher } from '../../auth/guards';
+import { sql } from '../../db';
 import { intParam, paging, queryString, requireBook } from '../common';
 import { lessonLabel, lessonOptions, topicOptions } from '../../../domain/curriculum';
 import {
@@ -37,16 +38,17 @@ export async function questionBankPage(ctx: Ctx): Promise<Res> {
     status: ctx.query.get('trang-thai') || null,
     mine: ctx.query.get('cua-toi') === '1',
     search: ctx.query.get('q')?.slice(0, 80) || null,
+    topicId: Number(ctx.query.get('dang')) || null,
   };
   const pg = paging(ctx, PER_PAGE);
   const { rows, total } = await listQuestions(
     ctx.db,
-    { textbookId: book.id, lessonId: f.lessonId, type: f.type, level: f.level, status: f.status, mineOf: f.mine ? user.id : null, search: f.search },
+    { textbookId: book.id, lessonId: f.lessonId, type: f.type, level: f.level, status: f.status, mineOf: f.mine ? user.id : null, search: f.search, topicId: f.topicId },
     pg.limit,
     pg.offset,
   );
   const lessons = await lessonOptions(ctx.db, book.id);
-  const qs = queryString({ bai: f.lessonId, loai: f.type, muc: f.level, 'trang-thai': f.status, 'cua-toi': f.mine ? 1 : null, q: f.search });
+  const qs = queryString({ bai: f.lessonId, dang: f.topicId, loai: f.type, muc: f.level, 'trang-thai': f.status, 'cua-toi': f.mine ? 1 : null, q: f.search });
   return page(
     ctx,
     { title: 'Ngân hàng câu hỏi', layout: 'dashboard', section: 'questions' },
@@ -55,19 +57,33 @@ export async function questionBankPage(ctx: Ctx): Promise<Res> {
         title="Ngân hàng câu hỏi"
         sub={`${total} câu hỏi phù hợp. Câu đã xuất bản xuất hiện trong luyện tập của học sinh và có thể đưa vào đề kiểm tra.`}
         actions={
+          <>
+          <a href="/giao-vien/cau-hoi/nhap" className={buttonClass('secondary', 'md')}>
+            Nhập hàng loạt từ Excel
+          </a>
           <details className="relative" data-menu>
             <summary className={buttonClass('primary', 'md')}>Tạo câu hỏi</summary>
             <div className="absolute right-0 z-20 mt-2 w-64 rounded-2xl border border-line bg-white p-2 shadow-lg">
               {QUESTION_TYPES.map((t) => (
-                <a key={t} href={`/giao-vien/cau-hoi/moi?loai=${t}${f.lessonId ? `&bai=${f.lessonId}` : ''}`} className="block rounded-lg px-3 py-2 text-[15px] hover:bg-tim-50">
+                <a key={t} href={`/giao-vien/cau-hoi/moi?loai=${t}${f.lessonId ? `&bai=${f.lessonId}` : ''}${f.topicId ? `&dang=${f.topicId}` : ''}`} className="block rounded-lg px-3 py-2 text-[15px] hover:bg-tim-50">
                   {TYPE_LABELS[t]}
                 </a>
               ))}
             </div>
           </details>
+          </>
         }
       />
+      {f.topicId && (
+        <Notice tone="info" className="mb-4">
+          Đang lọc theo một dạng toán.{' '}
+          <a className="font-semibold underline" href={`/giao-vien/cau-hoi${queryString({ bai: f.lessonId, loai: f.type, muc: f.level, 'trang-thai': f.status, q: f.search })}`}>
+            Bỏ lọc dạng toán
+          </a>
+        </Notice>
+      )}
       <form method="get" className="mb-5 grid gap-3 rounded-[18px] border border-line bg-white p-4 md:grid-cols-[2fr_1.2fr_1fr_1fr_1.4fr_auto]">
+        {f.topicId && <input type="hidden" name="dang" value={f.topicId} />}
         <Select label="Bài học" name="bai" defaultValue={f.lessonId ?? ''} autoSubmit options={[{ value: '', label: 'Tất cả bài' }, ...lessons.map((l) => ({ value: l.id, label: l.label, group: l.chapter }))]} />
         <Select label="Hình thức" name="loai" defaultValue={f.type ?? ''} autoSubmit options={[{ value: '', label: 'Tất cả' }, ...QUESTION_TYPES.map((t) => ({ value: t, label: TYPE_SHORT[t] }))]} />
         <Select label="Mức độ" name="muc" defaultValue={f.level ?? ''} autoSubmit options={[{ value: '', label: 'Tất cả' }, ...[1, 2, 3, 4].map((l) => ({ value: l, label: LEVEL_LABELS[l] }))]} />
@@ -279,6 +295,14 @@ export async function newQuestionPage(ctx: Ctx): Promise<Res> {
   if (!QUESTION_TYPES.includes(type)) throw new HttpError(404);
   const input = emptyQuestionInput(type);
   input.lessonId = Number(ctx.query.get('bai')) || null;
+  const dang = Number(ctx.query.get('dang')) || null;
+  if (dang) {
+    const tp = await ctx.db.one<{ lessonId: number }>(sql`select lesson_id from topics where id = ${dang}`);
+    if (tp) {
+      input.topicId = dang;
+      input.lessonId = tp.lessonId;
+    }
+  }
   return editorPage(ctx, { id: null, input });
 }
 
@@ -291,7 +315,7 @@ export async function createQuestionAction(ctx: Ctx): Promise<Res> {
   const res = await saveQuestion(ctx.db, null, book.id, input, user.id);
   if (res.error) return editorPage(ctx, { id: null, input, errors: [res.error], status: 422 });
   if (form.str('_next') === 'new') {
-    return redirect(`/giao-vien/cau-hoi/moi?loai=${input.type}&bai=${input.lessonId}`, { type: 'success', message: `Đã lưu câu hỏi #${res.id}. Soạn câu tiếp theo.` }, ctx);
+    return redirect(`/giao-vien/cau-hoi/moi?loai=${input.type}&bai=${input.lessonId}${input.topicId ? `&dang=${input.topicId}` : ''}`, { type: 'success', message: `Đã lưu câu hỏi #${res.id}. Soạn câu tiếp theo.` }, ctx);
   }
   return redirect(`/giao-vien/cau-hoi/${res.id}/xem`, { type: 'success', message: `Đã lưu câu hỏi #${res.id}.` }, ctx);
 }

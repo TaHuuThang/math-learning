@@ -1,10 +1,33 @@
+import type { ReactNode } from 'react';
 import { Panel, Rich, cx } from './ui';
+import { ThemeList } from './knowledge';
 import { SECTION_LABELS } from '../../shared/labels';
-import type { LessonSection, Topic } from '../../domain/curriculum';
+import type { LessonSection } from '../../domain/curriculum';
+import type { ThemeNode, TopicNode } from '../../domain/knowledge';
 
-/** Phần nội dung bài học: mục tiêu, kiến thức, công thức, ví dụ, dạng toán (dùng cho web và bản HTML). */
-export function LessonBody({ sections, topics }: { sections: LessonSection[]; topics: Topic[] }) {
-  const objectives = sections.filter((s) => s.kind === 'objective');
+/**
+ * Phần nội dung bài học: mục tiêu, kiến thức, công thức, ví dụ, chủ đề – dạng toán (dùng cho web và bản HTML).
+ * Mục tiêu lấy từ mục nội dung "Mục tiêu" nếu có, nếu không lấy mục tiêu kiến thức của bài (bản đồ kiến thức).
+ */
+export function LessonBody({
+  sections,
+  themes,
+  topicHref,
+  lessonObjectives,
+  meta,
+}: {
+  sections: LessonSection[];
+  themes: ThemeNode[];
+  topicHref: (t: TopicNode) => string;
+  lessonObjectives?: string | null;
+  meta?: ReactNode;
+}) {
+  const objectiveSections = sections.filter((s) => s.kind === 'objective');
+  const objectives: { id: number | string; body: string }[] = objectiveSections.length
+    ? objectiveSections
+    : lessonObjectives
+      ? [{ id: 'muc-tieu-bai', body: lessonObjectives }]
+      : [];
   const knowledge = sections.filter((s) => s.kind === 'knowledge' || s.kind === 'note');
   const formulas = sections.filter((s) => s.kind === 'formula');
   const examples = sections.filter((s) => s.kind === 'example');
@@ -13,7 +36,7 @@ export function LessonBody({ sections, topics }: { sections: LessonSection[]; to
       {objectives.length > 0 && (
         <section aria-labelledby="muc-tieu">
           <h2 id="muc-tieu" className="mb-3 text-xl font-extrabold">
-            Mục tiêu
+            Mục tiêu kiến thức
           </h2>
           <div className="rounded-2xl border-l-4 border-tim-700 bg-tim-50 px-5 py-4">
             {objectives.map((s) => (
@@ -22,6 +45,8 @@ export function LessonBody({ sections, topics }: { sections: LessonSection[]; to
           </div>
         </section>
       )}
+
+      {meta}
 
       {knowledge.length > 0 && (
         <section aria-labelledby="kien-thuc">
@@ -80,26 +105,15 @@ export function LessonBody({ sections, topics }: { sections: LessonSection[]; to
         </section>
       )}
 
-      {topics.length > 0 && (
+      {themes.length > 0 && (
         <section aria-labelledby="dang-toan">
-          <h2 id="dang-toan" className="mb-3 text-xl font-extrabold">
-            Các dạng toán
+          <h2 id="dang-toan" className="mb-1 text-xl font-extrabold">
+            Chủ đề và dạng toán
           </h2>
-          <ol className="space-y-3">
-            {topics.map((t, i) => (
-              <li key={t.id} className="flex gap-4 rounded-2xl border border-line bg-white p-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-tim-700 font-bold text-white">{i + 1}</span>
-                <div className="min-w-0">
-                  <div className="font-semibold">{t.title}</div>
-                  {t.method ? <p className="mt-1 text-[15px] text-ink-2">{t.method}</p> : <p className="mt-1 text-[14px] text-ink-3">Phương pháp giải đang được biên soạn.</p>}
-                  {t.questionCount > 0 && <p className="mt-1 text-[13px] text-tim-700">{t.questionCount} câu luyện tập</p>}
-                </div>
-              </li>
-            ))}
-          </ol>
+          <p className="mb-3 text-[14.5px] text-ink-3">Bấm vào từng dạng để xem dấu hiệu nhận biết, phương pháp, các bước giải, lỗi sai thường gặp và bài tập luyện tập.</p>
+          <ThemeList themes={themes} topicHref={topicHref} />
         </section>
       )}
-
     </>
   );
 }

@@ -239,7 +239,7 @@ try {
     await student.goto(`${BASE}/hoc/toan-8/bai/bai-1-don-thuc`);
     const crumbs = await student.locator('nav[aria-label="Đường dẫn"]').textContent();
     for (const c of ['Toán 8', 'Học kì I', 'Chương I. Đa thức', 'Bài 1. Đơn thức']) assert.ok(crumbs.includes(c), `đường dẫn thiếu ${c}`);
-    for (const h of ['Mục tiêu', 'Kiến thức', 'Công thức', 'Ví dụ', 'Các dạng toán', 'Bài tập']) assert.ok(await student.getByRole('heading', { name: h, exact: true }).count(), `thiếu mục ${h}`);
+    for (const h of ['Mục tiêu kiến thức', 'Tóm tắt bài học', 'Kiến thức', 'Công thức', 'Ví dụ', 'Chủ đề và dạng toán', 'Bài tập']) assert.ok(await student.getByRole('heading', { name: h, exact: true }).count(), `thiếu mục ${h}`);
     assert.ok((await student.locator('.katex').count()) > 10);
     assert.equal(await student.locator('.math-error').count(), 0, 'không có công thức lỗi');
     await shot(student, '02-bai-hoc');

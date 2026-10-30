@@ -72,7 +72,7 @@ try {
 
   await step('Bài học: nội dung, đánh dấu học xong, tiến độ cập nhật ở mục lục', async () => {
     await page.goto(url('bai/bai-1-don-thuc.html'));
-    for (const h of ['Mục tiêu', 'Kiến thức', 'Công thức', 'Ví dụ', 'Các dạng toán', 'Bài tập']) assert.ok(await page.getByRole('heading', { name: h, exact: true }).count(), `thiếu ${h}`);
+    for (const h of ['Mục tiêu kiến thức', 'Tóm tắt bài học', 'Kiến thức', 'Công thức', 'Ví dụ', 'Chủ đề và dạng toán', 'Bài tập']) assert.ok(await page.getByRole('heading', { name: h, exact: true }).count(), `thiếu ${h}`);
     assert.equal(await page.locator('.math-error').count(), 0);
     await page.click('button:has-text("Đánh dấu đã học xong")');
     const msg = await page.locator('[role=status]').first().textContent();
@@ -89,6 +89,7 @@ try {
     await page.goto(url('luyen-tap/bai-1-don-thuc.html'));
     const art = page.locator('article');
     await art.waitFor();
+    const pool = await page.evaluate(() => JSON.parse(document.getElementById('du-lieu-luyen-tap').textContent).questions.length);
     let n = 0;
     for (;;) {
       if (await art.locator('[aria-label="Chọn phương án"]').count()) await art.locator('[role=radio]').nth(1).click();
@@ -109,7 +110,7 @@ try {
       }
     }
     await page.getByRole('heading', { name: 'Kết quả lượt luyện tập' }).waitFor();
-    assert.equal(n, 4);
+    assert.equal(n, Math.min(10, pool));
     await shot('04-luyen-tap-tong-ket', false);
   });
 
@@ -126,7 +127,7 @@ try {
     await page.goto(url('tien-do.html'));
     await page.getByText('Điểm kinh nghiệm', { exact: true }).waitFor();
     const text = await page.locator('main').textContent();
-    assert.match(text, /1\/74 mục học xong/);
+    assert.match(text, /1\/\d+ mục học xong/);
     assert.match(text, /Câu #\d+/);
     await shot('06-tien-do');
     const [download] = await Promise.all([page.waitForEvent('download'), page.click('button:has-text("Tải tệp sao lưu")')]);
@@ -134,10 +135,10 @@ try {
     await download.saveAs(backup);
     await page.click('button:has-text("Xóa tiến độ")');
     await page.getByText('Đã xóa tiến độ').waitFor();
-    assert.match(await page.locator('main').textContent(), /0\/74 mục học xong/);
+    assert.match(await page.locator('main').textContent(), /0\/\d+ mục học xong/);
     await page.setInputFiles('input[type=file]', backup);
     await page.getByText('Đã khôi phục tiến độ').waitFor();
-    assert.match(await page.locator('main').textContent(), /1\/74 mục học xong/);
+    assert.match(await page.locator('main').textContent(), /1\/\d+ mục học xong/);
   });
 
   await step('Chương trình, PPCT, trình chiếu và giao diện điện thoại', async () => {

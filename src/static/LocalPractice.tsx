@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { PracticeCore, type Feedback, type GradeFn } from '../islands/PracticeRunner';
 import { gradeResponse, normalizeResponse } from '../shared/grading';
 import { hasCorrect, recordResponse } from './store';
+import { chooseByLevel } from '../shared/pick';
 import type { OfflinePractice, OfflineQuestion } from './types';
 
 function shuffle<T>(arr: T[]): T[] {
@@ -14,13 +15,14 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 /** Ưu tiên câu chưa làm đúng, sau đó ngẫu nhiên – giống bản trực tuyến. */
-function pick(questions: OfflineQuestion[], limit: number) {
+function pick(questions: OfflineQuestion[], limit: number, plan?: Record<number, number>) {
   const s = shuffle(questions);
+  if (plan) return chooseByLevel(s, plan);
   return [...s.filter((q) => !hasCorrect(q.id)), ...s.filter((q) => hasCorrect(q.id))].slice(0, limit);
 }
 
 export default function LocalPractice({ data, lessonOf }: { data: OfflinePractice; lessonOf?: Record<number, string> }) {
-  const [questions] = useState(() => pick(data.questions, data.limit));
+  const [questions] = useState(() => pick(data.questions, data.limit, data.plan));
   const byId = new Map(questions.map((q) => [q.id, q]));
 
   const grade: GradeFn = async (view, answer, context) => {
