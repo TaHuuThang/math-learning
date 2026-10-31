@@ -87,7 +87,7 @@ export function SiteHeader() {
             <UserMenu />
           ) : (
             <>
-              <a href="/dang-nhap" className={buttonClass('ghost', 'sm', 'hidden sm:inline-flex')}>
+              <a href="/dang-nhap" className={buttonClass('ghost', 'sm', 'max-sm:hidden')}>
                 Đăng nhập
               </a>
               <a href="/dang-ky" className={buttonClass('primary', 'sm')}>
@@ -123,7 +123,7 @@ export function SiteFooter() {
     <footer className="site-footer mt-20 border-t border-line bg-white">
       <div className="mx-auto grid max-w-[1240px] gap-8 px-4 py-10 md:grid-cols-[1.4fr_1fr_1fr] md:px-6">
         <div>
-          <Logo />
+          <Logo size="lg" />
           <p className="mt-3 max-w-sm text-sm text-ink-2">
             Học Toán THCS theo Chương trình GDPT 2018. Đang mở Toán 8 – bộ sách Kết nối tri thức với cuộc sống; Toán 6, 7, 9 đang được biên soạn.
           </p>

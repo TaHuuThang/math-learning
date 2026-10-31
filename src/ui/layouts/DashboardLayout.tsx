@@ -73,10 +73,10 @@ export function DashboardLayout({ children, section }: { children: ReactNode; se
     <div className="min-h-screen lg:grid lg:grid-cols-[264px_minmax(0,1fr)]">
       <aside className="hidden border-r border-line bg-white lg:flex lg:flex-col lg:sticky lg:top-0 lg:h-screen">
         <a href="/giao-vien" className="flex items-center gap-2.5 px-5 py-5">
-          <LogoMark />
+          <LogoMark size={44} />
           <span className="leading-tight">
-            <Wordmark className="block text-[15px]" />
-            <span className="block text-[12px] text-ink-3">Khu vực giáo viên</span>
+            <Wordmark size="sm" />
+            <span className="mt-1 block text-[12px] text-ink-3">Khu vực giáo viên</span>
           </span>
         </a>
         <div className="flex-1 overflow-y-auto px-3">
@@ -113,7 +113,7 @@ export function DashboardLayout({ children, section }: { children: ReactNode; se
               </a>
             </div>
           </details>
-          <Wordmark />
+          <Wordmark inline className="text-[15px]" />
         </header>
         <main id="noi-dung" className="mx-auto max-w-[1180px] px-4 py-6 md:px-8 md:py-8">
           <div className="mb-4 empty:hidden">

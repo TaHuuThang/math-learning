@@ -26,6 +26,10 @@
   --color-tim-800: #2c1f6c;
   --color-tim-900: #1e154b;
 
+  /* Màu logo (theo mẫu logo của thầy Thắng) */
+  --color-logo: #25306b;
+  --color-logo-2: #4a5fc1;
+
   --color-le: #e5484d;
   --color-le-soft: #fde9ea;
   --color-hl: #ffd84d;

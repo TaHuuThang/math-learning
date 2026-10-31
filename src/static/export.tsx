@@ -67,8 +67,8 @@ function Layout({ page, children }: { page: Page; children: ReactNode }) {
       <header className="site-header sticky top-0 z-20 border-b border-line bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-[1240px] items-center gap-4 px-4 md:px-6">
           <a href={R('index.html')} className="flex items-center gap-2.5 text-ink no-underline" aria-label={`${BRAND} – Trang chủ`}>
-            <LogoMark />
-            <Wordmark className="text-[17px] leading-none" />
+            <LogoMark size={48} />
+            <Wordmark size="md" />
           </a>
           <nav aria-label="Điều hướng chính" className="ml-6 hidden items-center gap-1 lg:flex">
             {NAV.map((n) => (
@@ -103,8 +103,8 @@ function Layout({ page, children }: { page: Page; children: ReactNode }) {
         <div className="mx-auto grid max-w-[1240px] gap-6 px-4 py-10 md:grid-cols-[1.4fr_1fr] md:px-6">
           <div>
             <div className="flex items-center gap-2.5">
-              <LogoMark />
-              <Wordmark className="text-[17px]" />
+              <LogoMark size={96} variant="full" />
+              <Wordmark size="lg" />
             </div>
             <p className="mt-3 max-w-md text-sm text-ink-2">
               Bản HTML ngoại tuyến – Toán 8, Kết nối tri thức với cuộc sống (GDPT 2018). Tiến độ và câu đã làm được lưu trong trình duyệt của máy đang dùng.

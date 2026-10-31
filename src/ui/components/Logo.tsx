@@ -1,51 +1,75 @@
-import { useId } from 'react';
 import { BRAND } from '../../shared/brand';
+import { LOGO_VIEWBOX, logoInnerSvg, type LogoVariant } from '../../shared/logo';
 
 /**
- * Biểu tượng chữ lồng T + M: chữ T vàng (Thắng, Toán) cắm vào đáy chữ M trắng (Math),
- * trên nền tím chuyển sắc có lưới ô li mờ. Bản tĩnh giống hệt nằm ở public/favicon.svg.
+ * Logo THẮNG MATH LEARNING (chữ lồng TM: chữ T là cây thước, chân phải chữ M là bút chì; bong bóng kí hiệu toán).
+ * Hình vẽ lấy từ src/shared/logo.ts – sửa ở đó là đổi trên mọi trang và biểu tượng tab.
  */
-const M_POINTS = '6.5,25.5 10.5,12 16,20.5 21.5,12 25.5,25.5';
-const T_PATH = 'M7 6.8H25M16 6.8V20.5';
-
-export function LogoMark({ size = 34 }: { size?: number }) {
-  const gid = 'ml-logo-' + useId().replace(/[^a-zA-Z0-9_-]/g, '');
+export function LogoMark({ size = 48, variant = 'compact' }: { size?: number; variant?: LogoVariant }) {
+  const [x, y, w, h] = LOGO_VIEWBOX[variant];
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true" className="shrink-0">
-      <defs>
-        <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#5541C4" />
-          <stop offset="1" stopColor="#2B1E70" />
-        </linearGradient>
-      </defs>
-      <rect width="32" height="32" rx="9" fill={`url(#${gid})`} />
-      <path d="M8 0v32M16 0v32M24 0v32M0 8h32M0 16h32M0 24h32" stroke="#fff" strokeOpacity=".1" strokeWidth="1" />
-      <g transform="translate(0 1.1)" opacity=".45" fill="none" stroke="#170E4A" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points={M_POINTS} />
-        <path d={T_PATH} />
-      </g>
-      <polyline points={M_POINTS} fill="none" stroke="#fff" strokeWidth="3.2" strokeLinejoin="round" strokeLinecap="round" />
-      <path d={T_PATH} fill="none" stroke="#FFD84D" strokeWidth="3.2" strokeLinecap="round" />
-    </svg>
+    <svg
+      width={size}
+      height={Math.round((size * h) / w)}
+      viewBox={`${x} ${y} ${w} ${h}`}
+      aria-hidden="true"
+      className="shrink-0"
+      dangerouslySetInnerHTML={{ __html: logoInnerSvg(variant) }}
+    />
   );
 }
 
-/** Tên chữ: từ đầu (THẮNG) màu tím thương hiệu, phần còn lại màu chữ thường. */
-export function Wordmark({ className = '' }: { className?: string }) {
-  const [first, ...rest] = BRAND.split(' ');
+const WORDMARK_SIZES = {
+  sm: { main: 'text-[15px]', sub: 'mt-[3px] text-[8.5px] tracking-[0.42em]' },
+  md: { main: 'text-[15px] sm:text-[17px]', sub: 'mt-[4px] text-[8.5px] tracking-[0.42em] sm:text-[9.5px] sm:tracking-[0.44em]' },
+  lg: { main: 'text-[22px]', sub: 'mt-[5px] text-[12px] tracking-[0.46em]' },
+  xl: { main: 'text-[30px]', sub: 'mt-[6px] text-[14.5px] tracking-[0.5em]' },
+} as const;
+
+/**
+ * Tên chữ hai dòng như mẫu logo: "THẮNG MATH" đậm, "LEARNING" giãn chữ bên dưới.
+ * inline: một dòng (dùng ở thanh đầu trang hẹp).
+ */
+export function Wordmark({ size = 'md', align = 'left', inline, className = '' }: { size?: keyof typeof WORDMARK_SIZES; align?: 'left' | 'center'; inline?: boolean; className?: string }) {
+  const words = BRAND.split(' ');
+  const main = words.slice(0, -1).join(' ') || BRAND;
+  const sub = words.length > 1 ? words[words.length - 1] : '';
+  if (inline) return <span className={`font-extrabold tracking-tight text-logo ${className}`}>{BRAND}</span>;
+  const s = WORDMARK_SIZES[size];
   return (
-    <span className={`font-extrabold tracking-tight ${className}`}>
-      <span className="text-tim-700">{first}</span>
-      {rest.length > 0 && ' ' + rest.join(' ')}
+    <span className={`inline-flex flex-col leading-none ${align === 'center' ? 'items-center text-center' : ''} ${className}`}>
+      <span className={`whitespace-nowrap font-extrabold tracking-tight text-logo ${s.main}`}>{main}</span>
+      {sub && <span className={`font-semibold text-logo-2 ${s.sub} ${align === 'center' ? 'pl-[0.5em]' : ''}`}>{sub}</span>}
     </span>
   );
 }
 
-export function Logo({ compact }: { compact?: boolean }) {
+export function Logo({ compact, size = 'md', href = '/' }: { compact?: boolean; size?: 'md' | 'lg'; href?: string }) {
   return (
-    <a href="/" className="flex items-center gap-2.5 text-ink no-underline" aria-label={`${BRAND} – Trang chủ`}>
-      <LogoMark />
-      {!compact && <Wordmark className="text-[17px] leading-none" />}
+    <a href={href} className="flex shrink-0 items-center gap-2 no-underline sm:gap-2.5" aria-label={`${BRAND} – Trang chủ`}>
+      {size === 'lg' ? (
+        <LogoMark size={96} variant="full" />
+      ) : (
+        <span className="contents">
+          <span className="sm:hidden">
+            <LogoMark size={40} />
+          </span>
+          <span className="hidden sm:block">
+            <LogoMark size={48} />
+          </span>
+        </span>
+      )}
+      {!compact && <Wordmark size={size} />}
+    </a>
+  );
+}
+
+/** Logo đầy đủ (bong bóng kí hiệu toán + tên chữ căn giữa) – trang đăng nhập, chân trang. */
+export function LogoFull({ size = 132, href = '/' }: { size?: number; href?: string }) {
+  return (
+    <a href={href} className="inline-flex flex-col items-center gap-1 no-underline" aria-label={`${BRAND} – Trang chủ`}>
+      <LogoMark size={size} variant="full" />
+      <Wordmark size={size >= 120 ? 'xl' : 'lg'} align="center" />
     </a>
   );
 }

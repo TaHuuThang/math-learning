@@ -294,11 +294,11 @@ var require_react_production = __commonJS({
         );
       },
       count: function(children) {
-        var n = 0;
+        var n2 = 0;
         mapChildren(children, function() {
-          n++;
+          n2++;
         });
-        return n;
+        return n2;
       },
       toArray: function(children) {
         return mapChildren(children, function(child) {
@@ -3751,8 +3751,8 @@ var require_react_dom_server_legacy_node_production = __commonJS({
       if (null !== task.replay) {
         var resumeSlots = task.replay.slots;
         if (null !== resumeSlots && "object" === typeof resumeSlots)
-          for (var n = 0; n < keyPath; n++) {
-            var i2 = "backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder ? n : keyPath - 1 - n, node = rows[i2];
+          for (var n2 = 0; n2 < keyPath; n2++) {
+            var i2 = "backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder ? n2 : keyPath - 1 - n2, node = rows[i2];
             task.row = previousSuspenseListRow = createSuspenseListRow(
               previousSuspenseListRow
             );
@@ -3763,7 +3763,7 @@ var require_react_dom_server_legacy_node_production = __commonJS({
           }
         else
           for (resumeSlots = 0; resumeSlots < keyPath; resumeSlots++)
-            n = "backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder ? resumeSlots : keyPath - 1 - resumeSlots, i2 = rows[n], task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow), task.treeContext = pushTreeContext(prevTreeContext, keyPath, n), renderNode(request, task, i2, n), 0 === --previousSuspenseListRow.pendingTasks && finishSuspenseListRow(request, previousSuspenseListRow);
+            n2 = "backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder ? resumeSlots : keyPath - 1 - resumeSlots, i2 = rows[n2], task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow), task.treeContext = pushTreeContext(prevTreeContext, keyPath, n2), renderNode(request, task, i2, n2), 0 === --previousSuspenseListRow.pendingTasks && finishSuspenseListRow(request, previousSuspenseListRow);
       } else if ("backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder)
         for (revealOrder = 0; revealOrder < keyPath; revealOrder++)
           resumeSlots = rows[revealOrder], task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow), task.treeContext = pushTreeContext(
@@ -3774,7 +3774,7 @@ var require_react_dom_server_legacy_node_production = __commonJS({
       else {
         revealOrder = task.blockedSegment;
         resumeSlots = revealOrder.children.length;
-        n = revealOrder.chunks.length;
+        n2 = revealOrder.chunks.length;
         for (i2 = keyPath - 1; 0 <= i2; i2--) {
           node = rows[i2];
           task.row = previousSuspenseListRow = createSuspenseListRow(
@@ -3783,7 +3783,7 @@ var require_react_dom_server_legacy_node_production = __commonJS({
           task.treeContext = pushTreeContext(prevTreeContext, keyPath, i2);
           resumeSegmentID = createPendingSegment(
             request,
-            n,
+            n2,
             null,
             task.formatContext,
             0 === i2 ? revealOrder.lastPushedText : true,
@@ -9083,8 +9083,8 @@ var require_react_dom_server_node_production = __commonJS({
       if (null !== task.replay) {
         var resumeSlots = task.replay.slots;
         if (null !== resumeSlots && "object" === typeof resumeSlots)
-          for (var n = 0; n < keyPath; n++) {
-            var i2 = "backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder ? n : keyPath - 1 - n, node = rows[i2];
+          for (var n2 = 0; n2 < keyPath; n2++) {
+            var i2 = "backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder ? n2 : keyPath - 1 - n2, node = rows[i2];
             task.row = previousSuspenseListRow = createSuspenseListRow(
               previousSuspenseListRow
             );
@@ -9095,7 +9095,7 @@ var require_react_dom_server_node_production = __commonJS({
           }
         else
           for (resumeSlots = 0; resumeSlots < keyPath; resumeSlots++)
-            n = "backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder ? resumeSlots : keyPath - 1 - resumeSlots, i2 = rows[n], task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow), task.treeContext = pushTreeContext(prevTreeContext, keyPath, n), renderNode(request, task, i2, n), 0 === --previousSuspenseListRow.pendingTasks && finishSuspenseListRow(request, previousSuspenseListRow);
+            n2 = "backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder ? resumeSlots : keyPath - 1 - resumeSlots, i2 = rows[n2], task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow), task.treeContext = pushTreeContext(prevTreeContext, keyPath, n2), renderNode(request, task, i2, n2), 0 === --previousSuspenseListRow.pendingTasks && finishSuspenseListRow(request, previousSuspenseListRow);
       } else if ("backwards" !== revealOrder && "unstable_legacy-backwards" !== revealOrder)
         for (revealOrder = 0; revealOrder < keyPath; revealOrder++)
           resumeSlots = rows[revealOrder], task.row = previousSuspenseListRow = createSuspenseListRow(previousSuspenseListRow), task.treeContext = pushTreeContext(
@@ -9106,7 +9106,7 @@ var require_react_dom_server_node_production = __commonJS({
       else {
         revealOrder = task.blockedSegment;
         resumeSlots = revealOrder.children.length;
-        n = revealOrder.chunks.length;
+        n2 = revealOrder.chunks.length;
         for (i2 = keyPath - 1; 0 <= i2; i2--) {
           node = rows[i2];
           task.row = previousSuspenseListRow = createSuspenseListRow(
@@ -9115,7 +9115,7 @@ var require_react_dom_server_node_production = __commonJS({
           task.treeContext = pushTreeContext(prevTreeContext, keyPath, i2);
           resumeSegmentID = createPendingSegment(
             request,
-            n,
+            n2,
             null,
             task.formatContext,
             0 === i2 ? revealOrder.lastPushedText : true,
@@ -12405,9 +12405,9 @@ var init_katex = __esm({
         type: "number",
         default: 1e3,
         description: "Limit the number of macro expansions to the specified number, to prevent e.g. infinite macro loops. If set to Infinity, the macro expander will try to fully expand as in LaTeX.",
-        processor: (n) => Math.max(0, n),
+        processor: (n2) => Math.max(0, n2),
         cli: "-e, --max-expand <n>",
-        cliProcessor: (n) => n === "Infinity" ? Infinity : parseInt(n)
+        cliProcessor: (n2) => n2 === "Infinity" ? Infinity : parseInt(n2)
       },
       globalGroup: {
         type: "boolean",
@@ -12941,8 +12941,8 @@ var init_katex = __esm({
       }
       return Math.min(sizeValue.number * scale, options.maxSize);
     };
-    makeEm = function makeEm2(n) {
-      return +n.toFixed(4) + "em";
+    makeEm = function makeEm2(n2) {
+      return +n2.toFixed(4) + "em";
     };
     createClass = function createClass2(classes) {
       return classes.filter((cls2) => cls2).join(" ");
@@ -16994,8 +16994,8 @@ var init_katex = __esm({
         } else if (isRoot && node.hasClass("newline")) {
           prev.node = makeSpan(["leftmost"]);
         }
-        prev.insertAfter = /* @__PURE__ */ ((index) => (n) => {
-          nodes.splice(index + 1, 0, n);
+        prev.insertAfter = /* @__PURE__ */ ((index) => (n2) => {
+          nodes.splice(index + 1, 0, n2);
           i2++;
         })(i2);
       }
@@ -25702,8 +25702,8 @@ var init_katex = __esm({
        * The group will be modified in place.
        */
       formLigatures(group) {
-        var n = group.length - 1;
-        for (var i2 = 0; i2 < n; ++i2) {
+        var n2 = group.length - 1;
+        for (var i2 = 0; i2 < n2; ++i2) {
           var a = group[i2];
           if (a.type !== "textord") {
             continue;
@@ -25715,14 +25715,14 @@ var init_katex = __esm({
           }
           if (v === "-" && next.text === "-") {
             var afterNext = group[i2 + 2];
-            if (i2 + 1 < n && afterNext && afterNext.type === "textord" && afterNext.text === "-") {
+            if (i2 + 1 < n2 && afterNext && afterNext.type === "textord" && afterNext.text === "-") {
               group.splice(i2, 3, {
                 type: "textord",
                 mode: "text",
                 loc: SourceLocation.range(a, afterNext),
                 text: "---"
               });
-              n -= 2;
+              n2 -= 2;
             } else {
               group.splice(i2, 2, {
                 type: "textord",
@@ -25730,7 +25730,7 @@ var init_katex = __esm({
                 loc: SourceLocation.range(a, next),
                 text: "--"
               });
-              n -= 1;
+              n2 -= 1;
             }
           }
           if ((v === "'" || v === "`") && next.text === v) {
@@ -25740,7 +25740,7 @@ var init_katex = __esm({
               loc: SourceLocation.range(a, next),
               text: v + v
             });
-            n -= 1;
+            n2 -= 1;
           }
         }
       }
@@ -26072,9 +26072,9 @@ function parseFigure(src) {
             fig.errors.push(`D\xF2ng ${lineNo}: kh\xF4ng hi\u1EC3u "${token}". \u0110o\u1EA1n th\u1EB3ng vi\u1EBFt d\u1EA1ng AB ho\u1EB7c A1-B.`);
             return;
           }
-          for (const n of names) {
-            if (!byName.has(n)) {
-              fig.errors.push(`D\xF2ng ${lineNo}: \u0111i\u1EC3m ${n} ch\u01B0a \u0111\u01B0\u1EE3c khai b\xE1o t\u1ECDa \u0111\u1ED9.`);
+          for (const n2 of names) {
+            if (!byName.has(n2)) {
+              fig.errors.push(`D\xF2ng ${lineNo}: \u0111i\u1EC3m ${n2} ch\u01B0a \u0111\u01B0\u1EE3c khai b\xE1o t\u1ECDa \u0111\u1ED9.`);
               return;
             }
           }
@@ -26087,8 +26087,8 @@ function parseFigure(src) {
   if (!fig.points.length && !fig.errors.length) fig.errors.push("Ch\u01B0a c\xF3 \u0111i\u1EC3m n\xE0o. Khai b\xE1o \u0111i\u1EC3m d\u1EA1ng A(0,0).");
   return fig;
 }
-function fmt(n) {
-  return Number(n.toFixed(2)).toString();
+function fmt(n2) {
+  return Number(n2.toFixed(2)).toString();
 }
 function escapeXml(s) {
   return s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -26191,12 +26191,12 @@ function parseNum(s) {
   const t = s.replace(",", ".");
   if (t.includes("/")) {
     const [p, q] = t.split("/");
-    const n2 = Number(p);
+    const n3 = Number(p);
     const d = Number(q);
-    return Number.isFinite(n2) && Number.isFinite(d) && d !== 0 ? n2 / d : null;
+    return Number.isFinite(n3) && Number.isFinite(d) && d !== 0 ? n3 / d : null;
   }
-  const n = Number(t);
-  return Number.isFinite(n) ? n : null;
+  const n2 = Number(t);
+  return Number.isFinite(n2) ? n2 : null;
 }
 function parseLinear(src) {
   const raw = src.trim();
@@ -26476,8 +26476,8 @@ function chartToSvg(source) {
       parts.push(text2(left - 6, y(v) + 4, fmt3(v), 'text-anchor="end" font-size="11" fill="#706e88"'));
     }
     if (spec.unit) parts.push(text2(4, top - 10, `\u0110\u01A1n v\u1ECB: ${spec.unit}`, 'text-anchor="start" font-size="11" fill="#706e88"'));
-    const n = spec.labels.length;
-    const slot = plotW / n;
+    const n2 = spec.labels.length;
+    const slot = plotW / n2;
     spec.labels.forEach((l, i2) => parts.push(text2(left + slot * (i2 + 0.5), H - bottom + 16, l, 'text-anchor="middle" font-size="12"')));
     if (spec.kind === "cot" || spec.kind === "cotkep") {
       const k = spec.kind === "cotkep" ? 2 : 1;
@@ -26610,8 +26610,8 @@ function formatInline(text3, math2) {
   let html = escapeHtml2(text3.replace(/\u0000/g, "")).replace(/\u0001/g, "\0");
   html = html.replace(/\*\*([^*\n]+?)\*\*/g, "<strong>$1</strong>");
   html = html.replace(/\n/g, "<br>");
-  return html.replace(TOKEN_RE, (_, n) => {
-    const m = math2[Number(n)];
+  return html.replace(TOKEN_RE, (_, n2) => {
+    const m = math2[Number(n2)];
     if (!m) return "";
     if (m.figure) return renderFigureBlock(m.tex);
     if (m.chart) return renderChartBlock(m.tex);
@@ -27019,8 +27019,8 @@ function parseScalar(oid, text3) {
     case 16:
       return text3 === "t";
     case 20: {
-      const n = Number(text3);
-      return Number.isSafeInteger(n) ? n : text3;
+      const n2 = Number(text3);
+      return Number.isSafeInteger(n2) ? n2 : text3;
     }
     case 1700:
       return Number(text3);
@@ -27380,8 +27380,8 @@ var PgConnection = class {
           case "C": {
             const [tag] = readCString(body, 0);
             command = tag.split(" ")[0];
-            const n = Number(tag.split(" ").pop());
-            rowCount = Number.isFinite(n) ? n : 0;
+            const n2 = Number(tag.split(" ").pop());
+            rowCount = Number.isFinite(n2) ? n2 : 0;
             return;
           }
           case "E":
@@ -34216,7 +34216,7 @@ var TN2 = {
 };
 var TOAN8_MAP = [CHUONG_1, CHUONG_2, CHUONG_3, CHUONG_4, CHUONG_5, TN1, CHUONG_6, CHUONG_7, CHUONG_8, CHUONG_9, CHUONG_10, TN2];
 var ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
-var pad = (n) => String(n).padStart(2, "0");
+var pad = (n2) => String(n2).padStart(2, "0");
 function lessonCodes() {
   const codes = /* @__PURE__ */ new Map();
   for (const ch2 of TOAN8_CHAPTERS) {
@@ -34290,7 +34290,7 @@ async function applyLesson(t, textbookId, lessonId, lessonCode, l, stats) {
   const existing = await t.many(sql`
     select id, title, code from topics where lesson_id = ${lessonId} order by sort_order, id`);
   const used = /* @__PURE__ */ new Set();
-  let n = 0;
+  let n2 = 0;
   for (const [ti, th] of l.themes.entries()) {
     const themeCode = `${lessonCode}.CD${ti + 1}`;
     let theme = await t.one(sql`select id from themes where code = ${themeCode}`);
@@ -34301,8 +34301,8 @@ async function applyLesson(t, textbookId, lessonId, lessonCode, l, stats) {
       stats.themes++;
     }
     for (const ty of th.types) {
-      n++;
-      const code = `${lessonCode}.D${n}`;
+      n2++;
+      const code = `${lessonCode}.D${n2}`;
       const names = [ty.title, ...ty.legacy ?? []];
       const byCode = existing.find((e) => e.code === code);
       const match = byCode ?? existing.find((e) => !e.code && !used.has(e.id) && names.includes(e.title));
@@ -34317,14 +34317,14 @@ async function applyLesson(t, textbookId, lessonId, lessonCode, l, stats) {
             steps = coalesce(steps, ${ty.steps}), mistakes = coalesce(mistakes, ${ty.mistakes}), example = coalesce(example, ${ty.example}),
             example_solution = coalesce(example_solution, ${ty.solution}),
             levels = case when cardinality(levels) = 0 then ${ty.levels}::smallint[] else levels end,
-            sort_order = ${n}, updated_at = now()
+            sort_order = ${n2}, updated_at = now()
           where id = ${match.id}`);
         topicId = match.id;
       } else {
         const row = await t.one(sql`
           insert into topics (lesson_id, theme_id, code, slug, title, knowledge, signs, method, steps, mistakes, example, example_solution, levels, sort_order)
           values (${lessonId}, ${theme.id}, ${code}, ${ty.slug}, ${ty.title}, ${ty.knowledge}, ${ty.signs}, ${ty.method}, ${ty.steps}, ${ty.mistakes},
-            ${ty.example}, ${ty.solution}, ${ty.levels}::smallint[], ${n})
+            ${ty.example}, ${ty.solution}, ${ty.levels}::smallint[], ${n2})
           returning id`);
         topicId = row.id;
       }
@@ -34337,7 +34337,7 @@ async function applyLesson(t, textbookId, lessonId, lessonCode, l, stats) {
       }
     }
   }
-  let k = n;
+  let k = n2;
   for (const e of existing) if (!used.has(e.id)) await t.exec(sql`update topics set sort_order = ${++k} where id = ${e.id}`);
 }
 async function hasSameQuestion(t, lessonId, ex) {
@@ -34386,10 +34386,10 @@ async function seedToan8(db, log = console.log) {
       returning id`);
     const textbookId = book.id;
     const semesterIds = {};
-    for (const n of [1, 2]) {
+    for (const n2 of [1, 2]) {
       const s = await t.one(sql`
-        insert into semesters (textbook_id, number, name) values (${textbookId}, ${n}, ${n === 1 ? "H\u1ECDc k\xEC I" : "H\u1ECDc k\xEC II"}) returning id`);
-      semesterIds[n] = s.id;
+        insert into semesters (textbook_id, number, name) values (${textbookId}, ${n2}, ${n2 === 1 ? "H\u1ECDc k\xEC I" : "H\u1ECDc k\xEC II"}) returning id`);
+      semesterIds[n2] = s.id;
     }
     const lessonIds = /* @__PURE__ */ new Map();
     const topicIds = /* @__PURE__ */ new Map();
@@ -34492,13 +34492,13 @@ var N = 16384;
 var R2 = 8;
 var P2 = 1;
 var KEYLEN = 64;
-function scrypt(password, salt, n, r4, p) {
+function scrypt(password, salt, n2, r4, p) {
   return new Promise((resolve, reject) => {
     crypto2.scrypt(
       password.normalize("NFKC"),
       salt,
       KEYLEN,
-      { N: n, r: r4, p, maxmem: 128 * n * r4 * 2 },
+      { N: n2, r: r4, p, maxmem: 128 * n2 * r4 * 2 },
       (err, key) => err ? reject(err) : resolve(key)
     );
   });
@@ -34511,9 +34511,9 @@ async function hashPassword(password) {
 async function verifyPassword(password, stored) {
   const parts = stored.split("$");
   if (parts.length !== 6 || parts[0] !== "scrypt") return false;
-  const [, n, r4, p, saltB64, keyB64] = parts;
+  const [, n2, r4, p, saltB64, keyB64] = parts;
   const expected = Buffer.from(keyB64, "base64");
-  const key = await scrypt(password, Buffer.from(saltB64, "base64"), Number(n), Number(r4), Number(p));
+  const key = await scrypt(password, Buffer.from(saltB64, "base64"), Number(n2), Number(r4), Number(p));
   return key.length === expected.length && crypto2.timingSafeEqual(key, expected);
 }
 function passwordProblem(password) {
@@ -34619,14 +34619,14 @@ var FormData = class {
   int(name) {
     const v = this.params.get(name);
     if (v === null || v.trim() === "") return null;
-    const n = Number(v);
-    return Number.isInteger(n) ? n : null;
+    const n2 = Number(v);
+    return Number.isInteger(n2) ? n2 : null;
   }
   num(name) {
     const v = this.params.get(name);
     if (v === null || v.trim() === "") return null;
-    const n = Number(v.replace(",", "."));
-    return Number.isFinite(n) ? n : null;
+    const n2 = Number(v.replace(",", "."));
+    return Number.isFinite(n2) ? n2 : null;
   }
   bool(name) {
     const v = this.params.get(name);
@@ -34720,27 +34720,27 @@ function _objectWithoutProperties(e, t) {
   if (null == e) return {};
   var o, r4, i2 = _objectWithoutPropertiesLoose(e, t);
   if (Object.getOwnPropertySymbols) {
-    var n = Object.getOwnPropertySymbols(e);
-    for (r4 = 0; r4 < n.length; r4++) o = n[r4], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i2[o] = e[o]);
+    var n2 = Object.getOwnPropertySymbols(e);
+    for (r4 = 0; r4 < n2.length; r4++) o = n2[r4], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i2[o] = e[o]);
   }
   return i2;
 }
 function _objectWithoutPropertiesLoose(r4, e) {
   if (null == r4) return {};
   var t = {};
-  for (var n in r4) if ({}.hasOwnProperty.call(r4, n)) {
-    if (-1 !== e.indexOf(n)) continue;
-    t[n] = r4[n];
+  for (var n2 in r4) if ({}.hasOwnProperty.call(r4, n2)) {
+    if (-1 !== e.indexOf(n2)) continue;
+    t[n2] = r4[n2];
   }
   return t;
 }
 function _extends() {
-  return _extends = Object.assign ? Object.assign.bind() : function(n) {
+  return _extends = Object.assign ? Object.assign.bind() : function(n2) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r4 in t) ({}).hasOwnProperty.call(t, r4) && (n[r4] = t[r4]);
+      for (var r4 in t) ({}).hasOwnProperty.call(t, r4) && (n2[r4] = t[r4]);
     }
-    return n;
+    return n2;
   }, _extends.apply(null, arguments);
 }
 function ownKeys(e, r4) {
@@ -34955,9 +34955,6 @@ function LuArrowDown(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2", "strokeLinecap": "round", "strokeLinejoin": "round" }, "child": [{ "tag": "path", "attr": { "d": "M12 5v14" }, "child": [] }, { "tag": "path", "attr": { "d": "m19 12-7 7-7-7" }, "child": [] }] })(props);
 }
 
-// src/ui/components/Logo.tsx
-var import_react4 = __toESM(require_react(), 1);
-
 // src/shared/brand.ts
 var BRAND = "TH\u1EAENG MATH LEARNING";
 var AUTHOR = "T\u1EA1 H\u1EEFu Th\u1EAFng";
@@ -34965,38 +34962,120 @@ var COPYRIGHT_YEAR = 2026;
 var COPYRIGHT = `\xA9 ${COPYRIGHT_YEAR} ${AUTHOR}. M\u1ECDi quy\u1EC1n \u0111\u01B0\u1EE3c b\u1EA3o l\u01B0u.`;
 var COPYRIGHT_NOTE = "N\u1ED9i dung b\xE0i h\u1ECDc, c\xE2u h\u1ECFi v\xE0 m\xE3 ngu\u1ED3n thu\u1ED9c b\u1EA3n quy\u1EC1n c\u1EE7a t\xE1c gi\u1EA3. Kh\xF4ng sao ch\xE9p, ph\xE1t h\xE0nh l\u1EA1i khi ch\u01B0a \u0111\u01B0\u1EE3c cho ph\xE9p.";
 
+// src/shared/logo.ts
+var LOGO_INK = "#25306b";
+var C = { cam: "#f26b2d", do: "#e8434b", xanh: "#3d9ae8", vang: "#f6b91e", la: "#27b36b", hong: "#e8457a", ink: LOGO_INK };
+function monogramSvg() {
+  const p = [];
+  p.push(`<rect x="3" y="8" width="49" height="14" rx="1.5" fill="${LOGO_INK}"/>`);
+  p.push(`<rect x="19" y="8" width="17" height="64" rx="1.5" fill="${LOGO_INK}"/>`);
+  for (let i2 = 0, y = 26.5; y <= 68; y += 4.2, i2++) p.push(`<rect x="19" y="${y.toFixed(1)}" width="${i2 % 2 ? 4 : 7.5}" height="1.5" fill="#fff"/>`);
+  p.push(`<path d="M55 72V8h12l12 30 12-30v24l-12 30-12-30v40z" fill="${LOGO_INK}"/>`);
+  p.push(`<rect x="91" y="8" width="13" height="50" fill="${LOGO_INK}"/>`);
+  p.push(`<rect x="96.3" y="8" width="2.4" height="50" fill="#3e4b98"/>`);
+  p.push(`<path d="M91 58h13l-6.5 15z" fill="#f4d2a0"/>`);
+  p.push(`<path d="M94.9 67h5.2l-2.6 6z" fill="${C.hong}"/>`);
+  p.push(`<path d="M73 74h12l-6-9.5z" fill="${C.la}"/>`);
+  return p.join("");
+}
+var n = (v) => Number(v.toFixed(2));
+function bubble(cx2, cy, r4, color, sym) {
+  const s = r4 * 0.5;
+  const w = n(Math.max(1.6, r4 * 0.24));
+  const line = (d, width = w) => `<path d="${d}" stroke="#fff" stroke-width="${n(width)}" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`;
+  let g = "";
+  if (sym === "+") g = line(`M${n(cx2 - s)} ${cy}h${n(2 * s)}M${cx2} ${n(cy - s)}v${n(2 * s)}`);
+  if (sym === "x") g = line(`M${n(cx2 - s * 0.75)} ${n(cy - s * 0.75)}l${n(1.5 * s)} ${n(1.5 * s)}M${n(cx2 + s * 0.75)} ${n(cy - s * 0.75)}l${n(-1.5 * s)} ${n(1.5 * s)}`);
+  if (sym === "=") g = line(`M${n(cx2 - s)} ${n(cy - s * 0.38)}h${n(2 * s)}M${n(cx2 - s)} ${n(cy + s * 0.38)}h${n(2 * s)}`);
+  if (sym === "\xF7")
+    g = line(`M${n(cx2 - s)} ${cy}h${n(2 * s)}`) + `<circle cx="${cx2}" cy="${n(cy - s * 0.62)}" r="${n(w * 0.62)}" fill="#fff"/><circle cx="${cx2}" cy="${n(cy + s * 0.62)}" r="${n(w * 0.62)}" fill="#fff"/>`;
+  if (sym === "pi") g = line(`M${n(cx2 - s)} ${n(cy - s * 0.55)}h${n(2 * s)}M${n(cx2 - s * 0.45)} ${n(cy - s * 0.55)}v${n(1.45 * s)}M${n(cx2 + s * 0.45)} ${n(cy - s * 0.55)}v${n(1.15 * s)}q0 ${n(0.3 * s)} ${n(0.35 * s)} ${n(0.3 * s)}`, w * 0.9);
+  if (sym === "sigma") g = line(`M${n(cx2 + s * 0.7)} ${n(cy - s * 0.8)}h${n(-1.4 * s)}l${n(0.85 * s)} ${n(0.8 * s)}l${n(-0.85 * s)} ${n(0.8 * s)}h${n(1.4 * s)}`, w * 0.85);
+  return `<circle cx="${cx2}" cy="${cy}" r="${r4}" fill="${color}"/>${g}`;
+}
+var plus = (cx2, cy, s, color) => `<path d="M${cx2 - s} ${cy}h${2 * s}M${cx2} ${cy - s}v${2 * s}" stroke="${color}" stroke-width="3.2" stroke-linecap="round"/>`;
+var dot = (cx2, cy, r4, color, opacity = 1) => `<circle cx="${cx2}" cy="${cy}" r="${r4}" fill="${color}"${opacity < 1 ? ` opacity="${opacity}"` : ""}/>`;
+function bubblesSvg() {
+  return [
+    bubble(68, -9, 7, C.cam, "+"),
+    plus(83, -20, 5, C.xanh),
+    bubble(90, -4, 7, C.ink, "x"),
+    bubble(105, -16, 6, C.vang, "\xF7"),
+    plus(118, -2, 5.5, C.do),
+    bubble(-12, 38, 7, C.la, "="),
+    bubble(-6, 60, 6.5, C.vang, "pi"),
+    bubble(22, 88, 7.5, C.xanh, "sigma"),
+    bubble(50, 84, 7, C.cam, "="),
+    dot(34, -3, 2.4, C.ink),
+    dot(47, -8, 2.6, C.xanh, 0.7),
+    dot(-4, 14, 2.2, C.cam),
+    dot(80, 2, 2.4, C.hong),
+    dot(44, 40, 2.6, C.vang),
+    dot(44, 52, 2, C.ink),
+    dot(118, 34, 2.6, C.la),
+    dot(113, 70, 2.4, C.cam),
+    dot(6, 80, 2, C.do),
+    dot(62, 96, 2.2, C.la),
+    dot(100, 86, 1.8, C.vang)
+  ].join("");
+}
+var LOGO_VIEWBOX = {
+  full: [-24, -30, 156, 132],
+  compact: [0, -17, 107, 97],
+  mono: [0, 0, 107, 80]
+};
+function logoInnerSvg(variant) {
+  if (variant === "full") return bubblesSvg() + monogramSvg();
+  if (variant === "compact") return monogramSvg() + bubble(70, -6, 6.5, C.cam, "+") + bubble(86, -9, 5, C.vang, "\xF7") + dot(102, -4, 3, C.do);
+  return monogramSvg();
+}
+
 // src/ui/components/Logo.tsx
 var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
-var M_POINTS = "6.5,25.5 10.5,12 16,20.5 21.5,12 25.5,25.5";
-var T_PATH = "M7 6.8H25M16 6.8V20.5";
-function LogoMark({ size = 34 }) {
-  const gid = "ml-logo-" + (0, import_react4.useId)().replace(/[^a-zA-Z0-9_-]/g, "");
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: size, height: size, viewBox: "0 0 32 32", "aria-hidden": "true", className: "shrink-0", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("linearGradient", { id: gid, x1: "0", y1: "0", x2: "1", y2: "1", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("stop", { offset: "0", stopColor: "#5541C4" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("stop", { offset: "1", stopColor: "#2B1E70" })
-    ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", { width: "32", height: "32", rx: "9", fill: `url(#${gid})` }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M8 0v32M16 0v32M24 0v32M0 8h32M0 16h32M0 24h32", stroke: "#fff", strokeOpacity: ".1", strokeWidth: "1" }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", { transform: "translate(0 1.1)", opacity: ".45", fill: "none", stroke: "#170E4A", strokeWidth: "3.2", strokeLinecap: "round", strokeLinejoin: "round", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: M_POINTS }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: T_PATH })
+function LogoMark({ size = 48, variant = "compact" }) {
+  const [x, y, w, h] = LOGO_VIEWBOX[variant];
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+    "svg",
+    {
+      width: size,
+      height: Math.round(size * h / w),
+      viewBox: `${x} ${y} ${w} ${h}`,
+      "aria-hidden": "true",
+      className: "shrink-0",
+      dangerouslySetInnerHTML: { __html: logoInnerSvg(variant) }
+    }
+  );
+}
+var WORDMARK_SIZES = {
+  sm: { main: "text-[15px]", sub: "mt-[3px] text-[8.5px] tracking-[0.42em]" },
+  md: { main: "text-[15px] sm:text-[17px]", sub: "mt-[4px] text-[8.5px] tracking-[0.42em] sm:text-[9.5px] sm:tracking-[0.44em]" },
+  lg: { main: "text-[22px]", sub: "mt-[5px] text-[12px] tracking-[0.46em]" },
+  xl: { main: "text-[30px]", sub: "mt-[6px] text-[14.5px] tracking-[0.5em]" }
+};
+function Wordmark({ size = "md", align = "left", inline, className = "" }) {
+  const words = BRAND.split(" ");
+  const main3 = words.slice(0, -1).join(" ") || BRAND;
+  const sub2 = words.length > 1 ? words[words.length - 1] : "";
+  if (inline) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `font-extrabold tracking-tight text-logo ${className}`, children: BRAND });
+  const s = WORDMARK_SIZES[size];
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: `inline-flex flex-col leading-none ${align === "center" ? "items-center text-center" : ""} ${className}`, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `whitespace-nowrap font-extrabold tracking-tight text-logo ${s.main}`, children: main3 }),
+    sub2 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `font-semibold text-logo-2 ${s.sub} ${align === "center" ? "pl-[0.5em]" : ""}`, children: sub2 })
+  ] });
+}
+function Logo({ compact, size = "md", href = "/" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", { href, className: "flex shrink-0 items-center gap-2 no-underline sm:gap-2.5", "aria-label": `${BRAND} \u2013 Trang ch\u1EE7`, children: [
+    size === "lg" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogoMark, { size: 96, variant: "full" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "contents", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "sm:hidden", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogoMark, { size: 40 }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hidden sm:block", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogoMark, { size: 48 }) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: M_POINTS, fill: "none", stroke: "#fff", strokeWidth: "3.2", strokeLinejoin: "round", strokeLinecap: "round" }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: T_PATH, fill: "none", stroke: "#FFD84D", strokeWidth: "3.2", strokeLinecap: "round" })
+    !compact && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wordmark, { size })
   ] });
 }
-function Wordmark({ className = "" }) {
-  const [first, ...rest] = BRAND.split(" ");
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: `font-extrabold tracking-tight ${className}`, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "text-tim-700", children: first }),
-    rest.length > 0 && " " + rest.join(" ")
-  ] });
-}
-function Logo({ compact }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", { href: "/", className: "flex items-center gap-2.5 text-ink no-underline", "aria-label": `${BRAND} \u2013 Trang ch\u1EE7`, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogoMark, {}),
-    !compact && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wordmark, { className: "text-[17px] leading-none" })
+function LogoFull({ size = 132, href = "/" }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", { href, className: "inline-flex flex-col items-center gap-1 no-underline", "aria-label": `${BRAND} \u2013 Trang ch\u1EE7`, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LogoMark, { size, variant: "full" }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Wordmark, { size: size >= 120 ? "xl" : "lg", align: "center" })
   ] });
 }
 
@@ -35312,8 +35391,8 @@ function formatDate(d) {
   if (!d) return "";
   return new Intl.DateTimeFormat("vi-VN", { timeZone: TIME_ZONE, day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date(d));
 }
-function formatNumber(n, digits = 2) {
-  return new Intl.NumberFormat("vi-VN", { maximumFractionDigits: digits }).format(n);
+function formatNumber(n2, digits = 2) {
+  return new Intl.NumberFormat("vi-VN", { maximumFractionDigits: digits }).format(n2);
 }
 function percent(part, total) {
   return total > 0 ? Math.round(part / total * 100) : 0;
@@ -35375,28 +35454,28 @@ function SiteHeader() {
   const { user, path: path7 } = useApp();
   return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("header", { className: "site-header sticky top-0 z-20 border-b border-line bg-white/95 backdrop-blur", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "mx-auto flex h-16 max-w-[1240px] items-center gap-4 px-4 md:px-6", children: [
     /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Logo, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh", className: "ml-6 hidden items-center gap-1 lg:flex", children: NAV.map((n) => {
-      const active = n.match(path7);
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh", className: "ml-6 hidden items-center gap-1 lg:flex", children: NAV.map((n2) => {
+      const active = n2.match(path7);
       return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
         "a",
         {
-          href: n.href,
+          href: n2.href,
           "aria-current": active ? "page" : void 0,
           className: cx("rounded-lg px-3 py-2 text-[15px] font-medium hover:bg-tim-50 hover:text-tim-800", active ? "text-ink" : "text-ink-2"),
-          children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: active ? "hl font-semibold" : "", children: n.label })
+          children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: active ? "hl font-semibold" : "", children: n2.label })
         },
-        n.href
+        n2.href
       );
     }) }),
     /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "ml-auto flex items-center gap-2", children: [
       user ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(UserMenu, {}) : /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { href: "/dang-nhap", className: buttonClass("ghost", "sm", "hidden sm:inline-flex"), children: "\u0110\u0103ng nh\u1EADp" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { href: "/dang-nhap", className: buttonClass("ghost", "sm", "max-sm:hidden"), children: "\u0110\u0103ng nh\u1EADp" }),
         /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { href: "/dang-ky", className: buttonClass("primary", "sm"), children: "\u0110\u0103ng k\xFD" })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("details", { className: "relative lg:hidden", "data-menu": true, children: [
         /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("summary", { className: "flex h-10 w-10 items-center justify-center rounded-xl border border-line text-xl", "aria-label": "M\u1EDF menu", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(LuMenu, { "aria-hidden": "true" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh (di \u0111\u1ED9ng)", className: "absolute right-0 z-30 mt-2 w-60 rounded-2xl border border-line bg-white p-2 shadow-[0_12px_32px_-12px_rgba(30,21,75,0.35)]", children: [
-          NAV.map((n) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { href: n.href, className: cx("block rounded-lg px-3 py-2.5 text-[15px] hover:bg-tim-50", n.match(path7) && "bg-tim-50 font-semibold text-tim-800"), children: n.label }, n.href)),
+          NAV.map((n2) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { href: n2.href, className: cx("block rounded-lg px-3 py-2.5 text-[15px] hover:bg-tim-50", n2.match(path7) && "bg-tim-50 font-semibold text-tim-800"), children: n2.label }, n2.href)),
           !user && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { href: "/dang-nhap", className: "block rounded-lg px-3 py-2.5 text-[15px] hover:bg-tim-50", children: "\u0110\u0103ng nh\u1EADp" })
         ] })
       ] })
@@ -35407,7 +35486,7 @@ function SiteFooter() {
   return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("footer", { className: "site-footer mt-20 border-t border-line bg-white", children: [
     /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "mx-auto grid max-w-[1240px] gap-8 px-4 py-10 md:grid-cols-[1.4fr_1fr_1fr] md:px-6", children: [
       /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Logo, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(Logo, { size: "lg" }),
         /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { className: "mt-3 max-w-sm text-sm text-ink-2", children: "H\u1ECDc To\xE1n THCS theo Ch\u01B0\u01A1ng tr\xECnh GDPT 2018. \u0110ang m\u1EDF To\xE1n 8 \u2013 b\u1ED9 s\xE1ch K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng; To\xE1n 6, 7, 9 \u0111ang \u0111\u01B0\u1EE3c bi\xEAn so\u1EA1n." })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
@@ -35463,13 +35542,13 @@ var ADMIN_NAV = [
 ];
 function NavList({ section }) {
   const { user } = useApp();
-  const item = (n) => {
-    const Icon = n.icon;
-    const active = section === n.key;
+  const item = (n2) => {
+    const Icon = n2.icon;
+    const active = section === n2.key;
     return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
       "a",
       {
-        href: n.href,
+        href: n2.href,
         "aria-current": active ? "page" : void 0,
         className: cx(
           "flex items-center gap-3 rounded-xl px-3 py-2.5 text-[15px] font-medium",
@@ -35477,10 +35556,10 @@ function NavList({ section }) {
         ),
         children: [
           /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Icon, { "aria-hidden": "true", className: "text-lg" }),
-          n.label
+          n2.label
         ]
       },
-      n.key
+      n2.key
     );
   };
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("nav", { "aria-label": "Qu\u1EA3n l\xFD", className: "space-y-1", children: [
@@ -35496,10 +35575,10 @@ function DashboardLayout({ children, section }) {
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "min-h-screen lg:grid lg:grid-cols-[264px_minmax(0,1fr)]", children: [
     /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("aside", { className: "hidden border-r border-line bg-white lg:flex lg:flex-col lg:sticky lg:top-0 lg:h-screen", children: [
       /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("a", { href: "/giao-vien", className: "flex items-center gap-2.5 px-5 py-5", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(LogoMark, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(LogoMark, { size: 44 }),
         /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: "leading-tight", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Wordmark, { className: "block text-[15px]" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "block text-[12px] text-ink-3", children: "Khu v\u1EF1c gi\xE1o vi\xEAn" })
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Wordmark, { size: "sm" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "mt-1 block text-[12px] text-ink-3", children: "Khu v\u1EF1c gi\xE1o vi\xEAn" })
         ] })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "flex-1 overflow-y-auto px-3", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(NavList, { section }) }),
@@ -35530,7 +35609,7 @@ function DashboardLayout({ children, section }) {
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Wordmark, {})
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Wordmark, { inline: true, className: "text-[15px]" })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("main", { id: "noi-dung", className: "mx-auto max-w-[1180px] px-4 py-6 md:px-8 md:py-8", children: [
         /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "mb-4 empty:hidden", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(FlashBanner, {}) }),
@@ -35544,7 +35623,7 @@ function DashboardLayout({ children, section }) {
 var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
 function AuthLayout({ children }) {
   return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "o-li min-h-screen px-4 py-8 md:py-14", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "mx-auto max-w-[460px]", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-6 flex justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Logo, {}) }),
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-6 flex justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(LogoFull, { size: 132 }) }),
     /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("main", { id: "noi-dung", className: "rounded-[22px] border border-line bg-white p-6 shadow-[0_24px_48px_-24px_rgba(30,21,75,0.35)] md:p-8", children: [
       /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "mb-4 empty:hidden", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(FlashBanner, {}) }),
       children
@@ -36030,10 +36109,10 @@ async function topicOptions(q, textbookId) {
 // src/domain/gamification.ts
 async function awardXp(q, userId, amount, reason, ref) {
   if (amount <= 0) return 0;
-  const n = await q.exec(sql`
+  const n2 = await q.exec(sql`
     insert into xp_events (user_id, amount, reason, ref) values (${userId}, ${amount}, ${reason}, ${ref})
     on conflict do nothing`);
-  return n > 0 ? amount : 0;
+  return n2 > 0 ? amount : 0;
 }
 async function totalXp(q, userId) {
   const r4 = await q.one(sql`select coalesce(sum(amount), 0)::int as xp from xp_events where user_id = ${userId}`);
@@ -36106,8 +36185,8 @@ async function evaluateAchievements(q, userId) {
     for (const a of pending) {
       if (earned.some((e) => e.code === a.code)) continue;
       if (!RULES[a.code](m, xp)) continue;
-      const n = await q.exec(sql`insert into user_achievements (user_id, achievement_id) values (${userId}, ${a.id}) on conflict do nothing`);
-      if (n > 0) {
+      const n2 = await q.exec(sql`insert into user_achievements (user_id, achievement_id) values (${userId}, ${a.id}) on conflict do nothing`);
+      if (n2 > 0) {
         await awardXp(q, userId, a.xpReward, "achievement", a.code);
         earned.push({ code: a.code, name: a.name, description: a.description, icon: a.icon, tier: a.tier });
       }
@@ -36164,8 +36243,8 @@ function parseNumber(input) {
   else if (/^[+-]?\d{1,3}(,\d{3})+\.\d+$/.test(s)) s = s.replace(/,/g, "");
   else s = s.replace(",", ".");
   if (!/^[+-]?(\d+\.?\d*|\.\d+)$/.test(s)) return null;
-  const n = Number(s);
-  return Number.isFinite(n) ? n : null;
+  const n2 = Number(s);
+  return Number.isFinite(n2) ? n2 : null;
 }
 function normalizeText(s) {
   return s.trim().toLowerCase().replace(/[−–]/g, "-").replace(/\s+/g, "");
@@ -37146,8 +37225,8 @@ async function addExistingStudentToClass(q, classId, username) {
     select u.id, r.code as role from users u join roles r on r.id = u.role_id where lower(u.username) = lower(${username.trim()})`);
   if (!s) throw new UserInputError(`Kh\xF4ng c\xF3 t\xE0i kho\u1EA3n "${username}".`);
   if (s.role !== "student") throw new UserInputError("Ch\u1EC9 th\xEAm \u0111\u01B0\u1EE3c t\xE0i kho\u1EA3n h\u1ECDc sinh v\xE0o l\u1EDBp.");
-  const n = await q.exec(sql`insert into class_members (class_id, student_id) values (${classId}, ${s.id}) on conflict do nothing`);
-  if (!n) throw new UserInputError("H\u1ECDc sinh n\xE0y \u0111\xE3 \u1EDF trong l\u1EDBp.");
+  const n2 = await q.exec(sql`insert into class_members (class_id, student_id) values (${classId}, ${s.id}) on conflict do nothing`);
+  if (!n2) throw new UserInputError("H\u1ECDc sinh n\xE0y \u0111\xE3 \u1EDF trong l\u1EDBp.");
 }
 async function removeMember(q, classId, studentId) {
   await q.exec(sql`delete from class_members where class_id = ${classId} and student_id = ${studentId}`);
@@ -37156,8 +37235,8 @@ async function joinClassByCode(q, studentId, code) {
   const c = await q.one(sql`
     select id, name, status from classes where join_code = ${code.trim().toUpperCase()}`);
   if (!c || c.status !== "active") throw new UserInputError("M\xE3 l\u1EDBp kh\xF4ng \u0111\xFAng ho\u1EB7c l\u1EDBp \u0111\xE3 \u0111\xF3ng. H\xE3y h\u1ECFi l\u1EA1i th\u1EA7y c\xF4 m\xE3 l\u1EDBp.");
-  const n = await q.exec(sql`insert into class_members (class_id, student_id) values (${c.id}, ${studentId}) on conflict do nothing`);
-  if (!n) throw new UserInputError(`B\u1EA1n \u0111\xE3 \u1EDF trong l\u1EDBp ${c.name}.`);
+  const n2 = await q.exec(sql`insert into class_members (class_id, student_id) values (${c.id}, ${studentId}) on conflict do nothing`);
+  if (!n2) throw new UserInputError(`B\u1EA1n \u0111\xE3 \u1EDF trong l\u1EDBp ${c.name}.`);
   return { name: c.name };
 }
 async function studentClasses(q, studentId) {
@@ -37495,7 +37574,7 @@ async function getThemesByLesson(q, textbookId, includeDrafts = false) {
 async function getLessonThemes(q, textbookId, lessonId, includeDrafts = false) {
   return (await getThemesByLesson(q, textbookId, includeDrafts)).get(lessonId) ?? [];
 }
-var countTopics = (themes) => (themes ?? []).reduce((n, th) => n + th.topics.length, 0);
+var countTopics = (themes) => (themes ?? []).reduce((n2, th) => n2 + th.topics.length, 0);
 var CHAPTER_COLS = sql`c.id, c.textbook_id, c.semester_id, s.number as semester_number, s.name as semester_name, c.code, c.title, c.description, c.kind,
   c.objectives, c.key_points, c.formulas, c.status, c.verify_status, c.verify_note, c.sort_order`;
 async function getChapterByCode(q, textbookId, code) {
@@ -37513,8 +37592,8 @@ function summarizeChapter(c, themes) {
   const lessons = c.lessons.length;
   const completed = c.lessons.filter((l) => l.progress === "completed").length;
   const started = c.lessons.filter((l) => l.progress).length;
-  const topics = c.lessons.reduce((n, l) => n + countTopics(themes.get(l.id)), 0);
-  const questions = c.lessons.reduce((n, l) => n + l.questionCount, 0);
+  const topics = c.lessons.reduce((n2, l) => n2 + countTopics(themes.get(l.id)), 0);
+  const questions = c.lessons.reduce((n2, l) => n2 + l.questionCount, 0);
   const state = lessons > 0 && completed === lessons ? "done" : started > 0 ? "in_progress" : "not_started";
   return { lessons, completed, started, topics, questions, state };
 }
@@ -37554,7 +37633,7 @@ async function getTopicQuestionCounts(q, topicId) {
     byType[r4.code] = (byType[r4.code] ?? 0) + r4.n;
     byLevel[r4.level] = (byLevel[r4.level] ?? 0) + r4.n;
   }
-  return { byType, byLevel, total: rows.reduce((n, r4) => n + r4.n, 0) };
+  return { byType, byLevel, total: rows.reduce((n2, r4) => n2 + r4.n, 0) };
 }
 var LEVEL_LABELS2 = { 1: "Nh\u1EADn bi\u1EBFt", 2: "Th\xF4ng hi\u1EC3u", 3: "V\u1EADn d\u1EE5ng", 4: "V\u1EADn d\u1EE5ng cao" };
 var LEVEL_SHORT = { 1: "NB", 2: "TH", 3: "VD", 4: "VDC" };
@@ -37589,7 +37668,7 @@ function DifficultyBadge({ level }) {
   ] });
 }
 function ThemeList({ themes, topicHref: topicHref2, compact }) {
-  let n = 0;
+  let n2 = 0;
   return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("ol", { className: cx("space-y-4", compact && "space-y-3"), children: themes.map((th, i2) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("li", { className: "rounded-2xl border border-line bg-white", children: [
     /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-line px-4 py-3", children: [
       /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "text-[12px] font-bold uppercase tracking-wide text-tim-500", children: [
@@ -37601,9 +37680,9 @@ function ThemeList({ themes, topicHref: topicHref2, compact }) {
       !compact && th.description && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "basis-full text-[13.5px] text-ink-3", children: th.description })
     ] }),
     th.topics.length ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("ul", { className: "divide-y divide-line", children: th.topics.map((t) => {
-      n++;
+      n2++;
       return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("a", { href: topicHref2(t), className: "group flex items-center gap-3 px-4 py-2.5 hover:bg-tim-50/70", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-tim-700 text-[13px] font-bold text-white", children: n }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-tim-700 text-[13px] font-bold text-white", children: n2 }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "min-w-0 flex-1", children: [
           /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "block text-[15px] font-semibold group-hover:text-tim-800 group-hover:underline", children: t.title }),
           !compact && t.method && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "line-clamp-1 block text-[13px] text-ink-3", children: t.method })
@@ -37799,7 +37878,7 @@ async function chapterPage(ctx) {
             " b\xE0i t\u1EADp"
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { className: "text-ink", children: c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0) }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { className: "text-ink", children: c.lessons.reduce((n2, l) => n2 + (l.periods ?? 0), 0) }),
             " ti\u1EBFt"
           ] })
         ] }),
@@ -38069,9 +38148,9 @@ function mapTotals(tree, themes) {
     chapters: tree.flatMap((s) => s.chapters).filter((c) => c.kind === "chapter").length,
     lessons: flat.filter((l) => l.kind === "lesson").length,
     items: flat.length,
-    themes: flat.reduce((n, l) => n + (themes.get(l.id)?.filter((th) => th.id).length ?? 0), 0),
-    topics: flat.reduce((n, l) => n + countTopics(themes.get(l.id)), 0),
-    questions: flat.reduce((n, l) => n + l.questionCount, 0)
+    themes: flat.reduce((n2, l) => n2 + (themes.get(l.id)?.filter((th) => th.id).length ?? 0), 0),
+    topics: flat.reduce((n2, l) => n2 + countTopics(themes.get(l.id)), 0),
+    questions: flat.reduce((n2, l) => n2 + l.questionCount, 0)
   };
 }
 function KnowledgeTree({
@@ -38115,8 +38194,8 @@ function MapTotalsBar({ t }) {
     [t.topics, "d\u1EA1ng to\xE1n"],
     [t.questions, "b\xE0i t\u1EADp"]
   ];
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "mb-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6", children: items.map(([n, k]) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "rounded-2xl border border-line bg-white px-4 py-3", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "text-[26px] font-extrabold leading-none text-tim-700", children: n }),
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "mb-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6", children: items.map(([n2, k]) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "rounded-2xl border border-line bg-white px-4 py-3", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "text-[26px] font-extrabold leading-none text-tim-700", children: n2 }),
     /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "mt-1 text-[13px] text-ink-3", children: k })
   ] }, k)) });
 }
@@ -38267,7 +38346,7 @@ async function programPage(ctx) {
                 /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(ChapterStats, { c, themes }),
                 /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "text-[13px] text-ink-3", children: [
                   " \xB7 ",
-                  c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0),
+                  c.lessons.reduce((n2, l) => n2 + (l.periods ?? 0), 0),
                   " ti\u1EBFt"
                 ] })
               ] })
@@ -38374,7 +38453,7 @@ async function teachingPlanPage(ctx) {
   const book = await requireBook(ctx, ctx.params.book);
   const plan = await getTeachingPlan(ctx.db, book.id);
   if (!plan) throw new HttpError(404, "Ch\u01B0a c\xF3 ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh.");
-  const total = plan.items.reduce((n, i2) => n + i2.periods, 0);
+  const total = plan.items.reduce((n2, i2) => n2 + i2.periods, 0);
   return page(
     ctx,
     { title: plan.title, wide: true },
@@ -38425,7 +38504,7 @@ async function lessonPage(ctx) {
     getLessonQuestionCounts(ctx.db, lesson.id)
   ]);
   const themes = themesAll.get(lesson.id) ?? [];
-  const topicCount = themes.reduce((n, th) => n + th.topics.length, 0);
+  const topicCount = themes.reduce((n2, th) => n2 + th.topics.length, 0);
   const flat = flattenLessons(tree);
   const idx = flat.findIndex((l) => l.id === lesson.id);
   const prev = idx > 0 ? flat[idx - 1] : null;
@@ -38518,10 +38597,10 @@ async function lessonPage(ctx) {
           /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("section", { "aria-labelledby": "bai-tap", children: [
             /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h2", { id: "bai-tap", className: "mb-3 text-xl font-extrabold", children: "B\xE0i t\u1EADp" }),
             totalQuestions > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Panel, { className: "p-5", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("ul", { className: "flex flex-wrap gap-2", children: Object.entries(counts).map(([type, n]) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Badge, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("ul", { className: "flex flex-wrap gap-2", children: Object.entries(counts).map(([type, n2]) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Badge, { children: [
                 TYPE_LABELS[type],
                 ": ",
-                n
+                n2
               ] }) }, type)) }),
               /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "mt-3 text-[15px] text-ink-2", children: "L\xE0m t\u1EEBng c\xE2u, xem \u0111\xE1p \xE1n v\xE0 l\u1EDDi gi\u1EA3i ngay sau khi ki\u1EC3m tra. M\u1ED7i c\xE2u \u0111\xFAng l\u1EA7n \u0111\u1EA7u \u0111\u01B0\u1EE3c 10 XP." }),
               /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LinkButton, { href: `/luyen-tap/bai/${lesson.slug}`, className: "mt-4", children: "B\u1EAFt \u0111\u1EA7u luy\u1EC7n t\u1EADp" })
@@ -38657,7 +38736,7 @@ async function submitPracticeAnswer(db, userId, questionId, rawResponse, context
 var import_server2 = __toESM(require_server_node(), 1);
 
 // src/islands/PracticeRunner.tsx
-var import_react5 = __toESM(require_react(), 1);
+var import_react4 = __toESM(require_react(), 1);
 
 // src/islands/shared.tsx
 var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
@@ -38868,13 +38947,13 @@ function PracticeCore({
   pendingText,
   pendingSummary
 }) {
-  const [index, setIndex] = (0, import_react5.useState)(0);
-  const [answers, setAnswers] = (0, import_react5.useState)({});
-  const [feedback, setFeedback] = (0, import_react5.useState)({});
-  const [showHint, setShowHint] = (0, import_react5.useState)({});
-  const [busy, setBusy] = (0, import_react5.useState)(false);
-  const [error, setError] = (0, import_react5.useState)(null);
-  const [done, setDone] = (0, import_react5.useState)(false);
+  const [index, setIndex] = (0, import_react4.useState)(0);
+  const [answers, setAnswers] = (0, import_react4.useState)({});
+  const [feedback, setFeedback] = (0, import_react4.useState)({});
+  const [showHint, setShowHint] = (0, import_react4.useState)({});
+  const [busy, setBusy] = (0, import_react4.useState)(false);
+  const [error, setError] = (0, import_react4.useState)(null);
+  const [done, setDone] = (0, import_react4.useState)(false);
   const q = questions[index];
   const fb = q ? feedback[q.id] : void 0;
   const total = questions.length;
@@ -39026,27 +39105,27 @@ function PracticeCore({
 }
 
 // src/islands/TestRunner.tsx
-var import_react6 = __toESM(require_react(), 1);
+var import_react5 = __toESM(require_react(), 1);
 var import_jsx_runtime18 = __toESM(require_jsx_runtime(), 1);
 function fmtRemaining(ms) {
   const s = Math.max(0, Math.floor(ms / 1e3));
   const h = Math.floor(s / 3600);
   const m = Math.floor(s % 3600 / 60);
   const sec = s % 60;
-  const pad3 = (n) => String(n).padStart(2, "0");
+  const pad3 = (n2) => String(n2).padStart(2, "0");
   return h ? `${h}:${pad3(m)}:${pad3(sec)}` : `${pad3(m)}:${pad3(sec)}`;
 }
 function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) {
-  const [answers, setAnswers] = (0, import_react6.useState)(draft ?? {});
-  const [remaining, setRemaining] = (0, import_react6.useState)(deadline ? new Date(deadline).getTime() - new Date(serverNow).getTime() : null);
-  const [saveState, setSaveState] = (0, import_react6.useState)("idle");
-  const [confirming, setConfirming] = (0, import_react6.useState)(false);
-  const [submitting, setSubmitting] = (0, import_react6.useState)(false);
-  const [error, setError] = (0, import_react6.useState)(null);
-  const offset = (0, import_react6.useRef)(0);
-  const dirty = (0, import_react6.useRef)(false);
-  const latest = (0, import_react6.useRef)(answers);
-  const submitted = (0, import_react6.useRef)(false);
+  const [answers, setAnswers] = (0, import_react5.useState)(draft ?? {});
+  const [remaining, setRemaining] = (0, import_react5.useState)(deadline ? new Date(deadline).getTime() - new Date(serverNow).getTime() : null);
+  const [saveState, setSaveState] = (0, import_react5.useState)("idle");
+  const [confirming, setConfirming] = (0, import_react5.useState)(false);
+  const [submitting, setSubmitting] = (0, import_react5.useState)(false);
+  const [error, setError] = (0, import_react5.useState)(null);
+  const offset = (0, import_react5.useRef)(0);
+  const dirty = (0, import_react5.useRef)(false);
+  const latest = (0, import_react5.useRef)(answers);
+  const submitted = (0, import_react5.useRef)(false);
   latest.current = answers;
   const answeredCount = questions.filter((q) => isAnswered(q, answers[String(q.id)])).length;
   async function submit(auto = false) {
@@ -39063,7 +39142,7 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
       setError(err.message);
     }
   }
-  (0, import_react6.useEffect)(() => {
+  (0, import_react5.useEffect)(() => {
     if (!deadline) return;
     offset.current = new Date(serverNow).getTime() - Date.now();
     const end = new Date(deadline).getTime();
@@ -39076,7 +39155,7 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
     const id = window.setInterval(tick, 1e3);
     return () => window.clearInterval(id);
   }, []);
-  (0, import_react6.useEffect)(() => {
+  (0, import_react5.useEffect)(() => {
     if (!dirty.current) return;
     const id = window.setTimeout(async () => {
       setSaveState("saving");
@@ -39089,7 +39168,7 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
     }, 1500);
     return () => window.clearTimeout(id);
   }, [answers, resultId]);
-  (0, import_react6.useEffect)(() => {
+  (0, import_react5.useEffect)(() => {
     const handler = (e) => {
       if (!submitted.current) e.preventDefault();
     };
@@ -39181,7 +39260,7 @@ function TestRunner({ resultId, title, questions, deadline, serverNow, draft }) 
 }
 
 // src/islands/RichField.tsx
-var import_react7 = __toESM(require_react(), 1);
+var import_react6 = __toESM(require_react(), 1);
 var import_jsx_runtime19 = __toESM(require_jsx_runtime(), 1);
 var SNIPPETS = [
   { label: "\\( \\)", title: "C\xF4ng th\u1EE9c c\xF9ng d\xF2ng", before: "\\(", after: "\\)" },
@@ -39196,13 +39275,13 @@ var SNIPPETS = [
   { label: "\u21D4", title: "T\u01B0\u01A1ng \u0111\u01B0\u01A1ng", before: " \\Leftrightarrow ", after: "" }
 ];
 function RichField({ name, label, defaultValue, initialHtml, rows = 4, hint, required, inline }) {
-  const [value, setValue] = (0, import_react7.useState)(defaultValue);
-  const [html, setHtml] = (0, import_react7.useState)(initialHtml);
-  const [errors, setErrors] = (0, import_react7.useState)([]);
-  const ref = (0, import_react7.useRef)(null);
-  const renderer = (0, import_react7.useRef)(null);
-  const first = (0, import_react7.useRef)(true);
-  (0, import_react7.useEffect)(() => {
+  const [value, setValue] = (0, import_react6.useState)(defaultValue);
+  const [html, setHtml] = (0, import_react6.useState)(initialHtml);
+  const [errors, setErrors] = (0, import_react6.useState)([]);
+  const ref = (0, import_react6.useRef)(null);
+  const renderer = (0, import_react6.useRef)(null);
+  const first = (0, import_react6.useRef)(true);
+  (0, import_react6.useEffect)(() => {
     if (first.current) {
       first.current = false;
       return;
@@ -39275,7 +39354,7 @@ function RichField({ name, label, defaultValue, initialHtml, rows = 4, hint, req
 }
 
 // src/islands/FigureField.tsx
-var import_react8 = __toESM(require_react(), 1);
+var import_react7 = __toESM(require_react(), 1);
 init_figure();
 var import_jsx_runtime20 = __toESM(require_jsx_runtime(), 1);
 var SAMPLE = `A(0,3) B(-2,0) C(4,0) H(0,0)
@@ -39283,11 +39362,11 @@ ABCA
 AH:dash
 vuong(A,H,C)`;
 function FigureField({ name, defaultValue, initialSvg, required }) {
-  const [value, setValue] = (0, import_react8.useState)(defaultValue);
-  const [svg, setSvg] = (0, import_react8.useState)(initialSvg);
-  const [errors, setErrors] = (0, import_react8.useState)([]);
-  const first = (0, import_react8.useRef)(true);
-  (0, import_react8.useEffect)(() => {
+  const [value, setValue] = (0, import_react7.useState)(defaultValue);
+  const [svg, setSvg] = (0, import_react7.useState)(initialSvg);
+  const [errors, setErrors] = (0, import_react7.useState)([]);
+  const first = (0, import_react7.useRef)(true);
+  (0, import_react7.useEffect)(() => {
     if (first.current) {
       first.current = false;
       return;
@@ -39410,13 +39489,13 @@ async function practiceHub(ctx) {
       total === 0 ? /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(EmptyState, { icon: /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(LuPencilRuler, {}), title: "Ch\u01B0a c\xF3 c\xE2u h\u1ECFi luy\u1EC7n t\u1EADp", children: "Gi\xE1o vi\xEAn th\xEAm c\xE2u h\u1ECFi trong Ng\xE2n h\xE0ng c\xE2u h\u1ECFi; c\xE2u \u0111\xE3 xu\u1EA5t b\u1EA3n s\u1EBD hi\u1EC7n \u1EDF \u0111\xE2y." }) : /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "space-y-8", children: tree.map((s) => /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("section", { children: [
         /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h2", { className: "mb-3 text-xl font-extrabold", children: s.name }),
         /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "grid gap-4 lg:grid-cols-2", children: s.chapters.filter((c) => c.lessons.some((l) => l.questionCount > 0)).map((c) => {
-          const n = c.lessons.reduce((a, l) => a + l.questionCount, 0);
+          const n2 = c.lessons.reduce((a, l) => a + l.questionCount, 0);
           return /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(Panel, { className: "p-5", children: [
             /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("div", { className: "flex flex-wrap items-start justify-between gap-3", children: [
               /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h3", { className: "font-extrabold", children: chapterLabel(c) }),
               /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)("a", { href: `/luyen-tap/chuong/${encodeURIComponent(c.code)}`, className: buttonClass("quiet", "sm"), children: [
                 "Tr\u1ED9n c\u1EA3 ch\u01B0\u01A1ng (",
-                n,
+                n2,
                 " c\xE2u)"
               ] })
             ] }),
@@ -39620,10 +39699,10 @@ async function addQuestionsToTest(db, testId, questionIds) {
     for (const qid of questionIds) {
       const qq = await t.one(sql`select points from questions where id = ${qid} and status = 'published'`);
       if (!qq) continue;
-      const n = await t.exec(sql`
+      const n2 = await t.exec(sql`
         insert into test_questions (test_id, question_id, sort_order, points) values (${testId}, ${qid}, ${order + 1}, ${qq.points})
         on conflict do nothing`);
-      if (n) order++;
+      if (n2) order++;
     }
   });
 }
@@ -39795,12 +39874,12 @@ async function resultDetails(q, attempt, reveal) {
 async function gradeManual(db, attempt, responseId, points, maxPoints, feedback, graderId) {
   if (!(points >= 0 && points <= maxPoints)) throw new UserInputError(`\u0110i\u1EC3m ph\u1EA3i t\u1EEB 0 \u0111\u1EBFn ${maxPoints}.`);
   await db.tx(async (t) => {
-    const n = await t.exec(sql`
+    const n2 = await t.exec(sql`
       update question_responses set points_awarded = ${points}, score = ${maxPoints ? points / maxPoints : 0},
         status = ${points >= maxPoints ? "correct" : points > 0 ? "partial" : "incorrect"},
         feedback = ${feedback.trim() || null}, graded_by = ${graderId}, graded_at = now()
       where id = ${responseId} and test_result_id = ${attempt.id}`);
-    if (!n) throw new UserInputError("Kh\xF4ng t\xECm th\u1EA5y c\xE2u tr\u1EA3 l\u1EDDi c\u1EA7n ch\u1EA5m.");
+    if (!n2) throw new UserInputError("Kh\xF4ng t\xECm th\u1EA5y c\xE2u tr\u1EA3 l\u1EDDi c\u1EA7n ch\u1EA5m.");
     const agg = await t.one(sql`
       select coalesce(sum(points_awarded), 0)::float as score, count(*) filter (where status = 'pending')::int as pending
       from question_responses where test_result_id = ${attempt.id}`);
@@ -41010,10 +41089,10 @@ async function createTheme(db, lessonId, title, description, status) {
   });
 }
 async function updateTheme(db, lessonId, themeId, title, description, status) {
-  const n = await db.exec(sql`
+  const n2 = await db.exec(sql`
     update themes set title = ${title}, description = ${description}, status = ${STATUS(status)}, updated_at = now()
     where id = ${themeId} and lesson_id = ${lessonId}`);
-  if (!n) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y ch\u1EE7 \u0111\u1EC1.");
+  if (!n2) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y ch\u1EE7 \u0111\u1EC1.");
 }
 async function deleteTheme(db, lessonId, themeId) {
   await db.exec(sql`delete from themes where id = ${themeId} and lesson_id = ${lessonId}`);
@@ -41183,7 +41262,7 @@ async function curriculumAdminPage(ctx, errors) {
                   /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("td", { children: [
                     ths.filter((th) => th.id).length,
                     " / ",
-                    ths.reduce((n, th) => n + th.topics.length, 0)
+                    ths.reduce((n2, th) => n2 + th.topics.length, 0)
                   ] }),
                   /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { children: l.questionCount }),
                   /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("td", { children: l.status === "published" ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "tre", children: "Xu\u1EA5t b\u1EA3n" }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, { tone: "gray", children: "\u1EA8n" }) }),
@@ -41409,7 +41488,7 @@ async function lessonEditorPage(ctx, errors) {
   const label = lessonLabel(lesson);
   const A2 = `/giao-vien/bai-hoc/${lesson.id}`;
   const realThemes = themes.filter((th) => th.id);
-  const topicCount = themes.reduce((n, th) => n + th.topics.length, 0);
+  const topicCount = themes.reduce((n2, th) => n2 + th.topics.length, 0);
   return page(
     ctx,
     { title: `So\u1EA1n: ${label}`, layout: "dashboard", section: "curriculum", status: errors ? 422 : 200 },
@@ -41665,10 +41744,10 @@ async function lessonEditorAction(ctx) {
           values (${lessonId}, ${kind}, ${form.str("title", 200) || null}, ${body}, ${solution || null},
             (select coalesce(max(sort_order), 0) + 1 from lesson_sections where lesson_id = ${lessonId}))`);
       } else {
-        const n = await ctx.db.exec(sql`
+        const n2 = await ctx.db.exec(sql`
           update lesson_sections set kind = ${kind}, title = ${form.str("title", 200) || null}, body = ${body}, solution = ${solution || null}
           where id = ${form.int("section_id")} and lesson_id = ${lessonId}`);
-        if (!n) throw new HttpError(404);
+        if (!n2) throw new HttpError(404);
       }
       await touch();
       return redirect(back, { type: "success", message: action === "add-section" ? "\u0110\xE3 th\xEAm m\u1EE5c n\u1ED9i dung." : "\u0110\xE3 l\u01B0u m\u1EE5c n\u1ED9i dung." }, ctx);
@@ -41825,7 +41904,7 @@ async function topicEditorAction(ctx) {
     themeId: form.int("theme_id"),
     title: form.str("title", 200),
     slug: form.str("slug", 80),
-    levels: [...new Set(form.all("levels").map(Number))].filter((n) => n >= 1 && n <= 4).sort(),
+    levels: [...new Set(form.all("levels").map(Number))].filter((n2) => n2 >= 1 && n2 <= 4).sort(),
     status: form.str("status") === "draft" ? "draft" : "published",
     knowledge: nullable(form.text("knowledge", 8e3)),
     signs: nullable(form.text("signs", 8e3)),
@@ -42865,13 +42944,13 @@ async function testAction(ctx) {
         return redirect(base, { type: "success", message: "\u0110\xE3 l\u01B0u th\xF4ng tin \u0111\u1EC1." }, ctx);
       }
       case "cau-hoi": {
-        const ids = form.all("question_id").map(Number).filter((n) => Number.isInteger(n) && n > 0).slice(0, 100);
+        const ids = form.all("question_id").map(Number).filter((n2) => Number.isInteger(n2) && n2 > 0).slice(0, 100);
         if (!ids.length) return redirect(base, { type: "error", message: "Ch\u01B0a ch\u1ECDn c\xE2u h\u1ECFi n\xE0o." }, ctx);
         await addQuestionsToTest(ctx.db, test.id, ids);
         return redirect(base, { type: "success", message: `\u0110\xE3 th\xEAm ${ids.length} c\xE2u v\xE0o \u0111\u1EC1.` }, ctx);
       }
       case "lop": {
-        const ids = form.all("class_id").map(Number).filter((n) => Number.isInteger(n) && n > 0);
+        const ids = form.all("class_id").map(Number).filter((n2) => Number.isInteger(n2) && n2 > 0);
         await setAssignments(ctx.db, test.id, user, ids);
         return redirect(base, { type: "success", message: "\u0110\xE3 l\u01B0u danh s\xE1ch l\u1EDBp \u0111\u01B0\u1EE3c giao." }, ctx);
       }
@@ -43546,22 +43625,22 @@ function Layout({ page: page2, children }) {
   return /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(import_jsx_runtime33.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("header", { className: "site-header sticky top-0 z-20 border-b border-line bg-white/95 backdrop-blur", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mx-auto flex h-16 max-w-[1240px] items-center gap-4 px-4 md:px-6", children: [
       /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("a", { href: R3("index.html"), className: "flex items-center gap-2.5 text-ink no-underline", "aria-label": `${BRAND} \u2013 Trang ch\u1EE7`, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LogoMark, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Wordmark, { className: "text-[17px] leading-none" })
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LogoMark, { size: 48 }),
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Wordmark, { size: "md" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh", className: "ml-6 hidden items-center gap-1 lg:flex", children: NAV2.map((n) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh", className: "ml-6 hidden items-center gap-1 lg:flex", children: NAV2.map((n2) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(
         "a",
         {
-          href: R3(n.file),
-          "aria-current": page2.nav === n.key ? "page" : void 0,
-          className: cx("rounded-lg px-3 py-2 text-[15px] font-medium hover:bg-tim-50 hover:text-tim-800", page2.nav === n.key ? "text-ink" : "text-ink-2"),
-          children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: page2.nav === n.key ? "hl font-semibold" : "", children: n.label })
+          href: R3(n2.file),
+          "aria-current": page2.nav === n2.key ? "page" : void 0,
+          className: cx("rounded-lg px-3 py-2 text-[15px] font-medium hover:bg-tim-50 hover:text-tim-800", page2.nav === n2.key ? "text-ink" : "text-ink-2"),
+          children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("span", { className: page2.nav === n2.key ? "hl font-semibold" : "", children: n2.label })
         },
-        n.file
+        n2.file
       )) }),
       /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("details", { className: "relative ml-auto lg:hidden", "data-menu": true, children: [
         /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("summary", { className: "flex h-10 w-10 items-center justify-center rounded-xl border border-line text-xl", "aria-label": "M\u1EDF menu", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LuMenu, { "aria-hidden": "true" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh (di \u0111\u1ED9ng)", className: "absolute right-0 z-30 mt-2 w-60 rounded-2xl border border-line bg-white p-2 shadow-[0_12px_32px_-12px_rgba(30,21,75,0.35)]", children: NAV2.map((n) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: R3(n.file), className: cx("block rounded-lg px-3 py-2.5 text-[15px] hover:bg-tim-50", page2.nav === n.key && "bg-tim-50 font-semibold text-tim-800"), children: n.label }, n.file)) })
+        /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("nav", { "aria-label": "\u0110i\u1EC1u h\u01B0\u1EDBng ch\xEDnh (di \u0111\u1ED9ng)", className: "absolute right-0 z-30 mt-2 w-60 rounded-2xl border border-line bg-white p-2 shadow-[0_12px_32px_-12px_rgba(30,21,75,0.35)]", children: NAV2.map((n2) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: R3(n2.file), className: cx("block rounded-lg px-3 py-2.5 text-[15px] hover:bg-tim-50", page2.nav === n2.key && "bg-tim-50 font-semibold text-tim-800"), children: n2.label }, n2.file)) })
       ] })
     ] }) }),
     /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("main", { id: "noi-dung", className: "mx-auto max-w-[1240px] px-4 pt-6 md:px-6", children }),
@@ -43569,8 +43648,8 @@ function Layout({ page: page2, children }) {
       /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "mx-auto grid max-w-[1240px] gap-6 px-4 py-10 md:grid-cols-[1.4fr_1fr] md:px-6", children: [
         /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("div", { className: "flex items-center gap-2.5", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LogoMark, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Wordmark, { className: "text-[17px]" })
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(LogoMark, { size: 96, variant: "full" }),
+            /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Wordmark, { size: "lg" })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "mt-3 max-w-md text-sm text-ink-2", children: "B\u1EA3n HTML ngo\u1EA1i tuy\u1EBFn \u2013 To\xE1n 8, K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng (GDPT 2018). Ti\u1EBFn \u0111\u1ED9 v\xE0 c\xE2u \u0111\xE3 l\xE0m \u0111\u01B0\u1EE3c l\u01B0u trong tr\xECnh duy\u1EC7t c\u1EE7a m\xE1y \u0111ang d\xF9ng." })
         ] }),
@@ -43849,7 +43928,7 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
                 /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(ChapterStats, { c, themes }),
                 /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { className: "text-[13px] text-ink-3", children: [
                   " \xB7 ",
-                  c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0),
+                  c.lessons.reduce((n2, l) => n2 + (l.periods ?? 0), 0),
                   " ti\u1EBFt"
                 ] })
               ] })
@@ -43930,7 +44009,7 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
           {
             crumbs: [{ href: "chuong-trinh.html", label: "Ch\u01B0\u01A1ng tr\xECnh h\u1ECDc" }, { href: "muc-luc.html", label: book.title }, { label: "Ph\xE2n ph\u1ED1i ch\u01B0\u01A1ng tr\xECnh" }],
             title: plan.title,
-            sub: `${plan.items.length} m\u1EE5c, ${plan.items.reduce((n, i2) => n + i2.periods, 0)} ti\u1EBFt. B\u1EA5m v\xE0o t\xEAn b\xE0i \u0111\u1EC3 m\u1EDF b\xE0i h\u1ECDc.`
+            sub: `${plan.items.length} m\u1EE5c, ${plan.items.reduce((n2, i2) => n2 + i2.periods, 0)} ti\u1EBFt. B\u1EA5m v\xE0o t\xEAn b\xE0i \u0111\u1EC3 m\u1EDF b\xE0i h\u1ECDc.`
           }
         ),
         /* @__PURE__ */ (0, import_jsx_runtime33.jsx)(Panel, { className: "overflow-x-auto", children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("table", { className: "data-table min-w-[820px]", children: [
@@ -44041,10 +44120,10 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
             /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("section", { "aria-labelledby": "bai-tap", children: [
               /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("h2", { id: "bai-tap", className: "mb-3 text-xl font-extrabold", children: "B\xE0i t\u1EADp" }),
               total > 0 ? /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Panel, { className: "p-5", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ul", { className: "flex flex-wrap gap-2", children: Object.entries(counts).map(([type, n]) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Badge, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("ul", { className: "flex flex-wrap gap-2", children: Object.entries(counts).map(([type, n2]) => /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)(Badge, { children: [
                   TYPE_LABELS[type],
                   ": ",
-                  n
+                  n2
                 ] }) }, type)) }),
                 /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("p", { className: "mt-3 text-[15px] text-ink-2", children: "L\xE0m t\u1EEBng c\xE2u, xem \u0111\xE1p \xE1n v\xE0 l\u1EDDi gi\u1EA3i ngay sau khi ki\u1EC3m tra. M\u1ED7i c\xE2u \u0111\xFAng l\u1EA7n \u0111\u1EA7u \u0111\u01B0\u1EE3c 10 XP." }),
                 /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("a", { href: `../luyen-tap/${l.slug}.html`, className: buttonClass("primary", "md", "mt-4"), children: "B\u1EAFt \u0111\u1EA7u luy\u1EC7n t\u1EADp" })
@@ -44136,7 +44215,7 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
               " b\xE0i t\u1EADp"
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime33.jsxs)("span", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("strong", { className: "text-ink", children: c.lessons.reduce((n, l) => n + (l.periods ?? 0), 0) }),
+              /* @__PURE__ */ (0, import_jsx_runtime33.jsx)("strong", { className: "text-ink", children: c.lessons.reduce((n2, l) => n2 + (l.periods ?? 0), 0) }),
               " ti\u1EBFt"
             ] })
           ] }),
