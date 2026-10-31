@@ -1,4 +1,4 @@
-# Chạy cả PostgreSQL và THẮNG MATH LEARNING bằng một lệnh:  docker compose up -d
+# Chạy cả PostgreSQL và THANG MATH LEARNING bằng một lệnh:  docker compose up -d
 # Sau đó mở http://localhost:3000 – lần đầu sẽ được mời tạo tài khoản quản trị.
 services:
   db:

@@ -1,4 +1,4 @@
-THẮNG MATH LEARNING – BẢN HTML (Toán 8, Kết nối tri thức với cuộc sống)
+THANG MATH LEARNING – BẢN HTML (Toán 8, Kết nối tri thức với cuộc sống)
 © 2026 Tạ Hữu Thắng. Mọi quyền được bảo lưu.
 
 1. Giải nén cả thư mục (giữ nguyên thư mục "assets", "bai", "luyen-tap").

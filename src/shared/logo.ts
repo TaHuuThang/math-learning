@@ -1,5 +1,5 @@
 /**
- * Logo THẮNG MATH LEARNING – một nguồn duy nhất cho trang web, bản HTML và biểu tượng tab (favicon).
+ * Logo THANG MATH LEARNING – một nguồn duy nhất cho trang web, bản HTML và biểu tượng tab (favicon).
  * Ý tưởng theo mẫu thầy Tạ Hữu Thắng thiết kế trên Design.com: chữ lồng "TM", chữ T là cây thước có vạch chia,
  * chân phải chữ M là cây bút chì, tam giác xanh dưới chữ M, xung quanh là các bong bóng kí hiệu toán nhiều màu.
  * Toàn bộ là hình vẽ SVG cố định (không có dữ liệu người dùng).

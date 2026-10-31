@@ -82,7 +82,7 @@ async function login(page, username, password) {
 
 const state = {};
 let failed = false;
-console.log('Kiểm thử đầu-cuối THẮNG MATH LEARNING');
+console.log('Kiểm thử đầu-cuối THANG MATH LEARNING');
 try {
   const admin = await newPage();
   const teacher = await newPage();

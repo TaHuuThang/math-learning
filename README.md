@@ -1,4 +1,4 @@
-# THẮNG MATH LEARNING – nền tảng học Toán THCS
+# THANG MATH LEARNING – nền tảng học Toán THCS
 
 **Tác giả và chủ sở hữu: Tạ Hữu Thắng.** © 2026 Tạ Hữu Thắng – mọi quyền được bảo lưu (xem tệp `LICENSE`).
 

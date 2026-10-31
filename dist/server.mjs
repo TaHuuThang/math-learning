@@ -34956,7 +34956,7 @@ function LuArrowDown(props) {
 }
 
 // src/shared/brand.ts
-var BRAND = "TH\u1EAENG MATH LEARNING";
+var BRAND = "THANG MATH LEARNING";
 var AUTHOR = "T\u1EA1 H\u1EEFu Th\u1EAFng";
 var COPYRIGHT_YEAR = 2026;
 var COPYRIGHT = `\xA9 ${COPYRIGHT_YEAR} ${AUTHOR}. M\u1ECDi quy\u1EC1n \u0111\u01B0\u1EE3c b\u1EA3o l\u01B0u.`;

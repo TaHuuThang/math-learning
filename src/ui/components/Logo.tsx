@@ -2,7 +2,7 @@ import { BRAND } from '../../shared/brand';
 import { LOGO_VIEWBOX, logoInnerSvg, type LogoVariant } from '../../shared/logo';
 
 /**
- * Logo THẮNG MATH LEARNING (chữ lồng TM: chữ T là cây thước, chân phải chữ M là bút chì; bong bóng kí hiệu toán).
+ * Logo THANG MATH LEARNING (chữ lồng TM: chữ T là cây thước, chân phải chữ M là bút chì; bong bóng kí hiệu toán).
  * Hình vẽ lấy từ src/shared/logo.ts – sửa ở đó là đổi trên mọi trang và biểu tượng tab.
  */
 export function LogoMark({ size = 48, variant = 'compact' }: { size?: number; variant?: LogoVariant }) {
@@ -27,7 +27,7 @@ const WORDMARK_SIZES = {
 } as const;
 
 /**
- * Tên chữ hai dòng như mẫu logo: "THẮNG MATH" đậm, "LEARNING" giãn chữ bên dưới.
+ * Tên chữ hai dòng như mẫu logo: "THANG MATH" đậm, "LEARNING" giãn chữ bên dưới.
  * inline: một dòng (dùng ở thanh đầu trang hẹp).
  */
 export function Wordmark({ size = 'md', align = 'left', inline, className = '' }: { size?: keyof typeof WORDMARK_SIZES; align?: 'left' | 'center'; inline?: boolean; className?: string }) {
