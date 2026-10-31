@@ -1,10 +1,14 @@
 import { sql, type Database, type Queryable } from '../server/db';
 import { TOAN8_MAP, lessonCodes } from './toan8-map';
-import type { MapLesson, Verify } from './toan8-map/types';
+import type { MapExercise, MapLesson, Verify } from './toan8-map/types';
 import { insertSeedQuestion } from './run';
 
-/** Mỗi gói bản đồ kiến thức chỉ nạp một lần (bảng seed_marks). Gói mới thì đặt khóa mới. */
-export const MAP_KEY = 'toan8-map-v1';
+/**
+ * Mỗi gói bản đồ kiến thức chỉ nạp một lần (bảng seed_marks). Gói mới thì đặt khóa mới.
+ * v2: đủ Chương I–X. Nạp lại trên CSDL đã có v1 là an toàn: chủ đề, dạng toán đã có mã được giữ nguyên
+ * (chỉ điền ô trống) và không thêm lại bài tập luyện tập cho các dạng đó.
+ */
+export const MAP_KEY = 'toan8-map-v2';
 export const MAP_SOURCE = 'Bản đồ kiến thức Toán 8 – câu mẫu';
 
 /**
@@ -92,8 +96,8 @@ async function applyLesson(
       n++;
       const code = `${lessonCode}.D${n}`;
       const names = [ty.title, ...(ty.legacy ?? [])];
-      const match =
-        existing.find((e) => e.code === code) ?? existing.find((e) => !e.code && !used.has(e.id) && names.includes(e.title));
+      const byCode = existing.find((e) => e.code === code);
+      const match = byCode ?? existing.find((e) => !e.code && !used.has(e.id) && names.includes(e.title));
       let topicId: number;
       if (match) {
         used.add(match.id);
@@ -117,7 +121,11 @@ async function applyLesson(
         topicId = row!.id;
       }
       stats.types++;
+      // Dạng đã có mã từ lần nạp trước: bài tập luyện tập đã có (hoặc giáo viên đã chỉnh), không thêm lại.
+      if (byCode) continue;
       for (const ex of ty.exercises) {
+        // Không thêm câu trùng hệt một câu đã có trong bài (ví dụ câu mẫu giai đoạn 1): cùng đề và cùng tập phương án / các ý.
+        if (await hasSameQuestion(t, lessonId, ex)) continue;
         await insertSeedQuestion(t, textbookId, lessonId, topicId, ex, MAP_SOURCE);
         stats.questions++;
       }
@@ -126,4 +134,18 @@ async function applyLesson(
   // Dạng toán cũ không có trong bản đồ (ví dụ do giáo viên thêm) đứng sau, giữ nguyên.
   let k = n;
   for (const e of existing) if (!used.has(e.id)) await t.exec(sql`update topics set sort_order = ${++k} where id = ${e.id}`);
+}
+
+async function hasSameQuestion(t: Queryable, lessonId: number, ex: MapExercise): Promise<boolean> {
+  const rows = await t.many<{ id: number; type: string }>(sql`
+    select q.id, et.code as type from questions q join exercise_types et on et.id = q.exercise_type_id
+    where q.lesson_id = ${lessonId} and q.stem = ${ex.stem}`);
+  const mine = [...(ex.options ?? []), ...(ex.statements ?? []).map(([s]) => s)].sort().join('\n');
+  for (const r of rows) {
+    if (r.type !== ex.type) continue;
+    if (r.type !== 'mcq' && r.type !== 'true_false') return true;
+    const ans = await t.many<{ content: string }>(sql`select content from answers where question_id = ${r.id}`);
+    if (ans.map((a) => a.content).sort().join('\n') === mine) return true;
+  }
+  return false;
 }

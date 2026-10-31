@@ -838,15 +838,15 @@ var require_react_dom_server_legacy_node_production = __commonJS({
       ["xHeight", "x-height"]
     ]);
     var matchHtmlRegExp = /["'&<>]/;
-    function escapeTextForBrowser(text2) {
-      if ("boolean" === typeof text2 || "number" === typeof text2 || "bigint" === typeof text2)
-        return "" + text2;
-      text2 = "" + text2;
-      var match = matchHtmlRegExp.exec(text2);
+    function escapeTextForBrowser(text3) {
+      if ("boolean" === typeof text3 || "number" === typeof text3 || "bigint" === typeof text3)
+        return "" + text3;
+      text3 = "" + text3;
+      var match = matchHtmlRegExp.exec(text3);
       if (match) {
         var html = "", index, lastIndex = 0;
-        for (index = match.index; index < text2.length; index++) {
-          switch (text2.charCodeAt(index)) {
+        for (index = match.index; index < text3.length; index++) {
+          switch (text3.charCodeAt(index)) {
             case 34:
               match = "&quot;";
               break;
@@ -865,13 +865,13 @@ var require_react_dom_server_legacy_node_production = __commonJS({
             default:
               continue;
           }
-          lastIndex !== index && (html += text2.slice(lastIndex, index));
+          lastIndex !== index && (html += text3.slice(lastIndex, index));
           lastIndex = index + 1;
           html += match;
         }
-        text2 = lastIndex !== index ? html + text2.slice(lastIndex, index) : html;
+        text3 = lastIndex !== index ? html + text3.slice(lastIndex, index) : html;
       }
-      return text2;
+      return text3;
     }
     var uppercasePattern = /([A-Z])/g;
     var msPattern = /^ms-/;
@@ -2841,10 +2841,10 @@ var require_react_dom_server_legacy_node_production = __commonJS({
         generateStaticMarkup
       };
     }
-    function pushTextInstance(target, text2, renderState, textEmbedded) {
+    function pushTextInstance(target, text3, renderState, textEmbedded) {
       if (renderState.generateStaticMarkup)
-        return target.push(escapeTextForBrowser(text2)), false;
-      "" === text2 ? target = textEmbedded : (textEmbedded && target.push("<!-- -->"), target.push(escapeTextForBrowser(text2)), target = true);
+        return target.push(escapeTextForBrowser(text3)), false;
+      "" === text3 ? target = textEmbedded : (textEmbedded && target.push("<!-- -->"), target.push(escapeTextForBrowser(text3)), target = true);
       return target;
     }
     function pushSegmentFinale(target, renderState, lastPushedText, textEmbedded) {
@@ -5806,15 +5806,15 @@ var require_react_dom_server_node_production = __commonJS({
       ["xHeight", "x-height"]
     ]);
     var matchHtmlRegExp = /["'&<>]/;
-    function escapeTextForBrowser(text2) {
-      if ("boolean" === typeof text2 || "number" === typeof text2 || "bigint" === typeof text2)
-        return "" + text2;
-      text2 = "" + text2;
-      var match = matchHtmlRegExp.exec(text2);
+    function escapeTextForBrowser(text3) {
+      if ("boolean" === typeof text3 || "number" === typeof text3 || "bigint" === typeof text3)
+        return "" + text3;
+      text3 = "" + text3;
+      var match = matchHtmlRegExp.exec(text3);
       if (match) {
         var html = "", index, lastIndex = 0;
-        for (index = match.index; index < text2.length; index++) {
-          switch (text2.charCodeAt(index)) {
+        for (index = match.index; index < text3.length; index++) {
+          switch (text3.charCodeAt(index)) {
             case 34:
               match = "&quot;";
               break;
@@ -5833,13 +5833,13 @@ var require_react_dom_server_node_production = __commonJS({
             default:
               continue;
           }
-          lastIndex !== index && (html += text2.slice(lastIndex, index));
+          lastIndex !== index && (html += text3.slice(lastIndex, index));
           lastIndex = index + 1;
           html += match;
         }
-        text2 = lastIndex !== index ? html + text2.slice(lastIndex, index) : html;
+        text3 = lastIndex !== index ? html + text3.slice(lastIndex, index) : html;
       }
-      return text2;
+      return text3;
     }
     var uppercasePattern = /([A-Z])/g;
     var msPattern = /^ms-/;
@@ -6114,10 +6114,10 @@ var require_react_dom_server_node_production = __commonJS({
       );
     }
     var textSeparator = stringToPrecomputedChunk("<!-- -->");
-    function pushTextInstance(target, text2, renderState, textEmbedded) {
-      if ("" === text2) return textEmbedded;
+    function pushTextInstance(target, text3, renderState, textEmbedded) {
+      if ("" === text3) return textEmbedded;
       textEmbedded && target.push(textSeparator);
-      target.push(escapeTextForBrowser(text2));
+      target.push(escapeTextForBrowser(text3));
       return true;
     }
     var styleNameCache = /* @__PURE__ */ new Map();
@@ -12289,7 +12289,7 @@ var init_katex = __esm({
       "'": "&#x27;"
     };
     ESCAPE_REGEX = /[&><"']/g;
-    escape = (text2) => String(text2).replace(ESCAPE_REGEX, (match) => ESCAPE_LOOKUP[match]);
+    escape = (text3) => String(text3).replace(ESCAPE_REGEX, (match) => ESCAPE_LOOKUP[match]);
     getBaseElem = (group) => {
       if (group.type === "ordgroup") {
         if (group.body.length === 1) {
@@ -13113,7 +13113,7 @@ var init_katex = __esm({
       "\xEC": "\u0131\u0300"
     };
     SymbolNode = class {
-      constructor(text2, height, depth, italic2, skew, width, classes, style) {
+      constructor(text3, height, depth, italic2, skew, width, classes, style) {
         this.text = void 0;
         this.height = void 0;
         this.depth = void 0;
@@ -13123,7 +13123,7 @@ var init_katex = __esm({
         this.maxFontSize = void 0;
         this.classes = void 0;
         this.style = void 0;
-        this.text = text2;
+        this.text = text3;
         this.height = height || 0;
         this.depth = depth || 0;
         this.italic = italic2 || 0;
@@ -16426,7 +16426,7 @@ var init_katex = __esm({
     };
     makeOrd = function makeOrd2(group, options, type) {
       var mode = group.mode;
-      var text2 = group.text;
+      var text3 = group.text;
       var classes = ["mord"];
       var {
         font,
@@ -16438,18 +16438,18 @@ var init_katex = __esm({
       var fontOrFamily = useFont ? font : fontFamily;
       var wideFontName = "";
       var wideFontClass = "";
-      if (text2.charCodeAt(0) === 55349) {
-        var wideCharData = wideCharacterFont(text2);
+      if (text3.charCodeAt(0) === 55349) {
+        var wideCharData = wideCharacterFont(text3);
         wideFontName = wideCharData.font;
         wideFontClass = wideCharData[mode + "Class"];
       }
       if (wideFontName) {
-        return makeSymbol(text2, wideFontName, mode, options, classes.concat(wideFontClass));
+        return makeSymbol(text3, wideFontName, mode, options, classes.concat(wideFontClass));
       } else if (fontOrFamily) {
         var fontName;
         var fontClasses;
         if (fontOrFamily === "boldsymbol") {
-          var fontData = boldSymbol(text2, mode, type);
+          var fontData = boldSymbol(text3, mode, type);
           fontName = fontData.fontName;
           fontClasses = [fontData.fontClass];
         } else if (useFont) {
@@ -16459,29 +16459,29 @@ var init_katex = __esm({
           fontName = retrieveTextFontName(fontFamily, fontWeight, fontShape);
           fontClasses = [fontFamily, fontWeight, fontShape];
         }
-        if (lookupSymbol(text2, fontName, mode).metrics) {
-          return makeSymbol(text2, fontName, mode, options, classes.concat(fontClasses));
-        } else if (ligatures.hasOwnProperty(text2) && fontName.slice(0, 10) === "Typewriter") {
+        if (lookupSymbol(text3, fontName, mode).metrics) {
+          return makeSymbol(text3, fontName, mode, options, classes.concat(fontClasses));
+        } else if (ligatures.hasOwnProperty(text3) && fontName.slice(0, 10) === "Typewriter") {
           var parts = [];
-          for (var i2 = 0; i2 < text2.length; i2++) {
-            parts.push(makeSymbol(text2[i2], fontName, mode, options, classes.concat(fontClasses)));
+          for (var i2 = 0; i2 < text3.length; i2++) {
+            parts.push(makeSymbol(text3[i2], fontName, mode, options, classes.concat(fontClasses)));
           }
           return makeFragment(parts);
         }
       }
       if (type === "mathord") {
-        return makeSymbol(text2, "Math-Italic", mode, options, classes.concat(["mathnormal"]));
+        return makeSymbol(text3, "Math-Italic", mode, options, classes.concat(["mathnormal"]));
       } else if (type === "textord") {
-        var _font = symbols[mode][text2] && symbols[mode][text2].font;
+        var _font = symbols[mode][text3] && symbols[mode][text3].font;
         if (_font === "ams") {
           var _fontName = retrieveTextFontName("amsrm", fontWeight, fontShape);
-          return makeSymbol(text2, _fontName, mode, options, classes.concat("amsrm", fontWeight, fontShape));
+          return makeSymbol(text3, _fontName, mode, options, classes.concat("amsrm", fontWeight, fontShape));
         } else if (_font === "main" || !_font) {
           var _fontName2 = retrieveTextFontName("textrm", fontWeight, fontShape);
-          return makeSymbol(text2, _fontName2, mode, options, classes.concat(fontWeight, fontShape));
+          return makeSymbol(text3, _fontName2, mode, options, classes.concat(fontWeight, fontShape));
         } else {
           var _fontName3 = retrieveTextFontName(_font, fontWeight, fontShape);
-          return makeSymbol(text2, _fontName3, mode, options, classes.concat(_fontName3, fontWeight, fontShape));
+          return makeSymbol(text3, _fontName3, mode, options, classes.concat(_fontName3, fontWeight, fontShape));
         }
       } else {
         throw new Error("unexpected type: " + type + " in makeOrd");
@@ -17093,11 +17093,11 @@ var init_katex = __esm({
         }
         for (var i2 = 0; i2 < this.children.length; i2++) {
           if (this.children[i2] instanceof TextNode && this.children[i2 + 1] instanceof TextNode) {
-            var text2 = this.children[i2].toText() + this.children[++i2].toText();
+            var text3 = this.children[i2].toText() + this.children[++i2].toText();
             while (this.children[i2 + 1] instanceof TextNode) {
-              text2 += this.children[++i2].toText();
+              text3 += this.children[++i2].toText();
             }
-            node.appendChild(new TextNode(text2).toNode());
+            node.appendChild(new TextNode(text3).toNode());
           } else {
             node.appendChild(this.children[i2].toNode());
           }
@@ -17134,9 +17134,9 @@ var init_katex = __esm({
       }
     };
     TextNode = class {
-      constructor(text2) {
+      constructor(text3) {
         this.text = void 0;
-        this.text = text2;
+        this.text = text3;
       }
       /**
        * Converts the text node into a DOM text node.
@@ -17222,11 +17222,11 @@ var init_katex = __esm({
     };
     noVariantSymbols = /* @__PURE__ */ new Set(["\\imath", "\\jmath"]);
     rowLikeTypes = /* @__PURE__ */ new Set(["mrow", "mtable"]);
-    makeText = function makeText2(text2, mode, options) {
-      if (symbols[mode][text2] && symbols[mode][text2].replace && text2.charCodeAt(0) !== 55349 && !(ligatures.hasOwnProperty(text2) && options && (options.fontFamily && options.fontFamily.slice(4, 6) === "tt" || options.font && options.font.slice(4, 6) === "tt"))) {
-        text2 = symbols[mode][text2].replace;
+    makeText = function makeText2(text3, mode, options) {
+      if (symbols[mode][text3] && symbols[mode][text3].replace && text3.charCodeAt(0) !== 55349 && !(ligatures.hasOwnProperty(text3) && options && (options.fontFamily && options.fontFamily.slice(4, 6) === "tt" || options.font && options.font.slice(4, 6) === "tt"))) {
+        text3 = symbols[mode][text3].replace;
       }
-      return new TextNode(text2);
+      return new TextNode(text3);
     };
     makeRow = function makeRow2(body) {
       if (body.length === 1) {
@@ -17278,18 +17278,18 @@ var init_katex = __esm({
       if (mathVariant) {
         return typeof mathVariant === "function" ? mathVariant(group) : mathVariant;
       }
-      var text2 = group.text;
-      if (noVariantSymbols.has(text2)) {
+      var text3 = group.text;
+      if (noVariantSymbols.has(text3)) {
         return null;
       }
-      if (symbols[mode][text2]) {
-        var replacement = symbols[mode][text2].replace;
+      if (symbols[mode][text3]) {
+        var replacement = symbols[mode][text3].replace;
         if (replacement) {
-          text2 = replacement;
+          text3 = replacement;
         }
       }
       var fontName = fontMap[font].fontName;
-      if (getCharacterMetrics(text2, fontName, mode)) {
+      if (getCharacterMetrics(text3, fontName, mode)) {
         return fontMap[font].variant;
       }
       return null;
@@ -18515,21 +18515,21 @@ var init_katex = __esm({
           number += node.text;
         }
         var code = parseInt(number);
-        var text2;
+        var text3;
         if (isNaN(code)) {
           throw new ParseError("\\@char has non-numeric argument " + number);
         } else if (code < 0 || code >= 1114111) {
           throw new ParseError("\\@char with invalid code point " + number);
         } else if (code <= 65535) {
-          text2 = String.fromCharCode(code);
+          text3 = String.fromCharCode(code);
         } else {
           code -= 65536;
-          text2 = String.fromCharCode((code >> 10) + 55296, (code & 1023) + 56320);
+          text3 = String.fromCharCode((code >> 10) + 55296, (code & 1023) + 56320);
         }
         return {
           type: "textord",
           mode: parser.mode,
-          text: text2
+          text: text3
         };
       }
     });
@@ -18853,8 +18853,8 @@ var init_katex = __esm({
       span.depth += shift;
     };
     makeSmallDelim = function makeSmallDelim2(delim, style, center, options, mode, classes) {
-      var text2 = makeSymbol(delim, "Main-Regular", mode, options);
-      var span = styleWrap(text2, style, options, classes);
+      var text3 = makeSymbol(delim, "Main-Regular", mode, options);
+      var span = styleWrap(text3, style, options, classes);
       if (center) {
         centerSpan(span, options, style);
       }
@@ -19914,20 +19914,20 @@ var init_katex = __esm({
     };
     Token = class _Token {
       // used in \noexpand
-      constructor(text2, loc) {
+      constructor(text3, loc) {
         this.text = void 0;
         this.loc = void 0;
         this.noexpand = void 0;
         this.treatAsRelax = void 0;
-        this.text = text2;
+        this.text = text3;
         this.loc = loc;
       }
       /**
        * Given a pair of tokens (this and endToken), compute a `Token` encompassing
        * the whole input range enclosed by these two.
        */
-      range(endToken, text2) {
-        return new _Token(text2, SourceLocation.range(this, endToken));
+      range(endToken, text3) {
+        return new _Token(text3, SourceLocation.range(this, endToken));
       }
     };
     validateAmsEnvironmentContext = (context) => {
@@ -23051,17 +23051,17 @@ var init_katex = __esm({
         return makeOrd(group, options, "textord");
       },
       mathmlBuilder(group, options) {
-        var text2 = makeText(group.text, group.mode, options);
+        var text3 = makeText(group.text, group.mode, options);
         var variant = getVariant(group, options) || "normal";
         var node;
         if (group.mode === "text") {
-          node = new MathNode("mtext", [text2]);
+          node = new MathNode("mtext", [text3]);
         } else if (/[0-9]/.test(group.text)) {
-          node = new MathNode("mn", [text2]);
+          node = new MathNode("mn", [text3]);
         } else if (group.text === "\\prime") {
-          node = new MathNode("mo", [text2]);
+          node = new MathNode("mo", [text3]);
         } else {
-          node = new MathNode("mi", [text2]);
+          node = new MathNode("mi", [text3]);
         }
         if (variant !== defaultVariant[node.type]) {
           node.setAttribute("mathvariant", variant);
@@ -23297,11 +23297,11 @@ var init_katex = __esm({
         throw new ParseError("\\verb ended by end of line instead of matching delimiter");
       },
       htmlBuilder(group, options) {
-        var text2 = makeVerb(group);
+        var text3 = makeVerb(group);
         var body = [];
         var newOptions = options.havingStyle(options.style.text());
-        for (var i2 = 0; i2 < text2.length; i2++) {
-          var c = text2[i2];
+        for (var i2 = 0; i2 < text3.length; i2++) {
+          var c = text3[i2];
           if (c === "~") {
             c = "\\textasciitilde";
           }
@@ -23310,8 +23310,8 @@ var init_katex = __esm({
         return makeSpan(["mord", "text"].concat(newOptions.sizingClasses(options)), tryCombineChars(body), newOptions);
       },
       mathmlBuilder(group, options) {
-        var text2 = new TextNode(makeVerb(group));
-        var node = new MathNode("mtext", [text2]);
+        var text3 = new TextNode(makeVerb(group));
+        var node = new MathNode("mtext", [text3]);
         node.setAttribute("mathvariant", "monospace");
         return node;
       }
@@ -23366,8 +23366,8 @@ var init_katex = __esm({
         if (match === null || match.index !== pos) {
           throw new ParseError("Unexpected character: '" + input[pos] + "'", new Token(input[pos], new SourceLocation(this, pos, pos + 1)));
         }
-        var text2 = match[6] || match[3] || (match[2] ? "\\ " : " ");
-        if (this.catcodes[text2] === 14) {
+        var text3 = match[6] || match[3] || (match[2] ? "\\ " : " ");
+        if (this.catcodes[text3] === 14) {
           var nlIndex = input.indexOf("\n", this.tokenRegex.lastIndex);
           if (nlIndex === -1) {
             this.tokenRegex.lastIndex = input.length;
@@ -23377,7 +23377,7 @@ var init_katex = __esm({
           }
           return this.lex();
         }
-        return new Token(text2, new SourceLocation(this, pos, this.tokenRegex.lastIndex));
+        return new Token(text3, new SourceLocation(this, pos, this.tokenRegex.lastIndex));
       }
     };
     Namespace = class {
@@ -25056,12 +25056,12 @@ var init_katex = __esm({
        * Checks a result to make sure it has the right type, and throws an
        * appropriate error otherwise.
        */
-      expect(text2, consume) {
+      expect(text3, consume) {
         if (consume === void 0) {
           consume = true;
         }
-        if (this.fetch().text !== text2) {
-          throw new ParseError("Expected '" + text2 + "', got '" + this.fetch().text + "'", this.fetch());
+        if (this.fetch().text !== text3) {
+          throw new ParseError("Expected '" + text3 + "', got '" + this.fetch().text + "'", this.fetch());
         }
         if (consume) {
           this.consume();
@@ -25242,13 +25242,13 @@ var init_katex = __esm({
        * Converts the textual input of an unsupported command into a text node
        * contained within a color node whose color is determined by errorColor
        */
-      formatUnsupportedCmd(text2) {
+      formatUnsupportedCmd(text3) {
         var textordArray = [];
-        for (var i2 = 0; i2 < text2.length; i2++) {
+        for (var i2 = 0; i2 < text3.length; i2++) {
           textordArray.push({
             type: "textord",
             mode: "text",
-            text: text2[i2]
+            text: text3[i2]
           });
         }
         var textNode = {
@@ -25660,11 +25660,11 @@ var init_katex = __esm({
        */
       parseGroup(name, breakOnTokenText) {
         var firstToken = this.fetch();
-        var text2 = firstToken.text;
+        var text3 = firstToken.text;
         var result;
-        if (text2 === "{" || text2 === "\\begingroup") {
+        if (text3 === "{" || text3 === "\\begingroup") {
           this.consume();
-          var groupEnd = text2 === "{" ? "}" : "\\endgroup";
+          var groupEnd = text3 === "{" ? "}" : "\\endgroup";
           this.gullet.beginGroup();
           var expression = this.parseExpression(false, groupEnd);
           var lastToken = this.fetch();
@@ -25679,15 +25679,15 @@ var init_katex = __esm({
             // which doesn't affect spacing in math mode, i.e., is transparent.
             // https://tex.stackexchange.com/questions/1930/when-should-one-
             // use-begingroup-instead-of-bgroup
-            semisimple: text2 === "\\begingroup" || void 0
+            semisimple: text3 === "\\begingroup" || void 0
           };
         } else {
           result = this.parseFunction(breakOnTokenText, name) || this.parseSymbol();
-          if (result == null && text2[0] === "\\" && !implicitCommands.hasOwnProperty(text2)) {
+          if (result == null && text3[0] === "\\" && !implicitCommands.hasOwnProperty(text3)) {
             if (this.settings.throwOnError) {
-              throw new ParseError("Undefined control sequence: " + text2, firstToken);
+              throw new ParseError("Undefined control sequence: " + text3, firstToken);
             }
-            result = this.formatUnsupportedCmd(text2);
+            result = this.formatUnsupportedCmd(text3);
             this.consume();
           }
         }
@@ -25750,10 +25750,10 @@ var init_katex = __esm({
        */
       parseSymbol() {
         var nucleus = this.fetch();
-        var text2 = nucleus.text;
-        if (/^\\verb[^a-zA-Z]/.test(text2)) {
+        var text3 = nucleus.text;
+        if (/^\\verb[^a-zA-Z]/.test(text3)) {
           this.consume();
-          var arg2 = text2.slice(5);
+          var arg2 = text3.slice(5);
           var star = arg2.charAt(0) === "*";
           if (star) {
             arg2 = arg2.slice(1);
@@ -25769,27 +25769,27 @@ var init_katex = __esm({
             star
           };
         }
-        if (unicodeSymbols.hasOwnProperty(text2[0]) && !symbols[this.mode][text2[0]]) {
+        if (unicodeSymbols.hasOwnProperty(text3[0]) && !symbols[this.mode][text3[0]]) {
           if (this.settings.strict && this.mode === "math") {
-            this.settings.reportNonstrict("unicodeTextInMathMode", 'Accented Unicode text character "' + text2[0] + '" used in math mode', nucleus);
+            this.settings.reportNonstrict("unicodeTextInMathMode", 'Accented Unicode text character "' + text3[0] + '" used in math mode', nucleus);
           }
-          text2 = unicodeSymbols[text2[0]] + text2.slice(1);
+          text3 = unicodeSymbols[text3[0]] + text3.slice(1);
         }
-        var match = combiningDiacriticalMarksEndRegex.exec(text2);
+        var match = combiningDiacriticalMarksEndRegex.exec(text3);
         if (match) {
-          text2 = text2.substring(0, match.index);
-          if (text2 === "i") {
-            text2 = "\u0131";
-          } else if (text2 === "j") {
-            text2 = "\u0237";
+          text3 = text3.substring(0, match.index);
+          if (text3 === "i") {
+            text3 = "\u0131";
+          } else if (text3 === "j") {
+            text3 = "\u0237";
           }
         }
         var symbol;
-        if (symbols[this.mode][text2]) {
-          if (this.settings.strict && this.mode === "math" && extraLatin.includes(text2)) {
-            this.settings.reportNonstrict("unicodeTextInMathMode", 'Latin-1/Unicode text character "' + text2[0] + '" used in math mode', nucleus);
+        if (symbols[this.mode][text3]) {
+          if (this.settings.strict && this.mode === "math" && extraLatin.includes(text3)) {
+            this.settings.reportNonstrict("unicodeTextInMathMode", 'Latin-1/Unicode text character "' + text3[0] + '" used in math mode', nucleus);
           }
-          var group = symbols[this.mode][text2].group;
+          var group = symbols[this.mode][text3].group;
           var loc = SourceLocation.range(nucleus);
           var s;
           if (isAtom(group)) {
@@ -25798,30 +25798,30 @@ var init_katex = __esm({
               mode: this.mode,
               family: group,
               loc,
-              text: text2
+              text: text3
             };
           } else {
             s = {
               type: group,
               mode: this.mode,
               loc,
-              text: text2
+              text: text3
             };
           }
           symbol = s;
-        } else if (text2.charCodeAt(0) >= 128) {
+        } else if (text3.charCodeAt(0) >= 128) {
           if (this.settings.strict) {
-            if (!supportedCodepoint(text2.charCodeAt(0))) {
-              this.settings.reportNonstrict("unknownSymbol", 'Unrecognized Unicode character "' + text2[0] + '"' + (" (" + text2.charCodeAt(0) + ")"), nucleus);
+            if (!supportedCodepoint(text3.charCodeAt(0))) {
+              this.settings.reportNonstrict("unknownSymbol", 'Unrecognized Unicode character "' + text3[0] + '"' + (" (" + text3.charCodeAt(0) + ")"), nucleus);
             } else if (this.mode === "math") {
-              this.settings.reportNonstrict("unicodeTextInMathMode", 'Unicode text character "' + text2[0] + '" used in math mode', nucleus);
+              this.settings.reportNonstrict("unicodeTextInMathMode", 'Unicode text character "' + text3[0] + '" used in math mode', nucleus);
             }
           }
           symbol = {
             type: "textord",
             mode: "text",
             loc: SourceLocation.range(nucleus),
-            text: text2
+            text: text3
           };
         } else {
           return null;
@@ -26186,22 +26186,388 @@ var init_figure = __esm({
   }
 });
 
+// src/shared/graph.ts
+function parseNum(s) {
+  const t = s.replace(",", ".");
+  if (t.includes("/")) {
+    const [p, q] = t.split("/");
+    const n2 = Number(p);
+    const d = Number(q);
+    return Number.isFinite(n2) && Number.isFinite(d) && d !== 0 ? n2 / d : null;
+  }
+  const n = Number(t);
+  return Number.isFinite(n) ? n : null;
+}
+function parseLinear(src) {
+  const raw = src.trim();
+  const t = raw.replace(/\s+/g, "").replace(/−/g, "-").replace(/^y=/i, "");
+  if (!t || !/^[0-9xX.,/+-]+$/.test(t)) return null;
+  const terms = t.match(/[+-]?[^+-]+/g);
+  if (!terms) return null;
+  let a = 0;
+  let b = 0;
+  for (const term of terms) {
+    if (/x/i.test(term)) {
+      const c = term.replace(/x/i, "");
+      const v = c === "" || c === "+" ? 1 : c === "-" ? -1 : parseNum(c);
+      if (v === null) return null;
+      a += v;
+    } else {
+      const v = parseNum(term);
+      if (v === null) return null;
+      b += v;
+    }
+  }
+  return { a, b, label: `y = ${raw.replace(/^y\s*=\s*/i, "")}` };
+}
+function graphToSvg(fields) {
+  const errors = [];
+  const lines = [];
+  for (const f of (fields.functions ?? "").split(";").map((s) => s.trim()).filter(Boolean)) {
+    const l = parseLinear(f);
+    if (!l) errors.push(`Kh\xF4ng \u0111\u1ECDc \u0111\u01B0\u1EE3c h\xE0m s\u1ED1 "${f}" (ch\u1EC9 h\u1ED7 tr\u1EE3 d\u1EA1ng ax + b).`);
+    else lines.push(l);
+  }
+  const points = [];
+  const pointRe = /([A-Za-z][A-Za-z0-9']*)\s*\(\s*(-?[\d.,/]+)\s*[;|]\s*(-?[\d.,/]+)\s*\)/g;
+  for (const m of (fields.points ?? "").matchAll(pointRe)) {
+    const x = parseNum(m[2]);
+    const y = parseNum(m[3]);
+    if (x === null || y === null) errors.push(`T\u1ECDa \u0111\u1ED9 \u0111i\u1EC3m ${m[1]} kh\xF4ng h\u1EE3p l\u1EC7.`);
+    else points.push({ name: m[1], x, y });
+  }
+  if (fields.points && !points.length) errors.push("\u0110i\u1EC3m vi\u1EBFt theo d\u1EA1ng A(1; 3), c\xE1c \u0111i\u1EC3m c\xE1ch nhau b\u1EDFi d\u1EA5u ch\u1EA5m ph\u1EA9y.");
+  if (!lines.length && !points.length) errors.push('C\u1EA7n \xEDt nh\u1EA5t m\u1ED9t h\xE0m s\u1ED1 (d\xF2ng "ham so:") ho\u1EB7c m\u1ED9t \u0111i\u1EC3m (d\xF2ng "diem:").');
+  const range = (s, def) => {
+    if (!s) return def;
+    const [p, q] = s.split(";").map((x) => parseNum(x.trim()));
+    if (p === null || q === null || p === void 0 || q === void 0 || p >= q || q - p > 40) {
+      errors.push('Kho\u1EA3ng gi\xE1 tr\u1ECB vi\u1EBFt d\u1EA1ng "-3; 3" (s\u1ED1 nh\u1ECF tr\u01B0\u1EDBc, \u0111\u1ED9 r\u1ED9ng kh\xF4ng qu\xE1 40).');
+      return def;
+    }
+    return [p, q];
+  };
+  const [x0, x1] = range(fields.xRange, [-4, 4]);
+  let autoY = [-1, 1];
+  {
+    const ys = [0, ...points.map((p) => p.y), ...lines.flatMap((l) => [l.a * x0 + l.b, l.a * x1 + l.b])];
+    autoY = [Math.max(-10, Math.floor(Math.min(...ys)) - 1), Math.min(10, Math.ceil(Math.max(...ys)) + 1)];
+  }
+  const [y0, y1] = range(fields.yRange, autoY);
+  if (errors.length) return { svg: "", errors };
+  const W = 380;
+  const top = fields.title ? 44 : 24;
+  const pad3 = 26;
+  const unit = Math.min((W - 2 * pad3) / (x1 - x0), 360 / (y1 - y0), 46);
+  const plotW = unit * (x1 - x0);
+  const plotH = unit * (y1 - y0);
+  const left = (W - plotW) / 2;
+  const H = top + plotH + pad3 + 4;
+  const X = (x) => left + (x - x0) * unit;
+  const Y = (y) => top + (y1 - y) * unit;
+  const parts = [];
+  if (fields.title) parts.push(`<text x="${W / 2}" y="18" text-anchor="middle" font-weight="700" font-size="14">${esc(fields.title)}</text>`);
+  const step = x1 - x0 > 20 || y1 - y0 > 20 ? 2 : 1;
+  for (let x = Math.ceil(x0); x <= x1; x += step) parts.push(`<line x1="${X(x)}" y1="${Y(y1)}" x2="${X(x)}" y2="${Y(y0)}" stroke="#ebe9f3"/>`);
+  for (let y = Math.ceil(y0); y <= y1; y += step) parts.push(`<line x1="${X(x0)}" y1="${Y(y)}" x2="${X(x1)}" y2="${Y(y)}" stroke="#ebe9f3"/>`);
+  const ax = y0 <= 0 && 0 <= y1 ? Y(0) : Y(y0);
+  const ay = x0 <= 0 && 0 <= x1 ? X(0) : X(x0);
+  parts.push(`<line x1="${X(x0) - 4}" y1="${ax}" x2="${X(x1) + 10}" y2="${ax}" stroke="#1b1a2e" stroke-width="1.3"/>`);
+  parts.push(`<path d="M${X(x1) + 12},${ax} l-8,-4 v8 z" fill="#1b1a2e"/>`);
+  parts.push(`<line x1="${ay}" y1="${Y(y0) + 4}" x2="${ay}" y2="${Y(y1) - 10}" stroke="#1b1a2e" stroke-width="1.3"/>`);
+  parts.push(`<path d="M${ay},${Y(y1) - 12} l-4,8 h8 z" fill="#1b1a2e"/>`);
+  parts.push(`<text x="${X(x1) + 8}" y="${ax + 16}" font-size="12" font-style="italic">x</text>`);
+  parts.push(`<text x="${ay + 7}" y="${Y(y1) - 6}" font-size="12" font-style="italic">y</text>`);
+  parts.push(`<text x="${ay - 11}" y="${ax + 14}" font-size="11">O</text>`);
+  for (let x = Math.ceil(x0); x <= x1; x += step) {
+    if (x === 0) continue;
+    parts.push(`<line x1="${X(x)}" y1="${ax - 3}" x2="${X(x)}" y2="${ax + 3}" stroke="#1b1a2e"/>`);
+    parts.push(`<text x="${X(x)}" y="${ax + 14}" text-anchor="middle" font-size="10.5" fill="#45435e">${fmt2(x)}</text>`);
+  }
+  for (let y = Math.ceil(y0); y <= y1; y += step) {
+    if (y === 0) continue;
+    parts.push(`<line x1="${ay - 3}" y1="${Y(y)}" x2="${ay + 3}" y2="${Y(y)}" stroke="#1b1a2e"/>`);
+    parts.push(`<text x="${ay - 6}" y="${Y(y) + 4}" text-anchor="end" font-size="10.5" fill="#45435e">${fmt2(y)}</text>`);
+  }
+  const taken = [
+    [X(x0) - 4, ax - 4, X(x1) + 14, ax + 17],
+    [ay - 26, Y(y1) - 14, ay + 4, Y(y0) + 4]
+  ];
+  for (const pt of points) taken.push([X(pt.x) - 5, Y(pt.y) - 19, X(pt.x) + 8 + pt.name.length * 8, Y(pt.y) + 5]);
+  const hit = (b) => taken.some((t) => b[0] < t[2] && b[2] > t[0] && b[1] < t[3] && b[3] > t[1]);
+  lines.forEach((l, i2) => {
+    const pts = [];
+    const add = (x, y) => {
+      if (x >= x0 - 1e-9 && x <= x1 + 1e-9 && y >= y0 - 1e-9 && y <= y1 + 1e-9 && !pts.some((p2) => Math.abs(p2[0] - x) < 1e-9 && Math.abs(p2[1] - y) < 1e-9)) pts.push([x, y]);
+    };
+    add(x0, l.a * x0 + l.b);
+    add(x1, l.a * x1 + l.b);
+    if (l.a !== 0) {
+      add((y0 - l.b) / l.a, y0);
+      add((y1 - l.b) / l.a, y1);
+    }
+    if (pts.length < 2) return;
+    pts.sort((p2, q2) => p2[0] - q2[0]);
+    const [p, q] = [pts[0], pts[pts.length - 1]];
+    const color = COLORS[i2 % COLORS.length];
+    parts.push(`<line x1="${X(p[0]).toFixed(1)}" y1="${Y(p[1]).toFixed(1)}" x2="${X(q[0]).toFixed(1)}" y2="${Y(q[1]).toFixed(1)}" stroke="${color}" stroke-width="2.4"/>`);
+    const w = l.label.length * 6.9;
+    let best = null;
+    for (const t of [0.85, 0.7, 0.55, 0.4, 0.25, 0.12]) {
+      const px = X(p[0] + (q[0] - p[0]) * t);
+      const py = Y(p[1] + (q[1] - p[1]) * t);
+      for (const side of [1, -1]) {
+        const startAnchor = l.a < 0 === (side === 1);
+        const lx = px + (startAnchor ? 8 : -8);
+        const ly = side === 1 ? py - 8 : py + 17;
+        const box = startAnchor ? [lx - 2, ly - 12, lx + w + 2, ly + 4] : [lx - w - 2, ly - 12, lx + 2, ly + 4];
+        const inside = box[0] >= left - 2 && box[2] <= W - 2 && box[1] >= top - 4 && box[3] <= top + plotH + 4;
+        if (inside && !hit(box)) {
+          best = { x: lx, y: ly, anchor: startAnchor ? "start" : "end", box };
+          break;
+        }
+        if (!best && inside) best = { x: lx, y: ly, anchor: startAnchor ? "start" : "end", box };
+      }
+      if (best && !hit(best.box)) break;
+    }
+    if (best) {
+      taken.push(best.box);
+      parts.push(
+        `<text x="${best.x.toFixed(1)}" y="${best.y.toFixed(1)}" text-anchor="${best.anchor}" font-size="12" font-weight="700" fill="${color}" stroke="#fff" stroke-width="3" paint-order="stroke">${esc(l.label)}</text>`
+      );
+    }
+  });
+  for (const pt of points) {
+    if (pt.x < x0 || pt.x > x1 || pt.y < y0 || pt.y > y1) continue;
+    if (pt.x !== 0) parts.push(`<line x1="${X(pt.x)}" y1="${Y(pt.y)}" x2="${ay}" y2="${Y(pt.y)}" stroke="#706e88" stroke-dasharray="4 3"/>`);
+    if (pt.y !== 0) parts.push(`<line x1="${X(pt.x)}" y1="${Y(pt.y)}" x2="${X(pt.x)}" y2="${ax}" stroke="#706e88" stroke-dasharray="4 3"/>`);
+    parts.push(`<circle cx="${X(pt.x)}" cy="${Y(pt.y)}" r="3.6" fill="#e5484d"/>`);
+    parts.push(`<text x="${X(pt.x) + 6}" y="${Y(pt.y) - 6}" font-size="12.5" font-weight="700">${esc(pt.name)}</text>`);
+  }
+  const label = `${fields.title ? fields.title + ". " : ""}${lines.map((l) => l.label).join("; ")}${points.length ? (lines.length ? "; " : "") + points.map((p) => `${p.name}(${fmt2(p.x)}; ${fmt2(p.y)})`).join("; ") : ""}`;
+  const svg = `<svg class="chart-svg" viewBox="0 0 ${W} ${H.toFixed(0)}" width="${W}" height="${H.toFixed(0)}" role="img" aria-label="${esc(label)}" font-family="inherit" fill="#1b1a2e"><title>${esc(label)}</title>${parts.join("")}</svg>`;
+  return { svg, errors: [] };
+}
+var esc, COLORS, fmt2;
+var init_graph = __esm({
+  "src/shared/graph.ts"() {
+    "use strict";
+    esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    COLORS = ["#4d39a9", "#d9822b", "#18875c", "#e5484d"];
+    fmt2 = (v) => Number.isInteger(v) ? String(v) : String(Math.round(v * 100) / 100).replace(".", ",");
+  }
+});
+
+// src/shared/chart.ts
+function parseChart(source) {
+  const errors = [];
+  const spec = { kind: "cot", title: "", labels: [], series: [], names: [], unit: "" };
+  const raw = {};
+  for (const line of source.split("\n")) {
+    const t = line.trim();
+    if (!t || t.startsWith("#")) continue;
+    const i2 = t.indexOf(":");
+    if (i2 < 0) {
+      errors.push(`D\xF2ng "${t.slice(0, 30)}" thi\u1EBFu d\u1EA5u hai ch\u1EA5m.`);
+      continue;
+    }
+    const k = KEY[fold(t.slice(0, i2))];
+    if (!k) {
+      errors.push(`Kh\xF4ng hi\u1EC3u m\u1EE5c "${t.slice(0, i2)}".`);
+      continue;
+    }
+    raw[k] = t.slice(i2 + 1).trim();
+  }
+  const kind = fold(raw.kind ?? "cot").replace(/\s+/g, "");
+  if (!["cot", "cotkep", "doanthang", "quat"].includes(kind)) errors.push("Lo\u1EA1i bi\u1EC3u \u0111\u1ED3 ph\u1EA3i l\xE0 cot, cotkep, doanthang ho\u1EB7c quat.");
+  spec.kind = ["cot", "cotkep", "doanthang", "quat"].includes(kind) ? kind : "cot";
+  spec.title = (raw.title ?? "").slice(0, 120);
+  spec.unit = (raw.unit ?? "").slice(0, 30);
+  spec.labels = list(raw.labels ?? "").slice(0, 16);
+  spec.names = list(raw.names ?? "").slice(0, 2);
+  for (const k of ["series1", "series2"]) {
+    if (!raw[k]) continue;
+    const vals = list(raw[k]).map(num);
+    if (vals.some((v) => !Number.isFinite(v) || v < 0)) errors.push("S\u1ED1 li\u1EC7u ph\u1EA3i l\xE0 c\xE1c s\u1ED1 kh\xF4ng \xE2m, c\xE1ch nhau b\u1EDFi d\u1EA5u ch\u1EA5m ph\u1EA9y.");
+    spec.series.push(vals.map((v) => Number.isFinite(v) && v >= 0 ? v : 0));
+  }
+  if (!spec.labels.length) errors.push('Thi\u1EBFu d\xF2ng "nhan:" (t\xEAn c\xE1c c\u1ED9t, c\xE1c m\u1ED1c).');
+  if (!spec.series.length) errors.push('Thi\u1EBFu d\xF2ng "so lieu:".');
+  if (spec.kind === "cotkep" && spec.series.length < 2) errors.push('Bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p c\u1EA7n th\xEAm d\xF2ng "so lieu 2:".');
+  for (const s of spec.series) if (s.length !== spec.labels.length) errors.push('S\u1ED1 gi\xE1 tr\u1ECB trong "so lieu" ph\u1EA3i b\u1EB1ng s\u1ED1 nh\xE3n.');
+  if (spec.kind === "quat" && spec.series[0] && spec.series[0].reduce((a, b) => a + b, 0) <= 0) errors.push("Bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t c\u1EA7n t\u1ED5ng s\u1ED1 li\u1EC7u l\u1EDBn h\u01A1n 0.");
+  return { spec: errors.length ? null : spec, errors };
+}
+function niceStep(max) {
+  const raw = max / 5;
+  const p = 10 ** Math.floor(Math.log10(raw || 1));
+  for (const m of [1, 2, 2.5, 5, 10]) if (raw <= m * p) return m * p;
+  return 10 * p;
+}
+function text2(x, y, s, extra = "") {
+  return `<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" ${extra}>${escapeHtml(s)}</text>`;
+}
+function chartToSvg(source) {
+  const firstKind = /^\s*loai\s*:\s*(.+)$/im.exec(fold(source));
+  if (firstKind && firstKind[1].replace(/\s+/g, "") === "dothi") {
+    const fields = {};
+    const errors2 = [];
+    for (const line of source.split("\n")) {
+      const t = line.trim();
+      if (!t || t.startsWith("#")) continue;
+      const i2 = t.indexOf(":");
+      const k = i2 < 0 ? void 0 : GRAPH_KEYS[fold(t.slice(0, i2))];
+      if (!k) errors2.push(`Kh\xF4ng hi\u1EC3u d\xF2ng "${t.slice(0, 30)}" c\u1EE7a \u0111\u1ED3 th\u1ECB.`);
+      else fields[k] = t.slice(i2 + 1).trim();
+    }
+    if (errors2.length) return { svg: "", errors: errors2 };
+    return graphToSvg(fields);
+  }
+  const { spec, errors } = parseChart(source);
+  if (!spec) return { svg: "", errors };
+  const W = 460;
+  const H = 280;
+  const top = (spec.title ? 34 : 14) + (spec.unit && spec.kind !== "quat" ? 14 : 0);
+  const parts = [];
+  const summary = spec.labels.map((l, i2) => `${l}: ${spec.series.map((s) => fmt3(s[i2])).join(" / ")}`).join("; ");
+  if (spec.title) parts.push(text2(W / 2, 20, spec.title, 'text-anchor="middle" font-weight="700" font-size="14"'));
+  if (spec.kind === "quat") {
+    const vals = spec.series[0];
+    const total = vals.reduce((a, b) => a + b, 0);
+    const cx2 = 130;
+    const cy = top + (H - top) / 2;
+    const rr = Math.min(105, (H - top) / 2 - 8);
+    let a0 = -Math.PI / 2;
+    vals.forEach((v, i2) => {
+      const frac = v / total;
+      const a1 = a0 + frac * 2 * Math.PI;
+      const color = COLORS2[i2 % COLORS2.length];
+      if (frac >= 0.9999) parts.push(`<circle cx="${cx2}" cy="${cy}" r="${rr}" fill="${color}" stroke="#fff" stroke-width="2"/>`);
+      else if (frac > 0) {
+        const p0 = [cx2 + rr * Math.cos(a0), cy + rr * Math.sin(a0)];
+        const p1 = [cx2 + rr * Math.cos(a1), cy + rr * Math.sin(a1)];
+        parts.push(
+          `<path d="M${cx2},${cy} L${p0[0].toFixed(2)},${p0[1].toFixed(2)} A${rr},${rr} 0 ${frac > 0.5 ? 1 : 0} 1 ${p1[0].toFixed(2)},${p1[1].toFixed(2)} Z" fill="${color}" stroke="#fff" stroke-width="2"/>`
+        );
+      }
+      if (frac >= 0.06) {
+        const am = (a0 + a1) / 2;
+        parts.push(text2(cx2 + rr * 0.62 * Math.cos(am), cy + rr * 0.62 * Math.sin(am) + 4, `${fmt3(Math.round(frac * 1e3) / 10)}%`, 'text-anchor="middle" fill="#fff" font-weight="700" font-size="12"'));
+      }
+      a0 = a1;
+    });
+    spec.labels.forEach((l, i2) => {
+      const y = top + 14 + i2 * 22;
+      parts.push(`<rect x="262" y="${y - 10}" width="14" height="14" rx="3" fill="${COLORS2[i2 % COLORS2.length]}"/>`);
+      parts.push(text2(282, y + 2, `${l} (${fmt3(Math.round(vals[i2] / total * 1e3) / 10)}%)`, 'font-size="12.5"'));
+    });
+  } else {
+    const left = 46;
+    const right = 14;
+    const bottom = 42;
+    const plotH = H - top - bottom;
+    const plotW = W - left - right;
+    const max = Math.max(...spec.series.flat(), 0);
+    const step = niceStep(max || 1);
+    const yMax = Math.max(step, Math.ceil(max * 1.08 / step) * step);
+    const y = (v) => top + plotH - v / yMax * plotH;
+    for (let v = 0; v <= yMax + 1e-9; v += step) {
+      parts.push(`<line x1="${left}" y1="${y(v).toFixed(1)}" x2="${W - right}" y2="${y(v).toFixed(1)}" stroke="${v === 0 ? "#45435e" : "#e3e1ee"}" stroke-width="1"/>`);
+      parts.push(text2(left - 6, y(v) + 4, fmt3(v), 'text-anchor="end" font-size="11" fill="#706e88"'));
+    }
+    if (spec.unit) parts.push(text2(4, top - 10, `\u0110\u01A1n v\u1ECB: ${spec.unit}`, 'text-anchor="start" font-size="11" fill="#706e88"'));
+    const n = spec.labels.length;
+    const slot = plotW / n;
+    spec.labels.forEach((l, i2) => parts.push(text2(left + slot * (i2 + 0.5), H - bottom + 16, l, 'text-anchor="middle" font-size="12"')));
+    if (spec.kind === "cot" || spec.kind === "cotkep") {
+      const k = spec.kind === "cotkep" ? 2 : 1;
+      const bw = Math.min(46, slot * 0.62 / k);
+      spec.series.slice(0, k).forEach((s, si) => {
+        s.forEach((v, i2) => {
+          const x = left + slot * (i2 + 0.5) - bw * k / 2 + si * bw;
+          parts.push(`<rect x="${x.toFixed(1)}" y="${y(v).toFixed(1)}" width="${(bw - 2).toFixed(1)}" height="${(y(0) - y(v)).toFixed(1)}" rx="2" fill="${COLORS2[si]}"/>`);
+          parts.push(text2(x + (bw - 2) / 2, y(v) - 4, fmt3(v), 'text-anchor="middle" font-size="11" font-weight="600"'));
+        });
+      });
+    } else {
+      spec.series.slice(0, 2).forEach((s, si) => {
+        const pts = s.map((v, i2) => [left + slot * (i2 + 0.5), y(v)]);
+        parts.push(`<polyline points="${pts.map((p) => p.map((c) => c.toFixed(1)).join(",")).join(" ")}" fill="none" stroke="${COLORS2[si]}" stroke-width="2.5" stroke-linejoin="round"/>`);
+        pts.forEach(([px, py], i2) => {
+          parts.push(`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="3.5" fill="${COLORS2[si]}"/>`);
+          parts.push(text2(px, py - 8, fmt3(s[i2]), 'text-anchor="middle" font-size="11" font-weight="600"'));
+        });
+      });
+    }
+    if (spec.names.length && spec.series.length > 1) {
+      spec.names.forEach((nm, i2) => {
+        const x = left + i2 * 120;
+        parts.push(`<rect x="${x}" y="${H - 16}" width="12" height="12" rx="2" fill="${COLORS2[i2]}"/>`);
+        parts.push(text2(x + 17, H - 6, nm, 'font-size="12"'));
+      });
+    }
+  }
+  const label = `${spec.title ? spec.title + ". " : ""}${summary}${spec.unit ? ` (${spec.unit})` : ""}`;
+  const svg = `<svg class="chart-svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${escapeHtml(label)}" font-family="inherit" fill="#1b1a2e"><title>${escapeHtml(label)}</title>${parts.join("")}</svg>`;
+  return { svg, errors: [] };
+}
+var escapeHtml, COLORS2, KEY, fold, list, num, fmt3, GRAPH_KEYS;
+var init_chart = __esm({
+  "src/shared/chart.ts"() {
+    "use strict";
+    init_graph();
+    escapeHtml = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    COLORS2 = ["#4d39a9", "#d9822b", "#18875c", "#e5484d", "#8b7ad6", "#c9a227", "#2f7fb8", "#7a5a00"];
+    KEY = {
+      loai: "kind",
+      "tieu de": "title",
+      tieude: "title",
+      nhan: "labels",
+      "so lieu": "series1",
+      solieu: "series1",
+      "so lieu 1": "series1",
+      "so lieu 2": "series2",
+      solieu2: "series2",
+      ten: "names",
+      "don vi": "unit",
+      donvi: "unit"
+    };
+    fold = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[đĐ]/g, "d").toLowerCase().trim();
+    list = (s) => s.split(";").map((x) => x.trim()).filter((x) => x !== "");
+    num = (s) => Number(s.replace(/\s/g, "").replace(",", "."));
+    fmt3 = (v) => Number.isInteger(v) ? String(v) : String(Math.round(v * 10) / 10).replace(".", ",");
+    GRAPH_KEYS = { "ham so": "functions", hamso: "functions", x: "xRange", y: "yRange", diem: "points", "tieu de": "title", tieude: "title", loai: "kind" };
+  }
+});
+
 // src/shared/richtext.ts
 var richtext_exports = {};
 __export(richtext_exports, {
-  escapeHtml: () => escapeHtml,
+  escapeHtml: () => escapeHtml2,
   findMathErrors: () => findMathErrors,
   plainExcerpt: () => plainExcerpt,
   renderMath: () => renderMath,
   renderRich: () => renderRich,
   renderRichInline: () => renderRichInline
 });
-function escapeHtml(s) {
+function escapeHtml2(s) {
   return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+}
+function quietKatex(fn) {
+  const warn = console.warn;
+  console.warn = (...args) => {
+    if (typeof args[0] === "string" && args[0].startsWith("No character metrics")) return;
+    warn(...args);
+  };
+  try {
+    return fn();
+  } finally {
+    console.warn = warn;
+  }
 }
 function renderMath(tex, display) {
   try {
-    return katex.renderToString(tex, {
+    return quietKatex(() => katex.renderToString(tex, {
       displayMode: display,
       throwOnError: false,
       strict: "ignore",
@@ -26209,56 +26575,69 @@ function renderMath(tex, display) {
       output: "htmlAndMathml",
       maxSize: 20,
       maxExpand: 500
-    });
+    }));
   } catch {
-    return `<code class="math-error">${escapeHtml(tex)}</code>`;
+    return `<code class="math-error">${escapeHtml2(tex)}</code>`;
   }
+}
+function renderChartBlock(source) {
+  const { svg, errors } = chartToSvg(source.trim());
+  if (errors.length) return `<span class="math-error">Bi\u1EC3u \u0111\u1ED3 l\u1ED7i: ${escapeHtml2(errors[0])}</span>`;
+  return `<span class="lesson-chart">${svg}</span>`;
 }
 function renderFigureBlock(source) {
   const { svg, errors } = figureToSvg(source.trim(), { maxWidth: 380, maxHeight: 280 });
-  if (errors.length) return `<span class="math-error">H\xECnh v\u1EBD l\u1ED7i: ${escapeHtml(errors[0])}</span>`;
+  if (errors.length) return `<span class="math-error">H\xECnh v\u1EBD l\u1ED7i: ${escapeHtml2(errors[0])}</span>`;
   return `<span class="lesson-figure">${svg}</span>`;
 }
 function extractMath(src) {
   const math2 = [];
-  const withFigures = src.replace(FIGURE_RE, (_, body) => {
+  const withCharts = src.replace(CHART_RE, (_, body) => {
+    math2.push({ tex: body, display: true, chart: true });
+    return `\0${math2.length - 1}\0`;
+  });
+  const withFigures = withCharts.replace(FIGURE_RE, (_, body) => {
     math2.push({ tex: body, display: true, figure: true });
     return `\0${math2.length - 1}\0`;
   });
-  const text2 = withFigures.replace(MATH_RE, (_, inline, display) => {
+  const text3 = withFigures.replace(MATH_RE, (_, inline, display) => {
     math2.push(inline !== void 0 ? { tex: inline, display: false } : { tex: display, display: true });
     return `\0${math2.length - 1}\0`;
   });
-  return { text: text2, math: math2 };
+  return { text: text3, math: math2 };
 }
-function formatInline(text2, math2) {
-  let html = escapeHtml(text2.replace(/\u0000/g, "")).replace(/\u0001/g, "\0");
+function formatInline(text3, math2) {
+  let html = escapeHtml2(text3.replace(/\u0000/g, "")).replace(/\u0001/g, "\0");
   html = html.replace(/\*\*([^*\n]+?)\*\*/g, "<strong>$1</strong>");
   html = html.replace(/\n/g, "<br>");
   return html.replace(TOKEN_RE, (_, n) => {
     const m = math2[Number(n)];
     if (!m) return "";
     if (m.figure) return renderFigureBlock(m.tex);
+    if (m.chart) return renderChartBlock(m.tex);
     return m.display ? `<span class="math-display">${renderMath(m.tex, true)}</span>` : renderMath(m.tex, false);
   });
 }
 function renderRichInline(src) {
-  const { text: text2, math: math2 } = extractMath(src.trim());
-  return formatInline(text2, math2);
+  const { text: text3, math: math2 } = extractMath(src.trim());
+  return formatInline(text3, math2);
 }
 function renderRich(src) {
-  const { text: text2, math: math2 } = extractMath(src.replace(/\r\n?/g, "\n").trim());
-  if (!text2) return "";
-  const lines = text2.split("\n");
+  const { text: text3, math: math2 } = extractMath(src.replace(/\r\n?/g, "\n").trim());
+  if (!text3) return "";
+  const lines = text3.split("\n");
   const out = [];
   let para = [];
-  let list = null;
+  let list2 = null;
+  let table = [];
   const flushPara = () => {
     if (!para.length) return;
     const joined = para.join("\n");
     const onlyDisplay = /^\s*\u0000(\d+)\u0000\s*$/.exec(joined);
     const single = onlyDisplay ? math2[Number(onlyDisplay[1])] : void 0;
-    if (single?.figure) {
+    if (single?.chart) {
+      out.push(`<figure class="chart-block">${renderChartBlock(single.tex)}</figure>`);
+    } else if (single?.figure) {
       out.push(`<figure class="figure-block">${renderFigureBlock(single.tex)}</figure>`);
     } else if (single?.display) {
       out.push(`<div class="math-block">${renderMath(single.tex, true)}</div>`);
@@ -26267,38 +26646,59 @@ function renderRich(src) {
     }
     para = [];
   };
+  const flushTable = () => {
+    if (!table.length) return;
+    const cells = (row) => row.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map((c) => c.trim());
+    const isSep = (row) => /^\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?$/.test(row.trim());
+    const rows = table.filter((r4) => !isSep(r4));
+    const header = table.length > 1 && isSep(table[1]);
+    const html = rows.map((r4, i2) => {
+      const tag = header && i2 === 0 ? "th" : "td";
+      return `<tr>${cells(r4).map((c) => `<${tag}>${formatInline(c, math2)}</${tag}>`).join("")}</tr>`;
+    }).join("");
+    out.push(`<div class="rich-table-wrap"><table class="rich-table">${header ? `<thead>${html.split("</tr>")[0]}</tr></thead><tbody>${html.slice(html.indexOf("</tr>") + 5)}</tbody>` : `<tbody>${html}</tbody>`}</table></div>`);
+    table = [];
+  };
   const flushList = () => {
-    if (!list) return;
-    const tag = list.ordered ? "ol" : "ul";
-    out.push(`<${tag}>${list.items.map((i2) => `<li>${formatInline(i2, math2)}</li>`).join("")}</${tag}>`);
-    list = null;
+    if (!list2) return;
+    const tag = list2.ordered ? "ol" : "ul";
+    out.push(`<${tag}>${list2.items.map((i2) => `<li>${formatInline(i2, math2)}</li>`).join("")}</${tag}>`);
+    list2 = null;
   };
   for (const raw of lines) {
     const line = raw.trimEnd();
     const bullet = /^\s*[-•]\s+(.*)$/.exec(line);
     const numbered = /^\s*\d+[.)]\s+(.*)$/.exec(line);
+    if (/^\s*\|/.test(line)) {
+      flushPara();
+      flushList();
+      table.push(line);
+      continue;
+    }
+    flushTable();
     if (!line.trim()) {
       flushPara();
       flushList();
     } else if (bullet || numbered) {
       flushPara();
       const ordered = !bullet;
-      if (list && list.ordered !== ordered) flushList();
-      if (!list) list = { ordered, items: [] };
-      list.items.push((bullet ?? numbered)[1]);
-    } else if (list && /^\s{2,}\S/.test(raw)) {
-      list.items[list.items.length - 1] += "\n" + line.trim();
+      if (list2 && list2.ordered !== ordered) flushList();
+      if (!list2) list2 = { ordered, items: [] };
+      list2.items.push((bullet ?? numbered)[1]);
+    } else if (list2 && /^\s{2,}\S/.test(raw)) {
+      list2.items[list2.items.length - 1] += "\n" + line.trim();
     } else {
       flushList();
       para.push(line);
     }
   }
+  flushTable();
   flushPara();
   flushList();
   return out.join("");
 }
 function plainExcerpt(src, max = 140) {
-  let t = src.replace(/\[hinh\][\s\S]*?\[\/hinh\]/g, " ").replace(/\\\(|\\\)|\\\[|\\\]/g, "");
+  let t = src.replace(/\[bieudo\][\s\S]*?\[\/bieudo\]/g, " (bi\u1EC3u \u0111\u1ED3) ").replace(/\[hinh\][\s\S]*?\[\/hinh\]/g, " ").replace(/\\\(|\\\)|\\\[|\\\]/g, "");
   for (const [re, rep] of SYMBOLS) t = t.replace(re, rep);
   t = t.replace(/\^\{([0-9n-]+)\}/g, (_, d) => [...d].map((c) => SUP[c] ?? c).join("")).replace(/\^([0-9n])/g, (_, d) => SUP[d] ?? d).replace(/\\text\{([^}]*)\}/g, "$1").replace(/\\[a-zA-Z]+/g, "").replace(/[{}]/g, "").replace(/\*\*/g, "").replace(/\s+/g, " ").trim();
   return t.length > max ? t.slice(0, max - 1).trimEnd() + "\u2026" : t;
@@ -26318,6 +26718,10 @@ function findMathErrors(src) {
       for (const e of figErrors) errors.push("H\xECnh v\u1EBD: " + e);
       continue;
     }
+    if (m.chart) {
+      for (const e of chartToSvg(m.tex).errors) errors.push("Bi\u1EC3u \u0111\u1ED3: " + e);
+      continue;
+    }
     try {
       katex.renderToString(m.tex, { throwOnError: true, strict: "ignore", displayMode: m.display });
     } catch (err) {
@@ -26326,15 +26730,17 @@ function findMathErrors(src) {
   }
   return errors;
 }
-var MATH_RE, TOKEN_RE, FIGURE_RE, SUP, SYMBOLS;
+var MATH_RE, TOKEN_RE, FIGURE_RE, CHART_RE, SUP, SYMBOLS;
 var init_richtext = __esm({
   "src/shared/richtext.ts"() {
     "use strict";
     init_katex();
     init_figure();
+    init_chart();
     MATH_RE = /\\\(([\s\S]+?)\\\)|\\\[([\s\S]+?)\\\]/g;
     TOKEN_RE = /\u0000(\d+)\u0000/g;
     FIGURE_RE = /\[hinh\]([\s\S]*?)\[\/hinh\]/g;
+    CHART_RE = /\[bieudo\]([\s\S]*?)\[\/bieudo\]/g;
     SUP = { "0": "\u2070", "1": "\xB9", "2": "\xB2", "3": "\xB3", "4": "\u2074", "5": "\u2075", "6": "\u2076", "7": "\u2077", "8": "\u2078", "9": "\u2079", n: "\u207F", "-": "\u207B" };
     SYMBOLS = [
       [/\\(left|right|big|Big)/g, ""],
@@ -26457,8 +26863,8 @@ function saslInitialResponse(mechanism, data) {
   const buf = Buffer.from(data, "utf8");
   return new Writer().cstring(mechanism).int32(buf.length).bytes(buf).message("p");
 }
-function parseMessage(text2) {
-  return new Writer().cstring("").cstring(text2).int16(0).message("P");
+function parseMessage(text3) {
+  return new Writer().cstring("").cstring(text3).int16(0).message("P");
 }
 function bindMessage(values) {
   const w = new Writer().cstring("").cstring("").int16(0).int16(values.length);
@@ -26482,8 +26888,8 @@ function executeMessage() {
 function syncMessage() {
   return new Writer().message("S");
 }
-function queryMessage(text2) {
-  return new Writer().cstring(text2).message("Q");
+function queryMessage(text3) {
+  return new Writer().cstring(text3).message("Q");
 }
 function terminateMessage() {
   return new Writer().message("X");
@@ -26569,34 +26975,34 @@ var PgError = class extends Error {
 // src/server/db/pg/types.ts
 var INT_TYPES = /* @__PURE__ */ new Set([21, 23, 26]);
 var FLOAT_TYPES = /* @__PURE__ */ new Set([700, 701]);
-function parseArrayLiteral(text2) {
+function parseArrayLiteral(text3) {
   const out = [];
-  if (text2.length < 2) return out;
+  if (text3.length < 2) return out;
   let i2 = 1;
-  const end = text2.length - 1;
+  const end = text3.length - 1;
   while (i2 < end) {
-    if (text2[i2] === '"') {
+    if (text3[i2] === '"') {
       i2++;
       let s = "";
-      while (i2 < end && text2[i2] !== '"') {
-        if (text2[i2] === "\\") i2++;
-        s += text2[i2];
+      while (i2 < end && text3[i2] !== '"') {
+        if (text3[i2] === "\\") i2++;
+        s += text3[i2];
         i2++;
       }
       i2++;
       out.push(s);
     } else {
       let s = "";
-      while (i2 < end && text2[i2] !== ",") s += text2[i2++];
+      while (i2 < end && text3[i2] !== ",") s += text3[i2++];
       out.push(s === "NULL" ? null : s);
     }
-    if (text2[i2] === ",") i2++;
+    if (text3[i2] === ",") i2++;
   }
   return out;
 }
-function parseTimestamp(text2) {
-  const m = /^(\d{4,})-(\d\d)-(\d\d)[ T](\d\d):(\d\d):(\d\d)(\.\d+)?(?:([+-])(\d\d)(?::?(\d\d))?(?::?(\d\d))?)?$/.exec(text2);
-  if (!m) return new Date(text2);
+function parseTimestamp(text3) {
+  const m = /^(\d{4,})-(\d\d)-(\d\d)[ T](\d\d):(\d\d):(\d\d)(\.\d+)?(?:([+-])(\d\d)(?::?(\d\d))?(?::?(\d\d))?)?$/.exec(text3);
+  if (!m) return new Date(text3);
   const ms = m[7] ? Math.round(Number(m[7]) * 1e3) : 0;
   let t = Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +m[6], ms);
   if (m[8]) {
@@ -26606,28 +27012,28 @@ function parseTimestamp(text2) {
   }
   return new Date(t);
 }
-function parseScalar(oid, text2) {
-  if (INT_TYPES.has(oid)) return parseInt(text2, 10);
-  if (FLOAT_TYPES.has(oid)) return parseFloat(text2);
+function parseScalar(oid, text3) {
+  if (INT_TYPES.has(oid)) return parseInt(text3, 10);
+  if (FLOAT_TYPES.has(oid)) return parseFloat(text3);
   switch (oid) {
     case 16:
-      return text2 === "t";
+      return text3 === "t";
     case 20: {
-      const n = Number(text2);
-      return Number.isSafeInteger(n) ? n : text2;
+      const n = Number(text3);
+      return Number.isSafeInteger(n) ? n : text3;
     }
     case 1700:
-      return Number(text2);
+      return Number(text3);
     case 114:
     case 3802:
-      return JSON.parse(text2);
+      return JSON.parse(text3);
     case 1114:
     case 1184:
-      return parseTimestamp(text2);
+      return parseTimestamp(text3);
     case 17:
-      return text2.startsWith("\\x") ? Buffer.from(text2.slice(2), "hex") : Buffer.from(text2, "binary");
+      return text3.startsWith("\\x") ? Buffer.from(text3.slice(2), "hex") : Buffer.from(text3, "binary");
     default:
-      return text2;
+      return text3;
   }
 }
 var ARRAY_ELEMENT = {
@@ -26650,13 +27056,13 @@ var ARRAY_ELEMENT = {
   // uuid[]
   1185: 1184
 };
-function parseValue(oid, text2) {
-  if (text2 === null) return null;
+function parseValue(oid, text3) {
+  if (text3 === null) return null;
   const elementOid = ARRAY_ELEMENT[oid];
   if (elementOid !== void 0) {
-    return parseArrayLiteral(text2).map((v) => v === null ? null : parseScalar(elementOid, v));
+    return parseArrayLiteral(text3).map((v) => v === null ? null : parseScalar(elementOid, v));
   }
-  return parseScalar(oid, text2);
+  return parseScalar(oid, text3);
 }
 var JsonValue = class {
   constructor(value) {
@@ -26929,7 +27335,7 @@ var PgConnection = class {
     });
   }
   /** Truy vấn có tham số ($1, $2…) qua extended protocol – chống SQL injection. */
-  query(text2, values = []) {
+  query(text3, values = []) {
     if (this.dead) return Promise.reject(new Error("K\u1EBFt n\u1ED1i PostgreSQL \u0111\xE3 \u0111\xF3ng"));
     if (this.busy) return Promise.reject(new Error("K\u1EBFt n\u1ED1i \u0111ang b\u1EADn (l\u1ED7i l\u1EADp tr\xECnh: d\xF9ng chung k\u1EBFt n\u1ED1i)"));
     let serialized;
@@ -26938,12 +27344,12 @@ var PgConnection = class {
     } catch (err) {
       return Promise.reject(err);
     }
-    return this.run(Buffer.concat([parseMessage(text2), bindMessage(serialized), describePortalMessage(), executeMessage(), syncMessage()]));
+    return this.run(Buffer.concat([parseMessage(text3), bindMessage(serialized), describePortalMessage(), executeMessage(), syncMessage()]));
   }
   /** Simple query protocol: cho phép nhiều câu lệnh (dùng cho migration). */
-  simpleQuery(text2) {
+  simpleQuery(text3) {
     if (this.dead) return Promise.reject(new Error("K\u1EBFt n\u1ED1i PostgreSQL \u0111\xE3 \u0111\xF3ng"));
-    return this.run(queryMessage(text2));
+    return this.run(queryMessage(text3));
   }
   run(payload) {
     return new Promise((resolve, reject) => {
@@ -27073,10 +27479,10 @@ var PgPool = class {
     if (w) w.resolve(conn);
     else this.idle.push(conn);
   }
-  async query(text2, values = []) {
+  async query(text3, values = []) {
     const conn = await this.acquire();
     try {
-      return await conn.query(text2, values);
+      return await conn.query(text3, values);
     } finally {
       this.release(conn);
     }
@@ -27110,36 +27516,36 @@ var SqlFragment = class _SqlFragment {
   values;
   compile() {
     const values = [];
-    const text2 = this.build(values);
-    return { text: text2, values };
+    const text3 = this.build(values);
+    return { text: text3, values };
   }
   build(values) {
-    let text2 = this.strings[0];
+    let text3 = this.strings[0];
     for (let i2 = 0; i2 < this.values.length; i2++) {
       const v = this.values[i2];
       if (v instanceof _SqlFragment) {
-        text2 += v.build(values);
+        text3 += v.build(values);
       } else if (v instanceof RawSql) {
-        text2 += v.text;
+        text3 += v.text;
       } else {
         values.push(v);
-        text2 += "$" + values.length;
+        text3 += "$" + values.length;
       }
-      text2 += this.strings[i2 + 1];
+      text3 += this.strings[i2 + 1];
     }
-    return text2;
+    return text3;
   }
 };
 var RawSql = class {
-  constructor(text2) {
-    this.text = text2;
+  constructor(text3) {
+    this.text = text3;
   }
   text;
 };
 function sql(strings, ...values) {
   return new SqlFragment(strings, values);
 }
-sql.raw = (text2) => new SqlFragment(["", ""], [new RawSql(text2)]);
+sql.raw = (text3) => new SqlFragment(["", ""], [new RawSql(text3)]);
 sql.empty = new SqlFragment([""], []);
 sql.join = (parts, separator = ", ") => {
   if (!parts.length) return sql.empty;
@@ -27154,16 +27560,16 @@ sql.json = (value) => new JsonValue(value);
 function connectionQueryable(conn) {
   return {
     async many(q) {
-      const { text: text2, values } = q.compile();
-      return (await conn.query(text2, values)).rows;
+      const { text: text3, values } = q.compile();
+      return (await conn.query(text3, values)).rows;
     },
     async one(q) {
-      const { text: text2, values } = q.compile();
-      return (await conn.query(text2, values)).rows[0] ?? null;
+      const { text: text3, values } = q.compile();
+      return (await conn.query(text3, values)).rows[0] ?? null;
     },
     async exec(q) {
-      const { text: text2, values } = q.compile();
-      return (await conn.query(text2, values)).rowCount;
+      const { text: text3, values } = q.compile();
+      return (await conn.query(text3, values)).rowCount;
     }
   };
 }
@@ -27173,16 +27579,16 @@ function createDatabase(url, max = 10) {
   const pool = new PgPool(cfg, max);
   return {
     async many(q) {
-      const { text: text2, values } = q.compile();
-      return (await pool.query(text2, values)).rows;
+      const { text: text3, values } = q.compile();
+      return (await pool.query(text3, values)).rows;
     },
     async one(q) {
-      const { text: text2, values } = q.compile();
-      return (await pool.query(text2, values)).rows[0] ?? null;
+      const { text: text3, values } = q.compile();
+      return (await pool.query(text3, values)).rows[0] ?? null;
     },
     async exec(q) {
-      const { text: text2, values } = q.compile();
-      return (await pool.query(text2, values)).rowCount;
+      const { text: text3, values } = q.compile();
+      return (await pool.query(text3, values)).rowCount;
     },
     async tx(fn) {
       return pool.withConnection(async (conn) => {
@@ -27197,8 +27603,8 @@ function createDatabase(url, max = 10) {
         }
       });
     },
-    async raw(text2) {
-      await pool.withConnection((conn) => conn.simpleQuery(text2));
+    async raw(text3) {
+      await pool.withConnection((conn) => conn.simpleQuery(text3));
     },
     withConnection: (fn) => pool.withConnection(fn),
     close: () => pool.end()
@@ -29040,15 +29446,29 @@ vuong(B,A,C)`,
 ];
 
 // src/seed/toan8-map/types.ts
-var mcq = (level, stem, options, correct, solution, extra = {}) => ({
-  type: "mcq",
-  level,
-  stem,
-  options,
-  correct,
-  solution,
-  ...extra
-});
+function hashText(s) {
+  let h = 2166136261;
+  for (let i2 = 0; i2 < s.length; i2++) {
+    h ^= s.charCodeAt(i2);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+var mcq = (level, stem, options, correct, solution, extra = {}) => {
+  const from = "ABCD".indexOf(correct);
+  const to = hashText(stem) % 4;
+  const opts = [...options];
+  [opts[from], opts[to]] = [opts[to], opts[from]];
+  return {
+    type: "mcq",
+    level,
+    stem,
+    options: opts,
+    correct: "ABCD"[to],
+    solution,
+    ...extra
+  };
+};
 var tf = (level, stem, statements, solution) => ({
   type: "true_false",
   level,
@@ -29068,6 +29488,14 @@ var es = (level, stem, solution, hint) => ({
   type: "essay",
   level,
   stem,
+  solution,
+  ...hint ? { hint } : {}
+});
+var ge = (level, stem, figure, solution, hint) => ({
+  type: "geometry_essay",
+  level,
+  stem,
+  figure,
   solution,
   ...hint ? { hint } : {}
 });
@@ -29450,7 +29878,7 @@ Bậc các hạng tử lần lượt là 3; 4; 0. Vậy \(P\) có bậc 4 (khôn
             {
               slug: "nhan-don-thuc-voi-da-thuc",
               title: "Nh\xE2n \u0111\u01A1n th\u1EE9c v\u1EDBi \u0111a th\u1EE9c",
-              levels: [1, 2],
+              levels: [1, 2, 3],
               knowledge: r3`Muốn nhân một đơn thức với một đa thức, ta nhân đơn thức với từng hạng tử của đa thức rồi cộng các tích: \(A(B + C) = AB + AC\).`,
               signs: "M\u1ED9t \u0111\u01A1n th\u1EE9c nh\xE2n v\u1EDBi m\u1ED9t \u0111a th\u1EE9c (th\u01B0\u1EDDng \u1EDF d\u1EA1ng \u0111\u01A1n th\u1EE9c \u0111\u1EE9ng tr\u01B0\u1EDBc ngo\u1EB7c).",
               method: "Nh\xE2n \u0111\u01A1n th\u1EE9c v\u1EDBi t\u1EEBng h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c, ch\xFA \xFD d\u1EA5u, r\u1ED3i thu g\u1ECDn.",
@@ -29622,6 +30050,4132 @@ Vì \(n\) nguyên nên \(6(n + 1)\) chia hết cho 6.`)
   ]
 };
 
+// src/seed/toan8-map/chuong-2.ts
+var CHUONG_2 = {
+  code: "II",
+  objectives: `- Nh\u1EADn bi\u1EBFt v\xE0 vi\u1EBFt \u0111\u01B0\u1EE3c b\u1EA3y h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\xE1ng nh\u1EDB.
+- V\u1EADn d\u1EE5ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\u1EC3 khai tri\u1EC3n, vi\u1EBFt g\u1ECDn, t\xEDnh nhanh, r\xFAt g\u1ECDn, t\xEDnh gi\xE1 tr\u1ECB bi\u1EC3u th\u1EE9c v\xE0 ch\u1EE9ng minh.
+- Ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED b\u1EB1ng c\xE1c ph\u01B0\u01A1ng ph\xE1p \u0111\u1EB7t nh\xE2n t\u1EED chung, s\u1EED d\u1EE5ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c, nh\xF3m h\u1EA1ng t\u1EED.`,
+  keyPoints: `- B\u1EA3y h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\xE1ng nh\u1EDB v\xE0 hai chi\u1EC1u s\u1EED d\u1EE5ng: khai tri\u1EC3n, vi\u1EBFt g\u1ECDn.
+- Ba ph\u01B0\u01A1ng ph\xE1p ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED v\xE0 c\xE1ch ph\u1ED1i h\u1EE3p ch\xFAng.
+- \u1EE8ng d\u1EE5ng: t\xEDnh nhanh, t\xECm x (\u0111\u01B0a v\u1EC1 t\xEDch b\u1EB1ng 0), ch\u1EE9ng minh, t\xECm gi\xE1 tr\u1ECB nh\u1ECF nh\u1EA5t, l\u1EDBn nh\u1EA5t.`,
+  formulas: r3`\[A^2 - B^2 = (A + B)(A - B)\]
+\[(A + B)^2 = A^2 + 2AB + B^2;\qquad (A - B)^2 = A^2 - 2AB + B^2\]
+\[(A + B)^3 = A^3 + 3A^2B + 3AB^2 + B^3;\qquad (A - B)^3 = A^3 - 3A^2B + 3AB^2 - B^3\]
+\[A^3 + B^3 = (A + B)(A^2 - AB + B^2);\qquad A^3 - B^3 = (A - B)(A^2 + AB + B^2)\]`,
+  verify: { status: "verified", note: "T\xEAn ch\u01B0\u01A1ng, t\xEAn b\xE0i v\xE0 th\u1EE9 t\u1EF1 \u0111\u1ED1i chi\u1EBFu v\u1EDBi m\u1EE5c l\u1EE5c SGK To\xE1n 8 K\u1EBFt n\u1ED1i tri th\u1EE9c t\u1EADp 1 (VietJack, Hoatieu) v\xE0 PPCT 2026-2027." },
+  aux: [
+    { slug: "luyen-tap-chung-2a", objectives: "C\u1EE7ng c\u1ED1 b\u1EA3y h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\xE1ng nh\u1EDB: khai tri\u1EC3n, vi\u1EBFt g\u1ECDn, t\xEDnh nhanh, r\xFAt g\u1ECDn v\xE0 t\xEDnh gi\xE1 tr\u1ECB bi\u1EC3u th\u1EE9c." },
+    { slug: "luyen-tap-chung-2b", objectives: "C\u1EE7ng c\u1ED1 ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED, ph\u1ED1i h\u1EE3p c\xE1c ph\u01B0\u01A1ng ph\xE1p; v\u1EADn d\u1EE5ng t\xECm x v\xE0 t\xEDnh nhanh." },
+    { slug: "bai-tap-cuoi-chuong-2", objectives: "\xD4n t\u1EADp to\xE0n Ch\u01B0\u01A1ng II: h\u1EC7 th\u1ED1ng b\u1EA3y h\u1EB1ng \u0111\u1EB3ng th\u1EE9c v\xE0 c\xE1c ph\u01B0\u01A1ng ph\xE1p ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED; chu\u1EA9n b\u1ECB ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng." }
+  ],
+  lessons: [
+    // ---------------- Bài 6 ----------------
+    {
+      slug: "bai-6-hieu-hai-binh-phuong-binh-phuong-cua-mot-tong-hay-mot-hieu",
+      difficulty: 2,
+      objectives: `- Nh\u1EADn bi\u1EBFt kh\xE1i ni\u1EC7m h\u1EB1ng \u0111\u1EB3ng th\u1EE9c.
+- M\xF4 t\u1EA3 c\xE1c h\u1EB1ng \u0111\u1EB3ng th\u1EE9c hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng, b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng, b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u.
+- V\u1EADn d\u1EE5ng \u0111\u1EC3 t\xEDnh nhanh, r\xFAt g\u1ECDn, t\xEDnh gi\xE1 tr\u1ECB bi\u1EC3u th\u1EE9c, t\xECm x v\xE0 ch\u1EE9ng minh.`,
+      prerequisites: r3`- Nhân đa thức với đa thức (Bài 4).
+- Lũy thừa bậc hai: \(a^2 = a\cdot a\); \((ab)^2 = a^2b^2\).`,
+      concepts: "H\u1EB1ng \u0111\u1EB3ng th\u1EE9c; hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng; b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng; b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u.",
+      formulas: r3`\[A^2 - B^2 = (A + B)(A - B)\]
+\[(A + B)^2 = A^2 + 2AB + B^2\]
+\[(A - B)^2 = A^2 - 2AB + B^2\]`,
+      properties: r3`- Hằng đẳng thức là đẳng thức mà hai vế luôn nhận cùng một giá trị khi thay các chữ bằng các số tùy ý.
+- \((A - B)^2 = (B - A)^2\); \(A^2 \ge 0\) với mọi \(A\), dấu "=" xảy ra khi \(A = 0\).`,
+      themes: [
+        {
+          title: "Ba h\u1EB1ng \u0111\u1EB3ng th\u1EE9c b\u1EADc hai",
+          description: "Hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng, b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng, b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u \u2013 khai tri\u1EC3n v\xE0 vi\u1EBFt g\u1ECDn.",
+          types: [
+            {
+              slug: "hoan-thanh-hang-dang-thuc-binh-phuong",
+              title: "Ho\xE0n th\xE0nh c\xE1c h\u1EB1ng \u0111\u1EB3ng th\u1EE9c",
+              levels: [1, 2],
+              knowledge: r3`\(A^2 - B^2 = (A + B)(A - B)\); \((A \pm B)^2 = A^2 \pm 2AB + B^2\).`,
+              signs: r3`Biểu thức có dạng \((A \pm B)^2\), \((A + B)(A - B)\) cần khai triển; hoặc dạng \(A^2 \pm 2AB + B^2\), \(A^2 - B^2\) cần viết gọn; điền vào chỗ trống.`,
+              method: "X\xE1c \u0111\u1ECBnh A, B r\u1ED3i \xE1p d\u1EE5ng c\xF4ng th\u1EE9c theo chi\u1EC1u khai tri\u1EC3n ho\u1EB7c chi\u1EC1u vi\u1EBFt g\u1ECDn.",
+              steps: r3`- **Bước 1.** Nhận dạng hằng đẳng thức, xác định \(A\) và \(B\) (có thể là đơn thức như \(2x\), \(3y\)).
+- **Bước 2.** Viết theo công thức; với chiều viết gọn, kiểm tra hạng tử \(2AB\).
+- **Bước 3.** Thu gọn, chú ý \((2x)^2 = 4x^2\).`,
+              mistakes: r3`- Viết \((A + B)^2 = A^2 + B^2\) (thiếu \(2AB\)).
+- Viết \((2x)^2 = 2x^2\); đúng là \(4x^2\).
+- Sai dấu: \((x - 3)^2 = x^2 - 6x - 9\) là sai, đúng là \(x^2 - 6x + 9\).`,
+              example: r3`a) Khai triển \((2x + 3y)^2\).
+b) Viết \(x^2 - 10x + 25\) dưới dạng bình phương của một hiệu.`,
+              solution: r3`a) \((2x + 3y)^2 = (2x)^2 + 2\cdot2x\cdot3y + (3y)^2 = 4x^2 + 12xy + 9y^2\).
+b) \(x^2 - 10x + 25 = x^2 - 2\cdot x\cdot5 + 5^2 = (x - 5)^2\).`,
+              exercises: [
+                mcq(1, r3`Khai triển \((x - 4)^2\) được`, [r3`\(x^2 - 8x + 16\)`, r3`\(x^2 - 16\)`, r3`\(x^2 - 4x + 16\)`, r3`\(x^2 + 8x + 16\)`], "A", r3`\((x - 4)^2 = x^2 - 2\cdot x\cdot 4 + 4^2 = x^2 - 8x + 16\).`),
+                mcq(2, r3`Biểu thức \(9x^2 - 4y^2\) bằng`, [r3`\((3x - 2y)(3x + 2y)\)`, r3`\((9x - 4y)(9x + 4y)\)`, r3`\((3x - 2y)^2\)`, r3`\((3x - 4y)(3x + 4y)\)`], "A", r3`\(9x^2 - 4y^2 = (3x)^2 - (2y)^2 = (3x - 2y)(3x + 2y)\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c b\u1EADc hai",
+          description: "T\xEDnh nhanh, r\xFAt g\u1ECDn, t\xECm x, ch\u1EE9ng minh v\xE0 t\xECm gi\xE1 tr\u1ECB nh\u1ECF nh\u1EA5t, l\u1EDBn nh\u1EA5t.",
+          types: [
+            {
+              slug: "tinh-gia-tri-rut-gon-bieu-thuc-binh-phuong",
+              title: "T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a bi\u1EC3u th\u1EE9c, r\xFAt g\u1ECDn bi\u1EC3u th\u1EE9c",
+              levels: [2, 3],
+              knowledge: "Ba h\u1EB1ng \u0111\u1EB3ng th\u1EE9c b\u1EADc hai; vi\u1EBFt s\u1ED1 d\u01B0\u1EDBi d\u1EA1ng t\u1ED5ng ho\u1EB7c hi\u1EC7u v\u1EDBi s\u1ED1 tr\xF2n ch\u1EE5c, tr\xF2n tr\u0103m.",
+              signs: r3`Tính nhanh các số gần số tròn (như \(99^2\), \(101\cdot99\)); biểu thức chứa bình phương cần rút gọn trước khi thay số.`,
+              method: "Bi\u1EBFn \u0111\u1ED5i v\u1EC1 h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\u1EC3 r\xFAt g\u1ECDn, sau \u0111\xF3 m\u1EDBi thay s\u1ED1 v\xE0 t\xEDnh.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt s\u1ED1 ho\u1EB7c bi\u1EC3u th\u1EE9c v\u1EC1 d\u1EA1ng A + B, A \u2212 B (v\xED d\u1EE5 99 = 100 \u2212 1).
+- **B\u01B0\u1EDBc 2.** \xC1p d\u1EE5ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c, r\xFAt g\u1ECDn.
+- **B\u01B0\u1EDBc 3.** Thay gi\xE1 tr\u1ECB (n\u1EBFu c\xF3) v\xE0 t\xEDnh.`,
+              mistakes: r3`- Thay số trước khi rút gọn làm phép tính dài, dễ sai.
+- Quên đổi dấu khi trừ một bình phương: \(-(x - 1)^2 = -x^2 + 2x - 1\).`,
+              example: r3`a) Tính nhanh \(99^2\).
+b) Rút gọn rồi tính giá trị của \(A = (x + 2)^2 - (x - 2)^2\) tại \(x = 25\).`,
+              solution: r3`a) \(99^2 = (100 - 1)^2 = 10000 - 200 + 1 = 9801\).
+b) \(A = (x^2 + 4x + 4) - (x^2 - 4x + 4) = 8x\). Tại \(x = 25\): \(A = 200\).`,
+              exercises: [
+                sa(2, r3`Tính nhanh \(101^2\).`, ["10201"], r3`\(101^2 = (100 + 1)^2 = 10000 + 200 + 1 = 10201\).`),
+                sa(3, r3`Rút gọn biểu thức \(B = (2x - 1)^2 - 4x(x - 1)\) rồi tính giá trị của \(B\) tại \(x = 2026\).`, ["1"], r3`\(B = 4x^2 - 4x + 1 - 4x^2 + 4x = 1\). Vậy \(B = 1\) với mọi \(x\), nên tại \(x = 2026\) thì \(B = 1\).`)
+              ]
+            },
+            {
+              slug: "tim-x-hang-dang-thuc-binh-phuong",
+              title: "T\xECm x b\u1EB1ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c b\u1EADc hai",
+              levels: [2, 3],
+              knowledge: r3`Ba hằng đẳng thức bậc hai; tìm \(x\) từ đẳng thức dạng \(ax = b\) (\(a \ne 0\)).`,
+              signs: r3`Đẳng thức chứa \(x\) trong các bình phương; sau khi khai triển, các hạng tử \(x^2\) triệt tiêu.`,
+              method: r3`Khai triển các hằng đẳng thức, thu gọn để được đẳng thức dạng \(ax = b\) rồi tìm \(x\).`,
+              steps: r3`- **Bước 1.** Khai triển các bình phương.
+- **Bước 2.** Thu gọn (các hạng tử \(x^2\) triệt tiêu).
+- **Bước 3.** Tìm \(x\) và thử lại.`,
+              mistakes: r3`- Sai dấu khi bỏ ngoặc đứng sau dấu trừ.
+- Khai triển \((x + 3)^2\) thiếu hạng tử \(6x\).`,
+              example: r3`Tìm \(x\), biết \((x + 3)^2 - x^2 = 21\).`,
+              solution: r3`\(x^2 + 6x + 9 - x^2 = 21\), suy ra \(6x = 12\), do đó \(x = 2\).`,
+              exercises: [
+                sa(2, r3`Tìm \(x\), biết \((x - 2)^2 - x(x + 1) = 9\).`, ["-1"], r3`\(x^2 - 4x + 4 - x^2 - x = 9\), tức là \(-5x + 4 = 9\), suy ra \(-5x = 5\), do đó \(x = -1\).`),
+                sa(3, r3`Tìm \(x\), biết \((2x + 1)^2 - (2x - 1)^2 = 24\).`, ["3"], r3`\((4x^2 + 4x + 1) - (4x^2 - 4x + 1) = 8x = 24\), suy ra \(x = 3\).`)
+              ]
+            },
+            {
+              slug: "chung-minh-voi-hang-dang-thuc-binh-phuong",
+              title: "Ch\u1EE9ng minh \u0111\u1EB3ng th\u1EE9c, ch\u1EE9ng minh bi\u1EC3u th\u1EE9c lu\xF4n d\u01B0\u01A1ng",
+              levels: [3, 4],
+              knowledge: r3`Ba hằng đẳng thức bậc hai; \(A^2 \ge 0\) với mọi \(A\).`,
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u ch\u1EE9ng minh m\u1ED9t \u0111\u1EB3ng th\u1EE9c ch\u1EE9a b\xECnh ph\u01B0\u01A1ng, ho\u1EB7c ch\u1EE9ng minh bi\u1EC3u th\u1EE9c lu\xF4n d\u01B0\u01A1ng (kh\xF4ng \xE2m) v\u1EDBi m\u1ECDi gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn.",
+              method: r3`Biến đổi một vế thành vế kia; để chứng minh luôn dương, viết biểu thức thành một bình phương cộng với một số dương.`,
+              steps: r3`- **Bước 1.** Khai triển, hoặc gom về bình phương: \(x^2 + 2ax = (x + a)^2 - a^2\).
+- **Bước 2.** Đánh giá: \((x + a)^2 \ge 0\).
+- **Bước 3.** Kết luận.`,
+              mistakes: '- Ch\u1EC9 th\u1EED v\xE0i gi\xE1 tr\u1ECB c\u1EE7a x r\u1ED3i k\u1EBFt lu\u1EADn "lu\xF4n d\u01B0\u01A1ng".\n- Th\xEAm b\u1EDBt sai h\u1EB1ng s\u1ED1 khi t\u1EA1o b\xECnh ph\u01B0\u01A1ng.',
+              example: r3`Chứng minh \(x^2 - 4x + 5 > 0\) với mọi \(x\).`,
+              solution: r3`\(x^2 - 4x + 5 = (x^2 - 4x + 4) + 1 = (x - 2)^2 + 1 \ge 1 > 0\) với mọi \(x\).`,
+              exercises: [
+                es(3, r3`Chứng minh \((a + b)^2 - (a - b)^2 = 4ab\).`, r3`Vế trái \(= (a^2 + 2ab + b^2) - (a^2 - 2ab + b^2) = 4ab\) = vế phải.`),
+                es(4, r3`Chứng minh biểu thức \(x^2 + 6x + 10\) luôn dương với mọi giá trị của \(x\).`, r3`\(x^2 + 6x + 10 = (x^2 + 6x + 9) + 1 = (x + 3)^2 + 1 \ge 1 > 0\) với mọi \(x\).`)
+              ]
+            },
+            {
+              slug: "tim-gia-tri-nho-nhat-lon-nhat",
+              title: "T\xECm gi\xE1 tr\u1ECB nh\u1ECF nh\u1EA5t, l\u1EDBn nh\u1EA5t c\u1EE7a bi\u1EC3u th\u1EE9c",
+              legacy: ["T\xECm x, ch\u1EE9ng minh, t\xECm gi\xE1 tr\u1ECB l\u1EDBn nh\u1EA5t \u2013 nh\u1ECF nh\u1EA5t"],
+              levels: [3, 4],
+              knowledge: r3`\(A^2 \ge 0\), dấu "=" xảy ra khi \(A = 0\); thêm bớt để tạo bình phương của một tổng (hiệu).`,
+              signs: r3`Tìm giá trị nhỏ nhất (lớn nhất) của biểu thức dạng \(x^2 + bx + c\) (hoặc \(-x^2 + bx + c\)).`,
+              method: r3`Viết biểu thức thành \((x + m)^2 + k\) – giá trị nhỏ nhất là \(k\) khi \(x = -m\); hoặc \(k - (x + m)^2\) – giá trị lớn nhất là \(k\).`,
+              steps: r3`- **Bước 1.** Nhóm \(x^2 \pm 2mx\) rồi thêm bớt \(m^2\).
+- **Bước 2.** Viết thành \((x \pm m)^2 + k\) hoặc \(k - (x \pm m)^2\).
+- **Bước 3.** Đánh giá và chỉ ra giá trị của \(x\) để dấu "=" xảy ra.`,
+              mistakes: "- Qu\xEAn ch\u1EC9 ra gi\xE1 tr\u1ECB c\u1EE7a x t\u1EA1i \u0111\xF3 bi\u1EC3u th\u1EE9c \u0111\u1EA1t gi\xE1 tr\u1ECB nh\u1ECF nh\u1EA5t (l\u1EDBn nh\u1EA5t).\n- V\u1EDBi h\u1EC7 s\u1ED1 c\u1EE7a x\xB2 \xE2m l\u1EA1i \u0111i t\xECm gi\xE1 tr\u1ECB nh\u1ECF nh\u1EA5t.",
+              example: r3`Tìm giá trị lớn nhất của \(B = -x^2 + 2x + 3\).`,
+              solution: r3`\(B = -(x^2 - 2x + 1) + 4 = 4 - (x - 1)^2 \le 4\). Dấu "=" xảy ra khi \(x = 1\). Vậy giá trị lớn nhất của \(B\) là 4.`,
+              exercises: [
+                sa(3, r3`Giá trị nhỏ nhất của biểu thức \(A = x^2 + 4x + 7\) là bao nhiêu?`, ["3"], r3`\(A = (x + 2)^2 + 3 \ge 3\), dấu "=" khi \(x = -2\). Giá trị nhỏ nhất là 3.`),
+                sa(4, r3`Giá trị lớn nhất của biểu thức \(B = 5 + 6x - x^2\) là bao nhiêu?`, ["14"], r3`\(B = -(x^2 - 6x + 9) + 14 = 14 - (x - 3)^2 \le 14\), dấu "=" khi \(x = 3\). Giá trị lớn nhất là 14.`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 7 ----------------
+    {
+      slug: "bai-7-lap-phuong-cua-mot-tong-lap-phuong-cua-mot-hieu",
+      difficulty: 2,
+      objectives: `- M\xF4 t\u1EA3 h\u1EB1ng \u0111\u1EB3ng th\u1EE9c l\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng, l\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u.
+- V\u1EADn d\u1EE5ng \u0111\u1EC3 khai tri\u1EC3n, vi\u1EBFt g\u1ECDn, t\xEDnh nhanh, r\xFAt g\u1ECDn, t\xEDnh gi\xE1 tr\u1ECB bi\u1EC3u th\u1EE9c v\xE0 t\xECm x.`,
+      prerequisites: "- Ba h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u1EDF B\xE0i 6.\n- Nh\xE2n \u0111a th\u1EE9c v\u1EDBi \u0111a th\u1EE9c (B\xE0i 4).",
+      concepts: "L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng; l\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u.",
+      formulas: r3`\[(A + B)^3 = A^3 + 3A^2B + 3AB^2 + B^3\]
+\[(A - B)^3 = A^3 - 3A^2B + 3AB^2 - B^3\]`,
+      properties: r3`- Các hệ số trong khai triển lần lượt là 1; 3; 3; 1. Với lập phương của một hiệu, các dấu xen kẽ +, −, +, −.
+- \((A - B)^3 = -(B - A)^3\); \((A + B)^3 = A^3 + B^3 + 3AB(A + B)\).`,
+      themes: [
+        {
+          title: "L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng, m\u1ED9t hi\u1EC7u",
+          description: "Khai tri\u1EC3n v\xE0 vi\u1EBFt g\u1ECDn l\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng, m\u1ED9t hi\u1EC7u.",
+          types: [
+            {
+              slug: "hoan-thanh-hang-dang-thuc-lap-phuong",
+              title: "Ho\xE0n th\xE0nh c\xE1c h\u1EB1ng \u0111\u1EB3ng th\u1EE9c",
+              levels: [1, 2],
+              knowledge: r3`\((A \pm B)^3 = A^3 \pm 3A^2B + 3AB^2 \pm B^3\).`,
+              signs: r3`Biểu thức dạng \((A \pm B)^3\) cần khai triển, hoặc đa thức bốn hạng tử dạng \(A^3 \pm 3A^2B + 3AB^2 \pm B^3\) cần viết gọn.`,
+              method: r3`Xác định \(A\), \(B\); khi viết gọn, kiểm tra hai hạng tử giữa có đúng bằng \(3A^2B\) và \(3AB^2\).`,
+              steps: r3`- **Bước 1.** Xác định \(A\), \(B\) (với chiều viết gọn: \(A^3\), \(B^3\) là hai hạng tử đầu, cuối).
+- **Bước 2.** Áp dụng công thức, chú ý dấu.
+- **Bước 3.** Thu gọn từng hạng tử.`,
+              mistakes: r3`- Viết \((A + B)^3 = A^3 + B^3\).
+- Quên hệ số 3 ở hai hạng tử giữa; viết \((2x)^3 = 2x^3\) (đúng là \(8x^3\)).
+- Sai dấu ở lập phương của một hiệu.`,
+              example: r3`a) Khai triển \((x + 2)^3\).
+b) Viết \(8x^3 - 12x^2 + 6x - 1\) dưới dạng lập phương của một hiệu.`,
+              solution: r3`a) \((x + 2)^3 = x^3 + 3\cdot x^2\cdot2 + 3\cdot x\cdot2^2 + 2^3 = x^3 + 6x^2 + 12x + 8\).
+b) \(8x^3 - 12x^2 + 6x - 1 = (2x)^3 - 3(2x)^2\cdot1 + 3\cdot2x\cdot1^2 - 1^3 = (2x - 1)^3\).`,
+              exercises: [
+                mcq(1, r3`Khai triển \((x - 1)^3\) được`, [r3`\(x^3 - 3x^2 + 3x - 1\)`, r3`\(x^3 - 1\)`, r3`\(x^3 - 3x^2 - 3x - 1\)`, r3`\(x^3 + 3x^2 + 3x - 1\)`], "A", r3`\((x - 1)^3 = x^3 - 3x^2\cdot1 + 3x\cdot1^2 - 1^3 = x^3 - 3x^2 + 3x - 1\).`),
+                sa(2, r3`Biết \(x^3 + 9x^2 + 27x + 27 = (x + a)^3\). Tìm \(a\).`, ["3"], r3`\(x^3 + 3\cdot x^2\cdot3 + 3\cdot x\cdot3^2 + 3^3 = (x + 3)^3\), nên \(a = 3\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c l\u1EADp ph\u01B0\u01A1ng",
+          description: "T\xEDnh nhanh, r\xFAt g\u1ECDn, t\xECm x v\xE0 ch\u1EE9ng minh.",
+          types: [
+            {
+              slug: "tinh-gia-tri-rut-gon-bieu-thuc-lap-phuong",
+              title: "T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a bi\u1EC3u th\u1EE9c, r\xFAt g\u1ECDn bi\u1EC3u th\u1EE9c",
+              levels: [2, 3],
+              knowledge: "H\u1EB1ng \u0111\u1EB3ng th\u1EE9c l\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng, m\u1ED9t hi\u1EC7u.",
+              signs: "Bi\u1EC3u th\u1EE9c c\xF3 d\u1EA1ng khai tri\u1EC3n c\u1EE7a m\u1ED9t l\u1EADp ph\u01B0\u01A1ng; t\xEDnh nhanh v\u1EDBi s\u1ED1 tr\xF2n; r\xFAt g\u1ECDn hi\u1EC7u c\xE1c l\u1EADp ph\u01B0\u01A1ng.",
+              method: "Vi\u1EBFt g\u1ECDn th\xE0nh l\u1EADp ph\u01B0\u01A1ng (ho\u1EB7c khai tri\u1EC3n r\u1ED3i thu g\u1ECDn) tr\u01B0\u1EDBc khi thay s\u1ED1.",
+              steps: `- **B\u01B0\u1EDBc 1.** Nh\u1EADn ra d\u1EA1ng l\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng (hi\u1EC7u).
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt g\u1ECDn ho\u1EB7c khai tri\u1EC3n, thu g\u1ECDn.
+- **B\u01B0\u1EDBc 3.** Thay s\u1ED1 v\xE0 t\xEDnh.`,
+              mistakes: "- Thay s\u1ED1 tr\u1EF1c ti\u1EBFp v\xE0o bi\u1EC3u th\u1EE9c b\u1ED1n h\u1EA1ng t\u1EED, t\xEDnh d\xE0i v\xE0 d\u1EC5 nh\u1EA7m.\n- B\u1ECF ngo\u1EB7c sai d\u1EA5u khi tr\u1EEB m\u1ED9t l\u1EADp ph\u01B0\u01A1ng.",
+              example: r3`Tính giá trị của \(A = x^3 - 6x^2 + 12x - 8\) tại \(x = 12\).`,
+              solution: r3`\(A = x^3 - 3\cdot x^2\cdot2 + 3\cdot x\cdot2^2 - 2^3 = (x - 2)^3\). Tại \(x = 12\): \(A = 10^3 = 1000\).`,
+              exercises: [
+                sa(2, r3`Tính nhanh \(99^3 + 3\cdot99^2 + 3\cdot99 + 1\).`, ["1000000"], r3`Biểu thức bằng \((99 + 1)^3 = 100^3 = 1\,000\,000\).`),
+                sa(3, r3`Rút gọn biểu thức \(B = (x + 1)^3 - (x - 1)^3 - 6x^2\).`, ["2"], r3`\((x + 1)^3 - (x - 1)^3 = (x^3 + 3x^2 + 3x + 1) - (x^3 - 3x^2 + 3x - 1) = 6x^2 + 2\). Do đó \(B = 2\).`)
+              ]
+            },
+            {
+              slug: "tim-x-hang-dang-thuc-lap-phuong",
+              title: "T\xECm x b\u1EB1ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c l\u1EADp ph\u01B0\u01A1ng",
+              legacy: ["T\xECm x v\xE0 c\xE1c d\u1EA1ng kh\xE1c"],
+              levels: [2, 3],
+              knowledge: r3`Hằng đẳng thức lập phương; \(A^3 = B^3 \Leftrightarrow A = B\).`,
+              signs: r3`Đẳng thức chứa \((x \pm a)^3\); sau khi khai triển, các hạng tử bậc ba, bậc hai triệt tiêu; hoặc một vế là lập phương của một số.`,
+              method: r3`Khai triển rồi thu gọn về dạng \(ax = b\); hoặc viết hai vế thành lập phương rồi so sánh cơ số.`,
+              steps: r3`- **Bước 1.** Khai triển (hoặc viết gọn thành lập phương).
+- **Bước 2.** Thu gọn, đưa về \(ax = b\) hoặc \((x + m)^3 = k^3\).
+- **Bước 3.** Tìm \(x\).`,
+              mistakes: r3`- Từ \((x + 1)^3 = 27\) suy ra \(x + 1 = 9\) (nhầm lập phương với bình phương).`,
+              example: r3`Tìm \(x\), biết \((x + 1)^3 - x^3 - 3x^2 = 10\).`,
+              solution: r3`\(x^3 + 3x^2 + 3x + 1 - x^3 - 3x^2 = 10\), suy ra \(3x + 1 = 10\), do đó \(x = 3\).`,
+              exercises: [
+                sa(2, r3`Tìm \(x\), biết \(x^3 + 3x^2 + 3x + 1 = 27\).`, ["2"], r3`\((x + 1)^3 = 3^3\), suy ra \(x + 1 = 3\), do đó \(x = 2\).`),
+                sa(3, r3`Tìm \(x\), biết \((x - 2)^3 - x(x^2 - 6x) = 4\).`, ["1"], r3`\(x^3 - 6x^2 + 12x - 8 - x^3 + 6x^2 = 12x - 8 = 4\), suy ra \(x = 1\).`)
+              ]
+            },
+            {
+              slug: "chung-minh-hang-dang-thuc-lap-phuong",
+              title: "Ch\u1EE9ng minh \u0111\u1EB3ng th\u1EE9c, t\xEDnh gi\xE1 tr\u1ECB theo t\u1ED5ng v\xE0 t\xEDch",
+              levels: [3, 4],
+              knowledge: r3`\((a + b)^3 = a^3 + b^3 + 3ab(a + b)\); \((a - b)^3 = a^3 - b^3 - 3ab(a - b)\).`,
+              signs: r3`Chứng minh đẳng thức chứa lập phương; hoặc biết \(a + b\), \(ab\) (hay \(a - b\), \(ab\)), yêu cầu tính \(a^3 + b^3\), \(a^3 - b^3\).`,
+              method: r3`Khai triển vế phức tạp; biểu diễn \(a^3 + b^3\) qua \(a + b\) và \(ab\).`,
+              steps: r3`- **Bước 1.** Khai triển hoặc dùng \(a^3 + b^3 = (a + b)^3 - 3ab(a + b)\).
+- **Bước 2.** Thay các giá trị đã biết (nếu có).
+- **Bước 3.** Kết luận.`,
+              mistakes: r3`- Viết \(a^3 + b^3 = (a + b)^3\).
+- Quên thừa số \((a + b)\) trong \(3ab(a + b)\).`,
+              example: r3`Chứng minh \((a + b)^3 - (a - b)^3 = 2b(3a^2 + b^2)\).`,
+              solution: r3`Vế trái \(= (a^3 + 3a^2b + 3ab^2 + b^3) - (a^3 - 3a^2b + 3ab^2 - b^3) = 6a^2b + 2b^3 = 2b(3a^2 + b^2)\) = vế phải.`,
+              exercises: [
+                es(3, r3`Chứng minh \((a + b)^3 = a^3 + b^3 + 3ab(a + b)\).`, r3`Vế trái \(= a^3 + 3a^2b + 3ab^2 + b^3 = a^3 + b^3 + 3ab(a + b)\) = vế phải.`),
+                sa(4, r3`Cho \(a + b = 3\) và \(ab = 2\). Tính \(a^3 + b^3\).`, ["9"], r3`\(a^3 + b^3 = (a + b)^3 - 3ab(a + b) = 27 - 3\cdot2\cdot3 = 9\).`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 8 ----------------
+    {
+      slug: "bai-8-tong-va-hieu-hai-lap-phuong",
+      difficulty: 2,
+      objectives: `- M\xF4 t\u1EA3 h\u1EB1ng \u0111\u1EB3ng th\u1EE9c t\u1ED5ng hai l\u1EADp ph\u01B0\u01A1ng, hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng.
+- V\u1EADn d\u1EE5ng b\u1EA3y h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\u1EC3 vi\u1EBFt t\xEDch th\xE0nh t\u1ED5ng (hi\u1EC7u) v\xE0 ng\u01B0\u1EE3c l\u1EA1i, t\xEDnh gi\xE1 tr\u1ECB, r\xFAt g\u1ECDn, ch\u1EE9ng minh.`,
+      prerequisites: "- C\xE1c h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u1EDF B\xE0i 6, B\xE0i 7.\n- Nh\xE2n \u0111a th\u1EE9c v\u1EDBi \u0111a th\u1EE9c.",
+      concepts: "T\u1ED5ng hai l\u1EADp ph\u01B0\u01A1ng; hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng; b\xECnh ph\u01B0\u01A1ng thi\u1EBFu c\u1EE7a m\u1ED9t t\u1ED5ng, c\u1EE7a m\u1ED9t hi\u1EC7u.",
+      formulas: r3`\[A^3 + B^3 = (A + B)(A^2 - AB + B^2)\]
+\[A^3 - B^3 = (A - B)(A^2 + AB + B^2)\]`,
+      properties: r3`- \(A^2 - AB + B^2\) gọi là bình phương thiếu của hiệu; \(A^2 + AB + B^2\) gọi là bình phương thiếu của tổng.
+- Không nhầm \(A^3 + B^3\) với \((A + B)^3\).`,
+      themes: [
+        {
+          title: "T\u1ED5ng v\xE0 hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng",
+          description: "Vi\u1EBFt t\u1ED5ng (hi\u1EC7u) hai l\u1EADp ph\u01B0\u01A1ng th\xE0nh t\xEDch v\xE0 ng\u01B0\u1EE3c l\u1EA1i.",
+          types: [
+            {
+              slug: "hoan-thanh-hang-dang-thuc-tong-hieu-lap-phuong",
+              title: "Ho\xE0n th\xE0nh c\xE1c h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\xE3 bi\u1EBFt",
+              levels: [1, 2],
+              knowledge: r3`\(A^3 + B^3 = (A + B)(A^2 - AB + B^2)\); \(A^3 - B^3 = (A - B)(A^2 + AB + B^2)\).`,
+              signs: r3`Biểu thức dạng \(A^3 \pm B^3\) (như \(x^3 + 8\), \(27x^3 - 1\)) hoặc tích \((A \pm B)(A^2 \mp AB + B^2)\).`,
+              method: r3`Viết mỗi số hạng thành lập phương của một biểu thức để xác định \(A\), \(B\), rồi áp dụng công thức.`,
+              steps: r3`- **Bước 1.** Viết \(8 = 2^3\), \(27x^3 = (3x)^3\)… để tìm \(A\), \(B\).
+- **Bước 2.** Áp dụng công thức, chú ý dấu trong bình phương thiếu.
+- **Bước 3.** Thu gọn.`,
+              mistakes: r3`- Viết sai dấu: \(A^3 + B^3 = (A + B)(A^2 + AB + B^2)\) là sai.
+- Nhầm bình phương thiếu với bình phương đủ (\(A^2 - 2AB + B^2\)).
+- Viết \((3x)^3 = 9x^3\); đúng là \(27x^3\).`,
+              example: r3`a) Viết \(x^3 + 8\) dưới dạng tích.
+b) Viết \((3x - 1)(9x^2 + 3x + 1)\) dưới dạng hiệu hai lập phương.`,
+              solution: r3`a) \(x^3 + 8 = x^3 + 2^3 = (x + 2)(x^2 - 2x + 4)\).
+b) \((3x - 1)\left[(3x)^2 + 3x\cdot1 + 1^2\right] = (3x)^3 - 1^3 = 27x^3 - 1\).`,
+              exercises: [
+                mcq(1, r3`\(x^3 + 27\) bằng`, [r3`\((x + 3)(x^2 - 3x + 9)\)`, r3`\((x + 3)(x^2 + 3x + 9)\)`, r3`\((x + 3)^3\)`, r3`\((x - 3)(x^2 + 3x + 9)\)`], "A", r3`\(x^3 + 3^3 = (x + 3)(x^2 - 3x + 9)\).`),
+                tf(2, "M\u1ED7i kh\u1EB3ng \u0111\u1ECBnh sau \u0111\xFAng hay sai?", [
+                  [r3`\(8x^3 - 1 = (2x - 1)(4x^2 + 2x + 1)\).`, true],
+                  [r3`\(x^3 + y^3 = (x + y)^3\).`, false],
+                  [r3`\((x - 2)(x^2 + 2x + 4) = x^3 - 8\).`, true],
+                  [r3`\(27 + y^3 = (3 + y)(9 + 3y + y^2)\).`, false]
+                ], r3`a) Đúng (hiệu hai lập phương với \(A = 2x\), \(B = 1\)). b) Sai vì \((x + y)^3 = x^3 + 3x^2y + 3xy^2 + y^3\). c) Đúng. d) Sai: \(27 + y^3 = (3 + y)(9 - 3y + y^2)\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng b\u1EA3y h\u1EB1ng \u0111\u1EB3ng th\u1EE9c",
+          description: "T\xEDnh gi\xE1 tr\u1ECB, r\xFAt g\u1ECDn, ch\u1EE9ng minh v\u1EDBi c\xE1c h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\xE1ng nh\u1EDB.",
+          types: [
+            {
+              slug: "tinh-gia-tri-bieu-thuc-tong-hieu-lap-phuong",
+              title: "T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a bi\u1EC3u th\u1EE9c",
+              levels: [2, 3],
+              knowledge: r3`Tổng, hiệu hai lập phương; \(x^3 - y^3 = (x - y)\left[(x - y)^2 + 3xy\right]\).`,
+              signs: r3`Biểu thức là tích dạng \((A \pm B)(A^2 \mp AB + B^2)\) cần tính tại giá trị cho trước; hoặc biết \(x \pm y\), \(xy\), cần tính \(x^3 \pm y^3\).`,
+              method: "Vi\u1EBFt g\u1ECDn bi\u1EC3u th\u1EE9c b\u1EB1ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c r\u1ED3i thay s\u1ED1; v\u1EDBi d\u1EEF ki\u1EC7n t\u1ED5ng \u2013 t\xEDch, bi\u1EC3u di\u1EC5n bi\u1EC3u th\u1EE9c c\u1EA7n t\xEDnh qua t\u1ED5ng v\xE0 t\xEDch.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt g\u1ECDn b\u1EB1ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** Thay gi\xE1 tr\u1ECB \u0111\xE3 bi\u1EBFt.
+- **B\u01B0\u1EDBc 3.** T\xEDnh v\xE0 k\u1EBFt lu\u1EADn.`,
+              mistakes: "- Khai tri\u1EC3n t\xEDch r\u1ED3i m\u1EDBi thay s\u1ED1, t\xEDnh d\xE0i.\n- Sai d\u1EA5u khi l\u1EADp ph\u01B0\u01A1ng s\u1ED1 \xE2m: (\u22123)\xB3 = \u221227.",
+              example: r3`Tính giá trị của \(C = (x - 3)(x^2 + 3x + 9)\) tại \(x = 5\).`,
+              solution: r3`\(C = x^3 - 27\). Tại \(x = 5\): \(C = 125 - 27 = 98\).`,
+              exercises: [
+                sa(2, r3`Tính giá trị của biểu thức \((x + 2)(x^2 - 2x + 4)\) tại \(x = -3\).`, ["-19"], r3`Biểu thức bằng \(x^3 + 8\). Tại \(x = -3\): \(-27 + 8 = -19\).`),
+                sa(3, r3`Cho \(x - y = 2\) và \(xy = 3\). Tính \(x^3 - y^3\).`, ["26"], r3`\(x^3 - y^3 = (x - y)(x^2 + xy + y^2) = (x - y)\left[(x - y)^2 + 3xy\right] = 2(4 + 9) = 26\).`)
+              ]
+            },
+            {
+              slug: "rut-gon-chung-minh-bay-hang-dang-thuc",
+              title: "R\xFAt g\u1ECDn, ch\u1EE9ng minh v\xE0 c\xE1c d\u1EA1ng kh\xE1c",
+              levels: [3, 4],
+              knowledge: "B\u1EA3y h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\xE1ng nh\u1EDB; nh\xE2n \u0111a th\u1EE9c.",
+              signs: "Bi\u1EC3u th\u1EE9c g\u1ED3m nhi\u1EC1u t\xEDch, l\u0169y th\u1EEBa c\xF3 d\u1EA1ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c c\u1EA7n r\xFAt g\u1ECDn; \u0111\u1EB3ng th\u1EE9c c\u1EA7n ch\u1EE9ng minh.",
+              method: "Nh\u1EADn ra t\u1EEBng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c, vi\u1EBFt g\u1ECDn (ho\u1EB7c khai tri\u1EC3n), sau \u0111\xF3 thu g\u1ECDn.",
+              steps: `- **B\u01B0\u1EDBc 1.** \u0110\xE1nh d\u1EA5u t\u1EEBng c\u1EE5m c\xF3 d\u1EA1ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** \xC1p d\u1EE5ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c cho t\u1EEBng c\u1EE5m.
+- **B\u01B0\u1EDBc 3.** Thu g\u1ECDn v\xE0 k\u1EBFt lu\u1EADn.`,
+              mistakes: "- \xC1p d\u1EE5ng nh\u1EA7m c\xF4ng th\u1EE9c t\u1ED5ng v\u1EDBi hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng.\n- B\u1ECF ngo\u1EB7c sai d\u1EA5u.",
+              example: r3`Rút gọn \(A = (x + 2)(x^2 - 2x + 4) - (x^3 - 1)\).`,
+              solution: r3`\(A = (x^3 + 8) - x^3 + 1 = 9\).`,
+              exercises: [
+                sa(3, r3`Rút gọn biểu thức \((2x - 1)(4x^2 + 2x + 1) - 8x^3\).`, ["-1"], r3`\((2x - 1)(4x^2 + 2x + 1) = 8x^3 - 1\). Do đó biểu thức bằng \(-1\).`),
+                es(4, r3`Chứng minh rằng nếu \(a + b + c = 0\) thì \(a^3 + b^3 + c^3 = 3abc\).`, r3`Từ \(a + b + c = 0\) suy ra \(c = -(a + b)\). Khi đó
+\[a^3 + b^3 + c^3 = a^3 + b^3 - (a + b)^3 = -3ab(a + b) = 3abc.\]`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 9 ----------------
+    {
+      slug: "bai-9-phan-tich-da-thuc-thanh-nhan-tu",
+      difficulty: 3,
+      objectives: `- Hi\u1EC3u th\u1EBF n\xE0o l\xE0 ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED.
+- Ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED b\u1EB1ng c\xE1c ph\u01B0\u01A1ng ph\xE1p \u0111\u1EB7t nh\xE2n t\u1EED chung, s\u1EED d\u1EE5ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c, nh\xF3m h\u1EA1ng t\u1EED.
+- V\u1EADn d\u1EE5ng \u0111\u1EC3 t\xECm x, t\xEDnh nhanh v\xE0 t\xEDnh gi\xE1 tr\u1ECB bi\u1EC3u th\u1EE9c.`,
+      prerequisites: "- B\u1EA3y h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\xE1ng nh\u1EDB (B\xE0i 6 \u2013 B\xE0i 8).\n- T\xEDnh ch\u1EA5t ph\xE2n ph\u1ED1i c\u1EE7a ph\xE9p nh\xE2n \u0111\u1ED1i v\u1EDBi ph\xE9p c\u1ED9ng.",
+      concepts: "Ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED (vi\u1EBFt \u0111a th\u1EE9c th\xE0nh t\xEDch c\u1EE7a nh\u1EEFng \u0111a th\u1EE9c); nh\xE2n t\u1EED chung.",
+      formulas: r3`\(AB + AC = A(B + C)\); \(A\cdot B = 0\) khi và chỉ khi \(A = 0\) hoặc \(B = 0\).`,
+      properties: r3`- Có thể phối hợp nhiều phương pháp; thường đặt nhân tử chung trước (nếu có).
+- Đổi dấu để làm xuất hiện nhân tử chung: \(-(A - B) = B - A\).`,
+      themes: [
+        {
+          title: "C\xE1c ph\u01B0\u01A1ng ph\xE1p ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED",
+          description: "\u0110\u1EB7t nh\xE2n t\u1EED chung, d\xF9ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c, nh\xF3m h\u1EA1ng t\u1EED, t\xE1ch \u2013 th\xEAm b\u1EDBt h\u1EA1ng t\u1EED.",
+          types: [
+            {
+              slug: "dat-nhan-tu-chung",
+              title: "Ph\u01B0\u01A1ng ph\xE1p \u0111\u1EB7t nh\xE2n t\u1EED chung",
+              levels: [1, 2],
+              knowledge: r3`\(AB + AC = A(B + C)\); nhân tử chung gồm ước chung lớn nhất của các hệ số và lũy thừa chung của các biến.`,
+              signs: "C\xE1c h\u1EA1ng t\u1EED c\xF3 chung th\u1EEBa s\u1ED1 (s\u1ED1, bi\u1EBFn ho\u1EB7c bi\u1EC3u th\u1EE9c trong ngo\u1EB7c), c\xF3 th\u1EC3 ph\u1EA3i \u0111\u1ED5i d\u1EA5u m\u1EDBi th\u1EA5y.",
+              method: "T\xECm nh\xE2n t\u1EED chung c\u1EE7a m\u1ECDi h\u1EA1ng t\u1EED, \u0111\u1EB7t ra ngo\xE0i ngo\u1EB7c; trong ngo\u1EB7c l\xE0 th\u01B0\u01A1ng c\u1EE7a t\u1EEBng h\u1EA1ng t\u1EED v\u1EDBi nh\xE2n t\u1EED chung.",
+              steps: r3`- **Bước 1.** Tìm ƯCLN của các hệ số và lũy thừa nhỏ nhất của mỗi biến chung (hoặc biểu thức chung).
+- **Bước 2.** Đổi dấu nếu cần: \(2(1 - y) = -2(y - 1)\).
+- **Bước 3.** Viết nhân tử chung ra ngoài, chia từng hạng tử cho nó.`,
+              mistakes: "- Qu\xEAn h\u1EA1ng t\u1EED b\u1EB1ng ch\xEDnh nh\xE2n t\u1EED chung (th\u01B0\u01A1ng l\xE0 1).\n- \u0110\u1EB7t nh\xE2n t\u1EED chung ch\u01B0a tri\u1EC7t \u0111\u1EC3 (c\xF2n th\u1EEBa s\u1ED1 chung trong ngo\u1EB7c).\n- \u0110\u1ED5i d\u1EA5u sai.",
+              example: r3`a) Phân tích \(6x^2y - 9xy^2 + 3xy\) thành nhân tử.
+b) Phân tích \(x(y - 1) - 2(1 - y)\) thành nhân tử.`,
+              solution: r3`a) \(6x^2y - 9xy^2 + 3xy = 3xy(2x - 3y + 1)\).
+b) \(x(y - 1) - 2(1 - y) = x(y - 1) + 2(y - 1) = (y - 1)(x + 2)\).`,
+              exercises: [
+                mcq(1, r3`Phân tích \(4x^2 - 8x\) thành nhân tử được`, [r3`\(4x(x - 2)\)`, r3`\(4x(x - 8)\)`, r3`\(2x(2x - 8)\)`, r3`\(4x(x + 2)\)`], "A", r3`Nhân tử chung là \(4x\): \(4x^2 - 8x = 4x(x - 2)\).`),
+                sa(2, r3`Phân tích \(3x(x - 5) - 2(5 - x) = (x - 5)(ax + b)\). Tính \(a + b\).`, ["5"], r3`\(3x(x - 5) - 2(5 - x) = 3x(x - 5) + 2(x - 5) = (x - 5)(3x + 2)\). Vậy \(a + b = 5\).`)
+              ]
+            },
+            {
+              slug: "su-dung-hang-dang-thuc",
+              title: "Ph\u01B0\u01A1ng ph\xE1p s\u1EED d\u1EE5ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c",
+              levels: [2, 3],
+              knowledge: "B\u1EA3y h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\xE1ng nh\u1EDB theo chi\u1EC1u vi\u1EBFt g\u1ECDn.",
+              signs: r3`Đa thức có dạng vế phải của một hằng đẳng thức: hiệu hai bình phương, tam thức \(A^2 \pm 2AB + B^2\), tổng (hiệu) hai lập phương…`,
+              method: "Nh\u1EADn d\u1EA1ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c, x\xE1c \u0111\u1ECBnh A, B r\u1ED3i vi\u1EBFt \u0111a th\u1EE9c th\xE0nh t\xEDch.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt c\xE1c h\u1EA1ng t\u1EED th\xE0nh b\xECnh ph\u01B0\u01A1ng, l\u1EADp ph\u01B0\u01A1ng c\u1EE7a c\xE1c bi\u1EC3u th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** Nh\u1EADn d\u1EA1ng v\xE0 \xE1p d\u1EE5ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c.
+- **B\u01B0\u1EDBc 3.** Ki\u1EC3m tra t\u1EEBng nh\xE2n t\u1EED c\xF3 ph\xE2n t\xEDch ti\u1EBFp \u0111\u01B0\u1EE3c kh\xF4ng.`,
+              mistakes: r3`- Áp dụng \(A^2 + B^2 = (A + B)(A - B)\) (sai, chỉ có hiệu hai bình phương).
+- Nhầm \(A^2 + 2AB + B^2\) với \(A^2 + AB + B^2\).`,
+              example: r3`Phân tích thành nhân tử: a) \(4x^2 - 25\); b) \(x^3 + 27\).`,
+              solution: r3`a) \(4x^2 - 25 = (2x)^2 - 5^2 = (2x - 5)(2x + 5)\).
+b) \(x^3 + 27 = (x + 3)(x^2 - 3x + 9)\).`,
+              exercises: [
+                mcq(2, r3`Phân tích \(x^2 + 10x + 25\) thành nhân tử được`, [r3`\((x + 5)^2\)`, r3`\((x - 5)^2\)`, r3`\((x + 5)(x - 5)\)`, r3`\((x + 25)^2\)`], "A", r3`\(x^2 + 2\cdot x\cdot5 + 5^2 = (x + 5)^2\).`),
+                sa(3, r3`Phân tích \((x + 1)^2 - 9 = (x + a)(x + b)\) với \(a < b\). Tìm \(b\).`, ["4"], r3`\((x + 1)^2 - 3^2 = (x + 1 - 3)(x + 1 + 3) = (x - 2)(x + 4)\). Vậy \(a = -2\), \(b = 4\).`)
+              ]
+            },
+            {
+              slug: "nhom-hang-tu",
+              title: "Ph\u01B0\u01A1ng ph\xE1p nh\xF3m h\u1EA1ng t\u1EED",
+              levels: [2, 3],
+              knowledge: "\u0110\u1EB7t nh\xE2n t\u1EED chung; h\u1EB1ng \u0111\u1EB3ng th\u1EE9c; t\xEDnh ch\u1EA5t giao ho\xE1n, k\u1EBFt h\u1EE3p c\u1EE7a ph\xE9p c\u1ED9ng.",
+              signs: "\u0110a th\u1EE9c c\xF3 t\u1EEB b\u1ED1n h\u1EA1ng t\u1EED, kh\xF4ng c\xF3 nh\xE2n t\u1EED chung cho t\u1EA5t c\u1EA3 nh\u01B0ng c\xF3 nh\xE2n t\u1EED chung (ho\u1EB7c h\u1EB1ng \u0111\u1EB3ng th\u1EE9c) theo t\u1EEBng nh\xF3m.",
+              method: "Nh\xF3m c\xE1c h\u1EA1ng t\u1EED th\xEDch h\u1EE3p sao cho m\u1ED7i nh\xF3m ph\xE2n t\xEDch \u0111\u01B0\u1EE3c v\xE0 xu\u1EA5t hi\u1EC7n nh\xE2n t\u1EED chung gi\u1EEFa c\xE1c nh\xF3m.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ch\u1ECDn c\xE1ch nh\xF3m (th\u01B0\u1EDDng nh\xF3m hai h\u1EA1ng t\u1EED c\xF3 nh\xE2n t\u1EED chung, ho\u1EB7c nh\xF3m th\xE0nh h\u1EB1ng \u0111\u1EB3ng th\u1EE9c).
+- **B\u01B0\u1EDBc 2.** Ph\xE2n t\xEDch t\u1EEBng nh\xF3m.
+- **B\u01B0\u1EDBc 3.** \u0110\u1EB7t nh\xE2n t\u1EED chung c\u1EE7a c\xE1c nh\xF3m.`,
+              mistakes: '- \u0110\u1EB7t d\u1EA5u "\u2212" tr\u01B0\u1EDBc ngo\u1EB7c khi nh\xF3m nh\u01B0ng qu\xEAn \u0111\u1ED5i d\u1EA5u c\xE1c h\u1EA1ng t\u1EED trong ngo\u1EB7c.\n- Ch\u1ECDn c\xE1ch nh\xF3m kh\xF4ng l\xE0m xu\u1EA5t hi\u1EC7n nh\xE2n t\u1EED chung m\xE0 kh\xF4ng th\u1EED c\xE1ch kh\xE1c.',
+              example: r3`Phân tích \(x^2 - xy + 3x - 3y\) thành nhân tử.`,
+              solution: r3`\(x^2 - xy + 3x - 3y = (x^2 - xy) + (3x - 3y) = x(x - y) + 3(x - y) = (x - y)(x + 3)\).`,
+              exercises: [
+                mcq(2, r3`Phân tích \(ax + ay - bx - by\) thành nhân tử được`, [r3`\((x + y)(a - b)\)`, r3`\((x - y)(a + b)\)`, r3`\((a + b)(x + y)\)`, r3`\((a - b)(x - y)\)`], "A", r3`\(a(x + y) - b(x + y) = (x + y)(a - b)\).`),
+                sa(3, r3`Phân tích \(x^2 + 4x + 4 - y^2 = (x + y + m)(x - y + m)\). Tìm \(m\).`, ["2"], r3`\((x^2 + 4x + 4) - y^2 = (x + 2)^2 - y^2 = (x + 2 + y)(x + 2 - y)\). Vậy \(m = 2\).`)
+              ]
+            },
+            {
+              slug: "tach-hang-tu-them-bot-hang-tu",
+              title: "T\xE1ch h\u1EA1ng t\u1EED, th\xEAm b\u1EDBt h\u1EA1ng t\u1EED (n\xE2ng cao)",
+              levels: [4],
+              knowledge: r3`Nhóm hạng tử; hằng đẳng thức hiệu hai bình phương. Tam thức \(x^2 + bx + c\) tách \(bx = mx + nx\) với \(m + n = b\), \(mn = c\).`,
+              signs: r3`Tam thức bậc hai \(x^2 + bx + c\) không có dạng hằng đẳng thức; đa thức như \(x^4 + 4\) cần thêm bớt để tạo hiệu hai bình phương.`,
+              method: "T\xE1ch m\u1ED9t h\u1EA1ng t\u1EED th\xE0nh hai (ho\u1EB7c th\xEAm v\xE0 b\u1EDBt c\xF9ng m\u1ED9t h\u1EA1ng t\u1EED) \u0111\u1EC3 c\xF3 th\u1EC3 nh\xF3m ho\u1EB7c d\xF9ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c.",
+              steps: r3`- **Bước 1.** Với \(x^2 + bx + c\): tìm hai số \(m\), \(n\) có tổng \(b\), tích \(c\).
+- **Bước 2.** Tách \(bx = mx + nx\) (hoặc thêm bớt để tạo bình phương).
+- **Bước 3.** Nhóm hạng tử và đặt nhân tử chung (hoặc dùng hiệu hai bình phương).`,
+              mistakes: "- Ch\u1ECDn hai s\u1ED1 c\xF3 t\u1ED5ng \u0111\xFAng nh\u01B0ng t\xEDch sai (ho\u1EB7c ng\u01B0\u1EE3c l\u1EA1i).\n- Th\xEAm m\u1ED9t h\u1EA1ng t\u1EED m\xE0 qu\xEAn b\u1EDBt ch\xEDnh h\u1EA1ng t\u1EED \u0111\xF3.",
+              example: r3`Phân tích thành nhân tử: a) \(x^2 + 5x + 6\); b) \(x^4 + 4\).`,
+              solution: r3`a) \(x^2 + 5x + 6 = x^2 + 2x + 3x + 6 = x(x + 2) + 3(x + 2) = (x + 2)(x + 3)\).
+b) \(x^4 + 4 = x^4 + 4x^2 + 4 - 4x^2 = (x^2 + 2)^2 - (2x)^2 = (x^2 - 2x + 2)(x^2 + 2x + 2)\).`,
+              exercises: [
+                sa(4, r3`Phân tích \(x^2 - 7x + 12 = (x - a)(x - b)\) với \(a < b\). Tìm \(a\).`, ["3"], r3`Hai số có tổng \(-7\) và tích 12 là \(-3\), \(-4\): \(x^2 - 3x - 4x + 12 = x(x - 3) - 4(x - 3) = (x - 3)(x - 4)\). Vậy \(a = 3\).`),
+                es(4, r3`Phân tích đa thức \(x^4 + 64\) thành nhân tử.`, r3`\(x^4 + 64 = x^4 + 16x^2 + 64 - 16x^2 = (x^2 + 8)^2 - (4x)^2 = (x^2 - 4x + 8)(x^2 + 4x + 8)\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u1EE8ng d\u1EE5ng ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED",
+          description: "T\xECm x b\u1EB1ng c\xE1ch \u0111\u01B0a v\u1EC1 t\xEDch b\u1EB1ng 0; t\xEDnh nhanh, t\xEDnh gi\xE1 tr\u1ECB bi\u1EC3u th\u1EE9c.",
+          types: [
+            {
+              slug: "tim-x-phan-tich-nhan-tu",
+              title: "T\xECm \u0111\u1EA1i l\u01B0\u1EE3ng ch\u01B0a bi\u1EBFt (t\xECm x)",
+              levels: [2, 3],
+              knowledge: r3`\(A\cdot B = 0\) khi và chỉ khi \(A = 0\) hoặc \(B = 0\); các phương pháp phân tích thành nhân tử.`,
+              signs: r3`Đẳng thức có một vế bằng 0 (hoặc chuyển được về 0), vế kia là đa thức bậc hai, bậc ba theo \(x\).`,
+              method: "Chuy\u1EC3n h\u1EBFt sang m\u1ED9t v\u1EBF, ph\xE2n t\xEDch v\u1EBF \u0111\xF3 th\xE0nh t\xEDch r\u1ED3i cho t\u1EEBng nh\xE2n t\u1EED b\u1EB1ng 0.",
+              steps: `- **B\u01B0\u1EDBc 1.** Chuy\u1EC3n v\u1EBF \u0111\u1EC3 m\u1ED9t v\u1EBF b\u1EB1ng 0.
+- **B\u01B0\u1EDBc 2.** Ph\xE2n t\xEDch v\u1EBF c\xF2n l\u1EA1i th\xE0nh nh\xE2n t\u1EED.
+- **B\u01B0\u1EDBc 3.** Cho t\u1EEBng nh\xE2n t\u1EED b\u1EB1ng 0, t\xECm x v\xE0 k\u1EBFt lu\u1EADn \u0111\u1EE7 c\xE1c gi\xE1 tr\u1ECB.`,
+              mistakes: r3`- Chia hai vế cho \(x\) làm mất nghiệm \(x = 0\) (ví dụ từ \(x^2 = 4x\) suy ra \(x = 4\)).
+- Chỉ nêu một giá trị của \(x\) khi có hai giá trị.`,
+              example: r3`Tìm \(x\), biết \(x^2 - 4x = 0\).`,
+              solution: r3`\(x(x - 4) = 0\), suy ra \(x = 0\) hoặc \(x = 4\).`,
+              exercises: [
+                sa(2, r3`Tìm \(x < 0\), biết \(x^2 - 25 = 0\).`, ["-5"], r3`\((x - 5)(x + 5) = 0\), suy ra \(x = 5\) hoặc \(x = -5\). Vì \(x < 0\) nên \(x = -5\).`),
+                sa(3, r3`Tìm giá trị nguyên của \(x\) thỏa mãn \(2x(x - 3) + x - 3 = 0\).`, ["3"], r3`\((x - 3)(2x + 1) = 0\), suy ra \(x = 3\) hoặc \(x = -\dfrac12\). Giá trị nguyên là \(x = 3\).`)
+              ]
+            },
+            {
+              slug: "tinh-gia-tri-phan-tich-nhan-tu",
+              title: "T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a bi\u1EC3u th\u1EE9c",
+              levels: [2, 3],
+              knowledge: "Ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED; h\u1EB1ng \u0111\u1EB3ng th\u1EE9c hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+              signs: "T\xEDnh nhanh hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng c\u1EE7a c\xE1c s\u1ED1; t\xEDnh gi\xE1 tr\u1ECB bi\u1EC3u th\u1EE9c khi bi\u1EBFt t\u1ED5ng (hi\u1EC7u) c\u1EE7a c\xE1c bi\u1EBFn ho\u1EB7c t\u1EA1i gi\xE1 tr\u1ECB l\xE0m c\xE1c nh\xE2n t\u1EED \u0111\u1EB9p.",
+              method: "Ph\xE2n t\xEDch bi\u1EC3u th\u1EE9c th\xE0nh t\xEDch (ho\u1EB7c bi\u1EC3u di\u1EC5n qua c\xE1c \u0111\u1EA1i l\u01B0\u1EE3ng \u0111\xE3 bi\u1EBFt) r\u1ED3i thay s\u1ED1.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ph\xE2n t\xEDch bi\u1EC3u th\u1EE9c th\xE0nh nh\xE2n t\u1EED.
+- **B\u01B0\u1EDBc 2.** Thay gi\xE1 tr\u1ECB \u0111\xE3 bi\u1EBFt v\xE0o t\u1EEBng nh\xE2n t\u1EED.
+- **B\u01B0\u1EDBc 3.** T\xEDnh t\xEDch.`,
+              mistakes: "- Thay s\u1ED1 tr\u1EF1c ti\u1EBFp khi s\u1ED1 l\u1EDBn, t\xEDnh d\xE0i v\xE0 d\u1EC5 sai.",
+              example: r3`a) Tính nhanh \(37^2 - 13^2\).
+b) Tính giá trị của \(x^2 - xy - 5x + 5y\) tại \(x = 15\), \(y = 5\).`,
+              solution: r3`a) \(37^2 - 13^2 = (37 - 13)(37 + 13) = 24\cdot50 = 1200\).
+b) \(x^2 - xy - 5x + 5y = x(x - y) - 5(x - y) = (x - y)(x - 5) = 10\cdot10 = 100\).`,
+              exercises: [
+                sa(2, r3`Tính nhanh \(87^2 - 13^2\).`, ["7400"], r3`\((87 - 13)(87 + 13) = 74\cdot100 = 7400\).`),
+                sa(3, r3`Tính giá trị của biểu thức \(A = x^2 + 2xy + y^2 - 4x - 4y\), biết \(x + y = 6\).`, ["12"], r3`\(A = (x + y)^2 - 4(x + y) = 36 - 24 = 12\).`)
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+// src/seed/toan8-map/chuong-3.ts
+var CHUONG_3 = {
+  code: "III",
+  objectives: `- M\xF4 t\u1EA3 t\u1EE9 gi\xE1c, t\u1EE9 gi\xE1c l\u1ED3i; gi\u1EA3i th\xEDch \u0111\u1ECBnh l\xED t\u1ED5ng c\xE1c g\xF3c c\u1EE7a t\u1EE9 gi\xE1c.
+- Gi\u1EA3i th\xEDch t\xEDnh ch\u1EA5t v\u1EC1 c\u1EA1nh, g\xF3c, \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh thang c\xE2n, h\xECnh b\xECnh h\xE0nh, h\xECnh ch\u1EEF nh\u1EADt, h\xECnh thoi, h\xECnh vu\xF4ng.
+- Nh\u1EADn bi\u1EBFt c\xE1c t\u1EE9 gi\xE1c \u0111\u1EB7c bi\u1EC7t b\u1EB1ng d\u1EA5u hi\u1EC7u; v\u1EADn d\u1EE5ng gi\u1EA3i b\xE0i to\xE1n ch\u1EE9ng minh, t\xEDnh to\xE1n.`,
+  keyPoints: `- T\u1ED5ng c\xE1c g\xF3c c\u1EE7a m\u1ED9t t\u1EE9 gi\xE1c b\u1EB1ng 360\xB0.
+- \u0110\u1ECBnh ngh\u0129a, t\xEDnh ch\u1EA5t, d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt c\u1EE7a h\xECnh thang c\xE2n, h\xECnh b\xECnh h\xE0nh, h\xECnh ch\u1EEF nh\u1EADt, h\xECnh thoi, h\xECnh vu\xF4ng.
+- Trong tam gi\xE1c vu\xF4ng, \u0111\u01B0\u1EDDng trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n b\u1EB1ng n\u1EEDa c\u1EA1nh huy\u1EC1n.`,
+  formulas: r3`\[\widehat{A} + \widehat{B} + \widehat{C} + \widehat{D} = 360^\circ\]
+Tam giác \(ABC\) vuông tại \(A\), \(M\) là trung điểm của \(BC\) thì \(AM = \dfrac{BC}{2}\).`,
+  verify: { status: "verified", note: "T\xEAn ch\u01B0\u01A1ng, t\xEAn b\xE0i v\xE0 th\u1EE9 t\u1EF1 \u0111\u1ED1i chi\u1EBFu v\u1EDBi m\u1EE5c l\u1EE5c SGK To\xE1n 8 K\u1EBFt n\u1ED1i tri th\u1EE9c t\u1EADp 1 (VietJack, Hoatieu) v\xE0 PPCT 2026-2027." },
+  aux: [
+    { slug: "luyen-tap-chung-3a", objectives: "C\u1EE7ng c\u1ED1 t\u1EE9 gi\xE1c, t\u1ED5ng c\xE1c g\xF3c c\u1EE7a t\u1EE9 gi\xE1c v\xE0 h\xECnh thang c\xE2n." },
+    { slug: "luyen-tap-chung-3b", objectives: "C\u1EE7ng c\u1ED1 h\xECnh b\xECnh h\xE0nh: t\xEDnh ch\u1EA5t, d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt; ch\u1EE9ng minh ba \u0111i\u1EC3m th\u1EB3ng h\xE0ng, ba \u0111\u01B0\u1EDDng th\u1EB3ng \u0111\u1ED3ng quy." },
+    { slug: "luyen-tap-chung-3c", objectives: "C\u1EE7ng c\u1ED1 h\xECnh ch\u1EEF nh\u1EADt, h\xECnh thoi, h\xECnh vu\xF4ng; ph\xE2n bi\u1EC7t v\xE0 nh\u1EADn bi\u1EBFt c\xE1c t\u1EE9 gi\xE1c \u0111\u1EB7c bi\u1EC7t." },
+    { slug: "bai-tap-cuoi-chuong-3", objectives: "\xD4n t\u1EADp to\xE0n Ch\u01B0\u01A1ng III: h\u1EC7 th\u1ED1ng \u0111\u1ECBnh ngh\u0129a, t\xEDnh ch\u1EA5t, d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt c\xE1c t\u1EE9 gi\xE1c \u0111\u1EB7c bi\u1EC7t; chu\u1EA9n b\u1ECB ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng." }
+  ],
+  lessons: [
+    // ---------------- Bài 10 ----------------
+    {
+      slug: "bai-10-tu-giac",
+      difficulty: 1,
+      objectives: `- M\xF4 t\u1EA3 t\u1EE9 gi\xE1c, t\u1EE9 gi\xE1c l\u1ED3i v\xE0 c\xE1c y\u1EBFu t\u1ED1: \u0111\u1EC9nh, c\u1EA1nh, g\xF3c, \u0111\u01B0\u1EDDng ch\xE9o.
+- Gi\u1EA3i th\xEDch \u0111\u1ECBnh l\xED t\u1ED5ng c\xE1c g\xF3c trong m\u1ED9t t\u1EE9 gi\xE1c l\u1ED3i b\u1EB1ng 360\xB0.
+- V\u1EADn d\u1EE5ng \u0111\u1EC3 t\xEDnh s\u1ED1 \u0111o g\xF3c v\xE0 so s\xE1nh c\xE1c \u0111o\u1EA1n th\u1EB3ng trong t\u1EE9 gi\xE1c.`,
+      prerequisites: "- T\u1ED5ng ba g\xF3c c\u1EE7a m\u1ED9t tam gi\xE1c b\u1EB1ng 180\xB0 (To\xE1n 7).\n- B\u1EA5t \u0111\u1EB3ng th\u1EE9c tam gi\xE1c (To\xE1n 7).",
+      concepts: "T\u1EE9 gi\xE1c; t\u1EE9 gi\xE1c l\u1ED3i; hai \u0111\u1EC9nh k\u1EC1, hai \u0111\u1EC9nh \u0111\u1ED1i; hai c\u1EA1nh k\u1EC1, hai c\u1EA1nh \u0111\u1ED1i; \u0111\u01B0\u1EDDng ch\xE9o; g\xF3c ngo\xE0i c\u1EE7a t\u1EE9 gi\xE1c.",
+      theorems: r3`Tổng các góc của một tứ giác bằng \(360^\circ\).`,
+      properties: r3`- Tứ giác lồi là tứ giác luôn nằm về một phía của đường thẳng chứa bất kì cạnh nào của nó.
+- Góc ngoài và góc trong tại cùng một đỉnh của tứ giác kề bù (tổng bằng \(180^\circ\)).`,
+      themes: [
+        {
+          title: "T\u1EE9 gi\xE1c v\xE0 t\u1ED5ng c\xE1c g\xF3c",
+          description: "T\xEDnh g\xF3c c\u1EE7a t\u1EE9 gi\xE1c; quan h\u1EC7 gi\u1EEFa c\u1EA1nh, g\xF3c, \u0111\u01B0\u1EDDng ch\xE9o.",
+          types: [
+            {
+              slug: "tinh-so-do-goc-tu-giac",
+              title: "T\xEDnh s\u1ED1 \u0111o g\xF3c",
+              levels: [1, 2, 3],
+              knowledge: r3`Tổng các góc của tứ giác bằng \(360^\circ\); góc ngoài và góc trong tại một đỉnh kề bù.`,
+              signs: "\u0110\u1EC1 cho s\u1ED1 \u0111o m\u1ED9t s\u1ED1 g\xF3c (ho\u1EB7c quan h\u1EC7, t\u1EC9 l\u1EC7 gi\u1EEFa c\xE1c g\xF3c, ho\u1EB7c g\xF3c ngo\xE0i) v\xE0 y\xEAu c\u1EA7u t\xEDnh c\xE1c g\xF3c c\xF2n l\u1EA1i.",
+              method: r3`Dùng tổng bốn góc bằng \(360^\circ\), kết hợp các quan hệ đã cho để lập đẳng thức rồi tính.`,
+              steps: r3`- **Bước 1.** Viết \(\widehat{A} + \widehat{B} + \widehat{C} + \widehat{D} = 360^\circ\).
+- **Bước 2.** Thay các góc đã biết, biểu diễn góc chưa biết theo quan hệ đề cho (tổng – hiệu, tỉ lệ…).
+- **Bước 3.** Tính từng góc và kiểm tra tổng bằng \(360^\circ\).`,
+              mistakes: r3`- Dùng tổng \(180^\circ\) như với tam giác.
+- Nhầm góc ngoài với góc trong tại cùng một đỉnh.`,
+              example: r3`Tứ giác \(ABCD\) có \(\widehat{A} = 70^\circ\), \(\widehat{B} = 110^\circ\), \(\widehat{C} = \widehat{D} + 40^\circ\). Tính \(\widehat{C}\), \(\widehat{D}\).`,
+              solution: r3`\(\widehat{C} + \widehat{D} = 360^\circ - 70^\circ - 110^\circ = 180^\circ\) và \(\widehat{C} - \widehat{D} = 40^\circ\).
+Do đó \(\widehat{C} = 110^\circ\), \(\widehat{D} = 70^\circ\).`,
+              exercises: [
+                sa(1, r3`Một tứ giác có ba góc lần lượt bằng \(90^\circ\), \(90^\circ\), \(120^\circ\). Góc còn lại bằng bao nhiêu độ?`, ["60"], r3`\(360^\circ - 90^\circ - 90^\circ - 120^\circ = 60^\circ\).`, "\xB0"),
+                sa(2, r3`Tứ giác \(ABCD\) có các góc \(A, B, C, D\) tỉ lệ với \(1; 2; 3; 4\). Tính số đo góc \(D\).`, ["144"], r3`Đặt \(\widehat{A} = k\), \(\widehat{B} = 2k\), \(\widehat{C} = 3k\), \(\widehat{D} = 4k\). Ta có \(10k = 360^\circ\), suy ra \(k = 36^\circ\), \(\widehat{D} = 144^\circ\).`, "\xB0"),
+                ge(3, r3`Cho tứ giác \(ABCD\) như hình vẽ, có \(\widehat{A} = \widehat{C} = 90^\circ\) và \(\widehat{B} = 2\widehat{D}\). Tính \(\widehat{B}\) và \(\widehat{D}\).`, `D(0,0) A(4,0) B(4,1.15) C(1.5,2.6)
+ABCDA
+vuong(D,A,B) vuong(B,C,D)`, r3`\(\widehat{B} + \widehat{D} = 360^\circ - 90^\circ - 90^\circ = 180^\circ\). Mà \(\widehat{B} = 2\widehat{D}\) nên \(3\widehat{D} = 180^\circ\).
+Vậy \(\widehat{D} = 60^\circ\), \(\widehat{B} = 120^\circ\).`)
+              ]
+            },
+            {
+              slug: "canh-goc-duong-cheo-tu-giac",
+              title: "M\u1ED1i li\xEAn h\u1EC7 gi\u1EEFa c\u1EA1nh, g\xF3c v\xE0 \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a t\u1EE9 gi\xE1c",
+              levels: [3, 4],
+              knowledge: "B\u1EA5t \u0111\u1EB3ng th\u1EE9c tam gi\xE1c; t\u1ED5ng c\xE1c g\xF3c c\u1EE7a tam gi\xE1c, t\u1EE9 gi\xE1c.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u so s\xE1nh, ch\u1EE9ng minh b\u1EA5t \u0111\u1EB3ng th\u1EE9c gi\u1EEFa c\xE1c c\u1EA1nh, \u0111\u01B0\u1EDDng ch\xE9o, chu vi c\u1EE7a t\u1EE9 gi\xE1c.",
+              method: "D\xF9ng \u0111\u01B0\u1EDDng ch\xE9o (ho\u1EB7c giao \u0111i\u1EC3m hai \u0111\u01B0\u1EDDng ch\xE9o) chia t\u1EE9 gi\xE1c th\xE0nh c\xE1c tam gi\xE1c, \xE1p d\u1EE5ng b\u1EA5t \u0111\u1EB3ng th\u1EE9c tam gi\xE1c r\u1ED3i c\u1ED9ng v\u1EBF.",
+              steps: `- **B\u01B0\u1EDBc 1.** V\u1EBD hai \u0111\u01B0\u1EDDng ch\xE9o, g\u1ECDi O l\xE0 giao \u0111i\u1EC3m (t\u1EE9 gi\xE1c l\u1ED3i).
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt b\u1EA5t \u0111\u1EB3ng th\u1EE9c tam gi\xE1c cho c\xE1c tam gi\xE1c th\xEDch h\u1EE3p.
+- **B\u01B0\u1EDBc 3.** C\u1ED9ng theo v\u1EBF v\xE0 r\xFAt g\u1ECDn \u0111\u1EC3 \u0111\u01B0\u1EE3c \u0111i\u1EC1u c\u1EA7n ch\u1EE9ng minh.`,
+              mistakes: "- \xC1p d\u1EE5ng b\u1EA5t \u0111\u1EB3ng th\u1EE9c tam gi\xE1c cho ba \u0111i\u1EC3m th\u1EB3ng h\xE0ng.\n- C\u1ED9ng v\u1EBF hai b\u1EA5t \u0111\u1EB3ng th\u1EE9c ng\u01B0\u1EE3c chi\u1EC1u.",
+              example: r3`Cho tứ giác lồi \(ABCD\). Chứng minh tổng hai đường chéo lớn hơn nửa chu vi: \(AC + BD > \dfrac{AB + BC + CD + DA}{2}\).`,
+              solution: r3`Gọi \(O\) là giao điểm của \(AC\) và \(BD\). Theo bất đẳng thức tam giác: \(OA + OB > AB\); \(OB + OC > BC\); \(OC + OD > CD\); \(OD + OA > DA\).
+Cộng vế: \(2(OA + OB + OC + OD) > AB + BC + CD + DA\), tức là \(2(AC + BD) > AB + BC + CD + DA\).`,
+              exercises: [
+                es(3, r3`Cho tứ giác \(ABCD\). Chứng minh \(AC + BD < AB + BC + CD + DA\).`, r3`Trong các tam giác \(ABC\), \(ADC\), \(ABD\), \(BCD\): \(AC < AB + BC\); \(AC < AD + DC\); \(BD < BA + AD\); \(BD < BC + CD\).
+Cộng vế: \(2(AC + BD) < 2(AB + BC + CD + DA)\), suy ra điều phải chứng minh.`),
+                es(4, r3`Cho tứ giác lồi \(ABCD\) có \(AB + BD \le AC + CD\). Chứng minh \(AB < AC\).`, r3`Gọi \(O\) là giao điểm hai đường chéo. Ta có \(AB < OA + OB\) và \(CD < OC + OD\), nên \(AB + CD < AC + BD\).
+Cộng vế với \(AB + BD \le AC + CD\): \(2AB + BD + CD < 2AC + CD + BD\), suy ra \(AB < AC\).`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 11 ----------------
+    {
+      slug: "bai-11-hinh-thang-can",
+      difficulty: 2,
+      objectives: `- Nh\u1EADn bi\u1EBFt h\xECnh thang, h\xECnh thang c\xE2n, h\xECnh thang vu\xF4ng.
+- Gi\u1EA3i th\xEDch t\xEDnh ch\u1EA5t v\u1EC1 g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y, c\u1EA1nh b\xEAn, \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh thang c\xE2n.
+- Nh\u1EADn bi\u1EBFt h\xECnh thang c\xE2n b\u1EB1ng d\u1EA5u hi\u1EC7u v\u1EC1 g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y ho\u1EB7c v\u1EC1 hai \u0111\u01B0\u1EDDng ch\xE9o.`,
+      prerequisites: "- Hai \u0111\u01B0\u1EDDng th\u1EB3ng song song, c\xE1c c\u1EB7p g\xF3c \u0111\u1ED3ng v\u1ECB, so le trong (To\xE1n 7).\n- C\xE1c tr\u01B0\u1EDDng h\u1EE3p b\u1EB1ng nhau c\u1EE7a tam gi\xE1c (To\xE1n 7).\n- T\u1ED5ng c\xE1c g\xF3c c\u1EE7a t\u1EE9 gi\xE1c (B\xE0i 10).",
+      concepts: "H\xECnh thang; \u0111\xE1y l\u1EDBn, \u0111\xE1y nh\u1ECF, c\u1EA1nh b\xEAn, \u0111\u01B0\u1EDDng cao; h\xECnh thang vu\xF4ng; h\xECnh thang c\xE2n.",
+      properties: `- Trong h\xECnh thang, hai g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh b\xEAn b\xF9 nhau.
+- Trong h\xECnh thang c\xE2n: hai c\u1EA1nh b\xEAn b\u1EB1ng nhau; hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau; hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y b\u1EB1ng nhau.`,
+      theorems: `- H\xECnh thang c\xF3 hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y b\u1EB1ng nhau l\xE0 h\xECnh thang c\xE2n.
+- H\xECnh thang c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau l\xE0 h\xECnh thang c\xE2n.`,
+      themes: [
+        {
+          title: "H\xECnh thang, h\xECnh thang c\xE2n v\xE0 t\xEDnh ch\u1EA5t",
+          description: "T\xEDnh g\xF3c, \u0111\u1ED9 d\xE0i; ch\u1EE9ng minh \u0111o\u1EA1n th\u1EB3ng, g\xF3c b\u1EB1ng nhau nh\u1EDD t\xEDnh ch\u1EA5t h\xECnh thang c\xE2n.",
+          types: [
+            {
+              slug: "tinh-goc-canh-hinh-thang",
+              title: "T\xEDnh s\u1ED1 \u0111o g\xF3c, \u0111\u1ED9 d\xE0i c\u1EA1nh c\u1EE7a h\xECnh thang, h\xECnh thang c\xE2n",
+              levels: [1, 2, 3],
+              knowledge: "Hai g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh b\xEAn c\u1EE7a h\xECnh thang b\xF9 nhau; h\xECnh thang c\xE2n c\xF3 hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y b\u1EB1ng nhau, hai c\u1EA1nh b\xEAn b\u1EB1ng nhau.",
+              signs: "\u0110\u1EC1 cho m\u1ED9t s\u1ED1 g\xF3c (ho\u1EB7c quan h\u1EC7 gi\u1EEFa c\xE1c g\xF3c), \u0111\u1ED9 d\xE0i c\xE1c \u0111\xE1y c\u1EE7a h\xECnh thang, h\xECnh thang c\xE2n v\xE0 y\xEAu c\u1EA7u t\xEDnh g\xF3c, \u0111o\u1EA1n th\u1EB3ng c\xF2n l\u1EA1i.",
+              method: "D\xF9ng t\xEDnh ch\u1EA5t g\xF3c k\u1EC1 c\u1EA1nh b\xEAn b\xF9 nhau, t\xEDnh ch\u1EA5t c\u1EE7a h\xECnh thang c\xE2n; v\u1EDBi \u0111\u1ED9 d\xE0i, k\u1EBB th\xEAm \u0111\u01B0\u1EDDng cao \u0111\u1EC3 t\u1EA1o c\xE1c \u0111o\u1EA1n b\u1EB1ng nhau.",
+              steps: r3`- **Bước 1.** Xác định cặp đáy song song, các góc kề cạnh bên, kề đáy.
+- **Bước 2.** Áp dụng: góc kề cạnh bên có tổng \(180^\circ\); góc kề một đáy (hình thang cân) bằng nhau.
+- **Bước 3.** Với độ dài đáy: kẻ hai đường cao từ hai đỉnh của đáy nhỏ, dùng các đoạn bằng nhau ở đáy lớn.`,
+              mistakes: "- Cho r\u1EB1ng hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y c\u1EE7a h\xECnh thang b\u1EA5t k\xEC b\u1EB1ng nhau.\n- Nh\u1EA7m c\u1EB7p g\xF3c b\xF9 nhau (ph\u1EA3i l\xE0 hai g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh b\xEAn, kh\xF4ng ph\u1EA3i k\u1EC1 m\u1ED9t \u0111\xE1y).",
+              example: r3`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{D} = 65^\circ\). Tính các góc còn lại.`,
+              solution: r3`\(\widehat{C} = \widehat{D} = 65^\circ\) (hai góc kề đáy \(CD\)). \(\widehat{A} = 180^\circ - \widehat{D} = 115^\circ\) (hai góc kề cạnh bên \(AD\)), \(\widehat{B} = \widehat{A} = 115^\circ\).`,
+              exercises: [
+                sa(1, r3`Hình thang \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{A} = 110^\circ\). Tính \(\widehat{D}\).`, ["70"], r3`Hai góc \(A\) và \(D\) kề cạnh bên \(AD\) nên bù nhau: \(\widehat{D} = 180^\circ - 110^\circ = 70^\circ\).`, "\xB0"),
+                sa(2, r3`Hình thang cân \(ABCD\) (\(AB \parallel CD\), \(AB < CD\)) có \(AB = 6\) cm, \(CD = 14\) cm. Kẻ đường cao \(AH\) (\(H\) thuộc \(CD\)). Tính \(DH\).`, ["4"], r3`Kẻ thêm đường cao \(BK\). Khi đó \(HK = AB = 6\) cm và \(DH = CK\) (hai tam giác vuông \(AHD\), \(BKC\) bằng nhau). Do đó \(DH = \dfrac{14 - 6}{2} = 4\) cm.`, "cm"),
+                sa(3, r3`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{A} = 2\widehat{D}\). Tính \(\widehat{C}\).`, ["60"], r3`\(\widehat{A} + \widehat{D} = 180^\circ\) và \(\widehat{A} = 2\widehat{D}\) nên \(\widehat{D} = 60^\circ\). Hình thang cân nên \(\widehat{C} = \widehat{D} = 60^\circ\).`, "\xB0")
+              ]
+            },
+            {
+              slug: "chung-minh-doan-thang-goc-bang-nhau-hinh-thang-can",
+              title: "Ch\u1EE9ng minh \u0111o\u1EA1n th\u1EB3ng b\u1EB1ng nhau, g\xF3c b\u1EB1ng nhau",
+              levels: [3, 4],
+              knowledge: "T\xEDnh ch\u1EA5t h\xECnh thang c\xE2n (c\u1EA1nh b\xEAn, \u0111\u01B0\u1EDDng ch\xE9o, g\xF3c k\u1EC1 \u0111\xE1y b\u1EB1ng nhau); c\xE1c tr\u01B0\u1EDDng h\u1EE3p b\u1EB1ng nhau c\u1EE7a tam gi\xE1c.",
+              signs: "\u0110\u1EC1 cho h\xECnh thang c\xE2n, y\xEAu c\u1EA7u ch\u1EE9ng minh hai \u0111o\u1EA1n th\u1EB3ng ho\u1EB7c hai g\xF3c b\u1EB1ng nhau, ch\u1EE9ng minh tam gi\xE1c c\xE2n.",
+              method: "Ch\u1ECDn hai tam gi\xE1c ch\u1EE9a hai \u0111o\u1EA1n (g\xF3c) c\u1EA7n ch\u1EE9ng minh, d\xF9ng t\xEDnh ch\u1EA5t h\xECnh thang c\xE2n \u0111\u1EC3 c\xF3 c\xE1c y\u1EBFu t\u1ED1 b\u1EB1ng nhau r\u1ED3i ch\u1EE9ng minh hai tam gi\xE1c b\u1EB1ng nhau.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh hai tam gi\xE1c ch\u1EE9a c\xE1c y\u1EBFu t\u1ED1 c\u1EA7n ch\u1EE9ng minh.
+- **B\u01B0\u1EDBc 2.** Li\u1EC7t k\xEA c\xE1c c\u1EA1nh, g\xF3c b\u1EB1ng nhau (t\u1EEB t\xEDnh ch\u1EA5t h\xECnh thang c\xE2n, c\u1EA1nh chung, g\xF3c \u0111\u1ED1i \u0111\u1EC9nh\u2026).
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn hai tam gi\xE1c b\u1EB1ng nhau, suy ra y\u1EBFu t\u1ED1 t\u01B0\u01A1ng \u1EE9ng.`,
+              mistakes: "- D\xF9ng t\xEDnh ch\u1EA5t c\u1EE7a h\xECnh thang c\xE2n khi \u0111\u1EC1 ch\u1EC9 cho h\xECnh thang.\n- Ghi sai th\u1EE9 t\u1EF1 \u0111\u1EC9nh t\u01B0\u01A1ng \u1EE9ng c\u1EE7a hai tam gi\xE1c b\u1EB1ng nhau.",
+              example: r3`Cho hình thang cân \(ABCD\) (\(AB \parallel CD\)), \(O\) là giao điểm hai đường chéo. Chứng minh \(OA = OB\) và \(OC = OD\).`,
+              solution: r3`\(\triangle ABD\) và \(\triangle BAC\) có \(AD = BC\), \(BD = AC\), \(AB\) chung nên \(\triangle ABD = \triangle BAC\) (c.c.c), suy ra \(\widehat{ABD} = \widehat{BAC}\).
+Do đó \(\triangle OAB\) cân tại \(O\): \(OA = OB\). Mà \(AC = BD\) nên \(OC = AC - OA = BD - OB = OD\).`,
+              exercises: [
+                ge(3, r3`Cho hình thang cân \(ABCD\) (\(AB \parallel CD\), \(AB < CD\)). Gọi \(E\) là giao điểm của hai đường thẳng \(AD\) và \(BC\). Chứng minh các tam giác \(EDC\) và \(EAB\) là tam giác cân.`, `D(0,0) C(6,0) B(4.5,2) A(1.5,2) E(3,4)
+DCBAD
+AE BE`, r3`Hình thang cân nên \(\widehat{D} = \widehat{C}\), do đó \(\triangle EDC\) cân tại \(E\).
+Vì \(AB \parallel CD\) nên \(\widehat{EAB} = \widehat{D}\), \(\widehat{EBA} = \widehat{C}\) (đồng vị), suy ra \(\widehat{EAB} = \widehat{EBA}\): \(\triangle EAB\) cân tại \(E\).`),
+                es(4, r3`Cho hình thang cân \(ABCD\) (\(AB \parallel CD\)) có hai đường chéo vuông góc với nhau tại \(O\) và đường cao bằng \(h\). Chứng minh \(AB + CD = 2h\).`, r3`Theo ví dụ, \(OA = OB\), \(OC = OD\); lại có \(\widehat{AOB} = 90^\circ\) nên \(\triangle OAB\), \(\triangle OCD\) vuông cân tại \(O\).
+Kẻ đường thẳng qua \(O\) vuông góc với \(AB\) tại \(M\), cắt \(CD\) tại \(N\). Trong tam giác vuông cân \(OAB\), \(OM\) vừa là đường cao vừa là đường trung tuyến và \(\triangle OMA\) vuông cân nên \(OM = MA = \dfrac{AB}{2}\). Tương tự \(ON = \dfrac{CD}{2}\).
+Vậy \(h = MN = OM + ON = \dfrac{AB + CD}{2}\), tức là \(AB + CD = 2h\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh thang c\xE2n",
+          description: "Ch\u1EE9ng minh m\u1ED9t t\u1EE9 gi\xE1c l\xE0 h\xECnh thang, h\xECnh thang c\xE2n.",
+          types: [
+            {
+              slug: "chung-minh-hinh-thang-can",
+              title: "Ch\u1EE9ng minh t\u1EE9 gi\xE1c l\xE0 h\xECnh thang, h\xECnh thang c\xE2n",
+              levels: [2, 3],
+              knowledge: "\u0110\u1ECBnh ngh\u0129a h\xECnh thang; d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh thang c\xE2n (hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y b\u1EB1ng nhau, ho\u1EB7c hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau); g\xF3c \u0111\u1ED3ng v\u1ECB, so le trong.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u ch\u1EE9ng minh t\u1EE9 gi\xE1c l\xE0 h\xECnh thang, h\xECnh thang c\xE2n (th\u01B0\u1EDDng trong tam gi\xE1c c\xE2n, c\xF3 hai \u0111i\u1EC3m tr\xEAn hai c\u1EA1nh b\xEAn).",
+              method: "Ch\u1EE9ng minh c\xF3 m\u1ED9t c\u1EB7p c\u1EA1nh \u0111\u1ED1i song song (h\xECnh thang), sau \u0111\xF3 ch\u1EE9ng minh hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y b\u1EB1ng nhau ho\u1EB7c hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ch\u1EE9ng minh hai c\u1EA1nh \u0111\u1ED1i song song (g\xF3c \u0111\u1ED3ng v\u1ECB, so le trong b\u1EB1ng nhau).
+- **B\u01B0\u1EDBc 2.** Ch\u1EE9ng minh hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y b\u1EB1ng nhau (ho\u1EB7c hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau).
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn theo d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt.`,
+              mistakes: "- K\u1EBFt lu\u1EADn h\xECnh thang c\xE2n ch\u1EC9 t\u1EEB hai c\u1EA1nh b\xEAn b\u1EB1ng nhau (h\xECnh b\xECnh h\xE0nh c\u0169ng c\xF3 hai c\u1EA1nh b\xEAn b\u1EB1ng nhau).\n- Qu\xEAn ch\u1EE9ng minh t\u1EE9 gi\xE1c l\xE0 h\xECnh thang tr\u01B0\u1EDBc.",
+              example: r3`Cho tam giác \(ABC\) cân tại \(A\). Trên \(AB\), \(AC\) lấy \(D\), \(E\) sao cho \(AD = AE\). Chứng minh \(BDEC\) là hình thang cân.`,
+              solution: r3`\(\triangle ADE\) cân tại \(A\) nên \(\widehat{ADE} = \dfrac{180^\circ - \widehat{A}}{2} = \widehat{ABC}\). Hai góc này ở vị trí đồng vị nên \(DE \parallel BC\): \(BDEC\) là hình thang.
+Lại có \(\widehat{B} = \widehat{C}\) (hai góc kề đáy \(BC\)) nên \(BDEC\) là hình thang cân.`,
+              exercises: [
+                es(2, r3`Tứ giác \(ABCD\) có \(AB \parallel CD\) và \(\widehat{C} = \widehat{D}\). Chứng minh \(ABCD\) là hình thang cân.`, r3`\(AB \parallel CD\) nên \(ABCD\) là hình thang với hai đáy \(AB\), \(CD\). Hình thang có hai góc kề đáy \(CD\) bằng nhau nên là hình thang cân.`),
+                ge(3, r3`Cho tam giác \(ABC\) cân tại \(A\), các đường phân giác \(BD\), \(CE\) (\(D\) thuộc \(AC\), \(E\) thuộc \(AB\)). Chứng minh \(BEDC\) là hình thang cân.`, `A(3,5) B(0,0) C(6,0) D(4.48,2.54) E(1.52,2.54)
+ABCA
+BD CE ED`, r3`\(\triangle ABD\) và \(\triangle ACE\) có: \(\widehat{A}\) chung, \(AB = AC\), \(\widehat{ABD} = \widehat{ACE}\) (nửa hai góc bằng nhau) nên \(\triangle ABD = \triangle ACE\) (g.c.g), suy ra \(AD = AE\).
+Theo ví dụ, \(BEDC\) là hình thang cân (\(ED \parallel BC\), \(\widehat{B} = \widehat{C}\)).`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 12 ----------------
+    {
+      slug: "bai-12-hinh-binh-hanh",
+      difficulty: 3,
+      objectives: `- Nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh.
+- Gi\u1EA3i th\xEDch t\xEDnh ch\u1EA5t v\u1EC1 c\u1EA1nh, g\xF3c, \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh b\xECnh h\xE0nh.
+- Nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh b\u1EB1ng c\xE1c d\u1EA5u hi\u1EC7u; v\u1EADn d\u1EE5ng ch\u1EE9ng minh c\xE1c quan h\u1EC7 h\xECnh h\u1ECDc.`,
+      prerequisites: "- H\xECnh thang (B\xE0i 11).\n- C\xE1c tr\u01B0\u1EDDng h\u1EE3p b\u1EB1ng nhau c\u1EE7a tam gi\xE1c; g\xF3c t\u1EA1o b\u1EDFi m\u1ED9t \u0111\u01B0\u1EDDng th\u1EB3ng c\u1EAFt hai \u0111\u01B0\u1EDDng th\u1EB3ng song song (To\xE1n 7).",
+      concepts: "H\xECnh b\xECnh h\xE0nh; t\xE2m c\u1EE7a h\xECnh b\xECnh h\xE0nh (giao \u0111i\u1EC3m hai \u0111\u01B0\u1EDDng ch\xE9o).",
+      properties: "Trong h\xECnh b\xECnh h\xE0nh: c\xE1c c\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau; c\xE1c g\xF3c \u0111\u1ED1i b\u1EB1ng nhau; hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m c\u1EE7a m\u1ED7i \u0111\u01B0\u1EDDng.",
+      theorems: `D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh:
+- T\u1EE9 gi\xE1c c\xF3 c\xE1c c\u1EA1nh \u0111\u1ED1i song song.
+- T\u1EE9 gi\xE1c c\xF3 c\xE1c c\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau.
+- T\u1EE9 gi\xE1c c\xF3 hai c\u1EA1nh \u0111\u1ED1i song song v\xE0 b\u1EB1ng nhau.
+- T\u1EE9 gi\xE1c c\xF3 c\xE1c g\xF3c \u0111\u1ED1i b\u1EB1ng nhau.
+- T\u1EE9 gi\xE1c c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m c\u1EE7a m\u1ED7i \u0111\u01B0\u1EDDng.`,
+      themes: [
+        {
+          title: "T\xEDnh ch\u1EA5t c\u1EE7a h\xECnh b\xECnh h\xE0nh",
+          description: "T\xEDnh g\xF3c, c\u1EA1nh; d\xF9ng t\xEDnh ch\u1EA5t \u0111\u1EC3 ch\u1EE9ng minh \u0111o\u1EA1n th\u1EB3ng, g\xF3c b\u1EB1ng nhau.",
+          types: [
+            {
+              slug: "tinh-goc-canh-hinh-binh-hanh",
+              title: "T\xEDnh g\xF3c, c\u1EA1nh c\u1EE7a h\xECnh b\xECnh h\xE0nh",
+              levels: [1, 2],
+              knowledge: "H\xECnh b\xECnh h\xE0nh c\xF3 c\xE1c c\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau, c\xE1c g\xF3c \u0111\u1ED1i b\u1EB1ng nhau, hai g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh b\xF9 nhau, hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m m\u1ED7i \u0111\u01B0\u1EDDng.",
+              signs: "\u0110\u1EC1 cho m\u1ED9t s\u1ED1 g\xF3c, c\u1EA1nh, chu vi ho\u1EB7c \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh b\xECnh h\xE0nh v\xE0 y\xEAu c\u1EA7u t\xEDnh c\xE1c y\u1EBFu t\u1ED1 kh\xE1c.",
+              method: "\xC1p d\u1EE5ng tr\u1EF1c ti\u1EBFp t\xEDnh ch\u1EA5t v\u1EC1 c\u1EA1nh, g\xF3c, \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh b\xECnh h\xE0nh.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh c\u1EB7p c\u1EA1nh \u0111\u1ED1i, c\u1EB7p g\xF3c \u0111\u1ED1i, c\u1EB7p g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh.
+- **B\u01B0\u1EDBc 2.** \xC1p d\u1EE5ng t\xEDnh ch\u1EA5t t\u01B0\u01A1ng \u1EE9ng.
+- **B\u01B0\u1EDBc 3.** T\xEDnh v\xE0 k\u1EBFt lu\u1EADn.`,
+              mistakes: "- Cho r\u1EB1ng hai g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh c\u1EE7a h\xECnh b\xECnh h\xE0nh b\u1EB1ng nhau (th\u1EF1c ra ch\xFAng b\xF9 nhau).\n- Qu\xEAn chu vi b\u1EB1ng 2 l\u1EA7n t\u1ED5ng hai c\u1EA1nh k\u1EC1.",
+              example: r3`Hình bình hành \(ABCD\) có \(\widehat{A} = 3\widehat{B}\). Tính các góc của hình bình hành.`,
+              solution: r3`\(\widehat{A} + \widehat{B} = 180^\circ\) và \(\widehat{A} = 3\widehat{B}\) nên \(\widehat{B} = 45^\circ\), \(\widehat{A} = 135^\circ\). Do đó \(\widehat{C} = \widehat{A} = 135^\circ\), \(\widehat{D} = \widehat{B} = 45^\circ\).`,
+              exercises: [
+                sa(1, r3`Hình bình hành \(ABCD\) có \(\widehat{A} = 75^\circ\). Tính \(\widehat{C}\).`, ["75"], r3`Hai góc đối của hình bình hành bằng nhau: \(\widehat{C} = \widehat{A} = 75^\circ\).`, "\xB0"),
+                sa(2, r3`Hình bình hành \(ABCD\) có chu vi 40 cm và \(AB = 12\) cm. Tính \(BC\).`, ["8"], r3`Chu vi \(= 2(AB + BC) = 40\), suy ra \(AB + BC = 20\), \(BC = 8\) cm.`, "cm")
+              ]
+            },
+            {
+              slug: "dung-tinh-chat-hinh-binh-hanh",
+              title: "D\xF9ng t\xEDnh ch\u1EA5t h\xECnh b\xECnh h\xE0nh \u0111\u1EC3 ch\u1EE9ng minh quan h\u1EC7 h\xECnh h\u1ECDc",
+              levels: [2, 3],
+              knowledge: "T\xEDnh ch\u1EA5t h\xECnh b\xECnh h\xE0nh; c\xE1c tr\u01B0\u1EDDng h\u1EE3p b\u1EB1ng nhau c\u1EE7a tam gi\xE1c; g\xF3c so le trong, \u0111\u1ED1i \u0111\u1EC9nh.",
+              signs: "\u0110\u1EC1 cho h\xECnh b\xECnh h\xE0nh v\xE0 y\xEAu c\u1EA7u ch\u1EE9ng minh hai \u0111o\u1EA1n th\u1EB3ng, hai g\xF3c b\u1EB1ng nhau ho\u1EB7c hai \u0111\u01B0\u1EDDng th\u1EB3ng song song.",
+              method: "D\xF9ng t\xEDnh ch\u1EA5t c\u1EE7a h\xECnh b\xECnh h\xE0nh \u0111\u1EC3 c\xF3 c\xE1c c\u1EA1nh, g\xF3c b\u1EB1ng nhau r\u1ED3i ch\u1EE9ng minh hai tam gi\xE1c b\u1EB1ng nhau (ho\u1EB7c suy ra tr\u1EF1c ti\u1EBFp).",
+              steps: `- **B\u01B0\u1EDBc 1.** Ghi c\xE1c t\xEDnh ch\u1EA5t c\xF3 \u0111\u01B0\u1EE3c t\u1EEB h\xECnh b\xECnh h\xE0nh (c\u1EA1nh \u0111\u1ED1i, g\xF3c \u0111\u1ED1i, \u0111\u01B0\u1EDDng ch\xE9o).
+- **B\u01B0\u1EDBc 2.** Ch\u1ECDn hai tam gi\xE1c ch\u1EE9a y\u1EBFu t\u1ED1 c\u1EA7n ch\u1EE9ng minh; ch\u1EE9ng minh ch\xFAng b\u1EB1ng nhau.
+- **B\u01B0\u1EDBc 3.** Suy ra k\u1EBFt lu\u1EADn.`,
+              mistakes: '- D\xF9ng "hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau" cho h\xECnh b\xECnh h\xE0nh (ch\u1EC9 \u0111\xFAng v\u1EDBi h\xECnh ch\u1EEF nh\u1EADt).',
+              example: r3`Cho hình bình hành \(ABCD\), \(O\) là giao điểm hai đường chéo. Một đường thẳng qua \(O\) cắt \(AB\), \(CD\) lần lượt tại \(M\), \(N\). Chứng minh \(OM = ON\).`,
+              solution: r3`\(\triangle OAM\) và \(\triangle OCN\) có: \(OA = OC\) (tính chất đường chéo), \(\widehat{AOM} = \widehat{CON}\) (đối đỉnh), \(\widehat{OAM} = \widehat{OCN}\) (so le trong, \(AB \parallel CD\)).
+Do đó \(\triangle OAM = \triangle OCN\) (g.c.g), suy ra \(OM = ON\).`,
+              exercises: [
+                mcq(2, r3`Hình bình hành \(ABCD\) có hai đường chéo cắt nhau tại \(O\), \(AC = 10\) cm, \(BD = 6\) cm. Độ dài \(OA + OB\) bằng`, ["8 cm", "16 cm", "4 cm", "10 cm"], "A", r3`\(OA = \dfrac{AC}{2} = 5\) cm, \(OB = \dfrac{BD}{2} = 3\) cm, nên \(OA + OB = 8\) cm.`),
+                ge(3, r3`Cho hình bình hành \(ABCD\). Gọi \(E\), \(F\) lần lượt là trung điểm của \(AB\), \(CD\). Chứng minh \(DE = BF\).`, `D(0,0) C(5,0) B(6,3) A(1,3) E(3.5,3) F(2.5,0)
+ABCDA
+DE BF`, r3`\(EB = \dfrac{AB}{2}\), \(DF = \dfrac{CD}{2}\) và \(AB = CD\) nên \(EB = DF\); lại có \(EB \parallel DF\).
+Tứ giác \(EBFD\) có hai cạnh đối song song và bằng nhau nên là hình bình hành, suy ra \(DE = BF\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh",
+          description: "Ch\u1EE9ng minh m\u1ED9t t\u1EE9 gi\xE1c l\xE0 h\xECnh b\xECnh h\xE0nh; ch\u1EE9ng minh th\u1EB3ng h\xE0ng, \u0111\u1ED3ng quy.",
+          types: [
+            {
+              slug: "chung-minh-hinh-binh-hanh",
+              title: "Ch\u1EE9ng minh t\u1EE9 gi\xE1c l\xE0 h\xECnh b\xECnh h\xE0nh",
+              levels: [2, 3],
+              knowledge: "N\u0103m d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u ch\u1EE9ng minh m\u1ED9t t\u1EE9 gi\xE1c l\xE0 h\xECnh b\xECnh h\xE0nh; th\u01B0\u1EDDng c\xF3 trung \u0111i\u1EC3m, \u0111o\u1EA1n th\u1EB3ng b\u1EB1ng nhau, \u0111\u01B0\u1EDDng th\u1EB3ng song song.",
+              method: "Ch\u1ECDn d\u1EA5u hi\u1EC7u ph\xF9 h\u1EE3p v\u1EDBi d\u1EEF ki\u1EC7n: c\u1EA1nh \u0111\u1ED1i song song, c\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau, m\u1ED9t c\u1EB7p c\u1EA1nh \u0111\u1ED1i song song v\xE0 b\u1EB1ng nhau, g\xF3c \u0111\u1ED1i b\u1EB1ng nhau, ho\u1EB7c \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m m\u1ED7i \u0111\u01B0\u1EDDng.",
+              steps: `- **B\u01B0\u1EDBc 1.** Xem d\u1EEF ki\u1EC7n li\xEAn quan \u0111\u1EBFn c\u1EA1nh, g\xF3c hay \u0111\u01B0\u1EDDng ch\xE9o.
+- **B\u01B0\u1EDBc 2.** Ch\u1ECDn d\u1EA5u hi\u1EC7u v\xE0 ch\u1EE9ng minh \u0111\u1EE7 c\xE1c \u0111i\u1EC1u ki\u1EC7n c\u1EE7a d\u1EA5u hi\u1EC7u \u0111\xF3.
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn.`,
+              mistakes: '- D\xF9ng "hai c\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau" (m\u1ED9t c\u1EB7p) l\xE0 ch\u01B0a \u0111\u1EE7, c\u1EA7n th\xEAm song song ho\u1EB7c c\u1EB7p c\xF2n l\u1EA1i.\n- D\xF9ng "hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau" \u0111\u1EC3 k\u1EBFt lu\u1EADn h\xECnh b\xECnh h\xE0nh.',
+              example: r3`Cho hình bình hành \(ABCD\). Trên các cạnh \(AB\), \(CD\) lấy \(E\), \(F\) sao cho \(AE = CF\). Chứng minh \(DEBF\) là hình bình hành.`,
+              solution: r3`\(EB = AB - AE\), \(DF = CD - CF\), mà \(AB = CD\), \(AE = CF\) nên \(EB = DF\). Lại có \(EB \parallel DF\) (vì \(AB \parallel CD\)).
+Tứ giác \(DEBF\) có hai cạnh đối song song và bằng nhau nên là hình bình hành.`,
+              exercises: [
+                mcq(2, "T\u1EE9 gi\xE1c n\xE0o sau \u0111\xE2y ch\u1EAFc ch\u1EAFn l\xE0 h\xECnh b\xECnh h\xE0nh?", ["T\u1EE9 gi\xE1c c\xF3 hai c\u1EA1nh \u0111\u1ED1i song song", "T\u1EE9 gi\xE1c c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m c\u1EE7a m\u1ED7i \u0111\u01B0\u1EDDng", "T\u1EE9 gi\xE1c c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau", "T\u1EE9 gi\xE1c c\xF3 hai c\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau"], "B", 'Ch\u1EC9 d\u1EA5u hi\u1EC7u "hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m c\u1EE7a m\u1ED7i \u0111\u01B0\u1EDDng" \u0111\u1EE7 \u0111\u1EC3 k\u1EBFt lu\u1EADn h\xECnh b\xECnh h\xE0nh. C\xE1c \u0111i\u1EC1u ki\u1EC7n c\xF2n l\u1EA1i c\xF3 th\u1EC3 l\xE0 h\xECnh thang, h\xECnh thang c\xE2n.'),
+                es(3, r3`Cho tam giác \(ABC\), \(M\) là trung điểm của \(BC\). Trên tia đối của tia \(MA\) lấy điểm \(D\) sao cho \(MD = MA\). Chứng minh \(ABDC\) là hình bình hành.`, r3`Tứ giác \(ABDC\) có hai đường chéo \(AD\) và \(BC\) cắt nhau tại \(M\), mà \(M\) là trung điểm của cả \(AD\) và \(BC\). Vậy \(ABDC\) là hình bình hành.`)
+              ]
+            },
+            {
+              slug: "thang-hang-dong-quy-hinh-binh-hanh",
+              title: "Ch\u1EE9ng minh ba \u0111i\u1EC3m th\u1EB3ng h\xE0ng, ba \u0111\u01B0\u1EDDng th\u1EB3ng \u0111\u1ED3ng quy",
+              levels: [3, 4],
+              knowledge: "Hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh b\xECnh h\xE0nh c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m m\u1ED7i \u0111\u01B0\u1EDDng; m\u1ED9t \u0111o\u1EA1n th\u1EB3ng ch\u1EC9 c\xF3 m\u1ED9t trung \u0111i\u1EC3m.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u ch\u1EE9ng minh ba \u0111i\u1EC3m th\u1EB3ng h\xE0ng ho\u1EB7c ba \u0111\u01B0\u1EDDng th\u1EB3ng c\xF9ng \u0111i qua m\u1ED9t \u0111i\u1EC3m, trong h\xECnh c\xF3 (ho\u1EB7c t\u1EA1o \u0111\u01B0\u1EE3c) c\xE1c h\xECnh b\xECnh h\xE0nh chung \u0111\u01B0\u1EDDng ch\xE9o.",
+              method: "Ch\u1EE9ng minh c\xE1c t\u1EE9 gi\xE1c l\xE0 h\xECnh b\xECnh h\xE0nh c\xF3 chung m\u1ED9t \u0111\u01B0\u1EDDng ch\xE9o; khi \u0111\xF3 c\xE1c \u0111\u01B0\u1EDDng ch\xE9o c\xF2n l\u1EA1i c\xF9ng \u0111i qua trung \u0111i\u1EC3m c\u1EE7a \u0111\u01B0\u1EDDng ch\xE9o chung.",
+              steps: `- **B\u01B0\u1EDBc 1.** T\xECm (ho\u1EB7c ch\u1EE9ng minh) c\xE1c h\xECnh b\xECnh h\xE0nh c\xF3 chung m\u1ED9t \u0111\u01B0\u1EDDng ch\xE9o.
+- **B\u01B0\u1EDBc 2.** Suy ra c\xE1c \u0111\u01B0\u1EDDng ch\xE9o c\xF2n l\u1EA1i \u0111i qua trung \u0111i\u1EC3m O c\u1EE7a \u0111\u01B0\u1EDDng ch\xE9o chung.
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn c\xE1c \u0111i\u1EC3m th\u1EB3ng h\xE0ng ho\u1EB7c c\xE1c \u0111\u01B0\u1EDDng th\u1EB3ng \u0111\u1ED3ng quy t\u1EA1i O.`,
+              mistakes: "- K\u1EBFt lu\u1EADn th\u1EB3ng h\xE0ng ch\u1EC9 d\u1EF1a v\xE0o h\xECnh v\u1EBD.\n- Qu\xEAn ch\u1EC9 ra hai \u0111\u01B0\u1EDDng ch\xE9o c\xF3 chung trung \u0111i\u1EC3m.",
+              example: r3`Cho hình bình hành \(ABCD\), \(O\) là giao điểm hai đường chéo. Trên \(AB\), \(CD\) lấy \(E\), \(F\) sao cho \(AE = CF\). Chứng minh \(E\), \(O\), \(F\) thẳng hàng.`,
+              solution: r3`\(AE = CF\) và \(AE \parallel CF\) nên \(AECF\) là hình bình hành. Hai đường chéo \(AC\), \(EF\) của nó cắt nhau tại trung điểm của \(AC\), chính là \(O\). Vậy \(EF\) đi qua \(O\), tức là \(E\), \(O\), \(F\) thẳng hàng.`,
+              exercises: [
+                es(3, r3`Cho hình bình hành \(ABCD\). Gọi \(M\), \(N\) lần lượt là trung điểm của \(AB\), \(CD\). Chứng minh ba đường thẳng \(AC\), \(BD\), \(MN\) đồng quy.`, r3`\(AM = CN\) và \(AM \parallel CN\) nên \(AMCN\) là hình bình hành; do đó \(MN\) đi qua trung điểm \(O\) của \(AC\).
+Mà \(O\) cũng là trung điểm của \(BD\) (giao điểm hai đường chéo của \(ABCD\)). Vậy \(AC\), \(BD\), \(MN\) cùng đi qua \(O\).`),
+                es(4, r3`Cho hai hình bình hành \(ABCD\) và \(AECF\) có chung đường chéo \(AC\) (\(E\), \(F\) không thuộc \(AC\)). Chứng minh ba đường thẳng \(AC\), \(BD\), \(EF\) đồng quy.`, r3`Gọi \(O\) là trung điểm của \(AC\). Trong hình bình hành \(ABCD\), \(BD\) đi qua \(O\). Trong hình bình hành \(AECF\), \(EF\) đi qua \(O\). Vậy ba đường thẳng cùng đi qua \(O\).`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 13 ----------------
+    {
+      slug: "bai-13-hinh-chu-nhat",
+      difficulty: 3,
+      objectives: `- Nh\u1EADn bi\u1EBFt h\xECnh ch\u1EEF nh\u1EADt.
+- Gi\u1EA3i th\xEDch t\xEDnh ch\u1EA5t v\u1EC1 g\xF3c, \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt.
+- Nh\u1EADn bi\u1EBFt h\xECnh ch\u1EEF nh\u1EADt b\u1EB1ng d\u1EA5u hi\u1EC7u; v\u1EADn d\u1EE5ng t\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n c\u1EE7a tam gi\xE1c vu\xF4ng.`,
+      prerequisites: "- H\xECnh thang c\xE2n, h\xECnh b\xECnh h\xE0nh (B\xE0i 11, B\xE0i 12).\n- Tam gi\xE1c c\xE2n, tam gi\xE1c b\u1EB1ng nhau (To\xE1n 7).",
+      concepts: "H\xECnh ch\u1EEF nh\u1EADt; \u0111\u01B0\u1EDDng trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n.",
+      formulas: r3`Tam giác \(ABC\) vuông tại \(A\), \(M\) là trung điểm của \(BC\) thì \(AM = \dfrac{BC}{2}\).`,
+      properties: `- H\xECnh ch\u1EEF nh\u1EADt c\xF3 t\u1EA5t c\u1EA3 t\xEDnh ch\u1EA5t c\u1EE7a h\xECnh b\xECnh h\xE0nh v\xE0 c\u1EE7a h\xECnh thang c\xE2n.
+- Hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt b\u1EB1ng nhau v\xE0 c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m c\u1EE7a m\u1ED7i \u0111\u01B0\u1EDDng.
+- Trong tam gi\xE1c vu\xF4ng, \u0111\u01B0\u1EDDng trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n b\u1EB1ng n\u1EEDa c\u1EA1nh huy\u1EC1n; ng\u01B0\u1EE3c l\u1EA1i, tam gi\xE1c c\xF3 \u0111\u01B0\u1EDDng trung tuy\u1EBFn b\u1EB1ng n\u1EEDa c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng l\xE0 tam gi\xE1c vu\xF4ng.`,
+      theorems: `D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh ch\u1EEF nh\u1EADt:
+- T\u1EE9 gi\xE1c c\xF3 ba g\xF3c vu\xF4ng.
+- H\xECnh thang c\xE2n c\xF3 m\u1ED9t g\xF3c vu\xF4ng.
+- H\xECnh b\xECnh h\xE0nh c\xF3 m\u1ED9t g\xF3c vu\xF4ng.
+- H\xECnh b\xECnh h\xE0nh c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau.`,
+      themes: [
+        {
+          title: "H\xECnh ch\u1EEF nh\u1EADt",
+          description: "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt v\xE0 t\xEDnh ch\u1EA5t c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt.",
+          types: [
+            {
+              slug: "chung-minh-hinh-chu-nhat",
+              title: "Ch\u1EE9ng minh t\u1EE9 gi\xE1c l\xE0 h\xECnh ch\u1EEF nh\u1EADt",
+              levels: [2, 3],
+              knowledge: "B\u1ED1n d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh ch\u1EEF nh\u1EADt; d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh.",
+              signs: "\u0110\u1EC1 c\xF3 g\xF3c vu\xF4ng, \u0111\u01B0\u1EDDng vu\xF4ng g\xF3c, trung \u0111i\u1EC3m, \u0111\u1ED1i x\u1EE9ng v\xE0 y\xEAu c\u1EA7u ch\u1EE9ng minh t\u1EE9 gi\xE1c l\xE0 h\xECnh ch\u1EEF nh\u1EADt.",
+              method: "Th\u01B0\u1EDDng ch\u1EE9ng minh t\u1EE9 gi\xE1c l\xE0 h\xECnh b\xECnh h\xE0nh r\u1ED3i ch\u1EC9 ra m\u1ED9t g\xF3c vu\xF4ng (ho\u1EB7c hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau); ho\u1EB7c ch\u1EC9 ra ba g\xF3c vu\xF4ng.",
+              steps: `- **B\u01B0\u1EDBc 1.** \u0110\u1EBFm s\u1ED1 g\xF3c vu\xF4ng \u0111\xE3 c\xF3; n\u1EBFu \u0111\u1EE7 ba g\xF3c th\xEC k\u1EBFt lu\u1EADn ngay.
+- **B\u01B0\u1EDBc 2.** N\u1EBFu ch\u01B0a, ch\u1EE9ng minh t\u1EE9 gi\xE1c l\xE0 h\xECnh b\xECnh h\xE0nh (ho\u1EB7c h\xECnh thang c\xE2n).
+- **B\u01B0\u1EDBc 3.** Ch\u1EC9 ra m\u1ED9t g\xF3c vu\xF4ng ho\u1EB7c hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau.`,
+              mistakes: '- K\u1EBFt lu\u1EADn h\xECnh ch\u1EEF nh\u1EADt t\u1EEB "t\u1EE9 gi\xE1c c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau" (thi\u1EBFu \u0111i\u1EC1u ki\u1EC7n h\xECnh b\xECnh h\xE0nh).\n- K\u1EBFt lu\u1EADn t\u1EEB hai g\xF3c vu\xF4ng.',
+              example: r3`Cho tam giác \(ABC\) vuông tại \(A\), \(M\) là trung điểm của \(BC\). Lấy \(D\) sao cho \(M\) là trung điểm của \(AD\). Chứng minh \(ABDC\) là hình chữ nhật.`,
+              solution: r3`Tứ giác \(ABDC\) có hai đường chéo \(AD\), \(BC\) cắt nhau tại trung điểm \(M\) của mỗi đường nên là hình bình hành. Hình bình hành này có \(\widehat{BAC} = 90^\circ\) nên là hình chữ nhật.`,
+              exercises: [
+                mcq(2, r3`Hình bình hành \(ABCD\) là hình chữ nhật khi`, [r3`\(AC = BD\)`, r3`\(AB = BC\)`, r3`\(AC \perp BD\)`, r3`\(AC\) là tia phân giác của góc \(A\)`], "A", "H\xECnh b\xECnh h\xE0nh c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau l\xE0 h\xECnh ch\u1EEF nh\u1EADt. C\xE1c \u0111i\u1EC1u ki\u1EC7n c\xF2n l\u1EA1i d\u1EABn t\u1EDBi h\xECnh thoi."),
+                ge(3, r3`Cho tam giác \(ABC\) cân tại \(A\), đường trung tuyến \(AM\). Gọi \(I\) là trung điểm của \(AC\), \(K\) là điểm sao cho \(I\) là trung điểm của \(MK\). Chứng minh \(AMCK\) là hình chữ nhật.`, `A(3,4) B(0,0) C(6,0) M(3,0) I(4.5,2) K(6,4)
+ABCA
+AM MK KC AK
+vuong(A,M,C)`, r3`Tứ giác \(AMCK\) có hai đường chéo \(AC\), \(MK\) cắt nhau tại trung điểm \(I\) của mỗi đường nên là hình bình hành.
+Tam giác \(ABC\) cân tại \(A\) nên đường trung tuyến \(AM\) đồng thời là đường cao: \(\widehat{AMC} = 90^\circ\). Vậy \(AMCK\) là hình chữ nhật.`)
+              ]
+            },
+            {
+              slug: "dung-tinh-chat-hinh-chu-nhat",
+              title: "D\xF9ng t\xEDnh ch\u1EA5t h\xECnh ch\u1EEF nh\u1EADt \u0111\u1EC3 ch\u1EE9ng minh quan h\u1EC7 h\xECnh h\u1ECDc",
+              levels: [2, 3],
+              knowledge: "Hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt b\u1EB1ng nhau v\xE0 c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m m\u1ED7i \u0111\u01B0\u1EDDng; c\xE1c g\xF3c \u0111\u1EC1u vu\xF4ng.",
+              signs: "\u0110\u1EC1 cho h\xECnh ch\u1EEF nh\u1EADt, y\xEAu c\u1EA7u t\xEDnh \u0111o\u1EA1n th\u1EB3ng, g\xF3c ho\u1EB7c ch\u1EE9ng minh hai \u0111o\u1EA1n th\u1EB3ng b\u1EB1ng nhau, tam gi\xE1c c\xE2n.",
+              method: "D\xF9ng t\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ch\xE9o (t\u1EA1o c\xE1c tam gi\xE1c c\xE2n) v\xE0 g\xF3c vu\xF4ng, k\u1EBFt h\u1EE3p tam gi\xE1c b\u1EB1ng nhau.",
+              steps: `- **B\u01B0\u1EDBc 1.** G\u1ECDi O l\xE0 giao \u0111i\u1EC3m hai \u0111\u01B0\u1EDDng ch\xE9o: OA = OB = OC = OD.
+- **B\u01B0\u1EDBc 2.** Khai th\xE1c c\xE1c tam gi\xE1c c\xE2n, tam gi\xE1c vu\xF4ng t\u1EA1o th\xE0nh.
+- **B\u01B0\u1EDBc 3.** T\xEDnh ho\u1EB7c ch\u1EE9ng minh theo y\xEAu c\u1EA7u.`,
+              mistakes: "- Qu\xEAn r\u1EB1ng giao \u0111i\u1EC3m hai \u0111\u01B0\u1EDDng ch\xE9o c\xE1ch \u0111\u1EC1u b\u1ED1n \u0111\u1EC9nh c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt.",
+              example: r3`Hình chữ nhật \(ABCD\) có hai đường chéo cắt nhau tại \(O\) và \(\widehat{AOB} = 120^\circ\). Tính \(\widehat{OAB}\).`,
+              solution: r3`\(OA = OB\) (nửa hai đường chéo bằng nhau) nên \(\triangle OAB\) cân tại \(O\): \(\widehat{OAB} = \dfrac{180^\circ - 120^\circ}{2} = 30^\circ\).`,
+              exercises: [
+                sa(2, r3`Hình chữ nhật \(ABCD\) có đường chéo \(AC = 10\) cm, hai đường chéo cắt nhau tại \(O\). Tính \(OB\).`, ["5"], r3`\(BD = AC = 10\) cm và \(O\) là trung điểm của \(BD\) nên \(OB = 5\) cm.`, "cm"),
+                es(3, r3`Cho hình chữ nhật \(ABCD\). Kẻ \(AH \perp BD\) (\(H\) thuộc \(BD\)) và \(CK \perp BD\) (\(K\) thuộc \(BD\)). Chứng minh \(AH = CK\).`, r3`\(\triangle AHD\) và \(\triangle CKB\) vuông tại \(H\), \(K\) có \(AD = CB\) và \(\widehat{ADH} = \widehat{CBK}\) (so le trong, \(AD \parallel BC\)).
+Do đó \(\triangle AHD = \triangle CKB\) (cạnh huyền – góc nhọn), suy ra \(AH = CK\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u0110\u01B0\u1EDDng trung tuy\u1EBFn c\u1EE7a tam gi\xE1c vu\xF4ng",
+          description: "\u0110\u01B0\u1EDDng trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n b\u1EB1ng n\u1EEDa c\u1EA1nh huy\u1EC1n v\xE0 \u0111i\u1EC1u ng\u01B0\u1EE3c l\u1EA1i.",
+          types: [
+            {
+              slug: "trung-tuyen-ung-voi-canh-huyen",
+              title: "\u0110\u01B0\u1EDDng trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n c\u1EE7a tam gi\xE1c vu\xF4ng",
+              levels: [2, 3, 4],
+              knowledge: "Trong tam gi\xE1c vu\xF4ng, \u0111\u01B0\u1EDDng trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n b\u1EB1ng n\u1EEDa c\u1EA1nh huy\u1EC1n; tam gi\xE1c c\xF3 m\u1ED9t \u0111\u01B0\u1EDDng trung tuy\u1EBFn b\u1EB1ng n\u1EEDa c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng th\xEC l\xE0 tam gi\xE1c vu\xF4ng.",
+              signs: "Tam gi\xE1c vu\xF4ng c\xF3 trung \u0111i\u1EC3m c\u1EE7a c\u1EA1nh huy\u1EC1n; ho\u1EB7c c\u1EA7n ch\u1EE9ng minh m\u1ED9t tam gi\xE1c vu\xF4ng khi bi\u1EBFt trung tuy\u1EBFn b\u1EB1ng n\u1EEDa c\u1EA1nh.",
+              method: "D\xF9ng trung tuy\u1EBFn b\u1EB1ng n\u1EEDa c\u1EA1nh huy\u1EC1n \u0111\u1EC3 c\xF3 c\xE1c \u0111o\u1EA1n b\u1EB1ng nhau v\xE0 tam gi\xE1c c\xE2n, t\u1EEB \u0111\xF3 t\xEDnh \u0111\u1ED9 d\xE0i, g\xF3c.",
+              steps: r3`- **Bước 1.** Xác định tam giác vuông và trung điểm \(M\) của cạnh huyền.
+- **Bước 2.** Suy ra \(MA = MB = MC\); xét các tam giác cân \(MAB\), \(MAC\).
+- **Bước 3.** Tính hoặc chứng minh theo yêu cầu.`,
+              mistakes: "- \xC1p d\u1EE5ng t\xEDnh ch\u1EA5t cho trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh g\xF3c vu\xF4ng.\n- Nh\u1EA7m trung tuy\u1EBFn v\u1EDBi \u0111\u01B0\u1EDDng cao.",
+              example: r3`Cho tam giác \(ABC\) vuông tại \(A\), \(BC = 10\) cm, \(M\) là trung điểm của \(BC\). Tính \(AM\).`,
+              solution: r3`\(AM\) là đường trung tuyến ứng với cạnh huyền nên \(AM = \dfrac{BC}{2} = 5\) cm.`,
+              exercises: [
+                sa(2, r3`Tam giác \(ABC\) vuông tại \(A\) có đường trung tuyến \(AM = 6{,}5\) cm. Tính \(BC\).`, ["13"], r3`\(BC = 2AM = 13\) cm.`, "cm"),
+                es(3, r3`Cho tam giác \(ABC\) có đường trung tuyến \(AM\) bằng nửa cạnh \(BC\). Chứng minh tam giác \(ABC\) vuông tại \(A\).`, r3`\(MA = MB = MC\) nên các tam giác \(MAB\), \(MAC\) cân tại \(M\): \(\widehat{B} = \widehat{BAM}\), \(\widehat{C} = \widehat{CAM}\).
+Suy ra \(\widehat{BAC} = \widehat{B} + \widehat{C}\). Mà \(\widehat{BAC} + \widehat{B} + \widehat{C} = 180^\circ\) nên \(\widehat{BAC} = 90^\circ\).`),
+                sa(4, r3`Tam giác \(ABC\) vuông tại \(A\) có \(\widehat{B} = 30^\circ\), đường cao \(AH\) và đường trung tuyến \(AM\). Tính số đo góc \(HAM\).`, ["30"], r3`\(\widehat{C} = 60^\circ\) và \(MA = MC\) nên \(\triangle AMC\) cân có một góc \(60^\circ\), là tam giác đều: \(\widehat{AMC} = 60^\circ\).
+Trong tam giác \(AHM\) vuông tại \(H\): \(\widehat{HAM} = 90^\circ - 60^\circ = 30^\circ\).`, "\xB0")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 14 ----------------
+    {
+      slug: "bai-14-hinh-thoi-va-hinh-vuong",
+      difficulty: 3,
+      objectives: `- Nh\u1EADn bi\u1EBFt h\xECnh thoi, h\xECnh vu\xF4ng.
+- Gi\u1EA3i th\xEDch t\xEDnh ch\u1EA5t v\u1EC1 \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh thoi, h\xECnh vu\xF4ng.
+- Nh\u1EADn bi\u1EBFt h\xECnh thoi, h\xECnh vu\xF4ng b\u1EB1ng d\u1EA5u hi\u1EC7u; t\xECm \u0111i\u1EC1u ki\u1EC7n \u0111\u1EC3 m\u1ED9t t\u1EE9 gi\xE1c l\xE0 h\xECnh thoi, h\xECnh vu\xF4ng.`,
+      prerequisites: "- H\xECnh b\xECnh h\xE0nh, h\xECnh ch\u1EEF nh\u1EADt (B\xE0i 12, B\xE0i 13).\n- Tia ph\xE2n gi\xE1c c\u1EE7a m\u1ED9t g\xF3c (To\xE1n 7).",
+      concepts: "H\xECnh thoi; h\xECnh vu\xF4ng.",
+      properties: `- H\xECnh thoi c\xF3 t\u1EA5t c\u1EA3 t\xEDnh ch\u1EA5t c\u1EE7a h\xECnh b\xECnh h\xE0nh; hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c v\u1EDBi nhau v\xE0 l\xE0 c\xE1c \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c c\u1EE7a c\xE1c g\xF3c c\u1EE7a h\xECnh thoi.
+- H\xECnh vu\xF4ng c\xF3 t\u1EA5t c\u1EA3 t\xEDnh ch\u1EA5t c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt v\xE0 h\xECnh thoi.`,
+      theorems: `D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh thoi:
+- T\u1EE9 gi\xE1c c\xF3 b\u1ED1n c\u1EA1nh b\u1EB1ng nhau.
+- H\xECnh b\xECnh h\xE0nh c\xF3 hai c\u1EA1nh k\u1EC1 b\u1EB1ng nhau, ho\u1EB7c hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c, ho\u1EB7c m\u1ED9t \u0111\u01B0\u1EDDng ch\xE9o l\xE0 \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c c\u1EE7a m\u1ED9t g\xF3c.
+
+D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh vu\xF4ng:
+- H\xECnh ch\u1EEF nh\u1EADt c\xF3 hai c\u1EA1nh k\u1EC1 b\u1EB1ng nhau, ho\u1EB7c hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c, ho\u1EB7c m\u1ED9t \u0111\u01B0\u1EDDng ch\xE9o l\xE0 \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c c\u1EE7a m\u1ED9t g\xF3c.
+- H\xECnh thoi c\xF3 m\u1ED9t g\xF3c vu\xF4ng, ho\u1EB7c hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau.`,
+      themes: [
+        {
+          title: "T\xEDnh ch\u1EA5t h\xECnh thoi, h\xECnh vu\xF4ng",
+          description: "T\xEDnh g\xF3c, c\u1EA1nh; ch\u1EE9ng minh quan h\u1EC7 h\xECnh h\u1ECDc nh\u1EDD t\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ch\xE9o.",
+          types: [
+            {
+              slug: "tinh-goc-canh-hinh-thoi",
+              title: "T\xEDnh g\xF3c, c\u1EA1nh c\u1EE7a h\xECnh thoi, h\xECnh vu\xF4ng",
+              levels: [1, 2],
+              knowledge: "H\xECnh thoi c\xF3 b\u1ED1n c\u1EA1nh b\u1EB1ng nhau, c\xE1c g\xF3c \u0111\u1ED1i b\u1EB1ng nhau, \u0111\u01B0\u1EDDng ch\xE9o l\xE0 ph\xE2n gi\xE1c c\u1EE7a c\xE1c g\xF3c; h\xECnh vu\xF4ng c\xF3 b\u1ED1n g\xF3c vu\xF4ng, b\u1ED1n c\u1EA1nh b\u1EB1ng nhau.",
+              signs: "\u0110\u1EC1 cho chu vi, m\u1ED9t g\xF3c ho\u1EB7c m\u1ED9t \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh thoi, h\xECnh vu\xF4ng v\xE0 y\xEAu c\u1EA7u t\xEDnh c\u1EA1nh, g\xF3c.",
+              method: "D\xF9ng b\u1ED1n c\u1EA1nh b\u1EB1ng nhau, t\xEDnh ch\u1EA5t g\xF3c v\xE0 \u0111\u01B0\u1EDDng ch\xE9o l\xE0 ph\xE2n gi\xE1c.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ghi c\xE1c t\xEDnh ch\u1EA5t v\u1EC1 c\u1EA1nh, g\xF3c c\u1EE7a h\xECnh thoi (h\xECnh vu\xF4ng).
+- **B\u01B0\u1EDBc 2.** D\xF9ng \u0111\u01B0\u1EDDng ch\xE9o l\xE0 ph\xE2n gi\xE1c \u0111\u1EC3 t\xEDnh c\xE1c g\xF3c nh\u1ECF.
+- **B\u01B0\u1EDBc 3.** T\xEDnh v\xE0 k\u1EBFt lu\u1EADn.`,
+              mistakes: "- Cho r\u1EB1ng hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh thoi b\u1EB1ng nhau.\n- Qu\xEAn \u0111\u01B0\u1EDDng ch\xE9o chia \u0111\xF4i g\xF3c c\u1EE7a h\xECnh thoi.",
+              example: r3`Hình thoi \(ABCD\) có \(\widehat{A} = 60^\circ\) và cạnh 5 cm. Tính \(BD\) và các góc của hình thoi.`,
+              solution: r3`\(AB = AD\) và \(\widehat{A} = 60^\circ\) nên \(\triangle ABD\) đều: \(BD = 5\) cm.
+\(\widehat{C} = \widehat{A} = 60^\circ\); \(\widehat{B} = \widehat{D} = 180^\circ - 60^\circ = 120^\circ\).`,
+              exercises: [
+                sa(1, "M\u1ED9t h\xECnh thoi c\xF3 chu vi 28 cm. \u0110\u1ED9 d\xE0i c\u1EA1nh c\u1EE7a h\xECnh thoi l\xE0 bao nhi\xEAu x\u0103ng-ti-m\xE9t?", ["7"], r3`Bốn cạnh bằng nhau nên cạnh bằng \(28 : 4 = 7\) cm.`, "cm"),
+                sa(2, r3`Hình thoi \(ABCD\) có \(\widehat{ABC} = 130^\circ\). Tính \(\widehat{ABD}\).`, ["65"], r3`Đường chéo \(BD\) là phân giác của góc \(ABC\) nên \(\widehat{ABD} = 130^\circ : 2 = 65^\circ\).`, "\xB0")
+              ]
+            },
+            {
+              slug: "dung-tinh-chat-hinh-thoi-hinh-vuong",
+              title: "D\xF9ng t\xEDnh ch\u1EA5t h\xECnh thoi, h\xECnh vu\xF4ng \u0111\u1EC3 ch\u1EE9ng minh",
+              levels: [2, 3],
+              knowledge: "\u0110\u01B0\u1EDDng ch\xE9o h\xECnh thoi vu\xF4ng g\xF3c v\xE0 l\xE0 ph\xE2n gi\xE1c; h\xECnh vu\xF4ng c\xF3 b\u1ED1n c\u1EA1nh b\u1EB1ng nhau, b\u1ED1n g\xF3c vu\xF4ng; tam gi\xE1c b\u1EB1ng nhau.",
+              signs: "\u0110\u1EC1 cho h\xECnh thoi, h\xECnh vu\xF4ng, y\xEAu c\u1EA7u ch\u1EE9ng minh \u0111o\u1EA1n th\u1EB3ng b\u1EB1ng nhau, vu\xF4ng g\xF3c, kho\u1EA3ng c\xE1ch b\u1EB1ng nhau.",
+              method: "D\xF9ng t\xEDnh ch\u1EA5t ph\xE2n gi\xE1c, vu\xF4ng g\xF3c c\u1EE7a \u0111\u01B0\u1EDDng ch\xE9o, b\u1ED1n c\u1EA1nh b\u1EB1ng nhau \u0111\u1EC3 ch\u1EE9ng minh c\xE1c tam gi\xE1c b\u1EB1ng nhau.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ghi t\xEDnh ch\u1EA5t c\u1EE7a h\xECnh thoi (h\xECnh vu\xF4ng) li\xEAn quan \u0111\u1EBFn y\xEAu c\u1EA7u.
+- **B\u01B0\u1EDBc 2.** Ch\u1ECDn v\xE0 ch\u1EE9ng minh hai tam gi\xE1c b\u1EB1ng nhau.
+- **B\u01B0\u1EDBc 3.** Suy ra \u0111o\u1EA1n th\u1EB3ng b\u1EB1ng nhau, g\xF3c b\u1EB1ng nhau ho\u1EB7c vu\xF4ng g\xF3c.`,
+              mistakes: '- D\xF9ng t\xEDnh ch\u1EA5t "\u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau" cho h\xECnh thoi.\n- K\u1EBFt lu\u1EADn vu\xF4ng g\xF3c m\xE0 ch\u01B0a ch\u1EE9ng minh t\u1ED5ng hai g\xF3c b\u1EB1ng 90\xB0.',
+              example: r3`Cho hình thoi \(ABCD\), \(O\) là giao điểm hai đường chéo. Kẻ \(OH \perp AB\), \(OK \perp AD\). Chứng minh \(OH = OK\).`,
+              solution: r3`\(\triangle AHO\) và \(\triangle AKO\) vuông tại \(H\), \(K\), có \(AO\) chung và \(\widehat{HAO} = \widehat{KAO}\) (\(AC\) là phân giác góc \(A\)).
+Do đó \(\triangle AHO = \triangle AKO\) (cạnh huyền – góc nhọn), suy ra \(OH = OK\).`,
+              exercises: [
+                mcq(2, "Ph\xE1t bi\u1EC3u n\xE0o sau \u0111\xE2y **sai**?", ["Hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh thoi vu\xF4ng g\xF3c v\u1EDBi nhau.", "Hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh thoi b\u1EB1ng nhau.", "Hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh vu\xF4ng b\u1EB1ng nhau.", "H\xECnh vu\xF4ng l\xE0 h\xECnh thoi c\xF3 m\u1ED9t g\xF3c vu\xF4ng."], "B", "Hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh thoi n\xF3i chung kh\xF4ng b\u1EB1ng nhau (ch\u1EC9 b\u1EB1ng nhau khi h\xECnh thoi l\xE0 h\xECnh vu\xF4ng)."),
+                ge(3, r3`Cho hình vuông \(ABCD\). Trên cạnh \(AB\) lấy \(E\), trên cạnh \(BC\) lấy \(F\) sao cho \(AE = BF\). Chứng minh \(DE = AF\) và \(DE \perp AF\).`, `A(0,4) B(4,4) C(4,0) D(0,0) E(1.5,4) F(4,2.5)
+ABCDA
+DE AF`, r3`\(\triangle DAE\) và \(\triangle ABF\) có \(DA = AB\), \(\widehat{DAE} = \widehat{ABF} = 90^\circ\), \(AE = BF\) nên bằng nhau (c.g.c). Suy ra \(DE = AF\) và \(\widehat{ADE} = \widehat{BAF}\).
+Gọi \(I\) là giao điểm của \(DE\) và \(AF\): \(\widehat{IAE} + \widehat{AEI} = \widehat{ADE} + \widehat{AED} = 90^\circ\), nên \(\widehat{AIE} = 90^\circ\), tức là \(DE \perp AF\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh thoi, h\xECnh vu\xF4ng",
+          description: "Ch\u1EE9ng minh t\u1EE9 gi\xE1c l\xE0 h\xECnh thoi, h\xECnh vu\xF4ng; t\xECm \u0111i\u1EC1u ki\u1EC7n.",
+          types: [
+            {
+              slug: "chung-minh-hinh-thoi-hinh-vuong",
+              title: "Ch\u1EE9ng minh t\u1EE9 gi\xE1c l\xE0 h\xECnh thoi, h\xECnh vu\xF4ng",
+              levels: [2, 3],
+              knowledge: "C\xE1c d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh thoi, h\xECnh vu\xF4ng.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u ch\u1EE9ng minh m\u1ED9t t\u1EE9 gi\xE1c l\xE0 h\xECnh thoi ho\u1EB7c h\xECnh vu\xF4ng.",
+              method: "Th\u01B0\u1EDDng ch\u1EE9ng minh h\xECnh b\xECnh h\xE0nh (ho\u1EB7c h\xECnh ch\u1EEF nh\u1EADt) tr\u01B0\u1EDBc, sau \u0111\xF3 th\xEAm \u0111i\u1EC1u ki\u1EC7n v\u1EC1 c\u1EA1nh k\u1EC1, \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c hay \u0111\u01B0\u1EDDng ch\xE9o l\xE0 ph\xE2n gi\xE1c.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ch\u1EE9ng minh t\u1EE9 gi\xE1c l\xE0 h\xECnh b\xECnh h\xE0nh, h\xECnh ch\u1EEF nh\u1EADt ho\u1EB7c h\xECnh thoi.
+- **B\u01B0\u1EDBc 2.** B\u1ED5 sung m\u1ED9t \u0111i\u1EC1u ki\u1EC7n c\u1EE7a d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt.
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn.`,
+              mistakes: '- K\u1EBFt lu\u1EADn h\xECnh thoi t\u1EEB "t\u1EE9 gi\xE1c c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c" (thi\u1EBFu \u0111i\u1EC1u ki\u1EC7n h\xECnh b\xECnh h\xE0nh).\n- K\u1EBFt lu\u1EADn h\xECnh vu\xF4ng t\u1EEB "t\u1EE9 gi\xE1c c\xF3 b\u1ED1n c\u1EA1nh b\u1EB1ng nhau" (m\u1EDBi l\xE0 h\xECnh thoi).',
+              example: r3`Cho hình bình hành \(ABCD\) có \(AC\) là tia phân giác của góc \(A\). Chứng minh \(ABCD\) là hình thoi.`,
+              solution: r3`Hình bình hành có một đường chéo là phân giác của một góc là hình thoi. Vậy \(ABCD\) là hình thoi.`,
+              exercises: [
+                mcq(2, r3`Hình chữ nhật \(ABCD\) là hình vuông khi`, [r3`\(AB = BC\)`, r3`\(AC = BD\)`, r3`\(AB \parallel CD\)`, r3`\(\widehat{A} = 90^\circ\)`], "A", "H\xECnh ch\u1EEF nh\u1EADt c\xF3 hai c\u1EA1nh k\u1EC1 b\u1EB1ng nhau l\xE0 h\xECnh vu\xF4ng. C\xE1c \u0111i\u1EC1u ki\u1EC7n c\xF2n l\u1EA1i h\xECnh ch\u1EEF nh\u1EADt n\xE0o c\u0169ng c\xF3."),
+                ge(3, r3`Cho hình vuông \(ABCD\). Trên các cạnh \(AB\), \(BC\), \(CD\), \(DA\) lần lượt lấy \(E\), \(F\), \(G\), \(H\) sao cho \(AE = BF = CG = DH\). Chứng minh \(EFGH\) là hình vuông.`, `A(0,4) B(4,4) C(4,0) D(0,0) E(1,4) F(4,3) G(3,0) H(0,1)
+ABCDA
+EFGHE`, r3`Các tam giác vuông \(AEH\), \(BFE\), \(CGF\), \(DHG\) bằng nhau (c.g.c), nên \(HE = EF = FG = GH\): \(EFGH\) là hình thoi.
+Ngoài ra \(\widehat{AEH} = \widehat{BFE}\) nên \(\widehat{AEH} + \widehat{BEF} = \widehat{BFE} + \widehat{BEF} = 90^\circ\), suy ra \(\widehat{HEF} = 90^\circ\). Hình thoi có một góc vuông là hình vuông.`)
+              ]
+            },
+            {
+              slug: "dieu-kien-hinh-thoi-hinh-vuong",
+              title: "T\xECm \u0111i\u1EC1u ki\u1EC7n \u0111\u1EC3 t\u1EE9 gi\xE1c l\xE0 h\xECnh thoi, h\xECnh vu\xF4ng",
+              levels: [3, 4],
+              knowledge: "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt c\xE1c t\u1EE9 gi\xE1c \u0111\u1EB7c bi\u1EC7t; m\u1ED1i quan h\u1EC7: h\xECnh vu\xF4ng v\u1EEBa l\xE0 h\xECnh ch\u1EEF nh\u1EADt v\u1EEBa l\xE0 h\xECnh thoi.",
+              signs: "\u0110\u1EC1 h\u1ECFi tam gi\xE1c (ho\u1EB7c t\u1EE9 gi\xE1c ban \u0111\u1EA7u) c\u1EA7n th\xEAm \u0111i\u1EC1u ki\u1EC7n g\xEC \u0111\u1EC3 t\u1EE9 gi\xE1c t\u1EA1o th\xE0nh l\xE0 h\xECnh thoi, h\xECnh ch\u1EEF nh\u1EADt, h\xECnh vu\xF4ng.",
+              method: "X\xE1c \u0111\u1ECBnh t\u1EE9 gi\xE1c \u0111\xE3 l\xE0 h\xECnh g\xEC; t\u1EEB d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt c\u1EE7a h\xECnh c\u1EA7n \u0111\u1EA1t, suy ng\u01B0\u1EE3c ra \u0111i\u1EC1u ki\u1EC7n c\u1EE7a h\xECnh ban \u0111\u1EA7u.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ch\u1EE9ng minh t\u1EE9 gi\xE1c lu\xF4n l\xE0 m\u1ED9t h\xECnh (th\u01B0\u1EDDng l\xE0 h\xECnh b\xECnh h\xE0nh).
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt \u0111i\u1EC1u ki\u1EC7n c\u1EA7n th\xEAm theo d\u1EA5u hi\u1EC7u (c\u1EA1nh k\u1EC1 b\u1EB1ng nhau, g\xF3c vu\xF4ng, \u0111\u01B0\u1EDDng ch\xE9o\u2026).
+- **B\u01B0\u1EDBc 3.** Chuy\u1EC3n \u0111i\u1EC1u ki\u1EC7n \u0111\xF3 v\u1EC1 \u0111i\u1EC1u ki\u1EC7n c\u1EE7a h\xECnh ban \u0111\u1EA7u; k\u1EBFt lu\u1EADn.`,
+              mistakes: "- Ch\u1EC9 n\xEAu \u0111i\u1EC1u ki\u1EC7n m\xE0 kh\xF4ng gi\u1EA3i th\xEDch v\xEC sao \u0111\u1EE7.\n- Qu\xEAn tr\u01B0\u1EDDng h\u1EE3p h\xECnh vu\xF4ng c\u1EA7n \u0111\u1ED3ng th\u1EDDi hai \u0111i\u1EC1u ki\u1EC7n.",
+              example: r3`Cho tam giác \(ABC\), \(M\) là trung điểm của \(BC\), \(D\) là điểm sao cho \(M\) là trung điểm của \(AD\). Tam giác \(ABC\) cần điều kiện gì để \(ABDC\) là hình thoi, hình chữ nhật, hình vuông?`,
+              solution: r3`\(ABDC\) luôn là hình bình hành (hai đường chéo cắt nhau tại trung điểm mỗi đường).
+- Hình thoi khi \(AB = AC\), tức là tam giác \(ABC\) cân tại \(A\).
+- Hình chữ nhật khi \(\widehat{BAC} = 90^\circ\), tức là tam giác \(ABC\) vuông tại \(A\).
+- Hình vuông khi tam giác \(ABC\) vuông cân tại \(A\).`,
+              exercises: [
+                mcq(3, r3`Cho hình bình hành \(ABCD\). Điều kiện nào sau đây làm cho \(ABCD\) trở thành hình thoi?`, [r3`\(AC \perp BD\)`, r3`\(AC = BD\)`, r3`\(\widehat{A} = 90^\circ\)`, r3`\(AB \parallel CD\)`], "A", "H\xECnh b\xECnh h\xE0nh c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c l\xE0 h\xECnh thoi."),
+                es(4, r3`Cho tam giác \(ABC\), điểm \(D\) thuộc cạnh \(BC\). Qua \(D\) kẻ \(DE \parallel AC\) (\(E\) thuộc \(AB\)) và \(DF \parallel AB\) (\(F\) thuộc \(AC\)).
+a) Tứ giác \(AEDF\) là hình gì?
+b) Điểm \(D\) ở vị trí nào trên \(BC\) thì \(AEDF\) là hình thoi?
+c) Nếu tam giác \(ABC\) vuông tại \(A\) thì \(AEDF\) là hình gì? Khi đó \(D\) ở vị trí nào thì \(AEDF\) là hình vuông?`, r3`a) \(AEDF\) có \(AE \parallel DF\), \(AF \parallel DE\) nên là hình bình hành.
+b) \(AEDF\) là hình thoi khi đường chéo \(AD\) là phân giác của góc \(A\), tức là \(D\) là chân đường phân giác kẻ từ \(A\).
+c) Khi \(\widehat{A} = 90^\circ\), hình bình hành \(AEDF\) là hình chữ nhật; nó là hình vuông khi \(D\) là chân đường phân giác kẻ từ \(A\).`)
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+// src/seed/toan8-map/chuong-4.ts
+var CHUONG_4 = {
+  code: "IV",
+  objectives: `- Gi\u1EA3i th\xEDch \u0111\u1ECBnh l\xED Thal\xE8s v\xE0 \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o trong tam gi\xE1c.
+- M\xF4 t\u1EA3 \u0111\u01B0\u1EDDng trung b\xECnh c\u1EE7a tam gi\xE1c v\xE0 gi\u1EA3i th\xEDch t\xEDnh ch\u1EA5t c\u1EE7a n\xF3.
+- Gi\u1EA3i th\xEDch t\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c trong c\u1EE7a tam gi\xE1c.
+- V\u1EADn d\u1EE5ng \u0111\u1EC3 t\xEDnh \u0111\u1ED9 d\xE0i, ch\u1EE9ng minh song song, gi\u1EA3i b\xE0i to\xE1n th\u1EF1c t\u1EBF (\u0111o kho\u1EA3ng c\xE1ch, chi\u1EC1u cao).`,
+  keyPoints: `- T\u1EC9 s\u1ED1 c\u1EE7a hai \u0111o\u1EA1n th\u1EB3ng, \u0111o\u1EA1n th\u1EB3ng t\u1EC9 l\u1EC7.
+- \u0110\u1ECBnh l\xED Thal\xE8s v\xE0 \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o.
+- \u0110\u01B0\u1EDDng trung b\xECnh c\u1EE7a tam gi\xE1c: song song v\u1EDBi c\u1EA1nh th\u1EE9 ba v\xE0 b\u1EB1ng n\u1EEDa c\u1EA1nh \u0111\xF3.
+- \u0110\u01B0\u1EDDng ph\xE2n gi\xE1c c\u1EE7a m\u1ED9t g\xF3c chia c\u1EA1nh \u0111\u1ED1i di\u1EC7n th\xE0nh hai \u0111o\u1EA1n t\u1EC9 l\u1EC7 v\u1EDBi hai c\u1EA1nh k\u1EC1.`,
+  formulas: r3`\(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)) \(\Rightarrow \dfrac{AM}{AB} = \dfrac{AN}{AC}\); \(\dfrac{AM}{MB} = \dfrac{AN}{NC}\).
+\(M\), \(N\) là trung điểm của \(AB\), \(AC\) \(\Rightarrow MN \parallel BC\), \(MN = \dfrac{BC}{2}\).
+\(AD\) là đường phân giác của góc \(A\) (\(D \in BC\)) \(\Rightarrow \dfrac{DB}{DC} = \dfrac{AB}{AC}\).`,
+  verify: { status: "verified", note: "T\xEAn ch\u01B0\u01A1ng, t\xEAn b\xE0i v\xE0 th\u1EE9 t\u1EF1 \u0111\u1ED1i chi\u1EBFu v\u1EDBi m\u1EE5c l\u1EE5c SGK To\xE1n 8 K\u1EBFt n\u1ED1i tri th\u1EE9c t\u1EADp 1 (VietJack, Hoatieu) v\xE0 PPCT 2026-2027." },
+  aux: [
+    { slug: "luyen-tap-chung-4a", objectives: "C\u1EE7ng c\u1ED1 \u0111\u1ECBnh l\xED Thal\xE8s, \u0111\u01B0\u1EDDng trung b\xECnh v\xE0 t\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c c\u1EE7a tam gi\xE1c; v\u1EADn d\u1EE5ng t\xEDnh \u0111\u1ED9 d\xE0i, ch\u1EE9ng minh song song." },
+    { slug: "bai-tap-cuoi-chuong-4", objectives: "\xD4n t\u1EADp to\xE0n Ch\u01B0\u01A1ng IV: h\u1EC7 th\u1ED1ng \u0111\u1ECBnh l\xED Thal\xE8s, \u0111\u01B0\u1EDDng trung b\xECnh, \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c; chu\u1EA9n b\u1ECB ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng." }
+  ],
+  lessons: [
+    // ---------------- Bài 15 ----------------
+    {
+      slug: "bai-15-dinh-li-thales-trong-tam-giac",
+      difficulty: 2,
+      objectives: `- Nh\u1EADn bi\u1EBFt t\u1EC9 s\u1ED1 c\u1EE7a hai \u0111o\u1EA1n th\u1EB3ng, \u0111o\u1EA1n th\u1EB3ng t\u1EC9 l\u1EC7.
+- Gi\u1EA3i th\xEDch \u0111\u1ECBnh l\xED Thal\xE8s v\xE0 \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o trong tam gi\xE1c.
+- V\u1EADn d\u1EE5ng t\xEDnh \u0111\u1ED9 d\xE0i \u0111o\u1EA1n th\u1EB3ng, ch\u1EE9ng minh hai \u0111\u01B0\u1EDDng th\u1EB3ng song song, gi\u1EA3i b\xE0i to\xE1n \u0111o \u0111\u1EA1c th\u1EF1c t\u1EBF.`,
+      prerequisites: "- T\u1EC9 l\u1EC7 th\u1EE9c v\xE0 t\xEDnh ch\u1EA5t c\u1EE7a t\u1EC9 l\u1EC7 th\u1EE9c (To\xE1n 7).\n- Hai \u0111\u01B0\u1EDDng th\u1EB3ng song song (To\xE1n 7).",
+      concepts: "T\u1EC9 s\u1ED1 c\u1EE7a hai \u0111o\u1EA1n th\u1EB3ng; \u0111o\u1EA1n th\u1EB3ng t\u1EC9 l\u1EC7.",
+      theorems: `- \u0110\u1ECBnh l\xED Thal\xE8s: N\u1EBFu m\u1ED9t \u0111\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh c\u1EE7a tam gi\xE1c v\xE0 c\u1EAFt hai c\u1EA1nh c\xF2n l\u1EA1i th\xEC n\xF3 \u0111\u1ECBnh ra tr\xEAn hai c\u1EA1nh \u0111\xF3 nh\u1EEFng \u0111o\u1EA1n th\u1EB3ng t\u01B0\u01A1ng \u1EE9ng t\u1EC9 l\u1EC7.
+- \u0110\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o: N\u1EBFu m\u1ED9t \u0111\u01B0\u1EDDng th\u1EB3ng c\u1EAFt hai c\u1EA1nh c\u1EE7a m\u1ED9t tam gi\xE1c v\xE0 \u0111\u1ECBnh ra tr\xEAn hai c\u1EA1nh n\xE0y nh\u1EEFng \u0111o\u1EA1n th\u1EB3ng t\u01B0\u01A1ng \u1EE9ng t\u1EC9 l\u1EC7 th\xEC \u0111\u01B0\u1EDDng th\u1EB3ng \u0111\xF3 song song v\u1EDBi c\u1EA1nh c\xF2n l\u1EA1i c\u1EE7a tam gi\xE1c.`,
+      formulas: r3`\(MN \parallel BC\) \(\Rightarrow \dfrac{AM}{AB} = \dfrac{AN}{AC}\); \(\dfrac{AM}{MB} = \dfrac{AN}{NC}\); \(\dfrac{MB}{AB} = \dfrac{NC}{AC}\).`,
+      properties: "- T\u1EC9 s\u1ED1 c\u1EE7a hai \u0111o\u1EA1n th\u1EB3ng l\xE0 t\u1EC9 s\u1ED1 \u0111\u1ED9 d\xE0i c\u1EE7a ch\xFAng theo c\xF9ng m\u1ED9t \u0111\u01A1n v\u1ECB \u0111o, kh\xF4ng ph\u1EE5 thu\u1ED9c v\xE0o \u0111\u01A1n v\u1ECB \u0111o.\n- \u0110\u1ECBnh l\xED Thal\xE8s v\u1EABn \u0111\xFAng khi \u0111\u01B0\u1EDDng th\u1EB3ng song song c\u1EAFt ph\u1EA7n k\xE9o d\xE0i c\u1EE7a hai c\u1EA1nh.",
+      themes: [
+        {
+          title: "\u0110o\u1EA1n th\u1EB3ng t\u1EC9 l\u1EC7",
+          description: "T\u1EC9 s\u1ED1 c\u1EE7a hai \u0111o\u1EA1n th\u1EB3ng; nh\u1EADn bi\u1EBFt c\xE1c \u0111o\u1EA1n th\u1EB3ng t\u1EC9 l\u1EC7.",
+          types: [
+            {
+              slug: "doan-thang-ti-le",
+              title: "\u0110o\u1EA1n th\u1EB3ng t\u1EC9 l\u1EC7",
+              levels: [1, 2],
+              knowledge: r3`Tỉ số của hai đoạn thẳng \(\dfrac{AB}{CD}\) (cùng đơn vị đo). Hai đoạn \(AB\), \(CD\) tỉ lệ với \(A'B'\), \(C'D'\) nếu \(\dfrac{AB}{CD} = \dfrac{A'B'}{C'D'}\).`,
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u t\xEDnh t\u1EC9 s\u1ED1 hai \u0111o\u1EA1n th\u1EB3ng ho\u1EB7c ki\u1EC3m tra hai c\u1EB7p \u0111o\u1EA1n th\u1EB3ng c\xF3 t\u1EC9 l\u1EC7 hay kh\xF4ng.",
+              method: "\u0110\u1ED5i c\xE1c \u0111\u1ED9 d\xE0i v\u1EC1 c\xF9ng m\u1ED9t \u0111\u01A1n v\u1ECB, l\u1EADp t\u1EC9 s\u1ED1 r\u1ED3i r\xFAt g\u1ECDn; so s\xE1nh hai t\u1EC9 s\u1ED1.",
+              steps: `- **B\u01B0\u1EDBc 1.** \u0110\u1ED5i v\u1EC1 c\xF9ng \u0111\u01A1n v\u1ECB \u0111o.
+- **B\u01B0\u1EDBc 2.** L\u1EADp t\u1EC9 s\u1ED1 v\xE0 r\xFAt g\u1ECDn.
+- **B\u01B0\u1EDBc 3.** So s\xE1nh c\xE1c t\u1EC9 s\u1ED1 (n\u1EBFu c\u1EA7n) v\xE0 k\u1EBFt lu\u1EADn.`,
+              mistakes: "- L\u1EADp t\u1EC9 s\u1ED1 khi hai \u0111o\u1EA1n ch\u01B0a c\xF9ng \u0111\u01A1n v\u1ECB (v\xED d\u1EE5 3 dm v\xE0 40 cm).\n- \u0110\u1EA3o th\u1EE9 t\u1EF1 hai \u0111o\u1EA1n trong t\u1EC9 s\u1ED1.",
+              example: r3`Cho \(AB = 6\) cm, \(CD = 2\) dm. Tính \(\dfrac{AB}{CD}\). Hai đoạn \(AB\), \(CD\) có tỉ lệ với hai đoạn \(EF = 9\) cm, \(GH = 30\) cm không?`,
+              solution: r3`\(CD = 20\) cm nên \(\dfrac{AB}{CD} = \dfrac{6}{20} = \dfrac{3}{10}\). Lại có \(\dfrac{EF}{GH} = \dfrac{9}{30} = \dfrac{3}{10}\). Vậy \(AB\), \(CD\) tỉ lệ với \(EF\), \(GH\).`,
+              exercises: [
+                mcq(1, r3`Cho \(AB = 3\) cm, \(CD = 12\) cm. Tỉ số \(\dfrac{AB}{CD}\) bằng`, [r3`\(\dfrac{1}{4}\)`, r3`\(4\)`, r3`\(\dfrac{1}{3}\)`, r3`\(\dfrac{1}{12}\)`], "A", r3`\(\dfrac{AB}{CD} = \dfrac{3}{12} = \dfrac{1}{4}\).`),
+                sa(2, r3`Cho \(AB = 1{,}2\) m và \(CD = 80\) cm. Tính tỉ số \(\dfrac{AB}{CD}\).`, ["1,5", "3/2"], r3`\(AB = 120\) cm nên \(\dfrac{AB}{CD} = \dfrac{120}{80} = \dfrac{3}{2} = 1{,}5\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u0110\u1ECBnh l\xED Thal\xE8s v\xE0 \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o",
+          description: "T\xEDnh \u0111\u1ED9 d\xE0i, ch\u1EE9ng minh song song, ch\u1EE9ng minh h\u1EC7 th\u1EE9c v\xE0 \u0111o \u0111\u1EA1c th\u1EF1c t\u1EBF.",
+          types: [
+            {
+              slug: "tinh-do-dai-dinh-li-thales",
+              title: "D\xF9ng \u0111\u1ECBnh l\xED Thal\xE8s t\xEDnh \u0111\u1ED9 d\xE0i \u0111o\u1EA1n th\u1EB3ng",
+              levels: [2, 3],
+              knowledge: r3`Định lí Thalès: \(MN \parallel BC\) thì \(\dfrac{AM}{AB} = \dfrac{AN}{AC}\), \(\dfrac{AM}{MB} = \dfrac{AN}{NC}\).`,
+              signs: "Tam gi\xE1c c\xF3 m\u1ED9t \u0111\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh, bi\u1EBFt m\u1ED9t s\u1ED1 \u0111o\u1EA1n tr\xEAn hai c\u1EA1nh c\xF2n l\u1EA1i; c\u1EA7n t\xEDnh \u0111o\u1EA1n ch\u01B0a bi\u1EBFt.",
+              method: "Vi\u1EBFt t\u1EC9 l\u1EC7 th\u1EE9c theo \u0111\u1ECBnh l\xED Thal\xE8s v\u1EDBi ba \u0111o\u1EA1n \u0111\xE3 bi\u1EBFt v\xE0 m\u1ED9t \u0111o\u1EA1n c\u1EA7n t\xECm, r\u1ED3i gi\u1EA3i t\u1EC9 l\u1EC7 th\u1EE9c.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ch\u1EC9 ra \u0111\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh c\u1EE7a tam gi\xE1c.
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt t\u1EC9 l\u1EC7 th\u1EE9c ch\u1EE9a \u0111o\u1EA1n c\u1EA7n t\xECm (ch\u1ECDn \u0111\xFAng c\xE1c \u0111o\u1EA1n t\u01B0\u01A1ng \u1EE9ng).
+- **B\u01B0\u1EDBc 3.** Gi\u1EA3i t\u1EC9 l\u1EC7 th\u1EE9c (nh\xE2n ch\xE9o) v\xE0 k\u1EBFt lu\u1EADn.`,
+              mistakes: "- Gh\xE9p sai \u0111o\u1EA1n t\u01B0\u01A1ng \u1EE9ng (AM v\u1EDBi NC thay v\xEC AN).\n- D\xF9ng \u0111\u1ECBnh l\xED khi hai \u0111\u01B0\u1EDDng th\u1EB3ng ch\u01B0a ch\u1EAFc song song.",
+              example: r3`Tam giác \(ABC\) có \(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)), \(AM = 3\) cm, \(MB = 2\) cm, \(AN = 4{,}5\) cm. Tính \(NC\) và \(AC\).`,
+              solution: r3`Theo định lí Thalès: \(\dfrac{AM}{MB} = \dfrac{AN}{NC}\), tức là \(\dfrac{3}{2} = \dfrac{4{,}5}{NC}\), suy ra \(NC = 3\) cm và \(AC = 7{,}5\) cm.`,
+              exercises: [
+                sa(2, r3`Tam giác \(ABC\) có \(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)), \(AM = 4\) cm, \(AB = 10\) cm, \(AC = 15\) cm. Tính \(AN\).`, ["6"], r3`\(\dfrac{AM}{AB} = \dfrac{AN}{AC}\) nên \(AN = \dfrac{4\cdot15}{10} = 6\) cm.`, "cm"),
+                ge(3, r3`Cho tam giác \(ABC\) có \(DE \parallel BC\) (\(D \in AB\), \(E \in AC\)) như hình vẽ. Biết \(AD = 6\) cm, \(DB = 4\) cm, \(AE = 4{,}5\) cm. Tính \(EC\) và \(AC\).`, `A(2,5) B(0,0) C(6,0) D(0.8,2) E(4.4,2)
+ABCA
+DE`, r3`Vì \(DE \parallel BC\) nên \(\dfrac{AD}{DB} = \dfrac{AE}{EC}\), tức là \(\dfrac{6}{4} = \dfrac{4{,}5}{EC}\). Suy ra \(EC = 3\) cm, \(AC = 4{,}5 + 3 = 7{,}5\) cm.`)
+              ]
+            },
+            {
+              slug: "chung-minh-song-song-he-thuc-thales",
+              title: "D\xF9ng \u0111\u1ECBnh l\xED Thal\xE8s ch\u1EE9ng minh h\u1EC7 th\u1EE9c, hai \u0111\u01B0\u1EDDng th\u1EB3ng song song",
+              levels: [3, 4],
+              knowledge: "\u0110\u1ECBnh l\xED Thal\xE8s (thu\u1EADn v\xE0 \u0111\u1EA3o); t\xEDnh ch\u1EA5t c\u1EE7a t\u1EC9 l\u1EC7 th\u1EE9c.",
+              signs: "\u0110\u1EC1 cho c\xE1c \u0111o\u1EA1n th\u1EB3ng tr\xEAn hai c\u1EA1nh tam gi\xE1c (ho\u1EB7c h\xECnh thang) v\xE0 y\xEAu c\u1EA7u ch\u1EE9ng minh song song, ho\u1EB7c ch\u1EE9ng minh m\u1ED9t \u0111\u1EB3ng th\u1EE9c t\xEDch, t\u1EC9 s\u1ED1.",
+              method: "Ch\u1EE9ng minh song song: ch\u1EC9 ra c\xE1c \u0111o\u1EA1n th\u1EB3ng t\u1EC9 l\u1EC7 r\u1ED3i d\xF9ng \u0111\u1ECBnh l\xED \u0111\u1EA3o. Ch\u1EE9ng minh h\u1EC7 th\u1EE9c: vi\u1EBFt c\xE1c t\u1EC9 l\u1EC7 th\u1EE9c theo \u0111\u1ECBnh l\xED Thal\xE8s r\u1ED3i bi\u1EBFn \u0111\u1ED5i.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh tam gi\xE1c v\xE0 \u0111\u01B0\u1EDDng th\u1EB3ng c\u1EAFt hai c\u1EA1nh c\u1EE7a n\xF3.
+- **B\u01B0\u1EDBc 2.** L\u1EADp c\xE1c t\u1EC9 s\u1ED1 t\u01B0\u01A1ng \u1EE9ng (t\u1EEB s\u1ED1 li\u1EC7u ho\u1EB7c t\u1EEB gi\u1EA3 thi\u1EBFt song song).
+- **B\u01B0\u1EDBc 3.** So s\xE1nh, bi\u1EBFn \u0111\u1ED5i t\u1EC9 l\u1EC7 th\u1EE9c \u0111\u1EC3 \u0111\u01B0\u1EE3c k\u1EBFt lu\u1EADn.`,
+              mistakes: "- D\xF9ng \u0111\u1ECBnh l\xED \u0111\u1EA3o v\u1EDBi c\xE1c \u0111o\u1EA1n kh\xF4ng t\u01B0\u01A1ng \u1EE9ng (m\u1ED9t \u0111o\u1EA1n tr\xEAn c\u1EA1nh n\xE0y v\u1EDBi \u0111o\u1EA1n k\xE9o d\xE0i c\u1EA1nh kia).\n- Bi\u1EBFn \u0111\u1ED5i t\u1EC9 l\u1EC7 th\u1EE9c sai khi nh\xE2n ch\xE9o.",
+              example: r3`Cho tam giác \(ABC\), \(M \in AB\), \(N \in AC\) với \(AM = 2\) cm, \(MB = 3\) cm, \(AN = 3\) cm, \(NC = 4{,}5\) cm. Chứng minh \(MN \parallel BC\).`,
+              solution: r3`\(\dfrac{AM}{MB} = \dfrac{2}{3}\) và \(\dfrac{AN}{NC} = \dfrac{3}{4{,}5} = \dfrac{2}{3}\). Do đó \(\dfrac{AM}{MB} = \dfrac{AN}{NC}\), theo định lí Thalès đảo \(MN \parallel BC\).`,
+              exercises: [
+                mcq(3, r3`Tam giác \(ABC\) có \(AB = 9\) cm, \(AC = 12\) cm. Trên \(AB\) lấy \(M\) sao cho \(AM = 3\) cm, trên \(AC\) lấy \(N\). Đường thẳng \(MN\) song song với \(BC\) khi \(AN\) bằng`, ["4 cm", "3 cm", "6 cm", "8 cm"], "A", r3`\(MN \parallel BC\) khi \(\dfrac{AN}{AC} = \dfrac{AM}{AB} = \dfrac{1}{3}\), tức là \(AN = 4\) cm.`),
+                es(4, r3`Cho hình thang \(ABCD\) (\(AB \parallel CD\)), \(O\) là giao điểm của hai đường chéo. Chứng minh \(OA\cdot OD = OB\cdot OC\).`, r3`Trong tam giác \(OCD\), đường thẳng \(AB\) song song với \(CD\) và cắt các tia đối của \(OC\), \(OD\) tại \(A\), \(B\). Theo định lí Thalès (trường hợp cắt phần kéo dài) \(\dfrac{OA}{OC} = \dfrac{OB}{OD}\), suy ra \(OA\cdot OD = OB\cdot OC\).`)
+              ]
+            },
+            {
+              slug: "do-dac-thuc-te-dinh-li-thales",
+              title: "B\xE0i to\xE1n th\u1EF1c t\u1EBF: \u0111o kho\u1EA3ng c\xE1ch, chi\u1EC1u cao",
+              levels: [3],
+              knowledge: "\u0110\u1ECBnh l\xED Thal\xE8s; t\u1EC9 l\u1EC7 th\u1EE9c.",
+              signs: "C\u1EA7n \u0111o m\u1ED9t kho\u1EA3ng c\xE1ch kh\xF4ng \u0111\u1EBFn \u0111\u01B0\u1EE3c (qua s\xF4ng, h\u1ED3) ho\u1EB7c chi\u1EC1u cao; \u0111\u1EC1 m\xF4 t\u1EA3 c\xE1ch \u0111\u1EB7t c\xE1c \u0111i\u1EC3m \u0111\u1EC3 c\xF3 c\xE1c \u0111\u01B0\u1EDDng th\u1EB3ng song song.",
+              method: "M\xF4 h\xECnh h\xF3a b\u1EB1ng m\u1ED9t tam gi\xE1c c\xF3 \u0111\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh; \u0111o\u1EA1n c\u1EA7n \u0111o n\u1EB1m tr\xEAn m\u1ED9t c\u1EA1nh; d\xF9ng \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EC3 t\xEDnh.",
+              steps: `- **B\u01B0\u1EDBc 1.** V\u1EBD h\xECnh, x\xE1c \u0111\u1ECBnh tam gi\xE1c v\xE0 c\u1EB7p \u0111\u01B0\u1EDDng th\u1EB3ng song song.
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt t\u1EC9 l\u1EC7 th\u1EE9c ch\u1EE9a \u0111o\u1EA1n c\u1EA7n t\xECm v\xE0 c\xE1c \u0111o\u1EA1n \u0111o \u0111\u01B0\u1EE3c.
+- **B\u01B0\u1EDBc 3.** T\xEDnh v\xE0 tr\u1EA3 l\u1EDDi b\u1EB1ng \u0111\u01A1n v\u1ECB th\u1EF1c t\u1EBF.`,
+              mistakes: "- Gh\xE9p sai \u0111o\u1EA1n t\u01B0\u01A1ng \u1EE9ng do v\u1EBD h\xECnh kh\xF4ng ch\xEDnh x\xE1c.\n- Qu\xEAn \u0111\u01A1n v\u1ECB khi tr\u1EA3 l\u1EDDi.",
+              example: r3`Để đo khoảng cách \(AB\) giữa hai điểm ở hai bờ sông, người ta chọn điểm \(O\) sao cho \(O\), \(A\), \(B\) thẳng hàng, rồi chọn \(C\), \(D\) sao cho \(O\), \(C\), \(D\) thẳng hàng và \(AC \parallel BD\) (như hình). Đo được \(OA = 12\) m, \(OC = 15\) m, \(CD = 25\) m. Tính \(AB\).
+[hinh]
+O(0,0) A(3,2) B(8,5.33) C(3.75,0) D(10,0)
+OB OD AC BD
+[/hinh]`,
+              solution: r3`Trong tam giác \(OBD\) có \(AC \parallel BD\) nên \(\dfrac{OA}{AB} = \dfrac{OC}{CD}\), tức là \(\dfrac{12}{AB} = \dfrac{15}{25}\). Suy ra \(AB = \dfrac{12\cdot25}{15} = 20\) m.`,
+              exercises: [
+                sa(3, r3`Với cách đo như ví dụ, nếu đo được \(OA = 10\) m, \(OC = 8\) m, \(CD = 12\) m thì khoảng cách \(AB\) bằng bao nhiêu mét?`, ["15"], r3`\(\dfrac{OA}{AB} = \dfrac{OC}{CD}\) nên \(AB = \dfrac{10\cdot12}{8} = 15\) m.`, "m"),
+                sa(3, r3`Một khung mái nhà có dạng tam giác \(ABC\). Người ta làm một thanh ngang \(MN\) song song với \(BC\) (\(M \in AB\), \(N \in AC\)). Biết \(AM = 1{,}2\) m, \(MB = 0{,}8\) m, \(AC = 2{,}5\) m. Tính \(AN\).`, ["1,5"], r3`\(AB = 2\) m. Vì \(MN \parallel BC\) nên \(\dfrac{AN}{AC} = \dfrac{AM}{AB}\), suy ra \(AN = \dfrac{2{,}5\cdot1{,}2}{2} = 1{,}5\) m.`, "m")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 16 ----------------
+    {
+      slug: "bai-16-duong-trung-binh-cua-tam-giac",
+      difficulty: 2,
+      objectives: `- M\xF4 t\u1EA3 \u0111\u01B0\u1EDDng trung b\xECnh c\u1EE7a tam gi\xE1c.
+- Gi\u1EA3i th\xEDch t\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh c\u1EE7a tam gi\xE1c.
+- V\u1EADn d\u1EE5ng \u0111\u1EC3 t\xEDnh \u0111\u1ED9 d\xE0i, ch\u1EE9ng minh song song, th\u1EB3ng h\xE0ng v\xE0 nh\u1EADn bi\u1EBFt t\u1EE9 gi\xE1c \u0111\u1EB7c bi\u1EC7t.`,
+      prerequisites: "- \u0110\u1ECBnh l\xED Thal\xE8s, \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o (B\xE0i 15).\n- H\xECnh b\xECnh h\xE0nh, h\xECnh ch\u1EEF nh\u1EADt, h\xECnh thoi (Ch\u01B0\u01A1ng III).",
+      concepts: "\u0110\u01B0\u1EDDng trung b\xECnh c\u1EE7a tam gi\xE1c (\u0111o\u1EA1n th\u1EB3ng n\u1ED1i trung \u0111i\u1EC3m hai c\u1EA1nh).",
+      theorems: "\u0110\u01B0\u1EDDng trung b\xECnh c\u1EE7a tam gi\xE1c th\xEC song song v\u1EDBi c\u1EA1nh th\u1EE9 ba v\xE0 b\u1EB1ng n\u1EEDa c\u1EA1nh \u1EA5y.",
+      formulas: r3`\(M\), \(N\) là trung điểm của \(AB\), \(AC\) \(\Rightarrow MN \parallel BC\) và \(MN = \dfrac{BC}{2}\).`,
+      properties: "- M\u1ED7i tam gi\xE1c c\xF3 ba \u0111\u01B0\u1EDDng trung b\xECnh.\n- \u0110\u01B0\u1EDDng th\u1EB3ng \u0111i qua trung \u0111i\u1EC3m m\u1ED9t c\u1EA1nh c\u1EE7a tam gi\xE1c v\xE0 song song v\u1EDBi c\u1EA1nh th\u1EE9 hai th\xEC \u0111i qua trung \u0111i\u1EC3m c\u1EE7a c\u1EA1nh th\u1EE9 ba.",
+      themes: [
+        {
+          title: "\u0110\u01B0\u1EDDng trung b\xECnh v\xE0 t\xEDnh ch\u1EA5t",
+          description: "T\xEDnh \u0111\u1ED9 d\xE0i; ch\u1EE9ng minh song song, th\u1EB3ng h\xE0ng.",
+          types: [
+            {
+              slug: "tinh-do-dai-duong-trung-binh",
+              title: "T\xEDnh \u0111\u1ED9 d\xE0i \u0111o\u1EA1n th\u1EB3ng d\u1EF1a v\xE0o \u0111\u01B0\u1EDDng trung b\xECnh",
+              levels: [1, 2, 3],
+              knowledge: r3`Đường trung bình \(MN\) của tam giác \(ABC\) bằng nửa cạnh \(BC\).`,
+              signs: "\u0110\u1EC1 c\xF3 trung \u0111i\u1EC3m c\u1EE7a hai c\u1EA1nh tam gi\xE1c v\xE0 y\xEAu c\u1EA7u t\xEDnh c\u1EA1nh th\u1EE9 ba, \u0111o\u1EA1n n\u1ED1i trung \u0111i\u1EC3m, chu vi; b\xE0i to\xE1n \u0111o kho\u1EA3ng c\xE1ch qua v\u1EADt c\u1EA3n.",
+              method: "Ch\u1EC9 ra \u0111\u01B0\u1EDDng trung b\xECnh r\u1ED3i d\xF9ng h\u1EC7 th\u1EE9c MN = BC : 2.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ch\u1EC9 ra hai trung \u0111i\u1EC3m v\xE0 tam gi\xE1c ch\u1EE9a ch\xFAng.
+- **B\u01B0\u1EDBc 2.** K\u1EBFt lu\u1EADn \u0111o\u1EA1n n\u1ED1i hai trung \u0111i\u1EC3m l\xE0 \u0111\u01B0\u1EDDng trung b\xECnh.
+- **B\u01B0\u1EDBc 3.** \xC1p d\u1EE5ng MN = BC : 2 (ho\u1EB7c BC = 2MN).`,
+              mistakes: "- Nh\u1EA7m c\u1EA1nh th\u1EE9 ba (c\u1EA1nh kh\xF4ng ch\u1EE9a hai trung \u0111i\u1EC3m).\n- G\u1ECDi \u0111o\u1EA1n n\u1ED1i trung \u0111i\u1EC3m m\u1ED9t c\u1EA1nh v\u1EDBi m\u1ED9t \u0111\u1EC9nh l\xE0 \u0111\u01B0\u1EDDng trung b\xECnh (\u0111\xF3 l\xE0 \u0111\u01B0\u1EDDng trung tuy\u1EBFn).",
+              example: r3`Hai điểm \(B\), \(C\) bị ngăn bởi một hồ nước. Chọn điểm \(A\) ở ngoài hồ, gọi \(M\), \(N\) là trung điểm của \(AB\), \(AC\); đo được \(MN = 45\) m. Tính \(BC\).`,
+              solution: r3`\(MN\) là đường trung bình của tam giác \(ABC\) nên \(BC = 2MN = 90\) m.`,
+              exercises: [
+                sa(1, r3`\(MN\) là đường trung bình của tam giác \(ABC\) (\(MN \parallel BC\)) và \(MN = 7\) cm. Tính \(BC\).`, ["14"], r3`\(BC = 2MN = 14\) cm.`, "cm"),
+                sa(2, "Tam gi\xE1c ABC c\xF3 chu vi 30 cm. T\xEDnh chu vi c\u1EE7a tam gi\xE1c c\xF3 ba \u0111\u1EC9nh l\xE0 trung \u0111i\u1EC3m ba c\u1EA1nh c\u1EE7a tam gi\xE1c ABC.", ["15"], "M\u1ED7i c\u1EA1nh c\u1EE7a tam gi\xE1c m\u1EDBi l\xE0 m\u1ED9t \u0111\u01B0\u1EDDng trung b\xECnh, b\u1EB1ng n\u1EEDa c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng c\u1EE7a tam gi\xE1c ABC. Chu vi b\u1EB1ng 30 : 2 = 15 cm.", "cm"),
+                sa(3, r3`Để đo khoảng cách giữa hai cây \(B\), \(C\) ở hai đầu một ao, bạn Minh chọn điểm \(A\), cắm cọc tại trung điểm \(M\) của \(AB\), trung điểm \(N\) của \(AC\) và đo được \(MN = 38\) m. Khoảng cách \(BC\) là bao nhiêu mét?`, ["76"], r3`\(MN\) là đường trung bình của tam giác \(ABC\) nên \(BC = 2\cdot38 = 76\) m.`, "m")
+              ]
+            },
+            {
+              slug: "song-song-thang-hang-duong-trung-binh",
+              title: "Ch\u1EE9ng minh hai \u0111\u01B0\u1EDDng th\u1EB3ng song song, ba \u0111i\u1EC3m th\u1EB3ng h\xE0ng",
+              levels: [3, 4],
+              knowledge: "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh; \u0111\u01B0\u1EDDng th\u1EB3ng qua trung \u0111i\u1EC3m m\u1ED9t c\u1EA1nh song song c\u1EA1nh th\u1EE9 hai th\xEC \u0111i qua trung \u0111i\u1EC3m c\u1EA1nh th\u1EE9 ba; ti\xEAn \u0111\u1EC1 Euclid.",
+              signs: "H\xECnh c\xF3 nhi\u1EC1u trung \u0111i\u1EC3m; \u0111\u1EC1 y\xEAu c\u1EA7u ch\u1EE9ng minh song song, th\u1EB3ng h\xE0ng, trung \u0111i\u1EC3m hay t\u1EC9 s\u1ED1 \u0111o\u1EA1n th\u1EB3ng.",
+              method: "T\u1EA1o c\xE1c \u0111\u01B0\u1EDDng trung b\xECnh (th\u01B0\u1EDDng l\u1EA5y th\xEAm trung \u0111i\u1EC3m ph\u1EE5) \u0111\u1EC3 c\xF3 c\xE1c \u0111\u01B0\u1EDDng song song; d\xF9ng ti\xEAn \u0111\u1EC1 Euclid \u0111\u1EC3 suy ra th\u1EB3ng h\xE0ng.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh (ho\u1EB7c l\u1EA5y th\xEAm) trung \u0111i\u1EC3m \u0111\u1EC3 c\xF3 \u0111\u01B0\u1EDDng trung b\xECnh.
+- **B\u01B0\u1EDBc 2.** Suy ra c\xE1c c\u1EB7p \u0111\u01B0\u1EDDng th\u1EB3ng song song.
+- **B\u01B0\u1EDBc 3.** D\xF9ng ti\xEAn \u0111\u1EC1 Euclid ho\u1EB7c t\xEDnh ch\u1EA5t trung \u0111i\u1EC3m \u0111\u1EC3 k\u1EBFt lu\u1EADn.`,
+              mistakes: "- K\u1EBFt lu\u1EADn th\u1EB3ng h\xE0ng m\xE0 ch\u01B0a ch\u1EC9 ra hai \u0111\u01B0\u1EDDng th\u1EB3ng c\xF9ng \u0111i qua m\u1ED9t \u0111i\u1EC3m v\xE0 c\xF9ng song song v\u1EDBi m\u1ED9t \u0111\u01B0\u1EDDng th\u1EB3ng.",
+              example: r3`Cho tam giác \(ABC\), \(M\) là trung điểm của \(AB\). Qua \(M\) kẻ đường thẳng song song với \(BC\), cắt \(AC\) tại \(N\). Chứng minh \(N\) là trung điểm của \(AC\).`,
+              solution: r3`Vì \(MN \parallel BC\), theo định lí Thalès \(\dfrac{AN}{NC} = \dfrac{AM}{MB} = 1\), suy ra \(AN = NC\): \(N\) là trung điểm của \(AC\).`,
+              exercises: [
+                es(3, r3`Cho hình thang \(ABCD\) (\(AB \parallel CD\)), \(M\), \(N\) lần lượt là trung điểm của \(AD\), \(BC\). Chứng minh \(MN \parallel CD\).`, r3`Gọi \(I\) là trung điểm của \(AC\). \(MI\) là đường trung bình của tam giác \(ADC\) nên \(MI \parallel DC\). \(NI\) là đường trung bình của tam giác \(CAB\) nên \(NI \parallel AB\), mà \(AB \parallel DC\) nên \(NI \parallel DC\).
+Qua \(I\) chỉ có một đường thẳng song song với \(DC\) (tiên đề Euclid) nên \(M\), \(I\), \(N\) thẳng hàng, do đó \(MN \parallel CD\).`),
+                es(4, r3`Cho tam giác \(ABC\), đường trung tuyến \(AM\). Gọi \(I\) là trung điểm của \(AM\); tia \(BI\) cắt \(AC\) tại \(D\). Chứng minh \(AD = \dfrac{1}{2}DC\).`, r3`Gọi \(E\) là trung điểm của \(DC\). \(ME\) là đường trung bình của tam giác \(BCD\) nên \(ME \parallel BD\).
+Trong tam giác \(AME\), \(I\) là trung điểm của \(AM\) và \(ID \parallel ME\) nên \(D\) là trung điểm của \(AE\).
+Vậy \(AD = DE = EC\), suy ra \(AD = \dfrac12 DC\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u0110\u01B0\u1EDDng trung b\xECnh v\xE0 t\u1EE9 gi\xE1c",
+          description: "Nh\u1EADn bi\u1EBFt t\u1EE9 gi\xE1c \u0111\u1EB7c bi\u1EC7t c\xF3 c\xE1c \u0111\u1EC9nh l\xE0 trung \u0111i\u1EC3m.",
+          types: [
+            {
+              slug: "tu-giac-tao-boi-trung-diem",
+              title: "Ch\u1EE9ng minh t\u1EE9 gi\xE1c \u0111\u1EB7c bi\u1EC7t nh\u1EDD \u0111\u01B0\u1EDDng trung b\xECnh",
+              levels: [3, 4],
+              knowledge: "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh; d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh, h\xECnh ch\u1EEF nh\u1EADt, h\xECnh thoi, h\xECnh vu\xF4ng.",
+              signs: "T\u1EE9 gi\xE1c c\xF3 c\xE1c \u0111\u1EC9nh l\xE0 trung \u0111i\u1EC3m c\xE1c c\u1EA1nh c\u1EE7a m\u1ED9t t\u1EE9 gi\xE1c (ho\u1EB7c tam gi\xE1c) kh\xE1c.",
+              method: "D\xF9ng \u0111\u01B0\u1EDDng trung b\xECnh c\u1EE7a c\xE1c tam gi\xE1c t\u1EA1o b\u1EDFi \u0111\u01B0\u1EDDng ch\xE9o \u0111\u1EC3 c\xF3 c\xE1c c\u1EB7p c\u1EA1nh song song v\xE0 b\u1EB1ng nhau; \u0111i\u1EC1u ki\u1EC7n v\u1EC1 \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a t\u1EE9 gi\xE1c ban \u0111\u1EA7u quy\u1EBFt \u0111\u1ECBnh d\u1EA1ng t\u1EE9 gi\xE1c m\u1EDBi.",
+              steps: `- **B\u01B0\u1EDBc 1.** V\u1EBD \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a t\u1EE9 gi\xE1c ban \u0111\u1EA7u.
+- **B\u01B0\u1EDBc 2.** M\u1ED7i c\u1EA1nh c\u1EE7a t\u1EE9 gi\xE1c m\u1EDBi l\xE0 \u0111\u01B0\u1EDDng trung b\xECnh c\u1EE7a m\u1ED9t tam gi\xE1c: song song v\xE0 b\u1EB1ng n\u1EEDa \u0111\u01B0\u1EDDng ch\xE9o.
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn h\xECnh b\xECnh h\xE0nh; th\xEAm \u0111i\u1EC1u ki\u1EC7n (\u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c, b\u1EB1ng nhau) cho h\xECnh ch\u1EEF nh\u1EADt, h\xECnh thoi.`,
+              mistakes: "- Nh\u1EA7m: hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c cho h\xECnh thoi (th\u1EF1c ra cho h\xECnh ch\u1EEF nh\u1EADt), hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau cho h\xECnh ch\u1EEF nh\u1EADt (th\u1EF1c ra cho h\xECnh thoi).",
+              example: r3`Cho tứ giác \(ABCD\); \(E\), \(F\), \(G\), \(H\) lần lượt là trung điểm của \(AB\), \(BC\), \(CD\), \(DA\). Chứng minh \(EFGH\) là hình bình hành.`,
+              solution: r3`\(EF\) là đường trung bình của tam giác \(ABC\): \(EF \parallel AC\), \(EF = \dfrac{AC}{2}\). \(HG\) là đường trung bình của tam giác \(ADC\): \(HG \parallel AC\), \(HG = \dfrac{AC}{2}\).
+Do đó \(EF \parallel HG\) và \(EF = HG\): \(EFGH\) là hình bình hành.`,
+              exercises: [
+                mcq(3, r3`Tứ giác \(ABCD\) có hai đường chéo bằng nhau (\(AC = BD\)). Tứ giác có bốn đỉnh là trung điểm bốn cạnh của \(ABCD\) là`, ["h\xECnh thoi", "h\xECnh ch\u1EEF nh\u1EADt", "h\xECnh vu\xF4ng", "h\xECnh thang c\xE2n"], "A", r3`Tứ giác mới là hình bình hành có hai cạnh kề lần lượt bằng \(\dfrac{AC}{2}\) và \(\dfrac{BD}{2}\). Khi \(AC = BD\), hai cạnh kề bằng nhau nên đó là hình thoi.`),
+                es(4, r3`Với tứ giác \(ABCD\) và hình bình hành \(EFGH\) ở ví dụ, hai đường chéo \(AC\), \(BD\) cần điều kiện gì để \(EFGH\) là hình chữ nhật? là hình vuông?`, r3`\(EF \parallel AC\), \(FG \parallel BD\). \(EFGH\) là hình chữ nhật khi \(EF \perp FG\), tức là \(AC \perp BD\).
+\(EFGH\) là hình vuông khi đồng thời \(AC \perp BD\) và \(AC = BD\) (hai cạnh kề \(\dfrac{AC}{2}\), \(\dfrac{BD}{2}\) bằng nhau).`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 17 ----------------
+    {
+      slug: "bai-17-tinh-chat-duong-phan-giac-cua-tam-giac",
+      difficulty: 2,
+      objectives: `- Gi\u1EA3i th\xEDch t\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c trong c\u1EE7a tam gi\xE1c.
+- V\u1EADn d\u1EE5ng \u0111\u1EC3 t\xEDnh \u0111\u1ED9 d\xE0i, t\u1EC9 s\u1ED1 \u0111o\u1EA1n th\u1EB3ng; k\u1EBFt h\u1EE3p v\u1EDBi \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EC3 ch\u1EE9ng minh.`,
+      prerequisites: "- \u0110\u1ECBnh l\xED Thal\xE8s (B\xE0i 15).\n- Tia ph\xE2n gi\xE1c c\u1EE7a m\u1ED9t g\xF3c; di\u1EC7n t\xEDch tam gi\xE1c.",
+      concepts: "\u0110\u01B0\u1EDDng ph\xE2n gi\xE1c trong c\u1EE7a tam gi\xE1c.",
+      theorems: "Trong tam gi\xE1c, \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c c\u1EE7a m\u1ED9t g\xF3c chia c\u1EA1nh \u0111\u1ED1i di\u1EC7n th\xE0nh hai \u0111o\u1EA1n th\u1EB3ng t\u1EC9 l\u1EC7 v\u1EDBi hai c\u1EA1nh k\u1EC1 hai \u0111o\u1EA1n \u1EA5y.",
+      formulas: r3`\(AD\) là đường phân giác của góc \(A\) trong \(\triangle ABC\) (\(D \in BC\)) \(\Rightarrow \dfrac{DB}{DC} = \dfrac{AB}{AC}\).`,
+      properties: r3`- Từ \(\dfrac{DB}{DC} = \dfrac{AB}{AC}\) suy ra \(\dfrac{DB}{BC} = \dfrac{AB}{AB + AC}\) (tính chất của dãy tỉ số bằng nhau).`,
+      themes: [
+        {
+          title: "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c c\u1EE7a tam gi\xE1c",
+          description: "T\xEDnh \u0111\u1ED9 d\xE0i, t\u1EC9 s\u1ED1; k\u1EBFt h\u1EE3p v\u1EDBi \u0111\u1ECBnh l\xED Thal\xE8s.",
+          types: [
+            {
+              slug: "tinh-do-dai-canh-duong-phan-giac",
+              title: "T\xEDnh \u0111\u1ED9 d\xE0i c\u1EA1nh",
+              levels: [1, 2],
+              knowledge: r3`\(\dfrac{DB}{DC} = \dfrac{AB}{AC}\); tính chất dãy tỉ số bằng nhau.`,
+              signs: "Tam gi\xE1c c\xF3 \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c c\u1EE7a m\u1ED9t g\xF3c; bi\u1EBFt m\u1ED9t s\u1ED1 c\u1EA1nh, \u0111o\u1EA1n th\u1EB3ng v\xE0 c\u1EA7n t\xEDnh \u0111o\u1EA1n c\xF2n l\u1EA1i.",
+              method: "Vi\u1EBFt t\u1EC9 l\u1EC7 th\u1EE9c theo t\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c; n\u1EBFu bi\u1EBFt c\u1EA3 c\u1EA1nh BC, d\xF9ng t\xEDnh ch\u1EA5t d\xE3y t\u1EC9 s\u1ED1 b\u1EB1ng nhau.",
+              steps: r3`- **Bước 1.** Viết \(\dfrac{DB}{DC} = \dfrac{AB}{AC}\).
+- **Bước 2.** Thay số; nếu biết \(BC\) thì dùng \(\dfrac{DB}{AB} = \dfrac{DC}{AC} = \dfrac{BC}{AB + AC}\).
+- **Bước 3.** Tính và kết luận.`,
+              mistakes: "- Gh\xE9p sai: vi\u1EBFt DB/DC = AC/AB.\n- \xC1p d\u1EE5ng cho \u0111\u01B0\u1EDDng trung tuy\u1EBFn ho\u1EB7c \u0111\u01B0\u1EDDng cao.",
+              example: r3`Tam giác \(ABC\) có \(AB = 6\) cm, \(AC = 9\) cm, \(BC = 10\) cm, \(AD\) là đường phân giác. Tính \(DB\), \(DC\).`,
+              solution: r3`\(\dfrac{DB}{AB} = \dfrac{DC}{AC} = \dfrac{DB + DC}{AB + AC} = \dfrac{10}{15} = \dfrac{2}{3}\). Suy ra \(DB = 4\) cm, \(DC = 6\) cm.`,
+              exercises: [
+                sa(1, r3`\(AD\) là đường phân giác của tam giác \(ABC\), \(AB = 4\) cm, \(AC = 6\) cm, \(DB = 2\) cm. Tính \(DC\).`, ["3"], r3`\(\dfrac{DB}{DC} = \dfrac{AB}{AC} = \dfrac{2}{3}\) nên \(DC = 3\) cm.`, "cm"),
+                sa(2, r3`Tam giác \(ABC\) có \(AB = 5\) cm, \(AC = 7\) cm, \(BC = 6\) cm, \(AD\) là đường phân giác. Tính \(DB\).`, ["2,5"], r3`\(\dfrac{DB}{AB} = \dfrac{BC}{AB + AC} = \dfrac{6}{12}\) nên \(DB = 2{,}5\) cm.`, "cm")
+              ]
+            },
+            {
+              slug: "ti-so-dien-tich-duong-phan-giac",
+              title: "T\xEDnh t\u1EC9 s\u1ED1 \u0111o\u1EA1n th\u1EB3ng, t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch nh\u1EDD \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c",
+              levels: [2, 3],
+              knowledge: r3`\(\dfrac{DB}{DC} = \dfrac{AB}{AC}\); hai tam giác có chung đường cao thì tỉ số diện tích bằng tỉ số hai đáy.`,
+              signs: "\u0110\u1EC1 h\u1ECFi t\u1EC9 s\u1ED1 hai \u0111o\u1EA1n tr\xEAn c\u1EA1nh \u0111\u1ED1i di\u1EC7n, ho\u1EB7c t\u1EC9 s\u1ED1 (gi\xE1 tr\u1ECB) di\u1EC7n t\xEDch c\xE1c tam gi\xE1c \u0111\u01B0\u1EE3c \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c chia ra.",
+              method: r3`Tính \(\dfrac{DB}{DC}\) theo tính chất đường phân giác; tam giác \(ABD\), \(ACD\) có chung đường cao từ \(A\) nên \(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac{DB}{DC}\).`,
+              steps: `- **B\u01B0\u1EDBc 1.** T\xEDnh t\u1EC9 s\u1ED1 DB : DC.
+- **B\u01B0\u1EDBc 2.** Chuy\u1EC3n sang t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch (chung \u0111\u01B0\u1EDDng cao t\u1EEB A).
+- **B\u01B0\u1EDBc 3.** T\xEDnh di\u1EC7n t\xEDch c\u1EA7n t\xECm (n\u1EBFu bi\u1EBFt di\u1EC7n t\xEDch tam gi\xE1c ban \u0111\u1EA7u).`,
+              mistakes: "- L\u1EA5y t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch b\u1EB1ng b\xECnh ph\u01B0\u01A1ng t\u1EC9 s\u1ED1 c\u1EA1nh (nh\u1EA7m v\u1EDBi hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng).",
+              example: r3`Tam giác \(ABC\) có \(AB = 3\) cm, \(AC = 5\) cm, \(AD\) là đường phân giác. Tính tỉ số diện tích hai tam giác \(ABD\) và \(ACD\).`,
+              solution: r3`Hai tam giác có chung đường cao kẻ từ \(A\) nên \(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac{DB}{DC} = \dfrac{AB}{AC} = \dfrac{3}{5}\).`,
+              exercises: [
+                mcq(2, r3`\(AD\) là đường phân giác của tam giác \(ABC\), \(AB = 8\) cm, \(AC = 12\) cm. Tỉ số \(\dfrac{DB}{DC}\) bằng`, [r3`\(\dfrac{2}{3}\)`, r3`\(\dfrac{3}{2}\)`, r3`\(\dfrac{2}{5}\)`, r3`\(\dfrac{3}{5}\)`], "A", r3`\(\dfrac{DB}{DC} = \dfrac{AB}{AC} = \dfrac{8}{12} = \dfrac{2}{3}\).`),
+                sa(3, r3`Tam giác \(ABC\) có \(AB = 6\) cm, \(AC = 8\) cm, diện tích 21 cm², \(AD\) là đường phân giác. Tính diện tích tam giác \(ABD\).`, ["9"], r3`\(\dfrac{DB}{BC} = \dfrac{AB}{AB + AC} = \dfrac{6}{14} = \dfrac{3}{7}\). Hai tam giác \(ABD\), \(ABC\) chung đường cao từ \(A\) nên \(S_{ABD} = \dfrac37\cdot21 = 9\) cm².`, "cm\xB2")
+              ]
+            },
+            {
+              slug: "phan-giac-ket-hop-thales",
+              title: "K\u1EBFt h\u1EE3p t\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c v\xE0 \u0111\u1ECBnh l\xED Thal\xE8s",
+              levels: [3, 4],
+              knowledge: "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c; \u0111\u1ECBnh l\xED Thal\xE8s; g\xF3c so le trong; d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh thoi.",
+              signs: "H\xECnh c\xF3 \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c v\xE0 \u0111\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh; c\u1EA7n t\xEDnh \u0111o\u1EA1n th\u1EB3ng ho\u1EB7c ch\u1EE9ng minh t\u1EC9 l\u1EC7 th\u1EE9c, tam gi\xE1c c\xE2n, h\xECnh thoi.",
+              method: "D\xF9ng t\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c \u0111\u1EC3 c\xF3 t\u1EC9 s\u1ED1 tr\xEAn c\u1EA1nh \u0111\u1ED1i di\u1EC7n, r\u1ED3i d\xF9ng \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EC3 chuy\u1EC3n t\u1EC9 s\u1ED1 sang c\u1EA1nh kh\xE1c.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt t\u1EC9 s\u1ED1 do \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c t\u1EA1o ra.
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt t\u1EC9 s\u1ED1 do \u0111\u01B0\u1EDDng th\u1EB3ng song song t\u1EA1o ra (\u0111\u1ECBnh l\xED Thal\xE8s).
+- **B\u01B0\u1EDBc 3.** Gh\xE9p c\xE1c t\u1EC9 s\u1ED1 b\u1EB1ng nhau, t\xEDnh ho\u1EB7c k\u1EBFt lu\u1EADn.`,
+              mistakes: "- D\xF9ng \u0111\u1ECBnh l\xED Thal\xE8s trong tam gi\xE1c kh\xF4ng ch\u1EE9a \u0111\u01B0\u1EDDng th\u1EB3ng song song.",
+              example: r3`Tam giác \(ABC\) có \(AB = 6\) cm, \(AC = 9\) cm, đường phân giác \(AD\). Qua \(D\) kẻ \(DE \parallel AB\) (\(E \in AC\)). Tính \(EC\) và \(AE\).`,
+              solution: r3`\(\dfrac{DB}{DC} = \dfrac{6}{9} = \dfrac23\) nên \(\dfrac{CD}{CB} = \dfrac35\). Trong tam giác \(CAB\) có \(DE \parallel AB\): \(\dfrac{CE}{CA} = \dfrac{CD}{CB} = \dfrac35\).
+Do đó \(CE = 5{,}4\) cm và \(AE = 3{,}6\) cm.`,
+              exercises: [
+                sa(3, r3`Tam giác \(ABC\) có \(AB = 10\) cm, \(AC = 15\) cm, đường phân giác \(AD\). Qua \(D\) kẻ \(DE \parallel AB\) (\(E \in AC\)). Tính \(EC\).`, ["9"], r3`\(\dfrac{DB}{DC} = \dfrac{10}{15} = \dfrac23\) nên \(\dfrac{CD}{CB} = \dfrac35\). Theo định lí Thalès: \(\dfrac{CE}{CA} = \dfrac{CD}{CB} = \dfrac35\), suy ra \(CE = 9\) cm.`, "cm"),
+                es(4, r3`Cho tam giác \(ABC\), đường phân giác \(AD\). Qua \(D\) kẻ đường thẳng song song với \(AB\) cắt \(AC\) tại \(E\) và đường thẳng song song với \(AC\) cắt \(AB\) tại \(F\). Chứng minh \(AEDF\) là hình thoi và \(\dfrac{BF}{FA} = \dfrac{AB}{AC}\).`, r3`\(AEDF\) có \(AE \parallel DF\), \(AF \parallel DE\) nên là hình bình hành; đường chéo \(AD\) là phân giác của góc \(A\) nên \(AEDF\) là hình thoi.
+Trong tam giác \(BAC\) có \(DF \parallel AC\): \(\dfrac{BF}{FA} = \dfrac{BD}{DC}\). Mà \(\dfrac{BD}{DC} = \dfrac{AB}{AC}\) nên \(\dfrac{BF}{FA} = \dfrac{AB}{AC}\).`)
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+// src/seed/toan8-map/chuong-5.ts
+var SACH = `[bieudo]
+loai: cot
+tieude: S\u1ED1 s\xE1ch quy\xEAn g\xF3p c\u1EE7a c\xE1c l\u1EDBp kh\u1ED1i 8
+nhan: 8A; 8B; 8C; 8D
+so lieu: 45; 60; 50; 35
+donvi: cu\u1ED1n
+[/bieudo]`;
+var HSG = `[bieudo]
+loai: cotkep
+tieude: S\u1ED1 h\u1ECDc sinh gi\u1ECFi c\u1EE7a c\xE1c l\u1EDBp kh\u1ED1i 8
+nhan: 8A; 8B; 8C; 8D
+so lieu: 8; 10; 6; 9
+so lieu 2: 12; 11; 11; 9
+ten: H\u1ECDc k\xEC I; H\u1ECDc k\xEC II
+donvi: h\u1ECDc sinh
+[/bieudo]`;
+var MUON_SACH = `[bieudo]
+loai: doanthang
+tieude: S\u1ED1 l\u01B0\u1EE3t m\u01B0\u1EE3n s\xE1ch \u1EDF th\u01B0 vi\u1EC7n tr\u01B0\u1EDDng
+nhan: T9; T10; T11; T12; T1
+so lieu: 120; 150; 180; 140; 160
+donvi: l\u01B0\u1EE3t
+[/bieudo]`;
+var NHIET_DO = `[bieudo]
+loai: doanthang
+tieude: Nhi\u1EC7t \u0111\u1ED9 trong m\u1ED9t ng\xE0y \u1EDF m\u1ED9t \u0111\u1ECBa ph\u01B0\u01A1ng
+nhan: 6 gi\u1EDD; 9 gi\u1EDD; 12 gi\u1EDD; 15 gi\u1EDD; 18 gi\u1EDD
+so lieu: 22; 26; 31; 30; 27
+donvi: \xB0C
+[/bieudo]`;
+var THE_THAO = `[bieudo]
+loai: quat
+tieude: M\xF4n th\u1EC3 thao y\xEAu th\xEDch c\u1EE7a 200 h\u1ECDc sinh
+nhan: B\xF3ng \u0111\xE1; C\u1EA7u l\xF4ng; B\u01A1i l\u1ED9i; C\u1EDD vua
+so lieu: 40; 25; 20; 15
+[/bieudo]`;
+var CHUONG_5 = {
+  code: "V",
+  objectives: `- Thu th\u1EADp, ph\xE2n lo\u1EA1i d\u1EEF li\u1EC7u theo c\xE1c ti\xEAu ch\xED cho tr\u01B0\u1EDBc t\u1EEB nhi\u1EC1u ngu\u1ED3n; nh\u1EADn bi\u1EBFt t\xEDnh h\u1EE3p l\xED c\u1EE7a d\u1EEF li\u1EC7u.
+- L\u1EF1a ch\u1ECDn v\xE0 bi\u1EC3u di\u1EC5n d\u1EEF li\u1EC7u b\u1EB1ng b\u1EA3ng, bi\u1EC3u \u0111\u1ED3 th\xEDch h\u1EE3p; chuy\u1EC3n d\u1EEF li\u1EC7u gi\u1EEFa c\xE1c d\u1EA1ng bi\u1EC3u di\u1EC5n.
+- Ph\xE2n t\xEDch, x\u1EED l\xED s\u1ED1 li\u1EC7u \u1EDF bi\u1EC3u \u0111\u1ED3 \u0111\u1EC3 ph\xE1t hi\u1EC7n v\u1EA5n \u0111\u1EC1, quy lu\u1EADt \u0111\u01A1n gi\u1EA3n v\xE0 gi\u1EA3i quy\u1EBFt v\u1EA5n \u0111\u1EC1.`,
+  keyPoints: `- Thu th\u1EADp tr\u1EF1c ti\u1EBFp (quan s\xE1t, ph\u1ECFng v\u1EA5n, phi\u1EBFu h\u1ECFi, th\xED nghi\u1EC7m) v\xE0 gi\xE1n ti\u1EBFp (ngu\u1ED3n c\xF3 s\u1EB5n).
+- D\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh (\u0111\u1ECBnh danh, c\xF3 th\u1EE9 t\u1EF1) v\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng (r\u1EDDi r\u1EA1c, li\xEAn t\u1EE5c).
+- C\xF4ng d\u1EE5ng c\u1EE7a bi\u1EC3u \u0111\u1ED3 tranh, c\u1ED9t, c\u1ED9t k\xE9p, \u0111o\u1EA1n th\u1EB3ng, h\xECnh qu\u1EA1t tr\xF2n; nh\u1EADn bi\u1EBFt bi\u1EC3u \u0111\u1ED3 g\xE2y hi\u1EC3u l\u1EA7m.`,
+  formulas: r3`Tỉ lệ phần trăm của một phần: \(\dfrac{a}{N}\cdot100\%\) (\(a\) là số lượng của phần đó, \(N\) là tổng).
+Góc ở tâm của hình quạt biểu diễn \(p\%\): \(p\%\cdot360^\circ\).
+Tỉ lệ tăng (giảm) từ giá trị \(a\) đến giá trị \(b\): \(\dfrac{b - a}{a}\cdot100\%\).`,
+  verify: { status: "verified", note: "T\xEAn ch\u01B0\u01A1ng, t\xEAn b\xE0i v\xE0 th\u1EE9 t\u1EF1 \u0111\u1ED1i chi\u1EBFu v\u1EDBi m\u1EE5c l\u1EE5c SGK To\xE1n 8 K\u1EBFt n\u1ED1i tri th\u1EE9c t\u1EADp 1 (VietJack, Hoatieu) v\xE0 PPCT 2026-2027." },
+  aux: [
+    { slug: "luyen-tap-chung-5a", objectives: "C\u1EE7ng c\u1ED1 thu th\u1EADp, ph\xE2n lo\u1EA1i d\u1EEF li\u1EC7u; l\u1EF1a ch\u1ECDn, bi\u1EC3u di\u1EC5n v\xE0 ph\xE2n t\xEDch d\u1EEF li\u1EC7u b\u1EB1ng b\u1EA3ng, bi\u1EC3u \u0111\u1ED3." },
+    { slug: "bai-tap-cuoi-chuong-5", objectives: "\xD4n t\u1EADp to\xE0n Ch\u01B0\u01A1ng V: c\xE1c lo\u1EA1i d\u1EEF li\u1EC7u, c\xE1c d\u1EA1ng bi\u1EC3u \u0111\u1ED3 v\xE0 ph\xE2n t\xEDch s\u1ED1 li\u1EC7u; chu\u1EA9n b\u1ECB ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng." }
+  ],
+  lessons: [
+    // ---------------- Bài 18 ----------------
+    {
+      slug: "bai-18-thu-thap-va-phan-loai-du-lieu",
+      difficulty: 1,
+      objectives: `- Th\u1EF1c hi\u1EC7n thu th\u1EADp d\u1EEF li\u1EC7u b\u1EB1ng ph\u01B0\u01A1ng ph\xE1p ph\xF9 h\u1EE3p (tr\u1EF1c ti\u1EBFp, gi\xE1n ti\u1EBFp).
+- Ph\xE2n lo\u1EA1i d\u1EEF li\u1EC7u theo c\xE1c ti\xEAu ch\xED: \u0111\u1ECBnh t\xEDnh, \u0111\u1ECBnh l\u01B0\u1EE3ng; r\u1EDDi r\u1EA1c, li\xEAn t\u1EE5c.
+- Nh\u1EADn bi\u1EBFt t\xEDnh h\u1EE3p l\xED, t\xEDnh \u0111\u1EA1i di\u1EC7n c\u1EE7a d\u1EEF li\u1EC7u.`,
+      prerequisites: "- Thu th\u1EADp, ph\xE2n lo\u1EA1i, bi\u1EC3u di\u1EC5n d\u1EEF li\u1EC7u (To\xE1n 6, To\xE1n 7).",
+      concepts: "Thu th\u1EADp tr\u1EF1c ti\u1EBFp, gi\xE1n ti\u1EBFp; d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh (\u0111\u1ECBnh danh, c\xF3 th\u1EE9 t\u1EF1); d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng (r\u1EDDi r\u1EA1c, li\xEAn t\u1EE5c); t\xEDnh h\u1EE3p l\xED, t\xEDnh \u0111\u1EA1i di\u1EC7n c\u1EE7a d\u1EEF li\u1EC7u.",
+      properties: `- D\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng l\xE0 c\xE1c s\u1ED1; d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh l\xE0 c\xE1c t\u1EEB, k\xED hi\u1EC7u (ho\u1EB7c s\u1ED1 ch\u1EC9 d\xF9ng \u0111\u1EC3 m\xE3 h\xF3a).
+- D\u1EEF li\u1EC7u r\u1EDDi r\u1EA1c nh\u1EADn c\xE1c gi\xE1 tr\u1ECB \u0111\u1EBFm \u0111\u01B0\u1EE3c (s\u1ED1 h\u1ECDc sinh, s\u1ED1 b\xE0n th\u1EAFng); d\u1EEF li\u1EC7u li\xEAn t\u1EE5c l\xE0 k\u1EBFt qu\u1EA3 \u0111o (chi\u1EC1u cao, c\xE2n n\u1EB7ng, th\u1EDDi gian).`,
+      themes: [
+        {
+          title: "Thu th\u1EADp d\u1EEF li\u1EC7u",
+          description: "Ch\u1ECDn ph\u01B0\u01A1ng ph\xE1p thu th\u1EADp; \u0111\xE1nh gi\xE1 d\u1EEF li\u1EC7u c\xF3 h\u1EE3p l\xED, c\xF3 \u0111\u1EA1i di\u1EC7n hay kh\xF4ng.",
+          types: [
+            {
+              slug: "phuong-phap-thu-thap-du-lieu",
+              title: "X\xE1c \u0111\u1ECBnh ph\u01B0\u01A1ng ph\xE1p thu th\u1EADp d\u1EEF li\u1EC7u",
+              levels: [1, 2],
+              knowledge: "Thu th\u1EADp tr\u1EF1c ti\u1EBFp: quan s\xE1t, ph\u1ECFng v\u1EA5n, l\u1EADp phi\u1EBFu h\u1ECFi, l\xE0m th\xED nghi\u1EC7m. Thu th\u1EADp gi\xE1n ti\u1EBFp: t\u1EEB ngu\u1ED3n c\xF3 s\u1EB5n (s\xE1ch, b\xE1o, Internet, ni\xEAn gi\xE1m th\u1ED1ng k\xEA\u2026).",
+              signs: "\u0110\u1EC1 n\xEAu m\u1ED9t n\u1ED9i dung c\u1EA7n t\xECm hi\u1EC3u v\xE0 h\u1ECFi n\xEAn thu th\u1EADp d\u1EEF li\u1EC7u b\u1EB1ng c\xE1ch n\xE0o.",
+              method: "X\xE9t d\u1EEF li\u1EC7u c\xF3 s\u1EB5n \u1EDF ngu\u1ED3n tin c\u1EADy hay ph\u1EA3i t\u1EF1 t\u1EA1o ra (\u0111o, \u0111\u1EBFm, h\u1ECFi, th\xED nghi\u1EC7m) \u0111\u1EC3 ch\u1ECDn ph\u01B0\u01A1ng ph\xE1p.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh \u0111\u1ED1i t\u01B0\u1EE3ng v\xE0 n\u1ED9i dung c\u1EA7n thu th\u1EADp.
+- **B\u01B0\u1EDBc 2.** N\u1EBFu \u0111\xE3 c\xF3 ngu\u1ED3n tin c\u1EADy c\xF4ng b\u1ED1, ch\u1ECDn thu th\u1EADp gi\xE1n ti\u1EBFp; n\u1EBFu ch\u01B0a c\xF3, ch\u1ECDn quan s\xE1t, ph\u1ECFng v\u1EA5n, phi\u1EBFu h\u1ECFi ho\u1EB7c th\xED nghi\u1EC7m.
+- **B\u01B0\u1EDBc 3.** N\xEAu c\u1EE5 th\u1EC3 ngu\u1ED3n ho\u1EB7c c\xF4ng c\u1EE5 thu th\u1EADp.`,
+              mistakes: "- D\xF9ng th\xED nghi\u1EC7m cho d\u1EEF li\u1EC7u ch\u1EC9 c\xF3 th\u1EC3 tra c\u1EE9u (l\u01B0\u1EE3ng m\u01B0a nhi\u1EC1u n\u0103m).\n- H\u1ECFi qu\xE1 \xEDt ng\u01B0\u1EDDi ho\u1EB7c ch\u1EC9 h\u1ECFi m\u1ED9t nh\xF3m nh\u1ECF kh\xF4ng \u0111\u1EA1i di\u1EC7n.",
+              example: `N\xEAu ph\u01B0\u01A1ng ph\xE1p thu th\u1EADp d\u1EEF li\u1EC7u ph\xF9 h\u1EE3p:
+a) Nhi\u1EC7t \u0111\u1ED9 trung b\xECnh c\xE1c th\xE1ng n\u0103m 2025 \u1EDF H\xE0 N\u1ED9i.
+b) M\xF4n th\u1EC3 thao y\xEAu th\xEDch c\u1EE7a h\u1ECDc sinh l\u1EDBp 8A.
+c) Th\u1EDDi gian m\u1ED9t vi\xEAn bi l\u0103n h\u1EBFt m\u1ED9t m\xE1ng nghi\xEAng.`,
+              solution: `a) Thu th\u1EADp gi\xE1n ti\u1EBFp t\u1EEB trung t\xE2m kh\xED t\u01B0\u1EE3ng ho\u1EB7c ni\xEAn gi\xE1m th\u1ED1ng k\xEA.
+b) Thu th\u1EADp tr\u1EF1c ti\u1EBFp b\u1EB1ng ph\u1ECFng v\u1EA5n ho\u1EB7c phi\u1EBFu h\u1ECFi c\xE1c b\u1EA1n l\u1EDBp 8A.
+c) Thu th\u1EADp tr\u1EF1c ti\u1EBFp b\u1EB1ng l\xE0m th\xED nghi\u1EC7m v\xE0 \u0111o th\u1EDDi gian.`,
+              exercises: [
+                mcq(1, "\u0110\u1EC3 bi\u1EBFt s\u1ED1 gi\u1EDD ng\u1EE7 m\u1ED7i ng\xE0y c\u1EE7a c\xE1c b\u1EA1n trong l\u1EDBp, c\xE1ch thu th\u1EADp d\u1EEF li\u1EC7u ph\xF9 h\u1EE3p nh\u1EA5t l\xE0", ["L\u1EADp phi\u1EBFu h\u1ECFi c\xE1c b\u1EA1n trong l\u1EDBp", "Tra c\u1EE9u tr\xEAn Internet", "L\xE0m th\xED nghi\u1EC7m", "\u0110\u1ECDc s\xE1ch gi\xE1o khoa"], "A", "S\u1ED1 gi\u1EDD ng\u1EE7 c\u1EE7a c\xE1c b\u1EA1n trong l\u1EDBp ch\u01B0a c\xF3 \u1EDF ngu\u1ED3n n\xE0o, c\u1EA7n h\u1ECFi tr\u1EF1c ti\u1EBFp t\u1EEBng b\u1EA1n."),
+                tf(2, "M\u1ED7i kh\u1EB3ng \u0111\u1ECBnh sau \u0111\xFAng hay sai?", [
+                  ["S\u1ED1 d\xE2n c\u1EE7a c\xE1c t\u1EC9nh n\u0103m 2024 n\xEAn thu th\u1EADp gi\xE1n ti\u1EBFp t\u1EEB ni\xEAn gi\xE1m th\u1ED1ng k\xEA.", true],
+                  ["Th\u1EDDi gian ch\u1EA1y 100 m c\u1EE7a h\u1ECDc sinh l\u1EDBp 8A \u0111\u01B0\u1EE3c thu th\u1EADp b\u1EB1ng c\xE1ch \u0111o tr\u1EF1c ti\u1EBFp.", true],
+                  ["\u0110\u1EC3 bi\u1EBFt m\xE0u s\u1EAFc y\xEAu th\xEDch c\u1EE7a h\u1ECDc sinh c\u1EA3 tr\u01B0\u1EDDng, ch\u1EC9 c\u1EA7n h\u1ECFi 3 b\u1EA1n ng\u1ED3i c\u1EA1nh.", false],
+                  ["L\u01B0\u1EE3ng m\u01B0a c\xE1c th\xE1ng n\u0103m 2025 \u1EDF Hu\u1EBF \u0111\u01B0\u1EE3c thu th\u1EADp b\u1EB1ng c\xE1ch l\xE0m th\xED nghi\u1EC7m.", false]
+                ], "a) \u0110\xFAng. b) \u0110\xFAng. c) Sai: 3 b\u1EA1n kh\xF4ng \u0111\u1EA1i di\u1EC7n cho c\u1EA3 tr\u01B0\u1EDDng. d) Sai: l\u01B0\u1EE3ng m\u01B0a \u0111\xE3 \u0111\u01B0\u1EE3c tr\u1EA1m kh\xED t\u01B0\u1EE3ng \u0111o, ta thu th\u1EADp gi\xE1n ti\u1EBFp.")
+              ]
+            },
+            {
+              slug: "tinh-hop-li-dai-dien-du-lieu",
+              title: "\u0110\xE1nh gi\xE1 t\xEDnh h\u1EE3p l\xED, t\xEDnh \u0111\u1EA1i di\u1EC7n c\u1EE7a d\u1EEF li\u1EC7u",
+              levels: [2, 3],
+              knowledge: "D\u1EEF li\u1EC7u h\u1EE3p l\xED ph\u1EA3i \u0111\xFAng \u0111\u1ECBnh d\u1EA1ng, n\u1EB1m trong ph\u1EA1m vi th\u1EF1c t\u1EBF, ph\xF9 h\u1EE3p v\u1EDBi t\u1ED5ng th\u1EC3; m\u1EABu \u0111i\u1EC1u tra c\u1EA7n \u0111\u1EA1i di\u1EC7n cho to\xE0n b\u1ED9 \u0111\u1ED1i t\u01B0\u1EE3ng.",
+              signs: "\u0110\u1EC1 cho m\u1ED9t b\u1EA3ng d\u1EEF li\u1EC7u ho\u1EB7c m\xF4 t\u1EA3 c\xE1ch \u0111i\u1EC1u tra, h\u1ECFi d\u1EEF li\u1EC7u c\xF3 h\u1EE3p l\xED, c\xF3 \u0111\u1EA1i di\u1EC7n kh\xF4ng.",
+              method: "Ki\u1EC3m tra t\u1EEBng gi\xE1 tr\u1ECB v\u1EDBi ph\u1EA1m vi th\u1EF1c t\u1EBF, ki\u1EC3m tra t\u1ED5ng v\u1EDBi t\u1ED5ng th\u1EC3; ki\u1EC3m tra m\u1EABu c\xF3 bao qu\xE1t c\xE1c nh\xF3m c\u1EE7a \u0111\u1ED1i t\u01B0\u1EE3ng kh\xF4ng.",
+              steps: `- **B\u01B0\u1EDBc 1.** \u0110\u1ED1i chi\u1EBFu t\u1EEBng gi\xE1 tr\u1ECB v\u1EDBi ph\u1EA1m vi th\u1EF1c t\u1EBF (chi\u1EC1u cao, \u0111i\u1EC3m s\u1ED1\u2026).
+- **B\u01B0\u1EDBc 2.** Ki\u1EC3m tra c\xE1c t\u1ED5ng, t\u1EC9 l\u1EC7 c\xF3 ph\xF9 h\u1EE3p (v\xED d\u1EE5 t\u1ED5ng kh\xF4ng v\u01B0\u1EE3t qu\xE1 s\u0129 s\u1ED1).
+- **B\u01B0\u1EDBc 3.** X\xE9t m\u1EABu \u0111i\u1EC1u tra c\xF3 \u0111\u1EE7 l\u1EDBn, c\xF3 thu\u1ED9c m\u1ECDi nh\xF3m c\u1EE7a t\u1ED5ng th\u1EC3 kh\xF4ng; k\u1EBFt lu\u1EADn.`,
+              mistakes: "- K\u1EBFt lu\u1EADn d\u1EEF li\u1EC7u h\u1EE3p l\xED ch\u1EC9 v\xEC c\xE1c gi\xE1 tr\u1ECB \u0111\u1EC1u l\xE0 s\u1ED1.\n- Cho r\u1EB1ng h\u1ECFi m\u1ED9t nh\xF3m \u0111\u1EB7c bi\u1EC7t (c\xE2u l\u1EA1c b\u1ED9 To\xE1n) l\xE0 \u0111\u1EA1i di\u1EC7n cho c\u1EA3 tr\u01B0\u1EDDng.",
+              example: `a) B\u1EA1n H\xE0 ghi chi\u1EC1u cao (cm) c\u1EE7a 6 b\u1EA1n: 152; 148; 15,5; 160; 147; 155. Gi\xE1 tr\u1ECB n\xE0o kh\xF4ng h\u1EE3p l\xED?
+b) \u0110\u1EC3 bi\u1EBFt m\xF4n h\u1ECDc y\xEAu th\xEDch c\u1EE7a h\u1ECDc sinh to\xE0n tr\u01B0\u1EDDng, b\u1EA1n An ch\u1EC9 h\u1ECFi c\xE1c b\u1EA1n trong c\xE2u l\u1EA1c b\u1ED9 To\xE1n. M\u1EABu n\xE0y c\xF3 \u0111\u1EA1i di\u1EC7n kh\xF4ng?`,
+              solution: `a) 15,5 cm kh\xF4ng h\u1EE3p l\xED (chi\u1EC1u cao h\u1ECDc sinh l\u1EDBp 8 kh\xF4ng th\u1EC3 l\xE0 15,5 cm; c\xF3 th\u1EC3 ghi nh\u1EA7m 155).
+b) Kh\xF4ng \u0111\u1EA1i di\u1EC7n: c\xE1c b\u1EA1n c\xE2u l\u1EA1c b\u1ED9 To\xE1n th\u01B0\u1EDDng th\xEDch m\xF4n To\xE1n h\u01A1n, ch\u01B0a ph\u1EA3n \xE1nh h\u1ECDc sinh to\xE0n tr\u01B0\u1EDDng.`,
+              exercises: [
+                mcq(2, "L\u1EDBp 8B c\xF3 40 h\u1ECDc sinh, m\u1ED7i b\u1EA1n tham gia \u0111\xFAng m\u1ED9t c\xE2u l\u1EA1c b\u1ED9. B\u1EA3ng ghi: B\xF3ng \u0111\xE1 15; C\u1EA7u l\xF4ng 12; C\u1EDD vua 8; B\u01A1i 18. D\u1EEF li\u1EC7u n\xE0y", ["kh\xF4ng h\u1EE3p l\xED v\xEC t\u1ED5ng s\u1ED1 h\u1ECDc sinh l\xE0 53, l\u1EDBn h\u01A1n 40", "h\u1EE3p l\xED", "kh\xF4ng h\u1EE3p l\xED v\xEC c\xF3 c\xE2u l\u1EA1c b\u1ED9 \xEDt ng\u01B0\u1EDDi", "kh\xF4ng h\u1EE3p l\xED v\xEC c\xE2u l\u1EA1c b\u1ED9 B\u01A1i \u0111\xF4ng nh\u1EA5t"], "A", "15 + 12 + 8 + 18 = 53 > 40, m\xE2u thu\u1EABn v\u1EDBi vi\u1EC7c m\u1ED7i b\u1EA1n tham gia \u0111\xFAng m\u1ED9t c\xE2u l\u1EA1c b\u1ED9."),
+                tf(3, "M\u1ED9t c\u1EEDa h\xE0ng mu\u1ED1n bi\u1EBFt kh\xE1ch h\xE0ng th\xEDch lo\u1EA1i n\u01B0\u1EDBc u\u1ED1ng n\xE0o n\xEAn ph\u1ECFng v\u1EA5n 20 kh\xE1ch mua h\xE0ng v\xE0o s\xE1ng th\u1EE9 Hai. M\u1ED7i kh\u1EB3ng \u0111\u1ECBnh sau \u0111\xFAng hay sai?", [
+                  ["\u0110\xE2y l\xE0 c\xE1ch thu th\u1EADp d\u1EEF li\u1EC7u tr\u1EF1c ti\u1EBFp.", true],
+                  ["M\u1EABu 20 kh\xE1ch s\xE1ng th\u1EE9 Hai ch\u1EAFc ch\u1EAFn \u0111\u1EA1i di\u1EC7n cho m\u1ECDi kh\xE1ch h\xE0ng.", false],
+                  ["N\xEAn ph\u1ECFng v\u1EA5n kh\xE1ch \u1EDF nhi\u1EC1u th\u1EDDi \u0111i\u1EC3m kh\xE1c nhau \u0111\u1EC3 k\u1EBFt qu\u1EA3 \u0111\u1EA1i di\u1EC7n h\u01A1n.", true],
+                  ["K\u1EBFt qu\u1EA3 ph\u1ECFng v\u1EA5n (t\xEAn lo\u1EA1i n\u01B0\u1EDBc) l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng.", false]
+                ], "a) \u0110\xFAng (ph\u1ECFng v\u1EA5n). b) Sai: kh\xE1ch bu\u1ED5i s\xE1ng th\u1EE9 Hai c\xF3 th\u1EC3 kh\xE1c kh\xE1ch cu\u1ED1i tu\u1EA7n. c) \u0110\xFAng. d) Sai: t\xEAn lo\u1EA1i n\u01B0\u1EDBc l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh.")
+              ]
+            }
+          ]
+        },
+        {
+          title: "Ph\xE2n lo\u1EA1i d\u1EEF li\u1EC7u",
+          description: "D\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh, \u0111\u1ECBnh l\u01B0\u1EE3ng; r\u1EDDi r\u1EA1c, li\xEAn t\u1EE5c.",
+          types: [
+            {
+              slug: "phan-loai-du-lieu",
+              title: "Ph\xE2n lo\u1EA1i d\u1EEF li\u1EC7u",
+              levels: [1, 2],
+              knowledge: "D\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh: \u0111\u1ECBnh danh (kh\xF4ng so s\xE1nh \u0111\u01B0\u1EE3c) ho\u1EB7c c\xF3 th\u1EE9 t\u1EF1 (so s\xE1nh \u0111\u01B0\u1EE3c). D\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng: r\u1EDDi r\u1EA1c (\u0111\u1EBFm) ho\u1EB7c li\xEAn t\u1EE5c (\u0111o).",
+              signs: "\u0110\u1EC1 li\u1EC7t k\xEA c\xE1c lo\u1EA1i d\u1EEF li\u1EC7u v\xE0 y\xEAu c\u1EA7u ch\u1EC9 ra lo\u1EA1i n\xE0o \u0111\u1ECBnh t\xEDnh, \u0111\u1ECBnh l\u01B0\u1EE3ng, r\u1EDDi r\u1EA1c, li\xEAn t\u1EE5c.",
+              method: "X\xE9t d\u1EEF li\u1EC7u c\xF3 ph\u1EA3i l\xE0 s\u1ED1 \u0111o, s\u1ED1 \u0111\u1EBFm kh\xF4ng; n\u1EBFu l\xE0 ch\u1EEF th\xEC x\xE9t c\xF3 s\u1EAFp \u0111\u01B0\u1EE3c th\u1EE9 t\u1EF1 kh\xF4ng.",
+              steps: `- **B\u01B0\u1EDBc 1.** D\u1EEF li\u1EC7u l\xE0 s\u1ED1 (d\xF9ng \u0111\u1EC3 t\xEDnh to\xE1n)? \u2192 \u0111\u1ECBnh l\u01B0\u1EE3ng; ng\u01B0\u1EE3c l\u1EA1i \u2192 \u0111\u1ECBnh t\xEDnh.
+- **B\u01B0\u1EDBc 2.** \u0110\u1ECBnh l\u01B0\u1EE3ng: c\xF3 \u0111\u01B0\u1EE3c do \u0111\u1EBFm \u2192 r\u1EDDi r\u1EA1c; do \u0111o \u2192 li\xEAn t\u1EE5c.
+- **B\u01B0\u1EDBc 3.** \u0110\u1ECBnh t\xEDnh: c\xF3 th\u1EE9 t\u1EF1 t\u1EF1 nhi\xEAn (t\u1ED1t, kh\xE1\u2026) \u2192 c\xF3 th\u1EE9 t\u1EF1; kh\xF4ng \u2192 \u0111\u1ECBnh danh.`,
+              mistakes: "- X\u1EBFp s\u1ED1 \xE1o, s\u1ED1 b\xE1o danh v\xE0o d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng (\u0111\xF3 l\xE0 m\xE3, kh\xF4ng d\xF9ng \u0111\u1EC3 t\xEDnh).\n- Nh\u1EA7m d\u1EEF li\u1EC7u c\xF3 th\u1EE9 t\u1EF1 v\u1EDBi \u0111\u1ECBnh l\u01B0\u1EE3ng.",
+              example: "Ph\xE2n lo\u1EA1i c\xE1c d\u1EEF li\u1EC7u: t\xEAn c\xE1c t\u1EC9nh; s\u1ED1 h\u1ECDc sinh m\u1ED7i l\u1EDBp; x\u1EBFp lo\u1EA1i h\u1ECDc l\u1EF1c (T\u1ED1t, Kh\xE1, \u0110\u1EA1t, Ch\u01B0a \u0111\u1EA1t); c\xE2n n\u1EB7ng (kg) c\u1EE7a h\u1ECDc sinh.",
+              solution: "- T\xEAn c\xE1c t\u1EC9nh: \u0111\u1ECBnh t\xEDnh, \u0111\u1ECBnh danh.\n- S\u1ED1 h\u1ECDc sinh m\u1ED7i l\u1EDBp: \u0111\u1ECBnh l\u01B0\u1EE3ng, r\u1EDDi r\u1EA1c.\n- X\u1EBFp lo\u1EA1i h\u1ECDc l\u1EF1c: \u0111\u1ECBnh t\xEDnh, c\xF3 th\u1EE9 t\u1EF1.\n- C\xE2n n\u1EB7ng: \u0111\u1ECBnh l\u01B0\u1EE3ng, li\xEAn t\u1EE5c.",
+              exercises: [
+                mcq(1, "D\u1EEF li\u1EC7u n\xE0o sau \u0111\xE2y l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng?", ["Chi\u1EC1u cao (cm) c\u1EE7a h\u1ECDc sinh l\u1EDBp 8A", "M\xF4n h\u1ECDc y\xEAu th\xEDch", "M\xE0u \xE1o \u0111\u1ED3ng ph\u1EE5c", "N\u01A1i sinh"], "A", "Chi\u1EC1u cao l\xE0 s\u1ED1 \u0111o n\xEAn l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng (li\xEAn t\u1EE5c). C\xE1c d\u1EEF li\u1EC7u c\xF2n l\u1EA1i l\xE0 \u0111\u1ECBnh t\xEDnh."),
+                mcq(2, 'D\u1EEF li\u1EC7u "m\u1EE9c \u0111\u1ED9 h\xE0i l\xF2ng: R\u1EA5t h\xE0i l\xF2ng, H\xE0i l\xF2ng, B\xECnh th\u01B0\u1EDDng, Kh\xF4ng h\xE0i l\xF2ng" l\xE0', ["d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh c\xF3 th\u1EC3 s\u1EAFp th\u1EE9 t\u1EF1", "d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng r\u1EDDi r\u1EA1c", "d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng li\xEAn t\u1EE5c", "d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh kh\xF4ng th\u1EC3 s\u1EAFp th\u1EE9 t\u1EF1"], "A", "C\xE1c m\u1EE9c \u0111\u1ED9 l\xE0 t\u1EEB ng\u1EEF (\u0111\u1ECBnh t\xEDnh) v\xE0 s\u1EAFp x\u1EBFp \u0111\u01B0\u1EE3c t\u1EEB cao \u0111\u1EBFn th\u1EA5p.")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 19 ----------------
+    {
+      slug: "bai-19-bieu-dien-du-lieu-bang-bang-bieu-do",
+      difficulty: 2,
+      objectives: `- L\u1EF1a ch\u1ECDn v\xE0 bi\u1EC3u di\u1EC5n d\u1EEF li\u1EC7u b\u1EB1ng b\u1EA3ng, bi\u1EC3u \u0111\u1ED3 th\xEDch h\u1EE3p: bi\u1EC3u \u0111\u1ED3 tranh, c\u1ED9t, c\u1ED9t k\xE9p, \u0111o\u1EA1n th\u1EB3ng, h\xECnh qu\u1EA1t tr\xF2n.
+- Chuy\u1EC3n d\u1EEF li\u1EC7u t\u1EEB d\u1EA1ng bi\u1EC3u di\u1EC5n n\xE0y sang d\u1EA1ng bi\u1EC3u di\u1EC5n kh\xE1c.`,
+      prerequisites: "- \u0110\u1ECDc, v\u1EBD bi\u1EC3u \u0111\u1ED3 tranh, bi\u1EC3u \u0111\u1ED3 c\u1ED9t (To\xE1n 6); bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng, h\xECnh qu\u1EA1t tr\xF2n (To\xE1n 7).\n- T\u1EC9 s\u1ED1 ph\u1EA7n tr\u0103m.",
+      concepts: "B\u1EA3ng th\u1ED1ng k\xEA; bi\u1EC3u \u0111\u1ED3 tranh; bi\u1EC3u \u0111\u1ED3 c\u1ED9t; bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p; bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng; bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n.",
+      formulas: r3`Tỉ lệ phần trăm \(\dfrac{a}{N}\cdot100\%\); góc ở tâm của hình quạt biểu diễn \(p\%\) là \(p\%\cdot360^\circ\).`,
+      properties: `- Bi\u1EC3u \u0111\u1ED3 c\u1ED9t (c\u1ED9t k\xE9p): so s\xE1nh s\u1ED1 li\u1EC7u gi\u1EEFa c\xE1c \u0111\u1ED1i t\u01B0\u1EE3ng (gi\u1EEFa hai nh\xF3m).
+- Bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng: bi\u1EC3u di\u1EC5n s\u1EF1 thay \u0111\u1ED5i c\u1EE7a m\u1ED9t \u0111\u1EA1i l\u01B0\u1EE3ng theo th\u1EDDi gian.
+- Bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n: bi\u1EC3u di\u1EC5n t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m c\u1EE7a c\xE1c th\xE0nh ph\u1EA7n so v\u1EDBi t\u1ED5ng th\u1EC3.`,
+      themes: [
+        {
+          title: "L\u1EF1a ch\u1ECDn d\u1EA1ng bi\u1EC3u di\u1EC5n",
+          description: "Ch\u1ECDn b\u1EA3ng, bi\u1EC3u \u0111\u1ED3 ph\xF9 h\u1EE3p v\u1EDBi lo\u1EA1i d\u1EEF li\u1EC7u v\xE0 m\u1EE5c \u0111\xEDch.",
+          types: [
+            {
+              slug: "chon-dang-bieu-do",
+              title: "Ch\u1ECDn d\u1EA1ng bi\u1EC3u \u0111\u1ED3 ph\xF9 h\u1EE3p v\u1EDBi d\u1EEF li\u1EC7u v\xE0 m\u1EE5c \u0111\xEDch",
+              levels: [1, 2],
+              knowledge: "C\xF4ng d\u1EE5ng c\u1EE7a t\u1EEBng lo\u1EA1i bi\u1EC3u \u0111\u1ED3: c\u1ED9t (so s\xE1nh), c\u1ED9t k\xE9p (so s\xE1nh hai nh\xF3m), \u0111o\u1EA1n th\u1EB3ng (thay \u0111\u1ED5i theo th\u1EDDi gian), h\xECnh qu\u1EA1t tr\xF2n (c\u01A1 c\u1EA5u, t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m).",
+              signs: "\u0110\u1EC1 n\xEAu d\u1EEF li\u1EC7u v\xE0 m\u1EE5c \u0111\xEDch (so s\xE1nh, theo d\xF5i xu h\u01B0\u1EDBng, th\u1EC3 hi\u1EC7n c\u01A1 c\u1EA5u) v\xE0 h\u1ECFi n\xEAn d\xF9ng bi\u1EC3u \u0111\u1ED3 n\xE0o.",
+              method: "X\xE1c \u0111\u1ECBnh m\u1EE5c \u0111\xEDch bi\u1EC3u di\u1EC5n r\u1ED3i ch\u1ECDn lo\u1EA1i bi\u1EC3u \u0111\u1ED3 c\xF3 c\xF4ng d\u1EE5ng t\u01B0\u01A1ng \u1EE9ng.",
+              steps: `- **B\u01B0\u1EDBc 1.** D\u1EEF li\u1EC7u theo th\u1EDDi gian? \u2192 bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng.
+- **B\u01B0\u1EDBc 2.** C\u1EA7n th\u1EC3 hi\u1EC7n c\xE1c ph\u1EA7n c\u1EE7a m\u1ED9t t\u1ED5ng th\u1EC3 (t\u1EC9 l\u1EC7 %)? \u2192 bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n.
+- **B\u01B0\u1EDBc 3.** So s\xE1nh gi\u1EEFa c\xE1c \u0111\u1ED1i t\u01B0\u1EE3ng? \u2192 bi\u1EC3u \u0111\u1ED3 c\u1ED9t; so s\xE1nh hai nh\xF3m c\xF9ng l\xFAc \u2192 c\u1ED9t k\xE9p.`,
+              mistakes: "- D\xF9ng bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n cho d\u1EEF li\u1EC7u kh\xF4ng t\u1EA1o th\xE0nh m\u1ED9t t\u1ED5ng th\u1EC3 (v\xED d\u1EE5 nhi\u1EC7t \u0111\u1ED9 c\xE1c th\xE1ng).\n- D\xF9ng bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng cho d\u1EEF li\u1EC7u kh\xF4ng theo th\u1EDDi gian.",
+              example: `Ch\u1ECDn bi\u1EC3u \u0111\u1ED3 ph\xF9 h\u1EE3p:
+a) Nhi\u1EC7t \u0111\u1ED9 trung b\xECnh 12 th\xE1ng \u1EDF \u0110\xE0 L\u1EA1t.
+b) T\u1EC9 l\u1EC7 c\xE1c lo\u1EA1i r\xE1c th\u1EA3i sinh ho\u1EA1t c\u1EE7a m\u1ED9t gia \u0111\xECnh.
+c) S\u1ED1 h\u1ECDc sinh nam, n\u1EEF c\u1EE7a b\u1ED1n l\u1EDBp kh\u1ED1i 8.`,
+              solution: "a) Bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng. b) Bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n. c) Bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p.",
+              exercises: [
+                mcq(1, "\u0110\u1EC3 bi\u1EC3u di\u1EC5n s\u1EF1 thay \u0111\u1ED5i s\u1ED1 h\u1ECDc sinh c\u1EE7a m\u1ED9t tr\u01B0\u1EDDng qua c\xE1c n\u0103m h\u1ECDc, n\xEAn d\xF9ng", ["Bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng", "Bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n", "Bi\u1EC3u \u0111\u1ED3 tranh", "Bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p"], "A", "D\u1EEF li\u1EC7u thay \u0111\u1ED5i theo th\u1EDDi gian n\xEAn d\xF9ng bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng."),
+                mcq(2, "\u0110\u1EC3 so s\xE1nh \u0111i\u1EC3m trung b\xECnh m\xF4n To\xE1n v\xE0 m\xF4n Ng\u1EEF v\u0103n c\u1EE7a 5 l\u1EDBp, bi\u1EC3u \u0111\u1ED3 ph\xF9 h\u1EE3p nh\u1EA5t l\xE0", ["Bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p", "Bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n", "Bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng", "Bi\u1EC3u \u0111\u1ED3 tranh"], "A", "So s\xE1nh hai nh\xF3m s\u1ED1 li\u1EC7u (To\xE1n, Ng\u1EEF v\u0103n) gi\u1EEFa c\xE1c l\u1EDBp n\xEAn d\xF9ng bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p.")
+              ]
+            }
+          ]
+        },
+        {
+          title: "Bi\u1EC3u di\u1EC5n v\xE0 chuy\u1EC3n \u0111\u1ED5i d\u1EEF li\u1EC7u",
+          description: "V\u1EBD bi\u1EC3u \u0111\u1ED3 t\u1EEB b\u1EA3ng; chuy\u1EC3n s\u1ED1 li\u1EC7u sang t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m \u0111\u1EC3 v\u1EBD bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n.",
+          types: [
+            {
+              slug: "ve-bieu-do",
+              title: "V\u1EBD bi\u1EC3u \u0111\u1ED3 bi\u1EC3u di\u1EC5n d\u1EEF li\u1EC7u",
+              levels: [2, 3],
+              knowledge: "C\xE1ch v\u1EBD bi\u1EC3u \u0111\u1ED3 c\u1ED9t, c\u1ED9t k\xE9p, \u0111o\u1EA1n th\u1EB3ng: tr\u1EE5c ngang ghi \u0111\u1ED1i t\u01B0\u1EE3ng (m\u1ED1c th\u1EDDi gian), tr\u1EE5c \u0111\u1EE9ng ghi s\u1ED1 li\u1EC7u theo m\u1ED9t t\u1EC9 l\u1EC7 th\u1ED1ng nh\u1EA5t; t\xEAn bi\u1EC3u \u0111\u1ED3, ch\xFA gi\u1EA3i.",
+              signs: "\u0110\u1EC1 cho b\u1EA3ng s\u1ED1 li\u1EC7u v\xE0 y\xEAu c\u1EA7u v\u1EBD bi\u1EC3u \u0111\u1ED3 (c\xF3 th\u1EC3 k\xE8m nh\u1EADn x\xE9t).",
+              method: "Ch\u1ECDn lo\u1EA1i bi\u1EC3u \u0111\u1ED3, ch\u1ECDn t\u1EC9 l\u1EC7 tr\xEAn tr\u1EE5c \u0111\u1EE9ng, v\u1EBD c\u1ED9t (\u0111i\u1EC3m) theo s\u1ED1 li\u1EC7u, ghi \u0111\u1EE7 t\xEAn, \u0111\u01A1n v\u1ECB, ch\xFA gi\u1EA3i.",
+              steps: `- **B\u01B0\u1EDBc 1.** V\u1EBD hai tr\u1EE5c; tr\u1EE5c ngang ghi t\xEAn \u0111\u1ED1i t\u01B0\u1EE3ng ho\u1EB7c m\u1ED1c th\u1EDDi gian.
+- **B\u01B0\u1EDBc 2.** Ch\u1ECDn kho\u1EA3ng chia tr\xEAn tr\u1EE5c \u0111\u1EE9ng ph\xF9 h\u1EE3p v\u1EDBi s\u1ED1 li\u1EC7u l\u1EDBn nh\u1EA5t.
+- **B\u01B0\u1EDBc 3.** V\u1EBD c\u1ED9t (ho\u1EB7c ch\u1EA5m \u0111i\u1EC3m r\u1ED3i n\u1ED1i th\xE0nh \u0111o\u1EA1n th\u1EB3ng), ghi s\u1ED1 li\u1EC7u, t\xEAn bi\u1EC3u \u0111\u1ED3, \u0111\u01A1n v\u1ECB, ch\xFA gi\u1EA3i.`,
+              mistakes: "- Chia tr\u1EE5c \u0111\u1EE9ng kh\xF4ng \u0111\u1EC1u ho\u1EB7c kh\xF4ng b\u1EAFt \u0111\u1EA7u t\u1EEB 0.\n- Thi\u1EBFu t\xEAn bi\u1EC3u \u0111\u1ED3, \u0111\u01A1n v\u1ECB ho\u1EB7c ch\xFA gi\u1EA3i (bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p).",
+              example: "V\u1EBD bi\u1EC3u \u0111\u1ED3 c\u1ED9t bi\u1EC3u di\u1EC5n s\u1ED1 c\xE2y tr\u1ED3ng \u0111\u01B0\u1EE3c c\u1EE7a c\xE1c l\u1EDBp: 8A: 30 c\xE2y; 8B: 25 c\xE2y; 8C: 40 c\xE2y; 8D: 35 c\xE2y.",
+              solution: `Tr\u1EE5c ngang ghi t\xEAn l\u1EDBp, tr\u1EE5c \u0111\u1EE9ng chia m\u1ED7i v\u1EA1ch 10 c\xE2y, v\u1EBD b\u1ED1n c\u1ED9t c\xF3 chi\u1EC1u cao t\u01B0\u01A1ng \u1EE9ng:
+
+[bieudo]
+loai: cot
+tieude: S\u1ED1 c\xE2y tr\u1ED3ng \u0111\u01B0\u1EE3c c\u1EE7a c\xE1c l\u1EDBp kh\u1ED1i 8
+nhan: 8A; 8B; 8C; 8D
+so lieu: 30; 25; 40; 35
+donvi: c\xE2y
+[/bieudo]`,
+              exercises: [
+                es(2, "Chi\u1EC1u cao (cm) c\u1EE7a m\u1ED9t c\xE2y \u0111\u1EADu sau 1, 2, 3, 4, 5 tu\u1EA7n l\u1EA7n l\u01B0\u1EE3t l\xE0 4; 9; 15; 22; 26. V\u1EBD bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng bi\u1EC3u di\u1EC5n d\u1EEF li\u1EC7u tr\xEAn v\xE0 nh\u1EADn x\xE9t.", `[bieudo]
+loai: doanthang
+tieude: Chi\u1EC1u cao c\u1EE7a c\xE2y \u0111\u1EADu
+nhan: Tu\u1EA7n 1; Tu\u1EA7n 2; Tu\u1EA7n 3; Tu\u1EA7n 4; Tu\u1EA7n 5
+so lieu: 4; 9; 15; 22; 26
+donvi: cm
+[/bieudo]
+
+Nh\u1EADn x\xE9t: c\xE2y cao d\u1EA7n theo th\u1EDDi gian; tu\u1EA7n 4 t\u0103ng nhi\u1EC1u nh\u1EA5t (7 cm), tu\u1EA7n 5 t\u0103ng ch\u1EADm l\u1EA1i (4 cm).`),
+                es(3, "S\u1ED1 h\u1ECDc sinh nam, n\u1EEF tham gia c\xE1c c\xE2u l\u1EA1c b\u1ED9: B\xF3ng r\u1ED5 (nam 12, n\u1EEF 5); C\u1EA7u l\xF4ng (nam 8, n\u1EEF 10); M\xFAa (nam 2, n\u1EEF 14). V\u1EBD bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p v\xE0 nh\u1EADn x\xE9t.", `[bieudo]
+loai: cotkep
+tieude: H\u1ECDc sinh tham gia c\xE1c c\xE2u l\u1EA1c b\u1ED9
+nhan: B\xF3ng r\u1ED5; C\u1EA7u l\xF4ng; M\xFAa
+so lieu: 12; 8; 2
+so lieu 2: 5; 10; 14
+ten: Nam; N\u1EEF
+donvi: h\u1ECDc sinh
+[/bieudo]
+
+Nh\u1EADn x\xE9t: c\xE2u l\u1EA1c b\u1ED9 B\xF3ng r\u1ED5 c\xF3 nhi\u1EC1u nam h\u01A1n n\u1EEF; M\xFAa c\xF3 nhi\u1EC1u n\u1EEF h\u01A1n nam r\u1EA5t nhi\u1EC1u; C\u1EA7u l\xF4ng c\xF3 s\u1ED1 nam, n\u1EEF g\u1EA7n b\u1EB1ng nhau.`)
+              ]
+            },
+            {
+              slug: "chuyen-du-lieu-sang-bieu-do-quat",
+              title: "Chuy\u1EC3n d\u1EEF li\u1EC7u t\u1EEB b\u1EA3ng sang bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n",
+              levels: [2, 3],
+              knowledge: r3`Tỉ lệ phần trăm \(\dfrac{a}{N}\cdot100\%\); góc ở tâm của hình quạt \(p\%\cdot360^\circ\).`,
+              signs: "\u0110\u1EC1 cho s\u1ED1 l\u01B0\u1EE3ng c\xE1c th\xE0nh ph\u1EA7n c\u1EE7a m\u1ED9t t\u1ED5ng th\u1EC3 v\xE0 y\xEAu c\u1EA7u t\xEDnh t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m, g\xF3c \u1EDF t\xE2m ho\u1EB7c v\u1EBD bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n.",
+              method: "T\xEDnh t\u1ED5ng, t\xEDnh t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m t\u1EEBng th\xE0nh ph\u1EA7n (t\u1ED5ng ph\u1EA3i b\u1EB1ng 100%), r\u1ED3i bi\u1EC3u di\u1EC5n tr\xEAn h\xECnh tr\xF2n.",
+              steps: `- **B\u01B0\u1EDBc 1.** T\xEDnh t\u1ED5ng s\u1ED1 l\u01B0\u1EE3ng N.
+- **B\u01B0\u1EDBc 2.** T\xEDnh t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m t\u1EEBng th\xE0nh ph\u1EA7n; ki\u1EC3m tra t\u1ED5ng b\u1EB1ng 100%.
+- **B\u01B0\u1EDBc 3.** (N\u1EBFu v\u1EBD) \u0111\u1ED5i sang g\xF3c \u1EDF t\xE2m, chia h\xECnh tr\xF2n v\xE0 ghi ch\xFA gi\u1EA3i.`,
+              mistakes: "- Chia cho s\u1ED1 l\u01B0\u1EE3ng c\u1EE7a m\u1ED9t th\xE0nh ph\u1EA7n thay v\xEC chia cho t\u1ED5ng.\n- C\xE1c t\u1EC9 l\u1EC7 c\u1ED9ng l\u1EA1i kh\xE1c 100% m\xE0 kh\xF4ng ph\xE1t hi\u1EC7n sai s\xF3t.",
+              example: "K\u1EBFt qu\u1EA3 kh\u1EA3o s\xE1t 40 h\u1ECDc sinh v\u1EC1 ph\u01B0\u01A1ng ti\u1EC7n \u0111\u1EBFn tr\u01B0\u1EDDng: Xe \u0111\u1EA1p 18; \u0110i b\u1ED9 10; Xe bu\xFDt 8; B\u1ED1 m\u1EB9 \u0111\u01B0a 4. L\u1EADp b\u1EA3ng t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m v\xE0 bi\u1EC3u di\u1EC5n b\u1EB1ng bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n.",
+              solution: `T\u1EC9 l\u1EC7: Xe \u0111\u1EA1p \\(\\dfrac{18}{40} = 45\\%\\); \u0110i b\u1ED9 25%; Xe bu\xFDt 20%; B\u1ED1 m\u1EB9 \u0111\u01B0a 10% (t\u1ED5ng 100%).
+
+[bieudo]
+loai: quat
+tieude: Ph\u01B0\u01A1ng ti\u1EC7n \u0111\u1EBFn tr\u01B0\u1EDDng c\u1EE7a 40 h\u1ECDc sinh
+nhan: Xe \u0111\u1EA1p; \u0110i b\u1ED9; Xe bu\xFDt; B\u1ED1 m\u1EB9 \u0111\u01B0a
+so lieu: 18; 10; 8; 4
+[/bieudo]`,
+              exercises: [
+                sa(2, "Kh\u1EA3o s\xE1t 50 h\u1ECDc sinh, c\xF3 12 em ch\u1ECDn m\xF4n To\xE1n l\xE0 m\xF4n y\xEAu th\xEDch nh\u1EA5t. T\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m s\u1ED1 em ch\u1ECDn m\xF4n To\xE1n l\xE0 bao nhi\xEAu?", ["24"], r3`\(\dfrac{12}{50}\cdot100\% = 24\%\).`, "%"),
+                sa(3, "Trong bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n, th\xE0nh ph\u1EA7n chi\u1EBFm 25% \u0111\u01B0\u1EE3c bi\u1EC3u di\u1EC5n b\u1EDFi h\xECnh qu\u1EA1t c\xF3 g\xF3c \u1EDF t\xE2m b\u1EB1ng bao nhi\xEAu \u0111\u1ED9?", ["90"], r3`\(25\%\cdot360^\circ = 90^\circ\).`, "\xB0")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 20 ----------------
+    {
+      slug: "bai-20-phan-tich-so-lieu-thong-ke-dua-vao-bieu-do",
+      difficulty: 2,
+      objectives: `- Ph\xE1t hi\u1EC7n v\u1EA5n \u0111\u1EC1, quy lu\u1EADt \u0111\u01A1n gi\u1EA3n d\u1EF1a tr\xEAn ph\xE2n t\xEDch s\u1ED1 li\u1EC7u \u1EDF bi\u1EC3u \u0111\u1ED3 c\u1ED9t, c\u1ED9t k\xE9p, \u0111o\u1EA1n th\u1EB3ng, h\xECnh qu\u1EA1t tr\xF2n.
+- Gi\u1EA3i quy\u1EBFt v\u1EA5n \u0111\u1EC1 \u0111\u01A1n gi\u1EA3n li\xEAn quan \u0111\u1EBFn c\xE1c s\u1ED1 li\u1EC7u \u0111\xF3.
+- Nh\u1EADn bi\u1EBFt bi\u1EC3u \u0111\u1ED3 bi\u1EC3u di\u1EC5n sai ho\u1EB7c g\xE2y hi\u1EC3u l\u1EA7m.`,
+      prerequisites: "- C\xE1c lo\u1EA1i bi\u1EC3u \u0111\u1ED3 (B\xE0i 19).\n- T\u1EC9 s\u1ED1, t\u1EC9 s\u1ED1 ph\u1EA7n tr\u0103m.",
+      concepts: "Xu h\u01B0\u1EDBng t\u0103ng, gi\u1EA3m; gi\xE1 tr\u1ECB l\u1EDBn nh\u1EA5t, nh\u1ECF nh\u1EA5t; m\u1EE9c t\u0103ng (gi\u1EA3m); t\u1EC9 l\u1EC7 t\u0103ng (gi\u1EA3m); bi\u1EC3u \u0111\u1ED3 g\xE2y hi\u1EC3u l\u1EA7m.",
+      formulas: r3`Tỉ lệ tăng (giảm) từ \(a\) đến \(b\): \(\dfrac{b - a}{a}\cdot100\%\). Số lượng ứng với \(p\%\) của tổng \(N\): \(p\%\cdot N\).`,
+      properties: "- M\u1EE9c t\u0103ng = gi\xE1 tr\u1ECB sau \u2212 gi\xE1 tr\u1ECB tr\u01B0\u1EDBc (\xE2m ngh\u0129a l\xE0 gi\u1EA3m).\n- Bi\u1EC3u \u0111\u1ED3 c\xF3 tr\u1EE5c \u0111\u1EE9ng kh\xF4ng b\u1EAFt \u0111\u1EA7u t\u1EEB 0 ho\u1EB7c chia kh\xF4ng \u0111\u1EC1u d\u1EC5 g\xE2y hi\u1EC3u l\u1EA7m v\u1EC1 \u0111\u1ED9 ch\xEAnh l\u1EC7ch.",
+      themes: [
+        {
+          title: "\u0110\u1ECDc v\xE0 ph\xE2n t\xEDch bi\u1EC3u \u0111\u1ED3",
+          description: "\u0110\u1ECDc s\u1ED1 li\u1EC7u, so s\xE1nh, t\xEDnh m\u1EE9c t\u0103ng gi\u1EA3m, t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m t\u1EEB bi\u1EC3u \u0111\u1ED3.",
+          types: [
+            {
+              slug: "phan-tich-bieu-do-cot",
+              title: "\u0110\u1ECDc, ph\xE2n t\xEDch bi\u1EC3u \u0111\u1ED3 c\u1ED9t v\xE0 c\u1ED9t k\xE9p",
+              levels: [1, 2, 3],
+              knowledge: "Chi\u1EC1u cao c\u1ED9t bi\u1EC3u di\u1EC5n s\u1ED1 li\u1EC7u; bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p so s\xE1nh hai nh\xF3m s\u1ED1 li\u1EC7u t\u1EA1i c\xF9ng \u0111\u1ED1i t\u01B0\u1EE3ng.",
+              signs: "\u0110\u1EC1 cho bi\u1EC3u \u0111\u1ED3 c\u1ED9t (c\u1ED9t k\xE9p) v\xE0 h\u1ECFi gi\xE1 tr\u1ECB l\u1EDBn nh\u1EA5t, nh\u1ECF nh\u1EA5t, t\u1ED5ng, ch\xEAnh l\u1EC7ch, t\u1EC9 l\u1EC7 t\u0103ng gi\u1EA3m.",
+              method: "\u0110\u1ECDc ch\xEDnh x\xE1c s\u1ED1 li\u1EC7u t\u1EEBng c\u1ED9t (theo ch\xFA gi\u1EA3i v\u1EDBi c\u1ED9t k\xE9p), l\u1EADp ph\xE9p t\xEDnh theo c\xE2u h\u1ECFi.",
+              steps: `- **B\u01B0\u1EDBc 1.** \u0110\u1ECDc t\xEAn bi\u1EC3u \u0111\u1ED3, \u0111\u01A1n v\u1ECB, ch\xFA gi\u1EA3i.
+- **B\u01B0\u1EDBc 2.** Ghi l\u1EA1i s\u1ED1 li\u1EC7u t\u1EEBng c\u1ED9t c\u1EA7n d\xF9ng.
+- **B\u01B0\u1EDBc 3.** T\xEDnh (t\u1ED5ng, hi\u1EC7u, t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m) v\xE0 tr\u1EA3 l\u1EDDi k\xE8m \u0111\u01A1n v\u1ECB.`,
+              mistakes: "- Nh\u1EA7m hai d\xE3y c\u1ED9t trong bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p.\n- T\xEDnh t\u1EC9 l\u1EC7 t\u0103ng chia cho gi\xE1 tr\u1ECB sau thay v\xEC gi\xE1 tr\u1ECB tr\u01B0\u1EDBc.",
+              example: `Bi\u1EC3u \u0111\u1ED3 d\u01B0\u1EDBi \u0111\xE2y cho bi\u1EBFt s\u1ED1 h\u1ECDc sinh gi\u1ECFi c\u1EE7a c\xE1c l\u1EDBp kh\u1ED1i 8 \u1EDF hai h\u1ECDc k\xEC. L\u1EDBp n\xE0o c\xF3 s\u1ED1 h\u1ECDc sinh gi\u1ECFi t\u0103ng nhi\u1EC1u nh\u1EA5t t\u1EEB h\u1ECDc k\xEC I sang h\u1ECDc k\xEC II?
+
+${HSG}`,
+              solution: "M\u1EE9c t\u0103ng: 8A t\u0103ng 4; 8B t\u0103ng 1; 8C t\u0103ng 5; 8D kh\xF4ng \u0111\u1ED5i. L\u1EDBp 8C t\u0103ng nhi\u1EC1u nh\u1EA5t (5 h\u1ECDc sinh).",
+              exercises: [
+                mcq(1, `Theo bi\u1EC3u \u0111\u1ED3, l\u1EDBp n\xE0o quy\xEAn g\xF3p \u0111\u01B0\u1EE3c nhi\u1EC1u s\xE1ch nh\u1EA5t?
+
+${SACH}`, ["8B", "8A", "8C", "8D"], "A", "C\u1ED9t c\u1EE7a l\u1EDBp 8B cao nh\u1EA5t (60 cu\u1ED1n)."),
+                sa(2, `Theo bi\u1EC3u \u0111\u1ED3, c\u1EA3 b\u1ED1n l\u1EDBp quy\xEAn g\xF3p \u0111\u01B0\u1EE3c t\u1ED5ng c\u1ED9ng bao nhi\xEAu cu\u1ED1n s\xE1ch?
+
+${SACH}`, ["190"], "45 + 60 + 50 + 35 = 190 cu\u1ED1n.", "cu\u1ED1n"),
+                sa(3, `Theo bi\u1EC3u \u0111\u1ED3, t\u1ED5ng s\u1ED1 h\u1ECDc sinh gi\u1ECFi c\u1EE7a b\u1ED1n l\u1EDBp \u1EDF h\u1ECDc k\xEC II t\u0103ng bao nhi\xEAu ph\u1EA7n tr\u0103m so v\u1EDBi h\u1ECDc k\xEC I (l\xE0m tr\xF2n \u0111\u1EBFn h\xE0ng \u0111\u01A1n v\u1ECB)?
+
+${HSG}`, ["30"], r3`Học kì I: \(8 + 10 + 6 + 9 = 33\); học kì II: \(12 + 11 + 11 + 9 = 43\). Tỉ lệ tăng \(\dfrac{43 - 33}{33}\cdot100\% \approx 30\%\).`, "%")
+              ]
+            },
+            {
+              slug: "phan-tich-bieu-do-doan-thang",
+              title: "\u0110\u1ECDc, ph\xE2n t\xEDch bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng",
+              levels: [1, 2, 3],
+              knowledge: "M\u1ED7i \u0111i\u1EC3m bi\u1EC3u di\u1EC5n s\u1ED1 li\u1EC7u t\u1EA1i m\u1ED9t th\u1EDDi \u0111i\u1EC3m; \u0111o\u1EA1n th\u1EB3ng \u0111i l\xEAn l\xE0 t\u0103ng, \u0111i xu\u1ED1ng l\xE0 gi\u1EA3m, c\xE0ng d\u1ED1c thay \u0111\u1ED5i c\xE0ng nhanh.",
+              signs: "\u0110\u1EC1 cho bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng v\xE0 h\u1ECFi th\u1EDDi \u0111i\u1EC3m l\u1EDBn nh\u1EA5t, nh\u1ECF nh\u1EA5t, m\u1EE9c t\u0103ng gi\u1EA3m, xu h\u01B0\u1EDBng, kho\u1EA3ng th\u1EDDi gian thay \u0111\u1ED5i nhanh nh\u1EA5t.",
+              method: "\u0110\u1ECDc s\u1ED1 li\u1EC7u t\u1EA1i c\xE1c m\u1ED1c, t\xEDnh m\u1EE9c thay \u0111\u1ED5i gi\u1EEFa c\xE1c m\u1ED1c li\xEAn ti\u1EBFp v\xE0 so s\xE1nh.",
+              steps: `- **B\u01B0\u1EDBc 1.** \u0110\u1ECDc s\u1ED1 li\u1EC7u t\u1EA1i t\u1EEBng m\u1ED1c th\u1EDDi gian.
+- **B\u01B0\u1EDBc 2.** T\xEDnh m\u1EE9c thay \u0111\u1ED5i gi\u1EEFa c\xE1c m\u1ED1c c\u1EA7n x\xE9t.
+- **B\u01B0\u1EDBc 3.** So s\xE1nh, nh\u1EADn x\xE9t xu h\u01B0\u1EDBng v\xE0 tr\u1EA3 l\u1EDDi.`,
+              mistakes: "- \u0110\xE1nh gi\xE1 t\u1ED1c \u0111\u1ED9 thay \u0111\u1ED5i b\u1EB1ng m\u1EAFt m\xE0 kh\xF4ng t\xEDnh m\u1EE9c thay \u0111\u1ED5i.\n- Nh\u1EA7m m\u1ED1c th\u1EDDi gian.",
+              example: `Bi\u1EC3u \u0111\u1ED3 cho bi\u1EBFt s\u1ED1 l\u01B0\u1EE3t m\u01B0\u1EE3n s\xE1ch \u1EDF th\u01B0 vi\u1EC7n tr\u01B0\u1EDDng. Th\xE1ng n\xE0o c\xF3 nhi\u1EC1u l\u01B0\u1EE3t m\u01B0\u1EE3n nh\u1EA5t? T\u1EEB th\xE1ng 11 \u0111\u1EBFn th\xE1ng 12 s\u1ED1 l\u01B0\u1EE3t m\u01B0\u1EE3n thay \u0111\u1ED5i th\u1EBF n\xE0o?
+
+${MUON_SACH}`,
+              solution: "Th\xE1ng 11 c\xF3 nhi\u1EC1u l\u01B0\u1EE3t m\u01B0\u1EE3n nh\u1EA5t (180 l\u01B0\u1EE3t). T\u1EEB th\xE1ng 11 \u0111\u1EBFn th\xE1ng 12 gi\u1EA3m 180 \u2212 140 = 40 l\u01B0\u1EE3t.",
+              exercises: [
+                mcq(1, `Theo bi\u1EC3u \u0111\u1ED3, th\xE1ng c\xF3 s\u1ED1 l\u01B0\u1EE3t m\u01B0\u1EE3n s\xE1ch \xEDt nh\u1EA5t l\xE0
+
+${MUON_SACH}`, ["Th\xE1ng 9", "Th\xE1ng 10", "Th\xE1ng 12", "Th\xE1ng 1"], "A", "\u0110i\u1EC3m th\u1EA5p nh\u1EA5t \u1EE9ng v\u1EDBi th\xE1ng 9 (120 l\u01B0\u1EE3t)."),
+                sa(2, `Theo bi\u1EC3u \u0111\u1ED3, t\u1EEB th\xE1ng 9 \u0111\u1EBFn th\xE1ng 11 s\u1ED1 l\u01B0\u1EE3t m\u01B0\u1EE3n s\xE1ch t\u0103ng bao nhi\xEAu ph\u1EA7n tr\u0103m?
+
+${MUON_SACH}`, ["50"], r3`\(\dfrac{180 - 120}{120}\cdot100\% = 50\%\).`, "%"),
+                mcq(3, `Theo bi\u1EC3u \u0111\u1ED3, trong kho\u1EA3ng 3 gi\u1EDD n\xE0o nhi\u1EC7t \u0111\u1ED9 t\u0103ng nhanh nh\u1EA5t?
+
+${NHIET_DO}`, ["T\u1EEB 9 gi\u1EDD \u0111\u1EBFn 12 gi\u1EDD", "T\u1EEB 6 gi\u1EDD \u0111\u1EBFn 9 gi\u1EDD", "T\u1EEB 12 gi\u1EDD \u0111\u1EBFn 15 gi\u1EDD", "T\u1EEB 15 gi\u1EDD \u0111\u1EBFn 18 gi\u1EDD"], "A", "M\u1EE9c t\u0103ng: 6 \u2192 9 gi\u1EDD t\u0103ng 4 \xB0C; 9 \u2192 12 gi\u1EDD t\u0103ng 5 \xB0C; sau 12 gi\u1EDD nhi\u1EC7t \u0111\u1ED9 gi\u1EA3m. Nhanh nh\u1EA5t l\xE0 t\u1EEB 9 gi\u1EDD \u0111\u1EBFn 12 gi\u1EDD.")
+              ]
+            },
+            {
+              slug: "phan-tich-bieu-do-quat-tron",
+              title: "\u0110\u1ECDc, ph\xE2n t\xEDch bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n",
+              levels: [1, 2, 3],
+              knowledge: r3`Mỗi hình quạt biểu diễn tỉ lệ phần trăm của một thành phần; số lượng ứng với \(p\%\) của tổng \(N\) là \(p\%\cdot N\).`,
+              signs: "\u0110\u1EC1 cho bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n (k\xE8m t\u1ED5ng s\u1ED1) v\xE0 h\u1ECFi t\u1EC9 l\u1EC7, s\u1ED1 l\u01B0\u1EE3ng c\u1EE7a c\xE1c th\xE0nh ph\u1EA7n ho\u1EB7c so s\xE1nh ch\xFAng.",
+              method: "\u0110\u1ECDc t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m, nh\xE2n v\u1EDBi t\u1ED5ng \u0111\u1EC3 \u0111\u01B0\u1EE3c s\u1ED1 l\u01B0\u1EE3ng; so s\xE1nh c\xE1c th\xE0nh ph\u1EA7n.",
+              steps: r3`- **Bước 1.** Đọc tỉ lệ phần trăm của các thành phần cần dùng.
+- **Bước 2.** Tính số lượng: \(p\%\cdot N\).
+- **Bước 3.** So sánh, trả lời.`,
+              mistakes: "- L\u1EA5y t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m l\xE0m s\u1ED1 l\u01B0\u1EE3ng.\n- Qu\xEAn nh\xE2n v\u1EDBi t\u1ED5ng s\u1ED1.",
+              example: `Bi\u1EC3u \u0111\u1ED3 cho bi\u1EBFt m\xF4n th\u1EC3 thao y\xEAu th\xEDch c\u1EE7a 200 h\u1ECDc sinh. C\xF3 bao nhi\xEAu h\u1ECDc sinh th\xEDch b\xF3ng \u0111\xE1?
+
+${THE_THAO}`,
+              solution: r3`Bóng đá chiếm 40% nên số học sinh thích bóng đá là \(40\%\cdot200 = 80\) học sinh.`,
+              exercises: [
+                sa(1, `Theo bi\u1EC3u \u0111\u1ED3, m\xF4n \u0111\u01B0\u1EE3c y\xEAu th\xEDch nh\u1EA5t chi\u1EBFm bao nhi\xEAu ph\u1EA7n tr\u0103m?
+
+${THE_THAO}`, ["40"], "B\xF3ng \u0111\xE1 chi\u1EBFm t\u1EC9 l\u1EC7 l\u1EDBn nh\u1EA5t: 40%.", "%"),
+                sa(2, `Theo bi\u1EC3u \u0111\u1ED3, c\xF3 bao nhi\xEAu h\u1ECDc sinh ch\u1ECDn m\xF4n C\u1EA7u l\xF4ng?
+
+${THE_THAO}`, ["50"], r3`\(25\%\cdot200 = 50\) học sinh.`, "h\u1ECDc sinh"),
+                sa(3, `Theo bi\u1EC3u \u0111\u1ED3, s\u1ED1 h\u1ECDc sinh ch\u1ECDn B\xF3ng \u0111\xE1 nhi\u1EC1u h\u01A1n s\u1ED1 h\u1ECDc sinh ch\u1ECDn C\u1EDD vua bao nhi\xEAu em?
+
+${THE_THAO}`, ["50"], r3`\((40\% - 15\%)\cdot200 = 25\%\cdot200 = 50\) em.`, "em")
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u0110\xE1nh gi\xE1 bi\u1EC3u \u0111\u1ED3",
+          description: "Ph\xE1t hi\u1EC7n bi\u1EC3u \u0111\u1ED3 bi\u1EC3u di\u1EC5n sai ho\u1EB7c g\xE2y hi\u1EC3u l\u1EA7m.",
+          types: [
+            {
+              slug: "bieu-do-gay-hieu-lam",
+              title: "Nh\u1EADn bi\u1EBFt bi\u1EC3u \u0111\u1ED3 bi\u1EC3u di\u1EC5n sai, g\xE2y hi\u1EC3u l\u1EA7m",
+              levels: [3, 4],
+              knowledge: "Bi\u1EC3u \u0111\u1ED3 \u0111\xFAng c\u1EA7n: tr\u1EE5c \u0111\u1EE9ng b\u1EAFt \u0111\u1EA7u t\u1EEB 0 v\xE0 chia \u0111\u1EC1u; t\u1ED5ng c\xE1c t\u1EC9 l\u1EC7 trong bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t b\u1EB1ng 100%; s\u1ED1 li\u1EC7u kh\u1EDBp v\u1EDBi b\u1EA3ng.",
+              signs: "\u0110\u1EC1 cho m\u1ED9t bi\u1EC3u \u0111\u1ED3 (ho\u1EB7c m\xF4 t\u1EA3 bi\u1EC3u \u0111\u1ED3) v\xE0 h\u1ECFi bi\u1EC3u \u0111\u1ED3 c\xF3 h\u1EE3p l\xED, c\xF3 g\xE2y hi\u1EC3u l\u1EA7m kh\xF4ng.",
+              method: "Ki\u1EC3m tra tr\u1EE5c, t\u1EC9 l\u1EC7 chia, t\u1ED5ng ph\u1EA7n tr\u0103m, s\u1EF1 kh\u1EDBp gi\u1EEFa s\u1ED1 li\u1EC7u v\xE0 h\xECnh v\u1EBD; so s\xE1nh \u0111\u1ED9 ch\xEAnh l\u1EC7ch th\u1EF1c t\u1EBF v\u1EDBi c\u1EA3m nh\u1EADn t\u1EEB h\xECnh.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ki\u1EC3m tra tr\u1EE5c \u0111\u1EE9ng: c\xF3 b\u1EAFt \u0111\u1EA7u t\u1EEB 0, c\xF3 chia \u0111\u1EC1u kh\xF4ng.
+- **B\u01B0\u1EDBc 2.** V\u1EDBi bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t: ki\u1EC3m tra t\u1ED5ng c\xE1c t\u1EC9 l\u1EC7 b\u1EB1ng 100%.
+- **B\u01B0\u1EDBc 3.** So s\xE1nh ch\xEAnh l\u1EC7ch th\u1EF1c t\u1EBF v\u1EDBi ch\xEAnh l\u1EC7ch th\u1EC3 hi\u1EC7n tr\xEAn h\xECnh; k\u1EBFt lu\u1EADn.`,
+              mistakes: "- Ch\u1EC9 nh\xECn chi\u1EC1u cao c\u1ED9t \u0111\u1EC3 k\u1EBFt lu\u1EADn m\xE0 kh\xF4ng \u0111\u1ECDc gi\xE1 tr\u1ECB tr\xEAn tr\u1EE5c.",
+              example: "Doanh thu th\xE1ng c\u1EE7a hai c\u1EEDa h\xE0ng A, B l\xE0 98 tri\u1EC7u \u0111\u1ED3ng v\xE0 102 tri\u1EC7u \u0111\u1ED3ng. M\u1ED9t bi\u1EC3u \u0111\u1ED3 c\u1ED9t c\xF3 tr\u1EE5c \u0111\u1EE9ng b\u1EAFt \u0111\u1EA7u t\u1EEB 96 khi\u1EBFn c\u1ED9t B cao g\u1EA5p ba l\u1EA7n c\u1ED9t A. Bi\u1EC3u \u0111\u1ED3 n\xE0y c\xF3 g\xE2y hi\u1EC3u l\u1EA7m kh\xF4ng? V\xEC sao?",
+              solution: r3`Có. Trên hình, cột B cao gấp ba cột A, nhưng thực tế B chỉ hơn A \(\dfrac{102 - 98}{98}\cdot100\% \approx 4\%\). Nguyên nhân: trục đứng không bắt đầu từ 0.`,
+              exercises: [
+                tf(3, "M\u1ED7i kh\u1EB3ng \u0111\u1ECBnh sau v\u1EC1 bi\u1EC3u \u0111\u1ED3 \u0111\xFAng hay sai?", [
+                  ["Bi\u1EC3u \u0111\u1ED3 c\u1ED9t c\xF3 tr\u1EE5c \u0111\u1EE9ng kh\xF4ng b\u1EAFt \u0111\u1EA7u t\u1EEB 0 c\xF3 th\u1EC3 l\xE0m ch\xEAnh l\u1EC7ch gi\u1EEFa c\xE1c c\u1ED9t tr\xF4ng l\u1EDBn h\u01A1n th\u1EF1c t\u1EBF.", true],
+                  ["Trong bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n, t\u1ED5ng c\xE1c t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m ph\u1EA3i b\u1EB1ng 100%.", true],
+                  ["Tr\u1EE5c \u0111\u1EE9ng c\u1EE7a bi\u1EC3u \u0111\u1ED3 c\u1ED9t c\xF3 th\u1EC3 chia kh\xF4ng \u0111\u1EC1u mi\u1EC5n l\xE0 ghi \u0111\u1EE7 s\u1ED1.", false],
+                  ["C\u1ED9t cao g\u1EA5p \u0111\xF4i lu\xF4n c\xF3 ngh\u0129a l\xE0 s\u1ED1 li\u1EC7u g\u1EA5p \u0111\xF4i, d\xF9 tr\u1EE5c b\u1EAFt \u0111\u1EA7u t\u1EEB b\u1EA5t k\xEC gi\xE1 tr\u1ECB n\xE0o.", false]
+                ], "a) \u0110\xFAng. b) \u0110\xFAng. c) Sai: chia kh\xF4ng \u0111\u1EC1u l\xE0m sai l\u1EC7ch h\xECnh \u1EA3nh. d) Sai: ch\u1EC9 \u0111\xFAng khi tr\u1EE5c b\u1EAFt \u0111\u1EA7u t\u1EEB 0."),
+                es(4, "M\u1ED9t bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n v\u1EC1 ph\u01B0\u01A1ng ti\u1EC7n \u0111\u1EBFn tr\u01B0\u1EDDng ghi: Xe \u0111\u1EA1p 45%, \u0110i b\u1ED9 30%, Xe bu\xFDt 20%, Kh\xE1c 10%. Bi\u1EC3u \u0111\u1ED3 n\xE0y sai \u1EDF \u0111\xE2u? N\xEAu c\xE1ch ki\u1EC3m tra l\u1EA1i.", "T\u1ED5ng c\xE1c t\u1EC9 l\u1EC7 l\xE0 45% + 30% + 20% + 10% = 105% \u2260 100%, n\xEAn \xEDt nh\u1EA5t m\u1ED9t s\u1ED1 li\u1EC7u b\u1ECB sai. C\u1EA7n \u0111\u1ED1i chi\u1EBFu l\u1EA1i s\u1ED1 l\u01B0\u1EE3ng t\u1EEBng nh\xF3m v\u1EDBi t\u1ED5ng s\u1ED1 h\u1ECDc sinh \u0111\u01B0\u1EE3c kh\u1EA3o s\xE1t v\xE0 t\xEDnh l\u1EA1i c\xE1c t\u1EC9 l\u1EC7.")
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+// src/seed/toan8-map/chuong-6.ts
+var CHUONG_6 = {
+  code: "VI",
+  objectives: `- Nh\u1EADn bi\u1EBFt ph\xE2n th\u1EE9c \u0111\u1EA1i s\u1ED1, \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh, gi\xE1 tr\u1ECB c\u1EE7a ph\xE2n th\u1EE9c, hai ph\xE2n th\u1EE9c b\u1EB1ng nhau.
+- M\xF4 t\u1EA3 t\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n c\u1EE7a ph\xE2n th\u1EE9c; r\xFAt g\u1ECDn ph\xE2n th\u1EE9c, quy \u0111\u1ED3ng m\u1EABu th\u1EE9c nhi\u1EC1u ph\xE2n th\u1EE9c.
+- Th\u1EF1c hi\u1EC7n c\u1ED9ng, tr\u1EEB, nh\xE2n, chia ph\xE2n th\u1EE9c; v\u1EADn d\u1EE5ng gi\u1EA3i b\xE0i to\xE1n th\u1EF1c t\u1EBF.`,
+  keyPoints: r3`- Phân thức \(\dfrac{A}{B}\) (\(B\) khác đa thức 0); điều kiện xác định \(B \ne 0\).
+- Tính chất cơ bản: nhân (chia) cả tử và mẫu với cùng một đa thức khác 0 (một nhân tử chung); quy tắc đổi dấu.
+- Quy tắc cộng, trừ (cùng mẫu, khác mẫu), nhân, chia phân thức; kết quả luôn rút gọn.`,
+  formulas: r3`\[\dfrac{A}{B} = \dfrac{C}{D} \Leftrightarrow AD = BC;\qquad \dfrac{A}{B} = \dfrac{A\cdot M}{B\cdot M} = \dfrac{-A}{-B}\]
+\[\dfrac{A}{M} + \dfrac{B}{M} = \dfrac{A + B}{M};\qquad \dfrac{A}{B} - \dfrac{C}{D} = \dfrac{A}{B} + \dfrac{-C}{D}\]
+\[\dfrac{A}{B}\cdot\dfrac{C}{D} = \dfrac{AC}{BD};\qquad \dfrac{A}{B} : \dfrac{C}{D} = \dfrac{A}{B}\cdot\dfrac{D}{C}\]`,
+  verify: { status: "verified", note: "T\xEAn ch\u01B0\u01A1ng, t\xEAn b\xE0i v\xE0 th\u1EE9 t\u1EF1 \u0111\u1ED1i chi\u1EBFu v\u1EDBi m\u1EE5c l\u1EE5c SGK To\xE1n 8 K\u1EBFt n\u1ED1i tri th\u1EE9c t\u1EADp 2 (VietJack) v\xE0 PPCT 2026-2027." },
+  aux: [
+    { slug: "luyen-tap-chung-6a", objectives: "C\u1EE7ng c\u1ED1 ph\xE2n th\u1EE9c \u0111\u1EA1i s\u1ED1, \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh, t\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n, r\xFAt g\u1ECDn v\xE0 quy \u0111\u1ED3ng m\u1EABu th\u1EE9c." },
+    { slug: "luyen-tap-chung-6b", objectives: "C\u1EE7ng c\u1ED1 c\u1ED9ng, tr\u1EEB, nh\xE2n, chia ph\xE2n th\u1EE9c v\xE0 d\xE3y ph\xE9p t\xEDnh v\u1EDBi ph\xE2n th\u1EE9c." },
+    { slug: "bai-tap-cuoi-chuong-6", objectives: "\xD4n t\u1EADp to\xE0n Ch\u01B0\u01A1ng VI: ph\xE2n th\u1EE9c, t\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n v\xE0 c\xE1c ph\xE9p t\xEDnh; chu\u1EA9n b\u1ECB ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng." }
+  ],
+  lessons: [
+    // ---------------- Bài 21 ----------------
+    {
+      slug: "bai-21-phan-thuc-dai-so",
+      difficulty: 2,
+      objectives: `- Nh\u1EADn bi\u1EBFt ph\xE2n th\u1EE9c \u0111\u1EA1i s\u1ED1, t\u1EED th\u1EE9c, m\u1EABu th\u1EE9c.
+- Nh\u1EADn bi\u1EBFt hai ph\xE2n th\u1EE9c b\u1EB1ng nhau.
+- X\xE1c \u0111\u1ECBnh \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh v\xE0 t\xEDnh gi\xE1 tr\u1ECB c\u1EE7a ph\xE2n th\u1EE9c.`,
+      prerequisites: "- Ph\xE2n s\u1ED1, hai ph\xE2n s\u1ED1 b\u1EB1ng nhau (To\xE1n 6).\n- \u0110a th\u1EE9c, nh\xE2n \u0111a th\u1EE9c (Ch\u01B0\u01A1ng I); ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED (Ch\u01B0\u01A1ng II).",
+      concepts: r3`Phân thức đại số \(\dfrac{A}{B}\); tử thức, mẫu thức; điều kiện xác định; giá trị của phân thức; hai phân thức bằng nhau.`,
+      formulas: r3`\(\dfrac{A}{B} = \dfrac{C}{D}\) nếu \(A\cdot D = B\cdot C\).`,
+      properties: r3`- Mỗi đa thức cũng được coi là một phân thức có mẫu thức bằng 1.
+- Điều kiện xác định của phân thức \(\dfrac{A}{B}\) là \(B \ne 0\).`,
+      themes: [
+        {
+          title: "Ph\xE2n th\u1EE9c \u0111\u1EA1i s\u1ED1",
+          description: "Nh\u1EADn bi\u1EBFt ph\xE2n th\u1EE9c, t\u1EED th\u1EE9c, m\u1EABu th\u1EE9c; hai ph\xE2n th\u1EE9c b\u1EB1ng nhau.",
+          types: [
+            {
+              slug: "tu-thuc-mau-thuc",
+              title: "X\xE1c \u0111\u1ECBnh t\u1EED th\u1EE9c, m\u1EABu th\u1EE9c",
+              levels: [1],
+              knowledge: r3`Phân thức đại số có dạng \(\dfrac{A}{B}\), trong đó \(A\), \(B\) là các đa thức, \(B\) khác đa thức 0; \(A\) là tử thức, \(B\) là mẫu thức.`,
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u nh\u1EADn bi\u1EBFt bi\u1EC3u th\u1EE9c n\xE0o l\xE0 ph\xE2n th\u1EE9c, ch\u1EC9 ra t\u1EED th\u1EE9c v\xE0 m\u1EABu th\u1EE9c.",
+              method: "Vi\u1EBFt bi\u1EC3u th\u1EE9c d\u01B0\u1EDBi d\u1EA1ng th\u01B0\u01A1ng c\u1EE7a hai \u0111a th\u1EE9c; ki\u1EC3m tra m\u1EABu kh\xE1c \u0111a th\u1EE9c 0.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh ph\u1EA7n tr\xEAn v\xE0 ph\u1EA7n d\u01B0\u1EDBi d\u1EA5u g\u1EA1ch ph\xE2n s\u1ED1.
+- **B\u01B0\u1EDBc 2.** Ki\u1EC3m tra c\u1EA3 hai l\xE0 \u0111a th\u1EE9c v\xE0 m\u1EABu kh\xE1c \u0111a th\u1EE9c 0.
+- **B\u01B0\u1EDBc 3.** V\u1EDBi \u0111a th\u1EE9c (kh\xF4ng c\xF3 m\u1EABu), m\u1EABu th\u1EE9c b\u1EB1ng 1.`,
+              mistakes: "- Cho r\u1EB1ng \u0111a th\u1EE9c kh\xF4ng ph\u1EA3i l\xE0 ph\xE2n th\u1EE9c.\n- Ghi thi\u1EBFu d\u1EA5u khi ch\u1EC9 ra t\u1EED th\u1EE9c, m\u1EABu th\u1EE9c.",
+              example: r3`Chỉ ra tử thức, mẫu thức của các phân thức \(\dfrac{x + 1}{x - 2}\); \(\dfrac{5}{2x + y}\); \(3x^2 - 1\).`,
+              solution: r3`\(\dfrac{x + 1}{x - 2}\): tử \(x + 1\), mẫu \(x - 2\). \(\dfrac{5}{2x + y}\): tử \(5\), mẫu \(2x + y\). \(3x^2 - 1 = \dfrac{3x^2 - 1}{1}\): tử \(3x^2 - 1\), mẫu \(1\).`,
+              exercises: [
+                mcq(1, "Bi\u1EC3u th\u1EE9c n\xE0o sau \u0111\xE2y **kh\xF4ng** ph\u1EA3i l\xE0 ph\xE2n th\u1EE9c \u0111\u1EA1i s\u1ED1?", [r3`\(\dfrac{x - 1}{x + 3}\)`, r3`\(x^2 + 2\)`, r3`\(\dfrac{2x}{0}\)`, r3`\(\dfrac{1}{y}\)`], "C", r3`Mẫu thức phải khác đa thức 0, nên \(\dfrac{2x}{0}\) không phải là phân thức.`),
+                tf(1, r3`Cho phân thức \(\dfrac{x^2 - 1}{2x + 4}\). Mỗi khẳng định sau đúng hay sai?`, [
+                  [r3`Tử thức là \(x^2 - 1\).`, true],
+                  [r3`Mẫu thức là \(2x\).`, false],
+                  [r3`Mẫu thức bằng 0 khi \(x = -2\).`, true],
+                  [r3`Đa thức \(x^2 - 1\) cũng là một phân thức.`, true]
+                ], r3`a) Đúng. b) Sai: mẫu thức là \(2x + 4\). c) Đúng: \(2\cdot(-2) + 4 = 0\). d) Đúng: \(x^2 - 1 = \dfrac{x^2 - 1}{1}\).`)
+              ]
+            },
+            {
+              slug: "hai-phan-thuc-bang-nhau",
+              title: "Hai ph\xE2n th\u1EE9c b\u1EB1ng nhau",
+              levels: [1, 2],
+              knowledge: r3`\(\dfrac{A}{B} = \dfrac{C}{D}\) nếu \(A\cdot D = B\cdot C\).`,
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u ki\u1EC3m tra hai ph\xE2n th\u1EE9c c\xF3 b\u1EB1ng nhau kh\xF4ng, ho\u1EB7c t\xECm \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt \u0111\u1EC3 hai ph\xE2n th\u1EE9c b\u1EB1ng nhau.",
+              method: "So s\xE1nh hai t\xEDch ch\xE9o AD v\xE0 BC (nh\xE2n \u0111a th\u1EE9c, thu g\u1ECDn).",
+              steps: `- **B\u01B0\u1EDBc 1.** T\xEDnh t\xEDch ch\xE9o A\xB7D v\xE0 B\xB7C.
+- **B\u01B0\u1EDBc 2.** Thu g\u1ECDn v\xE0 so s\xE1nh.
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn (ho\u1EB7c suy ra \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt).`,
+              mistakes: '- Nh\xE2n "th\u1EB3ng" (A\xB7C v\xE0 B\xB7D) thay v\xEC nh\xE2n ch\xE9o.\n- Sai d\u1EA5u khi khai tri\u1EC3n.',
+              example: r3`Chứng minh \(\dfrac{x - 1}{x^2 - 1} = \dfrac{1}{x + 1}\).`,
+              solution: r3`\((x - 1)(x + 1) = x^2 - 1 = (x^2 - 1)\cdot1\). Hai tích chéo bằng nhau nên hai phân thức bằng nhau.`,
+              exercises: [
+                mcq(1, r3`Phân thức nào bằng phân thức \(\dfrac{x}{x + 2}\)?`, [r3`\(\dfrac{x^2}{x^2 + 2x}\)`, r3`\(\dfrac{x^2}{x^2 + 2}\)`, r3`\(\dfrac{x + 1}{x + 3}\)`, r3`\(\dfrac{2x}{x + 4}\)`], "A", r3`\(x\cdot(x^2 + 2x) = x^3 + 2x^2 = x^2(x + 2)\) nên \(\dfrac{x}{x + 2} = \dfrac{x^2}{x^2 + 2x}\).`),
+                sa(2, r3`Tìm đa thức \(A\) biết \(\dfrac{A}{x - 3} = \dfrac{2x^2 + 6x}{x^2 - 9}\). Đa thức \(A\) có dạng \(ax\). Tìm \(a\).`, ["2"], r3`\(A(x^2 - 9) = (x - 3)(2x^2 + 6x) = 2x(x - 3)(x + 3)\), suy ra \(A = 2x\), \(a = 2\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u0110i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh v\xE0 gi\xE1 tr\u1ECB c\u1EE7a ph\xE2n th\u1EE9c",
+          description: "T\xECm \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh, t\xEDnh gi\xE1 tr\u1ECB, b\xE0i to\xE1n th\u1EF1c t\u1EBF.",
+          types: [
+            {
+              slug: "dieu-kien-xac-dinh-phan-thuc",
+              title: "T\xECm \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh c\u1EE7a ph\xE2n th\u1EE9c",
+              levels: [1, 2, 3],
+              knowledge: r3`Phân thức \(\dfrac{A}{B}\) xác định khi \(B \ne 0\); \(PQ \ne 0\) khi \(P \ne 0\) và \(Q \ne 0\).`,
+              signs: "\u0110\u1EC1 h\u1ECFi \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh, ho\u1EB7c gi\xE1 tr\u1ECB n\xE0o c\u1EE7a bi\u1EBFn l\xE0m ph\xE2n th\u1EE9c kh\xF4ng x\xE1c \u0111\u1ECBnh.",
+              method: "Cho m\u1EABu th\u1EE9c kh\xE1c 0; ph\xE2n t\xEDch m\u1EABu th\xE0nh nh\xE2n t\u1EED r\u1ED3i cho t\u1EEBng nh\xE2n t\u1EED kh\xE1c 0.",
+              steps: r3`- **Bước 1.** Viết điều kiện mẫu thức \(\ne 0\).
+- **Bước 2.** Phân tích mẫu thành nhân tử.
+- **Bước 3.** Cho từng nhân tử khác 0, kết luận.`,
+              mistakes: r3`- Cho tử thức khác 0 thay vì mẫu thức.
+- Viết "\(x \ne 0\) hoặc \(x \ne 4\)" (phải là "và").`,
+              example: r3`Tìm điều kiện xác định của phân thức \(\dfrac{3}{x^2 - 4x}\).`,
+              solution: r3`\(x^2 - 4x = x(x - 4) \ne 0\) khi \(x \ne 0\) và \(x \ne 4\).`,
+              exercises: [
+                mcq(1, r3`Điều kiện xác định của phân thức \(\dfrac{x + 1}{x - 5}\) là`, [r3`\(x \ne 5\)`, r3`\(x \ne -1\)`, r3`\(x \ne 0\)`, r3`\(x = 5\)`], "A", r3`Mẫu thức \(x - 5 \ne 0\) khi \(x \ne 5\).`),
+                sa(2, r3`Phân thức \(\dfrac{2x}{x^2 - 9}\) không xác định tại hai giá trị của \(x\). Tổng hai giá trị đó bằng bao nhiêu?`, ["0"], r3`\(x^2 - 9 = (x - 3)(x + 3) = 0\) khi \(x = 3\) hoặc \(x = -3\). Tổng bằng 0.`),
+                es(3, r3`Tìm điều kiện xác định của phân thức \(\dfrac{x}{x^2 + 1}\). Giải thích.`, r3`\(x^2 \ge 0\) nên \(x^2 + 1 \ge 1 > 0\) với mọi \(x\). Mẫu luôn khác 0, phân thức xác định với mọi \(x\).`)
+              ]
+            },
+            {
+              slug: "gia-tri-phan-thuc",
+              title: "T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a ph\xE2n th\u1EE9c",
+              levels: [2, 3],
+              knowledge: "\u0110i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh; r\xFAt g\u1ECDn ph\xE2n th\u1EE9c tr\u01B0\u1EDBc khi thay s\u1ED1; ph\xE2n th\u1EE9c b\u1EB1ng 0 khi t\u1EED b\u1EB1ng 0 v\xE0 m\u1EABu kh\xE1c 0.",
+              signs: "\u0110\u1EC1 cho gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn v\xE0 y\xEAu c\u1EA7u t\xEDnh gi\xE1 tr\u1ECB ph\xE2n th\u1EE9c, ho\u1EB7c t\xECm x \u0111\u1EC3 ph\xE2n th\u1EE9c b\u1EB1ng m\u1ED9t s\u1ED1 cho tr\u01B0\u1EDBc.",
+              method: "Ki\u1EC3m tra gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn th\u1ECFa \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh, r\u1ED3i thay v\xE0o (n\xEAn r\xFAt g\u1ECDn tr\u01B0\u1EDBc).",
+              steps: `- **B\u01B0\u1EDBc 1.** T\xECm \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh.
+- **B\u01B0\u1EDBc 2.** Ki\u1EC3m tra gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn c\xF3 th\u1ECFa \u0111i\u1EC1u ki\u1EC7n kh\xF4ng.
+- **B\u01B0\u1EDBc 3.** Thay s\u1ED1 v\xE0 t\xEDnh (ho\u1EB7c gi\u1EA3i \u0111\u1EB3ng th\u1EE9c \u0111\u1EC3 t\xECm x, \u0111\u1ED1i chi\u1EBFu \u0111i\u1EC1u ki\u1EC7n).`,
+              mistakes: "- Thay gi\xE1 tr\u1ECB l\xE0m m\u1EABu b\u1EB1ng 0 m\xE0 v\u1EABn t\xEDnh.\n- Khi t\xECm x \u0111\u1EC3 ph\xE2n th\u1EE9c b\u1EB1ng 0, qu\xEAn lo\u1EA1i gi\xE1 tr\u1ECB l\xE0m m\u1EABu b\u1EB1ng 0.",
+              example: r3`Tính giá trị của phân thức \(\dfrac{x^2 - 1}{x + 3}\) tại \(x = 2\) và tại \(x = -3\).`,
+              solution: r3`Điều kiện \(x \ne -3\). Tại \(x = 2\): \(\dfrac{4 - 1}{5} = \dfrac35\). Tại \(x = -3\) phân thức không xác định.`,
+              exercises: [
+                sa(2, r3`Tính giá trị của phân thức \(\dfrac{2x - 1}{x + 1}\) tại \(x = 3\).`, ["5/4", "1,25"], r3`\(\dfrac{2\cdot3 - 1}{3 + 1} = \dfrac{5}{4}\).`),
+                sa(3, r3`Tìm \(x\) để phân thức \(\dfrac{x - 2}{x + 1}\) có giá trị bằng 0.`, ["2"], r3`Điều kiện \(x \ne -1\). Phân thức bằng 0 khi \(x - 2 = 0\), tức là \(x = 2\) (thỏa điều kiện).`)
+              ]
+            },
+            {
+              slug: "bai-toan-thuc-te-phan-thuc",
+              title: "B\xE0i to\xE1n th\u1EF1c t\u1EBF v\u1EC1 ph\xE2n th\u1EE9c",
+              levels: [3],
+              knowledge: "Bi\u1EC3u di\u1EC5n \u0111\u1EA1i l\u01B0\u1EE3ng b\u1EB1ng ph\xE2n th\u1EE9c (th\u1EDDi gian = qu\xE3ng \u0111\u01B0\u1EDDng : v\u1EADn t\u1ED1c, n\u0103ng su\u1EA5t\u2026); t\xEDnh gi\xE1 tr\u1ECB c\u1EE7a ph\xE2n th\u1EE9c.",
+              signs: "\u0110\u1EC1 m\xF4 t\u1EA3 t\xECnh hu\u1ED1ng th\u1EF1c t\u1EBF c\xF3 \u0111\u1EA1i l\u01B0\u1EE3ng l\xE0 th\u01B0\u01A1ng c\u1EE7a hai \u0111\u1EA1i l\u01B0\u1EE3ng ch\u1EE9a bi\u1EBFn.",
+              method: "L\u1EADp ph\xE2n th\u1EE9c bi\u1EC3u th\u1ECB \u0111\u1EA1i l\u01B0\u1EE3ng c\u1EA7n t\xECm, x\xE1c \u0111\u1ECBnh \u0111i\u1EC1u ki\u1EC7n th\u1EF1c t\u1EBF c\u1EE7a bi\u1EBFn, r\u1ED3i t\xEDnh gi\xE1 tr\u1ECB.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh c\xF4ng th\u1EE9c li\xEAn h\u1EC7 (th\u1EDDi gian = qu\xE3ng \u0111\u01B0\u1EDDng : v\u1EADn t\u1ED1c\u2026).
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt ph\xE2n th\u1EE9c theo bi\u1EBFn \u0111\xE3 cho.
+- **B\u01B0\u1EDBc 3.** Thay gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn, t\xEDnh v\xE0 ghi \u0111\u01A1n v\u1ECB.`,
+              mistakes: "- L\u1EADp ng\u01B0\u1EE3c t\u1EED v\xE0 m\u1EABu (v\u1EADn t\u1ED1c : qu\xE3ng \u0111\u01B0\u1EDDng).\n- Qu\xEAn \u0111\u01A1n v\u1ECB.",
+              example: "M\u1ED9t \xF4 t\xF4 \u0111i qu\xE3ng \u0111\u01B0\u1EDDng 120 km v\u1EDBi v\u1EADn t\u1ED1c x (km/h). Vi\u1EBFt ph\xE2n th\u1EE9c bi\u1EC3u th\u1ECB th\u1EDDi gian \xF4 t\xF4 \u0111i h\u1EBFt qu\xE3ng \u0111\u01B0\u1EDDng v\xE0 t\xEDnh th\u1EDDi gian \u0111\xF3 khi x = 48.",
+              solution: r3`Thời gian: \(\dfrac{120}{x}\) (giờ). Khi \(x = 48\): \(\dfrac{120}{48} = 2{,}5\) giờ.`,
+              exercises: [
+                sa(3, r3`Một bể chứa 1 500 lít nước. Một vòi chảy được \(x\) lít mỗi phút nên thời gian vòi chảy đầy bể là \(\dfrac{1500}{x}\) phút. Tính thời gian đó khi \(x = 60\).`, ["25"], r3`\(\dfrac{1500}{60} = 25\) phút.`, "ph\xFAt"),
+                sa(3, r3`Một nhóm bạn góp 600 nghìn đồng mua quà. Nếu có \(x\) bạn góp đều nhau thì mỗi bạn góp \(\dfrac{600}{x}\) nghìn đồng. Nếu có thêm 5 bạn cùng góp thì mỗi bạn góp bao nhiêu khi \(x = 35\)?`, ["15"], r3`Khi có thêm 5 bạn, mỗi bạn góp \(\dfrac{600}{x + 5}\) nghìn đồng. Với \(x = 35\): \(\dfrac{600}{40} = 15\) nghìn đồng.`, "ngh\xECn \u0111\u1ED3ng")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 22 ----------------
+    {
+      slug: "bai-22-tinh-chat-co-ban-cua-phan-thuc-dai-so",
+      difficulty: 3,
+      objectives: `- M\xF4 t\u1EA3 t\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n c\u1EE7a ph\xE2n th\u1EE9c \u0111\u1EA1i s\u1ED1 v\xE0 quy t\u1EAFc \u0111\u1ED5i d\u1EA5u.
+- R\xFAt g\u1ECDn ph\xE2n th\u1EE9c; quy \u0111\u1ED3ng m\u1EABu th\u1EE9c nhi\u1EC1u ph\xE2n th\u1EE9c.`,
+      prerequisites: "- Ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED (B\xE0i 9).\n- Hai ph\xE2n th\u1EE9c b\u1EB1ng nhau (B\xE0i 21).",
+      concepts: "T\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n c\u1EE7a ph\xE2n th\u1EE9c; quy t\u1EAFc \u0111\u1ED5i d\u1EA5u; r\xFAt g\u1ECDn ph\xE2n th\u1EE9c; m\u1EABu th\u1EE9c chung; quy \u0111\u1ED3ng m\u1EABu th\u1EE9c.",
+      formulas: r3`\(\dfrac{A}{B} = \dfrac{A\cdot M}{B\cdot M}\) (\(M\) khác đa thức 0); \(\dfrac{A}{B} = \dfrac{A : N}{B : N}\) (\(N\) là một nhân tử chung); \(\dfrac{A}{B} = \dfrac{-A}{-B}\).`,
+      properties: `- R\xFAt g\u1ECDn: ph\xE2n t\xEDch t\u1EED v\xE0 m\u1EABu th\xE0nh nh\xE2n t\u1EED r\u1ED3i chia c\u1EA3 t\u1EED v\xE0 m\u1EABu cho c\xE1c nh\xE2n t\u1EED chung.
+- M\u1EABu th\u1EE9c chung g\u1ED3m BCNN c\u1EE7a c\xE1c h\u1EC7 s\u1ED1 v\xE0 m\u1ECDi nh\xE2n t\u1EED c\xF3 m\u1EB7t \u1EDF c\xE1c m\u1EABu, m\u1ED7i nh\xE2n t\u1EED l\u1EA5y v\u1EDBi s\u1ED1 m\u0169 l\u1EDBn nh\u1EA5t.`,
+      themes: [
+        {
+          title: "T\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n v\xE0 r\xFAt g\u1ECDn ph\xE2n th\u1EE9c",
+          description: "V\u1EADn d\u1EE5ng t\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n, quy t\u1EAFc \u0111\u1ED5i d\u1EA5u; r\xFAt g\u1ECDn ph\xE2n th\u1EE9c.",
+          types: [
+            {
+              slug: "van-dung-tinh-chat-co-ban",
+              title: "V\u1EADn d\u1EE5ng t\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n c\u1EE7a ph\xE2n th\u1EE9c",
+              levels: [1, 2],
+              knowledge: r3`\(\dfrac{A}{B} = \dfrac{A\cdot M}{B\cdot M}\); \(\dfrac{A}{B} = \dfrac{-A}{-B}\).`,
+              signs: "\u0110i\u1EC1n \u0111a th\u1EE9c v\xE0o ch\u1ED7 tr\u1ED1ng \u0111\u1EC3 hai ph\xE2n th\u1EE9c b\u1EB1ng nhau; \u0111\u1ED5i d\u1EA5u t\u1EED v\xE0 m\u1EABu.",
+              method: "So s\xE1nh hai m\u1EABu (ho\u1EB7c hai t\u1EED) \u0111\u1EC3 t\xECm \u0111a th\u1EE9c M \u0111\xE3 nh\xE2n th\xEAm, r\u1ED3i nh\xE2n ph\u1EA7n c\xF2n l\u1EA1i v\u1EDBi M.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ph\xE2n t\xEDch c\xE1c m\u1EABu (t\u1EED) th\xE0nh nh\xE2n t\u1EED.
+- **B\u01B0\u1EDBc 2.** T\xECm \u0111a th\u1EE9c M \u0111\xE3 nh\xE2n (ho\u1EB7c chia) \u0111\u1EC3 m\u1EABu c\u0169 th\xE0nh m\u1EABu m\u1EDBi.
+- **B\u01B0\u1EDBc 3.** Nh\xE2n (chia) t\u1EED t\u01B0\u01A1ng \u1EE9ng v\u1EDBi M.`,
+              mistakes: "- Ch\u1EC9 nh\xE2n m\u1EABu m\xE0 qu\xEAn nh\xE2n t\u1EED.\n- \u0110\u1ED5i d\u1EA5u t\u1EED m\xE0 kh\xF4ng \u0111\u1ED5i d\u1EA5u m\u1EABu.",
+              example: r3`a) Điền đa thức thích hợp: \(\dfrac{x}{x - 2} = \dfrac{\ldots}{x^2 - 4}\).
+b) Viết \(\dfrac{1 - x}{3 - x}\) thành phân thức có mẫu \(x - 3\).`,
+              solution: r3`a) \(x^2 - 4 = (x - 2)(x + 2)\) nên đa thức cần điền là \(x(x + 2) = x^2 + 2x\).
+b) \(\dfrac{1 - x}{3 - x} = \dfrac{-(1 - x)}{-(3 - x)} = \dfrac{x - 1}{x - 3}\).`,
+              exercises: [
+                mcq(1, r3`\(\dfrac{-2}{1 - x}\) bằng`, [r3`\(\dfrac{2}{x - 1}\)`, r3`\(\dfrac{2}{1 - x}\)`, r3`\(\dfrac{-2}{x - 1}\)`, r3`\(\dfrac{2}{-x - 1}\)`], "A", r3`Đổi dấu cả tử và mẫu: \(\dfrac{-2}{1 - x} = \dfrac{2}{x - 1}\).`),
+                sa(2, r3`Cho \(\dfrac{3}{x + 1} = \dfrac{A}{x^2 - 1}\). Đa thức \(A\) có dạng \(ax + b\). Tính \(a + b\).`, ["0"], r3`\(x^2 - 1 = (x + 1)(x - 1)\) nên \(A = 3(x - 1) = 3x - 3\). Vậy \(a + b = 0\).`)
+              ]
+            },
+            {
+              slug: "rut-gon-phan-thuc",
+              title: "R\xFAt g\u1ECDn ph\xE2n th\u1EE9c",
+              levels: [2, 3],
+              knowledge: "Ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED; t\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n c\u1EE7a ph\xE2n th\u1EE9c.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u r\xFAt g\u1ECDn ph\xE2n th\u1EE9c (th\u01B0\u1EDDng t\u1EED, m\u1EABu c\xF3 d\u1EA1ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c ho\u1EB7c c\xF3 nh\xE2n t\u1EED chung), c\xF3 th\u1EC3 k\xE8m t\xEDnh gi\xE1 tr\u1ECB.",
+              method: "Ph\xE2n t\xEDch t\u1EED v\xE0 m\u1EABu th\xE0nh nh\xE2n t\u1EED, chia c\u1EA3 t\u1EED v\xE0 m\u1EABu cho nh\xE2n t\u1EED chung.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ph\xE2n t\xEDch t\u1EED v\xE0 m\u1EABu th\xE0nh nh\xE2n t\u1EED (\u0111\u1ED5i d\u1EA5u n\u1EBFu c\u1EA7n \u0111\u1EC3 th\u1EA5y nh\xE2n t\u1EED chung).
+- **B\u01B0\u1EDBc 2.** Chia c\u1EA3 t\u1EED v\xE0 m\u1EABu cho c\xE1c nh\xE2n t\u1EED chung.
+- **B\u01B0\u1EDBc 3.** Vi\u1EBFt k\u1EBFt qu\u1EA3; n\u1EBFu t\xEDnh gi\xE1 tr\u1ECB th\xEC thay s\u1ED1 v\xE0o ph\xE2n th\u1EE9c \u0111\xE3 r\xFAt g\u1ECDn (\u0111\u1ED1i chi\u1EBFu \u0111i\u1EC1u ki\u1EC7n).`,
+              mistakes: r3`- "Rút gọn" từng hạng tử: \(\dfrac{x + 2}{x + 5} = \dfrac{2}{5}\) là sai.
+- Rút gọn khi chưa phân tích thành nhân tử.`,
+              example: r3`Rút gọn phân thức \(\dfrac{x^2 - 4}{x^2 + 2x}\).`,
+              solution: r3`\(\dfrac{x^2 - 4}{x^2 + 2x} = \dfrac{(x - 2)(x + 2)}{x(x + 2)} = \dfrac{x - 2}{x}\).`,
+              exercises: [
+                mcq(2, r3`Rút gọn phân thức \(\dfrac{3x^2y}{6xy^2}\) được`, [r3`\(\dfrac{x}{2y}\)`, r3`\(\dfrac{x}{2}\)`, r3`\(\dfrac{2x}{y}\)`, r3`\(\dfrac{x}{2y^2}\)`], "A", r3`Chia cả tử và mẫu cho \(3xy\): \(\dfrac{3x^2y}{6xy^2} = \dfrac{x}{2y}\).`),
+                sa(3, r3`Rút gọn phân thức \(\dfrac{x^2 - 6x + 9}{x^2 - 9}\) rồi tính giá trị của nó tại \(x = 5\).`, ["0,25", "1/4"], r3`\(\dfrac{(x - 3)^2}{(x - 3)(x + 3)} = \dfrac{x - 3}{x + 3}\). Tại \(x = 5\): \(\dfrac{2}{8} = \dfrac14\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "Quy \u0111\u1ED3ng m\u1EABu th\u1EE9c",
+          description: "T\xECm m\u1EABu th\u1EE9c chung; quy \u0111\u1ED3ng; b\xE0i t\u1EADp t\u1ED5ng h\u1EE3p.",
+          types: [
+            {
+              slug: "quy-dong-mau-thuc",
+              title: "Quy \u0111\u1ED3ng m\u1EABu th\u1EE9c nhi\u1EC1u ph\xE2n th\u1EE9c",
+              levels: [2, 3],
+              knowledge: "M\u1EABu th\u1EE9c chung; nh\xE2n t\u1EED ph\u1EE5; t\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n c\u1EE7a ph\xE2n th\u1EE9c.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u quy \u0111\u1ED3ng m\u1EABu th\u1EE9c c\u1EE7a hai hay nhi\u1EC1u ph\xE2n th\u1EE9c, ho\u1EB7c t\xECm m\u1EABu th\u1EE9c chung.",
+              method: "Ph\xE2n t\xEDch c\xE1c m\u1EABu th\xE0nh nh\xE2n t\u1EED, t\xECm m\u1EABu th\u1EE9c chung, t\xECm nh\xE2n t\u1EED ph\u1EE5 c\u1EE7a t\u1EEBng m\u1EABu r\u1ED3i nh\xE2n c\u1EA3 t\u1EED v\xE0 m\u1EABu v\u1EDBi nh\xE2n t\u1EED ph\u1EE5.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ph\xE2n t\xEDch c\xE1c m\u1EABu th\xE0nh nh\xE2n t\u1EED.
+- **B\u01B0\u1EDBc 2.** L\u1EADp m\u1EABu th\u1EE9c chung (BCNN h\u1EC7 s\u1ED1, m\u1ED7i nh\xE2n t\u1EED l\u1EA5y s\u1ED1 m\u0169 l\u1EDBn nh\u1EA5t).
+- **B\u01B0\u1EDBc 3.** T\xECm nh\xE2n t\u1EED ph\u1EE5 (MTC chia cho t\u1EEBng m\u1EABu), nh\xE2n v\xE0o t\u1EED v\xE0 m\u1EABu.`,
+              mistakes: "- L\u1EA5y t\xEDch t\u1EA5t c\u1EA3 c\xE1c m\u1EABu l\xE0m m\u1EABu chung khi c\xE1c m\u1EABu c\xF3 nh\xE2n t\u1EED chung (m\u1EABu chung qu\xE1 ph\u1EE9c t\u1EA1p).\n- Qu\xEAn nh\xE2n t\u1EED ph\u1EE5 v\u1EDBi t\u1EED th\u1EE9c.",
+              example: r3`Quy đồng mẫu thức hai phân thức \(\dfrac{1}{x^2 - 4}\) và \(\dfrac{3}{x^2 + 2x}\).`,
+              solution: r3`\(x^2 - 4 = (x - 2)(x + 2)\); \(x^2 + 2x = x(x + 2)\). Mẫu thức chung: \(x(x - 2)(x + 2)\).
+\(\dfrac{1}{x^2 - 4} = \dfrac{x}{x(x - 2)(x + 2)}\); \(\dfrac{3}{x^2 + 2x} = \dfrac{3(x - 2)}{x(x - 2)(x + 2)}\).`,
+              exercises: [
+                mcq(2, r3`Mẫu thức chung đơn giản nhất của \(\dfrac{1}{2x}\), \(\dfrac{3}{x^2}\), \(\dfrac{5}{4x^3}\) là`, [r3`\(4x^3\)`, r3`\(8x^6\)`, r3`\(2x^3\)`, r3`\(4x^2\)`], "A", r3`BCNN của 2, 1, 4 là 4; lũy thừa lớn nhất của \(x\) là \(x^3\). Mẫu thức chung: \(4x^3\).`),
+                es(3, r3`Quy đồng mẫu thức hai phân thức \(\dfrac{x}{x - 1}\) và \(\dfrac{2}{1 - x^2}\).`, r3`\(\dfrac{2}{1 - x^2} = \dfrac{-2}{x^2 - 1} = \dfrac{-2}{(x - 1)(x + 1)}\). Mẫu thức chung: \((x - 1)(x + 1)\).
+\(\dfrac{x}{x - 1} = \dfrac{x(x + 1)}{(x - 1)(x + 1)}\); \(\dfrac{2}{1 - x^2} = \dfrac{-2}{(x - 1)(x + 1)}\).`)
+              ]
+            },
+            {
+              slug: "rut-gon-tinh-gia-tri-phan-thuc-tong-hop",
+              title: "R\xFAt g\u1ECDn v\xE0 t\xEDnh gi\xE1 tr\u1ECB ph\xE2n th\u1EE9c, t\xECm gi\xE1 tr\u1ECB nguy\xEAn",
+              legacy: ["B\xE0i t\u1EADp t\u1ED5ng h\u1EE3p"],
+              levels: [3, 4],
+              knowledge: "R\xFAt g\u1ECDn ph\xE2n th\u1EE9c; \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh; t\xE1ch ph\xE2n th\u1EE9c th\xE0nh ph\u1EA7n nguy\xEAn v\xE0 ph\u1EA7n ph\xE2n s\u1ED1; \u01B0\u1EDBc c\u1EE7a s\u1ED1 nguy\xEAn.",
+              signs: "\u0110\u1EC1 cho ph\xE2n th\u1EE9c, y\xEAu c\u1EA7u r\xFAt g\u1ECDn r\u1ED3i t\xEDnh gi\xE1 tr\u1ECB, ho\u1EB7c t\xECm gi\xE1 tr\u1ECB nguy\xEAn c\u1EE7a bi\u1EBFn \u0111\u1EC3 ph\xE2n th\u1EE9c c\xF3 gi\xE1 tr\u1ECB nguy\xEAn.",
+              method: "R\xFAt g\u1ECDn; v\u1EDBi b\xE0i t\xECm gi\xE1 tr\u1ECB nguy\xEAn, vi\u1EBFt ph\xE2n th\u1EE9c d\u1EA1ng s\u1ED1 nguy\xEAn c\u1ED9ng m\u1ED9t ph\xE2n s\u1ED1 c\xF3 t\u1EED l\xE0 h\u1EB1ng s\u1ED1 r\u1ED3i x\xE9t \u01B0\u1EDBc.",
+              steps: r3`- **Bước 1.** Tìm điều kiện xác định và rút gọn.
+- **Bước 2.** Viết \(\dfrac{ax + b}{cx + d} = k + \dfrac{m}{cx + d}\) (\(k\), \(m\) là số nguyên).
+- **Bước 3.** Cho mẫu là ước của \(m\), tìm \(x\) và đối chiếu điều kiện xác định.`,
+              mistakes: "- Qu\xEAn lo\u1EA1i c\xE1c gi\xE1 tr\u1ECB kh\xF4ng th\u1ECFa \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh.\n- Ch\u1EC9 x\xE9t \u01B0\u1EDBc d\u01B0\u01A1ng.",
+              example: r3`Cho \(P = \dfrac{x^2 + 2x + 1}{x^2 - 1}\). Rút gọn \(P\) và tìm các giá trị nguyên của \(x\) để \(P\) có giá trị nguyên.`,
+              solution: r3`Điều kiện \(x \ne \pm1\). \(P = \dfrac{(x + 1)^2}{(x - 1)(x + 1)} = \dfrac{x + 1}{x - 1} = 1 + \dfrac{2}{x - 1}\).
+\(P\) nguyên khi \(x - 1 \in \{-2; -1; 1; 2\}\), tức là \(x \in \{-1; 0; 2; 3\}\). Loại \(x = -1\). Vậy \(x \in \{0; 2; 3\}\).`,
+              exercises: [
+                sa(3, r3`Cho \(P = \dfrac{x^2 - 4x + 4}{x^2 - 2x}\). Tính giá trị của \(P\) tại \(x = 4\).`, ["0,5", "1/2"], r3`\(P = \dfrac{(x - 2)^2}{x(x - 2)} = \dfrac{x - 2}{x}\). Tại \(x = 4\): \(P = \dfrac{2}{4} = \dfrac12\).`),
+                sa(4, r3`Tìm các giá trị nguyên của \(x\) để \(P = \dfrac{2x + 3}{x + 1}\) có giá trị nguyên. Tính tổng các giá trị đó.`, ["-2"], r3`\(P = 2 + \dfrac{1}{x + 1}\) (điều kiện \(x \ne -1\)). \(P\) nguyên khi \(x + 1 \in \{-1; 1\}\), tức là \(x \in \{-2; 0\}\). Tổng bằng \(-2\).`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 23 ----------------
+    {
+      slug: "bai-23-phep-cong-va-phep-tru-phan-thuc-dai-so",
+      difficulty: 3,
+      objectives: `- Th\u1EF1c hi\u1EC7n ph\xE9p c\u1ED9ng, ph\xE9p tr\u1EEB hai ph\xE2n th\u1EE9c (c\xF9ng m\u1EABu, kh\xE1c m\u1EABu).
+- V\u1EADn d\u1EE5ng t\xEDnh ch\u1EA5t giao ho\xE1n, k\u1EBFt h\u1EE3p \u0111\u1EC3 c\u1ED9ng, tr\u1EEB nhi\u1EC1u ph\xE2n th\u1EE9c; gi\u1EA3i b\xE0i to\xE1n th\u1EF1c t\u1EBF.`,
+      prerequisites: "- R\xFAt g\u1ECDn ph\xE2n th\u1EE9c, quy \u0111\u1ED3ng m\u1EABu th\u1EE9c (B\xE0i 22).",
+      concepts: "T\u1ED5ng, hi\u1EC7u c\u1EE7a hai ph\xE2n th\u1EE9c; ph\xE2n th\u1EE9c \u0111\u1ED1i.",
+      formulas: r3`\(\dfrac{A}{M} + \dfrac{B}{M} = \dfrac{A + B}{M}\); \(\dfrac{A}{B} - \dfrac{C}{D} = \dfrac{A}{B} + \dfrac{-C}{D}\); phân thức đối của \(\dfrac{A}{B}\) là \(\dfrac{-A}{B}\).`,
+      properties: "- Ph\xE9p c\u1ED9ng ph\xE2n th\u1EE9c c\xF3 t\xEDnh ch\u1EA5t giao ho\xE1n v\xE0 k\u1EBFt h\u1EE3p.\n- K\u1EBFt qu\u1EA3 ph\xE9p t\xEDnh c\u1EA7n \u0111\u01B0\u1EE3c r\xFAt g\u1ECDn (n\u1EBFu c\xF3 th\u1EC3).",
+      themes: [
+        {
+          title: "C\u1ED9ng, tr\u1EEB ph\xE2n th\u1EE9c",
+          description: "C\u1ED9ng, tr\u1EEB hai ph\xE2n th\u1EE9c; c\u1ED9ng, tr\u1EEB nhi\u1EC1u ph\xE2n th\u1EE9c.",
+          types: [
+            {
+              slug: "cong-hai-phan-thuc",
+              title: "C\u1ED9ng hai ph\xE2n th\u1EE9c",
+              levels: [1, 2],
+              knowledge: "C\u1ED9ng hai ph\xE2n th\u1EE9c c\xF9ng m\u1EABu: c\u1ED9ng c\xE1c t\u1EED, gi\u1EEF nguy\xEAn m\u1EABu. Kh\xE1c m\u1EABu: quy \u0111\u1ED3ng r\u1ED3i c\u1ED9ng.",
+              signs: "T\u1ED5ng c\u1EE7a hai ph\xE2n th\u1EE9c (c\xF9ng m\u1EABu, kh\xE1c m\u1EABu, ho\u1EB7c m\u1EABu \u0111\u1ED1i nhau).",
+              method: "N\u1EBFu kh\xE1c m\u1EABu th\xEC quy \u0111\u1ED3ng (\u0111\u1ED5i d\u1EA5u khi hai m\u1EABu \u0111\u1ED1i nhau), c\u1ED9ng c\xE1c t\u1EED, r\xFAt g\u1ECDn.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ph\xE2n t\xEDch c\xE1c m\u1EABu, t\xECm m\u1EABu th\u1EE9c chung (\u0111\u1ED5i d\u1EA5u n\u1EBFu hai m\u1EABu \u0111\u1ED1i nhau).
+- **B\u01B0\u1EDBc 2.** Quy \u0111\u1ED3ng v\xE0 c\u1ED9ng c\xE1c t\u1EED.
+- **B\u01B0\u1EDBc 3.** Thu g\u1ECDn t\u1EED, r\xFAt g\u1ECDn ph\xE2n th\u1EE9c.`,
+              mistakes: r3`- Cộng tử với tử, mẫu với mẫu: \(\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{2}{x + y}\) là sai.
+- Không rút gọn kết quả.`,
+              example: r3`Tính: a) \(\dfrac{x}{x - 1} + \dfrac{1}{1 - x}\); b) \(\dfrac{1}{x} + \dfrac{2}{x + 1}\).`,
+              solution: r3`a) \(\dfrac{x}{x - 1} + \dfrac{1}{1 - x} = \dfrac{x}{x - 1} - \dfrac{1}{x - 1} = \dfrac{x - 1}{x - 1} = 1\).
+b) \(\dfrac{x + 1}{x(x + 1)} + \dfrac{2x}{x(x + 1)} = \dfrac{3x + 1}{x(x + 1)}\).`,
+              exercises: [
+                mcq(1, r3`\(\dfrac{2x}{x + 3} + \dfrac{6}{x + 3}\) bằng`, [r3`\(2\)`, r3`\(\dfrac{8x}{x + 3}\)`, r3`\(1\)`, r3`\(x + 3\)`], "A", r3`\(\dfrac{2x + 6}{x + 3} = \dfrac{2(x + 3)}{x + 3} = 2\).`),
+                sa(2, r3`Cho \(\dfrac{1}{x} + \dfrac{1}{x + 2} = \dfrac{ax + b}{x(x + 2)}\). Tính \(a + b\).`, ["4"], r3`\(\dfrac{(x + 2) + x}{x(x + 2)} = \dfrac{2x + 2}{x(x + 2)}\). Vậy \(a + b = 4\).`)
+              ]
+            },
+            {
+              slug: "tru-hai-phan-thuc",
+              title: "Tr\u1EEB hai ph\xE2n th\u1EE9c",
+              levels: [1, 2],
+              knowledge: r3`\(\dfrac{A}{B} - \dfrac{C}{D} = \dfrac{A}{B} + \dfrac{-C}{D}\).`,
+              signs: "Hi\u1EC7u c\u1EE7a hai ph\xE2n th\u1EE9c.",
+              method: "C\u1ED9ng v\u1EDBi ph\xE2n th\u1EE9c \u0111\u1ED1i (ho\u1EB7c quy \u0111\u1ED3ng r\u1ED3i tr\u1EEB c\xE1c t\u1EED), ch\xFA \xFD \u0111\u1EB7t t\u1EED b\u1ECB tr\u1EEB trong ngo\u1EB7c.",
+              steps: `- **B\u01B0\u1EDBc 1.** Quy \u0111\u1ED3ng m\u1EABu th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** Tr\u1EEB c\xE1c t\u1EED (\u0111\u1EB7t t\u1EED th\u1EE9 hai trong ngo\u1EB7c).
+- **B\u01B0\u1EDBc 3.** Thu g\u1ECDn, r\xFAt g\u1ECDn.`,
+              mistakes: r3`- Quên ngoặc: \(\dfrac{x + 3}{M} - \dfrac{x + 1}{M} = \dfrac{x + 3 - x + 1}{M}\) là sai.`,
+              example: r3`Tính \(\dfrac{x + 3}{x^2 - 1} - \dfrac{1}{x - 1}\).`,
+              solution: r3`\(= \dfrac{x + 3 - (x + 1)}{(x - 1)(x + 1)} = \dfrac{2}{x^2 - 1}\).`,
+              exercises: [
+                mcq(1, r3`\(\dfrac{5x}{x - 2} - \dfrac{10}{x - 2}\) bằng`, [r3`\(5\)`, r3`\(\dfrac{5x + 10}{x - 2}\)`, r3`\(5x\)`, r3`\(\dfrac{5}{x - 2}\)`], "A", r3`\(\dfrac{5x - 10}{x - 2} = \dfrac{5(x - 2)}{x - 2} = 5\).`),
+                sa(2, r3`Cho \(\dfrac{2}{x - 1} - \dfrac{2}{x + 1} = \dfrac{a}{x^2 - 1}\). Tìm \(a\).`, ["4"], r3`\(\dfrac{2(x + 1) - 2(x - 1)}{(x - 1)(x + 1)} = \dfrac{4}{x^2 - 1}\). Vậy \(a = 4\).`)
+              ]
+            },
+            {
+              slug: "cong-tru-nhieu-phan-thuc",
+              title: "C\u1ED9ng, tr\u1EEB nhi\u1EC1u ph\xE2n th\u1EE9c",
+              levels: [2, 3, 4],
+              knowledge: "Quy t\u1EAFc c\u1ED9ng, tr\u1EEB; t\xEDnh ch\u1EA5t giao ho\xE1n, k\u1EBFt h\u1EE3p; t\xE1ch ph\xE2n th\u1EE9c: \\(\\dfrac{1}{n(n + 1)} = \\dfrac{1}{n} - \\dfrac{1}{n + 1}\\).",
+              signs: "Bi\u1EC3u th\u1EE9c g\u1ED3m ba ph\xE2n th\u1EE9c tr\u1EDF l\xEAn n\u1ED1i b\u1EDFi d\u1EA5u c\u1ED9ng, tr\u1EEB; ch\u1EE9ng minh \u0111\u1EB3ng th\u1EE9c ph\xE2n th\u1EE9c.",
+              method: "Quy \u0111\u1ED3ng t\u1EA5t c\u1EA3 v\u1EC1 m\u1ED9t m\u1EABu chung (ho\u1EB7c nh\xF3m h\u1EE3p l\xED, t\xE1ch ph\xE2n th\u1EE9c), c\u1ED9ng tr\u1EEB c\xE1c t\u1EED v\xE0 r\xFAt g\u1ECDn.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ph\xE2n t\xEDch c\xE1c m\u1EABu, nh\xF3m c\xE1c ph\xE2n th\u1EE9c thu\u1EADn ti\u1EC7n.
+- **B\u01B0\u1EDBc 2.** Quy \u0111\u1ED3ng, c\u1ED9ng tr\u1EEB c\xE1c t\u1EED.
+- **B\u01B0\u1EDBc 3.** Thu g\u1ECDn t\u1EED, ph\xE2n t\xEDch th\xE0nh nh\xE2n t\u1EED \u0111\u1EC3 r\xFAt g\u1ECDn.`,
+              mistakes: "- Sai d\u1EA5u khi tr\u1EEB nhi\u1EC1u ph\xE2n th\u1EE9c.\n- D\u1EEBng l\u1EA1i khi k\u1EBFt qu\u1EA3 c\xF2n r\xFAt g\u1ECDn \u0111\u01B0\u1EE3c.",
+              example: r3`Tính \(\dfrac{1}{x - 2} + \dfrac{1}{x + 2} - \dfrac{4}{x^2 - 4}\).`,
+              solution: r3`\(= \dfrac{(x + 2) + (x - 2) - 4}{x^2 - 4} = \dfrac{2x - 4}{(x - 2)(x + 2)} = \dfrac{2}{x + 2}\).`,
+              exercises: [
+                sa(3, r3`Rút gọn biểu thức \(\dfrac{x}{x - 3} - \dfrac{3}{x + 3} - \dfrac{18}{x^2 - 9}\).`, ["1"], r3`\(\dfrac{x(x + 3) - 3(x - 3) - 18}{x^2 - 9} = \dfrac{x^2 - 9}{x^2 - 9} = 1\).`),
+                es(4, r3`Chứng minh \(\dfrac{1}{x(x + 1)} + \dfrac{1}{(x + 1)(x + 2)} + \dfrac{1}{(x + 2)(x + 3)} = \dfrac{3}{x(x + 3)}\).`, r3`Dùng \(\dfrac{1}{n(n + 1)} = \dfrac{1}{n} - \dfrac{1}{n + 1}\): vế trái \(= \dfrac1x - \dfrac{1}{x + 1} + \dfrac{1}{x + 1} - \dfrac{1}{x + 2} + \dfrac{1}{x + 2} - \dfrac{1}{x + 3} = \dfrac1x - \dfrac{1}{x + 3} = \dfrac{3}{x(x + 3)}\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng ph\xE9p c\u1ED9ng, tr\u1EEB ph\xE2n th\u1EE9c",
+          description: "B\xE0i to\xE1n th\u1EF1c t\u1EBF v\u1EC1 n\u0103ng su\u1EA5t, chuy\u1EC3n \u0111\u1ED9ng.",
+          types: [
+            {
+              slug: "thuc-te-cong-tru-phan-thuc",
+              title: "B\xE0i to\xE1n th\u1EF1c t\u1EBF",
+              levels: [3],
+              knowledge: "N\u0103ng su\u1EA5t (ph\u1EA7n c\xF4ng vi\u1EC7c l\xE0m trong m\u1ED9t \u0111\u01A1n v\u1ECB th\u1EDDi gian) = 1 : th\u1EDDi gian ho\xE0n th\xE0nh; th\u1EDDi gian = qu\xE3ng \u0111\u01B0\u1EDDng : v\u1EADn t\u1ED1c.",
+              signs: "B\xE0i to\xE1n l\xE0m chung c\xF4ng vi\u1EC7c, hai v\xF2i n\u01B0\u1EDBc, chuy\u1EC3n \u0111\u1ED9ng nhi\u1EC1u ch\u1EB7ng c\xF3 \u0111\u1EA1i l\u01B0\u1EE3ng d\u1EA1ng ph\xE2n th\u1EE9c.",
+              method: "Bi\u1EC3u di\u1EC5n t\u1EEBng \u0111\u1EA1i l\u01B0\u1EE3ng b\u1EB1ng ph\xE2n th\u1EE9c, l\u1EADp t\u1ED5ng (hi\u1EC7u), r\xFAt g\u1ECDn r\u1ED3i t\xEDnh gi\xE1 tr\u1ECB.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt ph\xE2n th\u1EE9c cho t\u1EEBng ph\u1EA7n (n\u0103ng su\u1EA5t, th\u1EDDi gian\u2026).
+- **B\u01B0\u1EDBc 2.** C\u1ED9ng, tr\u1EEB c\xE1c ph\xE2n th\u1EE9c v\xE0 r\xFAt g\u1ECDn.
+- **B\u01B0\u1EDBc 3.** Thay gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn, tr\u1EA3 l\u1EDDi k\xE8m \u0111\u01A1n v\u1ECB.`,
+              mistakes: "- C\u1ED9ng th\u1EDDi gian ho\xE0n th\xE0nh thay v\xEC c\u1ED9ng n\u0103ng su\u1EA5t khi l\xE0m chung.",
+              example: r3`Hai vòi cùng chảy vào một bể. Vòi thứ nhất chảy riêng đầy bể trong \(x\) giờ, vòi thứ hai trong \(x + 2\) giờ. Viết phân thức biểu thị phần bể hai vòi chảy được trong 1 giờ.`,
+              solution: r3`Trong 1 giờ: vòi một chảy \(\dfrac1x\) bể, vòi hai chảy \(\dfrac{1}{x + 2}\) bể. Cả hai: \(\dfrac1x + \dfrac{1}{x + 2} = \dfrac{2x + 2}{x(x + 2)}\) (bể).`,
+              exercises: [
+                sa(3, r3`Với hai vòi ở ví dụ và \(x = 4\), trong 1 giờ cả hai vòi chảy được bao nhiêu phần bể? (viết dưới dạng phân số)`, ["5/12"], r3`\(\dfrac14 + \dfrac16 = \dfrac{5}{12}\) bể.`),
+                sa(3, r3`Một người đi xe đạp 20 km với vận tốc \(x\) km/h rồi đi bộ 4 km với vận tốc \(x - 10\) km/h. Tổng thời gian là \(\dfrac{20}{x} + \dfrac{4}{x - 10}\) giờ. Tính tổng thời gian đó (theo phút) khi \(x = 15\).`, ["128"], r3`\(\dfrac{20}{15} + \dfrac{4}{5} = \dfrac43 + \dfrac45 = \dfrac{32}{15}\) giờ \(= 128\) phút.`, "ph\xFAt")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 24 ----------------
+    {
+      slug: "bai-24-phep-nhan-va-phep-chia-phan-thuc-dai-so",
+      difficulty: 3,
+      objectives: `- Th\u1EF1c hi\u1EC7n ph\xE9p nh\xE2n, ph\xE9p chia hai ph\xE2n th\u1EE9c.
+- V\u1EADn d\u1EE5ng t\xEDnh ch\u1EA5t c\u1EE7a ph\xE9p nh\xE2n; th\u1EF1c hi\u1EC7n d\xE3y ph\xE9p t\xEDnh; t\xECm th\xE0nh ph\u1EA7n ch\u01B0a bi\u1EBFt; gi\u1EA3i b\xE0i to\xE1n th\u1EF1c t\u1EBF.`,
+      prerequisites: "- R\xFAt g\u1ECDn ph\xE2n th\u1EE9c (B\xE0i 22); c\u1ED9ng, tr\u1EEB ph\xE2n th\u1EE9c (B\xE0i 23).",
+      concepts: "T\xEDch, th\u01B0\u01A1ng c\u1EE7a hai ph\xE2n th\u1EE9c; ph\xE2n th\u1EE9c ngh\u1ECBch \u0111\u1EA3o.",
+      formulas: r3`\(\dfrac{A}{B}\cdot\dfrac{C}{D} = \dfrac{A\cdot C}{B\cdot D}\); \(\dfrac{A}{B} : \dfrac{C}{D} = \dfrac{A}{B}\cdot\dfrac{D}{C}\) (\(\dfrac{C}{D} \ne 0\)).`,
+      properties: r3`- Phép nhân phân thức có tính chất giao hoán, kết hợp, phân phối đối với phép cộng.
+- Phân thức nghịch đảo của \(\dfrac{A}{B}\) (\(A \ne 0\)) là \(\dfrac{B}{A}\).`,
+      themes: [
+        {
+          title: "Nh\xE2n, chia ph\xE2n th\u1EE9c",
+          description: "Quy t\u1EAFc nh\xE2n, chia hai ph\xE2n th\u1EE9c.",
+          types: [
+            {
+              slug: "nhan-phan-thuc",
+              title: "Nh\xE2n ph\xE2n th\u1EE9c",
+              levels: [1, 2],
+              knowledge: "Nh\xE2n c\xE1c t\u1EED v\u1EDBi nhau, c\xE1c m\u1EABu v\u1EDBi nhau; r\xFAt g\u1ECDn.",
+              signs: "T\xEDch c\u1EE7a hai hay nhi\u1EC1u ph\xE2n th\u1EE9c.",
+              method: "Ph\xE2n t\xEDch c\xE1c t\u1EED v\xE0 m\u1EABu th\xE0nh nh\xE2n t\u1EED tr\u01B0\u1EDBc khi nh\xE2n \u0111\u1EC3 r\xFAt g\u1ECDn nhanh.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ph\xE2n t\xEDch t\u1EED v\xE0 m\u1EABu c\u1EE7a c\xE1c ph\xE2n th\u1EE9c th\xE0nh nh\xE2n t\u1EED.
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt t\xEDch c\xE1c t\u1EED tr\xEAn t\xEDch c\xE1c m\u1EABu.
+- **B\u01B0\u1EDBc 3.** R\xFAt g\u1ECDn c\xE1c nh\xE2n t\u1EED chung.`,
+              mistakes: "- Nh\xE2n ra h\u1EBFt r\u1ED3i m\u1EDBi r\xFAt g\u1ECDn, r\u1EA5t d\xE0i v\xE0 d\u1EC5 sai.\n- R\xFAt g\u1ECDn m\u1ED9t h\u1EA1ng t\u1EED c\u1EE7a t\u1ED5ng thay v\xEC m\u1ED9t nh\xE2n t\u1EED.",
+              example: r3`Tính \(\dfrac{x^2 - 4}{3x}\cdot\dfrac{6x^2}{x + 2}\).`,
+              solution: r3`\(= \dfrac{(x - 2)(x + 2)\cdot6x^2}{3x(x + 2)} = 2x(x - 2)\).`,
+              exercises: [
+                mcq(1, r3`\(\dfrac{2x}{y}\cdot\dfrac{y^2}{4x^2}\) bằng`, [r3`\(\dfrac{y}{2x}\)`, r3`\(\dfrac{2y}{x}\)`, r3`\(\dfrac{x}{2y}\)`, r3`\(\dfrac{y^2}{2x}\)`], "A", r3`\(\dfrac{2x\cdot y^2}{y\cdot4x^2} = \dfrac{y}{2x}\).`),
+                sa(2, r3`Rút gọn tích \(\dfrac{x - 1}{x + 2}\cdot\dfrac{x^2 - 4}{x^2 - 1}\) được \(\dfrac{x + a}{x + 1}\). Tìm \(a\).`, ["-2"], r3`\(\dfrac{(x - 1)(x - 2)(x + 2)}{(x + 2)(x - 1)(x + 1)} = \dfrac{x - 2}{x + 1}\). Vậy \(a = -2\).`)
+              ]
+            },
+            {
+              slug: "chia-phan-thuc",
+              title: "Chia ph\xE2n th\u1EE9c",
+              levels: [1, 2],
+              knowledge: r3`\(\dfrac{A}{B} : \dfrac{C}{D} = \dfrac{A}{B}\cdot\dfrac{D}{C}\); phân thức nghịch đảo.`,
+              signs: "Th\u01B0\u01A1ng c\u1EE7a hai ph\xE2n th\u1EE9c; t\xECm ph\xE2n th\u1EE9c ngh\u1ECBch \u0111\u1EA3o.",
+              method: "Nh\xE2n ph\xE2n th\u1EE9c b\u1ECB chia v\u1EDBi ph\xE2n th\u1EE9c ngh\u1ECBch \u0111\u1EA3o c\u1EE7a ph\xE2n th\u1EE9c chia, r\u1ED3i r\xFAt g\u1ECDn.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt ph\xE2n th\u1EE9c ngh\u1ECBch \u0111\u1EA3o c\u1EE7a s\u1ED1 chia.
+- **B\u01B0\u1EDBc 2.** Chuy\u1EC3n ph\xE9p chia th\xE0nh ph\xE9p nh\xE2n.
+- **B\u01B0\u1EDBc 3.** Ph\xE2n t\xEDch th\xE0nh nh\xE2n t\u1EED v\xE0 r\xFAt g\u1ECDn.`,
+              mistakes: "- Ngh\u1ECBch \u0111\u1EA3o nh\u1EA7m ph\xE2n th\u1EE9c b\u1ECB chia.\n- Qu\xEAn \u0111i\u1EC1u ki\u1EC7n ph\xE2n th\u1EE9c chia kh\xE1c 0.",
+              example: r3`Tính \(\dfrac{4x^2}{x - 1} : \dfrac{2x}{x^2 - 1}\).`,
+              solution: r3`\(= \dfrac{4x^2}{x - 1}\cdot\dfrac{(x - 1)(x + 1)}{2x} = 2x(x + 1)\).`,
+              exercises: [
+                mcq(1, r3`Phân thức nghịch đảo của \(\dfrac{x - 3}{x + 1}\) là`, [r3`\(\dfrac{x + 1}{x - 3}\)`, r3`\(\dfrac{3 - x}{x + 1}\)`, r3`\(\dfrac{x + 3}{x - 1}\)`, r3`\(\dfrac{1}{x - 3}\)`], "A", r3`Phân thức nghịch đảo của \(\dfrac{A}{B}\) là \(\dfrac{B}{A}\).`),
+                sa(2, r3`Cho \(\dfrac{x^2 - 9}{x} : \dfrac{x + 3}{2x} = ax + b\). Tính \(a + b\).`, ["-4"], r3`\(\dfrac{(x - 3)(x + 3)}{x}\cdot\dfrac{2x}{x + 3} = 2(x - 3) = 2x - 6\). Vậy \(a + b = -4\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng c\xE1c ph\xE9p t\xEDnh v\u1EDBi ph\xE2n th\u1EE9c",
+          description: "T\xECm th\xE0nh ph\u1EA7n ch\u01B0a bi\u1EBFt, d\xE3y ph\xE9p t\xEDnh, b\xE0i to\xE1n th\u1EF1c t\u1EBF.",
+          types: [
+            {
+              slug: "tim-thanh-phan-chua-biet-phan-thuc",
+              title: "T\xECm th\xE0nh ph\u1EA7n ch\u01B0a bi\u1EBFt",
+              levels: [2, 3],
+              knowledge: "Quan h\u1EC7 gi\u1EEFa c\xE1c th\xE0nh ph\u1EA7n c\u1EE7a ph\xE9p c\u1ED9ng, tr\u1EEB, nh\xE2n, chia.",
+              signs: "\u0110\u1EB3ng th\u1EE9c c\xF3 m\u1ED9t ph\xE2n th\u1EE9c ch\u01B0a bi\u1EBFt trong ph\xE9p c\u1ED9ng, tr\u1EEB, nh\xE2n ho\u1EB7c chia.",
+              method: "Bi\u1EC3u di\u1EC5n ph\xE2n th\u1EE9c ch\u01B0a bi\u1EBFt qua c\xE1c ph\xE2n th\u1EE9c \u0111\xE3 bi\u1EBFt (nh\u01B0 v\u1EDBi s\u1ED1), r\u1ED3i th\u1EF1c hi\u1EC7n ph\xE9p t\xEDnh v\xE0 r\xFAt g\u1ECDn.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh vai tr\xF2 c\u1EE7a ph\xE2n th\u1EE9c ch\u01B0a bi\u1EBFt (th\u1EEBa s\u1ED1, s\u1ED1 b\u1ECB chia, s\u1ED1 h\u1EA1ng\u2026).
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt ph\xE2n th\u1EE9c ch\u01B0a bi\u1EBFt b\u1EB1ng ph\xE9p t\xEDnh ng\u01B0\u1EE3c.
+- **B\u01B0\u1EDBc 3.** T\xEDnh v\xE0 r\xFAt g\u1ECDn.`,
+              mistakes: "- D\xF9ng sai ph\xE9p t\xEDnh ng\u01B0\u1EE3c (bi\u1EBFt t\xEDch m\xE0 l\u1EA1i nh\xE2n).",
+              example: r3`Tìm phân thức \(P\) biết \(P\cdot\dfrac{x + 1}{x} = \dfrac{x^2 - 1}{x^2}\).`,
+              solution: r3`\(P = \dfrac{x^2 - 1}{x^2} : \dfrac{x + 1}{x} = \dfrac{(x - 1)(x + 1)}{x^2}\cdot\dfrac{x}{x + 1} = \dfrac{x - 1}{x}\).`,
+              exercises: [
+                sa(2, r3`Tìm \(Q\) biết \(Q : \dfrac{2}{x} = \dfrac{x}{4}\) (\(x \ne 0\)).`, ["0,5", "1/2"], r3`\(Q = \dfrac{x}{4}\cdot\dfrac{2}{x} = \dfrac12\).`),
+                sa(3, r3`Tìm phân thức \(A\) biết \(\dfrac{x}{x - 1} - A = \dfrac{1}{x - 1}\) (\(x \ne 1\)).`, ["1"], r3`\(A = \dfrac{x}{x - 1} - \dfrac{1}{x - 1} = \dfrac{x - 1}{x - 1} = 1\).`)
+              ]
+            },
+            {
+              slug: "tong-hop-cac-phep-tinh-phan-thuc",
+              title: "B\xE0i t\u1EADp t\u1ED5ng h\u1EE3p c\xE1c ph\xE9p t\xEDnh",
+              levels: [3, 4],
+              knowledge: "Th\u1EE9 t\u1EF1 th\u1EF1c hi\u1EC7n ph\xE9p t\xEDnh; c\u1ED9ng, tr\u1EEB, nh\xE2n, chia ph\xE2n th\u1EE9c; r\xFAt g\u1ECDn.",
+              signs: "Bi\u1EC3u th\u1EE9c c\xF3 ngo\u1EB7c v\xE0 nhi\u1EC1u ph\xE9p t\xEDnh kh\xE1c nhau v\u1EDBi ph\xE2n th\u1EE9c; r\xFAt g\u1ECDn ho\u1EB7c ch\u1EE9ng minh kh\xF4ng ph\u1EE5 thu\u1ED9c bi\u1EBFn.",
+              method: "Th\u1EF1c hi\u1EC7n trong ngo\u1EB7c tr\u01B0\u1EDBc, r\u1ED3i nh\xE2n chia, c\u1ED9ng tr\u1EEB; r\xFAt g\u1ECDn sau m\u1ED7i b\u01B0\u1EDBc.",
+              steps: `- **B\u01B0\u1EDBc 1.** T\xECm \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh c\u1EE7a bi\u1EC3u th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** T\xEDnh trong ngo\u1EB7c (quy \u0111\u1ED3ng, r\xFAt g\u1ECDn).
+- **B\u01B0\u1EDBc 3.** Th\u1EF1c hi\u1EC7n ph\xE9p nh\xE2n, chia c\xF2n l\u1EA1i v\xE0 r\xFAt g\u1ECDn.`,
+              mistakes: "- B\u1ECF qua \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh.\n- Th\u1EF1c hi\u1EC7n sai th\u1EE9 t\u1EF1 ph\xE9p t\xEDnh.",
+              example: r3`Rút gọn \(P = \left(\dfrac{1}{x - 1} - \dfrac{1}{x + 1}\right) : \dfrac{2}{x^2 - 1}\) (\(x \ne \pm1\)).`,
+              solution: r3`\(\dfrac{1}{x - 1} - \dfrac{1}{x + 1} = \dfrac{2}{x^2 - 1}\). Do đó \(P = \dfrac{2}{x^2 - 1}\cdot\dfrac{x^2 - 1}{2} = 1\).`,
+              exercises: [
+                sa(3, r3`Rút gọn biểu thức \(\left(\dfrac{x}{x - 2} - \dfrac{2}{x + 2}\right)\cdot\dfrac{x^2 - 4}{x^2 + 4}\) (\(x \ne \pm2\)).`, ["1"], r3`\(\dfrac{x(x + 2) - 2(x - 2)}{x^2 - 4} = \dfrac{x^2 + 4}{x^2 - 4}\). Nhân với \(\dfrac{x^2 - 4}{x^2 + 4}\) được 1.`),
+                es(4, r3`Chứng minh giá trị của biểu thức \(\left(\dfrac{x + 1}{x - 1} - \dfrac{x - 1}{x + 1}\right) : \dfrac{4x}{x^2 - 1}\) không phụ thuộc vào \(x\) (\(x \ne 0\), \(x \ne \pm1\)).`, r3`\(\dfrac{x + 1}{x - 1} - \dfrac{x - 1}{x + 1} = \dfrac{(x + 1)^2 - (x - 1)^2}{x^2 - 1} = \dfrac{4x}{x^2 - 1}\).
+Do đó biểu thức bằng \(\dfrac{4x}{x^2 - 1}\cdot\dfrac{x^2 - 1}{4x} = 1\), không phụ thuộc vào \(x\).`)
+              ]
+            },
+            {
+              slug: "thuc-te-nhan-chia-phan-thuc",
+              title: "B\xE0i to\xE1n th\u1EF1c t\u1EBF",
+              levels: [3],
+              knowledge: "Di\u1EC7n t\xEDch, n\u0103ng su\u1EA5t, s\u1ED1 chuy\u1EBFn\u2026 bi\u1EC3u di\u1EC5n b\u1EB1ng ph\xE2n th\u1EE9c; nh\xE2n, chia, tr\u1EEB ph\xE2n th\u1EE9c.",
+              signs: "T\xECnh hu\u1ED1ng th\u1EF1c t\u1EBF m\xE0 \u0111\u1EA1i l\u01B0\u1EE3ng c\u1EA7n t\xECm l\xE0 t\xEDch, th\u01B0\u01A1ng ho\u1EB7c hi\u1EC7u c\u1EE7a c\xE1c ph\xE2n th\u1EE9c.",
+              method: "L\u1EADp bi\u1EC3u th\u1EE9c ph\xE2n th\u1EE9c theo c\xF4ng th\u1EE9c th\u1EF1c t\u1EBF, r\xFAt g\u1ECDn r\u1ED3i thay s\u1ED1.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt c\xF4ng th\u1EE9c li\xEAn h\u1EC7 gi\u1EEFa c\xE1c \u0111\u1EA1i l\u01B0\u1EE3ng.
+- **B\u01B0\u1EDBc 2.** L\u1EADp v\xE0 r\xFAt g\u1ECDn ph\xE2n th\u1EE9c.
+- **B\u01B0\u1EDBc 3.** T\xEDnh gi\xE1 tr\u1ECB, tr\u1EA3 l\u1EDDi k\xE8m \u0111\u01A1n v\u1ECB.`,
+              mistakes: "- L\u1EADp ng\u01B0\u1EE3c ph\xE9p chia.\n- Qu\xEAn r\xFAt g\u1ECDn tr\u01B0\u1EDBc khi thay s\u1ED1.",
+              example: r3`Một hình chữ nhật có diện tích \(\dfrac{x^2 - 1}{x}\) (m²) và chiều dài \(\dfrac{x + 1}{x}\) (m). Tính chiều rộng.`,
+              solution: r3`Chiều rộng \(= \dfrac{x^2 - 1}{x} : \dfrac{x + 1}{x} = \dfrac{(x - 1)(x + 1)}{x}\cdot\dfrac{x}{x + 1} = x - 1\) (m).`,
+              exercises: [
+                sa(3, "V\u1EDBi h\xECnh ch\u1EEF nh\u1EADt \u1EDF v\xED d\u1EE5, khi x = 5 th\xEC chi\u1EC1u r\u1ED9ng b\u1EB1ng bao nhi\xEAu m\xE9t?", ["4"], r3`Chiều rộng \(x - 1 = 4\) m.`, "m"),
+                sa(3, r3`Cần chuyển 120 tấn hàng, mỗi xe chở \(x\) tấn nên số chuyến là \(\dfrac{120}{x}\). Nếu mỗi xe chở thêm 2 tấn thì số chuyến giảm bao nhiêu khi \(x = 10\)?`, ["2"], r3`Số chuyến giảm: \(\dfrac{120}{x} - \dfrac{120}{x + 2} = \dfrac{240}{x(x + 2)}\). Với \(x = 10\): \(\dfrac{240}{120} = 2\) chuyến.`, "chuy\u1EBFn")
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+// src/seed/toan8-map/chuong-7.ts
+var CHUONG_7 = {
+  code: "VII",
+  objectives: `- Nh\u1EADn bi\u1EBFt ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n; gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t v\xE0 ph\u01B0\u01A1ng tr\xECnh \u0111\u01B0a \u0111\u01B0\u1EE3c v\u1EC1 d\u1EA1ng ax + b = 0.
+- Gi\u1EA3i quy\u1EBFt b\xE0i to\xE1n th\u1EF1c ti\u1EC5n b\u1EB1ng c\xE1ch l\u1EADp ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n.
+- Nh\u1EADn bi\u1EBFt kh\xE1i ni\u1EC7m h\xE0m s\u1ED1, \u0111\u1ED3 th\u1ECB c\u1EE7a h\xE0m s\u1ED1, m\u1EB7t ph\u1EB3ng t\u1ECDa \u0111\u1ED9, t\u1ECDa \u0111\u1ED9 c\u1EE7a m\u1ED9t \u0111i\u1EC3m.
+- Thi\u1EBFt l\u1EADp b\u1EA3ng gi\xE1 tr\u1ECB v\xE0 v\u1EBD \u0111\u1ED3 th\u1ECB h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t; nh\u1EADn bi\u1EBFt h\u1EC7 s\u1ED1 g\xF3c, hai \u0111\u01B0\u1EDDng th\u1EB3ng song song, c\u1EAFt nhau; v\u1EADn d\u1EE5ng v\xE0o th\u1EF1c ti\u1EC5n.`,
+  keyPoints: r3`- Phương trình \(ax + b = 0\) (\(a \ne 0\)) có nghiệm duy nhất \(x = -\dfrac{b}{a}\); quy tắc chuyển vế, quy tắc nhân với một số khác 0.
+- Ba bước giải bài toán bằng cách lập phương trình: lập phương trình – giải phương trình – trả lời.
+- Hàm số \(y = f(x)\); đồ thị của hàm số là tập hợp các điểm \((x; f(x))\) trên mặt phẳng tọa độ.
+- Đồ thị hàm số \(y = ax + b\) (\(a \ne 0\)) là một đường thẳng cắt trục tung tại điểm có tung độ \(b\).
+- \(a\) là hệ số góc; hai đường thẳng song song, trùng nhau, cắt nhau được nhận biết qua hệ số góc và hệ số \(b\).`,
+  formulas: r3`\[ax + b = 0\ (a \ne 0) \Leftrightarrow x = -\dfrac{b}{a}\]
+\[y = ax + b\ (a \ne 0):\quad \text{giao với } Oy:\ (0; b);\quad \text{giao với } Ox:\ \left(-\dfrac{b}{a}; 0\right)\]
+\[d: y = ax + b,\ d': y = a'x + b':\quad d \parallel d' \Leftrightarrow a = a',\ b \ne b';\qquad d \text{ cắt } d' \Leftrightarrow a \ne a'\]`,
+  verify: { status: "verified", note: "T\xEAn ch\u01B0\u01A1ng, t\xEAn b\xE0i v\xE0 th\u1EE9 t\u1EF1 \u0111\u1ED1i chi\u1EBFu v\u1EDBi m\u1EE5c l\u1EE5c SGK To\xE1n 8 K\u1EBFt n\u1ED1i tri th\u1EE9c t\u1EADp 2 (VietJack) v\xE0 PPCT 2026-2027." },
+  aux: [
+    { slug: "luyen-tap-chung-7a", objectives: "C\u1EE7ng c\u1ED1 ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n, ph\u01B0\u01A1ng tr\xECnh \u0111\u01B0a \u0111\u01B0\u1EE3c v\u1EC1 d\u1EA1ng ax + b = 0 v\xE0 gi\u1EA3i b\xE0i to\xE1n b\u1EB1ng c\xE1ch l\u1EADp ph\u01B0\u01A1ng tr\xECnh." },
+    { slug: "luyen-tap-chung-7b", objectives: "C\u1EE7ng c\u1ED1 h\xE0m s\u1ED1, m\u1EB7t ph\u1EB3ng t\u1ECDa \u0111\u1ED9, \u0111\u1ED3 th\u1ECB h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t v\xE0 h\u1EC7 s\u1ED1 g\xF3c c\u1EE7a \u0111\u01B0\u1EDDng th\u1EB3ng." },
+    { slug: "bai-tap-cuoi-chuong-7", objectives: "\xD4n t\u1EADp to\xE0n Ch\u01B0\u01A1ng VII: ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t, gi\u1EA3i to\xE1n b\u1EB1ng c\xE1ch l\u1EADp ph\u01B0\u01A1ng tr\xECnh, h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t v\xE0 \u0111\u1ED3 th\u1ECB; chu\u1EA9n b\u1ECB ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng." }
+  ],
+  lessons: [
+    // ---------------- Bài 25 ----------------
+    {
+      slug: "bai-25-phuong-trinh-bac-nhat-mot-an",
+      difficulty: 2,
+      objectives: `- Nh\u1EADn bi\u1EBFt ph\u01B0\u01A1ng tr\xECnh m\u1ED9t \u1EA9n v\xE0 nghi\u1EC7m c\u1EE7a ph\u01B0\u01A1ng tr\xECnh.
+- Nh\u1EADn bi\u1EBFt ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n; gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n.
+- Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh \u0111\u01B0a \u0111\u01B0\u1EE3c v\u1EC1 d\u1EA1ng ax + b = 0; v\u1EADn d\u1EE5ng v\xE0o b\xE0i to\xE1n th\u1EF1c t\u1EBF \u0111\u01A1n gi\u1EA3n.`,
+      prerequisites: "- Quy t\u1EAFc chuy\u1EC3n v\u1EBF, t\xECm s\u1ED1 ch\u01B0a bi\u1EBFt (To\xE1n 6, To\xE1n 7).\n- Thu g\u1ECDn \u0111a th\u1EE9c, h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\xE1ng nh\u1EDB (Ch\u01B0\u01A1ng I, II).",
+      concepts: r3`Phương trình một ẩn \(A(x) = B(x)\); vế trái, vế phải; nghiệm của phương trình; giải phương trình; phương trình bậc nhất một ẩn \(ax + b = 0\) (\(a \ne 0\)).`,
+      formulas: r3`\(ax + b = 0\) (\(a \ne 0\)) \(\Leftrightarrow ax = -b \Leftrightarrow x = -\dfrac{b}{a}\).`,
+      properties: `- Quy t\u1EAFc chuy\u1EC3n v\u1EBF: chuy\u1EC3n m\u1ED9t h\u1EA1ng t\u1EED t\u1EEB v\u1EBF n\xE0y sang v\u1EBF kia c\u1EE7a ph\u01B0\u01A1ng tr\xECnh v\xE0 \u0111\u1ED5i d\u1EA5u h\u1EA1ng t\u1EED \u0111\xF3.
+- Quy t\u1EAFc nh\xE2n (chia) v\u1EDBi m\u1ED9t s\u1ED1: nh\xE2n (ho\u1EB7c chia) c\u1EA3 hai v\u1EBF c\u1EE7a ph\u01B0\u01A1ng tr\xECnh v\u1EDBi c\xF9ng m\u1ED9t s\u1ED1 kh\xE1c 0.
+- Ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n lu\xF4n c\xF3 nghi\u1EC7m duy nh\u1EA5t.`,
+      themes: [
+        {
+          title: "Ph\u01B0\u01A1ng tr\xECnh m\u1ED9t \u1EA9n v\xE0 nghi\u1EC7m",
+          description: "Ki\u1EC3m tra nghi\u1EC7m; nh\u1EADn d\u1EA1ng ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n.",
+          types: [
+            {
+              slug: "kiem-tra-nghiem",
+              title: "Ki\u1EC3m tra m\u1ED9t s\u1ED1 c\xF3 l\xE0 nghi\u1EC7m c\u1EE7a ph\u01B0\u01A1ng tr\xECnh",
+              levels: [1, 2],
+              knowledge: r3`Số \(x_0\) là nghiệm của phương trình \(A(x) = B(x)\) nếu giá trị của hai vế tại \(x = x_0\) bằng nhau.`,
+              signs: "\u0110\u1EC1 cho ph\u01B0\u01A1ng tr\xECnh v\xE0 m\u1ED9t hay nhi\u1EC1u s\u1ED1, h\u1ECFi s\u1ED1 n\xE0o l\xE0 nghi\u1EC7m; ho\u1EB7c t\xECm tham s\u1ED1 m bi\u1EBFt ph\u01B0\u01A1ng tr\xECnh nh\u1EADn m\u1ED9t s\u1ED1 cho tr\u01B0\u1EDBc l\xE0m nghi\u1EC7m.",
+              method: "Thay gi\xE1 tr\u1ECB c\u1EE7a \u1EA9n v\xE0o t\u1EEBng v\u1EBF, t\xEDnh r\u1ED3i so s\xE1nh hai k\u1EBFt qu\u1EA3.",
+              steps: r3`- **Bước 1.** Tính giá trị vế trái tại \(x = x_0\).
+- **Bước 2.** Tính giá trị vế phải tại \(x = x_0\).
+- **Bước 3.** So sánh: bằng nhau thì \(x_0\) là nghiệm. Nếu tìm tham số \(m\): cho hai vế bằng nhau rồi giải tìm \(m\).`,
+              mistakes: r3`- Chỉ tính một vế rồi kết luận.
+- Thay số âm không đặt trong ngoặc: \((-2)^2 = 4\) nhưng \(-2^2 = -4\).`,
+              example: r3`Trong các số \(-1\); \(2\); \(3\), số nào là nghiệm của phương trình \(3x - 1 = x + 5\)?`,
+              solution: r3`- \(x = -1\): vế trái \(= -4\), vế phải \(= 4\), không bằng nhau.
+- \(x = 2\): vế trái \(= 5\), vế phải \(= 7\), không bằng nhau.
+- \(x = 3\): vế trái \(= 8\), vế phải \(= 8\). Vậy \(x = 3\) là nghiệm của phương trình.`,
+              exercises: [
+                mcq(1, r3`Số nào sau đây là nghiệm của phương trình \(2x + 3 = 7\)?`, [r3`\(x = 2\)`, r3`\(x = 5\)`, r3`\(x = -2\)`, r3`\(x = 3\)`], "A", r3`\(2\cdot2 + 3 = 7\) nên \(x = 2\) là nghiệm.`),
+                tf(2, r3`Cho phương trình \(x^2 - 1 = 3(x - 1)\). Mỗi khẳng định sau đúng hay sai?`, [
+                  [r3`\(x = 1\) là nghiệm của phương trình.`, true],
+                  [r3`\(x = 2\) là nghiệm của phương trình.`, true],
+                  [r3`\(x = -1\) là nghiệm của phương trình.`, false],
+                  [r3`\(x = 0\) là nghiệm của phương trình.`, false]
+                ], r3`a) \(0 = 0\), đúng. b) \(3 = 3\), đúng. c) Vế trái \(0\), vế phải \(-6\), sai. d) Vế trái \(-1\), vế phải \(-3\), sai.`),
+                sa(2, r3`Tìm \(m\) để phương trình \(2x + m = 3x - 1\) nhận \(x = 4\) làm nghiệm.`, ["3"], r3`Thay \(x = 4\): \(8 + m = 12 - 1 = 11\), suy ra \(m = 3\).`)
+              ]
+            },
+            {
+              slug: "nhan-dang-phuong-trinh-bac-nhat",
+              title: "Nh\u1EADn d\u1EA1ng ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n",
+              levels: [1],
+              knowledge: r3`Phương trình dạng \(ax + b = 0\), với \(a\), \(b\) là hai số đã cho và \(a \ne 0\), gọi là phương trình bậc nhất một ẩn.`,
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u ch\u1EC9 ra ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n trong c\xE1c ph\u01B0\u01A1ng tr\xECnh cho tr\u01B0\u1EDBc, ho\u1EB7c x\xE1c \u0111\u1ECBnh c\xE1c h\u1EC7 s\u1ED1 a, b.",
+              method: r3`Kiểm tra phương trình có một ẩn, ẩn chỉ có bậc 1 và hệ số của ẩn khác 0; viết về dạng \(ax + b = 0\) để đọc \(a\), \(b\).`,
+              steps: `- **B\u01B0\u1EDBc 1.** Ki\u1EC3m tra ph\u01B0\u01A1ng tr\xECnh ch\u1EC9 c\xF3 m\u1ED9t \u1EA9n.
+- **B\u01B0\u1EDBc 2.** Ki\u1EC3m tra \u1EA9n ch\u1EC9 c\xF3 b\u1EADc 1 (kh\xF4ng c\xF3 b\xECnh ph\u01B0\u01A1ng, kh\xF4ng c\xF3 \u1EA9n \u1EDF m\u1EABu).
+- **B\u01B0\u1EDBc 3.** Vi\u1EBFt v\u1EC1 d\u1EA1ng ax + b = 0, \u0111\u1ECDc a, b v\xE0 ki\u1EC3m tra a \u2260 0.`,
+              mistakes: r3`- Coi \(0x + 3 = 0\) là phương trình bậc nhất một ẩn.
+- Lấy sai dấu của \(b\): phương trình \(2x - 5 = 0\) có \(b = -5\).`,
+              example: r3`Trong các phương trình sau, phương trình nào là phương trình bậc nhất một ẩn? Chỉ ra hệ số \(a\), \(b\).
+a) \(2x - 5 = 0\); b) \(x^2 + 1 = 0\); c) \(0x + 3 = 0\); d) \(\dfrac12 - 3y = 0\).`,
+              solution: r3`a) Là phương trình bậc nhất ẩn \(x\): \(a = 2\), \(b = -5\).
+b) Không phải (ẩn có bậc 2).
+c) Không phải (hệ số của ẩn bằng 0).
+d) Là phương trình bậc nhất ẩn \(y\): \(-3y + \dfrac12 = 0\), \(a = -3\), \(b = \dfrac12\).`,
+              exercises: [
+                mcq(1, "Ph\u01B0\u01A1ng tr\xECnh n\xE0o sau \u0111\xE2y l\xE0 ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n?", [r3`\(3x - 7 = 0\)`, r3`\(x^2 - 4 = 0\)`, r3`\(0x + 5 = 0\)`, r3`\(\dfrac{1}{x} + 2 = 0\)`], "A", r3`\(3x - 7 = 0\) có dạng \(ax + b = 0\) với \(a = 3 \ne 0\).`),
+                tf(1, r3`Cho phương trình \(5 - 2x = 0\). Mỗi khẳng định sau đúng hay sai?`, [
+                  ["\u0110\xE2y l\xE0 ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n.", true],
+                  [r3`Hệ số \(a = 2\).`, false],
+                  [r3`Hệ số \(b = 5\).`, true],
+                  ["Ph\u01B0\u01A1ng tr\xECnh kh\xF4ng c\xF3 nghi\u1EC7m.", false]
+                ], r3`Viết lại: \(-2x + 5 = 0\), nên \(a = -2\), \(b = 5\). Phương trình bậc nhất một ẩn luôn có nghiệm duy nhất, ở đây \(x = 2{,}5\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n",
+          description: "Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh ax + b = 0 v\xE0 ph\u01B0\u01A1ng tr\xECnh \u0111\u01B0a \u0111\u01B0\u1EE3c v\u1EC1 d\u1EA1ng \u0111\xF3.",
+          types: [
+            {
+              slug: "giai-phuong-trinh-bac-nhat",
+              title: "Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n",
+              levels: [1, 2],
+              knowledge: r3`\(ax + b = 0\) (\(a \ne 0\)) \(\Leftrightarrow x = -\dfrac{b}{a}\); quy tắc chuyển vế, quy tắc nhân.`,
+              signs: r3`Phương trình có dạng \(ax + b = 0\) hoặc \(ax + b = c\), ẩn chỉ xuất hiện ở một vế.`,
+              method: "Chuy\u1EC3n h\u1EA1ng t\u1EED t\u1EF1 do sang v\u1EBF ph\u1EA3i (\u0111\u1ED5i d\u1EA5u), r\u1ED3i chia hai v\u1EBF cho h\u1EC7 s\u1ED1 c\u1EE7a \u1EA9n.",
+              steps: r3`- **Bước 1.** Chuyển vế: \(ax = -b\).
+- **Bước 2.** Chia hai vế cho \(a\): \(x = -\dfrac{b}{a}\).
+- **Bước 3.** Kết luận nghiệm của phương trình.`,
+              mistakes: r3`- Chuyển vế mà không đổi dấu.
+- Chia sai: \(2x = 6 \Rightarrow x = 6 - 2\) là sai; \(-x = 4 \Rightarrow x = 4\) là sai (phải là \(x = -4\)).`,
+              example: r3`Giải các phương trình: a) \(4x - 12 = 0\); b) \(7 - 3x = 0\).`,
+              solution: r3`a) \(4x = 12\), suy ra \(x = 3\).
+b) \(-3x = -7\), suy ra \(x = \dfrac{7}{3}\).`,
+              exercises: [
+                mcq(1, r3`Nghiệm của phương trình \(5x + 10 = 0\) là`, [r3`\(x = -2\)`, r3`\(x = 2\)`, r3`\(x = -5\)`, r3`\(x = 5\)`], "A", r3`\(5x = -10\), suy ra \(x = -2\).`),
+                sa(1, r3`Giải phương trình \(3x - 2 = 0\) (viết nghiệm dưới dạng phân số).`, ["2/3"], r3`\(3x = 2\), suy ra \(x = \dfrac23\).`),
+                sa(2, r3`Giải phương trình \(\dfrac{2}{3}x - 4 = 0\).`, ["6"], r3`\(\dfrac23x = 4\), suy ra \(x = 4 : \dfrac23 = 6\).`)
+              ]
+            },
+            {
+              slug: "phuong-trinh-dua-ve-ax-b",
+              title: "Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh \u0111\u01B0a \u0111\u01B0\u1EE3c v\u1EC1 d\u1EA1ng ax + b = 0",
+              levels: [2, 3, 4],
+              knowledge: "Quy t\u1EAFc b\u1ECF d\u1EA5u ngo\u1EB7c, quy \u0111\u1ED3ng m\u1EABu s\u1ED1 r\u1ED3i kh\u1EED m\u1EABu; quy t\u1EAFc chuy\u1EC3n v\u1EBF; h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\u1EC3 thu g\u1ECDn.",
+              signs: "Ph\u01B0\u01A1ng tr\xECnh c\xF3 d\u1EA5u ngo\u1EB7c, c\xF3 m\u1EABu l\xE0 c\xE1c s\u1ED1, ho\u1EB7c \u1EA9n \u1EDF c\u1EA3 hai v\u1EBF; sau khi thu g\u1ECDn, c\xE1c h\u1EA1ng t\u1EED b\u1EADc hai (n\u1EBFu c\xF3) tri\u1EC7t ti\xEAu.",
+              method: "B\u1ECF ngo\u1EB7c (ho\u1EB7c quy \u0111\u1ED3ng r\u1ED3i kh\u1EED m\u1EABu), chuy\u1EC3n h\u1EA1ng t\u1EED ch\u1EE9a \u1EA9n sang m\u1ED9t v\u1EBF, h\u1EB1ng s\u1ED1 sang v\u1EBF kia, thu g\u1ECDn v\u1EC1 d\u1EA1ng ax = c.",
+              steps: r3`- **Bước 1.** Bỏ dấu ngoặc; nếu có mẫu thì quy đồng mẫu hai vế rồi khử mẫu.
+- **Bước 2.** Chuyển các hạng tử chứa ẩn sang một vế, các hằng số sang vế kia.
+- **Bước 3.** Thu gọn được \(ax = c\); nếu \(a \ne 0\) thì \(x = \dfrac{c}{a}\). (Nếu thu gọn được \(0x = c\) thì phương trình vô nghiệm khi \(c \ne 0\), nghiệm đúng với mọi \(x\) khi \(c = 0\).)`,
+              mistakes: r3`- Khi khử mẫu, quên nhân hạng tử không có mẫu với mẫu chung.
+- Dấu trừ trước phân số: \(-\dfrac{x - 1}{3}\) khử mẫu thành \(-(x - 1) = -x + 1\), không phải \(-x - 1\).
+- Bỏ ngoặc có dấu trừ phía trước mà không đổi dấu các hạng tử trong ngoặc.`,
+              example: r3`Giải các phương trình: a) \(2(x - 3) + 5 = 3x - 6\); b) \(\dfrac{x - 1}{2} + \dfrac{x + 2}{3} = \dfrac{x + 13}{6}\).`,
+              solution: r3`a) \(2x - 6 + 5 = 3x - 6 \Leftrightarrow 2x - 1 = 3x - 6 \Leftrightarrow -x = -5 \Leftrightarrow x = 5\).
+b) Nhân hai vế với 6: \(3(x - 1) + 2(x + 2) = x + 13 \Leftrightarrow 5x + 1 = x + 13 \Leftrightarrow 4x = 12 \Leftrightarrow x = 3\).`,
+              exercises: [
+                sa(2, r3`Giải phương trình \(3(x - 2) = x + 4\).`, ["5"], r3`\(3x - 6 = x + 4 \Leftrightarrow 2x = 10 \Leftrightarrow x = 5\).`),
+                sa(3, r3`Giải phương trình \(\dfrac{2x + 1}{3} - \dfrac{x - 1}{2} = 1\).`, ["1"], r3`Nhân hai vế với 6: \(2(2x + 1) - 3(x - 1) = 6 \Leftrightarrow 4x + 2 - 3x + 3 = 6 \Leftrightarrow x = 1\).`),
+                mcq(3, r3`Phương trình \(2(x + 1) = 2x + 3\)`, ["v\xF4 nghi\u1EC7m", r3`có nghiệm \(x = 1\)`, r3`có nghiệm \(x = \dfrac12\)`, r3`nghiệm đúng với mọi \(x\)`], "A", r3`\(2x + 2 = 2x + 3 \Leftrightarrow 0x = 1\): không có giá trị nào của \(x\) thỏa mãn, phương trình vô nghiệm.`),
+                sa(4, r3`Giải phương trình \((x + 2)^2 - x(x - 1) = 10\).`, ["1,2", "6/5"], r3`\(x^2 + 4x + 4 - x^2 + x = 10 \Leftrightarrow 5x + 4 = 10 \Leftrightarrow x = \dfrac65 = 1{,}2\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t",
+          description: "T\xECm gi\xE1 tr\u1ECB c\u1EE7a \u1EA9n th\u1ECFa m\xE3n \u0111i\u1EC1u ki\u1EC7n; b\xE0i to\xE1n th\u1EF1c t\u1EBF \u0111\u01A1n gi\u1EA3n.",
+          types: [
+            {
+              slug: "tim-x-de-bieu-thuc-nhan-gia-tri",
+              title: "T\xECm gi\xE1 tr\u1ECB c\u1EE7a \u1EA9n \u0111\u1EC3 bi\u1EC3u th\u1EE9c nh\u1EADn gi\xE1 tr\u1ECB cho tr\u01B0\u1EDBc",
+              levels: [2, 3],
+              knowledge: 'L\u1EADp ph\u01B0\u01A1ng tr\xECnh t\u1EEB \u0111i\u1EC1u ki\u1EC7n "bi\u1EC3u th\u1EE9c A c\xF3 gi\xE1 tr\u1ECB b\u1EB1ng k" ho\u1EB7c "hai bi\u1EC3u th\u1EE9c c\xF3 gi\xE1 tr\u1ECB b\u1EB1ng nhau, h\u01A1n k\xE9m nhau".',
+              signs: '\u0110\u1EC1 h\u1ECFi "t\xECm x \u0111\u1EC3 gi\xE1 tr\u1ECB c\u1EE7a bi\u1EC3u th\u1EE9c \u2026 b\u1EB1ng \u2026", "\u0111\u1EC3 hai bi\u1EC3u th\u1EE9c c\xF3 gi\xE1 tr\u1ECB b\u1EB1ng nhau", "bi\u1EC3u th\u1EE9c n\xE0y l\u1EDBn h\u01A1n bi\u1EC3u th\u1EE9c kia \u2026 \u0111\u01A1n v\u1ECB".',
+              method: "Vi\u1EBFt ph\u01B0\u01A1ng tr\xECnh bi\u1EC3u th\u1ECB \u0111i\u1EC1u ki\u1EC7n c\u1EE7a \u0111\u1EC1 r\u1ED3i gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh \u0111\xF3.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt ph\u01B0\u01A1ng tr\xECnh theo y\xEAu c\u1EA7u (A = k, A = B ho\u1EB7c A \u2212 B = k).
+- **B\u01B0\u1EDBc 2.** Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh.
+- **B\u01B0\u1EDBc 3.** Tr\u1EA3 l\u1EDDi.`,
+              mistakes: '- "A l\u1EDBn h\u01A1n B l\xE0 4 \u0111\u01A1n v\u1ECB" nh\u01B0ng l\u1EA1i vi\u1EBFt B \u2212 A = 4.',
+              example: r3`Tìm \(x\) để giá trị của biểu thức \(A = 3x - 5\) lớn hơn giá trị của biểu thức \(B = x + 1\) là 4 đơn vị.`,
+              solution: r3`\(A - B = 4 \Leftrightarrow (3x - 5) - (x + 1) = 4 \Leftrightarrow 2x - 6 = 4 \Leftrightarrow x = 5\). (Khi đó \(A = 10\), \(B = 6\).)`,
+              exercises: [
+                sa(2, r3`Tìm \(x\) để biểu thức \(A = 4x - 3\) có giá trị bằng 9.`, ["3"], r3`\(4x - 3 = 9 \Leftrightarrow 4x = 12 \Leftrightarrow x = 3\).`),
+                sa(3, r3`Tìm \(x\) để hai biểu thức \(\dfrac{x + 3}{2}\) và \(\dfrac{2x - 1}{3}\) có giá trị bằng nhau.`, ["11"], r3`\(3(x + 3) = 2(2x - 1) \Leftrightarrow 3x + 9 = 4x - 2 \Leftrightarrow x = 11\). Khi đó hai biểu thức cùng bằng 7.`)
+              ]
+            },
+            {
+              slug: "thuc-te-dan-toi-phuong-trinh",
+              title: "B\xE0i to\xE1n th\u1EF1c t\u1EBF d\u1EABn t\u1EDBi ph\u01B0\u01A1ng tr\xECnh",
+              levels: [3],
+              knowledge: "Bi\u1EC3u di\u1EC5n \u0111\u1EA1i l\u01B0\u1EE3ng ch\u01B0a bi\u1EBFt b\u1EB1ng \u1EA9n; l\u1EADp ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t t\u1EEB quan h\u1EC7 trong \u0111\u1EC1 (gi\xE1 ti\u1EC1n, c\xF4ng th\u1EE9c v\u1EADt l\xED\u2026).",
+              signs: "T\xECnh hu\u1ED1ng th\u1EF1c t\u1EBF ng\u1EAFn m\xE0 \u0111\u1EA1i l\u01B0\u1EE3ng c\u1EA7n t\xECm th\u1ECFa m\xE3n m\u1ED9t \u0111\u1EB3ng th\u1EE9c c\xF3 s\u1EB5n ho\u1EB7c d\u1EC5 l\u1EADp (t\u1ED5ng ti\u1EC1n, c\xF4ng th\u1EE9c \u0111\u1ED5i \u0111\u01A1n v\u1ECB\u2026).",
+              method: "Vi\u1EBFt bi\u1EC3u th\u1EE9c c\u1EE7a c\xE1c \u0111\u1EA1i l\u01B0\u1EE3ng theo \u1EA9n, l\u1EADp ph\u01B0\u01A1ng tr\xECnh theo m\u1ED1i li\xEAn h\u1EC7, gi\u1EA3i v\xE0 \u0111\u1ED1i chi\u1EBFu th\u1EF1c t\u1EBF.",
+              steps: `- **B\u01B0\u1EDBc 1.** G\u1ECDi \u1EA9n, \u0111\u1EB7t \u0111i\u1EC1u ki\u1EC7n cho \u1EA9n.
+- **B\u01B0\u1EDBc 2.** L\u1EADp ph\u01B0\u01A1ng tr\xECnh.
+- **B\u01B0\u1EDBc 3.** Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh, \u0111\u1ED1i chi\u1EBFu \u0111i\u1EC1u ki\u1EC7n v\xE0 tr\u1EA3 l\u1EDDi k\xE8m \u0111\u01A1n v\u1ECB.`,
+              mistakes: "- Qu\xEAn \u0111\u01A1n v\u1ECB.\n- Kh\xF4ng \u0111\u1ED1i chi\u1EBFu \u0111i\u1EC1u ki\u1EC7n th\u1EF1c t\u1EBF (s\u1ED1 ng\u01B0\u1EDDi, s\u1ED1 s\u1EA3n ph\u1EA9m ph\u1EA3i l\xE0 s\u1ED1 t\u1EF1 nhi\xEAn\u2026).",
+              example: "Gi\xE1 v\xE9 v\xE0o c\u1ED5ng m\u1ED9t khu vui ch\u01A1i l\xE0 50 ngh\xECn \u0111\u1ED3ng/ng\u01B0\u1EDDi, m\u1ED7i l\u01B0\u1EE3t ch\u01A1i tr\xF2 ch\u01A1i gi\xE1 x ngh\xECn \u0111\u1ED3ng. B\u1EA1n An v\xE0o c\u1ED5ng v\xE0 ch\u01A1i 4 l\u01B0\u1EE3t, h\u1EBFt t\u1EA5t c\u1EA3 130 ngh\xECn \u0111\u1ED3ng. T\xECm x.",
+              solution: r3`Ta có phương trình \(50 + 4x = 130 \Leftrightarrow 4x = 80 \Leftrightarrow x = 20\). Mỗi lượt chơi giá 20 nghìn đồng.`,
+              exercises: [
+                sa(3, "M\u1ED9t h\xE3ng taxi t\xEDnh 15 ngh\xECn \u0111\u1ED3ng cho km \u0111\u1EA7u ti\xEAn v\xE0 12 ngh\xECn \u0111\u1ED3ng cho m\u1ED7i km ti\u1EBFp theo. M\u1ED9t h\xE0nh kh\xE1ch tr\u1EA3 111 ngh\xECn \u0111\u1ED3ng. H\u1ECFi h\xE0nh kh\xE1ch \u0111\xE3 \u0111i bao nhi\xEAu km?", ["9"], r3`Gọi quãng đường là \(x\) km (\(x > 1\)). \(15 + 12(x - 1) = 111 \Leftrightarrow 12(x - 1) = 96 \Leftrightarrow x = 9\).`, "km"),
+                sa(3, r3`Nhiệt độ \(F\) (độ F) và nhiệt độ \(C\) (độ C) liên hệ theo công thức \(F = 1{,}8C + 32\). Ở bao nhiêu độ C thì nhiệt độ tính theo độ F bằng 77?`, ["25"], r3`\(1{,}8C + 32 = 77 \Leftrightarrow 1{,}8C = 45 \Leftrightarrow C = 25\).`, "\xB0C")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 26 ----------------
+    {
+      slug: "bai-26-giai-bai-toan-bang-cach-lap-phuong-trinh",
+      difficulty: 3,
+      objectives: `- N\u1EAFm v\u1EEFng c\xE1c b\u01B0\u1EDBc gi\u1EA3i b\xE0i to\xE1n b\u1EB1ng c\xE1ch l\u1EADp ph\u01B0\u01A1ng tr\xECnh.
+- Gi\u1EA3i c\xE1c b\xE0i to\xE1n th\u1EF1c ti\u1EC5n v\u1EC1 chuy\u1EC3n \u0111\u1ED9ng, n\u0103ng su\u1EA5t, t\u1EC9 s\u1ED1 ph\u1EA7n tr\u0103m, h\xECnh h\u1ECDc, quan h\u1EC7 gi\u1EEFa c\xE1c s\u1ED1 b\u1EB1ng ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n.`,
+      prerequisites: "- Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n (B\xE0i 25).\n- C\xF4ng th\u1EE9c qu\xE3ng \u0111\u01B0\u1EDDng, chu vi, di\u1EC7n t\xEDch; t\u1EC9 s\u1ED1 ph\u1EA7n tr\u0103m (To\xE1n 6, To\xE1n 7).",
+      concepts: "Ch\u1ECDn \u1EA9n v\xE0 \u0111i\u1EC1u ki\u1EC7n c\u1EE7a \u1EA9n; bi\u1EC3u di\u1EC5n \u0111\u1EA1i l\u01B0\u1EE3ng ch\u01B0a bi\u1EBFt theo \u1EA9n; l\u1EADp ph\u01B0\u01A1ng tr\xECnh; \u0111\u1ED1i chi\u1EBFu nghi\u1EC7m v\u1EDBi \u0111i\u1EC1u ki\u1EC7n.",
+      formulas: r3`\(s = v\cdot t\); khối lượng công việc \(=\) năng suất \(\times\) thời gian; \(a\%\) của \(A\) là \(\dfrac{A\cdot a}{100}\); hình chữ nhật: \(P = 2(a + b)\), \(S = a\cdot b\).`,
+      properties: `- **B\u01B0\u1EDBc 1. L\u1EADp ph\u01B0\u01A1ng tr\xECnh:** ch\u1ECDn \u1EA9n v\xE0 \u0111\u1EB7t \u0111i\u1EC1u ki\u1EC7n th\xEDch h\u1EE3p cho \u1EA9n; bi\u1EC3u di\u1EC5n c\xE1c \u0111\u1EA1i l\u01B0\u1EE3ng ch\u01B0a bi\u1EBFt theo \u1EA9n v\xE0 c\xE1c \u0111\u1EA1i l\u01B0\u1EE3ng \u0111\xE3 bi\u1EBFt; l\u1EADp ph\u01B0\u01A1ng tr\xECnh bi\u1EC3u th\u1ECB m\u1ED1i quan h\u1EC7 gi\u1EEFa c\xE1c \u0111\u1EA1i l\u01B0\u1EE3ng.
+- **B\u01B0\u1EDBc 2.** Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh.
+- **B\u01B0\u1EDBc 3. Tr\u1EA3 l\u1EDDi:** ki\u1EC3m tra nghi\u1EC7m t\xECm \u0111\u01B0\u1EE3c c\xF3 th\u1ECFa m\xE3n \u0111i\u1EC1u ki\u1EC7n c\u1EE7a \u1EA9n kh\xF4ng r\u1ED3i k\u1EBFt lu\u1EADn.`,
+      themes: [
+        {
+          title: "B\xE0i to\xE1n chuy\u1EC3n \u0111\u1ED9ng",
+          description: "Qu\xE3ng \u0111\u01B0\u1EDDng, v\u1EADn t\u1ED1c, th\u1EDDi gian; chuy\u1EC3n \u0111\u1ED9ng tr\xEAn d\xF2ng n\u01B0\u1EDBc.",
+          types: [
+            {
+              slug: "bai-toan-chuyen-dong",
+              title: "B\xE0i to\xE1n chuy\u1EC3n \u0111\u1ED9ng",
+              levels: [2, 3, 4],
+              knowledge: r3`\(s = v\cdot t\); vận tốc xuôi dòng \(=\) vận tốc riêng \(+\) vận tốc dòng nước; vận tốc ngược dòng \(=\) vận tốc riêng \(-\) vận tốc dòng nước.`,
+              signs: "\u0110\u1EC1 c\xF3 qu\xE3ng \u0111\u01B0\u1EDDng, v\u1EADn t\u1ED1c, th\u1EDDi gian c\u1EE7a m\u1ED9t hay hai v\u1EADt chuy\u1EC3n \u0111\u1ED9ng (\u0111i \u2013 v\u1EC1, \u0111u\u1ED5i k\u1ECBp, g\u1EB7p nhau, xu\xF4i \u2013 ng\u01B0\u1EE3c d\xF2ng).",
+              method: "L\u1EADp b\u1EA3ng v\u1EADn t\u1ED1c \u2013 th\u1EDDi gian \u2013 qu\xE3ng \u0111\u01B0\u1EDDng cho t\u1EEBng chuy\u1EC3n \u0111\u1ED9ng; ch\u1ECDn m\u1ED9t \u0111\u1EA1i l\u01B0\u1EE3ng l\xE0m \u1EA9n, bi\u1EC3u di\u1EC5n c\xE1c \u0111\u1EA1i l\u01B0\u1EE3ng c\xF2n l\u1EA1i, l\u1EADp ph\u01B0\u01A1ng tr\xECnh t\u1EEB quan h\u1EC7 ch\u01B0a d\xF9ng.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ch\u1ECDn \u1EA9n (th\u01B0\u1EDDng l\xE0 qu\xE3ng \u0111\u01B0\u1EDDng, v\u1EADn t\u1ED1c ho\u1EB7c th\u1EDDi gian), \u0111\u1EB7t \u0111i\u1EC1u ki\u1EC7n; \u0111\u1ED5i \u0111\u01A1n v\u1ECB th\u1ED1ng nh\u1EA5t (ph\xFAt \u2192 gi\u1EDD).
+- **B\u01B0\u1EDBc 2.** L\u1EADp b\u1EA3ng v \u2013 t \u2013 s, l\u1EADp ph\u01B0\u01A1ng tr\xECnh.
+- **B\u01B0\u1EDBc 3.** Gi\u1EA3i, \u0111\u1ED1i chi\u1EBFu \u0111i\u1EC1u ki\u1EC7n, tr\u1EA3 l\u1EDDi.`,
+              mistakes: "- Kh\xF4ng \u0111\u1ED5i ph\xFAt ra gi\u1EDD.\n- Nh\u1EA7m v\u1EADn t\u1ED1c xu\xF4i d\xF2ng v\xE0 ng\u01B0\u1EE3c d\xF2ng.\n- Qu\xEAn \u0111i\u1EC1u ki\u1EC7n v\u1EADn t\u1ED1c ng\u01B0\u1EE3c d\xF2ng ph\u1EA3i d\u01B0\u01A1ng.",
+              example: "M\u1ED9t \xF4 t\xF4 \u0111i t\u1EEB A \u0111\u1EBFn B v\u1EDBi v\u1EADn t\u1ED1c 50 km/h, l\xFAc v\u1EC1 \xF4 t\xF4 \u0111i v\u1EDBi v\u1EADn t\u1ED1c 40 km/h n\xEAn th\u1EDDi gian v\u1EC1 nhi\u1EC1u h\u01A1n th\u1EDDi gian \u0111i 30 ph\xFAt. T\xEDnh qu\xE3ng \u0111\u01B0\u1EDDng AB.",
+              solution: r3`Gọi quãng đường AB là \(x\) (km), \(x > 0\). Thời gian đi \(\dfrac{x}{50}\) giờ, thời gian về \(\dfrac{x}{40}\) giờ; 30 phút \(= \dfrac12\) giờ.
+Ta có \(\dfrac{x}{40} - \dfrac{x}{50} = \dfrac12 \Leftrightarrow 5x - 4x = 100 \Leftrightarrow x = 100\) (thỏa mãn). Quãng đường AB dài 100 km.`,
+              exercises: [
+                mcq(2, r3`Một người đi xe đạp với vận tốc \(x\) (km/h) trong 2 giờ 30 phút. Quãng đường người đó đi được (km) là`, [r3`\(2{,}5x\)`, r3`\(2{,}3x\)`, r3`\(\dfrac{x}{2{,}5}\)`, r3`\(230x\)`], "A", r3`2 giờ 30 phút \(= 2{,}5\) giờ nên quãng đường là \(2{,}5x\) km.`),
+                sa(3, "L\xFAc 7 gi\u1EDD, m\u1ED9t xe m\xE1y \u0111i t\u1EEB A \u0111\u1EBFn B v\u1EDBi v\u1EADn t\u1ED1c 40 km/h. L\xFAc 8 gi\u1EDD, m\u1ED9t \xF4 t\xF4 c\u0169ng \u0111i t\u1EEB A \u0111\u1EBFn B v\u1EDBi v\u1EADn t\u1ED1c 60 km/h. H\u1ECFi \xF4 t\xF4 \u0111u\u1ED5i k\u1ECBp xe m\xE1y l\xFAc m\u1EA5y gi\u1EDD?", ["10"], r3`Gọi thời gian ô tô đi đến lúc đuổi kịp là \(t\) giờ (\(t > 0\)). Khi đó xe máy đã đi \(t + 1\) giờ. \(60t = 40(t + 1) \Leftrightarrow 20t = 40 \Leftrightarrow t = 2\). Ô tô đuổi kịp xe máy lúc \(8 + 2 = 10\) giờ.`, "gi\u1EDD"),
+                sa(3, "M\u1ED9t ca n\xF4 xu\xF4i d\xF2ng t\u1EEB A \u0111\u1EBFn B h\u1EBFt 4 gi\u1EDD v\xE0 ng\u01B0\u1EE3c d\xF2ng t\u1EEB B v\u1EC1 A h\u1EBFt 5 gi\u1EDD. V\u1EADn t\u1ED1c d\xF2ng n\u01B0\u1EDBc l\xE0 2 km/h. T\xEDnh qu\xE3ng \u0111\u01B0\u1EDDng AB.", ["80"], r3`Gọi vận tốc riêng của ca nô là \(x\) (km/h), \(x > 2\). \(4(x + 2) = 5(x - 2) \Leftrightarrow x = 18\). Quãng đường AB: \(4\cdot(18 + 2) = 80\) km.`, "km"),
+                es(4, "M\u1ED9t ng\u01B0\u1EDDi d\u1EF1 \u0111\u1ECBnh \u0111i xe m\xE1y t\u1EEB A \u0111\u1EBFn B v\u1EDBi v\u1EADn t\u1ED1c 36 km/h. Sau khi \u0111i \u0111\u01B0\u1EE3c 1 gi\u1EDD, ng\u01B0\u1EDDi \u0111\xF3 d\u1EEBng l\u1EA1i ngh\u1EC9 15 ph\xFAt, sau \u0111\xF3 t\u0103ng v\u1EADn t\u1ED1c th\xEAm 9 km/h n\xEAn \u0111\u1EBFn B \u0111\xFAng th\u1EDDi gian d\u1EF1 \u0111\u1ECBnh. T\xEDnh qu\xE3ng \u0111\u01B0\u1EDDng AB.", r3`Gọi quãng đường AB là \(x\) (km), \(x > 36\). Thời gian dự định: \(\dfrac{x}{36}\) giờ.
+Thực tế: đi 1 giờ được 36 km, nghỉ \(\dfrac14\) giờ, quãng đường còn lại \(x - 36\) km đi với vận tốc 45 km/h hết \(\dfrac{x - 36}{45}\) giờ.
+Phương trình: \(1 + \dfrac14 + \dfrac{x - 36}{45} = \dfrac{x}{36}\). Nhân hai vế với 180: \(180 + 45 + 4(x - 36) = 5x \Leftrightarrow x = 81\) (thỏa mãn).
+Vậy quãng đường AB dài 81 km.`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "B\xE0i to\xE1n n\u0103ng su\u1EA5t v\xE0 t\u1EC9 s\u1ED1 ph\u1EA7n tr\u0103m",
+          description: "K\u1EBF ho\u1EA1ch \u2013 th\u1EF1c t\u1EBF, l\xE0m v\u01B0\u1EE3t m\u1EE9c; t\u0103ng, gi\u1EA3m theo ph\u1EA7n tr\u0103m.",
+          types: [
+            {
+              slug: "bai-toan-nang-suat",
+              title: "B\xE0i to\xE1n n\u0103ng su\u1EA5t",
+              levels: [3],
+              knowledge: r3`Khối lượng công việc \(=\) năng suất \(\times\) thời gian; thời gian \(=\) khối lượng công việc \(:\) năng suất.`,
+              signs: "\u0110\u1EC1 n\xF3i v\u1EC1 s\u1ED1 s\u1EA3n ph\u1EA9m l\xE0m \u0111\u01B0\u1EE3c m\u1ED7i ng\xE0y, k\u1EBF ho\u1EA1ch v\xE0 th\u1EF1c t\u1EBF, l\xE0m v\u01B0\u1EE3t m\u1EE9c, ho\xE0n th\xE0nh s\u1EDBm ho\u1EB7c mu\u1ED9n.",
+              method: "L\u1EADp b\u1EA3ng n\u0103ng su\u1EA5t \u2013 th\u1EDDi gian \u2013 kh\u1ED1i l\u01B0\u1EE3ng c\xF4ng vi\u1EC7c cho k\u1EBF ho\u1EA1ch v\xE0 th\u1EF1c t\u1EBF; ch\u1ECDn \u1EA9n, l\u1EADp ph\u01B0\u01A1ng tr\xECnh.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ch\u1ECDn \u1EA9n (s\u1ED1 s\u1EA3n ph\u1EA9m theo k\u1EBF ho\u1EA1ch, s\u1ED1 ng\xE0y\u2026), \u0111\u1EB7t \u0111i\u1EC1u ki\u1EC7n.
+- **B\u01B0\u1EDBc 2.** Bi\u1EC3u di\u1EC5n th\u1EDDi gian (ho\u1EB7c kh\u1ED1i l\u01B0\u1EE3ng) theo k\u1EBF ho\u1EA1ch v\xE0 th\u1EF1c t\u1EBF; l\u1EADp ph\u01B0\u01A1ng tr\xECnh.
+- **B\u01B0\u1EDBc 3.** Gi\u1EA3i, \u0111\u1ED1i chi\u1EBFu \u0111i\u1EC1u ki\u1EC7n, tr\u1EA3 l\u1EDDi.`,
+              mistakes: "- Nh\u1EA7m n\u0103ng su\u1EA5t v\u1EDBi kh\u1ED1i l\u01B0\u1EE3ng c\xF4ng vi\u1EC7c.\n- Qu\xEAn \u0111i\u1EC1u ki\u1EC7n s\u1ED1 ng\xE0y, s\u1ED1 s\u1EA3n ph\u1EA9m l\xE0 s\u1ED1 nguy\xEAn d\u01B0\u01A1ng.",
+              example: "Theo k\u1EBF ho\u1EA1ch, m\u1ED9t t\u1ED5 s\u1EA3n xu\u1EA5t m\u1ED7i ng\xE0y l\xE0m 50 s\u1EA3n ph\u1EA9m. Th\u1EF1c t\u1EBF m\u1ED7i ng\xE0y t\u1ED5 l\xE0m \u0111\u01B0\u1EE3c 57 s\u1EA3n ph\u1EA9m n\xEAn \u0111\xE3 ho\xE0n th\xE0nh s\u1EDBm h\u01A1n k\u1EBF ho\u1EA1ch 1 ng\xE0y v\xE0 c\xF2n l\xE0m th\xEAm \u0111\u01B0\u1EE3c 13 s\u1EA3n ph\u1EA9m. H\u1ECFi theo k\u1EBF ho\u1EA1ch, t\u1ED5 ph\u1EA3i l\xE0m bao nhi\xEAu s\u1EA3n ph\u1EA9m?",
+              solution: r3`Gọi số sản phẩm theo kế hoạch là \(x\) (\(x\) nguyên dương). Thời gian theo kế hoạch: \(\dfrac{x}{50}\) ngày. Thực tế tổ làm \(x + 13\) sản phẩm trong \(\dfrac{x}{50} - 1\) ngày.
+\(57\left(\dfrac{x}{50} - 1\right) = x + 13 \Leftrightarrow 57x - 2850 = 50x + 650 \Leftrightarrow 7x = 3500 \Leftrightarrow x = 500\).
+Theo kế hoạch tổ phải làm 500 sản phẩm.`,
+              exercises: [
+                sa(3, "M\u1ED9t x\u01B0\u1EDFng may theo k\u1EBF ho\u1EA1ch m\u1ED7i ng\xE0y may 40 chi\u1EBFc \xE1o. Nh\u1EDD c\u1EA3i ti\u1EBFn k\u0129 thu\u1EADt, m\u1ED7i ng\xE0y x\u01B0\u1EDFng may \u0111\u01B0\u1EE3c 50 chi\u1EBFc \xE1o n\xEAn \u0111\xE3 ho\xE0n th\xE0nh k\u1EBF ho\u1EA1ch s\u1EDBm 3 ng\xE0y. H\u1ECFi theo k\u1EBF ho\u1EA1ch x\u01B0\u1EDFng ph\u1EA3i may bao nhi\xEAu chi\u1EBFc \xE1o?", ["600"], r3`Gọi số áo theo kế hoạch là \(x\). \(\dfrac{x}{40} - \dfrac{x}{50} = 3 \Leftrightarrow 5x - 4x = 600 \Leftrightarrow x = 600\).`, "chi\u1EBFc"),
+                sa(3, "M\u1ED9t \u0111\u1ED9i c\xF4ng nh\xE2n d\u1EF1 \u0111\u1ECBnh m\u1ED7i ng\xE0y s\u1EEDa 15 m \u0111\u01B0\u1EDDng. Th\u1EF1c t\u1EBF m\u1ED7i ng\xE0y \u0111\u1ED9i s\u1EEDa \u0111\u01B0\u1EE3c 20 m n\xEAn ho\xE0n th\xE0nh s\u1EDBm h\u01A1n d\u1EF1 \u0111\u1ECBnh 2 ng\xE0y. T\xEDnh chi\u1EC1u d\xE0i \u0111o\u1EA1n \u0111\u01B0\u1EDDng.", ["120"], r3`Gọi chiều dài đoạn đường là \(x\) (m). \(\dfrac{x}{15} - \dfrac{x}{20} = 2 \Leftrightarrow 4x - 3x = 120 \Leftrightarrow x = 120\).`, "m")
+              ]
+            },
+            {
+              slug: "bai-toan-ti-so-phan-tram",
+              title: "B\xE0i to\xE1n t\u1EC9 s\u1ED1 ph\u1EA7n tr\u0103m",
+              levels: [2, 3],
+              knowledge: r3`\(a\%\) của \(A\) là \(\dfrac{A\cdot a}{100}\); tăng \(a\%\): giá trị mới \(= A\left(1 + \dfrac{a}{100}\right)\); giảm \(a\%\): giá trị mới \(= A\left(1 - \dfrac{a}{100}\right)\).`,
+              signs: "\u0110\u1EC1 c\xF3 t\u0103ng, gi\u1EA3m theo ph\u1EA7n tr\u0103m: gi\xE1 khuy\u1EBFn m\u1EA1i, v\u01B0\u1EE3t m\u1EE9c k\u1EBF ho\u1EA1ch theo ph\u1EA7n tr\u0103m, d\xE2n s\u1ED1, s\u1ED1 h\u1ECDc sinh t\u0103ng.",
+              method: "G\u1ECDi \u0111\u1EA1i l\u01B0\u1EE3ng ban \u0111\u1EA7u l\xE0 \u1EA9n, bi\u1EC3u di\u1EC5n \u0111\u1EA1i l\u01B0\u1EE3ng sau khi t\u0103ng (gi\u1EA3m) theo ph\u1EA7n tr\u0103m, l\u1EADp ph\u01B0\u01A1ng tr\xECnh.",
+              steps: `- **B\u01B0\u1EDBc 1.** G\u1ECDi \u1EA9n l\xE0 \u0111\u1EA1i l\u01B0\u1EE3ng ban \u0111\u1EA7u (gi\xE1 g\u1ED1c, s\u1ED1 l\u01B0\u1EE3ng theo k\u1EBF ho\u1EA1ch\u2026).
+- **B\u01B0\u1EDBc 2.** Bi\u1EC3u di\u1EC5n \u0111\u1EA1i l\u01B0\u1EE3ng sau khi thay \u0111\u1ED5i, l\u1EADp ph\u01B0\u01A1ng tr\xECnh.
+- **B\u01B0\u1EDBc 3.** Gi\u1EA3i, tr\u1EA3 l\u1EDDi.`,
+              mistakes: "- T\xEDnh ph\u1EA7n tr\u0103m tr\xEAn gi\xE1 \u0111\xE3 gi\u1EA3m thay v\xEC gi\xE1 g\u1ED1c.\n- Cho r\u1EB1ng gi\u1EA3m 10% r\u1ED3i t\u0103ng 10% th\xEC tr\u1EDF v\u1EC1 gi\xE1 c\u0169.",
+              example: "M\u1ED9t c\u1EEDa h\xE0ng gi\u1EA3m gi\xE1 20% cho m\u1ED9t chi\u1EBFc \xE1o n\xEAn b\u1EA1n Lan ch\u1EC9 ph\u1EA3i tr\u1EA3 240 ngh\xECn \u0111\u1ED3ng. H\u1ECFi gi\xE1 ban \u0111\u1EA7u c\u1EE7a chi\u1EBFc \xE1o l\xE0 bao nhi\xEAu?",
+              solution: r3`Gọi giá ban đầu là \(x\) (nghìn đồng), \(x > 0\). Giá sau khi giảm: \(0{,}8x\). \(0{,}8x = 240 \Leftrightarrow x = 300\). Giá ban đầu là 300 nghìn đồng.`,
+              exercises: [
+                mcq(2, r3`Một món hàng giá \(x\) nghìn đồng được giảm giá 15%. Giá mới của món hàng (nghìn đồng) là`, [r3`\(0{,}85x\)`, r3`\(0{,}15x\)`, r3`\(x - 15\)`, r3`\(1{,}15x\)`], "A", r3`Giá mới \(= x - 0{,}15x = 0{,}85x\).`),
+                sa(2, "N\u0103m nay s\u1ED1 h\u1ECDc sinh c\u1EE7a m\u1ED9t tr\u01B0\u1EDDng t\u0103ng 5% so v\u1EDBi n\u0103m tr\u01B0\u1EDBc v\xE0 b\u1EB1ng 840 h\u1ECDc sinh. N\u0103m tr\u01B0\u1EDBc tr\u01B0\u1EDDng c\xF3 bao nhi\xEAu h\u1ECDc sinh?", ["800"], r3`\(1{,}05x = 840 \Leftrightarrow x = 800\).`, "h\u1ECDc sinh"),
+                sa(3, "Theo k\u1EBF ho\u1EA1ch, hai x\xED nghi\u1EC7p ph\u1EA3i l\xE0m t\u1ED5ng c\u1ED9ng 360 d\u1EE5ng c\u1EE5. Th\u1EF1c t\u1EBF x\xED nghi\u1EC7p I v\u01B0\u1EE3t m\u1EE9c 12%, x\xED nghi\u1EC7p II v\u01B0\u1EE3t m\u1EE9c 10% n\xEAn c\u1EA3 hai l\xE0m \u0111\u01B0\u1EE3c 400 d\u1EE5ng c\u1EE5. Theo k\u1EBF ho\u1EA1ch, x\xED nghi\u1EC7p I ph\u1EA3i l\xE0m bao nhi\xEAu d\u1EE5ng c\u1EE5?", ["200"], r3`Gọi số dụng cụ xí nghiệp I phải làm theo kế hoạch là \(x\) (\(0 < x < 360\)). \(1{,}12x + 1{,}1(360 - x) = 400 \Leftrightarrow 0{,}02x = 4 \Leftrightarrow x = 200\).`, "d\u1EE5ng c\u1EE5")
+              ]
+            }
+          ]
+        },
+        {
+          title: "B\xE0i to\xE1n h\xECnh h\u1ECDc v\xE0 quan h\u1EC7 gi\u1EEFa c\xE1c s\u1ED1",
+          description: "Chu vi, di\u1EC7n t\xEDch; quan h\u1EC7 s\u1ED1 l\u01B0\u1EE3ng, tu\u1ED5i.",
+          types: [
+            {
+              slug: "bai-toan-chu-vi-dien-tich",
+              title: "B\xE0i to\xE1n chu vi, di\u1EC7n t\xEDch h\xECnh ch\u1EEF nh\u1EADt",
+              levels: [2, 3],
+              knowledge: r3`Hình chữ nhật có chiều dài \(a\), chiều rộng \(b\): chu vi \(2(a + b)\), diện tích \(ab\).`,
+              signs: "\u0110\u1EC1 cho quan h\u1EC7 gi\u1EEFa chi\u1EC1u d\xE0i, chi\u1EC1u r\u1ED9ng, chu vi; ho\u1EB7c di\u1EC7n t\xEDch thay \u0111\u1ED5i khi t\u0103ng, gi\u1EA3m c\xE1c k\xEDch th\u01B0\u1EDBc.",
+              method: "G\u1ECDi m\u1ED9t k\xEDch th\u01B0\u1EDBc l\xE0 \u1EA9n, bi\u1EC3u di\u1EC5n k\xEDch th\u01B0\u1EDBc c\xF2n l\u1EA1i; l\u1EADp ph\u01B0\u01A1ng tr\xECnh t\u1EEB chu vi ho\u1EB7c t\u1EEB ph\u1EA7n di\u1EC7n t\xEDch thay \u0111\u1ED5i (c\xE1c h\u1EA1ng t\u1EED b\u1EADc hai tri\u1EC7t ti\xEAu).",
+              steps: `- **B\u01B0\u1EDBc 1.** G\u1ECDi chi\u1EC1u r\u1ED9ng (ho\u1EB7c chi\u1EC1u d\xE0i) l\xE0 x, \u0111i\u1EC1u ki\u1EC7n x > 0.
+- **B\u01B0\u1EDBc 2.** Bi\u1EC3u di\u1EC5n k\xEDch th\u01B0\u1EDBc c\xF2n l\u1EA1i theo x, l\u1EADp ph\u01B0\u01A1ng tr\xECnh.
+- **B\u01B0\u1EDBc 3.** Gi\u1EA3i, ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n, tr\u1EA3 l\u1EDDi.`,
+              mistakes: "- Nh\u1EA7m n\u1EEDa chu vi v\u1EDBi chu vi.\n- Khi di\u1EC7n t\xEDch thay \u0111\u1ED5i, qu\xEAn nh\xE2n \u0111\u1EE7 c\xE1c h\u1EA1ng t\u1EED khi khai tri\u1EC3n.",
+              example: "M\u1ED9t m\u1EA3nh v\u01B0\u1EDDn h\xECnh ch\u1EEF nh\u1EADt c\xF3 chu vi 56 m, chi\u1EC1u d\xE0i h\u01A1n chi\u1EC1u r\u1ED9ng 4 m. T\xEDnh di\u1EC7n t\xEDch m\u1EA3nh v\u01B0\u1EDDn.",
+              solution: r3`Gọi chiều rộng là \(x\) (m), \(x > 0\); chiều dài \(x + 4\). Nửa chu vi: \(x + x + 4 = 28 \Leftrightarrow x = 12\). Chiều dài 16 m. Diện tích \(12\cdot16 = 192\) m².`,
+              exercises: [
+                sa(2, "M\u1ED9t h\xECnh ch\u1EEF nh\u1EADt c\xF3 chi\u1EC1u d\xE0i g\u1EA5p 3 l\u1EA7n chi\u1EC1u r\u1ED9ng v\xE0 chu vi b\u1EB1ng 64 cm. T\xEDnh chi\u1EC1u r\u1ED9ng c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt.", ["8"], r3`Nửa chu vi 32 cm: \(x + 3x = 32 \Leftrightarrow x = 8\).`, "cm"),
+                sa(3, "M\u1ED9t m\u1EA3nh \u0111\u1EA5t h\xECnh ch\u1EEF nh\u1EADt c\xF3 chi\u1EC1u d\xE0i h\u01A1n chi\u1EC1u r\u1ED9ng 5 m. N\u1EBFu t\u0103ng chi\u1EC1u r\u1ED9ng th\xEAm 3 m v\xE0 gi\u1EA3m chi\u1EC1u d\xE0i 2 m th\xEC di\u1EC7n t\xEDch t\u0103ng th\xEAm 24 m\xB2. T\xEDnh chi\u1EC1u r\u1ED9ng ban \u0111\u1EA7u c\u1EE7a m\u1EA3nh \u0111\u1EA5t.", ["15"], r3`Gọi chiều rộng là \(x\) (m). \((x + 3)(x + 3) - x(x + 5) = 24 \Leftrightarrow x + 9 = 24 \Leftrightarrow x = 15\). (Kiểm tra: \(15\cdot20 = 300\), \(18\cdot18 = 324\).)`, "m")
+              ]
+            },
+            {
+              slug: "bai-toan-quan-he-so-tuoi",
+              title: "B\xE0i to\xE1n v\u1EC1 quan h\u1EC7 gi\u1EEFa c\xE1c s\u1ED1, tu\u1ED5i",
+              levels: [2, 3],
+              knowledge: 'Bi\u1EC3u di\u1EC5n quan h\u1EC7 "g\u1EA5p", "h\u01A1n", "k\xE9m", t\u1ED5ng \u2013 hi\u1EC7u b\u1EB1ng bi\u1EC3u th\u1EE9c; sau n n\u0103m tu\u1ED5i c\u1EE7a m\u1ECDi ng\u01B0\u1EDDi \u0111\u1EC1u t\u0103ng th\xEAm n.',
+              signs: "\u0110\u1EC1 cho t\u1ED5ng, hi\u1EC7u, quan h\u1EC7 g\u1EA5p nhi\u1EC1u l\u1EA7n gi\u1EEFa c\xE1c s\u1ED1; tu\u1ED5i hi\u1EC7n nay v\xE0 sau (tr\u01B0\u1EDBc) m\u1ED9t s\u1ED1 n\u0103m; ph\xE2n s\u1ED1 thay \u0111\u1ED5i t\u1EED, m\u1EABu.",
+              method: "G\u1ECDi m\u1ED9t s\u1ED1 (m\u1ED9t tu\u1ED5i) l\xE0 \u1EA9n, bi\u1EC3u di\u1EC5n c\xE1c s\u1ED1 c\xF2n l\u1EA1i, l\u1EADp ph\u01B0\u01A1ng tr\xECnh theo quan h\u1EC7 \u1EDF th\u1EDDi \u0111i\u1EC3m \u0111\u1EC1 cho.",
+              steps: `- **B\u01B0\u1EDBc 1.** G\u1ECDi \u1EA9n, \u0111\u1EB7t \u0111i\u1EC1u ki\u1EC7n (th\u01B0\u1EDDng l\xE0 s\u1ED1 t\u1EF1 nhi\xEAn).
+- **B\u01B0\u1EDBc 2.** Bi\u1EC3u di\u1EC5n c\xE1c s\u1ED1 kh\xE1c theo \u1EA9n, l\u1EADp ph\u01B0\u01A1ng tr\xECnh.
+- **B\u01B0\u1EDBc 3.** Gi\u1EA3i, \u0111\u1ED1i chi\u1EBFu \u0111i\u1EC1u ki\u1EC7n, tr\u1EA3 l\u1EDDi.`,
+              mistakes: '- Sau n n\u0103m ch\u1EC9 c\u1ED9ng th\xEAm tu\u1ED5i c\u1EE7a m\u1ED9t ng\u01B0\u1EDDi.\n- Nh\u1EA7m "g\u1EA5p 3 l\u1EA7n" v\u1EDBi "h\u01A1n 3".',
+              example: "Hi\u1EC7n nay tu\u1ED5i m\u1EB9 g\u1EA5p 3 l\u1EA7n tu\u1ED5i con. Sau 12 n\u0103m n\u1EEFa tu\u1ED5i m\u1EB9 ch\u1EC9 c\xF2n g\u1EA5p 2 l\u1EA7n tu\u1ED5i con. T\xEDnh tu\u1ED5i con hi\u1EC7n nay.",
+              solution: r3`Gọi tuổi con hiện nay là \(x\) (\(x\) nguyên dương), tuổi mẹ \(3x\). Sau 12 năm: \(3x + 12 = 2(x + 12) \Leftrightarrow x = 12\). Con 12 tuổi, mẹ 36 tuổi.`,
+              exercises: [
+                sa(2, "T\u1ED5ng c\u1EE7a hai s\u1ED1 l\xE0 90, s\u1ED1 l\u1EDBn g\u1EA5p \u0111\xF4i s\u1ED1 b\xE9. T\xECm s\u1ED1 b\xE9.", ["30"], r3`\(x + 2x = 90 \Leftrightarrow x = 30\).`),
+                sa(3, r3`Một phân số có tử số bé hơn mẫu số 3 đơn vị. Nếu tăng tử số thêm 7 đơn vị và giữ nguyên mẫu số thì được phân số bằng \(\dfrac32\). Tìm tử số của phân số ban đầu.`, ["5"], r3`Gọi tử số là \(x\), mẫu số \(x + 3\). \(\dfrac{x + 7}{x + 3} = \dfrac32 \Leftrightarrow 2x + 14 = 3x + 9 \Leftrightarrow x = 5\). Phân số ban đầu \(\dfrac58\).`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 27 ----------------
+    {
+      slug: "bai-27-khai-niem-ham-so-va-do-thi-cua-ham-so",
+      difficulty: 2,
+      objectives: `- Nh\u1EADn bi\u1EBFt kh\xE1i ni\u1EC7m h\xE0m s\u1ED1; h\xE0m s\u1ED1 cho b\u1EB1ng b\u1EA3ng, b\u1EB1ng c\xF4ng th\u1EE9c; t\xEDnh gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1.
+- Nh\u1EADn bi\u1EBFt m\u1EB7t ph\u1EB3ng t\u1ECDa \u0111\u1ED9, t\u1ECDa \u0111\u1ED9 c\u1EE7a m\u1ED9t \u0111i\u1EC3m; x\xE1c \u0111\u1ECBnh m\u1ED9t \u0111i\u1EC3m khi bi\u1EBFt t\u1ECDa \u0111\u1ED9 c\u1EE7a n\xF3.
+- Nh\u1EADn bi\u1EBFt \u0111\u1ED3 th\u1ECB c\u1EE7a h\xE0m s\u1ED1.`,
+      prerequisites: "- \u0110\u1EA1i l\u01B0\u1EE3ng t\u1EC9 l\u1EC7 thu\u1EADn, t\u1EC9 l\u1EC7 ngh\u1ECBch (To\xE1n 7).\n- T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a bi\u1EC3u th\u1EE9c \u0111\u1EA1i s\u1ED1 (To\xE1n 7, Ch\u01B0\u01A1ng I).",
+      concepts: r3`Hàm số, biến số; giá trị của hàm số \(f(x)\); mặt phẳng tọa độ \(Oxy\), trục hoành \(Ox\), trục tung \(Oy\), gốc tọa độ \(O\); hoành độ, tung độ; đồ thị của hàm số.`,
+      properties: r3`- Nếu đại lượng \(y\) phụ thuộc vào đại lượng thay đổi \(x\) sao cho với mỗi giá trị của \(x\) ta luôn xác định được chỉ một giá trị tương ứng của \(y\) thì \(y\) là hàm số của \(x\), \(x\) gọi là biến số.
+- Điểm \(M\) có hoành độ \(x_0\), tung độ \(y_0\) được viết \(M(x_0; y_0)\). Điểm nằm trên trục hoành có tung độ bằng 0; điểm nằm trên trục tung có hoành độ bằng 0.
+- Đồ thị của hàm số \(y = f(x)\) là tập hợp tất cả các điểm \((x; f(x))\) trên mặt phẳng tọa độ.`,
+      themes: [
+        {
+          title: "Kh\xE1i ni\u1EC7m h\xE0m s\u1ED1",
+          description: "H\xE0m s\u1ED1 cho b\u1EB1ng b\u1EA3ng, b\u1EB1ng c\xF4ng th\u1EE9c; gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1.",
+          types: [
+            {
+              slug: "ham-so-cho-boi-bang-cong-thuc",
+              title: "Nh\u1EADn bi\u1EBFt h\xE0m s\u1ED1 cho b\u1EDFi b\u1EA3ng, c\xF4ng th\u1EE9c",
+              legacy: ["H\xE0m s\u1ED1 cho b\u1EDFi b\u1EA3ng, c\xF4ng th\u1EE9c"],
+              levels: [1, 2],
+              knowledge: r3`\(y\) là hàm số của \(x\) nếu mỗi giá trị của \(x\) xác định được đúng một giá trị tương ứng của \(y\).`,
+              signs: "\u0110\u1EC1 cho b\u1EA3ng gi\xE1 tr\u1ECB ho\u1EB7c c\xF4ng th\u1EE9c (ho\u1EB7c m\xF4 t\u1EA3 b\u1EB1ng l\u1EDDi), h\u1ECFi y c\xF3 ph\u1EA3i l\xE0 h\xE0m s\u1ED1 c\u1EE7a x kh\xF4ng.",
+              method: "Ki\u1EC3m tra t\u1EEBng gi\xE1 tr\u1ECB c\u1EE7a x: c\xF3 \u1EE9ng v\u1EDBi \u0111\xFAng m\u1ED9t gi\xE1 tr\u1ECB c\u1EE7a y hay kh\xF4ng.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE9t t\u1EEBng gi\xE1 tr\u1ECB c\u1EE7a x trong b\u1EA3ng (ho\u1EB7c theo c\xF4ng th\u1EE9c).
+- **B\u01B0\u1EDBc 2.** N\u1EBFu c\xF3 m\u1ED9t gi\xE1 tr\u1ECB c\u1EE7a x \u1EE9ng v\u1EDBi hai gi\xE1 tr\u1ECB kh\xE1c nhau c\u1EE7a y th\xEC y kh\xF4ng ph\u1EA3i l\xE0 h\xE0m s\u1ED1 c\u1EE7a x.
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn.`,
+              mistakes: "- Cho r\u1EB1ng hai gi\xE1 tr\u1ECB kh\xE1c nhau c\u1EE7a x c\xF3 c\xF9ng gi\xE1 tr\u1ECB y th\xEC y kh\xF4ng l\xE0 h\xE0m s\u1ED1 (th\u1EF1c ra v\u1EABn l\xE0 h\xE0m s\u1ED1).\n- Nh\u1EA7m vai tr\xF2 c\u1EE7a x v\xE0 y.",
+              example: r3`Mỗi bảng sau có cho \(y\) là hàm số của \(x\) không?
+Bảng 1:
+| \(x\) | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|
+| \(y\) | 5 | 5 | 7 | 9 |
+
+Bảng 2:
+| \(x\) | 1 | 1 | 2 | 3 |
+|---|---|---|---|---|
+| \(y\) | 2 | 4 | 6 | 8 |`,
+              solution: r3`Bảng 1: mỗi giá trị của \(x\) ứng với đúng một giá trị của \(y\) (hai giá trị \(x = 1\), \(x = 2\) cùng ứng với \(y = 5\) vẫn được), nên \(y\) là hàm số của \(x\).
+Bảng 2: giá trị \(x = 1\) ứng với hai giá trị \(y = 2\) và \(y = 4\), nên \(y\) không phải là hàm số của \(x\).`,
+              exercises: [
+                mcq(1, r3`Công thức nào sau đây **không** cho \(y\) là hàm số của \(x\)?`, [r3`\(y^2 = x\)`, r3`\(y = 2x - 1\)`, r3`\(y = x^2\)`, r3`\(y = 5\)`], "A", r3`Với \(y^2 = x\), giá trị \(x = 4\) ứng với hai giá trị \(y = 2\) và \(y = -2\), nên \(y\) không là hàm số của \(x\).`),
+                tf(2, "M\u1ED7i kh\u1EB3ng \u0111\u1ECBnh sau \u0111\xFAng hay sai?", [
+                  ["Chu vi y c\u1EE7a h\xECnh vu\xF4ng l\xE0 h\xE0m s\u1ED1 c\u1EE7a \u0111\u1ED9 d\xE0i c\u1EA1nh x.", true],
+                  [r3`Hàm số \(y = 3\) (với mọi \(x\)) là một hàm số.`, true],
+                  ["N\u1EBFu hai gi\xE1 tr\u1ECB kh\xE1c nhau c\u1EE7a x cho c\xF9ng m\u1ED9t gi\xE1 tr\u1ECB y th\xEC y kh\xF4ng l\xE0 h\xE0m s\u1ED1 c\u1EE7a x.", false],
+                  ["Di\u1EC7n t\xEDch S c\u1EE7a h\xECnh tr\xF2n l\xE0 h\xE0m s\u1ED1 c\u1EE7a b\xE1n k\xEDnh r.", true]
+                ], r3`a) \(y = 4x\): đúng. b) Đúng (hàm hằng). c) Sai: chỉ cần mỗi \(x\) ứng với một \(y\). d) \(S = \pi r^2\): đúng.`)
+              ]
+            },
+            {
+              slug: "tinh-gia-tri-ham-so",
+              title: "T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1",
+              levels: [1, 2, 3],
+              knowledge: r3`\(f(a)\) là giá trị của hàm số \(y = f(x)\) tại \(x = a\).`,
+              signs: r3`Đề cho công thức \(y = f(x)\), yêu cầu tính \(f(a)\), lập bảng giá trị, so sánh các giá trị, hoặc tìm \(x\) khi biết \(f(x)\).`,
+              method: "Thay gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn v\xE0o c\xF4ng th\u1EE9c r\u1ED3i t\xEDnh; t\xECm x khi bi\u1EBFt f(x) = k th\xEC gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh f(x) = k.",
+              steps: r3`- **Bước 1.** Thay \(x = a\) vào công thức.
+- **Bước 2.** Tính theo thứ tự thực hiện phép tính.
+- **Bước 3.** (Nếu tìm \(x\)) giải phương trình \(f(x) = k\).`,
+              mistakes: r3`- Thay số âm không đặt trong ngoặc.
+- Nhầm \(f(2)\) là \(f\cdot 2\).`,
+              example: r3`Cho hàm số \(y = f(x) = 2x^2 - 1\). Tính \(f(0)\), \(f(-1)\), \(f\left(\dfrac12\right)\).`,
+              solution: r3`\(f(0) = -1\); \(f(-1) = 2\cdot1 - 1 = 1\); \(f\left(\dfrac12\right) = 2\cdot\dfrac14 - 1 = -\dfrac12\).`,
+              exercises: [
+                sa(1, r3`Cho hàm số \(y = f(x) = 3x - 2\). Tính \(f(-1)\).`, ["-5"], r3`\(f(-1) = 3\cdot(-1) - 2 = -5\).`),
+                mcq(2, r3`Cho hàm số \(f(x) = x^2 + 1\). Khẳng định nào sau đây đúng?`, [r3`\(f(-2) = f(2)\)`, r3`\(f(-2) = -3\)`, r3`\(f(0) = 0\)`, r3`\(f(1) = 1\)`], "A", r3`\(f(-2) = 5 = f(2)\); \(f(0) = 1\); \(f(1) = 2\).`),
+                sa(3, r3`Cho hàm số \(y = f(x) = 5 - 2x\). Tìm \(x\) để \(f(x) = 11\).`, ["-3"], r3`\(5 - 2x = 11 \Leftrightarrow -2x = 6 \Leftrightarrow x = -3\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "M\u1EB7t ph\u1EB3ng t\u1ECDa \u0111\u1ED9 v\xE0 \u0111\u1ED3 th\u1ECB c\u1EE7a h\xE0m s\u1ED1",
+          description: "T\u1ECDa \u0111\u1ED9 c\u1EE7a m\u1ED9t \u0111i\u1EC3m; v\u1EBD v\xE0 \u0111\u1ECDc \u0111\u1ED3 th\u1ECB h\xE0m s\u1ED1.",
+          types: [
+            {
+              slug: "toa-do-diem",
+              title: "T\u1ECDa \u0111\u1ED9 c\u1EE7a m\u1ED9t \u0111i\u1EC3m tr\xEAn m\u1EB7t ph\u1EB3ng t\u1ECDa \u0111\u1ED9",
+              levels: [1, 2],
+              knowledge: r3`Mỗi điểm \(M\) trên mặt phẳng tọa độ \(Oxy\) xác định một cặp số \((x_0; y_0)\): \(x_0\) là hoành độ, \(y_0\) là tung độ. Điểm trên trục \(Ox\) có tung độ 0, điểm trên trục \(Oy\) có hoành độ 0.`,
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u \u0111\u1ECDc t\u1ECDa \u0111\u1ED9 c\xE1c \u0111i\u1EC3m tr\xEAn h\xECnh, bi\u1EC3u di\u1EC5n \u0111i\u1EC3m khi bi\u1EBFt t\u1ECDa \u0111\u1ED9, ho\u1EB7c nh\u1EADn bi\u1EBFt \u0111i\u1EC3m n\u1EB1m tr\xEAn tr\u1EE5c t\u1ECDa \u0111\u1ED9.",
+              method: "T\u1EEB \u0111i\u1EC3m k\u1EBB c\xE1c \u0111\u01B0\u1EDDng vu\xF4ng g\xF3c xu\u1ED1ng hai tr\u1EE5c \u0111\u1EC3 \u0111\u1ECDc ho\xE0nh \u0111\u1ED9, tung \u0111\u1ED9; l\xE0m ng\u01B0\u1EE3c l\u1EA1i \u0111\u1EC3 bi\u1EC3u di\u1EC5n \u0111i\u1EC3m.",
+              steps: r3`- **Bước 1.** Từ \(M\) kẻ đường thẳng vuông góc với \(Ox\), cắt \(Ox\) tại điểm biểu diễn số \(x_0\) (hoành độ).
+- **Bước 2.** Từ \(M\) kẻ đường thẳng vuông góc với \(Oy\), cắt \(Oy\) tại điểm biểu diễn số \(y_0\) (tung độ).
+- **Bước 3.** Viết \(M(x_0; y_0)\).`,
+              mistakes: "- Vi\u1EBFt ng\u01B0\u1EE3c th\u1EE9 t\u1EF1 (tung \u0111\u1ED9 tr\u01B0\u1EDBc, ho\xE0nh \u0111\u1ED9 sau).\n- Nh\u1EA7m d\u1EA5u khi \u0111i\u1EC3m n\u1EB1m b\xEAn tr\xE1i tr\u1EE5c tung ho\u1EB7c ph\xEDa d\u01B0\u1EDBi tr\u1EE5c ho\xE0nh.",
+              example: r3`Viết tọa độ của các điểm \(A\), \(B\), \(C\), \(D\) trong hình sau.
+[bieudo]
+loai: dothi
+diem: A(2; 3); B(-3; 1); C(-2; -2); D(3; 0)
+x: -4; 4
+y: -3; 4
+[/bieudo]`,
+              solution: r3`\(A(2; 3)\), \(B(-3; 1)\), \(C(-2; -2)\), \(D(3; 0)\) (điểm \(D\) nằm trên trục hoành nên tung độ bằng 0).`,
+              exercises: [
+                mcq(1, "\u0110i\u1EC3m n\xE0o sau \u0111\xE2y n\u1EB1m tr\xEAn tr\u1EE5c tung?", [r3`\(M(0; 3)\)`, r3`\(N(3; 0)\)`, r3`\(P(1; 1)\)`, r3`\(Q(-2; 3)\)`], "A", "\u0110i\u1EC3m n\u1EB1m tr\xEAn tr\u1EE5c tung c\xF3 ho\xE0nh \u0111\u1ED9 b\u1EB1ng 0."),
+                tf(2, r3`Cho các điểm \(A(2; -1)\), \(B(-3; 0)\), \(C(0; 4)\), \(D(-1; -5)\). Mỗi khẳng định sau đúng hay sai?`, [
+                  [r3`Điểm \(B\) nằm trên trục hoành.`, true],
+                  [r3`Điểm \(C\) có hoành độ bằng 4.`, false],
+                  [r3`Điểm \(A\) có tung độ bằng \(-1\).`, true],
+                  [r3`Điểm \(D\) có hoành độ là số dương.`, false]
+                ], r3`a) Tung độ của \(B\) bằng 0: đúng. b) Hoành độ của \(C\) bằng 0: sai. c) Đúng. d) Hoành độ của \(D\) là \(-1\): sai.`),
+                sa(2, r3`Trên mặt phẳng tọa độ (đơn vị trên các trục là xăng-ti-mét), cho hình chữ nhật \(ABCD\) với \(A(1; 1)\), \(B(5; 1)\), \(C(5; 4)\). Tính diện tích hình chữ nhật.`, ["12"], r3`\(AB = 5 - 1 = 4\) cm, \(BC = 4 - 1 = 3\) cm. Diện tích \(4\cdot3 = 12\) cm². (Điểm \(D(1; 4)\).)`, "cm\xB2")
+              ]
+            },
+            {
+              slug: "ve-doc-do-thi",
+              title: "V\u1EBD v\xE0 \u0111\u1ECDc \u0111\u1ED3 th\u1ECB h\xE0m s\u1ED1",
+              levels: [2, 3],
+              knowledge: r3`Đồ thị của hàm số \(y = f(x)\) là tập hợp các điểm \((x; f(x))\); điểm \(M(x_0; y_0)\) thuộc đồ thị khi và chỉ khi \(y_0 = f(x_0)\).`,
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u v\u1EBD \u0111\u1ED3 th\u1ECB h\xE0m s\u1ED1 cho b\u1EB1ng b\u1EA3ng, ki\u1EC3m tra \u0111i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB, ho\u1EB7c \u0111\u1ECDc th\xF4ng tin tr\xEAn \u0111\u1ED3 th\u1ECB.",
+              method: "L\u1EADp b\u1EA3ng gi\xE1 tr\u1ECB v\xE0 bi\u1EC3u di\u1EC5n c\xE1c \u0111i\u1EC3m (x; f(x)); \u0111\u1EC3 ki\u1EC3m tra \u0111i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB, thay ho\xE0nh \u0111\u1ED9 v\xE0o c\xF4ng th\u1EE9c r\u1ED3i so s\xE1nh v\u1EDBi tung \u0111\u1ED9.",
+              steps: r3`- **Bước 1.** Lập bảng các cặp giá trị tương ứng \((x; y)\).
+- **Bước 2.** Biểu diễn các điểm trên mặt phẳng tọa độ.
+- **Bước 3.** Đọc đồ thị: giá trị của hàm số tại \(x = a\) là tung độ của điểm thuộc đồ thị có hoành độ \(a\).`,
+              mistakes: "- N\u1ED1i c\xE1c \u0111i\u1EC3m r\u1EDDi r\u1EA1c th\xE0nh \u0111\u01B0\u1EDDng khi h\xE0m s\u1ED1 ch\u1EC9 cho b\u1EDFi b\u1EA3ng.\n- Thay nh\u1EA7m tung \u0111\u1ED9 v\xE0o v\u1ECB tr\xED c\u1EE7a ho\xE0nh \u0111\u1ED9.",
+              example: r3`Cho hàm số \(y = 2x\). Trong các điểm \(A(1; 2)\), \(B(-1; 2)\), \(C(2; 4)\), điểm nào thuộc đồ thị của hàm số?
+[bieudo]
+loai: dothi
+ham so: 2x
+diem: A(1; 2); B(-1; 2); C(2; 4)
+x: -3; 3
+y: -3; 5
+[/bieudo]`,
+              solution: r3`\(2\cdot1 = 2\): \(A\) thuộc đồ thị. \(2\cdot(-1) = -2 \ne 2\): \(B\) không thuộc đồ thị. \(2\cdot2 = 4\): \(C\) thuộc đồ thị.`,
+              exercises: [
+                mcq(2, r3`Điểm nào sau đây thuộc đồ thị của hàm số \(y = -3x + 1\)?`, [r3`\(M(1; -2)\)`, r3`\(N(1; 2)\)`, r3`\(P(0; -1)\)`, r3`\(Q(-1; -2)\)`], "A", r3`\(-3\cdot1 + 1 = -2\) nên \(M(1; -2)\) thuộc đồ thị.`),
+                sa(3, r3`Điểm \(A(2; m)\) thuộc đồ thị của hàm số \(y = x^2 - 3\). Tìm \(m\).`, ["1"], r3`\(m = 2^2 - 3 = 1\).`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 28 ----------------
+    {
+      slug: "bai-28-ham-so-bac-nhat-va-do-thi-cua-ham-so-bac-nhat",
+      difficulty: 3,
+      objectives: `- Nh\u1EADn bi\u1EBFt h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t y = ax + b (a \u2260 0); thi\u1EBFt l\u1EADp b\u1EA3ng gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t.
+- V\u1EBD \u0111\u1ED3 th\u1ECB c\u1EE7a h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t.
+- V\u1EADn d\u1EE5ng h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t v\xE0 \u0111\u1ED3 th\u1ECB v\xE0o gi\u1EA3i quy\u1EBFt b\xE0i to\xE1n th\u1EF1c ti\u1EC5n.`,
+      prerequisites: "- Kh\xE1i ni\u1EC7m h\xE0m s\u1ED1, m\u1EB7t ph\u1EB3ng t\u1ECDa \u0111\u1ED9, \u0111\u1ED3 th\u1ECB (B\xE0i 27).\n- Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n (B\xE0i 25).",
+      concepts: r3`Hàm số bậc nhất \(y = ax + b\) (\(a \ne 0\)); bảng giá trị; đồ thị của hàm số bậc nhất là một đường thẳng.`,
+      formulas: r3`Đồ thị \(y = ax + b\) (\(a \ne 0\)) đi qua \(P(0; b)\) và \(Q\left(-\dfrac{b}{a}; 0\right)\); đồ thị \(y = ax\) đi qua \(O(0; 0)\) và \(A(1; a)\).`,
+      properties: r3`- Đồ thị của hàm số \(y = ax + b\) (\(a \ne 0\)) là một đường thẳng: cắt trục tung tại điểm có tung độ bằng \(b\); song song với đường thẳng \(y = ax\) nếu \(b \ne 0\) và trùng với đường thẳng \(y = ax\) nếu \(b = 0\).
+- Để vẽ đồ thị chỉ cần xác định hai điểm phân biệt thuộc đồ thị.`,
+      themes: [
+        {
+          title: "H\xE0m s\u1ED1 b\u1EADc nh\u1EA5t",
+          description: "Nh\u1EADn d\u1EA1ng h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t; b\u1EA3ng gi\xE1 tr\u1ECB.",
+          types: [
+            {
+              slug: "nhan-dang-ham-so-bac-nhat",
+              title: "Nh\u1EADn d\u1EA1ng h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t",
+              levels: [1, 2],
+              knowledge: r3`Hàm số bậc nhất là hàm số cho bởi công thức \(y = ax + b\), trong đó \(a\), \(b\) là các số cho trước và \(a \ne 0\).`,
+              signs: r3`Đề cho nhiều công thức, hỏi hàm số nào là hàm số bậc nhất, chỉ ra \(a\), \(b\); hoặc tìm \(m\) để hàm số là (không là) hàm số bậc nhất.`,
+              method: r3`Thu gọn công thức về dạng \(y = ax + b\), xác định \(a\), \(b\) và kiểm tra \(a \ne 0\).`,
+              steps: r3`- **Bước 1.** Thu gọn công thức về dạng \(y = ax + b\).
+- **Bước 2.** Xác định hệ số \(a\), \(b\).
+- **Bước 3.** Kiểm tra \(a \ne 0\) (nếu có tham số \(m\): cho hệ số của \(x\) khác 0).`,
+              mistakes: r3`- Coi \(y = 3\) (tức \(a = 0\)) là hàm số bậc nhất.
+- Coi \(y = \dfrac{2}{x} + 1\) là hàm số bậc nhất.
+- Không thu gọn trước: \(y = 2(x - 1) + 3 = 2x + 1\) vẫn là hàm số bậc nhất.`,
+              example: r3`Hàm số nào là hàm số bậc nhất? Chỉ ra \(a\), \(b\): a) \(y = 1 - 5x\); b) \(y = x^2 + 2\); c) \(y = \dfrac{x + 1}{3}\); d) \(y = 0x + 4\).`,
+              solution: r3`a) Là hàm số bậc nhất, \(a = -5\), \(b = 1\).
+b) Không (có \(x^2\)).
+c) \(y = \dfrac13x + \dfrac13\): là hàm số bậc nhất, \(a = b = \dfrac13\).
+d) Không (\(a = 0\)).`,
+              exercises: [
+                mcq(1, "H\xE0m s\u1ED1 n\xE0o sau \u0111\xE2y l\xE0 h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t?", [r3`\(y = 2 - 3x\)`, r3`\(y = x^2 - 1\)`, r3`\(y = \dfrac{2}{x} + 1\)`, r3`\(y = 0x + 5\)`], "A", r3`\(y = 2 - 3x = -3x + 2\) có \(a = -3 \ne 0\).`),
+                sa(2, r3`Tìm giá trị của \(m\) để hàm số \(y = (m - 2)x + 3\) **không** là hàm số bậc nhất.`, ["2"], r3`Hàm số không là hàm số bậc nhất khi hệ số của \(x\) bằng 0: \(m - 2 = 0 \Leftrightarrow m = 2\).`),
+                tf(2, r3`Cho hàm số \(y = 3(x - 1) + 2\). Mỗi khẳng định sau đúng hay sai?`, [
+                  ["\u0110\xE2y l\xE0 h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t.", true],
+                  [r3`Hệ số \(a = 3\).`, true],
+                  [r3`Hệ số \(b = 2\).`, false],
+                  [r3`Đồ thị của hàm số đi qua điểm \(M(1; 2)\).`, true]
+                ], r3`Thu gọn: \(y = 3x - 1\), nên \(a = 3\), \(b = -1\). Tại \(x = 1\): \(y = 2\), nên \(M(1; 2)\) thuộc đồ thị.`)
+              ]
+            },
+            {
+              slug: "bang-gia-tri-ham-so-bac-nhat",
+              title: "L\u1EADp b\u1EA3ng gi\xE1 tr\u1ECB, t\xEDnh gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t",
+              legacy: ["T\xEDnh gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1"],
+              levels: [1, 2],
+              knowledge: r3`Giá trị của hàm số \(y = ax + b\) tại \(x = x_0\) là \(a x_0 + b\).`,
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u t\xEDnh gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t, ho\xE0n th\xE0nh b\u1EA3ng gi\xE1 tr\u1ECB, ho\u1EB7c t\xECm x khi bi\u1EBFt gi\xE1 tr\u1ECB c\u1EE7a y.",
+              method: "Thay t\u1EEBng gi\xE1 tr\u1ECB x v\xE0o c\xF4ng th\u1EE9c; khi bi\u1EBFt y th\xEC gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh ax + b = y.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt b\u1EA3ng v\u1EDBi c\xE1c gi\xE1 tr\u1ECB x cho tr\u01B0\u1EDBc.
+- **B\u01B0\u1EDBc 2.** T\xEDnh y = ax + b cho t\u1EEBng gi\xE1 tr\u1ECB x.
+- **B\u01B0\u1EDBc 3.** \u0110i\u1EC1n v\xE0o b\u1EA3ng (ho\u1EB7c gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh \u0111\u1EC3 t\xECm x).`,
+              mistakes: "- Sai d\u1EA5u khi x \xE2m.\n- Nh\u1EA7m vai tr\xF2 c\u1EE7a a v\xE0 b.",
+              example: r3`Hoàn thành bảng giá trị của hàm số \(y = 2x - 3\):
+| \(x\) | \(-1\) | 0 | 1 | 2 |
+|---|---|---|---|---|
+| \(y\) | ? | ? | ? | ? |`,
+              solution: r3`| \(x\) | \(-1\) | 0 | 1 | 2 |
+|---|---|---|---|---|
+| \(y\) | \(-5\) | \(-3\) | \(-1\) | 1 |`,
+              exercises: [
+                sa(1, r3`Cho hàm số \(y = -2x + 5\). Tính giá trị của \(y\) khi \(x = 3\).`, ["-1"], r3`\(y = -2\cdot3 + 5 = -1\).`),
+                sa(2, r3`Cho hàm số \(y = \dfrac12x + 1\). Tìm \(x\) để \(y = 4\).`, ["6"], r3`\(\dfrac12x + 1 = 4 \Leftrightarrow \dfrac12x = 3 \Leftrightarrow x = 6\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u0110\u1ED3 th\u1ECB c\u1EE7a h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t",
+          description: "V\u1EBD \u0111\u1ED3 th\u1ECB; \u0111i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB, x\xE1c \u0111\u1ECBnh h\u1EC7 s\u1ED1.",
+          types: [
+            {
+              slug: "ve-do-thi-ham-so-bac-nhat",
+              title: "V\u1EBD \u0111\u1ED3 th\u1ECB h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t",
+              levels: [2, 3],
+              knowledge: r3`Đồ thị \(y = ax + b\) (\(a \ne 0\)) là đường thẳng; chỉ cần hai điểm phân biệt, thường lấy giao điểm với hai trục: \((0; b)\) và \(\left(-\dfrac{b}{a}; 0\right)\).`,
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u v\u1EBD \u0111\u1ED3 th\u1ECB h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t, v\u1EBD hai \u0111\u1ED3 th\u1ECB tr\xEAn c\xF9ng m\u1ED9t m\u1EB7t ph\u1EB3ng t\u1ECDa \u0111\u1ED9, t\xECm giao \u0111i\u1EC3m c\u1EE7a \u0111\u1ED3 th\u1ECB v\u1EDBi c\xE1c tr\u1EE5c.",
+              method: "X\xE1c \u0111\u1ECBnh hai \u0111i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB (giao v\u1EDBi hai tr\u1EE5c ho\u1EB7c hai \u0111i\u1EC3m c\xF3 t\u1ECDa \u0111\u1ED9 nguy\xEAn), v\u1EBD \u0111\u01B0\u1EDDng th\u1EB3ng \u0111i qua hai \u0111i\u1EC3m \u0111\xF3.",
+              steps: r3`- **Bước 1.** Cho \(x = 0\) thì \(y = b\): được điểm \(P(0; b)\).
+- **Bước 2.** Cho \(y = 0\) thì \(x = -\dfrac{b}{a}\): được điểm \(Q\left(-\dfrac{b}{a}; 0\right)\) (nếu tọa độ lẻ, chọn điểm khác có tọa độ nguyên).
+- **Bước 3.** Vẽ đường thẳng \(PQ\). (Nếu \(b = 0\): vẽ đường thẳng đi qua \(O\) và \(A(1; a)\).)`,
+              mistakes: r3`- Chỉ vẽ đoạn thẳng \(PQ\) mà không kéo dài thành đường thẳng.
+- Tính sai giao điểm với trục hoành thành \(x = \dfrac{b}{a}\) (sai dấu).`,
+              example: r3`Vẽ đồ thị của hàm số \(y = 2x - 4\).`,
+              solution: r3`Cho \(x = 0\) thì \(y = -4\): điểm \(P(0; -4)\). Cho \(y = 0\) thì \(x = 2\): điểm \(Q(2; 0)\). Đồ thị là đường thẳng \(PQ\):
+[bieudo]
+loai: dothi
+ham so: 2x - 4
+diem: P(0; -4); Q(2; 0)
+x: -1; 4
+y: -5; 3
+[/bieudo]`,
+              exercises: [
+                mcq(2, r3`Đồ thị của hàm số \(y = -x + 3\) cắt trục hoành tại điểm`, [r3`\((3; 0)\)`, r3`\((0; 3)\)`, r3`\((-3; 0)\)`, r3`\((0; -3)\)`], "A", r3`Cho \(y = 0\): \(-x + 3 = 0 \Leftrightarrow x = 3\). Giao điểm \((3; 0)\).`),
+                mcq(2, r3`Đồ thị của hàm số \(y = 3x + 2\) cắt trục tung tại điểm có tung độ bằng`, [r3`\(2\)`, r3`\(3\)`, r3`\(-\dfrac23\)`, r3`\(0\)`], "A", r3`Cho \(x = 0\) thì \(y = 2\).`),
+                es(3, r3`Vẽ đồ thị của hai hàm số \(y = x + 1\) và \(y = -2x + 4\) trên cùng một mặt phẳng tọa độ. Tìm tọa độ giao điểm của hai đồ thị.`, r3`\(y = x + 1\) đi qua \((0; 1)\) và \((-1; 0)\); \(y = -2x + 4\) đi qua \((0; 4)\) và \((2; 0)\).
+Hoành độ giao điểm: \(x + 1 = -2x + 4 \Leftrightarrow x = 1\), khi đó \(y = 2\). Giao điểm \(A(1; 2)\).
+[bieudo]
+loai: dothi
+ham so: x + 1; -2x + 4
+diem: A(1; 2)
+x: -2; 3
+y: -2; 5
+[/bieudo]`)
+              ]
+            },
+            {
+              slug: "diem-thuoc-do-thi-tim-he-so",
+              title: "\u0110i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB, x\xE1c \u0111\u1ECBnh h\u1EC7 s\u1ED1 c\u1EE7a h\xE0m s\u1ED1",
+              levels: [2, 3, 4],
+              knowledge: r3`Điểm \(M(x_0; y_0)\) thuộc đồ thị hàm số \(y = ax + b\) khi và chỉ khi \(y_0 = a x_0 + b\).`,
+              signs: "\u0110\u1EC1 cho \u0111\u1ED3 th\u1ECB \u0111i qua m\u1ED9t \u0111i\u1EC3m, c\u1EAFt tr\u1EE5c tung ho\u1EB7c tr\u1EE5c ho\xE0nh t\u1EA1i \u0111i\u1EC3m cho tr\u01B0\u1EDBc; y\xEAu c\u1EA7u t\xECm a ho\u1EB7c b, ho\u1EB7c t\xECm \u0111i\u1EC3m c\u1ED1 \u0111\u1ECBnh.",
+              method: "Thay t\u1ECDa \u0111\u1ED9 \u0111i\u1EC3m v\xE0o c\xF4ng th\u1EE9c h\xE0m s\u1ED1 \u0111\u01B0\u1EE3c ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t v\u1EDBi \u1EA9n l\xE0 h\u1EC7 s\u1ED1 c\u1EA7n t\xECm.",
+              steps: r3`- **Bước 1.** Viết điều kiện \(y_0 = a x_0 + b\).
+- **Bước 2.** Giải phương trình tìm hệ số chưa biết, kiểm tra \(a \ne 0\).
+- **Bước 3.** Viết hàm số hoặc kết luận.`,
+              mistakes: r3`- Thay nhầm \(x_0\) và \(y_0\).
+- Quên kiểm tra điều kiện \(a \ne 0\).`,
+              example: r3`Tìm \(a\) để đồ thị hàm số \(y = ax + 3\) đi qua điểm \(A(2; -1)\).`,
+              solution: r3`\(A\) thuộc đồ thị nên \(-1 = 2a + 3 \Leftrightarrow a = -2\) (thỏa mãn \(a \ne 0\)). Hàm số \(y = -2x + 3\).`,
+              exercises: [
+                sa(2, r3`Đồ thị hàm số \(y = 2x + b\) đi qua điểm \(M(1; 5)\). Tìm \(b\).`, ["3"], r3`\(5 = 2\cdot1 + b \Leftrightarrow b = 3\).`),
+                sa(3, r3`Đồ thị hàm số \(y = ax - 4\) cắt trục hoành tại điểm có hoành độ bằng 2. Tìm \(a\).`, ["2"], r3`Điểm \((2; 0)\) thuộc đồ thị: \(0 = 2a - 4 \Leftrightarrow a = 2\).`),
+                es(4, r3`Cho hàm số \(y = (m - 1)x + 2m\) (\(m \ne 1\)). Chứng minh rằng đồ thị của hàm số luôn đi qua một điểm cố định với mọi \(m \ne 1\). Tìm tọa độ điểm đó.`, r3`Viết \(y = m(x + 2) - x\). Với \(x = -2\) thì \(y = 2\) với mọi \(m\).
+Thật vậy, thay \(x = -2\): \((m - 1)(-2) + 2m = -2m + 2 + 2m = 2\). Vậy đồ thị luôn đi qua điểm cố định \((-2; 2)\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t",
+          description: "B\xE0i to\xE1n th\u1EF1c ti\u1EC5n: c\u01B0\u1EDBc ph\xED, chi ph\xED, l\u01B0\u1EE3ng n\u01B0\u1EDBc, so s\xE1nh ph\u01B0\u01A1ng \xE1n.",
+          types: [
+            {
+              slug: "thuc-te-ham-so-bac-nhat",
+              title: "B\xE0i to\xE1n th\u1EF1c t\u1EBF v\u1EC1 h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t",
+              levels: [3, 4],
+              knowledge: r3`Đại lượng thay đổi đều theo \(x\): \(y = (\text{lượng thay đổi trên mỗi đơn vị})\cdot x + (\text{giá trị ban đầu})\) là hàm số bậc nhất.`,
+              signs: "B\xE0i to\xE1n c\u01B0\u1EDBc taxi, c\u01B0\u1EDBc \u0111i\u1EC7n tho\u1EA1i, chi ph\xED s\u1EA3n xu\u1EA5t, l\u01B0\u1EE3ng n\u01B0\u1EDBc trong b\u1EC3, qu\xE3ng \u0111\u01B0\u1EDDng theo th\u1EDDi gian, so s\xE1nh hai ph\u01B0\u01A1ng \xE1n gi\xE1.",
+              method: "L\u1EADp c\xF4ng th\u1EE9c y = ax + b (a l\xE0 l\u01B0\u1EE3ng thay \u0111\u1ED5i tr\xEAn m\u1ED7i \u0111\u01A1n v\u1ECB, b l\xE0 gi\xE1 tr\u1ECB ban \u0111\u1EA7u), r\u1ED3i t\xEDnh gi\xE1 tr\u1ECB ho\u1EB7c gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh; d\xF9ng \u0111\u1ED3 th\u1ECB \u0111\u1EC3 so s\xE1nh c\xE1c ph\u01B0\u01A1ng \xE1n.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh gi\xE1 tr\u1ECB ban \u0111\u1EA7u (b) v\xE0 l\u01B0\u1EE3ng thay \u0111\u1ED5i tr\xEAn m\u1ED7i \u0111\u01A1n v\u1ECB (a).
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt c\xF4ng th\u1EE9c y = ax + b.
+- **B\u01B0\u1EDBc 3.** T\xEDnh gi\xE1 tr\u1ECB t\u1EA1i x cho tr\u01B0\u1EDBc, ho\u1EB7c t\xECm x khi bi\u1EBFt y; so s\xE1nh c\xE1c ph\u01B0\u01A1ng \xE1n.`,
+              mistakes: "- Nh\u1EA7m vai tr\xF2 c\u1EE7a a v\xE0 b (l\u1EA5y ph\xED c\u1ED1 \u0111\u1ECBnh l\xE0m h\u1EC7 s\u1ED1 c\u1EE7a x).\n- Kh\xF4ng \u0111\u1ED5i \u0111\u01A1n v\u1ECB tr\u01B0\u1EDBc khi l\u1EADp c\xF4ng th\u1EE9c.",
+              example: "M\u1ED9t b\u1EC3 \u0111ang ch\u1EE9a 200 l\xEDt n\u01B0\u1EDBc. Ng\u01B0\u1EDDi ta m\u1EDF v\xF2i cho n\u01B0\u1EDBc ch\u1EA3y v\xE0o b\u1EC3, m\u1ED7i ph\xFAt 25 l\xEDt. a) Vi\u1EBFt c\xF4ng th\u1EE9c t\xEDnh l\u01B0\u1EE3ng n\u01B0\u1EDBc y (l\xEDt) c\xF3 trong b\u1EC3 sau x ph\xFAt. b) Sau bao l\xE2u b\u1EC3 c\xF3 700 l\xEDt n\u01B0\u1EDBc?",
+              solution: r3`a) \(y = 25x + 200\).
+b) \(25x + 200 = 700 \Leftrightarrow x = 20\). Sau 20 phút bể có 700 lít nước.`,
+              exercises: [
+                sa(3, r3`Cước điện thoại của một gói gồm phí thuê bao 30 nghìn đồng mỗi tháng và 2 nghìn đồng cho mỗi phút gọi. Gọi \(y\) (nghìn đồng) là số tiền phải trả trong tháng khi gọi \(x\) phút. Tháng này bạn Minh trả 150 nghìn đồng. Minh đã gọi bao nhiêu phút?`, ["60"], r3`\(y = 2x + 30\). \(2x + 30 = 150 \Leftrightarrow x = 60\).`, "ph\xFAt"),
+                sa(4, "H\xE3ng xe A cho thu\xEA xe v\u1EDBi ph\xED c\u1ED1 \u0111\u1ECBnh 200 ngh\xECn \u0111\u1ED3ng v\xE0 8 ngh\xECn \u0111\u1ED3ng cho m\u1ED7i km; h\xE3ng xe B: ph\xED c\u1ED1 \u0111\u1ECBnh 120 ngh\xECn \u0111\u1ED3ng v\xE0 10 ngh\xECn \u0111\u1ED3ng cho m\u1ED7i km. V\u1EDBi qu\xE3ng \u0111\u01B0\u1EDDng bao nhi\xEAu km th\xEC s\u1ED1 ti\u1EC1n thu\xEA xe c\u1EE7a hai h\xE3ng b\u1EB1ng nhau?", ["40"], r3`Số tiền thuê: hãng A \(y = 8x + 200\), hãng B \(y = 10x + 120\). \(8x + 200 = 10x + 120 \Leftrightarrow x = 40\). Đi dưới 40 km thuê hãng B rẻ hơn, trên 40 km thuê hãng A rẻ hơn.`, "km")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 29 ----------------
+    {
+      slug: "bai-29-he-so-goc-cua-duong-thang",
+      difficulty: 3,
+      objectives: `- Nh\u1EADn bi\u1EBFt kh\xE1i ni\u1EC7m h\u1EC7 s\u1ED1 g\xF3c c\u1EE7a \u0111\u01B0\u1EDDng th\u1EB3ng y = ax + b (a \u2260 0).
+- S\u1EED d\u1EE5ng h\u1EC7 s\u1ED1 g\xF3c \u0111\u1EC3 nh\u1EADn bi\u1EBFt v\xE0 gi\u1EA3i th\xEDch s\u1EF1 c\u1EAFt nhau ho\u1EB7c song song c\u1EE7a hai \u0111\u01B0\u1EDDng th\u1EB3ng cho tr\u01B0\u1EDBc.`,
+      prerequisites: "- H\xE0m s\u1ED1 b\u1EADc nh\u1EA5t v\xE0 \u0111\u1ED3 th\u1ECB (B\xE0i 28).\n- Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n (B\xE0i 25).",
+      concepts: r3`Hệ số góc \(a\) của đường thẳng \(y = ax + b\) (\(a \ne 0\)); hai đường thẳng song song, trùng nhau, cắt nhau.`,
+      formulas: r3`\(d: y = ax + b\), \(d': y = a'x + b'\) (\(a, a' \ne 0\)): \(d \parallel d'\) khi \(a = a'\), \(b \ne b'\); \(d\) trùng \(d'\) khi \(a = a'\), \(b = b'\); \(d\) cắt \(d'\) khi \(a \ne a'\).`,
+      properties: r3`- \(a > 0\): góc tạo bởi đường thẳng \(y = ax + b\) và trục \(Ox\) là góc nhọn; \(a < 0\): góc đó là góc tù.
+- Các đường thẳng có cùng hệ số góc tạo với trục \(Ox\) các góc bằng nhau.
+- Hai đường thẳng có hệ số góc khác nhau và cùng hệ số \(b\) cắt nhau tại điểm \((0; b)\) trên trục tung.`,
+      themes: [
+        {
+          title: "H\u1EC7 s\u1ED1 g\xF3c c\u1EE7a \u0111\u01B0\u1EDDng th\u1EB3ng",
+          description: "X\xE1c \u0111\u1ECBnh h\u1EC7 s\u1ED1 g\xF3c; li\xEAn h\u1EC7 v\u1EDBi g\xF3c t\u1EA1o b\u1EDFi \u0111\u01B0\u1EDDng th\u1EB3ng v\xE0 tr\u1EE5c Ox.",
+          types: [
+            {
+              slug: "xac-dinh-he-so-goc",
+              title: "X\xE1c \u0111\u1ECBnh h\u1EC7 s\u1ED1 g\xF3c c\u1EE7a \u0111\u01B0\u1EDDng th\u1EB3ng",
+              levels: [1, 2],
+              knowledge: r3`Đường thẳng \(y = ax + b\) (\(a \ne 0\)) có hệ số góc là \(a\).`,
+              signs: "\u0110\u1EC1 h\u1ECFi h\u1EC7 s\u1ED1 g\xF3c c\u1EE7a \u0111\u01B0\u1EDDng th\u1EB3ng cho b\u1EDFi c\xF4ng th\u1EE9c (c\xF3 th\u1EC3 ch\u01B0a thu g\u1ECDn), ho\u1EB7c nh\u1EADn x\xE9t g\xF3c t\u1EA1o b\u1EDFi \u0111\u01B0\u1EDDng th\u1EB3ng v\xE0 tr\u1EE5c Ox.",
+              method: r3`Đưa về dạng \(y = ax + b\); hệ số của \(x\) là hệ số góc.`,
+              steps: r3`- **Bước 1.** Thu gọn công thức về dạng \(y = ax + b\).
+- **Bước 2.** Đọc hệ số góc \(a\).
+- **Bước 3.** (Nếu cần) xét dấu của \(a\) để biết góc tạo bởi đường thẳng và trục \(Ox\) là góc nhọn hay góc tù.`,
+              mistakes: r3`- Nhầm hệ số góc với hệ số \(b\).
+- Với \(y = 3 - 2x\), cho rằng hệ số góc là 3.`,
+              example: r3`Tìm hệ số góc của các đường thẳng: a) \(y = 3 - 2x\); b) \(y = \dfrac{x + 4}{2}\); c) \(y = 5x\).`,
+              solution: r3`a) \(y = -2x + 3\): hệ số góc \(-2\). b) \(y = \dfrac12x + 2\): hệ số góc \(\dfrac12\). c) Hệ số góc 5.`,
+              exercises: [
+                mcq(1, r3`Hệ số góc của đường thẳng \(y = 4 - 3x\) là`, [r3`\(-3\)`, r3`\(4\)`, r3`\(3\)`, r3`\(-4\)`], "A", r3`\(y = -3x + 4\) có hệ số góc \(-3\).`),
+                sa(2, r3`Đường thẳng \(y = \dfrac{2x - 1}{4}\) có hệ số góc bằng bao nhiêu?`, ["0,5", "1/2"], r3`\(y = \dfrac12x - \dfrac14\), hệ số góc \(\dfrac12\).`),
+                tf(2, r3`Cho đường thẳng \(d: y = -2x + 1\). Mỗi khẳng định sau đúng hay sai?`, [
+                  [r3`Hệ số góc của \(d\) là \(-2\).`, true],
+                  [r3`Góc tạo bởi \(d\) và trục \(Ox\) là góc nhọn.`, false],
+                  [r3`\(d\) cắt trục tung tại điểm có tung độ bằng 1.`, true],
+                  [r3`\(d\) song song với đường thẳng \(y = 2x + 1\).`, false]
+                ], r3`a) Đúng. b) \(a = -2 < 0\) nên góc đó là góc tù: sai. c) Đúng. d) Hai hệ số góc \(-2\) và \(2\) khác nhau nên hai đường thẳng cắt nhau: sai.`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1ECB tr\xED t\u01B0\u01A1ng \u0111\u1ED1i c\u1EE7a hai \u0111\u01B0\u1EDDng th\u1EB3ng",
+          description: "Song song, tr\xF9ng nhau, c\u1EAFt nhau; b\xE0i to\xE1n c\xF3 tham s\u1ED1.",
+          types: [
+            {
+              slug: "song-song-cat-nhau",
+              title: "Nh\u1EADn bi\u1EBFt hai \u0111\u01B0\u1EDDng th\u1EB3ng song song, c\u1EAFt nhau",
+              levels: [1, 2],
+              knowledge: r3`\(d: y = ax + b\), \(d': y = a'x + b'\) (\(a, a' \ne 0\)): song song \(\Leftrightarrow a = a',\ b \ne b'\); trùng nhau \(\Leftrightarrow a = a',\ b = b'\); cắt nhau \(\Leftrightarrow a \ne a'\).`,
+              signs: "\u0110\u1EC1 cho hai (hay nhi\u1EC1u) \u0111\u01B0\u1EDDng th\u1EB3ng, h\u1ECFi v\u1ECB tr\xED t\u01B0\u01A1ng \u0111\u1ED1i; ch\u1ECDn c\xE1c c\u1EB7p \u0111\u01B0\u1EDDng th\u1EB3ng song song; t\xECm giao \u0111i\u1EC3m.",
+              method: "So s\xE1nh h\u1EC7 s\u1ED1 g\xF3c tr\u01B0\u1EDBc; n\u1EBFu b\u1EB1ng nhau th\xEC so s\xE1nh ti\u1EBFp h\u1EC7 s\u1ED1 b. Giao \u0111i\u1EC3m: gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh ho\xE0nh \u0111\u1ED9 ax + b = a'x + b'.",
+              steps: `- **B\u01B0\u1EDBc 1.** \u0110\u01B0a c\xE1c \u0111\u01B0\u1EDDng th\u1EB3ng v\u1EC1 d\u1EA1ng y = ax + b.
+- **B\u01B0\u1EDBc 2.** So s\xE1nh hai h\u1EC7 s\u1ED1 g\xF3c: kh\xE1c nhau th\xEC c\u1EAFt nhau.
+- **B\u01B0\u1EDBc 3.** N\u1EBFu hai h\u1EC7 s\u1ED1 g\xF3c b\u1EB1ng nhau: b kh\xE1c nhau th\xEC song song, b b\u1EB1ng nhau th\xEC tr\xF9ng nhau.`,
+              mistakes: "- Ch\u1EC9 so s\xE1nh h\u1EC7 s\u1ED1 b.\n- K\u1EBFt lu\u1EADn song song khi hai h\u1EC7 s\u1ED1 g\xF3c b\u1EB1ng nhau m\xE0 qu\xEAn ki\u1EC3m tra b kh\xE1c nhau.",
+              example: r3`Cho các đường thẳng \(d_1: y = 2x + 1\); \(d_2: y = 2x - 3\); \(d_3: y = -x + 1\); \(d_4: y = 1 + 2x\). Xét vị trí tương đối của các cặp đường thẳng.`,
+              solution: r3`\(d_1\) trùng \(d_4\) (cùng \(a = 2\), \(b = 1\)); \(d_1 \parallel d_2\) và \(d_2 \parallel d_4\) (\(a = 2\), \(b\) khác nhau); \(d_3\) cắt \(d_1\), \(d_2\), \(d_4\) (hệ số góc \(-1 \ne 2\)); \(d_3\) và \(d_1\) cắt nhau tại \((0; 1)\) trên trục tung.
+[bieudo]
+loai: dothi
+ham so: 2x + 1; 2x - 3; -x + 1
+x: -3; 3
+y: -5; 5
+[/bieudo]`,
+              exercises: [
+                mcq(1, r3`Đường thẳng nào sau đây song song với đường thẳng \(y = 3x - 1\)?`, [r3`\(y = 3x + 2\)`, r3`\(y = -3x - 1\)`, r3`\(y = x - 1\)`, r3`\(y = \dfrac13x + 2\)`], "A", r3`Cùng hệ số góc 3 và \(2 \ne -1\).`),
+                sa(2, r3`Hai đường thẳng \(y = 2x + 3\) và \(y = -x + 6\) cắt nhau tại điểm có hoành độ bằng bao nhiêu?`, ["1"], r3`\(2x + 3 = -x + 6 \Leftrightarrow 3x = 3 \Leftrightarrow x = 1\).`)
+              ]
+            },
+            {
+              slug: "tim-tham-so-song-song-cat-nhau",
+              title: "T\xECm tham s\u1ED1 \u0111\u1EC3 hai \u0111\u01B0\u1EDDng th\u1EB3ng song song ho\u1EB7c c\u1EAFt nhau",
+              levels: [2, 3],
+              knowledge: "\u0110i\u1EC1u ki\u1EC7n song song, tr\xF9ng nhau, c\u1EAFt nhau c\u1EE7a hai \u0111\u01B0\u1EDDng th\u1EB3ng; \u0111i\u1EC1u ki\u1EC7n \u0111\u1EC3 h\xE0m s\u1ED1 l\xE0 h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t (h\u1EC7 s\u1ED1 c\u1EE7a x kh\xE1c 0).",
+              signs: "H\u1EC7 s\u1ED1 c\u1EE7a \u0111\u01B0\u1EDDng th\u1EB3ng ch\u1EE9a tham s\u1ED1 m; \u0111\u1EC1 y\xEAu c\u1EA7u t\xECm m \u0111\u1EC3 hai \u0111\u01B0\u1EDDng th\u1EB3ng song song, tr\xF9ng nhau ho\u1EB7c c\u1EAFt nhau.",
+              method: "Vi\u1EBFt \u0111i\u1EC1u ki\u1EC7n v\u1EC1 h\u1EC7 s\u1ED1 theo m (k\xE8m \u0111i\u1EC1u ki\u1EC7n h\u1EC7 s\u1ED1 g\xF3c kh\xE1c 0), gi\u1EA3i v\xE0 \u0111\u1ED1i chi\u1EBFu \u0111i\u1EC1u ki\u1EC7n.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt \u0111i\u1EC1u ki\u1EC7n \u0111\u1EC3 c\xE1c h\xE0m s\u1ED1 l\xE0 h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t (h\u1EC7 s\u1ED1 c\u1EE7a x kh\xE1c 0).
+- **B\u01B0\u1EDBc 2.** L\u1EADp \u0111i\u1EC1u ki\u1EC7n: song song (a = a', b \u2260 b'), tr\xF9ng nhau (a = a', b = b'), c\u1EAFt nhau (a \u2260 a').
+- **B\u01B0\u1EDBc 3.** Gi\u1EA3i t\xECm m, \u0111\u1ED1i chi\u1EBFu \u0111i\u1EC1u ki\u1EC7n, k\u1EBFt lu\u1EADn.`,
+              mistakes: "- Qu\xEAn \u0111i\u1EC1u ki\u1EC7n b \u2260 b' khi t\xECm m \u0111\u1EC3 hai \u0111\u01B0\u1EDDng th\u1EB3ng song song.\n- Qu\xEAn \u0111i\u1EC1u ki\u1EC7n h\u1EC7 s\u1ED1 g\xF3c kh\xE1c 0.",
+              example: r3`Cho \(d: y = (m + 1)x + 3\) (\(m \ne -1\)) và \(d': y = 2x - 1\). Tìm \(m\) để a) \(d \parallel d'\); b) \(d\) cắt \(d'\).`,
+              solution: r3`a) \(d \parallel d' \Leftrightarrow m + 1 = 2\) và \(3 \ne -1\), tức là \(m = 1\).
+b) \(d\) cắt \(d' \Leftrightarrow m + 1 \ne 2 \Leftrightarrow m \ne 1\). Kết hợp điều kiện: \(m \ne 1\) và \(m \ne -1\).`,
+              exercises: [
+                sa(2, r3`Tìm \(m\) để đường thẳng \(y = (2m - 1)x + 4\) song song với đường thẳng \(y = 3x + 1\).`, ["2"], r3`\(2m - 1 = 3 \Leftrightarrow m = 2\); khi đó \(4 \ne 1\) nên hai đường thẳng song song.`),
+                sa(3, r3`Tìm \(m\) để hai đường thẳng \(y = 2x + m - 3\) và \(y = 2x + 5 - m\) trùng nhau.`, ["4"], r3`Hai hệ số góc bằng nhau; trùng nhau khi \(m - 3 = 5 - m \Leftrightarrow m = 4\).`),
+                mcq(3, r3`Với giá trị nào của \(m\) thì hai đường thẳng \(y = (m - 2)x + 1\) và \(y = 3x + 1\) cắt nhau?`, [r3`\(m \ne 5\) và \(m \ne 2\)`, r3`\(m = 5\)`, r3`\(m \ne 2\)`, r3`\(m = 2\)`], "A", r3`Cần \(m - 2 \ne 0\) (hàm số bậc nhất) và \(m - 2 \ne 3\), tức là \(m \ne 2\) và \(m \ne 5\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "X\xE1c \u0111\u1ECBnh \u0111\u01B0\u1EDDng th\u1EB3ng",
+          description: "T\xECm h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t t\u1EEB h\u1EC7 s\u1ED1 g\xF3c, quan h\u1EC7 song song, \u0111i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB.",
+          types: [
+            {
+              slug: "tim-ham-so-bac-nhat",
+              title: "T\xECm h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t th\u1ECFa m\xE3n y\xEAu c\u1EA7u",
+              levels: [3, 4],
+              knowledge: "Hai \u0111\u01B0\u1EDDng th\u1EB3ng song song c\xF3 c\xF9ng h\u1EC7 s\u1ED1 g\xF3c; \u0111i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB th\xEC t\u1ECDa \u0111\u1ED9 th\u1ECFa m\xE3n c\xF4ng th\u1EE9c; giao \u0111i\u1EC3m v\u1EDBi tr\u1EE5c tung l\xE0 (0; b).",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u x\xE1c \u0111\u1ECBnh h\xE0m s\u1ED1 y = ax + b bi\u1EBFt \u0111\u1ED3 th\u1ECB song song v\u1EDBi m\u1ED9t \u0111\u01B0\u1EDDng th\u1EB3ng v\xE0 \u0111i qua m\u1ED9t \u0111i\u1EC3m, c\xF3 h\u1EC7 s\u1ED1 g\xF3c cho tr\u01B0\u1EDBc, ho\u1EB7c \u0111i qua hai \u0111i\u1EC3m.",
+              method: "D\xF9ng t\u1EEBng d\u1EEF ki\u1EC7n \u0111\u1EC3 l\u1EADp \u0111i\u1EC1u ki\u1EC7n cho a, b: song song (ho\u1EB7c h\u1EC7 s\u1ED1 g\xF3c) cho a; \u0111i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB cho b.",
+              steps: r3`- **Bước 1.** Gọi hàm số cần tìm là \(y = ax + b\) (\(a \ne 0\)).
+- **Bước 2.** Từ dữ kiện song song hoặc hệ số góc suy ra \(a\); thay tọa độ điểm để tìm \(b\) (kiểm tra \(b \ne b'\) nếu song song). Nếu biết hai điểm: thay cả hai rồi trừ vế theo vế để tìm \(a\).
+- **Bước 3.** Viết hàm số.`,
+              mistakes: "- Qu\xEAn ki\u1EC3m tra b \u2260 b' (\u0111\u01B0\u1EDDng th\u1EB3ng t\xECm \u0111\u01B0\u1EE3c tr\xF9ng v\u1EDBi \u0111\u01B0\u1EDDng th\u1EB3ng \u0111\xE3 cho).",
+              example: r3`Xác định hàm số \(y = ax + b\) biết đồ thị của nó song song với đường thẳng \(y = -2x + 5\) và đi qua điểm \(A(1; 1)\).`,
+              solution: r3`Song song nên \(a = -2\). Đi qua \(A(1; 1)\): \(1 = -2 + b \Leftrightarrow b = 3 \ne 5\) (thỏa mãn). Hàm số \(y = -2x + 3\).`,
+              exercises: [
+                sa(3, r3`Hàm số \(y = ax + b\) có đồ thị song song với đường thẳng \(y = 3x\) và cắt trục tung tại điểm có tung độ bằng \(-2\). Tính \(a + b\).`, ["1"], r3`\(a = 3\), \(b = -2\) nên \(a + b = 1\).`),
+                sa(4, r3`Đồ thị hàm số \(y = ax + b\) đi qua hai điểm \(A(1; 3)\) và \(B(-1; -1)\). Tìm \(a\).`, ["2"], r3`\(3 = a + b\) và \(-1 = -a + b\). Trừ vế theo vế: \(4 = 2a \Leftrightarrow a = 2\) (khi đó \(b = 1\)).`),
+                es(4, r3`Xác định hàm số bậc nhất có đồ thị đi qua điểm \(M(1; 4)\) và cắt đường thẳng \(y = x - 1\) tại điểm có hoành độ bằng 3.`, r3`Điểm thuộc đường thẳng \(y = x - 1\) có hoành độ 3 là \(N(3; 2)\). Đồ thị \(y = ax + b\) đi qua \(M\) và \(N\): \(4 = a + b\), \(2 = 3a + b\). Trừ vế theo vế: \(2a = -2 \Leftrightarrow a = -1\), \(b = 5\).
+Hàm số cần tìm \(y = -x + 5\) (hệ số góc \(-1 \ne 1\) nên đồ thị đúng là cắt đường thẳng \(y = x - 1\)).`)
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+// src/seed/toan8-map/chuong-8.ts
+var CHUONG_8 = {
+  code: "VIII",
+  objectives: `- Nh\u1EADn bi\u1EBFt k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3, k\u1EBFt qu\u1EA3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng v\xE0 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho m\u1ED9t bi\u1EBFn c\u1ED1 trong tr\xF2 ch\u01A1i, th\xED nghi\u1EC7m ng\u1EABu nhi\xEAn \u0111\u01A1n gi\u1EA3n.
+- T\xEDnh x\xE1c su\u1EA5t c\u1EE7a bi\u1EBFn c\u1ED1 b\u1EB1ng t\u1EC9 s\u1ED1 gi\u1EEFa s\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i v\xE0 s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 (khi c\xE1c k\u1EBFt qu\u1EA3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng).
+- Nh\u1EADn bi\u1EBFt m\u1ED1i li\xEAn h\u1EC7 gi\u1EEFa x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m v\xE0 x\xE1c su\u1EA5t; d\xF9ng x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m \u01B0\u1EDBc l\u01B0\u1EE3ng x\xE1c su\u1EA5t, d\u1EF1 \u0111o\xE1n, \u01B0\u1EDBc l\u01B0\u1EE3ng s\u1ED1 l\u01B0\u1EE3ng trong th\u1EF1c t\u1EBF.`,
+  keyPoints: r3`- Kết quả có thể của một trò chơi, thí nghiệm; các kết quả đồng khả năng; kết quả thuận lợi cho biến cố \(E\).
+- Khi các kết quả có thể đồng khả năng: \(P(E) = \dfrac{k}{n}\) (\(k\) kết quả thuận lợi, \(n\) kết quả có thể); \(0 \le P(E) \le 1\).
+- Xác suất thực nghiệm của \(E\) sau \(n\) lần thử là \(\dfrac{m}{n}\) (\(m\) là số lần \(E\) xảy ra); khi \(n\) đủ lớn, xác suất thực nghiệm xấp xỉ \(P(E)\).`,
+  formulas: r3`\[P(E) = \dfrac{\text{số kết quả thuận lợi cho } E}{\text{số kết quả có thể}}\]
+\[P(E) \approx \dfrac{m}{n}\ \ (n \text{ đủ lớn});\qquad \text{số lần } E \text{ xảy ra trong } N \text{ lần thử} \approx N\cdot P(E)\]`,
+  verify: { status: "verified", note: "T\xEAn ch\u01B0\u01A1ng, t\xEAn b\xE0i v\xE0 th\u1EE9 t\u1EF1 \u0111\u1ED1i chi\u1EBFu v\u1EDBi m\u1EE5c l\u1EE5c SGK To\xE1n 8 K\u1EBFt n\u1ED1i tri th\u1EE9c t\u1EADp 2 (VietJack) v\xE0 PPCT 2026-2027." },
+  aux: [
+    { slug: "luyen-tap-chung-8a", objectives: "C\u1EE7ng c\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3, k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i, t\xEDnh x\xE1c su\u1EA5t b\u1EB1ng t\u1EC9 s\u1ED1 v\xE0 \u01B0\u1EDBc l\u01B0\u1EE3ng x\xE1c su\u1EA5t b\u1EB1ng x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m." },
+    { slug: "bai-tap-cuoi-chuong-8", objectives: "\xD4n t\u1EADp to\xE0n Ch\u01B0\u01A1ng VIII: x\xE1c su\u1EA5t c\u1EE7a bi\u1EBFn c\u1ED1, x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m v\xE0 \u1EE9ng d\u1EE5ng; chu\u1EA9n b\u1ECB ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng." }
+  ],
+  lessons: [
+    // ---------------- Bài 30 ----------------
+    {
+      slug: "bai-30-ket-qua-co-the-va-ket-qua-thuan-loi",
+      difficulty: 1,
+      objectives: `- Nh\u1EADn bi\u1EBFt c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 v\xE0 c\xE1c k\u1EBFt qu\u1EA3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng c\u1EE7a m\u1ED9t tr\xF2 ch\u01A1i, th\xED nghi\u1EC7m ng\u1EABu nhi\xEAn.
+- Nh\u1EADn bi\u1EBFt c\xE1c k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho m\u1ED9t bi\u1EBFn c\u1ED1.`,
+      prerequisites: "- Bi\u1EBFn c\u1ED1 ch\u1EAFc ch\u1EAFn, bi\u1EBFn c\u1ED1 kh\xF4ng th\u1EC3, bi\u1EBFn c\u1ED1 ng\u1EABu nhi\xEAn (To\xE1n 7).\n- X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m trong c\xE1c v\xED d\u1EE5 \u0111\u01A1n gi\u1EA3n (To\xE1n 6).",
+      concepts: "K\u1EBFt qu\u1EA3 c\xF3 th\u1EC3; k\u1EBFt qu\u1EA3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng; bi\u1EBFn c\u1ED1; k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1.",
+      properties: `- C\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 l\xE0 \u0111\u1ED3ng kh\u1EA3 n\u0103ng khi ch\xFAng c\xF3 kh\u1EA3 n\u0103ng x\u1EA3y ra nh\u01B0 nhau (\u0111\u1ED3ng xu, x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i; c\xE1c th\u1EBB, vi\xEAn bi gi\u1ED1ng nhau v\u1EC1 k\xEDch th\u01B0\u1EDBc, kh\u1ED1i l\u01B0\u1EE3ng; v\xF2ng quay chia th\xE0nh c\xE1c ph\u1EA7n b\u1EB1ng nhau).
+- K\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 E l\xE0 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 l\xE0m cho E x\u1EA3y ra.
+- Bi\u1EBFn c\u1ED1 ch\u1EAFc ch\u1EAFn: m\u1ECDi k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 \u0111\u1EC1u thu\u1EADn l\u1EE3i; bi\u1EBFn c\u1ED1 kh\xF4ng th\u1EC3: kh\xF4ng c\xF3 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i n\xE0o.`,
+      themes: [
+        {
+          title: "K\u1EBFt qu\u1EA3 c\xF3 th\u1EC3",
+          description: "Li\u1EC7t k\xEA, \u0111\u1EBFm k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3; nh\u1EADn bi\u1EBFt k\u1EBFt qu\u1EA3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng.",
+          types: [
+            {
+              slug: "liet-ke-ket-qua-co-the",
+              title: "Li\u1EC7t k\xEA, \u0111\u1EBFm c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3",
+              levels: [1, 2],
+              knowledge: "K\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 l\xE0 c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 x\u1EA3y ra khi th\u1EF1c hi\u1EC7n m\u1ED9t tr\xF2 ch\u01A1i, th\xED nghi\u1EC7m (h\xE0nh \u0111\u1ED9ng) ng\u1EABu nhi\xEAn.",
+              signs: "\u0110\u1EC1 m\xF4 t\u1EA3 tr\xF2 ch\u01A1i, th\xED nghi\u1EC7m (gieo x\xFAc x\u1EAFc, tung \u0111\u1ED3ng xu, r\xFAt th\u1EBB, l\u1EA5y b\xF3ng, quay v\xF2ng quay) v\xE0 h\u1ECFi c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.",
+              method: "Li\u1EC7t k\xEA c\xF3 h\u1EC7 th\u1ED1ng t\u1EA5t c\u1EA3 c\xE1c k\u1EBFt qu\u1EA3 (theo th\u1EE9 t\u1EF1 s\u1ED1, theo t\u1EEBng \u0111\u1ED1i t\u01B0\u1EE3ng), kh\xF4ng b\u1ECF s\xF3t, kh\xF4ng l\u1EB7p.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh h\xE0nh \u0111\u1ED9ng v\xE0 \u0111\u1ED1i t\u01B0\u1EE3ng c\u1EE7a k\u1EBFt qu\u1EA3 (m\u1EB7t x\xFAc x\u1EAFc, t\u1EA5m th\u1EBB, t\u1EEBng vi\xEAn bi\u2026).
+- **B\u01B0\u1EDBc 2.** Li\u1EC7t k\xEA c\xF3 th\u1EE9 t\u1EF1 t\u1EA5t c\u1EA3 c\xE1c k\u1EBFt qu\u1EA3.
+- **B\u01B0\u1EDBc 3.** \u0110\u1EBFm s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.`,
+              mistakes: "- Coi c\xE1c vi\xEAn bi c\xF9ng m\xE0u l\xE0 m\u1ED9t k\u1EBFt qu\u1EA3 khi \u0111\u1EC1 y\xEAu c\u1EA7u x\xE9t t\u1EEBng vi\xEAn bi.\n- B\u1ECF s\xF3t ho\u1EB7c l\u1EB7p k\u1EBFt qu\u1EA3 khi li\u1EC7t k\xEA.",
+              example: "M\u1ED9t h\u1ED9p c\xF3 10 t\u1EA5m th\u1EBB c\xF9ng lo\u1EA1i, \u0111\u01B0\u1EE3c \u0111\xE1nh s\u1ED1 1; 2; \u2026; 10. R\xFAt ng\u1EABu nhi\xEAn m\u1ED9t t\u1EA5m th\u1EBB. Li\u1EC7t k\xEA c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 v\xE0 cho bi\u1EBFt c\xF3 bao nhi\xEAu k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.",
+              solution: "C\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3: r\xFAt \u0111\u01B0\u1EE3c th\u1EBB s\u1ED1 1, th\u1EBB s\u1ED1 2, \u2026, th\u1EBB s\u1ED1 10. C\xF3 10 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3; c\xE1c th\u1EBB c\xF9ng lo\u1EA1i v\xE0 \u0111\u01B0\u1EE3c r\xFAt ng\u1EABu nhi\xEAn n\xEAn c\xE1c k\u1EBFt qu\u1EA3 n\xE0y \u0111\u1ED3ng kh\u1EA3 n\u0103ng.",
+              exercises: [
+                mcq(1, "Gieo m\u1ED9t con x\xFAc x\u1EAFc 6 m\u1EB7t c\xE2n \u0111\u1ED1i. S\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 l\xE0", ["6", "1", "3", "12"], "A", "C\xF3 6 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3: xu\u1EA5t hi\u1EC7n m\u1EB7t 1, 2, 3, 4, 5, 6 ch\u1EA5m."),
+                sa(2, "M\u1ED9t t\xFAi c\xF3 3 vi\xEAn bi \u0111\u1ECF \u0111\u01B0\u1EE3c \u0111\xE1nh s\u1ED1 1, 2, 3 v\xE0 5 vi\xEAn bi xanh \u0111\u01B0\u1EE3c \u0111\xE1nh s\u1ED1 4, 5, 6, 7, 8; c\xE1c vi\xEAn bi c\xF3 c\xF9ng k\xEDch th\u01B0\u1EDBc, kh\u1ED1i l\u01B0\u1EE3ng. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t vi\xEAn bi. C\xF3 bao nhi\xEAu k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3?", ["8"], "M\u1ED7i vi\xEAn bi l\xE0 m\u1ED9t k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3: c\xF3 8 k\u1EBFt qu\u1EA3."),
+                sa(2, "Tung m\u1ED9t \u0111\u1ED3ng xu c\xE2n \u0111\u1ED1i hai l\u1EA7n li\xEAn ti\u1EBFp. C\xF3 bao nhi\xEAu k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3?", ["4"], "C\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3: SS, SN, NS, NN (S: s\u1EA5p, N: ng\u1EEDa). C\xF3 4 k\u1EBFt qu\u1EA3.")
+              ]
+            },
+            {
+              slug: "nhan-biet-dong-kha-nang",
+              title: "Nh\u1EADn bi\u1EBFt c\xE1c k\u1EBFt qu\u1EA3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng",
+              levels: [1, 2],
+              knowledge: "C\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 l\xE0 \u0111\u1ED3ng kh\u1EA3 n\u0103ng n\u1EBFu ch\xFAng c\xF3 kh\u1EA3 n\u0103ng x\u1EA3y ra nh\u01B0 nhau.",
+              signs: "\u0110\u1EC1 h\u1ECFi c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 c\xF3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng kh\xF4ng, ho\u1EB7c c\u1EA7n ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n n\xE0y tr\u01B0\u1EDBc khi t\xEDnh x\xE1c su\u1EA5t b\u1EB1ng t\u1EC9 s\u1ED1.",
+              method: "Ki\u1EC3m tra c\xE1c \u0111\u1ED1i t\u01B0\u1EE3ng c\xF3 c\xE2n \u0111\u1ED1i, gi\u1ED1ng nhau v\u1EC1 k\xEDch th\u01B0\u1EDBc, kh\u1ED1i l\u01B0\u1EE3ng, \u0111\u01B0\u1EE3c ch\u1ECDn ng\u1EABu nhi\xEAn hay kh\xF4ng.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.
+- **B\u01B0\u1EDBc 2.** Ki\u1EC3m tra c\xE1c y\u1EBFu t\u1ED1: \u0111\u1ED3 v\u1EADt c\xE2n \u0111\u1ED1i; th\u1EBB, b\xF3ng gi\u1ED1ng nhau; v\xF2ng quay chia \u0111\u1EC1u; ch\u1ECDn ng\u1EABu nhi\xEAn.
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn c\xE1c k\u1EBFt qu\u1EA3 c\xF3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng hay kh\xF4ng.`,
+              mistakes: '- Coi hai k\u1EBFt qu\u1EA3 "l\u1EA5y \u0111\u01B0\u1EE3c bi \u0111\u1ECF" v\xE0 "l\u1EA5y \u0111\u01B0\u1EE3c bi xanh" l\xE0 \u0111\u1ED3ng kh\u1EA3 n\u0103ng khi s\u1ED1 bi m\u1ED7i m\xE0u kh\xE1c nhau.',
+              example: 'M\u1ED9t t\xFAi c\xF3 2 vi\xEAn bi \u0111\u1ECF v\xE0 3 vi\xEAn bi xanh c\xF3 c\xF9ng k\xEDch th\u01B0\u1EDBc, kh\u1ED1i l\u01B0\u1EE3ng. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t vi\xEAn bi. a) N\u0103m k\u1EBFt qu\u1EA3 "l\u1EA5y \u0111\u01B0\u1EE3c vi\xEAn bi th\u1EE9 nh\u1EA5t, th\u1EE9 hai, \u2026, th\u1EE9 n\u0103m" c\xF3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng kh\xF4ng? b) Hai k\u1EBFt qu\u1EA3 "l\u1EA5y \u0111\u01B0\u1EE3c bi \u0111\u1ECF" v\xE0 "l\u1EA5y \u0111\u01B0\u1EE3c bi xanh" c\xF3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng kh\xF4ng?',
+              solution: "a) C\xF3, v\xEC c\xE1c vi\xEAn bi gi\u1ED1ng nhau v\xE0 \u0111\u01B0\u1EE3c l\u1EA5y ng\u1EABu nhi\xEAn. b) Kh\xF4ng: c\xF3 3 vi\xEAn bi xanh nh\u01B0ng ch\u1EC9 c\xF3 2 vi\xEAn bi \u0111\u1ECF n\xEAn kh\u1EA3 n\u0103ng l\u1EA5y \u0111\u01B0\u1EE3c bi xanh l\u1EDBn h\u01A1n.",
+              exercises: [
+                mcq(1, "Trong c\xE1c th\xED nghi\u1EC7m sau, th\xED nghi\u1EC7m n\xE0o c\xF3 c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng?", ["Gieo m\u1ED9t con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i, quan s\xE1t s\u1ED1 ch\u1EA5m", "Quay m\u1ED9t v\xF2ng quay chia th\xE0nh 3 ph\u1EA7n kh\xF4ng b\u1EB1ng nhau", "L\u1EA5y m\u1ED9t vi\xEAn bi t\u1EEB t\xFAi c\xF3 1 bi \u0111\u1ECF, 4 bi xanh r\u1ED3i xem m\xE0u", "Gieo m\u1ED9t con x\xFAc x\u1EAFc b\u1ECB l\u1EC7ch t\xE2m"], "A", "X\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i n\xEAn 6 m\u1EB7t c\xF3 kh\u1EA3 n\u0103ng xu\u1EA5t hi\u1EC7n nh\u01B0 nhau."),
+                tf(2, "M\u1ED9t h\u1ED9p c\xF3 4 qu\u1EA3 b\xF3ng xanh v\xE0 4 qu\u1EA3 b\xF3ng \u0111\u1ECF c\xF3 c\xF9ng k\xEDch th\u01B0\u1EDBc, kh\u1ED1i l\u01B0\u1EE3ng. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t qu\u1EA3 b\xF3ng. M\u1ED7i kh\u1EB3ng \u0111\u1ECBnh sau \u0111\xFAng hay sai?", [
+                  ["C\xF3 8 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.", true],
+                  ['Hai kh\u1EA3 n\u0103ng "l\u1EA5y \u0111\u01B0\u1EE3c b\xF3ng xanh" v\xE0 "l\u1EA5y \u0111\u01B0\u1EE3c b\xF3ng \u0111\u1ECF" c\xF3 kh\u1EA3 n\u0103ng x\u1EA3y ra nh\u01B0 nhau.', true],
+                  ['Bi\u1EBFn c\u1ED1 "l\u1EA5y \u0111\u01B0\u1EE3c b\xF3ng v\xE0ng" l\xE0 bi\u1EBFn c\u1ED1 ch\u1EAFc ch\u1EAFn.', false],
+                  ['C\xF3 4 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "l\u1EA5y \u0111\u01B0\u1EE3c b\xF3ng \u0111\u1ECF".', true]
+                ], "a) \u0110\xFAng (8 qu\u1EA3 b\xF3ng). b) \u0110\xFAng v\xEC s\u1ED1 b\xF3ng hai m\xE0u b\u1EB1ng nhau. c) Sai: \u0111\xE2y l\xE0 bi\u1EBFn c\u1ED1 kh\xF4ng th\u1EC3. d) \u0110\xFAng.")
+              ]
+            }
+          ]
+        },
+        {
+          title: "K\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1",
+          description: "X\xE1c \u0111\u1ECBnh, \u0111\u1EBFm c\xE1c k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.",
+          types: [
+            {
+              slug: "ket-qua-thuan-loi",
+              title: "Li\u1EC7t k\xEA, \u0111\u1EBFm c\xE1c k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho m\u1ED9t bi\u1EBFn c\u1ED1",
+              levels: [1, 2, 3],
+              knowledge: "K\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 E l\xE0 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 l\xE0m cho E x\u1EA3y ra.",
+              signs: '\u0110\u1EC1 cho th\xED nghi\u1EC7m v\xE0 m\u1ED9t bi\u1EBFn c\u1ED1 m\xF4 t\u1EA3 b\u1EB1ng l\u1EDDi ("s\u1ED1 ch\u1EA5m l\xE0 s\u1ED1 ch\u1EB5n", "th\u1EBB ghi s\u1ED1 nguy\xEAn t\u1ED1"\u2026), h\u1ECFi c\xE1c k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.',
+              method: "Li\u1EC7t k\xEA c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3, r\u1ED3i ch\u1ECDn nh\u1EEFng k\u1EBFt qu\u1EA3 th\u1ECFa m\xE3n \u0111i\u1EC1u ki\u1EC7n c\u1EE7a bi\u1EBFn c\u1ED1.",
+              steps: `- **B\u01B0\u1EDBc 1.** Li\u1EC7t k\xEA c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.
+- **B\u01B0\u1EDBc 2.** Ki\u1EC3m tra t\u1EEBng k\u1EBFt qu\u1EA3 c\xF3 l\xE0m cho bi\u1EBFn c\u1ED1 x\u1EA3y ra hay kh\xF4ng.
+- **B\u01B0\u1EDBc 3.** Li\u1EC7t k\xEA, \u0111\u1EBFm c\xE1c k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.`,
+              mistakes: '- Hi\u1EC3u sai \u0111i\u1EC1u ki\u1EC7n c\u1EE7a bi\u1EBFn c\u1ED1: s\u1ED1 nguy\xEAn t\u1ED1 c\xF3 s\u1ED1 2, kh\xF4ng c\xF3 s\u1ED1 1; "kh\xF4ng v\u01B0\u1EE3t qu\xE1 4" g\u1ED3m c\u1EA3 s\u1ED1 4.',
+              example: 'Gieo m\u1ED9t con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i. T\xECm c\xE1c k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 E: "S\u1ED1 ch\u1EA5m xu\u1EA5t hi\u1EC7n l\xE0 s\u1ED1 nguy\xEAn t\u1ED1".',
+              solution: "C\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3: m\u1EB7t 1, 2, 3, 4, 5, 6 ch\u1EA5m. C\xE1c k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho E: m\u1EB7t 2, 3, 5 ch\u1EA5m (3 k\u1EBFt qu\u1EA3).",
+              exercises: [
+                sa(1, 'R\xFAt ng\u1EABu nhi\xEAn m\u1ED9t t\u1EA5m th\u1EBB trong 20 t\u1EA5m th\u1EBB \u0111\xE1nh s\u1ED1 t\u1EEB 1 \u0111\u1EBFn 20. C\xF3 bao nhi\xEAu k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "S\u1ED1 ghi tr\xEAn th\u1EBB chia h\u1EBFt cho 3"?', ["6"], "C\xE1c s\u1ED1 3, 6, 9, 12, 15, 18: c\xF3 6 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i."),
+                mcq(2, 'Gieo m\u1ED9t con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i. C\xE1c k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "S\u1ED1 ch\u1EA5m xu\u1EA5t hi\u1EC7n l\u1EDBn h\u01A1n 4" l\xE0', ["m\u1EB7t 5 ch\u1EA5m, m\u1EB7t 6 ch\u1EA5m", "m\u1EB7t 4, 5, 6 ch\u1EA5m", "m\u1EB7t 1, 2, 3, 4 ch\u1EA5m", "m\u1EB7t 6 ch\u1EA5m"], "A", "S\u1ED1 ch\u1EA5m l\u1EDBn h\u01A1n 4 l\xE0 5 v\xE0 6."),
+                sa(3, 'Ch\u1ECDn ng\u1EABu nhi\xEAn m\u1ED9t s\u1ED1 t\u1EF1 nhi\xEAn c\xF3 hai ch\u1EEF s\u1ED1. C\xF3 bao nhi\xEAu k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "S\u1ED1 \u0111\u01B0\u1EE3c ch\u1ECDn c\xF3 t\u1ED5ng c\xE1c ch\u1EEF s\u1ED1 b\u1EB1ng 5"?', ["5"], "C\xE1c s\u1ED1 14, 23, 32, 41, 50: c\xF3 5 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 31 ----------------
+    {
+      slug: "bai-31-cach-tinh-xac-suat-cua-bien-co-bang-ti-so",
+      difficulty: 2,
+      objectives: `- T\xEDnh x\xE1c su\u1EA5t c\u1EE7a m\u1ED9t bi\u1EBFn c\u1ED1 b\u1EB1ng t\u1EC9 s\u1ED1 gi\u1EEFa s\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i v\xE0 s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3, khi c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng.
+- V\u1EADn d\u1EE5ng t\xEDnh x\xE1c su\u1EA5t trong tr\xF2 ch\u01A1i, t\xECnh hu\u1ED1ng th\u1EF1c t\u1EBF; t\xECm s\u1ED1 l\u01B0\u1EE3ng khi bi\u1EBFt x\xE1c su\u1EA5t.`,
+      prerequisites: "- K\u1EBFt qu\u1EA3 c\xF3 th\u1EC3, k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i (B\xE0i 30).\n- Ph\xE2n s\u1ED1, t\u1EC9 s\u1ED1, t\u1EC9 s\u1ED1 ph\u1EA7n tr\u0103m (To\xE1n 6).",
+      concepts: r3`Xác suất của biến cố \(E\), kí hiệu \(P(E)\).`,
+      formulas: r3`\(P(E) = \dfrac{\text{số kết quả thuận lợi cho } E}{\text{số kết quả có thể}}\) (các kết quả có thể đồng khả năng).`,
+      properties: r3`- \(0 \le P(E) \le 1\).
+- Biến cố chắc chắn có xác suất bằng 1; biến cố không thể có xác suất bằng 0.`,
+      themes: [
+        {
+          title: "T\xEDnh x\xE1c su\u1EA5t b\u1EB1ng t\u1EC9 s\u1ED1",
+          description: "T\xEDnh x\xE1c su\u1EA5t trong tr\xF2 ch\u01A1i, th\xED nghi\u1EC7m v\xE0 t\xECnh hu\u1ED1ng th\u1EF1c t\u1EBF.",
+          types: [
+            {
+              slug: "tinh-xac-suat-bien-co",
+              title: "T\xEDnh x\xE1c su\u1EA5t c\u1EE7a m\u1ED9t bi\u1EBFn c\u1ED1",
+              levels: [1, 2, 3],
+              knowledge: r3`Khi các kết quả có thể đồng khả năng: \(P(E) = \dfrac{k}{n}\), \(k\) là số kết quả thuận lợi cho \(E\), \(n\) là số kết quả có thể.`,
+              signs: "\u0110\u1EC1 cho th\xED nghi\u1EC7m c\xF3 c\xE1c k\u1EBFt qu\u1EA3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng v\xE0 m\u1ED9t bi\u1EBFn c\u1ED1, y\xEAu c\u1EA7u t\xEDnh x\xE1c su\u1EA5t.",
+              method: "\u0110\u1EBFm s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 v\xE0 s\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i, l\u1EADp t\u1EC9 s\u1ED1 v\xE0 r\xFAt g\u1ECDn.",
+              steps: r3`- **Bước 1.** Kiểm tra các kết quả đồng khả năng; đếm số kết quả có thể \(n\).
+- **Bước 2.** Liệt kê, đếm số kết quả thuận lợi \(k\).
+- **Bước 3.** Tính \(P(E) = \dfrac{k}{n}\) và rút gọn.`,
+              mistakes: "- L\u1EA5y s\u1ED1 k\u1EBFt qu\u1EA3 kh\xF4ng thu\u1EADn l\u1EE3i l\xE0m t\u1EED s\u1ED1.\n- D\xF9ng t\u1EC9 s\u1ED1 khi c\xE1c k\u1EBFt qu\u1EA3 kh\xF4ng \u0111\u1ED3ng kh\u1EA3 n\u0103ng (v\xED d\u1EE5 ch\u1EC9 \u0111\u1EBFm s\u1ED1 m\xE0u bi).",
+              example: 'M\u1ED9t h\u1ED9p c\xF3 5 vi\xEAn bi \u0111\u1ECF, 3 vi\xEAn bi xanh v\xE0 2 vi\xEAn bi v\xE0ng c\xF3 c\xF9ng k\xEDch th\u01B0\u1EDBc, kh\u1ED1i l\u01B0\u1EE3ng. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t vi\xEAn bi. T\xEDnh x\xE1c su\u1EA5t c\u1EE7a c\xE1c bi\u1EBFn c\u1ED1 A: "L\u1EA5y \u0111\u01B0\u1EE3c vi\xEAn bi m\xE0u \u0111\u1ECF" v\xE0 B: "L\u1EA5y \u0111\u01B0\u1EE3c vi\xEAn bi kh\xF4ng ph\u1EA3i m\xE0u xanh".',
+              solution: r3`Có 10 kết quả có thể, đồng khả năng. Biến cố A có 5 kết quả thuận lợi: \(P(A) = \dfrac{5}{10} = \dfrac12\). Biến cố B có \(5 + 2 = 7\) kết quả thuận lợi: \(P(B) = \dfrac{7}{10}\).`,
+              exercises: [
+                mcq(1, 'Gieo m\u1ED9t con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i. X\xE1c su\u1EA5t c\u1EE7a bi\u1EBFn c\u1ED1 "S\u1ED1 ch\u1EA5m xu\u1EA5t hi\u1EC7n l\xE0 s\u1ED1 ch\u1EB5n" l\xE0', [r3`\(\dfrac12\)`, r3`\(\dfrac13\)`, r3`\(\dfrac16\)`, r3`\(\dfrac23\)`], "A", r3`Có 3 kết quả thuận lợi (2, 4, 6) trong 6 kết quả: \(P = \dfrac36 = \dfrac12\).`),
+                tf(2, "R\xFAt ng\u1EABu nhi\xEAn m\u1ED9t t\u1EA5m th\u1EBB t\u1EEB 10 t\u1EA5m th\u1EBB c\xF9ng lo\u1EA1i \u0111\xE1nh s\u1ED1 1; 2; \u2026; 10. M\u1ED7i kh\u1EB3ng \u0111\u1ECBnh sau \u0111\xFAng hay sai?", [
+                  [r3`Xác suất rút được thẻ số 7 là \(\dfrac{1}{10}\).`, true],
+                  [r3`Xác suất rút được thẻ ghi số lẻ là \(\dfrac12\).`, true],
+                  [r3`Xác suất rút được thẻ ghi số nguyên tố là \(\dfrac12\).`, false],
+                  ["X\xE1c su\u1EA5t r\xFAt \u0111\u01B0\u1EE3c th\u1EBB ghi s\u1ED1 l\u1EDBn h\u01A1n 10 l\xE0 1.", false]
+                ], r3`c) Các số nguyên tố 2, 3, 5, 7: xác suất \(\dfrac{4}{10} = \dfrac25\). d) Đây là biến cố không thể, xác suất bằng 0.`),
+                sa(2, "M\u1ED9t l\u1EDBp c\xF3 40 h\u1ECDc sinh, trong \u0111\xF3 c\xF3 16 b\u1EA1n n\u1EEF. Ch\u1ECDn ng\u1EABu nhi\xEAn m\u1ED9t h\u1ECDc sinh \u0111\u1EC3 tr\u1EF1c nh\u1EADt. T\xEDnh x\xE1c su\u1EA5t ch\u1ECDn \u0111\u01B0\u1EE3c m\u1ED9t b\u1EA1n nam.", ["0,6", "3/5"], r3`Có 24 bạn nam: \(P = \dfrac{24}{40} = \dfrac35\).`),
+                sa(3, "Ch\u1ECDn ng\u1EABu nhi\xEAn m\u1ED9t s\u1ED1 t\u1EF1 nhi\xEAn t\u1EEB 1 \u0111\u1EBFn 30. T\xEDnh x\xE1c su\u1EA5t \u0111\u1EC3 s\u1ED1 \u0111\u01B0\u1EE3c ch\u1ECDn chia h\u1EBFt cho c\u1EA3 2 v\xE0 3 (vi\u1EBFt d\u01B0\u1EDBi d\u1EA1ng ph\xE2n s\u1ED1 t\u1ED1i gi\u1EA3n).", ["1/6"], r3`Số chia hết cho cả 2 và 3 là số chia hết cho 6: 6, 12, 18, 24, 30. \(P = \dfrac{5}{30} = \dfrac16\).`)
+              ]
+            },
+            {
+              slug: "xac-suat-tinh-huong-thuc-te",
+              title: "X\xE1c su\u1EA5t trong t\xECnh hu\u1ED1ng th\u1EF1c t\u1EBF",
+              levels: [2, 3],
+              knowledge: "C\xF4ng th\u1EE9c t\xEDnh x\xE1c su\u1EA5t b\u1EB1ng t\u1EC9 s\u1ED1; \u0111\u1ECDc d\u1EEF li\u1EC7u t\u1EEB b\u1EA3ng, bi\u1EC3u \u0111\u1ED3.",
+              signs: "Ch\u1ECDn ng\u1EABu nhi\xEAn m\u1ED9t ng\u01B0\u1EDDi, s\u1EA3n ph\u1EA9m, ng\xE0y\u2026 trong m\u1ED9t nh\xF3m \u0111\u01B0\u1EE3c m\xF4 t\u1EA3 b\u1EB1ng l\u1EDDi, b\u1EA3ng s\u1ED1 li\u1EC7u ho\u1EB7c bi\u1EC3u \u0111\u1ED3.",
+              method: "L\u1EA5y t\u1ED5ng s\u1ED1 \u0111\u1ED1i t\u01B0\u1EE3ng l\xE0m s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3, \u0111\u1EBFm s\u1ED1 \u0111\u1ED1i t\u01B0\u1EE3ng th\u1ECFa m\xE3n bi\u1EBFn c\u1ED1, l\u1EADp t\u1EC9 s\u1ED1.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh t\u1ED5ng s\u1ED1 \u0111\u1ED1i t\u01B0\u1EE3ng (s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3).
+- **B\u01B0\u1EDBc 2.** \u0110\u1EBFm c\xE1c \u0111\u1ED1i t\u01B0\u1EE3ng th\u1ECFa m\xE3n bi\u1EBFn c\u1ED1 (\u0111\u1ECDc b\u1EA3ng, bi\u1EC3u \u0111\u1ED3).
+- **B\u01B0\u1EDBc 3.** T\xEDnh t\u1EC9 s\u1ED1 v\xE0 tr\u1EA3 l\u1EDDi.`,
+              mistakes: "- \u0110\u1ECDc sai s\u1ED1 li\u1EC7u tr\xEAn b\u1EA3ng, bi\u1EC3u \u0111\u1ED3.\n- L\u1EA5y sai t\u1ED5ng s\u1ED1 \u0111\u1ED1i t\u01B0\u1EE3ng.",
+              example: r3`Kết quả khảo sát môn thể thao yêu thích nhất của 40 học sinh lớp 8A:
+| Môn | Bóng đá | Cầu lông | Bơi | Bóng rổ |
+|---|---|---|---|---|
+| Số học sinh | 15 | 10 | 9 | 6 |
+
+Chọn ngẫu nhiên một học sinh của lớp. Tính xác suất học sinh đó thích cầu lông hoặc bơi nhất.`,
+              solution: r3`Có 40 kết quả có thể, đồng khả năng; số kết quả thuận lợi \(10 + 9 = 19\). Xác suất \(\dfrac{19}{40}\).`,
+              exercises: [
+                sa(2, "M\u1ED9t h\u1ED9p c\xF3 50 chi\u1EBFc b\xFAt, trong \u0111\xF3 c\xF3 2 chi\u1EBFc b\u1ECB h\u1ECFng. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t chi\u1EBFc b\xFAt. T\xEDnh x\xE1c su\u1EA5t l\u1EA5y \u0111\u01B0\u1EE3c b\xFAt t\u1ED1t.", ["0,96", "24/25"], r3`\(P = \dfrac{48}{50} = 0{,}96\).`),
+                sa(3, "M\u1ED9t nh\xF3m 25 h\u1ECDc sinh c\xF3 s\u1ED1 b\u1EA1n sinh v\xE0o m\u1ED7i qu\xFD nh\u01B0 sau: Qu\xFD I: 5 b\u1EA1n; Qu\xFD II: 8 b\u1EA1n; Qu\xFD III: 7 b\u1EA1n; Qu\xFD IV: 5 b\u1EA1n. Ch\u1ECDn ng\u1EABu nhi\xEAn m\u1ED9t b\u1EA1n. T\xEDnh x\xE1c su\u1EA5t b\u1EA1n \u0111\xF3 sinh v\xE0o s\xE1u th\xE1ng \u0111\u1EA7u n\u0103m.", ["0,52", "13/25"], r3`Sáu tháng đầu năm gồm quý I và quý II: \(5 + 8 = 13\) bạn. \(P = \dfrac{13}{25} = 0{,}52\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng x\xE1c su\u1EA5t",
+          description: "T\xECm s\u1ED1 l\u01B0\u1EE3ng khi bi\u1EBFt x\xE1c su\u1EA5t.",
+          types: [
+            {
+              slug: "tim-so-ket-qua-khi-biet-xac-suat",
+              title: "T\xEDnh s\u1ED1 k\u1EBFt qu\u1EA3 khi bi\u1EBFt x\xE1c su\u1EA5t",
+              levels: [3, 4],
+              knowledge: r3`\(P(E) = \dfrac{k}{n}\): biết \(P(E)\) và \(n\) thì \(k = n\cdot P(E)\); biết \(P(E)\) và \(k\) thì \(n = \dfrac{k}{P(E)}\).`,
+              signs: "\u0110\u1EC1 cho x\xE1c su\u1EA5t c\u1EE7a m\u1ED9t bi\u1EBFn c\u1ED1 v\xE0 y\xEAu c\u1EA7u t\xECm s\u1ED1 vi\xEAn bi, s\u1ED1 h\u1ECDc sinh, s\u1ED1 t\u1EA5m th\u1EBB\u2026",
+              method: "G\u1ECDi s\u1ED1 c\u1EA7n t\xECm l\xE0 x, bi\u1EC3u di\u1EC5n s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 v\xE0 s\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i theo x, l\u1EADp ph\u01B0\u01A1ng tr\xECnh r\u1ED3i gi\u1EA3i.",
+              steps: `- **B\u01B0\u1EDBc 1.** G\u1ECDi \u1EA9n (s\u1ED1 bi, s\u1ED1 th\u1EBB\u2026), bi\u1EC3u di\u1EC5n s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 v\xE0 s\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i theo \u1EA9n.
+- **B\u01B0\u1EDBc 2.** L\u1EADp ph\u01B0\u01A1ng tr\xECnh: s\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i : s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 = x\xE1c su\u1EA5t \u0111\xE3 cho.
+- **B\u01B0\u1EDBc 3.** Gi\u1EA3i, ki\u1EC3m tra nghi\u1EC7m l\xE0 s\u1ED1 t\u1EF1 nhi\xEAn, k\u1EBFt lu\u1EADn.`,
+              mistakes: "- Qu\xEAn r\u1EB1ng t\u1ED5ng s\u1ED1 k\u1EBFt qu\u1EA3 thay \u0111\u1ED5i khi th\xEAm bi v\xE0o h\u1ED9p.\n- Kh\xF4ng ki\u1EC3m tra nghi\u1EC7m l\xE0 s\u1ED1 t\u1EF1 nhi\xEAn.",
+              example: r3`Một hộp có 6 viên bi đỏ và một số viên bi xanh có cùng kích thước, khối lượng. Lấy ngẫu nhiên một viên bi, xác suất lấy được viên bi đỏ là \(\dfrac25\). Hỏi trong hộp có bao nhiêu viên bi xanh?`,
+              solution: r3`Gọi số bi xanh là \(x\) (\(x\) là số tự nhiên). \(\dfrac{6}{6 + x} = \dfrac25 \Leftrightarrow 30 = 12 + 2x \Leftrightarrow x = 9\). Trong hộp có 9 viên bi xanh.`,
+              exercises: [
+                sa(3, r3`Một lớp có 36 học sinh. Chọn ngẫu nhiên một học sinh, xác suất chọn được học sinh nữ là \(\dfrac49\). Lớp có bao nhiêu học sinh nữ?`, ["16"], r3`Số học sinh nữ: \(36\cdot\dfrac49 = 16\).`, "h\u1ECDc sinh"),
+                sa(3, "Trong m\u1ED9t h\u1ED9p c\xF3 4 vi\xEAn bi tr\u1EAFng v\xE0 m\u1ED9t s\u1ED1 vi\xEAn bi \u0111en c\xF9ng lo\u1EA1i. X\xE1c su\u1EA5t l\u1EA5y ng\u1EABu nhi\xEAn \u0111\u01B0\u1EE3c vi\xEAn bi tr\u1EAFng l\xE0 0,2. H\u1ECFi trong h\u1ED9p c\xF3 bao nhi\xEAu vi\xEAn bi \u0111en?", ["16"], r3`\(\dfrac{4}{4 + x} = 0{,}2 \Leftrightarrow 4 + x = 20 \Leftrightarrow x = 16\).`, "vi\xEAn"),
+                sa(4, r3`Một hộp có 5 viên bi đỏ và 7 viên bi xanh cùng loại. Cần thêm vào hộp bao nhiêu viên bi đỏ (cùng loại) để xác suất lấy ngẫu nhiên được một viên bi đỏ bằng \(\dfrac23\)?`, ["9"], r3`\(\dfrac{5 + x}{12 + x} = \dfrac23 \Leftrightarrow 15 + 3x = 24 + 2x \Leftrightarrow x = 9\). (Kiểm tra: \(\dfrac{14}{21} = \dfrac23\).)`, "vi\xEAn")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 32 ----------------
+    {
+      slug: "bai-32-moi-lien-he-giua-xac-suat-thuc-nghiem-voi-xac-suat-va-ung-dung",
+      difficulty: 2,
+      objectives: `- Nh\u1EADn bi\u1EBFt m\u1ED1i li\xEAn h\u1EC7 gi\u1EEFa x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m c\u1EE7a m\u1ED9t bi\u1EBFn c\u1ED1 v\u1EDBi x\xE1c su\u1EA5t c\u1EE7a bi\u1EBFn c\u1ED1 \u0111\xF3.
+- D\xF9ng x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m \u0111\u1EC3 \u01B0\u1EDBc l\u01B0\u1EE3ng x\xE1c su\u1EA5t; d\xF9ng x\xE1c su\u1EA5t \u0111\u1EC3 d\u1EF1 \u0111o\xE1n s\u1ED1 l\u1EA7n x\u1EA3y ra, \u01B0\u1EDBc l\u01B0\u1EE3ng s\u1ED1 l\u01B0\u1EE3ng trong th\u1EF1c t\u1EBF.`,
+      prerequisites: "- X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m (To\xE1n 6).\n- T\xEDnh x\xE1c su\u1EA5t b\u1EB1ng t\u1EC9 s\u1ED1 (B\xE0i 31).",
+      concepts: "X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m; \u01B0\u1EDBc l\u01B0\u1EE3ng x\xE1c su\u1EA5t b\u1EB1ng x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m; d\u1EF1 \u0111o\xE1n, \u01B0\u1EDBc l\u01B0\u1EE3ng s\u1ED1 l\u01B0\u1EE3ng.",
+      formulas: r3`Xác suất thực nghiệm của \(E\) sau \(n\) lần thử: \(\dfrac{m}{n}\) (\(m\) là số lần \(E\) xảy ra). Khi \(n\) đủ lớn: \(P(E) \approx \dfrac{m}{n}\).`,
+      properties: "- Khi s\u1ED1 l\u1EA7n th\u1EF1c hi\u1EC7n th\xED nghi\u1EC7m c\xE0ng l\u1EDBn th\xEC x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m c\u1EE7a bi\u1EBFn c\u1ED1 c\xE0ng g\u1EA7n v\u1EDBi x\xE1c su\u1EA5t c\u1EE7a bi\u1EBFn c\u1ED1 \u0111\xF3.\n- S\u1ED1 l\u1EA7n bi\u1EBFn c\u1ED1 E x\u1EA3y ra trong N l\u1EA7n th\u1EED x\u1EA5p x\u1EC9 N\xB7P(E).",
+      themes: [
+        {
+          title: "X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m v\xE0 x\xE1c su\u1EA5t",
+          description: "T\xEDnh x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m; \u01B0\u1EDBc l\u01B0\u1EE3ng x\xE1c su\u1EA5t.",
+          types: [
+            {
+              slug: "xac-suat-thuc-nghiem-uoc-luong",
+              title: "T\xEDnh x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m, \u01B0\u1EDBc l\u01B0\u1EE3ng x\xE1c su\u1EA5t",
+              levels: [1, 2, 3],
+              knowledge: r3`Xác suất thực nghiệm của \(E\) \(=\) số lần \(E\) xảy ra \(:\) tổng số lần thử; khi số lần thử lớn, xác suất thực nghiệm xấp xỉ \(P(E)\).`,
+              signs: "\u0110\u1EC1 cho k\u1EBFt qu\u1EA3 c\u1EE7a nhi\u1EC1u l\u1EA7n th\u1EED (b\u1EA3ng th\u1ED1ng k\xEA, s\u1ED1 li\u1EC7u ghi ch\xE9p), y\xEAu c\u1EA7u t\xEDnh x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m ho\u1EB7c \u01B0\u1EDBc l\u01B0\u1EE3ng x\xE1c su\u1EA5t.",
+              method: "\u0110\u1EBFm s\u1ED1 l\u1EA7n bi\u1EBFn c\u1ED1 x\u1EA3y ra, chia cho t\u1ED5ng s\u1ED1 l\u1EA7n th\u1EED; v\u1EDBi s\u1ED1 l\u1EA7n th\u1EED l\u1EDBn d\xF9ng k\u1EBFt qu\u1EA3 \u0111\xF3 \u01B0\u1EDBc l\u01B0\u1EE3ng x\xE1c su\u1EA5t.",
+              steps: r3`- **Bước 1.** Xác định tổng số lần thử \(n\).
+- **Bước 2.** Đếm số lần biến cố xảy ra \(m\).
+- **Bước 3.** Tính \(\dfrac{m}{n}\) và kết luận \(P(E) \approx \dfrac{m}{n}\).`,
+              mistakes: "- Chia cho s\u1ED1 l\u1EA7n bi\u1EBFn c\u1ED1 kh\xF4ng x\u1EA3y ra.\n- Cho r\u1EB1ng v\u1EDBi \xEDt l\u1EA7n th\u1EED, x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m b\u1EB1ng \u0111\xFAng x\xE1c su\u1EA5t.",
+              example: 'Gieo m\u1ED9t con x\xFAc x\u1EAFc 200 l\u1EA7n, m\u1EB7t 6 ch\u1EA5m xu\u1EA5t hi\u1EC7n 36 l\u1EA7n. T\xEDnh x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m c\u1EE7a bi\u1EBFn c\u1ED1 "Gieo \u0111\u01B0\u1EE3c m\u1EB7t 6 ch\u1EA5m" v\xE0 so s\xE1nh v\u1EDBi x\xE1c su\u1EA5t c\u1EE7a bi\u1EBFn c\u1ED1 \u0111\xF3.',
+              solution: r3`Xác suất thực nghiệm: \(\dfrac{36}{200} = 0{,}18\). Xác suất: \(\dfrac16 \approx 0{,}167\). Hai số khá gần nhau vì số lần gieo tương đối lớn.`,
+              exercises: [
+                sa(1, 'Tung m\u1ED9t \u0111\u1ED3ng xu 50 l\u1EA7n th\u1EA5y c\xF3 22 l\u1EA7n xu\u1EA5t hi\u1EC7n m\u1EB7t s\u1EA5p. T\xEDnh x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m c\u1EE7a bi\u1EBFn c\u1ED1 "Xu\u1EA5t hi\u1EC7n m\u1EB7t s\u1EA5p".', ["0,44", "11/25"], r3`\(\dfrac{22}{50} = 0{,}44\).`),
+                mcq(2, "M\u1ED9t c\u1EEDa h\xE0ng ghi l\u1EA1i: trong 500 kh\xE1ch h\xE0ng c\xF3 120 ng\u01B0\u1EDDi thanh to\xE1n b\u1EB1ng th\u1EBB. X\xE1c su\u1EA5t \u0111\u1EC3 m\u1ED9t kh\xE1ch h\xE0ng c\u1EE7a c\u1EEDa h\xE0ng thanh to\xE1n b\u1EB1ng th\u1EBB \u0111\u01B0\u1EE3c \u01B0\u1EDBc l\u01B0\u1EE3ng kho\u1EA3ng", ["0,24", "0,12", "0,5", "0,76"], "A", r3`\(\dfrac{120}{500} = 0{,}24\).`),
+                tf(3, "Gieo m\u1ED9t con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i 600 l\u1EA7n. M\u1ED7i kh\u1EB3ng \u0111\u1ECBnh sau \u0111\xFAng hay sai?", [
+                  [r3`Xác suất của biến cố "Gieo được mặt 1 chấm" là \(\dfrac16\).`, true],
+                  ["M\u1EB7t 1 ch\u1EA5m ch\u1EAFc ch\u1EAFn xu\u1EA5t hi\u1EC7n \u0111\xFAng 100 l\u1EA7n.", false],
+                  ["S\u1ED1 l\u1EA7n xu\u1EA5t hi\u1EC7n m\u1EB7t 1 ch\u1EA5m c\xF3 th\u1EC3 \u01B0\u1EDBc l\u01B0\u1EE3ng kho\u1EA3ng 100 l\u1EA7n.", true],
+                  [r3`Gieo càng nhiều lần thì xác suất thực nghiệm của biến cố "Gieo được mặt 1 chấm" càng gần \(\dfrac16\).`, true]
+                ], r3`b) Sai: \(600\cdot\dfrac16 = 100\) chỉ là số lần ước lượng, không chắc chắn. Các ý còn lại đúng.`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u1EE8ng d\u1EE5ng c\u1EE7a x\xE1c su\u1EA5t",
+          description: "D\u1EF1 \u0111o\xE1n s\u1ED1 l\u1EA7n x\u1EA3y ra; \u01B0\u1EDBc l\u01B0\u1EE3ng s\u1ED1 l\u01B0\u1EE3ng.",
+          types: [
+            {
+              slug: "du-doan-so-lan-xay-ra",
+              title: "D\xF9ng x\xE1c su\u1EA5t \u0111\u1EC3 d\u1EF1 b\xE1o s\u1ED1 l\u1EA7n x\u1EA3y ra",
+              legacy: ["D\xF9ng x\xE1c su\u1EA5t \u0111\u1EC3 d\u1EF1 b\xE1o, \u01B0\u1EDBc l\u01B0\u1EE3ng"],
+              levels: [2, 3],
+              knowledge: r3`Trong \(N\) lần thử, số lần biến cố \(E\) xảy ra xấp xỉ \(N\cdot P(E)\).`,
+              signs: "\u0110\u1EC1 cho x\xE1c su\u1EA5t (ho\u1EB7c t\u1EC9 l\u1EC7 \u01B0\u1EDBc l\u01B0\u1EE3ng t\u1EEB s\u1ED1 li\u1EC7u c\u0169), h\u1ECFi trong N l\u1EA7n th\u1EED, N s\u1EA3n ph\u1EA9m, N ng\u01B0\u1EDDi c\xF3 kho\u1EA3ng bao nhi\xEAu l\u1EA7n bi\u1EBFn c\u1ED1 x\u1EA3y ra.",
+              method: "Nh\xE2n s\u1ED1 l\u1EA7n th\u1EED (s\u1ED1 \u0111\u1ED1i t\u01B0\u1EE3ng) v\u1EDBi x\xE1c su\u1EA5t ho\u1EB7c x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh x\xE1c su\u1EA5t P(E) (t\xEDnh b\u1EB1ng t\u1EC9 s\u1ED1 ho\u1EB7c \u01B0\u1EDBc l\u01B0\u1EE3ng t\u1EEB th\u1EF1c nghi\u1EC7m).
+- **B\u01B0\u1EDBc 2.** T\xEDnh N\xB7P(E).
+- **B\u01B0\u1EDBc 3.** Tr\u1EA3 l\u1EDDi, d\xF9ng t\u1EEB "kho\u1EA3ng", "\u01B0\u1EDBc t\xEDnh".`,
+              mistakes: "- Kh\u1EB3ng \u0111\u1ECBnh s\u1ED1 l\u1EA7n x\u1EA3y ra ch\u1EAFc ch\u1EAFn b\u1EB1ng N\xB7P(E).\n- D\xF9ng nh\u1EA7m x\xE1c su\u1EA5t c\u1EE7a bi\u1EBFn c\u1ED1 ng\u01B0\u1EE3c l\u1EA1i.",
+              example: "T\u1EC9 l\u1EC7 s\u1EA3n ph\u1EA9m l\u1ED7i c\u1EE7a m\u1ED9t nh\xE0 m\xE1y \u0111\u01B0\u1EE3c \u01B0\u1EDBc l\u01B0\u1EE3ng l\xE0 2%. Trong m\u1ED9t l\xF4 5 000 s\u1EA3n ph\u1EA9m, \u01B0\u1EDBc t\xEDnh c\xF3 kho\u1EA3ng bao nhi\xEAu s\u1EA3n ph\u1EA9m l\u1ED7i?",
+              solution: r3`\(5000\cdot0{,}02 = 100\). Ước tính có khoảng 100 sản phẩm lỗi.`,
+              exercises: [
+                sa(2, "Gieo m\u1ED9t con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i 300 l\u1EA7n. \u01AF\u1EDBc t\xEDnh s\u1ED1 l\u1EA7n xu\u1EA5t hi\u1EC7n m\u1EB7t c\xF3 s\u1ED1 ch\u1EA5m l\xE0 s\u1ED1 ch\u1EB5n.", ["150"], r3`\(P = \dfrac12\), số lần ước tính \(300\cdot\dfrac12 = 150\).`, "l\u1EA7n"),
+                sa(3, "Theo th\u1ED1ng k\xEA, trong 1 000 h\u1EA1t gi\u1ED1ng c\u1EE7a m\u1ED9t lo\u1EA1i c\xE2y c\xF3 920 h\u1EA1t n\u1EA3y m\u1EA7m. N\u1EBFu gieo 5 000 h\u1EA1t gi\u1ED1ng lo\u1EA1i n\xE0y th\xEC \u01B0\u1EDBc t\xEDnh c\xF3 bao nhi\xEAu h\u1EA1t n\u1EA3y m\u1EA7m?", ["4600"], r3`Xác suất nảy mầm ước lượng \(0{,}92\); \(5000\cdot0{,}92 = 4600\) hạt.`, "h\u1EA1t")
+              ]
+            },
+            {
+              slug: "uoc-luong-so-luong",
+              title: "\u01AF\u1EDBc l\u01B0\u1EE3ng s\u1ED1 l\u01B0\u1EE3ng ph\u1EA7n t\u1EED c\u1EE7a m\u1ED9t t\u1EADp h\u1EE3p",
+              levels: [3, 4],
+              knowledge: "X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m x\u1EA5p x\u1EC9 x\xE1c su\u1EA5t: t\u1EC9 l\u1EC7 trong m\u1EABu quan s\xE1t x\u1EA5p x\u1EC9 t\u1EC9 l\u1EC7 trong to\xE0n b\u1ED9 t\u1EADp h\u1EE3p.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u \u01B0\u1EDBc l\u01B0\u1EE3ng s\u1ED1 c\xE1 trong h\u1ED3, s\u1ED1 bi trong h\u1ED9p\u2026 b\u1EB1ng c\xE1ch \u0111\xE1nh d\u1EA5u, l\u1EA5y m\u1EABu, th\u1EED nhi\u1EC1u l\u1EA7n.",
+              method: "G\u1ECDi s\u1ED1 c\u1EA7n \u01B0\u1EDBc l\u01B0\u1EE3ng l\xE0 x; vi\u1EBFt x\xE1c su\u1EA5t theo x, cho x\u1EA5p x\u1EC9 b\u1EB1ng x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m; gi\u1EA3i t\xECm x.",
+              steps: `- **B\u01B0\u1EDBc 1.** G\u1ECDi \u1EA9n, vi\u1EBFt x\xE1c su\u1EA5t c\u1EE7a bi\u1EBFn c\u1ED1 theo \u1EA9n.
+- **B\u01B0\u1EDBc 2.** \u01AF\u1EDBc l\u01B0\u1EE3ng x\xE1c su\u1EA5t \u0111\xF3 b\u1EB1ng x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m, l\u1EADp \u0111\u1EB3ng th\u1EE9c.
+- **B\u01B0\u1EDBc 3.** Gi\u1EA3i, l\xE0m tr\xF2n h\u1EE3p l\xED, tr\u1EA3 l\u1EDDi.`,
+              mistakes: "- L\u1EADp t\u1EC9 l\u1EC7 ng\u01B0\u1EE3c.\n- Qu\xEAn c\u1ED9ng s\u1ED1 ph\u1EA7n t\u1EED \u0111\xE3 bi\u1EBFt v\xE0o t\u1ED5ng s\u1ED1.",
+              example: "\u0110\u1EC3 \u01B0\u1EDBc l\u01B0\u1EE3ng s\u1ED1 c\xE1 trong m\u1ED9t h\u1ED3, ng\u01B0\u1EDDi ta b\u1EAFt 100 con, \u0111\xE1nh d\u1EA5u r\u1ED3i th\u1EA3 l\u1EA1i xu\u1ED1ng h\u1ED3. Sau m\u1ED9t th\u1EDDi gian, b\u1EAFt ng\u1EABu nhi\xEAn 80 con th\xEC th\u1EA5y c\xF3 4 con c\xF3 \u0111\xE1nh d\u1EA5u. \u01AF\u1EDBc l\u01B0\u1EE3ng s\u1ED1 c\xE1 trong h\u1ED3.",
+              solution: r3`Gọi số cá trong hồ là \(x\). Xác suất bắt được cá có đánh dấu là \(\dfrac{100}{x}\), xác suất thực nghiệm là \(\dfrac{4}{80}\). \(\dfrac{100}{x} \approx \dfrac{4}{80}\) nên \(x \approx 2000\). Trong hồ có khoảng 2 000 con cá.`,
+              exercises: [
+                sa(3, "M\u1ED9t h\u1ED9p c\xF3 6 vi\xEAn bi \u0111\u1ECF v\xE0 m\u1ED9t s\u1ED1 vi\xEAn bi xanh c\xF9ng lo\u1EA1i. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t vi\xEAn, xem m\xE0u r\u1ED3i tr\u1EA3 l\u1EA1i; l\u1EB7p l\u1EA1i 200 l\u1EA7n th\xEC c\xF3 40 l\u1EA7n l\u1EA5y \u0111\u01B0\u1EE3c bi \u0111\u1ECF. \u01AF\u1EDBc l\u01B0\u1EE3ng s\u1ED1 bi xanh trong h\u1ED9p.", ["24"], r3`\(P(\text{đỏ}) \approx \dfrac{40}{200} = 0{,}2\). \(\dfrac{6}{6 + x} = 0{,}2 \Leftrightarrow x = 24\).`, "vi\xEAn"),
+                sa(4, "Ng\u01B0\u1EDDi ta th\u1EA3 200 con c\xE1 c\xF3 \u0111\xE1nh d\u1EA5u v\xE0o m\u1ED9t h\u1ED3. Sau \u0111\xF3 b\u1EAFt ng\u1EABu nhi\xEAn 150 con th\xEC th\u1EA5y c\xF3 6 con c\xF3 \u0111\xE1nh d\u1EA5u. \u01AF\u1EDBc l\u01B0\u1EE3ng t\u1ED5ng s\u1ED1 c\xE1 trong h\u1ED3 (k\u1EC3 c\u1EA3 s\u1ED1 c\xE1 \u0111\xE3 th\u1EA3).", ["5000"], r3`\(\dfrac{200}{x} \approx \dfrac{6}{150}\) nên \(x \approx \dfrac{200\cdot150}{6} = 5000\).`, "con")
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+// src/seed/toan8-map/chuong-9.ts
+var CHUONG_9 = {
+  code: "IX",
+  objectives: `- M\xF4 t\u1EA3 \u0111\u1ECBnh ngh\u0129a hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng; gi\u1EA3i th\xEDch c\xE1c tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ED3ng d\u1EA1ng c\u1EE7a hai tam gi\xE1c, c\u1EE7a hai tam gi\xE1c vu\xF4ng.
+- Gi\u1EA3i th\xEDch \u0111\u1ECBnh l\xED Pythagore (thu\u1EADn v\xE0 \u0111\u1EA3o); t\xEDnh \u0111\u1ED9 d\xE0i \u0111o\u1EA1n th\u1EB3ng b\u1EB1ng \u0111\u1ECBnh l\xED Pythagore.
+- Nh\u1EADn bi\u1EBFt h\xECnh \u0111\u1ED3ng d\u1EA1ng ph\u1ED1i c\u1EA3nh, h\xECnh \u0111\u1ED3ng d\u1EA1ng qua c\xE1c h\xECnh \u1EA3nh c\u1EE5 th\u1EC3.
+- V\u1EADn d\u1EE5ng tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng, \u0111\u1ECBnh l\xED Pythagore gi\u1EA3i b\xE0i to\xE1n th\u1EF1c ti\u1EC5n (\u0111o chi\u1EC1u cao, kho\u1EA3ng c\xE1ch).`,
+  keyPoints: r3`- \(\triangle A'B'C' \backsim \triangle ABC\): các góc tương ứng bằng nhau, các cạnh tương ứng tỉ lệ; tỉ số đồng dạng \(k = \dfrac{A'B'}{AB}\).
+- Đường thẳng song song với một cạnh của tam giác và cắt hai cạnh còn lại tạo thành một tam giác đồng dạng với tam giác đã cho.
+- Ba trường hợp đồng dạng: cạnh – cạnh – cạnh, cạnh – góc – cạnh, góc – góc; các trường hợp đồng dạng của tam giác vuông.
+- Định lí Pythagore: tam giác vuông có bình phương cạnh huyền bằng tổng bình phương hai cạnh góc vuông; định lí đảo.
+- Hình đồng dạng phối cảnh (tâm, tỉ số); hình đồng dạng.`,
+  formulas: r3`\[\triangle A'B'C' \backsim \triangle ABC \Rightarrow \dfrac{A'B'}{AB} = \dfrac{B'C'}{BC} = \dfrac{C'A'}{CA} = k;\qquad \dfrac{P'}{P} = k;\qquad \dfrac{S'}{S} = k^2\]
+\[\triangle ABC \text{ vuông tại } A \Leftrightarrow BC^2 = AB^2 + AC^2\]`,
+  verify: { status: "verified", note: "T\xEAn ch\u01B0\u01A1ng, t\xEAn b\xE0i v\xE0 th\u1EE9 t\u1EF1 \u0111\u1ED1i chi\u1EBFu v\u1EDBi m\u1EE5c l\u1EE5c SGK To\xE1n 8 K\u1EBFt n\u1ED1i tri th\u1EE9c t\u1EADp 2 (VietJack) v\xE0 PPCT 2026-2027." },
+  aux: [
+    { slug: "luyen-tap-chung-9a", objectives: "C\u1EE7ng c\u1ED1 \u0111\u1ECBnh ngh\u0129a tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng v\xE0 ba tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ED3ng d\u1EA1ng c\u1EE7a hai tam gi\xE1c; t\xEDnh \u0111\u1ED9 d\xE0i, ch\u1EE9ng minh h\u1EC7 th\u1EE9c." },
+    { slug: "luyen-tap-chung-9b", objectives: "C\u1EE7ng c\u1ED1 \u0111\u1ECBnh l\xED Pythagore, c\xE1c tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ED3ng d\u1EA1ng c\u1EE7a tam gi\xE1c vu\xF4ng v\xE0 h\xECnh \u0111\u1ED3ng d\u1EA1ng; b\xE0i to\xE1n th\u1EF1c t\u1EBF." },
+    { slug: "bai-tap-cuoi-chuong-9", objectives: "\xD4n t\u1EADp to\xE0n Ch\u01B0\u01A1ng IX: tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng, \u0111\u1ECBnh l\xED Pythagore, h\xECnh \u0111\u1ED3ng d\u1EA1ng; chu\u1EA9n b\u1ECB ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng." }
+  ],
+  lessons: [
+    // ---------------- Bài 33 ----------------
+    {
+      slug: "bai-33-hai-tam-giac-dong-dang",
+      difficulty: 2,
+      objectives: `- M\xF4 t\u1EA3 \u0111\u1ECBnh ngh\u0129a hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng, t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng.
+- Nh\u1EADn bi\u1EBFt t\xEDnh ch\u1EA5t c\u1EE7a hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng; \u0111\u1ECBnh l\xED v\u1EC1 \u0111\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh c\u1EE7a tam gi\xE1c.
+- T\xEDnh \u0111\u1ED9 d\xE0i, ch\u1EE9ng minh \u0111\u1EB3ng th\u1EE9c \u0111\u01A1n gi\u1EA3n v\xE0 gi\u1EA3i b\xE0i to\xE1n th\u1EF1c t\u1EBF b\u1EB1ng tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng.`,
+      prerequisites: "- \u0110\u1ECBnh l\xED Thal\xE8s, h\u1EC7 qu\u1EA3 c\u1EE7a \u0111\u1ECBnh l\xED Thal\xE8s (Ch\u01B0\u01A1ng IV).\n- Tam gi\xE1c b\u1EB1ng nhau (To\xE1n 7); t\u1EC9 l\u1EC7 th\u1EE9c (To\xE1n 7).",
+      concepts: r3`Hai tam giác đồng dạng, kí hiệu \(\triangle A'B'C' \backsim \triangle ABC\); tỉ số đồng dạng \(k\); các đỉnh, góc, cạnh tương ứng.`,
+      properties: r3`- \(\triangle A'B'C' \backsim \triangle ABC\) nếu \(\widehat{A'} = \widehat{A}\), \(\widehat{B'} = \widehat{B}\), \(\widehat{C'} = \widehat{C}\) và \(\dfrac{A'B'}{AB} = \dfrac{B'C'}{BC} = \dfrac{C'A'}{CA} = k\).
+- Mỗi tam giác đồng dạng với chính nó. Nếu \(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số \(k\) thì \(\triangle ABC \backsim \triangle A'B'C'\) theo tỉ số \(\dfrac1k\).
+- Nếu \(\triangle A''B''C'' \backsim \triangle A'B'C'\) và \(\triangle A'B'C' \backsim \triangle ABC\) thì \(\triangle A''B''C'' \backsim \triangle ABC\).
+- Hai tam giác bằng nhau thì đồng dạng với nhau theo tỉ số 1.`,
+      theorems: r3`Nếu một đường thẳng cắt hai cạnh của một tam giác và song song với cạnh còn lại thì nó tạo thành một tam giác mới đồng dạng với tam giác đã cho: \(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)) \(\Rightarrow \triangle AMN \backsim \triangle ABC\). Định lí vẫn đúng khi đường thẳng cắt phần kéo dài hai cạnh của tam giác.`,
+      themes: [
+        {
+          title: "\u0110\u1ECBnh ngh\u0129a v\xE0 t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng",
+          description: "Nh\u1EADn bi\u1EBFt hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng, t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng; t\xEDnh \u0111\u1ED9 d\xE0i.",
+          types: [
+            {
+              slug: "dinh-nghia-ti-so-dong-dang",
+              title: "Nh\u1EADn bi\u1EBFt hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng, t\xECm t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng",
+              legacy: ["Ch\u1EE9ng minh hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng, t\xECm t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng"],
+              levels: [1, 2],
+              knowledge: r3`Định nghĩa: các góc tương ứng bằng nhau và các cạnh tương ứng tỉ lệ; tỉ số đồng dạng của \(\triangle A'B'C'\) với \(\triangle ABC\) là \(k = \dfrac{A'B'}{AB}\).`,
+              signs: "\u0110\u1EC1 cho k\xED hi\u1EC7u \u0111\u1ED3ng d\u1EA1ng ho\u1EB7c s\u1ED1 \u0111o g\xF3c, \u0111\u1ED9 d\xE0i c\u1EA1nh c\u1EE7a hai tam gi\xE1c; h\u1ECFi c\xE1c c\u1EB7p g\xF3c b\u1EB1ng nhau, t\u1EC9 l\u1EC7 th\u1EE9c, t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng.",
+              method: "\u0110\u1ECDc c\xE1c c\u1EB7p \u0111\u1EC9nh t\u01B0\u01A1ng \u1EE9ng theo \u0111\xFAng th\u1EE9 t\u1EF1 trong k\xED hi\u1EC7u, suy ra c\xE1c c\u1EB7p g\xF3c b\u1EB1ng nhau v\xE0 c\xE1c t\u1EC9 s\u1ED1 c\u1EA1nh b\u1EB1ng nhau.",
+              steps: r3`- **Bước 1.** Xác định các cặp đỉnh tương ứng (cùng vị trí trong kí hiệu).
+- **Bước 2.** Viết các cặp góc bằng nhau và dãy tỉ số cạnh tương ứng.
+- **Bước 3.** Tính tỉ số đồng dạng \(k\) từ một cặp cạnh đã biết (chú ý chiều so sánh).`,
+              mistakes: r3`- Viết sai thứ tự đỉnh tương ứng trong kí hiệu.
+- Nhầm tỉ số \(k\) của \(\triangle A'B'C'\) với \(\triangle ABC\) và tỉ số \(\dfrac1k\) của \(\triangle ABC\) với \(\triangle A'B'C'\).`,
+              example: r3`Cho \(\triangle MNP \backsim \triangle ABC\) theo tỉ số \(\dfrac23\). Viết các cặp góc bằng nhau, dãy tỉ số cạnh tương ứng. Tam giác \(ABC\) đồng dạng với tam giác \(MNP\) theo tỉ số nào?`,
+              solution: r3`\(\widehat{M} = \widehat{A}\), \(\widehat{N} = \widehat{B}\), \(\widehat{P} = \widehat{C}\); \(\dfrac{MN}{AB} = \dfrac{NP}{BC} = \dfrac{PM}{CA} = \dfrac23\). Tam giác \(ABC\) đồng dạng với tam giác \(MNP\) theo tỉ số \(\dfrac32\).`,
+              exercises: [
+                mcq(1, r3`Cho \(\triangle ABC \backsim \triangle DEF\). Khẳng định nào sau đây đúng?`, [r3`\(\widehat{B} = \widehat{E}\)`, r3`\(\widehat{B} = \widehat{F}\)`, r3`\(\dfrac{AB}{DE} = \dfrac{BC}{DF}\)`, r3`\(\widehat{A} = \widehat{E}\)`], "A", r3`Đỉnh \(B\) tương ứng với đỉnh \(E\) nên \(\widehat{B} = \widehat{E}\).`),
+                sa(2, r3`Cho \(\triangle ABC \backsim \triangle A'B'C'\) theo tỉ số đồng dạng \(k = \dfrac35\). Tam giác \(A'B'C'\) đồng dạng với tam giác \(ABC\) theo tỉ số nào? (viết dưới dạng phân số)`, ["5/3"], r3`Tỉ số đồng dạng ngược lại là \(\dfrac1k = \dfrac53\).`),
+                tf(2, r3`Cho \(\triangle MNP \backsim \triangle HIK\) với \(MN = 3\) cm, \(HI = 6\) cm. Mỗi khẳng định sau đúng hay sai?`, [
+                  [r3`Tỉ số đồng dạng của \(\triangle MNP\) với \(\triangle HIK\) là \(\dfrac12\).`, true],
+                  [r3`\(\widehat{N} = \widehat{K}\).`, false],
+                  [r3`\(\dfrac{NP}{IK} = \dfrac12\).`, true],
+                  [r3`\(\triangle HIK \backsim \triangle MNP\) theo tỉ số 2.`, true]
+                ], r3`\(k = \dfrac{MN}{HI} = \dfrac12\). Đỉnh \(N\) tương ứng với \(I\) nên \(\widehat{N} = \widehat{I}\), ý b sai. Các ý còn lại đúng.`)
+              ]
+            },
+            {
+              slug: "tinh-do-dai-qua-dong-dang",
+              title: "T\xEDnh \u0111\u1ED9 d\xE0i c\u1EA1nh qua tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng",
+              levels: [2, 3],
+              knowledge: r3`Nếu \(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số \(k\) thì \(A'B' = k\cdot AB\), \(B'C' = k\cdot BC\), \(C'A' = k\cdot CA\).`,
+              signs: "\u0110\u1EC1 cho hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng v\xE0 \u0111\u1ED9 d\xE0i m\u1ED9t s\u1ED1 c\u1EA1nh, y\xEAu c\u1EA7u t\xEDnh c\xE1c c\u1EA1nh c\xF2n l\u1EA1i.",
+              method: "Gh\xE9p \u0111\xFAng c\xE1c c\u1EB7p c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng, t\xECm t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng r\u1ED3i t\xEDnh c\xE1c c\u1EA1nh ch\u01B0a bi\u1EBFt b\u1EB1ng t\u1EC9 l\u1EC7 th\u1EE9c.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt d\xE3y t\u1EC9 s\u1ED1 c\xE1c c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng.
+- **B\u01B0\u1EDBc 2.** Thay c\xE1c s\u1ED1 \u0111\xE3 bi\u1EBFt, t\xECm t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng k.
+- **B\u01B0\u1EDBc 3.** T\xEDnh c\u1EA1nh ch\u01B0a bi\u1EBFt.`,
+              mistakes: "- Gh\xE9p sai c\u1EB7p c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng (c\u1EA1nh nh\u1ECF nh\u1EA5t c\u1EE7a tam gi\xE1c n\xE0y ph\u1EA3i \u1EE9ng v\u1EDBi c\u1EA1nh nh\u1ECF nh\u1EA5t c\u1EE7a tam gi\xE1c kia).",
+              example: r3`Cho \(\triangle ABC \backsim \triangle DEF\) có \(AB = 4\) cm, \(BC = 6\) cm, \(CA = 5\) cm và \(DE = 6\) cm. Tính \(EF\), \(FD\).`,
+              solution: r3`\(k = \dfrac{DE}{AB} = \dfrac64 = \dfrac32\). Suy ra \(EF = \dfrac32\cdot6 = 9\) cm, \(FD = \dfrac32\cdot5 = 7{,}5\) cm.`,
+              exercises: [
+                sa(2, r3`Cho \(\triangle ABC \backsim \triangle MNP\) có \(AB = 6\) cm, \(BC = 9\) cm, \(MN = 4\) cm. Tính \(NP\).`, ["6"], r3`\(\dfrac{MN}{AB} = \dfrac{NP}{BC} \Rightarrow NP = \dfrac{4\cdot9}{6} = 6\) cm.`, "cm"),
+                sa(3, r3`Cho \(\triangle ABC \backsim \triangle DEF\) có \(AB = 3\) cm, \(BC = 5\) cm, \(CA = 4\) cm và cạnh lớn nhất của tam giác \(DEF\) dài 15 cm. Tính độ dài cạnh nhỏ nhất của tam giác \(DEF\).`, ["9"], r3`Cạnh lớn nhất \(BC = 5\) ứng với \(EF = 15\) nên \(k = 3\). Cạnh nhỏ nhất \(DE = 3\cdot3 = 9\) cm.`, "cm")
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u0110\u1ECBnh l\xED v\u1EC1 tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng t\u1EA1o b\u1EDFi \u0111\u01B0\u1EDDng th\u1EB3ng song song",
+          description: "\u0110\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh; ch\u1EE9ng minh \u0111\u1EB3ng th\u1EE9c.",
+          types: [
+            {
+              slug: "dong-dang-tu-duong-song-song",
+              title: "Ch\u1EE9ng minh tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng nh\u1EDD \u0111\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh",
+              levels: [2, 3],
+              knowledge: r3`\(MN \parallel BC\), \(M \in AB\), \(N \in AC\) \(\Rightarrow \triangle AMN \backsim \triangle ABC\); suy ra \(\dfrac{AM}{AB} = \dfrac{AN}{AC} = \dfrac{MN}{BC}\).`,
+              signs: "H\xECnh c\xF3 m\u1ED9t \u0111\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh c\u1EE7a tam gi\xE1c; y\xEAu c\u1EA7u ch\u1EE9ng minh \u0111\u1ED3ng d\u1EA1ng, t\xEDnh \u0111\u1ED9 d\xE0i.",
+              method: "Ch\u1EC9 ra \u0111\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh, \xE1p d\u1EE5ng \u0111\u1ECBnh l\xED, vi\u1EBFt \u0111\xFAng th\u1EE9 t\u1EF1 \u0111\u1EC9nh t\u01B0\u01A1ng \u1EE9ng r\u1ED3i l\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c.",
+              steps: r3`- **Bước 1.** Chỉ ra \(MN \parallel BC\) (\(M\) thuộc \(AB\), \(N\) thuộc \(AC\)).
+- **Bước 2.** Kết luận \(\triangle AMN \backsim \triangle ABC\).
+- **Bước 3.** Lập tỉ lệ thức \(\dfrac{AM}{AB} = \dfrac{AN}{AC} = \dfrac{MN}{BC}\) để tính.`,
+              mistakes: r3`- Viết \(\triangle AMN \backsim \triangle ACB\) (sai thứ tự đỉnh).
+- Lập tỉ số \(\dfrac{AM}{MB} = \dfrac{MN}{BC}\) (sai: phải là \(\dfrac{AM}{AB}\)).`,
+              example: r3`Cho tam giác \(ABC\), \(M\) thuộc \(AB\), \(N\) thuộc \(AC\) sao cho \(MN \parallel BC\). Biết \(AM = 2\) cm, \(MB = 4\) cm, \(BC = 9\) cm. Tính \(MN\).`,
+              solution: r3`\(MN \parallel BC\) nên \(\triangle AMN \backsim \triangle ABC\), suy ra \(\dfrac{MN}{BC} = \dfrac{AM}{AB} = \dfrac{2}{6} = \dfrac13\). Vậy \(MN = 3\) cm.`,
+              exercises: [
+                sa(2, r3`Cho tam giác \(ABC\), điểm \(M\) thuộc \(AB\), \(N\) thuộc \(AC\) sao cho \(MN \parallel BC\). Biết \(AM = 3\) cm, \(AB = 9\) cm, \(BC = 12\) cm. Tính \(MN\).`, ["4"], r3`\(\dfrac{MN}{BC} = \dfrac{AM}{AB} = \dfrac13\) nên \(MN = 4\) cm.`, "cm"),
+                ge(3, r3`Cho tam giác \(ABC\) có \(AB = 8\) cm, \(AC = 10\) cm. Trên cạnh \(AB\) lấy điểm \(D\) sao cho \(AD = 6\) cm; qua \(D\) kẻ đường thẳng song song với \(BC\), cắt \(AC\) tại \(E\). a) Chứng minh \(\triangle ADE \backsim \triangle ABC\). b) Tính \(AE\).`, `A(2,5) B(0,0) C(7,0) D(0.5,1.25) E(5.75,1.25)
+AB BC CA DE`, r3`a) \(DE \parallel BC\), \(D \in AB\), \(E \in AC\) nên \(\triangle ADE \backsim \triangle ABC\).
+b) \(\dfrac{AE}{AC} = \dfrac{AD}{AB} = \dfrac68 = \dfrac34\), suy ra \(AE = \dfrac34\cdot10 = 7{,}5\) cm.`)
+              ]
+            },
+            {
+              slug: "chung-minh-dang-thuc-dong-dang",
+              title: "Ch\u1EE9ng minh \u0111\u1EB3ng th\u1EE9c",
+              levels: [3, 4],
+              knowledge: r3`Từ hai tam giác đồng dạng suy ra tỉ lệ thức giữa các cạnh tương ứng; \(\dfrac{a}{b} = \dfrac{c}{d} \Leftrightarrow ad = bc\).`,
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u ch\u1EE9ng minh \u0111\u1EB3ng th\u1EE9c t\xEDch c\u1EE7a c\xE1c \u0111o\u1EA1n th\u1EB3ng ho\u1EB7c t\u1EC9 l\u1EC7 th\u1EE9c, trong h\xECnh c\xF3 c\xE1c \u0111\u01B0\u1EDDng th\u1EB3ng song song.",
+              method: "\u0110\u01B0a \u0111\u1EB3ng th\u1EE9c t\xEDch v\u1EC1 t\u1EC9 l\u1EC7 th\u1EE9c; t\xECm hai tam gi\xE1c ch\u1EE9a c\xE1c \u0111o\u1EA1n th\u1EB3ng \u0111\xF3 v\xE0 ch\u1EE9ng minh ch\xFAng \u0111\u1ED3ng d\u1EA1ng.",
+              steps: `- **B\u01B0\u1EDBc 1.** Vi\u1EBFt \u0111\u1EB3ng th\u1EE9c c\u1EA7n ch\u1EE9ng minh d\u01B0\u1EDBi d\u1EA1ng t\u1EC9 l\u1EC7 th\u1EE9c.
+- **B\u01B0\u1EDBc 2.** Ch\u1ECDn hai tam gi\xE1c c\xF3 c\xE1c c\u1EA1nh n\u1EB1m trong t\u1EC9 l\u1EC7 th\u1EE9c, ch\u1EE9ng minh ch\xFAng \u0111\u1ED3ng d\u1EA1ng.
+- **B\u01B0\u1EDBc 3.** Suy ra t\u1EC9 l\u1EC7 th\u1EE9c, bi\u1EBFn \u0111\u1ED5i v\u1EC1 \u0111\u1EB3ng th\u1EE9c c\u1EA7n ch\u1EE9ng minh.`,
+              mistakes: "- Ch\u1ECDn hai tam gi\xE1c m\xE0 c\xE1c c\u1EA1nh kh\xF4ng t\u01B0\u01A1ng \u1EE9ng.\n- Vi\u1EBFt sai th\u1EE9 t\u1EF1 \u0111\u1EC9nh d\u1EABn \u0111\u1EBFn t\u1EC9 l\u1EC7 th\u1EE9c sai.",
+              example: r3`Cho tam giác \(ABC\), đường thẳng song song với \(BC\) cắt \(AB\), \(AC\) lần lượt tại \(M\), \(N\). Chứng minh \(AM\cdot AC = AN\cdot AB\).`,
+              solution: r3`\(MN \parallel BC\) nên \(\triangle AMN \backsim \triangle ABC\), suy ra \(\dfrac{AM}{AB} = \dfrac{AN}{AC}\), do đó \(AM\cdot AC = AN\cdot AB\).`,
+              exercises: [
+                ge(3, r3`Cho hình thang \(ABCD\) (\(AB \parallel CD\)), hai đường chéo cắt nhau tại \(O\). Chứng minh \(OA\cdot OD = OB\cdot OC\).`, `D(0,0) C(6,0) B(4,3) A(1,3) O(2.67,2)
+AB BC CD DA AC BD`, r3`Trong tam giác \(OCD\), đường thẳng \(AB \parallel CD\) cắt phần kéo dài của hai cạnh \(OC\), \(OD\) tại \(A\), \(B\) nên \(\triangle OAB \backsim \triangle OCD\).
+Suy ra \(\dfrac{OA}{OC} = \dfrac{OB}{OD}\), do đó \(OA\cdot OD = OB\cdot OC\).`),
+                es(4, r3`Cho tam giác \(ABC\), điểm \(M\) thuộc cạnh \(BC\). Qua \(M\) kẻ đường thẳng song song với \(AB\) cắt \(AC\) tại \(N\) và đường thẳng song song với \(AC\) cắt \(AB\) tại \(P\). Chứng minh \(\dfrac{AP}{AB} + \dfrac{AN}{AC} = 1\).`, r3`\(MP \parallel AC\) nên \(\triangle BPM \backsim \triangle BAC\), suy ra \(\dfrac{BP}{BA} = \dfrac{BM}{BC}\), do đó \(\dfrac{AP}{AB} = 1 - \dfrac{BP}{AB} = 1 - \dfrac{BM}{BC} = \dfrac{CM}{BC}\).
+\(MN \parallel AB\) nên \(\triangle CNM \backsim \triangle CAB\), suy ra \(\dfrac{CN}{CA} = \dfrac{CM}{CB}\), do đó \(\dfrac{AN}{AC} = 1 - \dfrac{CM}{BC} = \dfrac{BM}{BC}\).
+Cộng lại: \(\dfrac{AP}{AB} + \dfrac{AN}{AC} = \dfrac{CM + BM}{BC} = 1\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng th\u1EF1c t\u1EBF",
+          description: "\u0110o kho\u1EA3ng c\xE1ch gi\xE1n ti\u1EBFp nh\u1EDD \u0111\u01B0\u1EDDng th\u1EB3ng song song.",
+          types: [
+            {
+              slug: "thuc-te-tam-giac-dong-dang",
+              title: "B\xE0i to\xE1n th\u1EF1c t\u1EBF v\u1EC1 tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng",
+              legacy: ["To\xE1n th\u1EF1c t\u1EBF"],
+              levels: [3],
+              knowledge: "\u0110\u1ECBnh l\xED v\u1EC1 \u0111\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh c\u1EE7a tam gi\xE1c; t\u1EC9 s\u1ED1 c\xE1c c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng c\u1EE7a hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng.",
+              signs: "\u0110o kho\u1EA3ng c\xE1ch gi\u1EEFa hai \u0111i\u1EC3m kh\xF4ng \u0111\u1EBFn \u0111\u01B0\u1EE3c (qua ao, h\u1ED3), k\xEDch th\u01B0\u1EDBc c\xE1c v\u1EADt c\xF3 thanh ngang song song v\u1EDBi c\u1EA1nh \u0111\xE1y.",
+              method: "M\xF4 h\xECnh h\xF3a b\u1EB1ng tam gi\xE1c c\xF3 m\u1ED9t \u0111\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh, l\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c \u0111\u1EC3 t\xEDnh \u0111\u1EA1i l\u01B0\u1EE3ng c\u1EA7n t\xECm.",
+              steps: `- **B\u01B0\u1EDBc 1.** V\u1EBD h\xECnh m\xF4 t\u1EA3, x\xE1c \u0111\u1ECBnh hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng.
+- **B\u01B0\u1EDBc 2.** L\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c gi\u1EEFa c\xE1c c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng.
+- **B\u01B0\u1EDBc 3.** T\xEDnh, tr\u1EA3 l\u1EDDi k\xE8m \u0111\u01A1n v\u1ECB.`,
+              mistakes: "- L\u1EADp t\u1EC9 s\u1ED1 gi\u1EEFa c\xE1c c\u1EA1nh kh\xF4ng t\u01B0\u01A1ng \u1EE9ng (d\xF9ng MB thay cho AB).\n- Qu\xEAn \u0111\u1ED5i \u0111\u01A1n v\u1ECB.",
+              example: "\u0110\u1EC3 \u0111o kho\u1EA3ng c\xE1ch BC gi\u1EEFa hai \u0111i\u1EC3m \u1EDF hai b\xEAn m\u1ED9t c\xE1i h\u1ED3, ng\u01B0\u1EDDi ta ch\u1ECDn \u0111i\u1EC3m A, r\u1ED3i x\xE1c \u0111\u1ECBnh M tr\xEAn \u0111o\u1EA1n AB, N tr\xEAn \u0111o\u1EA1n AC sao cho MN \u2225 BC. \u0110o \u0111\u01B0\u1EE3c AM = 10 m, AB = 40 m, MN = 12 m. T\xEDnh BC.",
+              solution: r3`\(MN \parallel BC\) nên \(\triangle AMN \backsim \triangle ABC\), suy ra \(\dfrac{MN}{BC} = \dfrac{AM}{AB} = \dfrac14\). Vậy \(BC = 4\cdot12 = 48\) m.`,
+              exercises: [
+                sa(3, r3`Để đo khoảng cách \(BC\) giữa hai điểm ở hai bờ một cái ao, người ta chọn điểm \(A\) ở ngoài ao, lấy \(M\) trên đoạn \(AB\) và \(N\) trên đoạn \(AC\) sao cho \(MN \parallel BC\). Đo được \(AM = 15\) m, \(MB = 30\) m, \(MN = 18\) m. Tính \(BC\).`, ["54"], r3`\(AB = 45\) m. \(\dfrac{MN}{BC} = \dfrac{AM}{AB} = \dfrac13\) nên \(BC = 54\) m.`, "m"),
+                sa(3, r3`Một chiếc thang chữ A có hai chân \(AB = AC = 3\) m. Thanh ngang \(DE\) song song với mặt đất \(BC\) (\(D\) thuộc \(AB\), \(E\) thuộc \(AC\)), \(AD = 1\) m, \(DE = 0{,}6\) m. Tính khoảng cách \(BC\) giữa hai chân thang.`, ["1,8"], r3`\(\triangle ADE \backsim \triangle ABC\) nên \(\dfrac{DE}{BC} = \dfrac{AD}{AB} = \dfrac13\), suy ra \(BC = 1{,}8\) m.`, "m")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 34 ----------------
+    {
+      slug: "bai-34-ba-truong-hop-dong-dang-cua-hai-tam-giac",
+      difficulty: 3,
+      objectives: `- Gi\u1EA3i th\xEDch c\xE1c tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ED3ng d\u1EA1ng c\u1EE7a hai tam gi\xE1c: c\u1EA1nh \u2013 c\u1EA1nh \u2013 c\u1EA1nh, c\u1EA1nh \u2013 g\xF3c \u2013 c\u1EA1nh, g\xF3c \u2013 g\xF3c.
+- V\u1EADn d\u1EE5ng ch\u1EE9ng minh hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng; t\xEDnh \u0111\u1ED9 d\xE0i, t\u1EC9 s\u1ED1 chu vi; ch\u1EE9ng minh h\u1EC7 th\u1EE9c, g\xF3c b\u1EB1ng nhau; gi\u1EA3i b\xE0i to\xE1n th\u1EF1c t\u1EBF.`,
+      prerequisites: "- Hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng, \u0111\u1ECBnh l\xED v\u1EC1 \u0111\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh (B\xE0i 33).\n- T\u1ED5ng ba g\xF3c trong tam gi\xE1c, c\xE1c tr\u01B0\u1EDDng h\u1EE3p b\u1EB1ng nhau c\u1EE7a tam gi\xE1c (To\xE1n 7).",
+      concepts: "Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ED3ng d\u1EA1ng c\u1EA1nh \u2013 c\u1EA1nh \u2013 c\u1EA1nh (c.c.c), c\u1EA1nh \u2013 g\xF3c \u2013 c\u1EA1nh (c.g.c), g\xF3c \u2013 g\xF3c (g.g).",
+      theorems: r3`- **c.c.c:** Nếu ba cạnh của tam giác này tỉ lệ với ba cạnh của tam giác kia thì hai tam giác đó đồng dạng.
+- **c.g.c:** Nếu hai cạnh của tam giác này tỉ lệ với hai cạnh của tam giác kia và hai góc tạo bởi các cặp cạnh đó bằng nhau thì hai tam giác đó đồng dạng.
+- **g.g:** Nếu hai góc của tam giác này lần lượt bằng hai góc của tam giác kia thì hai tam giác đó đồng dạng.`,
+      properties: r3`Nếu \(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số \(k\) thì tỉ số chu vi của hai tam giác cũng bằng \(k\).`,
+      themes: [
+        {
+          title: "C\xE1c tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ED3ng d\u1EA1ng",
+          description: "Ch\u1EE9ng minh hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng theo c.c.c, c.g.c, g.g.",
+          types: [
+            {
+              slug: "dong-dang-ccc",
+              title: "Ch\u1EE9ng minh \u0111\u1ED3ng d\u1EA1ng theo tr\u01B0\u1EDDng h\u1EE3p c\u1EA1nh \u2013 c\u1EA1nh \u2013 c\u1EA1nh",
+              levels: [1, 2],
+              knowledge: r3`\(\dfrac{A'B'}{AB} = \dfrac{B'C'}{BC} = \dfrac{C'A'}{CA} \Rightarrow \triangle A'B'C' \backsim \triangle ABC\) (c.c.c).`,
+              signs: "\u0110\u1EC1 cho \u0111\u1ED9 d\xE0i ba c\u1EA1nh c\u1EE7a m\u1ED7i tam gi\xE1c, kh\xF4ng cho g\xF3c.",
+              method: "S\u1EAFp x\u1EBFp ba c\u1EA1nh c\u1EE7a m\u1ED7i tam gi\xE1c theo th\u1EE9 t\u1EF1 t\u0103ng d\u1EA7n, l\u1EADp ba t\u1EC9 s\u1ED1 t\u01B0\u01A1ng \u1EE9ng v\xE0 so s\xE1nh.",
+              steps: `- **B\u01B0\u1EDBc 1.** S\u1EAFp x\u1EBFp c\xE1c c\u1EA1nh c\u1EE7a m\u1ED7i tam gi\xE1c theo th\u1EE9 t\u1EF1 nh\u1ECF \u2013 v\u1EEBa \u2013 l\u1EDBn.
+- **B\u01B0\u1EDBc 2.** L\u1EADp ba t\u1EC9 s\u1ED1 c\xE1c c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng v\xE0 so s\xE1nh.
+- **B\u01B0\u1EDBc 3.** Ba t\u1EC9 s\u1ED1 b\u1EB1ng nhau th\xEC hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng; x\xE1c \u0111\u1ECBnh \u0111\u1EC9nh t\u01B0\u01A1ng \u1EE9ng (\u0111\u1EC9nh chung c\u1EE7a hai c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng) v\xE0 vi\u1EBFt k\xED hi\u1EC7u.`,
+              mistakes: "- Gh\xE9p c\u1EA1nh theo th\u1EE9 t\u1EF1 t\xEAn g\u1ECDi m\xE0 kh\xF4ng theo \u0111\u1ED9 l\u1EDBn.\n- Vi\u1EBFt sai th\u1EE9 t\u1EF1 \u0111\u1EC9nh t\u01B0\u01A1ng \u1EE9ng.",
+              example: r3`Cho \(\triangle ABC\) có \(AB = 4\) cm, \(BC = 5\) cm, \(CA = 6\) cm và \(\triangle DEF\) có \(DE = 10\) cm, \(EF = 12\) cm, \(FD = 8\) cm. Hai tam giác có đồng dạng không? Viết kí hiệu.`,
+              solution: r3`Sắp xếp: \(AB = 4 < BC = 5 < CA = 6\); \(FD = 8 < DE = 10 < EF = 12\). \(\dfrac{FD}{AB} = \dfrac{DE}{BC} = \dfrac{EF}{CA} = 2\) nên hai tam giác đồng dạng (c.c.c).
+Đỉnh \(B\) (chung của \(AB\), \(BC\)) ứng với \(D\) (chung của \(FD\), \(DE\)); \(A\) ứng với \(F\); \(C\) ứng với \(E\). Vậy \(\triangle FDE \backsim \triangle ABC\).`,
+              exercises: [
+                mcq(1, "B\u1ED9 ba \u0111\u1ED9 d\xE0i n\xE0o sau \u0111\xE2y l\xE0 \u0111\u1ED9 d\xE0i ba c\u1EA1nh c\u1EE7a m\u1ED9t tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng v\u1EDBi tam gi\xE1c c\xF3 \u0111\u1ED9 d\xE0i c\xE1c c\u1EA1nh 3 cm, 4 cm, 5 cm?", ["6 cm, 8 cm, 10 cm", "6 cm, 8 cm, 9 cm", "4 cm, 5 cm, 6 cm", "3 cm, 5 cm, 7 cm"], "A", r3`\(\dfrac63 = \dfrac84 = \dfrac{10}{5} = 2\).`),
+                tf(2, r3`Cho \(\triangle ABC\) có \(AB = 2\) cm, \(BC = 3\) cm, \(CA = 4\) cm và \(\triangle MNP\) có \(MN = 6\) cm, \(NP = 8\) cm, \(PM = 4\) cm. Mỗi khẳng định sau đúng hay sai?`, [
+                  ["Hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng, t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng c\u1EE7a tam gi\xE1c ABC v\u1EDBi tam gi\xE1c MNP l\xE0 1/2.", true],
+                  [r3`\(\triangle ABC \backsim \triangle MNP\).`, false],
+                  [r3`\(\triangle ABC \backsim \triangle PMN\).`, true],
+                  [r3`\(\widehat{B} = \widehat{N}\).`, false]
+                ], r3`\(\dfrac{AB}{PM} = \dfrac{BC}{MN} = \dfrac{CA}{NP} = \dfrac12\). Đỉnh tương ứng: \(A \leftrightarrow P\), \(B \leftrightarrow M\), \(C \leftrightarrow N\). Vậy \(\triangle ABC \backsim \triangle PMN\) và \(\widehat{B} = \widehat{M}\).`)
+              ]
+            },
+            {
+              slug: "dong-dang-cgc",
+              title: "Ch\u1EE9ng minh \u0111\u1ED3ng d\u1EA1ng theo tr\u01B0\u1EDDng h\u1EE3p c\u1EA1nh \u2013 g\xF3c \u2013 c\u1EA1nh",
+              levels: [2, 3],
+              knowledge: r3`\(\dfrac{A'B'}{AB} = \dfrac{A'C'}{AC}\) và \(\widehat{A'} = \widehat{A}\) \(\Rightarrow \triangle A'B'C' \backsim \triangle ABC\) (c.g.c).`,
+              signs: "\u0110\u1EC1 cho hai c\u1EB7p c\u1EA1nh v\xE0 g\xF3c xen gi\u1EEFa; th\u01B0\u1EDDng hai tam gi\xE1c c\xF3 chung m\u1ED9t g\xF3c ho\u1EB7c c\xF3 hai g\xF3c \u0111\u1ED1i \u0111\u1EC9nh.",
+              method: "Ch\u1EC9 ra c\u1EB7p g\xF3c b\u1EB1ng nhau, l\u1EADp t\u1EC9 s\u1ED1 hai c\u1EB7p c\u1EA1nh k\u1EC1 v\u1EDBi hai g\xF3c \u0111\xF3 v\xE0 so s\xE1nh.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ch\u1EC9 ra hai g\xF3c b\u1EB1ng nhau (g\xF3c chung, g\xF3c \u0111\u1ED1i \u0111\u1EC9nh\u2026).
+- **B\u01B0\u1EDBc 2.** L\u1EADp t\u1EC9 s\u1ED1 hai c\u1EB7p c\u1EA1nh k\u1EC1 v\u1EDBi hai g\xF3c \u0111\xF3 (gh\xE9p c\u1EA1nh nh\u1ECF v\u1EDBi c\u1EA1nh nh\u1ECF).
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn \u0111\u1ED3ng d\u1EA1ng (c.g.c), vi\u1EBFt \u0111\xFAng th\u1EE9 t\u1EF1 \u0111\u1EC9nh.`,
+              mistakes: '- G\xF3c b\u1EB1ng nhau kh\xF4ng xen gi\u1EEFa hai c\u1EB7p c\u1EA1nh t\u1EC9 l\u1EC7.\n- Gh\xE9p t\u1EC9 s\u1ED1 sai c\u1EB7p c\u1EA1nh (kh\xF4ng \u0111\u1EC3 \xFD th\u1EE9 t\u1EF1 "ch\xE9o").',
+              example: r3`Cho tam giác \(ABC\) có \(AB = 8\) cm, \(AC = 12\) cm, \(BC = 10\) cm. Trên \(AB\) lấy \(D\) sao cho \(AD = 6\) cm, trên \(AC\) lấy \(E\) sao cho \(AE = 4\) cm. Chứng minh \(\triangle AED \backsim \triangle ABC\) và tính \(DE\).`,
+              solution: r3`\(\dfrac{AE}{AB} = \dfrac48 = \dfrac12\), \(\dfrac{AD}{AC} = \dfrac{6}{12} = \dfrac12\), \(\widehat{A}\) chung, nên \(\triangle AED \backsim \triangle ABC\) (c.g.c).
+Suy ra \(\dfrac{ED}{BC} = \dfrac12\), do đó \(DE = 5\) cm.`,
+              exercises: [
+                sa(2, r3`Cho \(\triangle ABC\) và \(\triangle DEF\) có \(\widehat{A} = \widehat{D}\), \(AB = 4\) cm, \(AC = 6\) cm, \(DE = 6\) cm. Cần \(DF\) bằng bao nhiêu xăng-ti-mét để \(\triangle ABC \backsim \triangle DEF\)?`, ["9"], r3`Cần \(\dfrac{DE}{AB} = \dfrac{DF}{AC}\), tức là \(\dfrac64 = \dfrac{DF}{6}\), suy ra \(DF = 9\) cm.`, "cm"),
+                ge(3, r3`Cho tam giác \(ABC\) có \(AB = 12\) cm, \(AC = 15\) cm, \(BC = 18\) cm. Trên cạnh \(AB\) lấy điểm \(M\) sao cho \(AM = 10\) cm, trên cạnh \(AC\) lấy điểm \(N\) sao cho \(AN = 8\) cm. a) Chứng minh \(\triangle ANM \backsim \triangle ABC\). b) Tính \(MN\).`, `A(2.25,3.31) B(0,0) C(6,0) M(0.38,0.55) N(4.25,1.54)
+AB BC CA MN`, r3`a) \(\dfrac{AN}{AB} = \dfrac{8}{12} = \dfrac23\), \(\dfrac{AM}{AC} = \dfrac{10}{15} = \dfrac23\) và \(\widehat{A}\) chung nên \(\triangle ANM \backsim \triangle ABC\) (c.g.c).
+b) \(\dfrac{NM}{BC} = \dfrac23\), suy ra \(MN = \dfrac23\cdot18 = 12\) cm.`)
+              ]
+            },
+            {
+              slug: "dong-dang-gg",
+              title: "Ch\u1EE9ng minh \u0111\u1ED3ng d\u1EA1ng theo tr\u01B0\u1EDDng h\u1EE3p g\xF3c \u2013 g\xF3c",
+              legacy: ["Ch\u1EE9ng minh hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng"],
+              levels: [2, 3],
+              knowledge: r3`\(\widehat{A'} = \widehat{A}\), \(\widehat{B'} = \widehat{B}\) \(\Rightarrow \triangle A'B'C' \backsim \triangle ABC\) (g.g); tổng ba góc của tam giác bằng \(180^\circ\); góc đối đỉnh, góc so le trong, góc đồng vị.`,
+              signs: "\u0110\u1EC1 cho s\u1ED1 \u0111o g\xF3c, g\xF3c chung, g\xF3c \u0111\u1ED1i \u0111\u1EC9nh, \u0111\u01B0\u1EDDng th\u1EB3ng song song, \u0111\u01B0\u1EDDng cao (g\xF3c vu\xF4ng).",
+              method: "T\xECm hai c\u1EB7p g\xF3c b\u1EB1ng nhau (c\xF3 th\u1EC3 t\xEDnh g\xF3c th\u1EE9 ba t\u1EEB t\u1ED5ng ba g\xF3c), k\u1EBFt lu\u1EADn \u0111\u1ED3ng d\u1EA1ng (g.g).",
+              steps: `- **B\u01B0\u1EDBc 1.** T\xECm c\u1EB7p g\xF3c b\u1EB1ng nhau th\u1EE9 nh\u1EA5t (th\u01B0\u1EDDng l\xE0 g\xF3c chung ho\u1EB7c g\xF3c \u0111\u1ED1i \u0111\u1EC9nh).
+- **B\u01B0\u1EDBc 2.** T\xECm c\u1EB7p g\xF3c b\u1EB1ng nhau th\u1EE9 hai (gi\u1EA3 thi\u1EBFt, song song, g\xF3c vu\xF4ng, t\xEDnh to\xE1n).
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn \u0111\u1ED3ng d\u1EA1ng (g.g), vi\u1EBFt \u0111\xFAng th\u1EE9 t\u1EF1 \u0111\u1EC9nh.`,
+              mistakes: "- Vi\u1EBFt sai th\u1EE9 t\u1EF1 \u0111\u1EC9nh t\u01B0\u01A1ng \u1EE9ng.\n- Ch\u1EC9 d\u1EF1a v\xE0o m\u1ED9t c\u1EB7p g\xF3c b\u1EB1ng nhau.",
+              example: r3`Tam giác \(ABC\) có \(\widehat{A} = 60^\circ\), \(\widehat{B} = 50^\circ\); tam giác \(DEF\) có \(\widehat{D} = 60^\circ\), \(\widehat{F} = 70^\circ\). Chứng minh hai tam giác đồng dạng.`,
+              solution: r3`\(\widehat{C} = 180^\circ - 60^\circ - 50^\circ = 70^\circ\). Ta có \(\widehat{A} = \widehat{D}\), \(\widehat{C} = \widehat{F}\) nên \(\triangle ABC \backsim \triangle DEF\) (g.g).`,
+              exercises: [
+                mcq(2, r3`Tam giác \(ABC\) có \(\widehat{A} = 70^\circ\), \(\widehat{B} = 60^\circ\). Tam giác \(MNP\) nào sau đây đồng dạng với tam giác \(ABC\)?`, [r3`\(\widehat{M} = 70^\circ\), \(\widehat{P} = 50^\circ\)`, r3`\(\widehat{M} = 60^\circ\), \(\widehat{N} = 40^\circ\)`, r3`\(\widehat{M} = 70^\circ\), \(\widehat{N} = 70^\circ\)`, r3`\(\widehat{N} = 80^\circ\), \(\widehat{P} = 30^\circ\)`], "A", r3`\(\widehat{C} = 180^\circ - 70^\circ - 60^\circ = 50^\circ\). Tam giác \(MNP\) có \(\widehat{M} = 70^\circ = \widehat{A}\), \(\widehat{P} = 50^\circ = \widehat{C}\) nên \(\triangle ABC \backsim \triangle MNP\) (g.g).`),
+                sa(3, r3`Cho hình thang \(ABCD\) (\(AB \parallel CD\)) có \(AB = 4\) cm, \(CD = 10\) cm; hai đường chéo cắt nhau tại \(O\). Biết \(OA = 2\) cm, tính \(OC\).`, ["5"], r3`\(\widehat{OAB} = \widehat{OCD}\), \(\widehat{OBA} = \widehat{ODC}\) (so le trong) nên \(\triangle OAB \backsim \triangle OCD\) (g.g). \(\dfrac{OA}{OC} = \dfrac{AB}{CD} = \dfrac{4}{10}\), suy ra \(OC = 5\) cm.`, "cm"),
+                ge(3, r3`Cho tam giác nhọn \(ABC\), hai đường cao \(BD\) và \(CE\) cắt nhau tại \(H\). Chứng minh \(\triangle ABD \backsim \triangle ACE\) và \(AD\cdot AC = AE\cdot AB\).`, `A(2.5,5) B(0,0) C(6,0) D(4.03,2.82) E(1.2,2.4) H(2.5,1.75)
+AB BC CA BD CE
+vuong(B,D,A) vuong(C,E,A)`, r3`Xét \(\triangle ABD\) và \(\triangle ACE\): \(\widehat{A}\) chung, \(\widehat{ADB} = \widehat{AEC} = 90^\circ\) nên \(\triangle ABD \backsim \triangle ACE\) (g.g).
+Suy ra \(\dfrac{AB}{AC} = \dfrac{AD}{AE}\), do đó \(AD\cdot AC = AE\cdot AB\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng c\xE1c tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ED3ng d\u1EA1ng",
+          description: "T\u1EC9 s\u1ED1 \u0111o\u1EA1n th\u1EB3ng, chu vi; h\u1EC7 th\u1EE9c, g\xF3c b\u1EB1ng nhau; b\xE0i to\xE1n th\u1EF1c t\u1EBF.",
+          types: [
+            {
+              slug: "ti-so-doan-thang-chu-vi",
+              title: "T\u1EC9 s\u1ED1 \u0111o\u1EA1n th\u1EB3ng, t\u1EC9 s\u1ED1 chu vi c\u1EE7a hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng",
+              legacy: ["T\u1EC9 s\u1ED1 \u0111o\u1EA1n th\u1EB3ng, t\u1EC9 s\u1ED1 chu vi, t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch"],
+              levels: [2, 3],
+              knowledge: r3`Nếu \(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số \(k\) thì tỉ số hai cạnh tương ứng bất kì và tỉ số hai chu vi đều bằng \(k\).`,
+              signs: "\u0110\u1EC1 cho hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng (ho\u1EB7c ch\u1EE9ng minh \u0111\u01B0\u1EE3c), h\u1ECFi t\u1EC9 s\u1ED1 chu vi, chu vi c\u1EE7a m\u1ED9t tam gi\xE1c, ho\u1EB7c \u0111\u1ED9 d\xE0i c\u1EA1nh khi bi\u1EBFt t\u1ED5ng, hi\u1EC7u.",
+              method: "T\xECm t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng k t\u1EEB m\u1ED9t c\u1EB7p c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng; t\u1EC9 s\u1ED1 chu vi b\u1EB1ng k; d\xF9ng t\xEDnh ch\u1EA5t d\xE3y t\u1EC9 s\u1ED1 b\u1EB1ng nhau khi bi\u1EBFt t\u1ED5ng, hi\u1EC7u.",
+              steps: r3`- **Bước 1.** Xác định hai tam giác đồng dạng và tỉ số \(k\).
+- **Bước 2.** Áp dụng \(\dfrac{P'}{P} = k\) hoặc tính chất dãy tỉ số bằng nhau.
+- **Bước 3.** Tính đại lượng cần tìm.`,
+              mistakes: r3`- Lấy tỉ số chu vi bằng \(k^2\).
+- Xác định \(k\) ngược chiều.`,
+              example: r3`Cho \(\triangle A'B'C' \backsim \triangle ABC\), \(A'B' = 3\) cm, \(AB = 6\) cm, chu vi tam giác \(ABC\) bằng 24 cm. Tính chu vi tam giác \(A'B'C'\).`,
+              solution: r3`\(k = \dfrac{A'B'}{AB} = \dfrac12\). Chu vi tam giác \(A'B'C'\) bằng \(\dfrac12\cdot24 = 12\) cm.`,
+              exercises: [
+                mcq(2, r3`Cho \(\triangle ABC \backsim \triangle MNP\) có \(AB = 3\) cm, \(MN = 6\) cm. Tỉ số chu vi của tam giác \(ABC\) và tam giác \(MNP\) là`, [r3`\(\dfrac12\)`, r3`\(2\)`, r3`\(\dfrac14\)`, r3`\(4\)`], "A", r3`Tỉ số chu vi bằng tỉ số đồng dạng \(\dfrac{AB}{MN} = \dfrac12\).`),
+                sa(2, r3`Cho \(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số \(k = \dfrac23\). Chu vi tam giác \(ABC\) là 30 cm. Tính chu vi tam giác \(A'B'C'\).`, ["20"], r3`\(P' = \dfrac23\cdot30 = 20\) cm.`, "cm"),
+                sa(3, r3`Hai tam giác đồng dạng có tỉ số chu vi bằng \(\dfrac35\). Hiệu độ dài hai cạnh tương ứng của chúng là 6 cm. Tính độ dài cạnh lớn hơn trong hai cạnh đó.`, ["15"], r3`Hai cạnh tương ứng là \(3t\) và \(5t\); \(5t - 3t = 6 \Leftrightarrow t = 3\). Cạnh lớn hơn dài 15 cm.`, "cm")
+              ]
+            },
+            {
+              slug: "he-thuc-canh-goc-bang-nhau",
+              title: "Ch\u1EE9ng minh h\u1EC7 th\u1EE9c v\u1EC1 c\u1EA1nh, g\xF3c b\u1EB1ng nhau",
+              levels: [3, 4],
+              knowledge: "Hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng c\xF3 c\xE1c g\xF3c t\u01B0\u01A1ng \u1EE9ng b\u1EB1ng nhau v\xE0 c\xE1c c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng t\u1EC9 l\u1EC7.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u ch\u1EE9ng minh hai g\xF3c b\u1EB1ng nhau, \u0111\u1EB3ng th\u1EE9c d\u1EA1ng AB\xB2 = AD\xB7AC, ho\u1EB7c t\u1EC9 l\u1EC7 th\u1EE9c b\u1EB1ng c\xE1ch d\xF9ng tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng.",
+              method: "Ch\u1ECDn c\u1EB7p tam gi\xE1c ch\u1EE9a c\xE1c g\xF3c, c\u1EA1nh c\u1EA7n x\xE9t; ch\u1EE9ng minh ch\xFAng \u0111\u1ED3ng d\u1EA1ng (th\u01B0\u1EDDng c.g.c t\u1EEB t\u1EC9 l\u1EC7 th\u1EE9c ho\u1EB7c g.g), r\u1ED3i suy ra \u0111i\u1EC1u ph\u1EA3i ch\u1EE9ng minh.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ph\xE2n t\xEDch k\u1EBFt lu\u1EADn: c\u1EA7n t\u1EC9 l\u1EC7 th\u1EE9c n\xE0o, c\u1EB7p g\xF3c n\xE0o.
+- **B\u01B0\u1EDBc 2.** Ch\u1EE9ng minh hai tam gi\xE1c ch\u1EE9a ch\xFAng \u0111\u1ED3ng d\u1EA1ng.
+- **B\u01B0\u1EDBc 3.** Suy ra \u0111i\u1EC1u ph\u1EA3i ch\u1EE9ng minh.`,
+              mistakes: "- D\xF9ng ch\xEDnh \u0111i\u1EC1u c\u1EA7n ch\u1EE9ng minh l\xE0m gi\u1EA3 thi\u1EBFt.\n- Gh\xE9p sai \u0111\u1EC9nh t\u01B0\u01A1ng \u1EE9ng n\xEAn suy ra sai c\u1EB7p g\xF3c.",
+              example: r3`Cho tam giác \(ABC\), điểm \(D\) thuộc cạnh \(AC\) sao cho \(\widehat{ABD} = \widehat{ACB}\). Chứng minh \(AB^2 = AD\cdot AC\).`,
+              solution: r3`Xét \(\triangle ABD\) và \(\triangle ACB\): \(\widehat{A}\) chung, \(\widehat{ABD} = \widehat{ACB}\) nên \(\triangle ABD \backsim \triangle ACB\) (g.g). Suy ra \(\dfrac{AB}{AC} = \dfrac{AD}{AB}\), do đó \(AB^2 = AD\cdot AC\).`,
+              exercises: [
+                sa(3, r3`Cho tam giác \(ABC\) có \(AB = 6\) cm, \(AC = 9\) cm. Điểm \(D\) thuộc cạnh \(AC\) sao cho \(\widehat{ABD} = \widehat{ACB}\). Tính \(AD\).`, ["4"], r3`\(\triangle ABD \backsim \triangle ACB\) (g.g) nên \(AB^2 = AD\cdot AC\), suy ra \(AD = \dfrac{36}{9} = 4\) cm.`, "cm"),
+                ge(4, r3`Cho tam giác \(ABC\) có \(AB = 4\) cm, \(AC = 8\) cm. Trên cạnh \(AC\) lấy điểm \(D\) sao cho \(AD = 2\) cm. Chứng minh \(\widehat{ABD} = \widehat{ACB}\).`, `A(0,0) B(1.2,2.75) C(6,0) D(1.5,0)
+AB BC CA BD`, r3`\(\dfrac{AD}{AB} = \dfrac24 = \dfrac12\), \(\dfrac{AB}{AC} = \dfrac48 = \dfrac12\) và \(\widehat{A}\) chung nên \(\triangle ADB \backsim \triangle ABC\) (c.g.c), với \(D\) ứng với \(B\), \(B\) ứng với \(C\).
+Suy ra \(\widehat{ABD} = \widehat{ACB}\).`)
+              ]
+            },
+            {
+              slug: "thuc-te-truong-hop-dong-dang",
+              title: "B\xE0i to\xE1n th\u1EF1c t\u1EBF v\u1EADn d\u1EE5ng c\xE1c tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ED3ng d\u1EA1ng",
+              legacy: ["To\xE1n th\u1EF1c t\u1EBF"],
+              levels: [3],
+              knowledge: "Tia s\xE1ng m\u1EB7t tr\u1EDDi song song t\u1EA1o c\xE1c g\xF3c b\u1EB1ng nhau; g\xF3c t\u1EDBi b\u1EB1ng g\xF3c ph\u1EA3n x\u1EA1; tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ED3ng d\u1EA1ng g\xF3c \u2013 g\xF3c.",
+              signs: "\u0110o chi\u1EC1u cao b\u1EB1ng b\xF3ng n\u1EAFng, b\u1EB1ng g\u01B0\u01A1ng ph\u1EB3ng, b\u1EB1ng c\u1ECDc ng\u1EAFm; \u0111o kho\u1EA3ng c\xE1ch gi\xE1n ti\u1EBFp.",
+              method: "Ch\u1EC9 ra hai tam gi\xE1c c\xF3 hai c\u1EB7p g\xF3c b\u1EB1ng nhau (g.g), l\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c gi\u1EEFa c\xE1c c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng \u0111\u1EC3 t\xEDnh.",
+              steps: `- **B\u01B0\u1EDBc 1.** V\u1EBD s\u01A1 \u0111\u1ED3, \u0111\u1EB7t t\xEAn c\xE1c \u0111i\u1EC3m.
+- **B\u01B0\u1EDBc 2.** Ch\u1EE9ng minh hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng (th\u01B0\u1EDDng g.g).
+- **B\u01B0\u1EDBc 3.** L\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c, t\xEDnh v\xE0 tr\u1EA3 l\u1EDDi.`,
+              mistakes: "- Gh\xE9p chi\u1EC1u cao c\u1EE7a v\u1EADt n\xE0y v\u1EDBi b\xF3ng c\u1EE7a v\u1EADt kia.\n- Qu\xEAn chi\u1EC1u cao t\u1EEB m\u1EAFt ng\u01B0\u1EDDi t\u1EDBi m\u1EB7t \u0111\u1EA5t.",
+              example: "M\u1ED9t c\u1ED9t c\u1EDD c\xF3 b\xF3ng tr\xEAn m\u1EB7t \u0111\u1EA5t d\xE0i 8 m. C\xF9ng th\u1EDDi \u0111i\u1EC3m \u0111\xF3, m\u1ED9t chi\u1EBFc c\u1ECDc cao 1,5 m c\u1EAFm vu\xF4ng g\xF3c v\u1EDBi m\u1EB7t \u0111\u1EA5t c\xF3 b\xF3ng d\xE0i 2 m. T\xEDnh chi\u1EC1u cao c\u1EE7a c\u1ED9t c\u1EDD.",
+              solution: r3`Hai tam giác tạo bởi vật, bóng và tia nắng có góc vuông và góc tạo bởi tia nắng với mặt đất bằng nhau nên đồng dạng (g.g). \(\dfrac{h}{1{,}5} = \dfrac{8}{2}\), suy ra \(h = 6\) m.`,
+              exercises: [
+                sa(3, "B\xF3ng c\u1EE7a m\u1ED9t t\xF2a nh\xE0 tr\xEAn m\u1EB7t \u0111\u1EA5t d\xE0i 36 m. C\xF9ng th\u1EDDi \u0111i\u1EC3m \u0111\xF3, m\u1ED9t c\xE2y c\u1ED9t cao 2 m c\xF3 b\xF3ng d\xE0i 3 m. T\xEDnh chi\u1EC1u cao c\u1EE7a t\xF2a nh\xE0.", ["24"], r3`\(\dfrac{h}{2} = \dfrac{36}{3}\), suy ra \(h = 24\) m.`, "m"),
+                sa(3, "\u0110\u1EC3 \u0111o chi\u1EC1u cao AB c\u1EE7a m\u1ED9t c\xE2y, b\u1EA1n Nam \u0111\u1EB7t m\u1ED9t chi\u1EBFc g\u01B0\u01A1ng nh\u1ECF n\u1EB1m ngang tr\xEAn m\u1EB7t \u0111\u1EA5t t\u1EA1i \u0111i\u1EC3m C c\xE1ch g\u1ED1c c\xE2y B l\xE0 9 m, r\u1ED3i l\xF9i l\u1EA1i \u0111\u1EBFn \u0111i\u1EC3m E c\xE1ch g\u01B0\u01A1ng 1,5 m th\xEC nh\xECn th\u1EA5y ng\u1ECDn c\xE2y trong g\u01B0\u01A1ng. M\u1EAFt Nam \u1EDF D, c\xE1ch m\u1EB7t \u0111\u1EA5t 1,6 m (DE vu\xF4ng g\xF3c v\u1EDBi m\u1EB7t \u0111\u1EA5t). T\xEDnh chi\u1EC1u cao c\u1EE7a c\xE2y, bi\u1EBFt g\xF3c t\u1EDBi b\u1EB1ng g\xF3c ph\u1EA3n x\u1EA1.", ["9,6"], r3`\(\widehat{ACB} = \widehat{DCE}\), \(\widehat{ABC} = \widehat{DEC} = 90^\circ\) nên \(\triangle ABC \backsim \triangle DEC\) (g.g). \(\dfrac{AB}{DE} = \dfrac{BC}{EC}\), suy ra \(AB = \dfrac{1{,}6\cdot9}{1{,}5} = 9{,}6\) m.`, "m")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 35 ----------------
+    {
+      slug: "bai-35-dinh-li-pythagore-va-ung-dung",
+      difficulty: 2,
+      objectives: `- Gi\u1EA3i th\xEDch \u0111\u1ECBnh l\xED Pythagore v\xE0 \u0111\u1ECBnh l\xED Pythagore \u0111\u1EA3o.
+- T\xEDnh \u0111\u1ED9 d\xE0i c\u1EA1nh trong tam gi\xE1c vu\xF4ng v\xE0 c\xE1c \u0111o\u1EA1n th\u1EB3ng trong h\xECnh ph\u1EB3ng; nh\u1EADn bi\u1EBFt tam gi\xE1c vu\xF4ng.
+- Gi\u1EA3i quy\u1EBFt b\xE0i to\xE1n th\u1EF1c ti\u1EC5n b\u1EB1ng \u0111\u1ECBnh l\xED Pythagore.`,
+      prerequisites: "- Tam gi\xE1c vu\xF4ng, t\u1ED5ng ba g\xF3c c\u1EE7a tam gi\xE1c (To\xE1n 7).\n- B\xECnh ph\u01B0\u01A1ng, c\u0103n b\u1EADc hai s\u1ED1 h\u1ECDc (To\xE1n 7).",
+      concepts: "C\u1EA1nh huy\u1EC1n, c\u1EA1nh g\xF3c vu\xF4ng; \u0111\u1ECBnh l\xED Pythagore; \u0111\u1ECBnh l\xED Pythagore \u0111\u1EA3o.",
+      formulas: r3`\(\triangle ABC\) vuông tại \(A\): \(BC^2 = AB^2 + AC^2\); \(AB^2 = BC^2 - AC^2\).`,
+      theorems: r3`- **Định lí Pythagore:** Trong một tam giác vuông, bình phương độ dài cạnh huyền bằng tổng bình phương độ dài hai cạnh góc vuông.
+- **Định lí Pythagore đảo:** Nếu một tam giác có bình phương độ dài một cạnh bằng tổng bình phương độ dài hai cạnh kia thì tam giác đó là tam giác vuông.`,
+      themes: [
+        {
+          title: "\u0110\u1ECBnh l\xED Pythagore",
+          description: "T\xEDnh \u0111\u1ED9 d\xE0i c\u1EA1nh tam gi\xE1c vu\xF4ng v\xE0 \u0111o\u1EA1n th\u1EB3ng trong h\xECnh ph\u1EB3ng.",
+          types: [
+            {
+              slug: "tinh-canh-tam-giac-vuong",
+              title: "T\xEDnh \u0111\u1ED9 d\xE0i m\u1ED9t c\u1EA1nh c\u1EE7a tam gi\xE1c vu\xF4ng",
+              levels: [1, 2, 3],
+              knowledge: r3`\(\triangle ABC\) vuông tại \(A\): \(BC^2 = AB^2 + AC^2\); cạnh góc vuông \(AB^2 = BC^2 - AC^2\).`,
+              signs: "Tam gi\xE1c vu\xF4ng bi\u1EBFt hai c\u1EA1nh (ho\u1EB7c bi\u1EBFt t\u1EC9 s\u1ED1 hai c\u1EA1nh v\xE0 m\u1ED9t c\u1EA1nh), y\xEAu c\u1EA7u t\xEDnh c\u1EA1nh c\xF2n l\u1EA1i.",
+              method: "X\xE1c \u0111\u1ECBnh c\u1EA1nh huy\u1EC1n (\u0111\u1ED1i di\u1EC7n g\xF3c vu\xF4ng), vi\u1EBFt h\u1EC7 th\u1EE9c Pythagore r\u1ED3i t\xEDnh.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh g\xF3c vu\xF4ng v\xE0 c\u1EA1nh huy\u1EC1n.
+- **B\u01B0\u1EDBc 2.** Vi\u1EBFt h\u1EC7 th\u1EE9c Pythagore.
+- **B\u01B0\u1EDBc 3.** Thay s\u1ED1, t\xEDnh b\xECnh ph\u01B0\u01A1ng r\u1ED3i l\u1EA5y c\u0103n b\u1EADc hai s\u1ED1 h\u1ECDc.`,
+              mistakes: "- Nh\u1EA7m c\u1EA1nh huy\u1EC1n v\u1EDBi c\u1EA1nh g\xF3c vu\xF4ng (c\u1ED9ng thay v\xEC tr\u1EEB).\n- Qu\xEAn l\u1EA5y c\u0103n b\u1EADc hai.",
+              example: r3`a) Tam giác \(ABC\) vuông tại \(A\) có \(AB = 6\) cm, \(AC = 8\) cm. Tính \(BC\).
+b) Tam giác \(DEF\) vuông tại \(D\) có \(EF = 13\) cm, \(DE = 5\) cm. Tính \(DF\).`,
+              solution: r3`a) \(BC^2 = 36 + 64 = 100\), \(BC = 10\) cm.
+b) \(DF^2 = 169 - 25 = 144\), \(DF = 12\) cm.`,
+              exercises: [
+                mcq(1, r3`Tam giác \(MNP\) vuông tại \(M\). Khẳng định nào sau đây đúng?`, [r3`\(NP^2 = MN^2 + MP^2\)`, r3`\(MN^2 = NP^2 + MP^2\)`, r3`\(MP^2 = MN^2 + NP^2\)`, r3`\(NP = MN + MP\)`], "A", r3`Cạnh huyền là \(NP\) (đối diện góc vuông \(M\)).`),
+                sa(2, r3`Tam giác \(ABC\) vuông tại \(A\) có \(BC = 17\) cm, \(AB = 8\) cm. Tính \(AC\).`, ["15"], r3`\(AC^2 = 289 - 64 = 225\), \(AC = 15\) cm.`, "cm"),
+                sa(3, r3`Tam giác \(ABC\) vuông tại \(A\) có \(AB : AC = 3 : 4\) và \(BC = 20\) cm. Tính \(AB\).`, ["12"], r3`Đặt \(AB = 3t\), \(AC = 4t\): \(9t^2 + 16t^2 = 400 \Leftrightarrow t^2 = 16 \Leftrightarrow t = 4\). \(AB = 12\) cm.`, "cm")
+              ]
+            },
+            {
+              slug: "tinh-do-dai-trong-hinh-phang",
+              title: "T\xEDnh \u0111\u1ED9 d\xE0i \u0111o\u1EA1n th\u1EB3ng trong h\xECnh ph\u1EB3ng b\u1EB1ng \u0111\u1ECBnh l\xED Pythagore",
+              levels: [2, 3, 4],
+              knowledge: "\u0110\u01B0\u1EDDng ch\xE9o h\xECnh ch\u1EEF nh\u1EADt; hai \u0111\u01B0\u1EDDng ch\xE9o h\xECnh thoi vu\xF4ng g\xF3c t\u1EA1i trung \u0111i\u1EC3m m\u1ED7i \u0111\u01B0\u1EDDng; \u0111\u01B0\u1EDDng cao c\u1EE7a tam gi\xE1c c\xE2n \u1EE9ng v\u1EDBi c\u1EA1nh \u0111\xE1y \u0111\u1ED3ng th\u1EDDi l\xE0 \u0111\u01B0\u1EDDng trung tuy\u1EBFn; \u0111\u01B0\u1EDDng cao h\xECnh thang c\xE2n.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u t\xEDnh \u0111\u01B0\u1EDDng ch\xE9o, \u0111\u01B0\u1EDDng cao, c\u1EA1nh c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt, h\xECnh thoi, tam gi\xE1c c\xE2n, h\xECnh thang c\xE2n.",
+              method: "K\u1EBB th\xEAm \u0111\u01B0\u1EDDng cao ho\u1EB7c \u0111\u01B0\u1EDDng ch\xE9o \u0111\u1EC3 t\u1EA1o tam gi\xE1c vu\xF4ng ch\u1EE9a \u0111o\u1EA1n th\u1EB3ng c\u1EA7n t\xEDnh, r\u1ED3i \xE1p d\u1EE5ng \u0111\u1ECBnh l\xED Pythagore.",
+              steps: `- **B\u01B0\u1EDBc 1.** T\xECm (ho\u1EB7c t\u1EA1o) tam gi\xE1c vu\xF4ng ch\u1EE9a \u0111o\u1EA1n th\u1EB3ng c\u1EA7n t\xEDnh.
+- **B\u01B0\u1EDBc 2.** T\xEDnh c\xE1c c\u1EA1nh c\xF2n l\u1EA1i c\u1EE7a tam gi\xE1c vu\xF4ng \u0111\xF3 t\u1EEB gi\u1EA3 thi\u1EBFt.
+- **B\u01B0\u1EDBc 3.** \xC1p d\u1EE5ng \u0111\u1ECBnh l\xED Pythagore.`,
+              mistakes: "- Qu\xEAn r\u1EB1ng hai \u0111\u01B0\u1EDDng ch\xE9o h\xECnh thoi c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m m\u1ED7i \u0111\u01B0\u1EDDng (d\xF9ng c\u1EA3 \u0111\u01B0\u1EDDng ch\xE9o thay v\xEC m\u1ED9t n\u1EEDa).\n- K\u1EBB \u0111\u01B0\u1EDDng cao nh\u01B0ng kh\xF4ng gi\u1EA3i th\xEDch v\xEC sao ch\xE2n \u0111\u01B0\u1EDDng cao chia \u0111\xE1y th\xE0nh hai ph\u1EA7n b\u1EB1ng nhau.",
+              example: "H\xECnh thoi ABCD c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o AC = 6 cm, BD = 8 cm. T\xEDnh \u0111\u1ED9 d\xE0i c\u1EA1nh c\u1EE7a h\xECnh thoi.",
+              solution: r3`Gọi \(O\) là giao điểm hai đường chéo: \(OA = 3\) cm, \(OB = 4\) cm, \(\widehat{AOB} = 90^\circ\). \(AB^2 = 9 + 16 = 25\), \(AB = 5\) cm.`,
+              exercises: [
+                sa(2, "T\xEDnh \u0111\u1ED9 d\xE0i \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt c\xF3 hai k\xEDch th\u01B0\u1EDBc 9 cm v\xE0 12 cm.", ["15"], r3`\(d^2 = 81 + 144 = 225\), \(d = 15\) cm.`, "cm"),
+                sa(3, r3`Tam giác \(ABC\) cân tại \(A\) có \(AB = AC = 10\) cm, \(BC = 12\) cm. Tính độ dài đường cao \(AH\).`, ["8"], r3`\(H\) là trung điểm của \(BC\) nên \(BH = 6\) cm. \(AH^2 = 100 - 36 = 64\), \(AH = 8\) cm.`, "cm"),
+                ge(4, r3`Cho hình thang cân \(ABCD\) (\(AB \parallel CD\)) có \(AB = 6\) cm, \(CD = 12\) cm, cạnh bên \(AD = 5\) cm. Tính chiều cao và diện tích của hình thang.`, `D(0,0) C(12,0) B(9,4) A(3,4) H(3,0) K(9,0)
+AB BC CD DA AH:dash BK:dash
+vuong(A,H,D) vuong(B,K,C)`, r3`Kẻ \(AH \perp CD\), \(BK \perp CD\). \(\triangle ADH = \triangle BCK\) (cạnh huyền – góc nhọn) nên \(DH = CK = \dfrac{12 - 6}{2} = 3\) cm.
+\(AH^2 = AD^2 - DH^2 = 25 - 9 = 16\), \(AH = 4\) cm. Diện tích \(S = \dfrac{(6 + 12)\cdot4}{2} = 36\) cm².`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u0110\u1ECBnh l\xED Pythagore \u0111\u1EA3o",
+          description: "Nh\u1EADn bi\u1EBFt tam gi\xE1c vu\xF4ng t\u1EEB \u0111\u1ED9 d\xE0i ba c\u1EA1nh.",
+          types: [
+            {
+              slug: "nhan-biet-tam-giac-vuong",
+              title: "D\xF9ng \u0111\u1ECBnh l\xED Pythagore \u0111\u1EA3o nh\u1EADn bi\u1EBFt tam gi\xE1c vu\xF4ng",
+              levels: [1, 2],
+              knowledge: r3`Nếu \(BC^2 = AB^2 + AC^2\) thì tam giác \(ABC\) vuông tại \(A\).`,
+              signs: "\u0110\u1EC1 cho \u0111\u1ED9 d\xE0i ba c\u1EA1nh, h\u1ECFi tam gi\xE1c c\xF3 vu\xF4ng kh\xF4ng, vu\xF4ng t\u1EA1i \u0111\u1EC9nh n\xE0o.",
+              method: "So s\xE1nh b\xECnh ph\u01B0\u01A1ng c\u1EA1nh l\u1EDBn nh\u1EA5t v\u1EDBi t\u1ED5ng b\xECnh ph\u01B0\u01A1ng hai c\u1EA1nh c\xF2n l\u1EA1i.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh c\u1EA1nh l\u1EDBn nh\u1EA5t.
+- **B\u01B0\u1EDBc 2.** T\xEDnh b\xECnh ph\u01B0\u01A1ng c\u1EA1nh l\u1EDBn nh\u1EA5t v\xE0 t\u1ED5ng b\xECnh ph\u01B0\u01A1ng hai c\u1EA1nh kia.
+- **B\u01B0\u1EDBc 3.** B\u1EB1ng nhau th\xEC tam gi\xE1c vu\xF4ng t\u1EA1i \u0111\u1EC9nh \u0111\u1ED1i di\u1EC7n c\u1EA1nh l\u1EDBn nh\u1EA5t; kh\xE1c nhau th\xEC kh\xF4ng vu\xF4ng.`,
+              mistakes: "- So s\xE1nh v\u1EDBi c\u1EA1nh kh\xF4ng ph\u1EA3i l\xE0 c\u1EA1nh l\u1EDBn nh\u1EA5t.\n- X\xE1c \u0111\u1ECBnh sai \u0111\u1EC9nh c\u1EE7a g\xF3c vu\xF4ng.",
+              example: "Tam gi\xE1c c\xF3 \u0111\u1ED9 d\xE0i ba c\u1EA1nh l\xE0 7 cm, 24 cm, 25 cm c\xF3 ph\u1EA3i l\xE0 tam gi\xE1c vu\xF4ng kh\xF4ng?",
+              solution: r3`\(25^2 = 625\); \(7^2 + 24^2 = 49 + 576 = 625\). Theo định lí Pythagore đảo, tam giác đó vuông (góc vuông đối diện cạnh 25 cm).`,
+              exercises: [
+                mcq(1, "Tam gi\xE1c c\xF3 \u0111\u1ED9 d\xE0i ba c\u1EA1nh n\xE0o sau \u0111\xE2y **kh\xF4ng** ph\u1EA3i l\xE0 tam gi\xE1c vu\xF4ng?", ["6 cm, 8 cm, 11 cm", "6 cm, 8 cm, 10 cm", "9 cm, 12 cm, 15 cm", "8 cm, 15 cm, 17 cm"], "A", r3`\(6^2 + 8^2 = 100 \ne 11^2 = 121\). Các bộ còn lại: \(6^2 + 8^2 = 10^2\); \(9^2 + 12^2 = 15^2\); \(8^2 + 15^2 = 17^2\).`),
+                tf(2, r3`Cho tam giác \(ABC\) có \(AB = 9\) cm, \(BC = 15\) cm, \(CA = 12\) cm. Mỗi khẳng định sau đúng hay sai?`, [
+                  [r3`\(BC^2 = AB^2 + AC^2\).`, true],
+                  [r3`Tam giác \(ABC\) vuông tại \(B\).`, false],
+                  [r3`Tam giác \(ABC\) vuông tại \(A\).`, true],
+                  ["Di\u1EC7n t\xEDch tam gi\xE1c ABC b\u1EB1ng 54 cm\xB2.", true]
+                ], r3`\(225 = 81 + 144\) nên tam giác vuông tại \(A\) (đối diện cạnh \(BC\)). Diện tích \(\dfrac{9\cdot12}{2} = 54\) cm².`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "\u1EE8ng d\u1EE5ng th\u1EF1c t\u1EBF",
+          description: "Thang d\u1EF1a t\u01B0\u1EDDng, c\xE2y g\xE3y, m\xE0n h\xECnh, kho\u1EA3ng c\xE1ch.",
+          types: [
+            {
+              slug: "ung-dung-thuc-te-pythagore",
+              title: "\u1EE8ng d\u1EE5ng th\u1EF1c t\u1EBF c\u1EE7a \u0111\u1ECBnh l\xED Pythagore",
+              legacy: ["\u1EE8ng d\u1EE5ng th\u1EF1c t\u1EBF"],
+              levels: [2, 3],
+              knowledge: "\u0110\u1ECBnh l\xED Pythagore trong c\xE1c t\xECnh hu\u1ED1ng c\xF3 tam gi\xE1c vu\xF4ng: thang d\u1EF1a t\u01B0\u1EDDng, c\xE2y g\xE3y, \u0111\u01B0\u1EDDng ch\xE9o m\xE0n h\xECnh, kho\u1EA3ng c\xE1ch theo hai h\u01B0\u1EDBng vu\xF4ng g\xF3c.",
+              signs: "T\xECnh hu\u1ED1ng th\u1EF1c t\u1EBF m\xF4 t\u1EA3 \u0111\u01B0\u1EE3c b\u1EB1ng m\u1ED9t tam gi\xE1c vu\xF4ng v\u1EDBi hai c\u1EA1nh \u0111\xE3 bi\u1EBFt (ho\u1EB7c bi\u1EBFt t\u1ED5ng hai c\u1EA1nh).",
+              method: "M\xF4 h\xECnh h\xF3a b\u1EB1ng tam gi\xE1c vu\xF4ng, x\xE1c \u0111\u1ECBnh c\u1EA1nh huy\u1EC1n, \xE1p d\u1EE5ng \u0111\u1ECBnh l\xED Pythagore.",
+              steps: `- **B\u01B0\u1EDBc 1.** V\u1EBD h\xECnh, x\xE1c \u0111\u1ECBnh tam gi\xE1c vu\xF4ng v\xE0 c\xE1c c\u1EA1nh \u0111\xE3 bi\u1EBFt.
+- **B\u01B0\u1EDBc 2.** \xC1p d\u1EE5ng \u0111\u1ECBnh l\xED Pythagore (l\u1EADp ph\u01B0\u01A1ng tr\xECnh n\u1EBFu c\u1EA7n).
+- **B\u01B0\u1EDBc 3.** T\xEDnh, l\xE0m tr\xF2n theo y\xEAu c\u1EA7u, tr\u1EA3 l\u1EDDi.`,
+              mistakes: "- Nh\u1EA7m chi\u1EC1u d\xE0i thang (c\u1EA1nh huy\u1EC1n) v\u1EDBi chi\u1EC1u cao b\u1EE9c t\u01B0\u1EDDng.\n- L\xE0m tr\xF2n qu\xE1 s\u1EDBm \u1EDF c\xE1c b\u01B0\u1EDBc trung gian.",
+              example: "M\u1ED9t chi\u1EBFc thang d\xE0i 5 m d\u1EF1a v\xE0o b\u1EE9c t\u01B0\u1EDDng th\u1EB3ng \u0111\u1EE9ng, ch\xE2n thang c\xE1ch ch\xE2n t\u01B0\u1EDDng 1,4 m. H\u1ECFi \u0111\u1EA7u thang c\xE1ch m\u1EB7t \u0111\u1EA5t bao nhi\xEAu m\xE9t?",
+              solution: r3`\(h^2 = 5^2 - 1{,}4^2 = 25 - 1{,}96 = 23{,}04\), \(h = 4{,}8\) m.`,
+              exercises: [
+                sa(2, "M\u1ED9t chi\u1EBFc ti vi c\xF3 m\xE0n h\xECnh h\xECnh ch\u1EEF nh\u1EADt v\u1EDBi chi\u1EC1u r\u1ED9ng 36 inch v\xE0 chi\u1EC1u cao 27 inch. T\xEDnh \u0111\u1ED9 d\xE0i \u0111\u01B0\u1EDDng ch\xE9o m\xE0n h\xECnh.", ["45"], r3`\(d^2 = 36^2 + 27^2 = 1296 + 729 = 2025\), \(d = 45\) inch.`, "inch"),
+                sa(3, "M\u1ED9t c\xE2y cao 8 m b\u1ECB gi\xF3 b\xE3o l\xE0m g\xE3y; ng\u1ECDn c\xE2y ch\u1EA1m \u0111\u1EA5t c\xE1ch g\u1ED1c 4 m, ph\u1EA7n th\xE2n c\xF2n l\u1EA1i v\u1EABn \u0111\u1EE9ng th\u1EB3ng. H\u1ECFi ch\u1ED7 g\xE3y c\xE1ch g\u1ED1c c\xE2y bao nhi\xEAu m\xE9t?", ["3"], r3`Gọi khoảng cách từ gốc đến chỗ gãy là \(x\) (m), phần gãy dài \(8 - x\). \(x^2 + 16 = (8 - x)^2 \Leftrightarrow 16 = 64 - 16x \Leftrightarrow x = 3\).`, "m")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 36 ----------------
+    {
+      slug: "bai-36-cac-truong-hop-dong-dang-cua-hai-tam-giac-vuong",
+      difficulty: 3,
+      objectives: `- Gi\u1EA3i th\xEDch c\xE1c tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ED3ng d\u1EA1ng c\u1EE7a hai tam gi\xE1c vu\xF4ng, tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t c\u1EA1nh huy\u1EC1n \u2013 c\u1EA1nh g\xF3c vu\xF4ng.
+- V\u1EADn d\u1EE5ng t\xEDnh \u0111\u1ED9 d\xE0i, ch\u1EE9ng minh h\u1EC7 th\u1EE9c, t\xEDnh t\u1EC9 s\u1ED1 \u0111\u01B0\u1EDDng cao, t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch; gi\u1EA3i b\xE0i to\xE1n th\u1EF1c t\u1EBF.`,
+      prerequisites: "- Ba tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ED3ng d\u1EA1ng c\u1EE7a hai tam gi\xE1c (B\xE0i 34).\n- \u0110\u1ECBnh l\xED Pythagore (B\xE0i 35).",
+      concepts: "Hai tam gi\xE1c vu\xF4ng \u0111\u1ED3ng d\u1EA1ng; tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t c\u1EA1nh huy\u1EC1n \u2013 c\u1EA1nh g\xF3c vu\xF4ng; t\u1EC9 s\u1ED1 hai \u0111\u01B0\u1EDDng cao t\u01B0\u01A1ng \u1EE9ng; t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch.",
+      theorems: `- Hai tam gi\xE1c vu\xF4ng \u0111\u1ED3ng d\u1EA1ng v\u1EDBi nhau n\u1EBFu: m\u1ED9t g\xF3c nh\u1ECDn c\u1EE7a tam gi\xE1c vu\xF4ng n\xE0y b\u1EB1ng m\u1ED9t g\xF3c nh\u1ECDn c\u1EE7a tam gi\xE1c vu\xF4ng kia; ho\u1EB7c hai c\u1EA1nh g\xF3c vu\xF4ng c\u1EE7a tam gi\xE1c vu\xF4ng n\xE0y t\u1EC9 l\u1EC7 v\u1EDBi hai c\u1EA1nh g\xF3c vu\xF4ng c\u1EE7a tam gi\xE1c vu\xF4ng kia.
+- **Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t:** N\u1EBFu c\u1EA1nh huy\u1EC1n v\xE0 m\u1ED9t c\u1EA1nh g\xF3c vu\xF4ng c\u1EE7a tam gi\xE1c vu\xF4ng n\xE0y t\u1EC9 l\u1EC7 v\u1EDBi c\u1EA1nh huy\u1EC1n v\xE0 m\u1ED9t c\u1EA1nh g\xF3c vu\xF4ng c\u1EE7a tam gi\xE1c vu\xF4ng kia th\xEC hai tam gi\xE1c vu\xF4ng \u0111\xF3 \u0111\u1ED3ng d\u1EA1ng.`,
+      properties: r3`- Nếu hai tam giác đồng dạng theo tỉ số \(k\) thì tỉ số hai đường cao tương ứng bằng \(k\), tỉ số diện tích bằng \(k^2\).
+- Tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\): \(\triangle HBA \backsim \triangle ABC\), \(\triangle HAC \backsim \triangle ABC\); suy ra \(AB^2 = BH\cdot BC\), \(AC^2 = CH\cdot BC\), \(AH^2 = BH\cdot CH\), \(AB\cdot AC = BC\cdot AH\).`,
+      themes: [
+        {
+          title: "C\xE1c tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ED3ng d\u1EA1ng c\u1EE7a tam gi\xE1c vu\xF4ng",
+          description: "G\xF3c nh\u1ECDn b\u1EB1ng nhau; hai c\u1EA1nh g\xF3c vu\xF4ng t\u1EC9 l\u1EC7; c\u1EA1nh huy\u1EC1n \u2013 c\u1EA1nh g\xF3c vu\xF4ng.",
+          types: [
+            {
+              slug: "chung-minh-tam-giac-vuong-dong-dang",
+              title: "Ch\u1EE9ng minh hai tam gi\xE1c vu\xF4ng \u0111\u1ED3ng d\u1EA1ng",
+              levels: [1, 2, 3],
+              knowledge: "Hai tam gi\xE1c vu\xF4ng \u0111\u1ED3ng d\u1EA1ng khi c\xF3 m\u1ED9t c\u1EB7p g\xF3c nh\u1ECDn b\u1EB1ng nhau, ho\u1EB7c hai c\u1EA1nh g\xF3c vu\xF4ng t\u1EC9 l\u1EC7, ho\u1EB7c c\u1EA1nh huy\u1EC1n v\xE0 m\u1ED9t c\u1EA1nh g\xF3c vu\xF4ng t\u1EC9 l\u1EC7.",
+              signs: "Hai tam gi\xE1c vu\xF4ng (k\xED hi\u1EC7u g\xF3c vu\xF4ng, \u0111\u01B0\u1EDDng cao, h\xECnh ch\u1EEF nh\u1EADt\u2026), c\u1EA7n ch\u1EE9ng minh \u0111\u1ED3ng d\u1EA1ng.",
+              method: "Ngo\xE0i c\u1EB7p g\xF3c vu\xF4ng, t\xECm th\xEAm m\u1ED9t c\u1EB7p g\xF3c nh\u1ECDn b\u1EB1ng nhau, ho\u1EB7c t\u1EC9 s\u1ED1 hai c\u1EB7p c\u1EA1nh g\xF3c vu\xF4ng, ho\u1EB7c t\u1EC9 s\u1ED1 c\u1EA1nh huy\u1EC1n \u2013 c\u1EA1nh g\xF3c vu\xF4ng.",
+              steps: `- **B\u01B0\u1EDBc 1.** Ch\u1EC9 ra hai tam gi\xE1c vu\xF4ng (vu\xF4ng t\u1EA1i \u0111\u1EC9nh n\xE0o).
+- **B\u01B0\u1EDBc 2.** T\xECm th\xEAm m\u1ED9t \u0111i\u1EC1u ki\u1EC7n: g\xF3c nh\u1ECDn b\u1EB1ng nhau (g\xF3c chung, c\xF9ng ph\u1EE5 v\u1EDBi m\u1ED9t g\xF3c) ho\u1EB7c c\u1EB7p c\u1EA1nh t\u1EC9 l\u1EC7.
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn \u0111\u1ED3ng d\u1EA1ng, vi\u1EBFt \u0111\xFAng th\u1EE9 t\u1EF1 \u0111\u1EC9nh (hai \u0111\u1EC9nh g\xF3c vu\xF4ng t\u01B0\u01A1ng \u1EE9ng v\u1EDBi nhau).`,
+              mistakes: "- Vi\u1EBFt hai \u0111\u1EC9nh g\xF3c vu\xF4ng kh\xF4ng t\u01B0\u01A1ng \u1EE9ng v\u1EDBi nhau.\n- D\xF9ng tr\u01B0\u1EDDng h\u1EE3p c\u1EA1nh huy\u1EC1n \u2013 c\u1EA1nh g\xF3c vu\xF4ng nh\u01B0ng l\u1EADp t\u1EC9 s\u1ED1 c\u1EA1nh huy\u1EC1n c\u1EE7a tam gi\xE1c n\xE0y v\u1EDBi c\u1EA1nh g\xF3c vu\xF4ng c\u1EE7a tam gi\xE1c kia.",
+              example: r3`Cho tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\). Chứng minh \(\triangle HBA \backsim \triangle ABC\).`,
+              solution: r3`\(\triangle HBA\) vuông tại \(H\), \(\triangle ABC\) vuông tại \(A\), có \(\widehat{B}\) chung nên \(\triangle HBA \backsim \triangle ABC\).`,
+              exercises: [
+                mcq(1, "C\u1EB7p tam gi\xE1c vu\xF4ng n\xE0o sau \u0111\xE2y \u0111\u1ED3ng d\u1EA1ng v\u1EDBi nhau?", [r3`\(\triangle ABC\) vuông tại \(A\) có \(\widehat{B} = 40^\circ\) và \(\triangle DEF\) vuông tại \(D\) có \(\widehat{F} = 50^\circ\)`, r3`\(\triangle ABC\) vuông tại \(A\) có \(\widehat{B} = 40^\circ\) và \(\triangle DEF\) vuông tại \(D\) có \(\widehat{E} = 45^\circ\)`, r3`\(\triangle ABC\) vuông tại \(A\) có \(\widehat{B} = 30^\circ\) và \(\triangle DEF\) vuông tại \(D\) có \(\widehat{E} = 70^\circ\)`, r3`\(\triangle ABC\) vuông tại \(A\) có \(AB = 3\), \(AC = 4\) và \(\triangle DEF\) vuông tại \(D\) có \(DE = 6\), \(DF = 9\)`], "A", r3`\(\triangle DEF\) có \(\widehat{E} = 90^\circ - 50^\circ = 40^\circ = \widehat{B}\) nên \(\triangle ABC \backsim \triangle DEF\).`),
+                ge(2, r3`Cho tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\). Chứng minh \(\triangle HAC \backsim \triangle ABC\).`, `A(1.8,2.4) B(0,0) C(5,0) H(1.8,0)
+AB BC CA AH
+vuong(B,A,C) vuong(A,H,C)`, r3`\(\triangle HAC\) vuông tại \(H\), \(\triangle ABC\) vuông tại \(A\), có \(\widehat{C}\) chung nên \(\triangle HAC \backsim \triangle ABC\).`),
+                sa(3, r3`Tam giác \(ABC\) vuông tại \(A\) có \(AB = 6\) cm, \(BC = 10\) cm; tam giác \(DEF\) vuông tại \(D\) có \(DE = 9\) cm, \(EF = 15\) cm. Chứng tỏ hai tam giác đồng dạng và tính \(DF\).`, ["12"], r3`\(\dfrac{EF}{BC} = \dfrac{DE}{AB} = \dfrac32\) nên \(\triangle DEF \backsim \triangle ABC\) (cạnh huyền – cạnh góc vuông). \(AC = \sqrt{100 - 36} = 8\) cm, \(DF = \dfrac32\cdot8 = 12\) cm.`, "cm")
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng tam gi\xE1c vu\xF4ng \u0111\u1ED3ng d\u1EA1ng",
+          description: "H\u1EC7 th\u1EE9c trong tam gi\xE1c vu\xF4ng; t\u1EC9 s\u1ED1 \u0111\u01B0\u1EDDng cao, di\u1EC7n t\xEDch; b\xE0i to\xE1n th\u1EF1c t\u1EBF.",
+          types: [
+            {
+              slug: "giai-toan-tam-giac-vuong-dong-dang",
+              title: "D\xF9ng tam gi\xE1c vu\xF4ng \u0111\u1ED3ng d\u1EA1ng t\xEDnh \u0111\u1ED9 d\xE0i, ch\u1EE9ng minh h\u1EC7 th\u1EE9c",
+              legacy: ["D\xF9ng tam gi\xE1c vu\xF4ng \u0111\u1ED3ng d\u1EA1ng \u0111\u1EC3 gi\u1EA3i to\xE1n"],
+              levels: [2, 3, 4],
+              knowledge: r3`Tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\): \(AB^2 = BH\cdot BC\), \(AC^2 = CH\cdot BC\), \(AH^2 = BH\cdot CH\), \(AB\cdot AC = BC\cdot AH\) (suy ra từ các cặp tam giác vuông đồng dạng).`,
+              signs: "Tam gi\xE1c vu\xF4ng c\xF3 \u0111\u01B0\u1EDDng cao \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n; y\xEAu c\u1EA7u t\xEDnh \u0111o\u1EA1n th\u1EB3ng ho\u1EB7c ch\u1EE9ng minh h\u1EC7 th\u1EE9c d\u1EA1ng t\xEDch.",
+              method: "Ch\u1ECDn c\u1EB7p tam gi\xE1c vu\xF4ng \u0111\u1ED3ng d\u1EA1ng ch\u1EE9a c\xE1c \u0111o\u1EA1n th\u1EB3ng c\u1EA7n d\xF9ng, l\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c r\u1ED3i t\xEDnh (k\u1EBFt h\u1EE3p \u0111\u1ECBnh l\xED Pythagore).",
+              steps: `- **B\u01B0\u1EDBc 1.** Ch\u1EE9ng minh c\u1EB7p tam gi\xE1c vu\xF4ng \u0111\u1ED3ng d\u1EA1ng ph\xF9 h\u1EE3p.
+- **B\u01B0\u1EDBc 2.** L\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c, \u0111\u01B0a v\u1EC1 h\u1EC7 th\u1EE9c t\xEDch.
+- **B\u01B0\u1EDBc 3.** Thay s\u1ED1 t\xEDnh (k\u1EBFt h\u1EE3p \u0111\u1ECBnh l\xED Pythagore n\u1EBFu c\u1EA7n).`,
+              mistakes: "- D\xF9ng nh\u1EA7m c\u1EB7p tam gi\xE1c d\u1EABn t\u1EDBi t\u1EC9 l\u1EC7 th\u1EE9c sai.\n- Qu\xEAn r\u1EB1ng BH + HC = BC.",
+              example: r3`Tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\), \(BH = 4\) cm, \(HC = 9\) cm. Tính \(AH\).`,
+              solution: r3`\(\triangle HBA \backsim \triangle HAC\) (vuông tại \(H\), \(\widehat{HBA} = \widehat{HAC}\) vì cùng phụ với \(\widehat{HAB}\)). Suy ra \(\dfrac{HB}{HA} = \dfrac{HA}{HC}\), \(AH^2 = 4\cdot9 = 36\), \(AH = 6\) cm.`,
+              exercises: [
+                sa(2, r3`Tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\), \(BH = 3\) cm, \(BC = 12\) cm. Tính \(AB\).`, ["6"], r3`\(\triangle HBA \backsim \triangle ABC\) nên \(AB^2 = BH\cdot BC = 36\), \(AB = 6\) cm.`, "cm"),
+                sa(3, r3`Tam giác \(ABC\) vuông tại \(A\) có \(AB = 15\) cm, \(AC = 20\) cm, đường cao \(AH\). Tính \(AH\).`, ["12"], r3`\(BC = \sqrt{225 + 400} = 25\) cm. \(AB\cdot AC = BC\cdot AH\) nên \(AH = \dfrac{15\cdot20}{25} = 12\) cm.`, "cm"),
+                es(4, r3`Cho tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\). Chứng minh \(AH^2 = BH\cdot CH\).`, r3`\(\widehat{HBA} = \widehat{HAC}\) (cùng phụ với \(\widehat{HAB}\)). Hai tam giác vuông \(HBA\) và \(HAC\) (vuông tại \(H\)) có cặp góc nhọn bằng nhau nên \(\triangle HBA \backsim \triangle HAC\).
+Suy ra \(\dfrac{HB}{HA} = \dfrac{HA}{HC}\), do đó \(AH^2 = BH\cdot CH\).`)
+              ]
+            },
+            {
+              slug: "ti-so-duong-cao-dien-tich",
+              title: "T\u1EC9 s\u1ED1 \u0111\u01B0\u1EDDng cao, t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng",
+              legacy: ["T\u1EC9 s\u1ED1 di\u1EC7n t\xEDch hai tam gi\xE1c"],
+              levels: [3, 4],
+              knowledge: r3`Nếu hai tam giác đồng dạng theo tỉ số \(k\) thì tỉ số hai đường cao tương ứng bằng \(k\) và tỉ số diện tích bằng \(k^2\).`,
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u t\xEDnh t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch, di\u1EC7n t\xEDch c\u1EE7a tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng, di\u1EC7n t\xEDch ph\u1EA7n c\xF2n l\u1EA1i, ho\u1EB7c t\u1EC9 s\u1ED1 hai \u0111\u01B0\u1EDDng cao.",
+              method: r3`Tìm tỉ số đồng dạng \(k\), áp dụng \(\dfrac{h'}{h} = k\), \(\dfrac{S'}{S} = k^2\).`,
+              steps: r3`- **Bước 1.** Chứng minh hai tam giác đồng dạng, xác định \(k\).
+- **Bước 2.** Áp dụng \(\dfrac{h'}{h} = k\), \(\dfrac{S'}{S} = k^2\).
+- **Bước 3.** Tính đại lượng cần tìm (có thể lấy hiệu diện tích).`,
+              mistakes: r3`- Dùng \(\dfrac{S'}{S} = k\).
+- Xác định \(k\) ngược chiều.`,
+              example: r3`Cho \(\triangle DEF \backsim \triangle ABC\) có \(DE = 9\) cm, \(AB = 6\) cm. Diện tích tam giác \(ABC\) bằng 20 cm². Tính diện tích tam giác \(DEF\).`,
+              solution: r3`\(k = \dfrac{DE}{AB} = \dfrac32\). \(\dfrac{S_{DEF}}{S_{ABC}} = k^2 = \dfrac94\), suy ra \(S_{DEF} = \dfrac94\cdot20 = 45\) cm².`,
+              exercises: [
+                sa(3, r3`Cho tam giác \(ABC\) có diện tích 36 cm². Điểm \(M\) thuộc \(AB\), \(N\) thuộc \(AC\) sao cho \(MN \parallel BC\) và \(AM = \dfrac13 AB\). Tính diện tích tứ giác \(BMNC\).`, ["32"], r3`\(\triangle AMN \backsim \triangle ABC\) theo tỉ số \(\dfrac13\) nên \(S_{AMN} = \dfrac19\cdot36 = 4\) cm². \(S_{BMNC} = 36 - 4 = 32\) cm².`, "cm\xB2"),
+                sa(3, r3`Hai tam giác đồng dạng có tỉ số diện tích bằng \(\dfrac49\). Một đường cao của tam giác lớn hơn dài 12 cm. Tính đường cao tương ứng của tam giác nhỏ hơn.`, ["8"], r3`\(k^2 = \dfrac49\) nên \(k = \dfrac23\). Đường cao tương ứng: \(\dfrac23\cdot12 = 8\) cm.`, "cm"),
+                es(4, r3`Chứng minh rằng nếu \(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số \(k\) thì tỉ số diện tích của hai tam giác bằng \(k^2\).`, r3`Kẻ đường cao \(A'H'\), \(AH\). Hai tam giác vuông \(A'B'H'\) và \(ABH\) có \(\widehat{B'} = \widehat{B}\) nên đồng dạng, suy ra \(\dfrac{A'H'}{AH} = \dfrac{A'B'}{AB} = k\).
+Do đó \(\dfrac{S_{A'B'C'}}{S_{ABC}} = \dfrac{\frac12 B'C'\cdot A'H'}{\frac12 BC\cdot AH} = k\cdot k = k^2\).`)
+              ]
+            },
+            {
+              slug: "thuc-te-tam-giac-vuong-dong-dang",
+              title: "B\xE0i to\xE1n th\u1EF1c t\u1EBF v\u1EC1 tam gi\xE1c vu\xF4ng \u0111\u1ED3ng d\u1EA1ng",
+              legacy: ["To\xE1n th\u1EF1c t\u1EBF"],
+              levels: [3],
+              knowledge: "Hai tam gi\xE1c vu\xF4ng c\xF3 m\u1ED9t c\u1EB7p g\xF3c nh\u1ECDn b\u1EB1ng nhau th\xEC \u0111\u1ED3ng d\u1EA1ng; \u1EE9ng d\u1EE5ng \u0111o chi\u1EC1u cao, kho\u1EA3ng c\xE1ch.",
+              signs: "\u0110o chi\u1EC1u cao v\u1EADt b\u1EB1ng b\xF3ng, b\u1EB1ng c\u1ECDc ng\u1EAFm; \u0111o chi\u1EC1u r\u1ED9ng s\xF4ng, kho\u1EA3ng c\xE1ch t\u1EDBi v\u1EADt kh\xF4ng \u0111\u1EBFn \u0111\u01B0\u1EE3c.",
+              method: "Ch\u1EC9 ra hai tam gi\xE1c vu\xF4ng c\xF3 m\u1ED9t c\u1EB7p g\xF3c nh\u1ECDn b\u1EB1ng nhau (g\xF3c \u0111\u1ED1i \u0111\u1EC9nh, g\xF3c chung, tia n\u1EAFng song song), l\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c.",
+              steps: `- **B\u01B0\u1EDBc 1.** V\u1EBD s\u01A1 \u0111\u1ED3, ch\u1EC9 ra hai tam gi\xE1c vu\xF4ng.
+- **B\u01B0\u1EDBc 2.** Ch\u1EE9ng minh ch\xFAng \u0111\u1ED3ng d\u1EA1ng (c\u1EB7p g\xF3c nh\u1ECDn b\u1EB1ng nhau).
+- **B\u01B0\u1EDBc 3.** L\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c, t\xEDnh v\xE0 tr\u1EA3 l\u1EDDi.`,
+              mistakes: "- Gh\xE9p sai c\u1EB7p c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng.\n- D\xF9ng kho\u1EA3ng c\xE1ch t\u1EDBi ng\u01B0\u1EDDi thay cho kho\u1EA3ng c\xE1ch t\u1EDBi \u0111\u1EC9nh b\xF3ng.",
+              example: "\u0110\u1EC3 \u0111o chi\u1EC1u cao AC c\u1EE7a m\u1ED9t c\xE2y, ng\u01B0\u1EDDi ta c\u1EAFm m\u1ED9t c\u1ECDc DE cao 2 m vu\xF4ng g\xF3c v\u1EDBi m\u1EB7t \u0111\u1EA5t r\u1ED3i \u0111\u1EB7t m\u1EAFt \u1EDF \u0111i\u1EC3m F tr\xEAn m\u1EB7t \u0111\u1EA5t sao cho F, E, C th\u1EB3ng h\xE0ng. \u0110o \u0111\u01B0\u1EE3c FD = 3 m, FA = 15 m (F, D, A th\u1EB3ng h\xE0ng). T\xEDnh chi\u1EC1u cao c\u1EE7a c\xE2y.",
+              solution: r3`\(\triangle FDE\) và \(\triangle FAC\) vuông tại \(D\), \(A\), có \(\widehat{F}\) chung nên đồng dạng. \(\dfrac{AC}{DE} = \dfrac{FA}{FD} = 5\), suy ra \(AC = 10\) m.`,
+              exercises: [
+                sa(3, "M\u1ED9t ng\u01B0\u1EDDi cao 1,6 m \u0111\u1EE9ng c\xE1ch c\u1ED9t \u0111\xE8n 4 m th\xEC b\xF3ng c\u1EE7a ng\u01B0\u1EDDi \u0111\xF3 tr\xEAn m\u1EB7t \u0111\u1EA5t d\xE0i 2 m (\u0111\u1EC9nh b\xF3ng c\u1EE7a ng\u01B0\u1EDDi tr\xF9ng v\u1EDBi \u0111\u1EC9nh b\xF3ng do c\u1ED9t \u0111\xE8n t\u1EA1o ra). T\xEDnh chi\u1EC1u cao c\u1EE7a c\u1ED9t \u0111\xE8n.", ["4,8"], r3`Gọi \(T\) là đỉnh bóng. Hai tam giác vuông có chung góc tại \(T\) nên đồng dạng: \(\dfrac{h}{1{,}6} = \dfrac{4 + 2}{2} = 3\), \(h = 4{,}8\) m.`, "m"),
+                ge(3, r3`Để đo chiều rộng \(AB\) của một khúc sông (\(A\), \(B\) ở hai bờ, \(AB \perp BD\)), người ta chọn các điểm \(C\), \(D\) trên bờ có điểm \(B\) sao cho \(B\), \(C\), \(D\) thẳng hàng, rồi xác định điểm \(E\) sao cho \(ED \perp BD\) và \(A\), \(C\), \(E\) thẳng hàng. Đo được \(BC = 20\) m, \(CD = 5\) m, \(DE = 6\) m. Tính \(AB\).`, `B(0,0) C(4,0) D(5,0) A(0,4.8) E(5,-1.2)
+AB BD AE DE
+vuong(A,B,C) vuong(C,D,E)`, r3`\(\triangle ABC\) vuông tại \(B\), \(\triangle EDC\) vuông tại \(D\), \(\widehat{ACB} = \widehat{ECD}\) (đối đỉnh) nên \(\triangle ABC \backsim \triangle EDC\).
+\(\dfrac{AB}{ED} = \dfrac{BC}{DC}\), suy ra \(AB = \dfrac{6\cdot20}{5} = 24\) m.`)
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 37 ----------------
+    {
+      slug: "bai-37-hinh-dong-dang",
+      difficulty: 1,
+      objectives: `- Nh\u1EADn bi\u1EBFt h\xECnh \u0111\u1ED3ng d\u1EA1ng ph\u1ED1i c\u1EA3nh (h\xECnh v\u1ECB t\u1EF1), t\xE2m v\xE0 t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng ph\u1ED1i c\u1EA3nh.
+- Nh\u1EADn bi\u1EBFt h\xECnh \u0111\u1ED3ng d\u1EA1ng qua c\xE1c h\xECnh \u1EA3nh c\u1EE5 th\u1EC3; nh\u1EADn bi\u1EBFt v\u1EBB \u0111\u1EB9p c\u1EE7a h\xECnh \u0111\u1ED3ng d\u1EA1ng trong t\u1EF1 nhi\xEAn, ngh\u1EC7 thu\u1EADt, ki\u1EBFn tr\xFAc, c\xF4ng ngh\u1EC7.`,
+      prerequisites: "- Hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng (B\xE0i 33\u201336).\n- T\u1EC9 l\u1EC7 b\u1EA3n \u0111\u1ED3, t\u1EC9 s\u1ED1 (To\xE1n 6, To\xE1n 7).",
+      concepts: "H\xECnh \u0111\u1ED3ng d\u1EA1ng ph\u1ED1i c\u1EA3nh (h\xECnh v\u1ECB t\u1EF1); t\xE2m \u0111\u1ED3ng d\u1EA1ng ph\u1ED1i c\u1EA3nh; t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng; h\xECnh \u0111\u1ED3ng d\u1EA1ng.",
+      properties: r3`- Hình \(H'\) là hình đồng dạng phối cảnh của hình \(H\) với tâm \(O\), tỉ số \(k\) (\(k > 0\)) nếu mỗi điểm \(M\) thuộc \(H\) ứng với điểm \(M'\) thuộc \(H'\) nằm trên tia \(OM\) sao cho \(OM' = k\cdot OM\) (và ngược lại).
+- Hình \(H\) được gọi là đồng dạng với hình \(H'\) nếu hình \(H\) bằng một hình đồng dạng phối cảnh của hình \(H'\).
+- Hai hình tròn bất kì, hai hình vuông bất kì, hai tam giác đều bất kì luôn đồng dạng với nhau.`,
+      themes: [
+        {
+          title: "H\xECnh \u0111\u1ED3ng d\u1EA1ng ph\u1ED1i c\u1EA3nh",
+          description: "T\xE2m, t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng ph\u1ED1i c\u1EA3nh.",
+          types: [
+            {
+              slug: "hinh-dong-dang-phoi-canh",
+              title: "Nh\u1EADn bi\u1EBFt h\xECnh \u0111\u1ED3ng d\u1EA1ng ph\u1ED1i c\u1EA3nh, t\xE2m v\xE0 t\u1EC9 s\u1ED1",
+              legacy: ["Nh\u1EADn bi\u1EBFt h\xECnh \u0111\u1ED3ng d\u1EA1ng, h\xECnh \u0111\u1ED3ng d\u1EA1ng ph\u1ED1i c\u1EA3nh"],
+              levels: [1, 2],
+              knowledge: r3`\(H'\) đồng dạng phối cảnh với \(H\) theo tâm \(O\), tỉ số \(k\): mỗi điểm \(M\) thuộc \(H\) ứng với điểm \(M'\) trên tia \(OM\), \(OM' = k\cdot OM\).`,
+              signs: "H\xECnh v\u1EBD c\xF3 m\u1ED9t \u0111i\u1EC3m O v\xE0 hai h\xECnh m\xE0 c\xE1c c\u1EB7p \u0111i\u1EC3m t\u01B0\u01A1ng \u1EE9ng th\u1EB3ng h\xE0ng v\u1EDBi O; y\xEAu c\u1EA7u x\xE1c \u0111\u1ECBnh t\xE2m, t\u1EC9 s\u1ED1, t\xEDnh \u0111\u1ED9 d\xE0i t\u01B0\u01A1ng \u1EE9ng.",
+              method: "N\u1ED1i c\xE1c c\u1EB7p \u0111i\u1EC3m t\u01B0\u01A1ng \u1EE9ng; giao \u0111i\u1EC3m l\xE0 t\xE2m O; t\u1EC9 s\u1ED1 k = OM' : OM.",
+              steps: r3`- **Bước 1.** Xác định các cặp điểm tương ứng.
+- **Bước 2.** Tìm tâm \(O\) (giao điểm của các đường thẳng nối các cặp điểm tương ứng).
+- **Bước 3.** Tính \(k = \dfrac{OM'}{OM}\) (\(k > 1\): phóng to; \(k < 1\): thu nhỏ); mọi đoạn thẳng của \(H'\) bằng \(k\) lần đoạn tương ứng của \(H\).`,
+              mistakes: r3`- Tính tỉ số ngược \(\dfrac{OM}{OM'}\).
+- Lấy điểm \(M'\) trên tia đối của tia \(OM\).`,
+              example: r3`Tam giác \(A'B'C'\) là hình đồng dạng phối cảnh của tam giác \(ABC\) với tâm \(O\) như hình vẽ, \(OA = 2\) cm, \(OA' = 4\) cm. Tìm tỉ số đồng dạng. So sánh \(B'C'\) với \(BC\).
+[hinh]
+O(0,0) A(1,1.5) B(2,0.5) C(2.2,1.6) A'(2,3) B'(4,1) C'(4.4,3.2)
+ABCA A'B'C'A'
+OA':dash OB':dash OC':dash
+[/hinh]`,
+              solution: r3`Tỉ số đồng dạng \(k = \dfrac{OA'}{OA} = 2\). Tam giác \(A'B'C'\) đồng dạng với tam giác \(ABC\) theo tỉ số 2 nên \(B'C' = 2BC\).`,
+              exercises: [
+                mcq(1, r3`Hình \(H'\) là hình đồng dạng phối cảnh của hình \(H\) với tâm \(O\), tỉ số \(k = 2\). Điểm \(M\) thuộc \(H\) có \(OM = 3\) cm. Điểm \(M'\) tương ứng thuộc \(H'\) cách \(O\) một khoảng`, ["6 cm", "1,5 cm", "5 cm", "9 cm"], "A", r3`\(OM' = 2\cdot OM = 6\) cm.`),
+                tf(2, r3`Tam giác \(A'B'C'\) là hình đồng dạng phối cảnh của tam giác \(ABC\) với tâm \(O\), tỉ số \(k = \dfrac12\). Mỗi khẳng định sau đúng hay sai?`, [
+                  [r3`Ba điểm \(O\), \(A\), \(A'\) thẳng hàng.`, true],
+                  [r3`\(OA' = 2OA\).`, false],
+                  [r3`\(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số \(\dfrac12\).`, true],
+                  [r3`Chu vi tam giác \(A'B'C'\) gấp đôi chu vi tam giác \(ABC\).`, false]
+                ], r3`\(A'\) nằm trên tia \(OA\) và \(OA' = \dfrac12 OA\). Hai tam giác đồng dạng theo tỉ số \(\dfrac12\) nên chu vi tam giác \(A'B'C'\) bằng một nửa chu vi tam giác \(ABC\).`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "H\xECnh \u0111\u1ED3ng d\u1EA1ng",
+          description: "Nh\u1EADn bi\u1EBFt h\xECnh \u0111\u1ED3ng d\u1EA1ng; t\xEDnh k\xEDch th\u01B0\u1EDBc theo t\u1EC9 l\u1EC7.",
+          types: [
+            {
+              slug: "nhan-biet-hinh-dong-dang",
+              title: "Nh\u1EADn bi\u1EBFt h\xECnh \u0111\u1ED3ng d\u1EA1ng trong th\u1EF1c t\u1EBF",
+              levels: [1, 2],
+              knowledge: "Hai h\xECnh \u0111\u1ED3ng d\u1EA1ng c\xF3 c\xF9ng h\xECnh d\u1EA1ng, c\xF3 th\u1EC3 kh\xE1c k\xEDch th\u01B0\u1EDBc; c\xE1c g\xF3c t\u01B0\u01A1ng \u1EE9ng b\u1EB1ng nhau, c\xE1c \u0111\u1ED9 d\xE0i t\u01B0\u01A1ng \u1EE9ng t\u1EC9 l\u1EC7.",
+              signs: "\u0110\u1EC1 cho c\xE1c h\xECnh (h\xECnh h\u1ECDc ho\u1EB7c h\xECnh \u1EA3nh th\u1EF1c t\u1EBF), h\u1ECFi c\u1EB7p h\xECnh n\xE0o \u0111\u1ED3ng d\u1EA1ng.",
+              method: "So s\xE1nh h\xECnh d\u1EA1ng: c\xE1c g\xF3c t\u01B0\u01A1ng \u1EE9ng c\xF3 b\u1EB1ng nhau kh\xF4ng, t\u1EC9 s\u1ED1 c\xE1c k\xEDch th\u01B0\u1EDBc t\u01B0\u01A1ng \u1EE9ng c\xF3 b\u1EB1ng nhau kh\xF4ng.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh lo\u1EA1i h\xECnh.
+- **B\u01B0\u1EDBc 2.** So s\xE1nh c\xE1c g\xF3c v\xE0 t\u1EC9 s\u1ED1 c\xE1c k\xEDch th\u01B0\u1EDBc t\u01B0\u01A1ng \u1EE9ng.
+- **B\u01B0\u1EDBc 3.** K\u1EBFt lu\u1EADn.`,
+              mistakes: "- Cho r\u1EB1ng hai h\xECnh ch\u1EEF nh\u1EADt b\u1EA5t k\xEC lu\xF4n \u0111\u1ED3ng d\u1EA1ng.\n- Cho r\u1EB1ng hai h\xECnh thoi c\xF3 c\u1EA1nh t\u1EC9 l\u1EC7 th\xEC \u0111\u1ED3ng d\u1EA1ng (c\xF2n c\u1EA7n c\xE1c g\xF3c b\u1EB1ng nhau).",
+              example: "Trong c\xE1c c\u1EB7p h\xECnh sau, c\u1EB7p n\xE0o lu\xF4n \u0111\u1ED3ng d\u1EA1ng: hai h\xECnh vu\xF4ng; hai h\xECnh ch\u1EEF nh\u1EADt; hai tam gi\xE1c \u0111\u1EC1u; hai h\xECnh thoi?",
+              solution: "Hai h\xECnh vu\xF4ng v\xE0 hai tam gi\xE1c \u0111\u1EC1u lu\xF4n \u0111\u1ED3ng d\u1EA1ng (c\xE1c g\xF3c b\u1EB1ng nhau, c\xE1c c\u1EA1nh t\u1EC9 l\u1EC7). Hai h\xECnh ch\u1EEF nh\u1EADt ho\u1EB7c hai h\xECnh thoi kh\xF4ng ph\u1EA3i l\xFAc n\xE0o c\u0169ng \u0111\u1ED3ng d\u1EA1ng.",
+              exercises: [
+                mcq(1, "C\u1EB7p h\xECnh n\xE0o sau \u0111\xE2y lu\xF4n \u0111\u1ED3ng d\u1EA1ng?", ["Hai h\xECnh tr\xF2n", "Hai h\xECnh ch\u1EEF nh\u1EADt", "Hai h\xECnh thoi", "Hai tam gi\xE1c c\xE2n"], "A", "Hai h\xECnh tr\xF2n b\u1EA5t k\xEC lu\xF4n \u0111\u1ED3ng d\u1EA1ng."),
+                tf(2, "M\u1ED7i kh\u1EB3ng \u0111\u1ECBnh sau \u0111\xFAng hay sai?", [
+                  ["Hai h\xECnh vu\xF4ng b\u1EA5t k\xEC lu\xF4n \u0111\u1ED3ng d\u1EA1ng.", true],
+                  ["H\xECnh ch\u1EEF nh\u1EADt k\xEDch th\u01B0\u1EDBc 2 cm \xD7 3 cm \u0111\u1ED3ng d\u1EA1ng v\u1EDBi h\xECnh ch\u1EEF nh\u1EADt k\xEDch th\u01B0\u1EDBc 4 cm \xD7 6 cm.", true],
+                  ["H\xECnh ch\u1EEF nh\u1EADt k\xEDch th\u01B0\u1EDBc 2 cm \xD7 3 cm \u0111\u1ED3ng d\u1EA1ng v\u1EDBi h\xECnh ch\u1EEF nh\u1EADt k\xEDch th\u01B0\u1EDBc 3 cm \xD7 4 cm.", false],
+                  ["Hai h\xECnh thoi c\xF3 c\u1EA1nh b\u1EB1ng nhau lu\xF4n \u0111\u1ED3ng d\u1EA1ng.", false]
+                ], "b) T\u1EC9 s\u1ED1 4 : 2 = 6 : 3 = 2: \u0111\xFAng. c) 3 : 2 \u2260 4 : 3: sai. d) C\xE1c g\xF3c c\xF3 th\u1EC3 kh\xE1c nhau: sai.")
+              ]
+            },
+            {
+              slug: "kich-thuoc-hinh-dong-dang",
+              title: "T\xEDnh k\xEDch th\u01B0\u1EDBc c\u1EE7a h\xECnh \u0111\u1ED3ng d\u1EA1ng (\u1EA3nh, b\u1EA3n v\u1EBD, m\xF4 h\xECnh)",
+              levels: [2, 3],
+              knowledge: "Hai h\xECnh \u0111\u1ED3ng d\u1EA1ng theo t\u1EC9 s\u1ED1 k th\xEC m\u1ECDi \u0111\u1ED9 d\xE0i t\u01B0\u01A1ng \u1EE9ng t\u1EC9 l\u1EC7 k; t\u1EC9 l\u1EC7 b\u1EA3n v\u1EBD 1 : n ngh\u0129a l\xE0 \u0111\u1ED9 d\xE0i th\u1EADt g\u1EA5p n l\u1EA7n \u0111\u1ED9 d\xE0i tr\xEAn b\u1EA3n v\u1EBD.",
+              signs: "\u1EA2nh ph\xF3ng to, thu nh\u1ECF; b\u1EA3n v\u1EBD, b\u1EA3n \u0111\u1ED3, m\xF4 h\xECnh theo t\u1EC9 l\u1EC7; y\xEAu c\u1EA7u t\xEDnh k\xEDch th\u01B0\u1EDBc th\u1EADt ho\u1EB7c k\xEDch th\u01B0\u1EDBc tr\xEAn h\xECnh.",
+              method: "X\xE1c \u0111\u1ECBnh t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng (t\u1EC9 l\u1EC7), nh\xE2n ho\u1EB7c chia c\xE1c k\xEDch th\u01B0\u1EDBc t\u01B0\u01A1ng \u1EE9ng, \u0111\u1ED5i \u0111\u01A1n v\u1ECB.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh t\u1EC9 s\u1ED1 k (k\xEDch th\u01B0\u1EDBc h\xECnh m\u1EDBi : k\xEDch th\u01B0\u1EDBc t\u01B0\u01A1ng \u1EE9ng c\u1EE7a h\xECnh c\u0169).
+- **B\u01B0\u1EDBc 2.** K\xEDch th\u01B0\u1EDBc m\u1EDBi = k \xD7 k\xEDch th\u01B0\u1EDBc c\u0169.
+- **B\u01B0\u1EDBc 3.** \u0110\u1ED5i \u0111\u01A1n v\u1ECB, tr\u1EA3 l\u1EDDi.`,
+              mistakes: "- Nh\u1EA7m chi\u1EC1u t\u1EC9 l\u1EC7 (thu nh\u1ECF hay ph\xF3ng to).\n- Qu\xEAn \u0111\u1ED5i \u0111\u01A1n v\u1ECB.",
+              example: "M\u1ED9t m\xF4 h\xECnh \xF4 t\xF4 theo t\u1EC9 l\u1EC7 1 : 20 d\xE0i 22 cm. \xD4 t\xF4 th\u1EADt d\xE0i bao nhi\xEAu m\xE9t?",
+              solution: r3`Chiều dài thật \(22\cdot20 = 440\) cm \(= 4{,}4\) m.`,
+              exercises: [
+                sa(2, "M\u1ED9t b\u1EE9c \u1EA3nh h\xECnh ch\u1EEF nh\u1EADt k\xEDch th\u01B0\u1EDBc 10 cm \xD7 15 cm \u0111\u01B0\u1EE3c ph\xF3ng to th\xE0nh b\u1EE9c \u1EA3nh \u0111\u1ED3ng d\u1EA1ng c\xF3 chi\u1EC1u d\xE0i 45 cm. T\xEDnh chi\u1EC1u r\u1ED9ng c\u1EE7a b\u1EE9c \u1EA3nh m\u1EDBi.", ["30"], r3`Tỉ số \(k = \dfrac{45}{15} = 3\); chiều rộng mới \(3\cdot10 = 30\) cm.`, "cm"),
+                sa(3, "Tr\xEAn b\u1EA3n v\u1EBD t\u1EC9 l\u1EC7 1 : 100, m\u1ED9t ph\xF2ng h\u1ECDc h\xECnh ch\u1EEF nh\u1EADt c\xF3 k\xEDch th\u01B0\u1EDBc 8 cm \xD7 6 cm. T\xEDnh di\u1EC7n t\xEDch th\u1EF1c t\u1EBF c\u1EE7a ph\xF2ng h\u1ECDc.", ["48"], r3`Kích thước thật: 8 m × 6 m. Diện tích \(48\) m².`, "m\xB2")
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+// src/seed/toan8-map/chuong-10.ts
+var CHUONG_10 = {
+  code: "X",
+  objectives: `- M\xF4 t\u1EA3 \u0111\u1EC9nh, m\u1EB7t \u0111\xE1y, m\u1EB7t b\xEAn, c\u1EA1nh b\xEAn, \u0111\u01B0\u1EDDng cao, trung \u0111o\u1EA1n c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u v\xE0 h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u; t\u1EA1o l\u1EADp c\xE1c h\xECnh \u0111\xF3.
+- T\xEDnh di\u1EC7n t\xEDch xung quanh, th\u1EC3 t\xEDch c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u, h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u.
+- Gi\u1EA3i quy\u1EBFt b\xE0i to\xE1n th\u1EF1c ti\u1EC5n g\u1EAFn v\u1EDBi c\xE1c h\xECnh kh\u1ED1i n\xE0y.`,
+  keyPoints: r3`- Hình chóp tam giác đều: đáy là tam giác đều, các mặt bên là những tam giác cân bằng nhau có chung đỉnh.
+- Hình chóp tứ giác đều: đáy là hình vuông, các mặt bên là những tam giác cân bằng nhau có chung đỉnh.
+- Diện tích xung quanh \(S_{xq} = p\cdot d\) (\(p\): nửa chu vi đáy, \(d\): trung đoạn); thể tích \(V = \dfrac13 S\cdot h\) (\(S\): diện tích đáy, \(h\): chiều cao).`,
+  formulas: r3`\[S_{xq} = p\cdot d;\qquad S_{tp} = S_{xq} + S_{\text{đáy}};\qquad V = \dfrac13 S\cdot h\]`,
+  verify: { status: "verified", note: "T\xEAn ch\u01B0\u01A1ng, t\xEAn b\xE0i v\xE0 th\u1EE9 t\u1EF1 \u0111\u1ED1i chi\u1EBFu v\u1EDBi m\u1EE5c l\u1EE5c SGK To\xE1n 8 K\u1EBFt n\u1ED1i tri th\u1EE9c t\u1EADp 2 (VietJack) v\xE0 PPCT 2026-2027." },
+  aux: [
+    { slug: "luyen-tap-chung-10a", objectives: "C\u1EE7ng c\u1ED1 nh\u1EADn bi\u1EBFt, t\xEDnh di\u1EC7n t\xEDch xung quanh v\xE0 th\u1EC3 t\xEDch c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u, h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u." },
+    { slug: "bai-tap-cuoi-chuong-10", objectives: "\xD4n t\u1EADp to\xE0n Ch\u01B0\u01A1ng X: h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u, h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u v\xE0 b\xE0i to\xE1n th\u1EF1c t\u1EBF; chu\u1EA9n b\u1ECB ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng." }
+  ],
+  lessons: [
+    // ---------------- Bài 38 ----------------
+    {
+      slug: "bai-38-hinh-chop-tam-giac-deu",
+      difficulty: 2,
+      objectives: `- M\xF4 t\u1EA3 \u0111\u1EC9nh, m\u1EB7t \u0111\xE1y, m\u1EB7t b\xEAn, c\u1EA1nh b\xEAn, \u0111\u01B0\u1EDDng cao, trung \u0111o\u1EA1n c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u; t\u1EA1o l\u1EADp h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u.
+- T\xEDnh di\u1EC7n t\xEDch xung quanh, th\u1EC3 t\xEDch c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u.
+- Gi\u1EA3i quy\u1EBFt b\xE0i to\xE1n th\u1EF1c ti\u1EC5n g\u1EAFn v\u1EDBi h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u.`,
+      prerequisites: "- Tam gi\xE1c \u0111\u1EC1u, di\u1EC7n t\xEDch tam gi\xE1c (To\xE1n 6, To\xE1n 7); h\xECnh l\u0103ng tr\u1EE5 \u0111\u1EE9ng tam gi\xE1c (To\xE1n 7).\n- \u0110\u1ECBnh l\xED Pythagore (B\xE0i 35).",
+      concepts: r3`Hình chóp tam giác đều \(S.ABC\): đỉnh \(S\); mặt đáy \(ABC\) là tam giác đều; mặt bên; cạnh bên; đường cao \(SH\) (\(H\) là trọng tâm tam giác đáy); trung đoạn (đường cao của mặt bên kẻ từ đỉnh \(S\)).`,
+      formulas: r3`\(S_{xq} = p\cdot d\) (\(p\): nửa chu vi đáy, \(d\): trung đoạn); \(V = \dfrac13 S\cdot h\) (\(S\): diện tích đáy, \(h\): chiều cao).`,
+      properties: `- H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 4 m\u1EB7t (1 m\u1EB7t \u0111\xE1y, 3 m\u1EB7t b\xEAn), 6 c\u1EA1nh (3 c\u1EA1nh \u0111\xE1y, 3 c\u1EA1nh b\xEAn), 4 \u0111\u1EC9nh.
+- C\xE1c c\u1EA1nh b\xEAn b\u1EB1ng nhau; c\xE1c m\u1EB7t b\xEAn l\xE0 nh\u1EEFng tam gi\xE1c c\xE2n b\u1EB1ng nhau.
+- Di\u1EC7n t\xEDch to\xE0n ph\u1EA7n b\u1EB1ng t\u1ED5ng di\u1EC7n t\xEDch xung quanh v\xE0 di\u1EC7n t\xEDch \u0111\xE1y.`,
+      themes: [
+        {
+          title: "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u",
+          description: "C\xE1c y\u1EBFu t\u1ED1 c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u.",
+          types: [
+            {
+              slug: "nhan-biet-hinh-chop-tam-giac-deu",
+              title: "Nh\u1EADn bi\u1EBFt h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u",
+              levels: [1, 2],
+              knowledge: "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 \u0111\xE1y l\xE0 tam gi\xE1c \u0111\u1EC1u, c\xE1c m\u1EB7t b\xEAn l\xE0 nh\u1EEFng tam gi\xE1c c\xE2n b\u1EB1ng nhau c\xF3 chung \u0111\u1EC9nh; 4 m\u1EB7t, 6 c\u1EA1nh, 4 \u0111\u1EC9nh.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u g\u1ECDi t\xEAn \u0111\u1EC9nh, m\u1EB7t \u0111\xE1y, m\u1EB7t b\xEAn, c\u1EA1nh b\xEAn, \u0111\u01B0\u1EDDng cao, trung \u0111o\u1EA1n; t\xEDnh \u0111\u1ED9 d\xE0i c\xE1c c\u1EA1nh b\u1EB1ng nhau; nh\u1EADn bi\u1EBFt h\xECnh khai tri\u1EC3n.",
+              method: "D\u1EF1a v\xE0o \u0111\u1ECBnh ngh\u0129a: \u0111\xE1y l\xE0 tam gi\xE1c \u0111\u1EC1u, c\xE1c c\u1EA1nh b\xEAn b\u1EB1ng nhau, m\u1EB7t b\xEAn l\xE0 tam gi\xE1c c\xE2n.",
+              steps: r3`- **Bước 1.** Xác định đỉnh \(S\) và mặt đáy.
+- **Bước 2.** Liệt kê mặt bên, cạnh bên, cạnh đáy; dùng tính chất các cạnh bên bằng nhau, các cạnh đáy bằng nhau.
+- **Bước 3.** Xác định đường cao (từ \(S\) vuông góc với đáy) và trung đoạn (từ \(S\) vuông góc với một cạnh đáy, nằm trong mặt bên).`,
+              mistakes: "- Nh\u1EA7m trung \u0111o\u1EA1n v\u1EDBi c\u1EA1nh b\xEAn ho\u1EB7c v\u1EDBi \u0111\u01B0\u1EDDng cao c\u1EE7a h\xECnh ch\xF3p.\n- Cho r\u1EB1ng m\u1EB7t b\xEAn lu\xF4n l\xE0 tam gi\xE1c \u0111\u1EC1u (th\u01B0\u1EDDng ch\u1EC9 l\xE0 tam gi\xE1c c\xE2n).",
+              example: r3`Cho hình chóp tam giác đều \(S.ABC\) có \(SA = 5\) cm, \(AB = 6\) cm. Kể tên các mặt bên, cạnh bên, mặt đáy; tính \(SB\), \(BC\).`,
+              solution: r3`Mặt bên: \(SAB\), \(SBC\), \(SCA\); cạnh bên: \(SA\), \(SB\), \(SC\); mặt đáy: \(ABC\). \(SB = SA = 5\) cm; \(BC = AB = 6\) cm.`,
+              exercises: [
+                mcq(1, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 bao nhi\xEAu c\u1EA1nh?", ["6", "4", "3", "8"], "A", "3 c\u1EA1nh \u0111\xE1y v\xE0 3 c\u1EA1nh b\xEAn."),
+                tf(2, r3`Cho hình chóp tam giác đều \(S.ABC\). Mỗi khẳng định sau đúng hay sai?`, [
+                  [r3`Đáy \(ABC\) là tam giác đều.`, true],
+                  [r3`Các cạnh bên \(SA\), \(SB\), \(SC\) bằng nhau.`, true],
+                  [r3`Mặt bên \(SAB\) luôn là tam giác đều.`, false],
+                  ["H\xECnh ch\xF3p c\xF3 4 m\u1EB7t.", true]
+                ], r3`Mặt bên là tam giác cân tại \(S\), chỉ là tam giác đều khi cạnh bên bằng cạnh đáy.`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "Di\u1EC7n t\xEDch xung quanh v\xE0 th\u1EC3 t\xEDch",
+          description: "T\xEDnh di\u1EC7n t\xEDch xung quanh, th\u1EC3 t\xEDch; b\xE0i t\u1EADp t\u1ED5ng h\u1EE3p.",
+          types: [
+            {
+              slug: "dien-tich-xung-quanh-chop-tam-giac",
+              title: "T\xEDnh di\u1EC7n t\xEDch xung quanh c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u",
+              legacy: ["T\xEDnh di\u1EC7n t\xEDch xung quanh"],
+              levels: [2, 3],
+              knowledge: r3`\(S_{xq} = p\cdot d\), \(p = \dfrac{3a}{2}\) với \(a\) là cạnh đáy, \(d\) là trung đoạn; khi biết cạnh bên \(b\): \(d^2 = b^2 - \left(\dfrac a2\right)^2\).`,
+              signs: "\u0110\u1EC1 cho c\u1EA1nh \u0111\xE1y v\xE0 trung \u0111o\u1EA1n (ho\u1EB7c c\u1EA1nh b\xEAn), y\xEAu c\u1EA7u t\xEDnh di\u1EC7n t\xEDch xung quanh, di\u1EC7n t\xEDch to\xE0n ph\u1EA7n.",
+              method: "T\xEDnh n\u1EEDa chu vi \u0111\xE1y, x\xE1c \u0111\u1ECBnh trung \u0111o\u1EA1n (d\xF9ng \u0111\u1ECBnh l\xED Pythagore n\u1EBFu ch\u1EC9 bi\u1EBFt c\u1EA1nh b\xEAn), \xE1p d\u1EE5ng c\xF4ng th\u1EE9c.",
+              steps: r3`- **Bước 1.** Tính nửa chu vi đáy \(p = \dfrac{3a}{2}\).
+- **Bước 2.** Tìm trung đoạn \(d\) (nếu biết cạnh bên \(b\): \(d^2 = b^2 - \left(\dfrac a2\right)^2\)).
+- **Bước 3.** \(S_{xq} = p\cdot d\).`,
+              mistakes: "- D\xF9ng chu vi \u0111\xE1y thay cho n\u1EEDa chu vi.\n- D\xF9ng c\u1EA1nh b\xEAn thay cho trung \u0111o\u1EA1n.",
+              example: "T\xEDnh di\u1EC7n t\xEDch xung quanh c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 6 cm v\xE0 trung \u0111o\u1EA1n 5 cm.",
+              solution: r3`\(p = \dfrac{3\cdot6}{2} = 9\) cm; \(S_{xq} = 9\cdot5 = 45\) cm².`,
+              exercises: [
+                sa(2, "T\xEDnh di\u1EC7n t\xEDch xung quanh c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 8 cm v\xE0 trung \u0111o\u1EA1n 10 cm.", ["120"], r3`\(p = 12\) cm, \(S_{xq} = 12\cdot10 = 120\) cm².`, "cm\xB2"),
+                sa(3, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 6 cm v\xE0 c\u1EA1nh b\xEAn 5 cm. T\xEDnh di\u1EC7n t\xEDch xung quanh.", ["36"], r3`Trung đoạn \(d = \sqrt{5^2 - 3^2} = 4\) cm; \(p = 9\) cm; \(S_{xq} = 36\) cm².`, "cm\xB2")
+              ]
+            },
+            {
+              slug: "the-tich-chop-tam-giac",
+              title: "T\xEDnh th\u1EC3 t\xEDch c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u",
+              legacy: ["T\xEDnh th\u1EC3 t\xEDch"],
+              levels: [2, 3],
+              knowledge: r3`\(V = \dfrac13 S\cdot h\), \(S\) là diện tích tam giác đáy, \(h\) là chiều cao của hình chóp.`,
+              signs: "\u0110\u1EC1 cho di\u1EC7n t\xEDch \u0111\xE1y (ho\u1EB7c c\u1EA1nh \u0111\xE1y v\xE0 chi\u1EC1u cao tam gi\xE1c \u0111\xE1y) v\xE0 chi\u1EC1u cao h\xECnh ch\xF3p; ho\u1EB7c cho th\u1EC3 t\xEDch, t\xECm chi\u1EC1u cao.",
+              method: "T\xEDnh di\u1EC7n t\xEDch \u0111\xE1y r\u1ED3i \xE1p d\u1EE5ng c\xF4ng th\u1EE9c th\u1EC3 t\xEDch; khi bi\u1EBFt th\u1EC3 t\xEDch th\xEC h = 3V : S.",
+              steps: r3`- **Bước 1.** Tính diện tích đáy \(S = \dfrac12\cdot a\cdot h_{\text{đáy}}\).
+- **Bước 2.** \(V = \dfrac13 S\cdot h\) (hoặc \(h = \dfrac{3V}{S}\)).
+- **Bước 3.** Ghi đơn vị thể tích (cm³, m³).`,
+              mistakes: "- Qu\xEAn nh\xE2n v\u1EDBi 1/3.\n- Nh\u1EA7m chi\u1EC1u cao h\xECnh ch\xF3p v\u1EDBi trung \u0111o\u1EA1n ho\u1EB7c v\u1EDBi chi\u1EC1u cao tam gi\xE1c \u0111\xE1y.",
+              example: "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 6 cm, chi\u1EC1u cao c\u1EE7a tam gi\xE1c \u0111\xE1y kho\u1EA3ng 5,2 cm v\xE0 chi\u1EC1u cao c\u1EE7a h\xECnh ch\xF3p 10 cm. T\xEDnh th\u1EC3 t\xEDch h\xECnh ch\xF3p.",
+              solution: r3`\(S = \dfrac12\cdot6\cdot5{,}2 = 15{,}6\) cm². \(V = \dfrac13\cdot15{,}6\cdot10 = 52\) cm³.`,
+              exercises: [
+                sa(2, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 di\u1EC7n t\xEDch \u0111\xE1y 27 cm\xB2 v\xE0 chi\u1EC1u cao 8 cm. T\xEDnh th\u1EC3 t\xEDch c\u1EE7a h\xECnh ch\xF3p.", ["72"], r3`\(V = \dfrac13\cdot27\cdot8 = 72\) cm³.`, "cm\xB3"),
+                sa(3, "M\u1ED9t h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 th\u1EC3 t\xEDch 60 cm\xB3 v\xE0 di\u1EC7n t\xEDch \u0111\xE1y 20 cm\xB2. T\xEDnh chi\u1EC1u cao c\u1EE7a h\xECnh ch\xF3p.", ["9"], r3`\(h = \dfrac{3V}{S} = \dfrac{180}{20} = 9\) cm.`, "cm")
+              ]
+            },
+            {
+              slug: "tong-hop-chop-tam-giac",
+              title: "B\xE0i t\u1EADp t\u1ED5ng h\u1EE3p v\u1EC1 h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u",
+              legacy: ["B\xE0i t\u1EADp t\u1ED5ng h\u1EE3p"],
+              levels: [3, 4],
+              knowledge: "\u0110\u1ECBnh l\xED Pythagore trong m\u1EB7t b\xEAn (c\u1EA1nh b\xEAn \u2013 trung \u0111o\u1EA1n \u2013 n\u1EEDa c\u1EA1nh \u0111\xE1y) v\xE0 trong tam gi\xE1c \u0111\xE1y; c\xF4ng th\u1EE9c di\u1EC7n t\xEDch xung quanh, to\xE0n ph\u1EA7n, th\u1EC3 t\xEDch.",
+              signs: "\u0110\u1EC1 cho c\xE1c y\u1EBFu t\u1ED1 gi\xE1n ti\u1EBFp (c\u1EA1nh b\xEAn, m\u1ECDi c\u1EA1nh b\u1EB1ng nhau\u2026), y\xEAu c\u1EA7u t\xEDnh nhi\u1EC1u \u0111\u1EA1i l\u01B0\u1EE3ng.",
+              method: "D\xF9ng \u0111\u1ECBnh l\xED Pythagore \u0111\u1EC3 t\xECm trung \u0111o\u1EA1n ho\u1EB7c chi\u1EC1u cao c\xF2n thi\u1EBFu, r\u1ED3i \xE1p d\u1EE5ng c\xF4ng th\u1EE9c.",
+              steps: `- **B\u01B0\u1EDBc 1.** V\u1EBD h\xECnh, x\xE1c \u0111\u1ECBnh tam gi\xE1c vu\xF4ng ch\u1EE9a \u0111\u1EA1i l\u01B0\u1EE3ng c\u1EA7n t\xECm.
+- **B\u01B0\u1EDBc 2.** T\xEDnh trung \u0111o\u1EA1n (ho\u1EB7c c\u1EA1nh, chi\u1EC1u cao) b\u1EB1ng \u0111\u1ECBnh l\xED Pythagore.
+- **B\u01B0\u1EDBc 3.** T\xEDnh di\u1EC7n t\xEDch xung quanh, to\xE0n ph\u1EA7n, th\u1EC3 t\xEDch theo y\xEAu c\u1EA7u.`,
+              mistakes: "- X\xE1c \u0111\u1ECBnh sai tam gi\xE1c vu\xF4ng (l\u1EA5y c\u1EA3 c\u1EA1nh \u0111\xE1y thay v\xEC n\u1EEDa c\u1EA1nh \u0111\xE1y).\n- L\xE0m tr\xF2n s\u1EDBm \u1EDF c\xE1c b\u01B0\u1EDBc trung gian.",
+              example: "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 10 cm, c\u1EA1nh b\xEAn 13 cm. T\xEDnh di\u1EC7n t\xEDch xung quanh.",
+              solution: r3`Trung đoạn \(d = \sqrt{13^2 - 5^2} = 12\) cm; \(p = 15\) cm; \(S_{xq} = 15\cdot12 = 180\) cm².`,
+              exercises: [
+                sa(3, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh b\xEAn 10 cm v\xE0 c\u1EA1nh \u0111\xE1y 12 cm. T\xEDnh di\u1EC7n t\xEDch xung quanh.", ["144"], r3`\(d = \sqrt{10^2 - 6^2} = 8\) cm; \(p = 18\) cm; \(S_{xq} = 144\) cm².`, "cm\xB2"),
+                es(4, r3`Hình chóp tam giác đều \(S.ABC\) có tất cả các cạnh đều bằng 6 cm. Tính diện tích toàn phần của hình chóp (làm tròn đến hàng phần mười).`, r3`Các mặt đều là tam giác đều cạnh 6 cm. Trung đoạn (cũng là chiều cao của tam giác đáy): \(d = \sqrt{6^2 - 3^2} = \sqrt{27} \approx 5{,}196\) cm.
+\(S_{xq} = 9\cdot\sqrt{27} \approx 46{,}77\) cm²; \(S_{\text{đáy}} = \dfrac12\cdot6\cdot\sqrt{27} \approx 15{,}59\) cm².
+\(S_{tp} \approx 46{,}77 + 15{,}59 = 62{,}36 \approx 62{,}4\) cm².`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng th\u1EF1c t\u1EBF",
+          description: "L\u1EC1u, h\u1ED9p qu\xE0, chi ti\u1EBFt trang tr\xED c\xF3 d\u1EA1ng h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u.",
+          types: [
+            {
+              slug: "thuc-te-chop-tam-giac",
+              title: "B\xE0i to\xE1n th\u1EF1c t\u1EBF v\u1EC1 h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u",
+              legacy: ["B\xE0i to\xE1n th\u1EF1c t\u1EBF"],
+              levels: [3],
+              knowledge: "Di\u1EC7n t\xEDch xung quanh (l\u01B0\u1EE3ng v\u1EADt li\u1EC7u ph\u1EE7 c\xE1c m\u1EB7t b\xEAn), th\u1EC3 t\xEDch (l\u01B0\u1EE3ng ch\u1EE9a, kh\u1ED1i l\u01B0\u1EE3ng v\u1EADt li\u1EC7u).",
+              signs: "L\u1EC1u, h\u1ED9p qu\xE0, kh\u1ED1i g\u1ED7, chi ti\u1EBFt trang tr\xED c\xF3 d\u1EA1ng h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u.",
+              method: "Nh\u1EADn ra d\u1EA1ng h\xECnh ch\xF3p, x\xE1c \u0111\u1ECBnh c\u1EA1nh \u0111\xE1y, trung \u0111o\u1EA1n, chi\u1EC1u cao, r\u1ED3i \xE1p d\u1EE5ng c\xF4ng th\u1EE9c ph\xF9 h\u1EE3p v\u1EDBi c\xE2u h\u1ECFi.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh \u0111\u1EA1i l\u01B0\u1EE3ng c\u1EA7n t\xEDnh l\xE0 di\u1EC7n t\xEDch (m\u1EB7t n\xE0o) hay th\u1EC3 t\xEDch.
+- **B\u01B0\u1EDBc 2.** \xC1p d\u1EE5ng c\xF4ng th\u1EE9c.
+- **B\u01B0\u1EDBc 3.** T\xEDnh th\xEAm theo y\xEAu c\u1EA7u (kh\u1ED1i l\u01B0\u1EE3ng, chi ph\xED), tr\u1EA3 l\u1EDDi k\xE8m \u0111\u01A1n v\u1ECB.`,
+              mistakes: "- T\xEDnh c\u1EA3 di\u1EC7n t\xEDch \u0111\xE1y khi \u0111\u1EC1 ch\u1EC9 c\u1EA7n c\xE1c m\u1EB7t b\xEAn (ho\u1EB7c ng\u01B0\u1EE3c l\u1EA1i).\n- Nh\u1EA7m \u0111\u01A1n v\u1ECB di\u1EC7n t\xEDch v\xE0 th\u1EC3 t\xEDch.",
+              example: "M\u1ED9t chi\u1EBFc l\u1EC1u c\xF3 d\u1EA1ng h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u, c\u1EA1nh \u0111\xE1y 3 m, trung \u0111o\u1EA1n 2,5 m, kh\xF4ng c\xF3 m\u1EB7t \u0111\xE1y. T\xEDnh di\u1EC7n t\xEDch v\u1EA3i c\u1EA7n \u0111\u1EC3 l\xE0m l\u1EC1u.",
+              solution: r3`\(p = 4{,}5\) m; diện tích vải \(S_{xq} = 4{,}5\cdot2{,}5 = 11{,}25\) m².`,
+              exercises: [
+                sa(3, "M\u1ED9t h\u1ED9p qu\xE0 c\xF3 d\u1EA1ng h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u v\u1EDBi c\u1EA1nh \u0111\xE1y 12 cm v\xE0 trung \u0111o\u1EA1n 15 cm. Ng\u01B0\u1EDDi ta d\xE1n gi\u1EA5y m\xE0u ph\u1EE7 k\xEDn ba m\u1EB7t b\xEAn. T\xEDnh di\u1EC7n t\xEDch gi\u1EA5y m\xE0u c\u1EA7n d\xF9ng (kh\xF4ng t\xEDnh m\xE9p d\xE1n).", ["270"], r3`\(p = 18\) cm; \(S_{xq} = 18\cdot15 = 270\) cm².`, "cm\xB2"),
+                sa(3, "M\u1ED9t kh\u1ED1i g\u1ED7 c\xF3 d\u1EA1ng h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u v\u1EDBi di\u1EC7n t\xEDch \u0111\xE1y 36 cm\xB2 v\xE0 chi\u1EC1u cao 10 cm. Bi\u1EBFt m\u1ED7i x\u0103ng-ti-m\xE9t kh\u1ED1i g\u1ED7 n\u1EB7ng 0,8 g. T\xEDnh kh\u1ED1i l\u01B0\u1EE3ng c\u1EE7a kh\u1ED1i g\u1ED7.", ["96"], r3`\(V = \dfrac13\cdot36\cdot10 = 120\) cm³; khối lượng \(120\cdot0{,}8 = 96\) g.`, "g")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    // ---------------- Bài 39 ----------------
+    {
+      slug: "bai-39-hinh-chop-tu-giac-deu",
+      difficulty: 2,
+      objectives: `- M\xF4 t\u1EA3 \u0111\u1EC9nh, m\u1EB7t \u0111\xE1y, m\u1EB7t b\xEAn, c\u1EA1nh b\xEAn, \u0111\u01B0\u1EDDng cao, trung \u0111o\u1EA1n c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u; t\u1EA1o l\u1EADp h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u.
+- T\xEDnh di\u1EC7n t\xEDch xung quanh, th\u1EC3 t\xEDch c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u.
+- Gi\u1EA3i quy\u1EBFt b\xE0i to\xE1n th\u1EF1c ti\u1EC5n g\u1EAFn v\u1EDBi h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u.`,
+      prerequisites: "- H\xECnh vu\xF4ng, di\u1EC7n t\xEDch h\xECnh vu\xF4ng (To\xE1n 6).\n- H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u (B\xE0i 38); \u0111\u1ECBnh l\xED Pythagore (B\xE0i 35).",
+      concepts: r3`Hình chóp tứ giác đều \(S.ABCD\): đỉnh \(S\); mặt đáy \(ABCD\) là hình vuông; mặt bên; cạnh bên; đường cao \(SO\) (\(O\) là giao điểm hai đường chéo của đáy); trung đoạn.`,
+      formulas: r3`\(S_{xq} = p\cdot d\) (\(p = 2a\) là nửa chu vi đáy cạnh \(a\), \(d\) là trung đoạn); \(V = \dfrac13 a^2 h\).`,
+      properties: r3`- Hình chóp tứ giác đều có 5 mặt (1 mặt đáy, 4 mặt bên), 8 cạnh (4 cạnh đáy, 4 cạnh bên), 5 đỉnh.
+- Các cạnh bên bằng nhau; các mặt bên là những tam giác cân bằng nhau.
+- Chiều cao \(h\), trung đoạn \(d\) và nửa cạnh đáy liên hệ: \(d^2 = h^2 + \left(\dfrac a2\right)^2\).`,
+      themes: [
+        {
+          title: "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u",
+          description: "C\xE1c y\u1EBFu t\u1ED1 c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u.",
+          types: [
+            {
+              slug: "nhan-biet-hinh-chop-tu-giac-deu",
+              title: "Nh\u1EADn bi\u1EBFt h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u",
+              levels: [1, 2],
+              knowledge: "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 \u0111\xE1y l\xE0 h\xECnh vu\xF4ng, c\xE1c m\u1EB7t b\xEAn l\xE0 nh\u1EEFng tam gi\xE1c c\xE2n b\u1EB1ng nhau c\xF3 chung \u0111\u1EC9nh; 5 m\u1EB7t, 8 c\u1EA1nh, 5 \u0111\u1EC9nh.",
+              signs: "\u0110\u1EC1 y\xEAu c\u1EA7u g\u1ECDi t\xEAn c\xE1c y\u1EBFu t\u1ED1, t\xEDnh \u0111\u1ED9 d\xE0i c\xE1c c\u1EA1nh b\u1EB1ng nhau, \u0111\u1EBFm s\u1ED1 m\u1EB7t, c\u1EA1nh, \u0111\u1EC9nh, nh\u1EADn bi\u1EBFt h\xECnh khai tri\u1EC3n.",
+              method: "D\u1EF1a v\xE0o \u0111\u1ECBnh ngh\u0129a: \u0111\xE1y l\xE0 h\xECnh vu\xF4ng, c\xE1c c\u1EA1nh b\xEAn b\u1EB1ng nhau.",
+              steps: r3`- **Bước 1.** Xác định đỉnh \(S\) và mặt đáy hình vuông.
+- **Bước 2.** Liệt kê mặt bên, cạnh bên, cạnh đáy.
+- **Bước 3.** Xác định đường cao \(SO\) (\(O\) là giao điểm hai đường chéo của đáy) và trung đoạn.`,
+              mistakes: "- Cho r\u1EB1ng \u0111\xE1y l\xE0 h\xECnh ch\u1EEF nh\u1EADt ho\u1EB7c h\xECnh thoi b\u1EA5t k\xEC.\n- Nh\u1EA7m trung \u0111o\u1EA1n v\u1EDBi c\u1EA1nh b\xEAn.",
+              example: r3`Cho hình chóp tứ giác đều \(S.ABCD\) có \(SA = 5\) cm, \(AB = 4\) cm. Kể tên các mặt bên, cạnh bên; tính \(SC\), \(CD\).`,
+              solution: r3`Mặt bên: \(SAB\), \(SBC\), \(SCD\), \(SDA\); cạnh bên: \(SA\), \(SB\), \(SC\), \(SD\). \(SC = SA = 5\) cm; \(CD = AB = 4\) cm.`,
+              exercises: [
+                mcq(1, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 m\u1EB7t \u0111\xE1y l\xE0", ["h\xECnh vu\xF4ng", "h\xECnh ch\u1EEF nh\u1EADt", "h\xECnh thoi", "tam gi\xE1c \u0111\u1EC1u"], "A", "Theo \u0111\u1ECBnh ngh\u0129a, \u0111\xE1y c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u l\xE0 h\xECnh vu\xF4ng."),
+                sa(2, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 t\u1EA5t c\u1EA3 bao nhi\xEAu c\u1EA1nh?", ["8"], "4 c\u1EA1nh \u0111\xE1y v\xE0 4 c\u1EA1nh b\xEAn."),
+                tf(2, r3`Cho hình chóp tứ giác đều \(S.ABCD\) có \(SA = 7\) cm, \(AB = 5\) cm. Mỗi khẳng định sau đúng hay sai?`, [
+                  [r3`\(SC = 7\) cm.`, true],
+                  [r3`\(BC = 7\) cm.`, false],
+                  ["H\xECnh ch\xF3p c\xF3 5 m\u1EB7t.", true],
+                  [r3`Chân đường cao kẻ từ \(S\) là giao điểm hai đường chéo của đáy.`, true]
+                ], r3`\(BC = AB = 5\) cm (đáy là hình vuông). Các ý còn lại đúng.`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "Di\u1EC7n t\xEDch xung quanh v\xE0 th\u1EC3 t\xEDch",
+          description: "T\xEDnh di\u1EC7n t\xEDch xung quanh, th\u1EC3 t\xEDch; b\xE0i t\u1EADp t\u1ED5ng h\u1EE3p.",
+          types: [
+            {
+              slug: "dien-tich-xung-quanh-chop-tu-giac",
+              title: "T\xEDnh di\u1EC7n t\xEDch xung quanh c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u",
+              legacy: ["T\xEDnh di\u1EC7n t\xEDch xung quanh"],
+              levels: [2, 3],
+              knowledge: r3`\(S_{xq} = p\cdot d\), \(p = 2a\); \(S_{tp} = S_{xq} + a^2\).`,
+              signs: "\u0110\u1EC1 cho c\u1EA1nh \u0111\xE1y v\xE0 trung \u0111o\u1EA1n (ho\u1EB7c c\u1EA1nh b\xEAn), y\xEAu c\u1EA7u t\xEDnh di\u1EC7n t\xEDch xung quanh, to\xE0n ph\u1EA7n.",
+              method: "T\xEDnh n\u1EEDa chu vi \u0111\xE1y, x\xE1c \u0111\u1ECBnh trung \u0111o\u1EA1n (\u0111\u1ECBnh l\xED Pythagore n\u1EBFu c\u1EA7n), \xE1p d\u1EE5ng c\xF4ng th\u1EE9c.",
+              steps: r3`- **Bước 1.** Tính \(p = 2a\).
+- **Bước 2.** Tìm trung đoạn \(d\) (biết cạnh bên \(b\): \(d^2 = b^2 - \left(\dfrac a2\right)^2\)).
+- **Bước 3.** \(S_{xq} = p\cdot d\); nếu cần, \(S_{tp} = S_{xq} + a^2\).`,
+              mistakes: "- D\xF9ng chu vi \u0111\xE1y 4a thay cho n\u1EEDa chu vi 2a.\n- Qu\xEAn c\u1ED9ng di\u1EC7n t\xEDch \u0111\xE1y khi t\xEDnh di\u1EC7n t\xEDch to\xE0n ph\u1EA7n.",
+              example: "T\xEDnh di\u1EC7n t\xEDch xung quanh c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 4 cm v\xE0 trung \u0111o\u1EA1n 6 cm.",
+              solution: r3`\(p = 2\cdot4 = 8\) cm; \(S_{xq} = 8\cdot6 = 48\) cm².`,
+              exercises: [
+                sa(2, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 10 cm v\xE0 trung \u0111o\u1EA1n 12 cm. T\xEDnh di\u1EC7n t\xEDch xung quanh.", ["240"], r3`\(p = 20\) cm; \(S_{xq} = 240\) cm².`, "cm\xB2"),
+                sa(3, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 6 cm v\xE0 c\u1EA1nh b\xEAn 5 cm. T\xEDnh di\u1EC7n t\xEDch to\xE0n ph\u1EA7n.", ["84"], r3`\(d = \sqrt{5^2 - 3^2} = 4\) cm; \(S_{xq} = 12\cdot4 = 48\) cm²; \(S_{tp} = 48 + 36 = 84\) cm².`, "cm\xB2")
+              ]
+            },
+            {
+              slug: "the-tich-chop-tu-giac",
+              title: "T\xEDnh th\u1EC3 t\xEDch c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u",
+              legacy: ["T\xEDnh th\u1EC3 t\xEDch"],
+              levels: [2, 3],
+              knowledge: r3`\(V = \dfrac13 S\cdot h = \dfrac13 a^2 h\).`,
+              signs: "\u0110\u1EC1 cho c\u1EA1nh \u0111\xE1y v\xE0 chi\u1EC1u cao, ho\u1EB7c cho th\u1EC3 t\xEDch v\xE0 y\xEAu c\u1EA7u t\xECm chi\u1EC1u cao, c\u1EA1nh \u0111\xE1y.",
+              method: "T\xEDnh di\u1EC7n t\xEDch \u0111\xE1y a\xB2, \xE1p d\u1EE5ng c\xF4ng th\u1EE9c; bi\u1EBFt th\u1EC3 t\xEDch th\xEC gi\u1EA3i ng\u01B0\u1EE3c.",
+              steps: r3`- **Bước 1.** Tính diện tích đáy \(S = a^2\).
+- **Bước 2.** \(V = \dfrac13 S\cdot h\) (hoặc \(h = \dfrac{3V}{S}\), \(a^2 = \dfrac{3V}{h}\)).
+- **Bước 3.** Ghi đơn vị thể tích.`,
+              mistakes: "- Qu\xEAn nh\xE2n 1/3.\n- D\xF9ng trung \u0111o\u1EA1n thay cho chi\u1EC1u cao.",
+              example: "T\xEDnh th\u1EC3 t\xEDch c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 6 cm v\xE0 chi\u1EC1u cao 10 cm.",
+              solution: r3`\(V = \dfrac13\cdot6^2\cdot10 = 120\) cm³.`,
+              exercises: [
+                sa(2, "T\xEDnh th\u1EC3 t\xEDch c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 9 cm v\xE0 chi\u1EC1u cao 10 cm.", ["270"], r3`\(V = \dfrac13\cdot81\cdot10 = 270\) cm³.`, "cm\xB3"),
+                sa(3, "M\u1ED9t h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 th\u1EC3 t\xEDch 200 cm\xB3 v\xE0 chi\u1EC1u cao 6 cm. T\xEDnh \u0111\u1ED9 d\xE0i c\u1EA1nh \u0111\xE1y.", ["10"], r3`\(a^2 = \dfrac{3\cdot200}{6} = 100\), \(a = 10\) cm.`, "cm")
+              ]
+            },
+            {
+              slug: "tong-hop-chop-tu-giac",
+              title: "B\xE0i t\u1EADp t\u1ED5ng h\u1EE3p v\u1EC1 h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u",
+              legacy: ["B\xE0i t\u1EADp t\u1ED5ng h\u1EE3p"],
+              levels: [3, 4],
+              knowledge: r3`\(d^2 = h^2 + \left(\dfrac a2\right)^2\) (chiều cao, trung đoạn, nửa cạnh đáy); công thức diện tích, thể tích.`,
+              signs: "\u0110\u1EC1 cho hai trong ba \u0111\u1EA1i l\u01B0\u1EE3ng c\u1EA1nh \u0111\xE1y, chi\u1EC1u cao, trung \u0111o\u1EA1n (ho\u1EB7c c\u1EA1nh b\xEAn), y\xEAu c\u1EA7u t\xEDnh di\u1EC7n t\xEDch v\xE0 th\u1EC3 t\xEDch.",
+              method: "D\xF9ng \u0111\u1ECBnh l\xED Pythagore trong tam gi\xE1c vu\xF4ng t\u1EA1o b\u1EDFi chi\u1EC1u cao, trung \u0111o\u1EA1n v\xE0 n\u1EEDa c\u1EA1nh \u0111\xE1y \u0111\u1EC3 t\xECm \u0111\u1EA1i l\u01B0\u1EE3ng c\xF2n thi\u1EBFu.",
+              steps: r3`- **Bước 1.** Vẽ tam giác vuông \(SOM\) (\(M\) là trung điểm một cạnh đáy): \(SO = h\), \(OM = \dfrac a2\), \(SM = d\).
+- **Bước 2.** Tính đại lượng còn thiếu bằng định lí Pythagore.
+- **Bước 3.** Tính diện tích xung quanh, toàn phần, thể tích.`,
+              mistakes: r3`- Lấy \(OM = a\) thay vì \(\dfrac a2\).
+- Nhầm trung đoạn với cạnh bên.`,
+              example: "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 8 cm, chi\u1EC1u cao 3 cm. T\xEDnh trung \u0111o\u1EA1n, di\u1EC7n t\xEDch xung quanh v\xE0 th\u1EC3 t\xEDch.",
+              solution: r3`\(d = \sqrt{3^2 + 4^2} = 5\) cm; \(S_{xq} = 16\cdot5 = 80\) cm²; \(V = \dfrac13\cdot64\cdot3 = 64\) cm³.`,
+              exercises: [
+                sa(3, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 12 cm v\xE0 chi\u1EC1u cao 8 cm. T\xEDnh trung \u0111o\u1EA1n c\u1EE7a h\xECnh ch\xF3p.", ["10"], r3`\(d = \sqrt{8^2 + 6^2} = 10\) cm.`, "cm"),
+                es(4, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 10 cm v\xE0 trung \u0111o\u1EA1n 13 cm. T\xEDnh di\u1EC7n t\xEDch to\xE0n ph\u1EA7n v\xE0 th\u1EC3 t\xEDch c\u1EE7a h\xECnh ch\xF3p.", r3`\(S_{xq} = 20\cdot13 = 260\) cm²; \(S_{tp} = 260 + 100 = 360\) cm².
+Chiều cao \(h = \sqrt{13^2 - 5^2} = 12\) cm; \(V = \dfrac13\cdot100\cdot12 = 400\) cm³.`)
+              ]
+            }
+          ]
+        },
+        {
+          title: "V\u1EADn d\u1EE5ng th\u1EF1c t\u1EBF",
+          description: "M\xE1i nh\xE0, l\u1EC1u, v\u1EADt trang tr\xED c\xF3 d\u1EA1ng h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u.",
+          types: [
+            {
+              slug: "thuc-te-chop-tu-giac",
+              title: "B\xE0i to\xE1n th\u1EF1c t\u1EBF v\u1EC1 h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u",
+              legacy: ["B\xE0i to\xE1n th\u1EF1c t\u1EBF"],
+              levels: [3],
+              knowledge: "Di\u1EC7n t\xEDch xung quanh (m\xE1i, v\u1EA3i ph\u1EE7), th\u1EC3 t\xEDch (kh\xF4ng gian b\xEAn trong, l\u01B0\u1EE3ng v\u1EADt li\u1EC7u).",
+              signs: "M\xE1i nh\xE0, l\u1EC1u, kim t\u1EF1 th\xE1p, ch\u1EB7n gi\u1EA5y, h\u1ED9p \u0111\u1EF1ng c\xF3 d\u1EA1ng h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u.",
+              method: "Nh\u1EADn ra d\u1EA1ng h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u, x\xE1c \u0111\u1ECBnh k\xEDch th\u01B0\u1EDBc, \xE1p d\u1EE5ng c\xF4ng th\u1EE9c ph\xF9 h\u1EE3p v\u1EDBi c\xE2u h\u1ECFi.",
+              steps: `- **B\u01B0\u1EDBc 1.** X\xE1c \u0111\u1ECBnh \u0111\u1EA1i l\u01B0\u1EE3ng c\u1EA7n t\xEDnh (di\u1EC7n t\xEDch c\xE1c m\u1EB7t b\xEAn hay th\u1EC3 t\xEDch).
+- **B\u01B0\u1EDBc 2.** \xC1p d\u1EE5ng c\xF4ng th\u1EE9c.
+- **B\u01B0\u1EDBc 3.** T\xEDnh th\xEAm theo y\xEAu c\u1EA7u (chi ph\xED, kh\u1ED1i l\u01B0\u1EE3ng), tr\u1EA3 l\u1EDDi k\xE8m \u0111\u01A1n v\u1ECB.`,
+              mistakes: "- T\xEDnh nh\u1EA7m c\u1EA3 di\u1EC7n t\xEDch \u0111\xE1y cho m\xE1i nh\xE0.\n- Nh\u1EA7m \u0111\u01A1n v\u1ECB di\u1EC7n t\xEDch, th\u1EC3 t\xEDch.",
+              example: "M\u1ED9t chi\u1EBFc l\u1EC1u c\xF3 d\u1EA1ng h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u, c\u1EA1nh \u0111\xE1y 4 m, chi\u1EC1u cao 3 m. T\xEDnh th\u1EC3 t\xEDch kh\xF4ng kh\xED b\xEAn trong l\u1EC1u.",
+              solution: r3`\(V = \dfrac13\cdot4^2\cdot3 = 16\) m³.`,
+              exercises: [
+                sa(3, "M\u1ED9t m\xE1i nh\xE0 c\xF3 d\u1EA1ng h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u v\u1EDBi c\u1EA1nh \u0111\xE1y 6 m v\xE0 trung \u0111o\u1EA1n 4 m. T\xEDnh di\u1EC7n t\xEDch m\xE1i nh\xE0 (di\u1EC7n t\xEDch xung quanh).", ["48"], r3`\(S_{xq} = 12\cdot4 = 48\) m².`, "m\xB2"),
+                sa(3, "M\u1ED9t chi\u1EBFc ch\u1EB7n gi\u1EA5y b\u1EB1ng th\u1EE7y tinh c\xF3 d\u1EA1ng h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u v\u1EDBi c\u1EA1nh \u0111\xE1y 6 cm v\xE0 chi\u1EC1u cao 5 cm. M\u1ED7i x\u0103ng-ti-m\xE9t kh\u1ED1i th\u1EE7y tinh n\u1EB7ng 2,5 g. T\xEDnh kh\u1ED1i l\u01B0\u1EE3ng chi\u1EBFc ch\u1EB7n gi\u1EA5y.", ["150"], r3`\(V = \dfrac13\cdot36\cdot5 = 60\) cm³; khối lượng \(60\cdot2{,}5 = 150\) g.`, "g")
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
 // src/seed/toan8-map/index.ts
 var TN_NOTE = "T\xEAn c\xE1c ho\u1EA1t \u0111\u1ED9ng \u0111\u1ED1i chi\u1EBFu v\u1EDBi SGK t\u1EADp 1, 2 (VietJack, Hoatieu). Th\u1EE9 t\u1EF1 c\xE1c ho\u1EA1t \u0111\u1ED9ng trong m\u1EE5c n\xE0y l\u1EA5y theo PPCT 2026-2027, ch\u01B0a \u0111\u1ED1i chi\u1EBFu s\u1ED1 trang SGK \u2013 c\u1EA7n ki\u1EC3m tra.";
 var TN1 = {
@@ -29660,7 +34214,7 @@ var TN2 = {
     { slug: "hdtn-thi-nghiem-ngau-nhien-excel", objectives: "D\xF9ng Excel m\xF4 ph\u1ECFng th\xED nghi\u1EC7m ng\u1EABu nhi\xEAn, t\xEDnh x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m v\xE0 so s\xE1nh v\u1EDBi x\xE1c su\u1EA5t l\xED thuy\u1EBFt." }
   ]
 };
-var TOAN8_MAP = [CHUONG_1, TN1, TN2];
+var TOAN8_MAP = [CHUONG_1, CHUONG_2, CHUONG_3, CHUONG_4, CHUONG_5, TN1, CHUONG_6, CHUONG_7, CHUONG_8, CHUONG_9, CHUONG_10, TN2];
 var ROMAN = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
 var pad = (n) => String(n).padStart(2, "0");
 function lessonCodes() {
@@ -29679,7 +34233,7 @@ function lessonCodes() {
 }
 
 // src/seed/knowledge-map.ts
-var MAP_KEY = "toan8-map-v1";
+var MAP_KEY = "toan8-map-v2";
 var MAP_SOURCE = "B\u1EA3n \u0111\u1ED3 ki\u1EBFn th\u1EE9c To\xE1n 8 \u2013 c\xE2u m\u1EABu";
 async function applyKnowledgeMap(db, log = console.log) {
   if (await db.one(sql`select 1 from seed_marks where key = ${MAP_KEY}`)) return false;
@@ -29750,7 +34304,8 @@ async function applyLesson(t, textbookId, lessonId, lessonCode, l, stats) {
       n++;
       const code = `${lessonCode}.D${n}`;
       const names = [ty.title, ...ty.legacy ?? []];
-      const match = existing.find((e) => e.code === code) ?? existing.find((e) => !e.code && !used.has(e.id) && names.includes(e.title));
+      const byCode = existing.find((e) => e.code === code);
+      const match = byCode ?? existing.find((e) => !e.code && !used.has(e.id) && names.includes(e.title));
       let topicId;
       if (match) {
         used.add(match.id);
@@ -29774,7 +34329,9 @@ async function applyLesson(t, textbookId, lessonId, lessonCode, l, stats) {
         topicId = row.id;
       }
       stats.types++;
+      if (byCode) continue;
       for (const ex of ty.exercises) {
+        if (await hasSameQuestion(t, lessonId, ex)) continue;
         await insertSeedQuestion(t, textbookId, lessonId, topicId, ex, MAP_SOURCE);
         stats.questions++;
       }
@@ -29782,6 +34339,19 @@ async function applyLesson(t, textbookId, lessonId, lessonCode, l, stats) {
   }
   let k = n;
   for (const e of existing) if (!used.has(e.id)) await t.exec(sql`update topics set sort_order = ${++k} where id = ${e.id}`);
+}
+async function hasSameQuestion(t, lessonId, ex) {
+  const rows = await t.many(sql`
+    select q.id, et.code as type from questions q join exercise_types et on et.id = q.exercise_type_id
+    where q.lesson_id = ${lessonId} and q.stem = ${ex.stem}`);
+  const mine = [...ex.options ?? [], ...(ex.statements ?? []).map(([s]) => s)].sort().join("\n");
+  for (const r4 of rows) {
+    if (r4.type !== ex.type) continue;
+    if (r4.type !== "mcq" && r4.type !== "true_false") return true;
+    const ans = await t.many(sql`select content from answers where question_id = ${r4.id}`);
+    if (ans.map((a) => a.content).sort().join("\n") === mine) return true;
+  }
+  return false;
 }
 
 // src/seed/run.ts
@@ -29886,9 +34456,9 @@ async function insertSeedQuestion(t, textbookId, lessonId, topicId, q, source) {
         values (${qid}, ${LABELS_MCQ[i2]}, ${opt}, ${LABELS_MCQ[i2] === q.correct}, ${i2 + 1})`);
     }
   } else if (q.type === "true_false") {
-    for (const [i2, [text2, ok]] of q.statements.entries()) {
+    for (const [i2, [text3, ok]] of q.statements.entries()) {
       await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order)
-        values (${qid}, ${LABELS_TF[i2]}, ${text2}, ${ok}, ${i2 + 1})`);
+        values (${qid}, ${LABELS_TF[i2]}, ${text3}, ${ok}, ${i2 + 1})`);
     }
   } else if (q.type === "short_answer") {
     for (const [i2, a] of q.accepted.entries()) {
@@ -31019,11 +35589,11 @@ function page(ctx, opts, body) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${escapeHtml(title)}</title>
-<meta name="description" content="${escapeHtml(opts.description ?? "H\u1ECDc To\xE1n THCS theo ch\u01B0\u01A1ng tr\xECnh GDPT 2018 \u2013 b\xE0i h\u1ECDc, luy\u1EC7n t\u1EADp, ki\u1EC3m tra v\xE0 theo d\xF5i ti\u1EBFn \u0111\u1ED9.")}">
-<meta name="csrf-token" content="${escapeHtml(ctx.csrfToken)}">
-<meta name="author" content="${escapeHtml(AUTHOR)}">
-<meta name="copyright" content="${escapeHtml(COPYRIGHT)}">
+<title>${escapeHtml2(title)}</title>
+<meta name="description" content="${escapeHtml2(opts.description ?? "H\u1ECDc To\xE1n THCS theo ch\u01B0\u01A1ng tr\xECnh GDPT 2018 \u2013 b\xE0i h\u1ECDc, luy\u1EC7n t\u1EADp, ki\u1EC3m tra v\xE0 theo d\xF5i ti\u1EBFn \u0111\u1ED9.")}">
+<meta name="csrf-token" content="${escapeHtml2(ctx.csrfToken)}">
+<meta name="author" content="${escapeHtml2(AUTHOR)}">
+<meta name="copyright" content="${escapeHtml2(COPYRIGHT)}">
 <meta name="theme-color" content="#3B2A8C">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31476,9 +36046,9 @@ async function practiceStreak(q, userId) {
     order by d desc`);
   if (!rows.length) return 0;
   const days = rows.map((r4) => r4.d);
-  const fmt2 = (t) => new Date(t).toLocaleDateString("en-CA", { timeZone: TIME_ZONE });
-  const today = fmt2(Date.now());
-  const yesterday = fmt2(Date.now() - 864e5);
+  const fmt4 = (t) => new Date(t).toLocaleDateString("en-CA", { timeZone: TIME_ZONE });
+  const today = fmt4(Date.now());
+  const yesterday = fmt4(Date.now() - 864e5);
   if (days[0] !== today && days[0] !== yesterday) return 0;
   let streak = 1;
   for (let i2 = 1; i2 < days.length; i2++) {
@@ -31585,10 +36155,10 @@ function parseNumber(input) {
   if (!s) return null;
   const frac = /^([+-]?)(\d+(?:[.,]\d+)?)\/(\d+(?:[.,]\d+)?)$/.exec(s);
   if (frac) {
-    const num = Number(frac[2].replace(",", "."));
+    const num2 = Number(frac[2].replace(",", "."));
     const den = Number(frac[3].replace(",", "."));
     if (!den) return null;
-    return (frac[1] === "-" ? -1 : 1) * (num / den);
+    return (frac[1] === "-" ? -1 : 1) * (num2 / den);
   }
   if (/^[+-]?\d{1,3}(\.\d{3})+,\d+$/.test(s)) s = s.replace(/\./g, "").replace(",", ".");
   else if (/^[+-]?\d{1,3}(,\d{3})+\.\d+$/.test(s)) s = s.replace(/,/g, "");
@@ -31837,9 +36407,9 @@ async function getQuestion(q, id) {
 function imageHtml(img) {
   if (img.kind === "figure" && img.figureSource) {
     const { svg, errors } = figureToSvg(img.figureSource, { maxWidth: 400, maxHeight: 300 });
-    return errors.length ? `<p class="math-error">H\xECnh v\u1EBD l\u1ED7i: ${escapeHtml(errors[0])}</p>` : svg;
+    return errors.length ? `<p class="math-error">H\xECnh v\u1EBD l\u1ED7i: ${escapeHtml2(errors[0])}</p>` : svg;
   }
-  return `<img src="/media/${img.id}" alt="${escapeHtml(img.alt || "H\xECnh minh h\u1ECDa")}" loading="lazy" class="max-w-full h-auto rounded-lg">`;
+  return `<img src="/media/${img.id}" alt="${escapeHtml2(img.alt || "H\xECnh minh h\u1ECDa")}" loading="lazy" class="max-w-full h-auto rounded-lg">`;
 }
 function toView(q, includeHint = true) {
   const view = {
@@ -32026,8 +36596,8 @@ function parseQuestionForm(form) {
     const { errors: figErrors } = figureToSvg(input.figure);
     figErrors.forEach((e) => errors.push("H\xECnh v\u1EBD \u2013 " + e));
   }
-  for (const [name, text2] of texts) {
-    if (text2) findMathErrors(text2).forEach((e) => errors.push(`${name}: ${e}`));
+  for (const [name, text3] of texts) {
+    if (text3) findMathErrors(text3).forEach((e) => errors.push(`${name}: ${e}`));
   }
   return { input, errors };
 }
@@ -32068,9 +36638,9 @@ async function saveQuestion(db, id, textbookId, input, userId) {
       qid = row.id;
     }
     if (input.type === "mcq") {
-      for (const [i2, text2] of input.options.entries()) {
+      for (const [i2, text3] of input.options.entries()) {
         const label = "ABCD"[i2];
-        await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order) values (${qid}, ${label}, ${text2}, ${label === input.correct}, ${i2 + 1})`);
+        await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order) values (${qid}, ${label}, ${text3}, ${label === input.correct}, ${i2 + 1})`);
       }
     } else if (input.type === "true_false") {
       for (const [i2, s] of input.statements.entries()) {
@@ -32912,11 +37482,11 @@ async function getThemesByLesson(q, textbookId, includeDrafts = false) {
       continue;
     }
     if (!out.has(tp.lessonId)) out.set(tp.lessonId, []);
-    const list = out.get(tp.lessonId);
-    let other = list.find((x) => x.id === 0);
+    const list2 = out.get(tp.lessonId);
+    let other = list2.find((x) => x.id === 0);
     if (!other) {
       other = { id: 0, lessonId: tp.lessonId, code: null, title: "D\u1EA1ng to\xE1n kh\xE1c", description: null, status: "published", sortOrder: 999, topics: [] };
-      list.push(other);
+      list2.push(other);
     }
     other.topics.push(tp);
   }
@@ -34322,11 +38892,11 @@ function PracticeCore({
     }
   }
   if (done) {
-    const list = Object.values(feedback);
-    const graded = list.filter((f) => f.status !== "pending");
+    const list2 = Object.values(feedback);
+    const graded = list2.filter((f) => f.status !== "pending");
     const correct = graded.filter((f) => f.status === "correct").length;
-    const xp = list.reduce((s, f) => s + f.xpGained, 0);
-    const badges = list.flatMap((f) => f.achievements);
+    const xp = list2.reduce((s, f) => s + f.xpGained, 0);
+    const badges = list2.flatMap((f) => f.achievements);
     return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "rounded-[22px] border border-line bg-white p-6 md:p-10", children: [
       /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("h2", { className: "text-2xl font-extrabold", children: "K\u1EBFt qu\u1EA3 l\u01B0\u1EE3t luy\u1EC7n t\u1EADp" }),
       /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "mt-6 grid gap-4 sm:grid-cols-3", children: [
@@ -34354,8 +38924,8 @@ function PracticeCore({
           ] })
         ] })
       ] }),
-      list.length > graded.length && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("p", { className: "mt-4 text-[15px] text-ink-2", children: [
-        list.length - graded.length,
+      list2.length > graded.length && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("p", { className: "mt-4 text-[15px] text-ink-2", children: [
+        list2.length - graded.length,
         " ",
         pendingSummary
       ] }),
@@ -35462,10 +40032,10 @@ async function submitTestApi(ctx) {
 function describeResponse(q) {
   const r4 = q.response;
   if (!r4 || r4.kind === "empty") return "<em>Kh\xF4ng tr\u1EA3 l\u1EDDi</em>";
-  if (r4.kind === "mcq") return `Ch\u1ECDn <strong>${escapeHtml(r4.choice ?? "")}</strong>`;
+  if (r4.kind === "mcq") return `Ch\u1ECDn <strong>${escapeHtml2(r4.choice ?? "")}</strong>`;
   if (r4.kind === "true_false")
-    return Object.entries(r4.values ?? {}).sort().map(([k, v]) => `${escapeHtml(k)}) ${v ? "\u0110\xFAng" : "Sai"}`).join("; ");
-  return `<span class="whitespace-pre-wrap">${escapeHtml(r4.text ?? "")}</span>`;
+    return Object.entries(r4.values ?? {}).sort().map(([k, v]) => `${escapeHtml2(k)}) ${v ? "\u0110\xFAng" : "Sai"}`).join("; ");
+  return `<span class="whitespace-pre-wrap">${escapeHtml2(r4.text ?? "")}</span>`;
 }
 function ResultQuestionList({ questions, reveal }) {
   return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", { className: "space-y-4", children: questions.map((q, i2) => /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(Panel, { className: "p-5", children: [
@@ -36314,7 +40884,7 @@ var ContentError = class extends Error {
 var STATUS = (v) => v === "draft" ? "draft" : "published";
 function mathErrors(fields) {
   const out = [];
-  for (const [name, text2] of fields) if (text2) findMathErrors(text2).forEach((e) => out.push(`${name}: ${e}`));
+  for (const [name, text3] of fields) if (text3) findMathErrors(text3).forEach((e) => out.push(`${name}: ${e}`));
   return out;
 }
 async function renumberChapters(t, textbookId) {
@@ -37292,7 +41862,7 @@ async function topicEditorAction(ctx) {
 init_richtext();
 init_figure();
 var IMPORT_COLUMNS = ["ma_dang", "ma_bai", "hinh_thuc", "muc_do", "de_bai", "A", "B", "C", "D", "dap_an", "loi_giai", "goi_y", "hinh_ve", "don_vi", "diem"];
-var fold = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[đĐ]/g, "d").toLowerCase().trim();
+var fold2 = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[đĐ]/g, "d").toLowerCase().trim();
 var HEADER_ALIASES = {
   ma_dang: "ma_dang",
   "ma dang": "ma_dang",
@@ -37332,8 +41902,8 @@ var HEADER_ALIASES = {
   "don vi": "don_vi",
   diem: "diem"
 };
-function parseTable(text2) {
-  const src = text2.replace(/^﻿/, "").replace(/\r\n?/g, "\n");
+function parseTable(text3) {
+  const src = text3.replace(/^﻿/, "").replace(/\r\n?/g, "\n");
   const firstLine = src.split("\n", 1)[0] ?? "";
   const delim = firstLine.includes("	") ? "	" : (firstLine.match(/;/g)?.length ?? 0) > (firstLine.match(/,/g)?.length ?? 0) ? ";" : ",";
   const rows = [];
@@ -37369,7 +41939,7 @@ function parseTable(text2) {
   return rows.filter((r4) => r4.some((c) => c.trim() !== ""));
 }
 function typeFromText(s) {
-  const v = fold(s).replace(/[_-]/g, " ");
+  const v = fold2(s).replace(/[_-]/g, " ");
   if (QUESTION_TYPES.includes(s.trim())) return s.trim();
   if (["tn", "trac nghiem", "trac nghiem 4 phuong an", "mcq", "tnkq"].includes(v)) return "mcq";
   if (["ds", "dung sai", "dung/sai", "true false", "d/s"].includes(v)) return "true_false";
@@ -37379,20 +41949,20 @@ function typeFromText(s) {
   return null;
 }
 function levelFromText(s) {
-  const v = fold(s).replace(/\s+/g, " ");
+  const v = fold2(s).replace(/\s+/g, " ");
   const map = { "1": 1, "2": 2, "3": 3, "4": 4, nb: 1, "nhan biet": 1, th: 2, "thong hieu": 2, vd: 3, "van dung": 3, vdc: 4, "van dung cao": 4 };
   return map[v] ?? null;
 }
 function truthsFromText(s) {
-  const v = fold(s).replace(/dung/g, "d").replace(/sai/g, "s");
+  const v = fold2(s).replace(/dung/g, "d").replace(/sai/g, "s");
   let tokens = v.split(/[^a-z0-9]+/).filter(Boolean);
   if (tokens.length === 1 && tokens[0].length === 4) tokens = tokens[0].split("");
   return tokens.map((t) => ["d", "t", "1", "true"].includes(t) ? true : ["s", "f", "0", "false"].includes(t) ? false : null);
 }
-async function prepareImport(q, textbookId, text2, status) {
-  const table = parseTable(text2);
+async function prepareImport(q, textbookId, text3, status) {
+  const table = parseTable(text3);
   if (table.length < 2) return { rows: [], headerErrors: ["Ch\u01B0a c\xF3 d\u1EEF li\u1EC7u: c\u1EA7n d\xF2ng ti\xEAu \u0111\u1EC1 v\xE0 \xEDt nh\u1EA5t m\u1ED9t d\xF2ng c\xE2u h\u1ECFi."] };
-  const header = table[0].map((h) => HEADER_ALIASES[fold(h).replace(/_/g, " ")] ?? HEADER_ALIASES[fold(h)] ?? null);
+  const header = table[0].map((h) => HEADER_ALIASES[fold2(h).replace(/_/g, " ")] ?? HEADER_ALIASES[fold2(h)] ?? null);
   const headerErrors = [];
   for (const need of ["hinh_thuc", "de_bai"]) if (!header.includes(need)) headerErrors.push(`Thi\u1EBFu c\u1ED9t "${need}" \u1EDF d\xF2ng ti\xEAu \u0111\u1EC1.`);
   if (!header.includes("ma_dang") && !header.includes("ma_bai")) headerErrors.push('C\u1EA7n c\u1ED9t "ma_dang" (m\xE3 d\u1EA1ng to\xE1n) ho\u1EB7c "ma_bai" (m\xE3 b\xE0i).');
@@ -37450,7 +42020,7 @@ async function prepareImport(q, textbookId, text2, status) {
         if (!o) errors.push(`Ph\u01B0\u01A1ng \xE1n ${"ABCD"[k]} \u0111ang \u0111\u1EC3 tr\u1ED1ng.`);
         texts.push([`Ph\u01B0\u01A1ng \xE1n ${"ABCD"[k]}`, o]);
       });
-      const c = fold(ans).toUpperCase();
+      const c = fold2(ans).toUpperCase();
       if (!/^[A-D]$/.test(c)) errors.push("\u0110\xE1p \xE1n tr\u1EAFc nghi\u1EC7m ph\u1EA3i l\xE0 m\u1ED9t trong A, B, C, D.");
       input.correct = c;
       if (new Set(opts.filter(Boolean).map((o) => o.replace(/\s+/g, ""))).size < opts.filter(Boolean).length) errors.push("C\xF3 hai ph\u01B0\u01A1ng \xE1n tr\xF9ng nhau.");
@@ -37476,7 +42046,7 @@ async function prepareImport(q, textbookId, text2, status) {
   return { rows, headerErrors };
 }
 function templateCsv() {
-  const esc = (s) => /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+  const esc2 = (s) => /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
   const rows = [
     [...IMPORT_COLUMNS],
     ["T8.B01.D1", "", "TN", "NB", "Bi\u1EC3u th\u1EE9c n\xE0o sau \u0111\xE2y l\xE0 \u0111\u01A1n th\u1EE9c?", "\\(x + 1\\)", "\\(3x^2y\\)", "\\(\\dfrac{1}{x}\\)", "\\(x - y\\)", "B", "Ch\u1EC9 \\(3x^2y\\) l\xE0 t\xEDch c\u1EE7a s\u1ED1 v\u1EDBi c\xE1c bi\u1EBFn.", "", "", "", "1"],
@@ -37485,7 +42055,7 @@ function templateCsv() {
     ["T8.B04.D5", "", "TL", "VD", "Ch\u1EE9ng minh \\((x - 1)(x + 1) = x^2 - 1\\).", "", "", "", "", "", "V\u1EBF tr\xE1i \\(= x^2 + x - x - 1 = x^2 - 1\\).", "", "", "", "1"],
     ["T8.B10.D1", "", "HH", "VD", "Cho t\u1EE9 gi\xE1c ABCD c\xF3 \\(\\widehat{A} = 80^\\circ\\), \\(\\widehat{B} = 100^\\circ\\), \\(\\widehat{C} = 2\\widehat{D}\\). T\xEDnh \\(\\widehat{C}\\), \\(\\widehat{D}\\).", "", "", "", "", "", "\\(\\widehat{C} = 120^\\circ\\), \\(\\widehat{D} = 60^\\circ\\).", "", "A(0,0) B(5,0) C(6,3) D(1,3)\nABCDA", "", "1"]
   ];
-  return "\uFEFF" + rows.map((r4) => r4.map(esc).join(",")).join("\r\n") + "\r\n";
+  return "\uFEFF" + rows.map((r4) => r4.map(esc2).join(",")).join("\r\n") + "\r\n";
 }
 
 // src/server/handlers/teacher/import.tsx
@@ -37612,10 +42182,10 @@ async function importAction(ctx) {
   const user = requireTeacher(ctx);
   const book = await requireBook(ctx);
   const form = await ctx.form();
-  const text2 = form.text("data", 3e6);
+  const text3 = form.text("data", 3e6);
   const status = form.str("status") === "published" ? "published" : "draft";
-  const { rows, headerErrors } = await prepareImport(ctx.db, book.id, text2, status);
-  if (form.str("_action") !== "import" || headerErrors.length) return importPage(ctx, { text: text2, status, rows, headerErrors });
+  const { rows, headerErrors } = await prepareImport(ctx.db, book.id, text3, status);
+  if (form.str("_action") !== "import" || headerErrors.length) return importPage(ctx, { text: text3, status, rows, headerErrors });
   const ok = rows.filter((r4) => !r4.errors.length);
   let saved = 0;
   const failed = [];
@@ -37624,7 +42194,7 @@ async function importAction(ctx) {
     if (res.id) saved++;
     else failed.push(`D\xF2ng ${r4.line}: ${res.error}`);
   }
-  if (failed.length) return importPage(ctx, { text: text2, status, rows, headerErrors: [`\u0110\xE3 nh\u1EADp ${saved} c\xE2u. Kh\xF4ng nh\u1EADp \u0111\u01B0\u1EE3c:`, ...failed] });
+  if (failed.length) return importPage(ctx, { text: text3, status, rows, headerErrors: [`\u0110\xE3 nh\u1EADp ${saved} c\xE2u. Kh\xF4ng nh\u1EADp \u0111\u01B0\u1EE3c:`, ...failed] });
   const skipped = rows.length - ok.length;
   return redirect(
     `/giao-vien/cau-hoi${status === "draft" ? "?trang-thai=draft" : ""}`,
@@ -39026,17 +43596,17 @@ function document_(page2) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${escapeHtml(title)}</title>
-<meta name="description" content="${escapeHtml(page2.description ?? "H\u1ECDc To\xE1n 8 theo b\u1ED9 s\xE1ch K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng.")}">
-<meta name="author" content="${escapeHtml(AUTHOR)}">
-<meta name="copyright" content="${escapeHtml(COPYRIGHT)}">
+<title>${escapeHtml2(title)}</title>
+<meta name="description" content="${escapeHtml2(page2.description ?? "H\u1ECDc To\xE1n 8 theo b\u1ED9 s\xE1ch K\u1EBFt n\u1ED1i tri th\u1EE9c v\u1EDBi cu\u1ED9c s\u1ED1ng.")}">
+<meta name="author" content="${escapeHtml2(AUTHOR)}">
+<meta name="copyright" content="${escapeHtml2(COPYRIGHT)}">
 <meta name="theme-color" content="#3B2A8C">
 <link rel="icon" href="${R3("assets/favicon.svg")}" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="${R3("assets/katex/katex.min.css")}">
 <link rel="stylesheet" href="${R3("assets/app.css")}">
 </head>
-<body class="bg-paper" data-root="${"../".repeat(depthOf(page2.file))}"${page2.lesson ? ` data-lesson="${escapeHtml(page2.lesson)}"` : ""}>${markup}
+<body class="bg-paper" data-root="${"../".repeat(depthOf(page2.file))}"${page2.lesson ? ` data-lesson="${escapeHtml2(page2.lesson)}"` : ""}>${markup}
 <script src="${R3("assets/du-lieu.js")}"></script>
 <script src="${R3("assets/ml-offline.js")}" defer></script>
 </body>
@@ -39074,7 +43644,7 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
   const offline = (q) => {
     const view = toView(q);
     view.mediaHtml = q.images.map(
-      (img) => img.kind === "upload" ? `<img src="${uploads.get(img.id) ?? ""}" alt="${escapeHtml(img.alt || "H\xECnh minh h\u1ECDa")}" class="max-w-full h-auto rounded-lg">` : imageHtml(img)
+      (img) => img.kind === "upload" ? `<img src="${uploads.get(img.id) ?? ""}" alt="${escapeHtml2(img.alt || "H\xECnh minh h\u1ECDa")}" class="max-w-full h-auto rounded-lg">` : imageHtml(img)
     );
     return {
       ...view,

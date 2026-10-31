@@ -455,6 +455,140 @@ try {
     await shot(student, '18-thu-thach');
   });
 
+  // ---------------- Giai đoạn 2: bản đồ kiến thức ----------------
+  await step('Bản đồ kiến thức (học sinh): Toán 8 → Học kì → Chương → Bài → Chủ đề → Dạng toán, luyện tập dạng, kiểm tra cuối chương', async () => {
+    await student.goto(`${BASE}/hoc/toan-8`);
+    const course = await student.locator('main').textContent();
+    for (const t of ['Học kì I', 'Học kì II', 'dạng toán', 'bài tập']) assert.ok(course.includes(t), `mục lục thiếu "${t}"`);
+    await student.goto(`${BASE}/hoc/toan-8/ban-do`);
+    const map = await student.locator('main').textContent();
+    for (const t of ['Học kì I', 'Học kì II', 'Đa thức', 'Một số hình khối trong thực tiễn', 'Bài 39. Hình chóp tứ giác đều', 'Vẽ đồ thị hàm số bậc nhất']) assert.ok(map.includes(t), `bản đồ thiếu "${t}"`);
+    assert.equal(await student.locator('main details').count(), 12, 'bản đồ có đủ 12 mục chương');
+    await shot(student, '40-ban-do-kien-thuc');
+    // Chương → danh sách bài
+    await student.goto(`${BASE}/hoc/toan-8/chuong/VII`);
+    for (const h of ['Mục tiêu cần đạt', 'Kiến thức trọng tâm', 'Công thức cần nhớ', 'Danh sách bài học', 'Chủ đề và hệ thống dạng toán', 'Bài tập tổng hợp', 'Kiểm tra cuối chương'])
+      assert.ok(await student.getByRole('heading', { name: h }).count(), `trang chương thiếu "${h}"`);
+    assert.ok(await student.getByText('mục đã học xong').count(), 'có tiến độ chương');
+    assert.equal(await student.locator('.math-error').count(), 0);
+    await shot(student, '41-chuong-7');
+    // Bài → Dạng toán
+    await Promise.all([student.waitForNavigation(), student.click('section[aria-labelledby=ds-bai] a:has-text("Bài 28.")')]);
+    assert.match(student.url(), /bai-28-ham-so-bac-nhat/);
+    await Promise.all([student.waitForNavigation(), student.locator('a:has-text("Vẽ đồ thị hàm số bậc nhất")').first().click()]);
+    assert.match(student.url(), /\/dang\//);
+    for (const h of ['Kiến thức sử dụng', 'Dấu hiệu nhận biết', 'Phương pháp giải', 'Lỗi sai thường gặp', 'Ví dụ minh họa', 'Bài tập luyện tập'])
+      assert.ok(await student.getByRole('heading', { name: h }).count(), `trang dạng toán thiếu "${h}"`);
+    assert.ok((await student.locator('svg.chart-svg').count()) >= 1, 'có đồ thị hàm số trong lời giải');
+    assert.equal(await student.locator('.math-error').count(), 0);
+    await shot(student, '42-dang-toan');
+    await Promise.all([student.waitForNavigation(), student.click('a:has-text("Luyện tập dạng này")')]);
+    await hydrated(student);
+    assert.ok(await student.locator('article').count(), 'có câu luyện tập của dạng');
+    // Kiểm tra cuối chương
+    await student.goto(`${BASE}/luyen-tap/chuong/VIII/kiem-tra`);
+    await hydrated(student);
+    assert.ok(await student.getByText('Kiểm tra cuối chương').count());
+    assert.ok(await student.locator('article').count());
+    await shot(student, '43-kiem-tra-cuoi-chuong');
+  });
+
+  await step('Quản lý chương trình không cần sửa mã: thêm, đổi tên, sắp xếp, ẩn / xuất bản chương, bài, chủ đề, dạng toán', async () => {
+    await teacher.goto(`${BASE}/giao-vien/chuong-trinh`);
+    await teacher.getByText('Thêm chương vào Học kì II').click();
+    const form = teacher.locator('form:has(input[name=_action][value=add-chapter])').nth(1);
+    await form.locator('input[name=code]').fill('XI');
+    await form.locator('input[name=title]').fill('Chương thử nghiệm');
+    await Promise.all([teacher.waitForURL(/giao-vien\/chuong\/\d+/), form.locator('button').click()]);
+    const chapterUrl = teacher.url();
+    // đổi tên chương, soạn mục tiêu (có công thức)
+    await teacher.fill('input[name=title]', 'Chương ôn tập mở rộng');
+    await teacher.fill('textarea[name=objectives]', '- Mục tiêu thử \\(x^2 + 1\\).');
+    await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Lưu chương")')]);
+    assert.match(await flash(teacher), /Đã lưu chương/);
+    // chương mới đang ẩn: học sinh chưa thấy
+    const hidden = await student.goto(`${BASE}/hoc/toan-8/chuong/XI`);
+    assert.equal(hidden.status(), 404, 'chương nháp bị ẩn với học sinh');
+    // thêm bài vào chương mới
+    await teacher.goto(`${BASE}/giao-vien/chuong-trinh`);
+    const det = teacher.locator('details:has(input[name=_action][value=add-lesson])').last();
+    await det.locator('summary').click();
+    await det.locator('input[name=number]').fill('40');
+    await det.locator('input[name=title]').fill('Bài thử nghiệm');
+    await Promise.all([teacher.waitForURL(/giao-vien\/bai-hoc\/\d+/), det.locator('button').click()]);
+    const lessonUrl = teacher.url();
+    await teacher.fill('input[name=code]', 'T8.B40');
+    await teacher.locator('form:has(input[value=meta]) textarea[name=concepts]').fill('Khái niệm thử.');
+    await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Lưu bản đồ kiến thức")')]);
+    assert.match(await flash(teacher), /Đã lưu bản đồ kiến thức/);
+    // chủ đề, dạng toán
+    const themeForm = teacher.locator('form:has(input[value=add-theme])');
+    await themeForm.locator('input[name=title]').fill('Chủ đề thử nghiệm');
+    await Promise.all([teacher.waitForNavigation(), themeForm.locator('button').click()]);
+    assert.match(await flash(teacher), /Đã lưu chủ đề/);
+    const topicForm = teacher.locator('form:has(input[value=add-topic])');
+    await topicForm.locator('input[name=title]').fill('Dạng thử nghiệm số một');
+    await Promise.all([teacher.waitForURL(/giao-vien\/dang-toan\/\d+/), topicForm.locator('button').click()]);
+    const topicUrl = teacher.url();
+    await teacher.check('input[name=levels][value="2"]');
+    await teacher.check('input[name=levels][value="3"]');
+    await teacher.fill('textarea[name=method]', 'Phương pháp thử \\(a + b\\).');
+    await teacher.fill('textarea[name=steps]', '- **Bước 1.** Làm A.\n- **Bước 2.** Làm B.');
+    await teacher.selectOption('select[name=status]', 'published');
+    await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Lưu dạng toán")')]);
+    assert.match(await flash(teacher), /Đã lưu dạng toán/);
+    await shot(teacher, '44-soan-dang-toan');
+    // xuất bản bài và chương → học sinh thấy
+    await teacher.goto(lessonUrl);
+    await teacher.selectOption('form:has(input[value=info]) select[name=status]', 'published');
+    await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Lưu thông tin")')]);
+    await teacher.goto(chapterUrl);
+    await teacher.selectOption('select[name=status]', 'published');
+    await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Lưu chương")')]);
+    const shown = await student.goto(`${BASE}/hoc/toan-8/chuong/XI`);
+    assert.equal(shown.status(), 200);
+    assert.ok(await student.getByRole('heading', { name: 'Chương XI. Chương ôn tập mở rộng' }).count(), 'tên chương mới');
+    assert.ok(await student.getByText('Dạng thử nghiệm số một').count(), 'học sinh thấy dạng toán mới');
+    // sắp xếp: thêm bài thứ hai rồi đưa nó lên trước bài 40
+    await teacher.goto(`${BASE}/giao-vien/chuong-trinh`);
+    const det2 = teacher.locator('details:has(input[name=_action][value=add-lesson])').last();
+    await det2.locator('summary').click();
+    await det2.locator('input[name=number]').fill('41');
+    await det2.locator('input[name=title]').fill('Bài thử hai');
+    await det2.locator('select[name=status]').selectOption('published').catch(() => {});
+    await Promise.all([teacher.waitForURL(/giao-vien\/bai-hoc\/\d+/), det2.locator('button').click()]);
+    await teacher.selectOption('form:has(input[value=info]) select[name=status]', 'published');
+    await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Lưu thông tin")')]);
+    await teacher.goto(`${BASE}/giao-vien/chuong-trinh`);
+    const row41 = teacher.locator('tr:has-text("Bài 41. Bài thử hai")');
+    await Promise.all([teacher.waitForNavigation(), row41.locator('button[aria-label="Đưa bài lên"]').click()]);
+    await student.goto(`${BASE}/hoc/toan-8/chuong/XI`);
+    const order = await student.locator('section[aria-labelledby=ds-bai] li').allTextContents();
+    assert.ok(order[0].includes('Bài 41') && order[1].includes('Bài 40'), `thứ tự bài sau khi sắp xếp: ${order.join(' / ')}`);
+    await teacher.goto(topicUrl);
+    await teacher.selectOption('select[name=status]', 'draft');
+    await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Lưu dạng toán")')]);
+    await student.goto(`${BASE}/hoc/toan-8/chuong/XI`);
+    assert.equal(await student.getByText('Dạng thử nghiệm số một').count(), 0, 'dạng toán ẩn thì học sinh không thấy');
+  });
+
+  await step('Nhập câu hỏi hàng loạt theo mã dạng toán: kiểm tra trước, báo lỗi từng dòng, nhập câu hợp lệ', async () => {
+    await teacher.goto(`${BASE}/giao-vien/cau-hoi/nhap`);
+    const tsv = [
+      'ma_dang\thinh_thuc\tmuc_do\tde_bai\tA\tB\tC\tD\tdap_an\tloi_giai',
+      'T8.B28.D3\tTN\tTH\tĐồ thị hàm số \\(y = 2x\\) đi qua điểm nào?\t\\((1; 2)\\)\t\\((2; 1)\\)\t\\((1; 1)\\)\t\\((0; 2)\\)\tA\tThay \\(x = 1\\) được \\(y = 2\\).',
+      'T8.B28.D3\tTLN\tVD\tĐồ thị \\(y = 3x - 6\\) cắt trục hoành tại điểm có hoành độ bằng?\t\t\t\t\t2\t\\(3x - 6 = 0 \\Leftrightarrow x = 2\\).',
+      'T8.B99.D9\tTN\tNB\tLỗi mã\t1\t2\t3\t4\tA\t',
+    ].join('\n');
+    await teacher.fill('textarea[name=data]', tsv);
+    await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Kiểm tra dữ liệu")')]);
+    assert.ok(await teacher.getByText('2 dòng hợp lệ').count(), 'đếm dòng hợp lệ');
+    assert.ok(await teacher.getByText('Không tìm thấy dạng toán mã "T8.B99.D9"').count(), 'báo lỗi mã dạng');
+    await shot(teacher, '45-nhap-cau-hoi');
+    await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Nhập 2 câu hợp lệ")')]);
+    assert.match(await flash(teacher), /Đã nhập 2 câu hỏi/);
+  });
+
   await step('Không có lỗi JavaScript trên các trang đã mở', async () => {
     assert.deepEqual(pageErrors, []);
   });

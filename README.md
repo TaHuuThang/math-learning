@@ -2,7 +2,7 @@
 
 **Tác giả và chủ sở hữu: Tạ Hữu Thắng.** © 2026 Tạ Hữu Thắng – mọi quyền được bảo lưu (xem tệp `LICENSE`).
 
-Website học Toán cho học sinh THCS Việt Nam (Toán 6–9). Giai đoạn 1 mở **Toán 8 – Kết nối tri thức với cuộc sống (GDPT 2018)**; Toán 6, 7, 9 hiển thị "Sắp ra mắt" và được bổ sung bằng dữ liệu, không phải viết lại hệ thống.
+Website học Toán cho học sinh THCS Việt Nam (Toán 6–9). Giai đoạn 1 mở **Toán 8 – Kết nối tri thức với cuộc sống (GDPT 2018)**; Toán 6, 7, 9 hiển thị "Sắp ra mắt" và được bổ sung bằng dữ liệu, không phải viết lại hệ thống. Giai đoạn 2 đã xây xong **bản đồ kiến thức Toán 8**: Học kì → Chương → Bài → Chủ đề → Dạng toán → Bài tập (xem mục 6b).
 
 ## 1. Chạy website
 
@@ -37,7 +37,7 @@ node dist/server.mjs export-html --out math-learning-html
 Lệnh tạo thư mục gồm `index.html` và khoảng 100 trang (mục lục, PPCT, 74 bài học, luyện tập từng bài/chương, thử thách, tiến độ). Mở `index.html` bằng Chrome/Edge/Firefox, hoặc đưa cả thư mục lên Google Drive, GitHub Pages, Netlify, trang web trường. Bài làm chấm ngay trong trình duyệt; tiến độ, XP, huy hiệu lưu trên máy đang dùng (có nút sao lưu/khôi phục). Bản HTML không có tài khoản, lớp, đề kiểm tra, chấm tự luận, bảng xếp hạng, và đáp án nằm trong mã trang – dùng để tự học, không dùng để kiểm tra lấy điểm. Nội dung lấy từ CSDL lúc xuất: soạn thêm bài/câu hỏi trên bản máy chủ rồi xuất lại.
 
 ### Lần đầu khởi động
-Hệ thống tự tạo bảng, nạp chương trình Toán 8 (12 chương/mục trải nghiệm, 74 mục bài, 82 dòng phân phối chương trình 2026‑2027, 30 câu hỏi mẫu, 10 huy hiệu) rồi mời **tạo tài khoản quản trị** tại `/cai-dat-ban-dau`. Trang này tự khóa khi đã có quản trị viên. Có thể tạo bằng dòng lệnh:
+Hệ thống tự tạo bảng, nạp chương trình Toán 8 (12 chương/mục trải nghiệm, 74 mục bài, 82 dòng phân phối chương trình 2026‑2027, bản đồ kiến thức 85 chủ đề – 157 dạng toán, 382 câu hỏi mẫu, 10 huy hiệu) rồi mời **tạo tài khoản quản trị** tại `/cai-dat-ban-dau`. Trang này tự khóa khi đã có quản trị viên. Có thể tạo bằng dòng lệnh:
 ```bash
 node dist/server.mjs create-admin --username admin --password MatKhau2026 --name "Tạ Hữu Thắng"
 ```
@@ -138,13 +138,25 @@ Không có gì "cứng" cho Toán 8: môn → khối → **bộ sách (textbooks
 - **Giáo viên**: tổng quan; lớp học (mã lớp, tạo tài khoản học sinh, đặt lại mật khẩu); học sinh; chương trình & soạn bài (mục nội dung có xem trước công thức trực tiếp, dạng toán, trạng thái xuất bản); ngân hàng câu hỏi (lọc, soạn 5 hình thức với xem trước KaTeX và hình vẽ, nhân bản, xóa an toàn → lưu trữ); đề kiểm tra; chấm bài; thống kê theo chương, câu hay sai, điểm trung bình.
 - **Quản trị**: tài khoản (tạo giáo viên/quản trị, khóa/mở khóa, đặt lại mật khẩu), trạng thái khối lớp, thông tin hệ thống, nhật ký thao tác.
 
+## 6b. Giai đoạn 2 – Bản đồ kiến thức Toán 8
+- **Phủ toàn bộ chương trình**: 2 học kì, 10 chương + 2 mục Hoạt động thực hành trải nghiệm, 39 bài, 17 mục luyện tập chung, 10 mục bài tập cuối chương, 8 hoạt động trải nghiệm (74 mục). Tên chương, tên bài, thứ tự, phân chia học kì được kiểm thử tự động so với mục lục SGK (`test/unit/knowledge-map.test.ts`); mục nào chưa đối chiếu đủ được đánh dấu **"Cần kiểm tra"** (chỉ giáo viên thấy), ví dụ thứ tự các hoạt động trải nghiệm.
+- **Mỗi chương**: mô tả, mục tiêu cần đạt, danh sách bài, kiến thức trọng tâm, công thức cần nhớ, chủ đề, hệ thống dạng toán, bài tập tổng hợp (luyện tập trộn cả chương) và **kiểm tra cuối chương** 10 câu chấm tự động (4 NB – 3 TH – 2 VD – 1 VDC).
+- **Mỗi bài**: mã bài (T8.B01…T8.B39, T8.C1.LT1, T8.C1.ON…), học kì, chương, vị trí, mục tiêu, kiến thức nền tảng, khái niệm, công thức, tính chất, định lí, mức độ khó, chủ đề, dạng toán, bài tập liên quan.
+- **85 chủ đề, 157 dạng toán**, mỗi dạng đủ 8 phần: tên, kiến thức sử dụng, dấu hiệu nhận biết, phương pháp, các bước giải, lỗi sai thường gặp, ví dụ minh họa có lời giải, bài tập luyện tập; mức độ phù hợp (NB/TH/VD/VDC) được chọn theo bản chất từng dạng, không áp máy móc.
+- **352 câu luyện tập mẫu** gắn theo dạng (+30 câu giai đoạn 1), đủ 5 hình thức; đáp án trắc nghiệm phân bố đều A–D. Mỗi trang dạng toán cho biết dạng đã có bao nhiêu câu theo từng hình thức và mức độ.
+- **Trang học sinh**: `/hoc/toan-8` (tiến độ từng chương, số dạng, số bài tập), `/hoc/toan-8/ban-do` (cây kiến thức), `/hoc/toan-8/chuong/VII`, trang bài, trang riêng của từng dạng `/hoc/toan-8/bai/<bài>/dang/<dạng>`, luyện tập theo dạng `/luyen-tap/dang/<id>`, kiểm tra cuối chương `/luyen-tap/chuong/<mã>/kiem-tra`.
+- **Giáo viên, quản trị** (không cần sửa mã): thêm chương, sửa tên chương, thêm bài, đổi thứ tự bài, thêm chủ đề, thêm và soạn dạng toán, ẩn/xuất bản chương – bài – chủ đề – dạng toán, soạn mục tiêu, khái niệm, công thức… có xem trước công thức; **nhập câu hỏi hàng loạt** từ Excel (dán bảng hoặc tệp CSV mẫu), gắn theo mã dạng (ví dụ `T8.B28.D3`), kiểm tra trước và báo lỗi từng dòng.
+- **Đồ thị hàm số** trong nội dung: khối `[bieudo] loai: dothi, ham so: 2x - 4; -x + 3, diem: A(1; 2) [/bieudo]` (xem `src/shared/graph.ts`).
+- **Nâng cấp CSDL cũ an toàn**: `npm run migrate && npm run seed` (hoặc tự chạy khi khởi động) chỉ điền ô còn trống, nối dạng toán cũ theo tên, không thêm trùng câu hỏi, không ghi đè phần giáo viên đã sửa.
+- Dữ liệu nguồn: `src/seed/toan8-map/chuong-*.ts`. Bản HTML (GitHub Pages) có đủ trang chương, trang dạng toán và luyện tập theo dạng.
+
 ## 7. Bảo mật
 Mật khẩu băm **scrypt** có muối; phiên lưu bằng mã băm SHA‑256, cookie `HttpOnly; SameSite=Lax` (+`Secure` khi HTTPS); chống **CSRF** (mã double‑submit + kiểm tra Origin); khóa tạm sau 5 lần đăng nhập sai/15 phút; phân quyền ở mọi trang và API (học sinh/giáo viên/quản trị, giáo viên chỉ thấy lớp và đề của mình); mọi truy vấn có tham số; văn bản người dùng luôn được escape (KaTeX `trust: false`); tiêu đề CSP, X‑Frame‑Options, nosniff; chống chuyển hướng mở; đáp án không gửi xuống trình duyệt trước khi chấm.
 
 ## 8. Chưa làm ở giai đoạn này
-- Nội dung lý thuyết đầy đủ mới có ở Chương I, Chương II, Bài 10 và Bài 35 (11 mục); các bài khác đã có cấu trúc, số tiết, dạng toán và hiện thông báo "đang được biên soạn". Giáo viên soạn tiếp trong **Chương trình & bài học**.
-- Ngân hàng câu hỏi mới có 30 câu mẫu (Chương I, II, Bài 10, 11, 35).
-- Chưa có: tải ảnh lên cho câu hỏi (bảng `images` đã hỗ trợ, giao diện chưa có nút tải), nhập câu hỏi từ Word/Excel, quên mật khẩu qua email, GeoGebra nhúng, ứng dụng di động riêng.
+- Bài giảng lý thuyết chi tiết (mục kiến thức, ví dụ theo từng tiết) mới có ở Chương I, Chương II, Bài 10 và Bài 35; các bài khác đã có tóm tắt bài học từ bản đồ kiến thức (mục tiêu, khái niệm, công thức, tính chất, định lí, dạng toán, ví dụ) – giai đoạn tiếp theo triển khai lý thuyết, ví dụ và bài tập đầy đủ.
+- Ngân hàng câu hỏi có 382 câu mẫu; nhiều dạng chưa đủ cả 5 hình thức (trang dạng toán ghi rõ hình thức nào "chưa có") – giáo viên bổ sung bằng nhập hàng loạt.
+- Chưa có: tải ảnh lên cho câu hỏi (bảng `images` đã hỗ trợ, giao diện chưa có nút tải), nhập câu hỏi từ tệp Word, quên mật khẩu qua email, GeoGebra nhúng, ứng dụng di động riêng.
 - Kiểm tra kiểu TypeScript trong môi trường xây dựng dùng khai báo React rút gọn (`tsconfig.offline.json`) vì không tải được `@types/react`; khi có mạng hãy chạy `npm install && npm run typecheck`.
 
 ## Tên và bản quyền

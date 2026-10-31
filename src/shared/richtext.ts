@@ -17,9 +17,26 @@ export function escapeHtml(s: string): string {
   return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 }
 
+/**
+ * KaTeX ghi cảnh báo "No character metrics…" cho mỗi chữ tiếng Việt có dấu trong \text{…} (không có số đo phông,
+ * nhưng vẫn hiển thị đúng bằng phông dự phòng). Tắt riêng cảnh báo đó để nhật ký máy chủ không bị nhiễu.
+ */
+function quietKatex<T>(fn: () => T): T {
+  const warn = console.warn;
+  console.warn = (...args: unknown[]) => {
+    if (typeof args[0] === 'string' && args[0].startsWith('No character metrics')) return;
+    warn(...args);
+  };
+  try {
+    return fn();
+  } finally {
+    console.warn = warn;
+  }
+}
+
 export function renderMath(tex: string, display: boolean): string {
   try {
-    return katex.renderToString(tex, {
+    return quietKatex(() => katex.renderToString(tex, {
       displayMode: display,
       throwOnError: false,
       strict: 'ignore',
@@ -27,7 +44,7 @@ export function renderMath(tex: string, display: boolean): string {
       output: 'htmlAndMathml',
       maxSize: 20,
       maxExpand: 500,
-    });
+    }));
   } catch {
     return `<code class="math-error">${escapeHtml(tex)}</code>`;
   }

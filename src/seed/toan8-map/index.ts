@@ -10,6 +10,10 @@ import { CHUONG_3 } from './chuong-3';
 import { CHUONG_4 } from './chuong-4';
 import { CHUONG_5 } from './chuong-5';
 import { CHUONG_6 } from './chuong-6';
+import { CHUONG_7 } from './chuong-7';
+import { CHUONG_8 } from './chuong-8';
+import { CHUONG_9 } from './chuong-9';
+import { CHUONG_10 } from './chuong-10';
 
 const TN_NOTE =
   'Tên các hoạt động đối chiếu với SGK tập 1, 2 (VietJack, Hoatieu). Thứ tự các hoạt động trong mục này lấy theo PPCT 2026-2027, chưa đối chiếu số trang SGK – cần kiểm tra.';
@@ -52,7 +56,7 @@ const TN2: MapChapter = {
   ],
 };
 
-export const TOAN8_MAP: MapChapter[] = [CHUONG_1, CHUONG_2, CHUONG_3, CHUONG_4, CHUONG_5, TN1, CHUONG_6, TN2];
+export const TOAN8_MAP: MapChapter[] = [CHUONG_1, CHUONG_2, CHUONG_3, CHUONG_4, CHUONG_5, TN1, CHUONG_6, CHUONG_7, CHUONG_8, CHUONG_9, CHUONG_10, TN2];
 
 const ROMAN: Record<string, number> = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10 };
 const pad = (n: number) => String(n).padStart(2, '0');

@@ -2,7 +2,7 @@
  * Biểu đồ thống kê mô tả bằng văn bản → SVG (dùng trong bài học, câu hỏi; bản máy chủ và bản HTML).
  *
  *   [bieudo]
- *   loai: cot            ← cot | cotkep | doanthang | quat
+ *   loai: cot            ← cot | cotkep | doanthang | quat | dothi (đồ thị hàm số, xem shared/graph.ts)
  *   tieude: Số sách quyên góp của các lớp
  *   nhan: 8A; 8B; 8C; 8D
  *   so lieu: 45; 60; 50; 35
@@ -13,6 +13,8 @@
  *
  * Mọi chữ đều được escape; không chấp nhận mã SVG/HTML từ người soạn.
  */
+import { graphToSvg } from './graph';
+
 const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
 export type ChartKind = 'cot' | 'cotkep' | 'doanthang' | 'quat';
@@ -111,7 +113,24 @@ function text(x: number, y: number, s: string, extra = '') {
   return `<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" ${extra}>${escapeHtml(s)}</text>`;
 }
 
+const GRAPH_KEYS: Record<string, string> = { 'ham so': 'functions', hamso: 'functions', x: 'xRange', y: 'yRange', diem: 'points', 'tieu de': 'title', tieude: 'title', loai: 'kind' };
+
 export function chartToSvg(source: string): { svg: string; errors: string[] } {
+  const firstKind = /^\s*loai\s*:\s*(.+)$/im.exec(fold(source));
+  if (firstKind && firstKind[1].replace(/\s+/g, '') === 'dothi') {
+    const fields: Record<string, string> = {};
+    const errors: string[] = [];
+    for (const line of source.split('\n')) {
+      const t = line.trim();
+      if (!t || t.startsWith('#')) continue;
+      const i = t.indexOf(':');
+      const k = i < 0 ? undefined : GRAPH_KEYS[fold(t.slice(0, i))];
+      if (!k) errors.push(`Không hiểu dòng "${t.slice(0, 30)}" của đồ thị.`);
+      else fields[k] = t.slice(i + 1).trim();
+    }
+    if (errors.length) return { svg: '', errors };
+    return graphToSvg(fields);
+  }
   const { spec, errors } = parseChart(source);
   if (!spec) return { svg: '', errors };
   const W = 460;

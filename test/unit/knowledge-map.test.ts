@@ -188,3 +188,36 @@ test('đề kiểm tra cuối chương chọn đúng cấu trúc mức độ và
   assert.deepEqual(got.map((g) => g.level), [1, 1, 1, 1, 2, 2, 2, 3, 3, 3]);
   assert.equal(new Set(got.map((g) => g.id)).size, 10);
 });
+
+test('đáp án đúng của câu trắc nghiệm phân bố đều ở A, B, C, D (giao diện không trộn phương án)', () => {
+  const count: Record<string, number> = { A: 0, B: 0, C: 0, D: 0 };
+  let total = 0;
+  for (const ch of TOAN8_MAP)
+    for (const l of ch.lessons)
+      for (const th of l.themes)
+        for (const ty of th.types)
+          for (const ex of ty.exercises)
+            if (ex.type === 'mcq') {
+              count[ex.correct!]++;
+              total++;
+            }
+  for (const k of 'ABCD') assert.ok(count[k] >= total * 0.1 && count[k] <= total * 0.45, `Đáp án ${k}: ${count[k]}/${total}`);
+});
+
+test('không trùng câu hỏi: đề bài tập trong bản đồ không lặp lại nhau và không lặp câu mẫu giai đoạn 1', async () => {
+  const { TOAN8_QUESTIONS } = await import('../../src/seed/toan8-questions');
+  // So cả đề lẫn phương án / các ý (nhiều câu Đúng/Sai dùng chung lời dẫn "Mỗi khẳng định sau đúng hay sai?")
+  const norm = (q: { stem: string; options?: string[]; statements?: [string, boolean][] }) =>
+    [q.stem, ...[...(q.options ?? []), ...(q.statements ?? []).map(([t]) => t)].sort()].join(' | ').replace(/\s+/g, ' ').trim();
+  const seen = new Map<string, string>();
+  for (const q of TOAN8_QUESTIONS) seen.set(norm(q), `câu mẫu giai đoạn 1 (${q.lesson})`);
+  for (const ch of TOAN8_MAP)
+    for (const l of ch.lessons)
+      for (const th of l.themes)
+        for (const ty of th.types)
+          for (const ex of ty.exercises) {
+            const k = norm(ex);
+            assert.ok(!seen.has(k), `${l.slug} / ${ty.slug}: đề trùng với ${seen.get(k)}: "${k.slice(0, 60)}…"`);
+            seen.set(k, `${l.slug} / ${ty.slug}`);
+          }
+});

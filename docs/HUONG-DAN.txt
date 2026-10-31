@@ -13,4 +13,4 @@ Những chức năng đó cần bản chạy trên máy chủ (mã nguồn + Pos
 Đáp án được chấm ngay trên máy nên học sinh có thể xem được đáp án trong mã trang:
 dùng bản HTML để tự học, dùng bản máy chủ khi cần kiểm tra lấy điểm.
 
-Xuất ngày 31/10/2026: 74 mục bài học, 30 câu hỏi, 97 trang.
+Xuất ngày 31/10/2026: 74 mục bài học, 382 câu hỏi, 467 trang.

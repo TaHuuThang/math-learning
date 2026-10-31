@@ -73,15 +73,36 @@ export interface MapChapter {
 // ---------- Hàm viết tắt cho bài tập ----------
 type Common = { solution: string; hint?: string };
 
-export const mcq = (level: Level, stem: string, options: [string, string, string, string], correct: 'A' | 'B' | 'C' | 'D', solution: string, extra: Partial<Common> = {}): MapExercise => ({
-  type: 'mcq',
-  level,
-  stem,
-  options,
-  correct,
-  solution,
-  ...extra,
-});
+/** Băm chuỗi (FNV-1a) – dùng để xếp vị trí đáp án đúng ổn định, không ngẫu nhiên theo lần chạy. */
+function hashText(s: string): number {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return h >>> 0;
+}
+
+/**
+ * Trắc nghiệm 4 phương án. Người soạn có thể ghi đáp án đúng ở bất kì vị trí nào;
+ * hàm này đổi chỗ phương án đúng sang vị trí A/B/C/D theo mã băm của đề để đáp án
+ * phân bố đều (giao diện không tự trộn phương án). Lời giải không được nhắc tên phương án.
+ */
+export const mcq = (level: Level, stem: string, options: [string, string, string, string], correct: 'A' | 'B' | 'C' | 'D', solution: string, extra: Partial<Common> = {}): MapExercise => {
+  const from = 'ABCD'.indexOf(correct);
+  const to = hashText(stem) % 4;
+  const opts = [...options] as [string, string, string, string];
+  [opts[from], opts[to]] = [opts[to], opts[from]];
+  return {
+    type: 'mcq',
+    level,
+    stem,
+    options: opts,
+    correct: 'ABCD'[to] as 'A' | 'B' | 'C' | 'D',
+    solution,
+    ...extra,
+  };
+};
 
 export const tf = (level: Level, stem: string, statements: [string, boolean][], solution: string): MapExercise => ({
   type: 'true_false',
