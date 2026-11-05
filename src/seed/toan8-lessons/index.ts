@@ -7,5 +7,8 @@ import { CHUONG_4 } from './chuong-4';
 import { CHUONG_5 } from './chuong-5';
 import { CHUONG_6 } from './chuong-6';
 import { CHUONG_7 } from './chuong-7';
+import { CHUONG_8 } from './chuong-8';
+import { CHUONG_9 } from './chuong-9';
+import { CHUONG_10 } from './chuong-10';
 
-export const TOAN8_LESSONS: LessonContent[] = [...CHUONG_1, ...CHUONG_2, ...CHUONG_3, ...CHUONG_4, ...CHUONG_5, ...CHUONG_6, ...CHUONG_7];
+export const TOAN8_LESSONS: LessonContent[] = [...CHUONG_1, ...CHUONG_2, ...CHUONG_3, ...CHUONG_4, ...CHUONG_5, ...CHUONG_6, ...CHUONG_7, ...CHUONG_8, ...CHUONG_9, ...CHUONG_10];

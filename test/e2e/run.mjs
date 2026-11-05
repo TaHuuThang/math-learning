@@ -436,7 +436,7 @@ try {
     assert.match(await flash(teacher), /Đã thêm mục nội dung/);
     await shot(teacher, '31-soan-bai-hoc');
     await student.goto(`${BASE}/hoc/toan-8/bai/bai-11-hinh-thang-can`);
-    assert.ok(await student.locator('article[id^="kt-"]', { hasText: 'Hình thang cân' }).count(), 'học sinh thấy nội dung mới');
+    assert.equal((await student.locator('article[id^="kt-"] h3').last().textContent()).trim(), 'Hình thang cân', 'học sinh thấy mục kiến thức mới ở cuối phần lí thuyết');
   });
 
   await step('Giáo viên soạn công thức, ví dụ minh họa, ảnh minh họa và ẩn/hiện – không cần sửa mã', async () => {
@@ -595,7 +595,7 @@ try {
     // Bài → Dạng toán
     await Promise.all([student.waitForNavigation(), student.click('section[aria-labelledby=ds-bai] a:has-text("Bài 28.")')]);
     assert.match(student.url(), /bai-28-ham-so-bac-nhat/);
-    await Promise.all([student.waitForNavigation(), student.locator('a:has-text("Vẽ đồ thị hàm số bậc nhất")').first().click()]);
+    await Promise.all([student.waitForNavigation(), student.locator('a[href*="/dang/"]:has-text("Vẽ đồ thị hàm số bậc nhất")').first().click()]);
     assert.match(student.url(), /\/dang\//);
     for (const h of ['Kiến thức sử dụng', 'Dấu hiệu nhận biết', 'Phương pháp giải', 'Lỗi sai thường gặp', /^Ví dụ minh họa/, 'Bài tập luyện tập'])
       assert.ok(await student.getByRole('heading', { name: h }).count(), `trang dạng toán thiếu "${h}"`);

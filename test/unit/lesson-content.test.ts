@@ -91,10 +91,10 @@ test('ví dụ minh họa: mỗi dạng toán có ví dụ cho từng mức đ�
   }
 });
 
-test('nội dung bài học: tiến độ phủ toàn chương trình', () => {
+test('nội dung bài học: phủ toàn bộ 39 bài của Toán 8', () => {
   const done = new Set(TOAN8_LESSONS.map((c) => c.slug));
   const missing = [...mapLessons.keys()].filter((s) => !done.has(s));
   const examples = TOAN8_LESSONS.reduce((n, c) => n + Object.values(c.examples).reduce((a, l) => a + l.length, 0), 0);
   console.log(`  Nội dung giai đoạn 3: ${done.size}/${mapLessons.size} bài, ${examples} ví dụ minh họa.${missing.length ? ` Chưa có: ${missing.join(', ')}` : ''}`);
-  assert.ok(done.size > 0);
+  assert.deepEqual(missing, [], 'mọi bài học (không kể luyện tập chung, ôn tập) đều có nội dung giai đoạn 3');
 });

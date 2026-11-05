@@ -2463,6 +2463,20 @@ html.present .worked-example {
   border-color: var(--color-tim-700);
   color: #fff;
 }
+.formula-card, .worked-example, .lesson-main {
+  min-width: 0;
+}
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding-bottom: 2px;
+}
+@media (max-width: 1023px) {
+  .lesson-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 @property --tw-space-y-reverse {
   syntax: "*";
   inherits: false;
