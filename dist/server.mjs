@@ -37555,8 +37555,1275 @@ donvi: triệu đồng
 };
 var CHUONG_52 = [BAI_18, BAI_19, BAI_20];
 
+// src/seed/toan8-lessons/chuong-6.ts
+var BAI_21 = {
+  slug: "bai-21-phan-thuc-dai-so",
+  applications: r4`- Biểu thị thời gian, năng suất, giá trung bình: thời gian đi quãng đường \(s\) với vận tốc \(v\) là \(\dfrac{s}{v}\).
+- Biểu thị tỉ lệ, mật độ: số học sinh trên một máy tính, lượng nước trên một người.
+- Chuẩn bị cho giải phương trình, bài toán chuyển động, năng suất ở Chương VII.`,
+  theory: [
+    th(
+      "definition",
+      "Ph\xE2n th\u1EE9c \u0111\u1EA1i s\u1ED1",
+      r4`**Phân thức đại số** (gọi tắt là phân thức) là biểu thức có dạng \(\dfrac{A}{B}\), trong đó \(A\), \(B\) là những đa thức và \(B\) khác đa thức 0. \(A\) gọi là **tử thức** (tử), \(B\) gọi là **mẫu thức** (mẫu).`,
+      void 0,
+      r4`\(\dfrac{x^2 - 1}{2x + 3}\); \(\dfrac{5}{x - y}\); \(\dfrac{3x}{7}\) là các phân thức.`
+    ),
+    th("special", "Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", r4`- Mỗi đa thức \(A\) cũng là một phân thức với mẫu bằng 1: \(A = \dfrac{A}{1}\).
+- Mỗi số thực cũng là một phân thức; số 0 là phân thức \(\dfrac01\).`),
+    th(
+      "condition",
+      "\u0110i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh c\u1EE7a ph\xE2n th\u1EE9c",
+      r4`Điều kiện xác định của phân thức \(\dfrac{A}{B}\) là điều kiện của biến để mẫu \(B\) khác 0.`,
+      r4`\dfrac{A}{B}\ \text{xác định} \iff B \ne 0`,
+      r4`\(\dfrac{x + 1}{x - 5}\) xác định khi \(x \ne 5\).`
+    ),
+    th("definition", "Gi\xE1 tr\u1ECB c\u1EE7a ph\xE2n th\u1EE9c", r4`Giá trị của phân thức tại giá trị cho trước của biến (thỏa mãn điều kiện xác định) là số nhận được khi thay giá trị đó vào phân thức rồi tính.`),
+    th(
+      "definition",
+      "Hai ph\xE2n th\u1EE9c b\u1EB1ng nhau",
+      r4`Hai phân thức \(\dfrac{A}{B}\) và \(\dfrac{C}{D}\) gọi là bằng nhau nếu \(A\cdot D = B\cdot C\).`,
+      r4`\dfrac{A}{B} = \dfrac{C}{D} \iff A\cdot D = B\cdot C`,
+      r4`\(\dfrac{x}{3} = \dfrac{x^2}{3x}\) vì \(x\cdot3x = 3\cdot x^2\).`
+    ),
+    th("note", "L\u01B0u \xFD", r4`Chỉ tính giá trị của phân thức tại những giá trị của biến thỏa mãn điều kiện xác định; với giá trị làm mẫu bằng 0, phân thức không có giá trị.`)
+  ],
+  formulas: [
+    {
+      group: "Ph\xE2n th\u1EE9c",
+      items: [
+        fc("\u0110i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh", r4`\dfrac{A}{B}\ \text{xác định} \iff B \ne 0`, r4`- \(A\): tử thức; \(B\): mẫu thức`, r4`\(\dfrac{1}{x^2 - 9}\) xác định khi \(x \ne 3\) và \(x \ne -3\).`),
+        fc("Hai ph\xE2n th\u1EE9c b\u1EB1ng nhau", r4`\dfrac{A}{B} = \dfrac{C}{D} \iff A\cdot D = B\cdot C`, r4`- \(A, B, C, D\): đa thức; \(B, D\) khác 0`, r4`\(\dfrac{x - 2}{x^2 - 4} = \dfrac{1}{x + 2}\) vì \((x - 2)(x + 2) = (x^2 - 4)\cdot1\).`)
+      ]
+    }
+  ],
+  examples: {
+    "tu-thuc-mau-thuc": [
+      ex(
+        1,
+        r4`Chỉ ra tử thức và mẫu thức của mỗi phân thức: \(\dfrac{x^2 - 1}{2x + 3}\); \(\dfrac{5}{x - y}\); \(\dfrac{3x}{7}\); \(x^2 + 1\).`,
+        "T\u1EED th\u1EE9c n\u1EB1m tr\xEAn, m\u1EABu th\u1EE9c n\u1EB1m d\u01B0\u1EDBi d\u1EA5u g\u1EA1ch ph\xE2n s\u1ED1; \u0111a th\u1EE9c l\xE0 ph\xE2n th\u1EE9c c\xF3 m\u1EABu b\u1EB1ng 1.",
+        "\u0110\u1ECBnh ngh\u0129a ph\xE2n th\u1EE9c, t\u1EED th\u1EE9c, m\u1EABu th\u1EE9c.",
+        [r4`\(\dfrac{x^2 - 1}{2x + 3}\): tử \(x^2 - 1\), mẫu \(2x + 3\). \(\dfrac{5}{x - y}\): tử \(5\), mẫu \(x - y\).`, r4`\(\dfrac{3x}{7}\): tử \(3x\), mẫu \(7\). \(x^2 + 1 = \dfrac{x^2 + 1}{1}\): tử \(x^2 + 1\), mẫu \(1\).`],
+        "T\u1EED th\u1EE9c l\u1EA7n l\u01B0\u1EE3t: \\(x^2 - 1\\); \\(5\\); \\(3x\\); \\(x^2 + 1\\). M\u1EABu th\u1EE9c: \\(2x + 3\\); \\(x - y\\); \\(7\\); \\(1\\)."
+      )
+    ],
+    "hai-phan-thuc-bang-nhau": [
+      ex(
+        1,
+        r4`Hai phân thức \(\dfrac{x}{3}\) và \(\dfrac{x^2}{3x}\) có bằng nhau không?`,
+        "So s\xE1nh hai t\xEDch ch\xE9o \\(A\\cdot D\\) v\xE0 \\(B\\cdot C\\).",
+        "\u0110\u1ECBnh ngh\u0129a hai ph\xE2n th\u1EE9c b\u1EB1ng nhau.",
+        [r4`\(x\cdot3x = 3x^2\); \(3\cdot x^2 = 3x^2\).`, r4`Hai tích bằng nhau nên hai phân thức bằng nhau.`],
+        r4`\(\dfrac{x}{3} = \dfrac{x^2}{3x}\).`
+      ),
+      ex(
+        2,
+        r4`Tìm đa thức \(A\) thỏa mãn \(\dfrac{A}{x - 1} = \dfrac{x^2 + x}{x^2 - 1}\).`,
+        "D\xF9ng \u0111\u1ECBnh ngh\u0129a hai ph\xE2n th\u1EE9c b\u1EB1ng nhau \u0111\u1EC3 l\u1EADp \u0111\u1EB3ng th\u1EE9c ch\u1EE9a \\(A\\), r\u1ED3i ph\xE2n t\xEDch th\xE0nh nh\xE2n t\u1EED.",
+        "Hai ph\xE2n th\u1EE9c b\u1EB1ng nhau; ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED.",
+        [r4`\(A\cdot(x^2 - 1) = (x - 1)(x^2 + x)\).`, r4`Vế phải \(= (x - 1)\cdot x(x + 1) = x(x^2 - 1)\).`, r4`So sánh hai vế: \(A = x\).`],
+        r4`\(A = x\).`,
+        "Th\u1EED l\u1EA1i: \\(\\dfrac{x}{x - 1} = \\dfrac{x(x + 1)}{(x - 1)(x + 1)} = \\dfrac{x^2 + x}{x^2 - 1}\\)."
+      )
+    ],
+    "dieu-kien-xac-dinh-phan-thuc": [
+      ex(
+        1,
+        r4`Tìm điều kiện xác định của phân thức \(\dfrac{3}{x - 5}\).`,
+        "Cho m\u1EABu kh\xE1c 0.",
+        "\u0110i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh c\u1EE7a ph\xE2n th\u1EE9c.",
+        [r4`Phân thức xác định khi \(x - 5 \ne 0\).`, r4`Tức là \(x \ne 5\).`],
+        r4`\(x \ne 5\).`
+      ),
+      ex(
+        2,
+        r4`Tìm điều kiện xác định của các phân thức \(\dfrac{x + 1}{x^2 - 9}\) và \(\dfrac{2x}{x^2 + 1}\).`,
+        "Ph\xE2n t\xEDch m\u1EABu th\xE0nh nh\xE2n t\u1EED \u0111\u1EC3 th\u1EA5y c\xE1c gi\xE1 tr\u1ECB l\xE0m m\u1EABu b\u1EB1ng 0.",
+        "\u0110i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh; hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+        [r4`\(x^2 - 9 = (x - 3)(x + 3) \ne 0\) khi \(x \ne 3\) và \(x \ne -3\).`, r4`\(x^2 + 1 \ge 1 > 0\) với mọi \(x\) nên \(\dfrac{2x}{x^2 + 1}\) xác định với mọi \(x\).`],
+        r4`\(\dfrac{x + 1}{x^2 - 9}\): \(x \ne \pm3\); \(\dfrac{2x}{x^2 + 1}\): xác định với mọi \(x\).`
+      ),
+      ex(
+        3,
+        r4`Tìm điều kiện xác định của \(\dfrac{x + 2}{x^2 - 3x}\) và \(\dfrac{5}{x^2 + 4x + 4}\).`,
+        "Ph\xE2n t\xEDch m\u1EABu th\xE0nh nh\xE2n t\u1EED: m\u1ED9t t\xEDch kh\xE1c 0 khi m\u1ECDi th\u1EEBa s\u1ED1 kh\xE1c 0.",
+        "\u0110\u1EB7t nh\xE2n t\u1EED chung; h\u1EB1ng \u0111\u1EB3ng th\u1EE9c; \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh.",
+        [r4`\(x^2 - 3x = x(x - 3) \ne 0\) khi \(x \ne 0\) và \(x \ne 3\).`, r4`\(x^2 + 4x + 4 = (x + 2)^2 \ne 0\) khi \(x \ne -2\).`],
+        r4`\(\dfrac{x + 2}{x^2 - 3x}\): \(x \ne 0\), \(x \ne 3\); \(\dfrac{5}{x^2 + 4x + 4}\): \(x \ne -2\).`,
+        "Kh\xF4ng \u0111\u01B0\u1EE3c r\xFAt g\u1ECDn r\u1ED3i m\u1EDBi t\xECm \u0111i\u1EC1u ki\u1EC7n \u2013 ph\u1EA3i t\xECm \u0111i\u1EC1u ki\u1EC7n t\u1EEB m\u1EABu ban \u0111\u1EA7u."
+      )
+    ],
+    "gia-tri-phan-thuc": [
+      ex(
+        2,
+        r4`Tính giá trị của phân thức \(\dfrac{x^2 - 1}{x + 2}\) tại \(x = 3\) và tại \(x = -2\).`,
+        "Ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh \\(x \\ne -2\\) tr\u01B0\u1EDBc khi thay s\u1ED1.",
+        "\u0110i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh; gi\xE1 tr\u1ECB c\u1EE7a ph\xE2n th\u1EE9c.",
+        [r4`Điều kiện xác định: \(x \ne -2\).`, r4`Tại \(x = 3\): \(\dfrac{9 - 1}{3 + 2} = \dfrac{8}{5}\).`, r4`\(x = -2\) không thỏa mãn điều kiện xác định nên phân thức không có giá trị tại \(x = -2\).`],
+        r4`Tại \(x = 3\) giá trị là \(\dfrac85\); tại \(x = -2\) phân thức không xác định.`
+      ),
+      ex(
+        3,
+        r4`Cho \(P = \dfrac{x^2 - 4}{x^2 + 2x}\). a) Tìm điều kiện xác định. b) Tính \(P\) tại \(x = 1\). c) Tìm \(x\) để \(P = 0\).`,
+        "Ph\xE2n th\u1EE9c b\u1EB1ng 0 khi t\u1EED b\u1EB1ng 0 v\xE0 m\u1EABu kh\xE1c 0.",
+        "\u0110i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh; gi\xE1 tr\u1ECB c\u1EE7a ph\xE2n th\u1EE9c; hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+        [r4`a) \(x^2 + 2x = x(x + 2) \ne 0\) khi \(x \ne 0\), \(x \ne -2\).`, r4`b) \(P(1) = \dfrac{1 - 4}{1 + 2} = -1\).`, r4`c) \(P = 0\) khi \(x^2 - 4 = 0\), tức \(x = 2\) hoặc \(x = -2\); đối chiếu điều kiện, loại \(x = -2\).`],
+        r4`a) \(x \ne 0\), \(x \ne -2\); b) \(P = -1\); c) \(x = 2\).`,
+        "Lu\xF4n \u0111\u1ED1i chi\u1EBFu nghi\u1EC7m t\xECm \u0111\u01B0\u1EE3c v\u1EDBi \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh."
+      )
+    ],
+    "bai-toan-thuc-te-phan-thuc": [
+      ex(
+        3,
+        r4`Một ô tô đi quãng đường 120 km với vận tốc \(x\) (km/h). Lúc về, ô tô đi với vận tốc lớn hơn lúc đi 10 km/h.
+a) Viết phân thức biểu thị thời gian đi và thời gian về.
+b) Tính thời gian đi và về khi \(x = 50\).`,
+        "Th\u1EDDi gian = qu\xE3ng \u0111\u01B0\u1EDDng : v\u1EADn t\u1ED1c; v\u1EADn t\u1ED1c l\xFAc v\u1EC1 l\xE0 \\(x + 10\\).",
+        "Ph\xE2n th\u1EE9c bi\u1EC3u th\u1ECB \u0111\u1EA1i l\u01B0\u1EE3ng th\u1EF1c t\u1EBF; gi\xE1 tr\u1ECB c\u1EE7a ph\xE2n th\u1EE9c.",
+        [r4`a) Thời gian đi: \(\dfrac{120}{x}\) (giờ); thời gian về: \(\dfrac{120}{x + 10}\) (giờ), với \(x > 0\).`, r4`b) Khi \(x = 50\): thời gian đi \(\dfrac{120}{50} = 2{,}4\) giờ; thời gian về \(\dfrac{120}{60} = 2\) giờ.`],
+        r4`Thời gian đi \(\dfrac{120}{x}\) giờ, về \(\dfrac{120}{x + 10}\) giờ; với \(x = 50\): 2,4 giờ và 2 giờ.`,
+        "Ghi \u0111i\u1EC1u ki\u1EC7n th\u1EF1c t\u1EBF c\u1EE7a bi\u1EBFn (v\u1EADn t\u1ED1c d\u01B0\u01A1ng) c\xF9ng v\u1EDBi \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh."
+      )
+    ]
+  },
+  notes: {
+    "tu-thuc-mau-thuc": "\u0110a th\u1EE9c l\xE0 ph\xE2n th\u1EE9c c\xF3 m\u1EABu b\u1EB1ng 1; s\u1ED1 c\u0169ng l\xE0 ph\xE2n th\u1EE9c.",
+    "hai-phan-thuc-bang-nhau": "D\xF9ng t\xEDch ch\xE9o \\(A\\cdot D = B\\cdot C\\); khi t\xECm \u0111a th\u1EE9c ch\u01B0a bi\u1EBFt, ph\xE2n t\xEDch th\xE0nh nh\xE2n t\u1EED \u0111\u1EC3 so s\xE1nh.",
+    "dieu-kien-xac-dinh-phan-thuc": "Ph\xE2n t\xEDch m\u1EABu th\xE0nh nh\xE2n t\u1EED v\xE0 cho t\u1EEBng th\u1EEBa s\u1ED1 kh\xE1c 0; t\xECm \u0111i\u1EC1u ki\u1EC7n tr\u01B0\u1EDBc khi r\xFAt g\u1ECDn.",
+    "gia-tri-phan-thuc": "Ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh tr\u01B0\u1EDBc khi thay s\u1ED1; ph\xE2n th\u1EE9c b\u1EB1ng 0 khi t\u1EED b\u1EB1ng 0 v\xE0 m\u1EABu kh\xE1c 0.",
+    "bai-toan-thuc-te-phan-thuc": "X\xE1c \u0111\u1ECBnh c\xF4ng th\u1EE9c li\xEAn h\u1EC7 c\xE1c \u0111\u1EA1i l\u01B0\u1EE3ng (qu\xE3ng \u0111\u01B0\u1EDDng \u2013 v\u1EADn t\u1ED1c \u2013 th\u1EDDi gian, \u2026), ghi \u0111i\u1EC1u ki\u1EC7n th\u1EF1c t\u1EBF c\u1EE7a bi\u1EBFn."
+  }
+};
+var BAI_22 = {
+  slug: "bai-22-tinh-chat-co-ban-cua-phan-thuc-dai-so",
+  applications: r4`- Rút gọn biểu thức để tính giá trị nhanh và chính xác.
+- Quy đồng mẫu thức để cộng, trừ các phân thức (Bài 23) và giải phương trình chứa ẩn ở mẫu.
+- Tìm giá trị nguyên của biến để biểu thức nhận giá trị nguyên.`,
+  theory: [
+    th(
+      "property",
+      "T\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n c\u1EE7a ph\xE2n th\u1EE9c",
+      r4`- Nếu nhân cả tử và mẫu của một phân thức với cùng một đa thức khác đa thức 0 thì được một phân thức bằng phân thức đã cho.
+- Nếu chia cả tử và mẫu của một phân thức cho một nhân tử chung của chúng thì được một phân thức bằng phân thức đã cho.`,
+      r4`\dfrac{A}{B} = \dfrac{A\cdot M}{B\cdot M}\ (M \ne 0);\quad \dfrac{A}{B} = \dfrac{A : N}{B : N}`
+    ),
+    th(
+      "rule",
+      "Quy t\u1EAFc \u0111\u1ED5i d\u1EA5u",
+      r4`Nếu đổi dấu cả tử và mẫu của một phân thức thì được một phân thức bằng phân thức đã cho.`,
+      r4`\dfrac{A}{B} = \dfrac{-A}{-B}`,
+      r4`\(\dfrac{2 - x}{3 - x} = \dfrac{x - 2}{x - 3}\).`
+    ),
+    th(
+      "rule",
+      "R\xFAt g\u1ECDn ph\xE2n th\u1EE9c",
+      r4`- Phân tích tử và mẫu thành nhân tử (nếu cần) để tìm nhân tử chung.
+- Chia cả tử và mẫu cho nhân tử chung.`,
+      void 0,
+      r4`\(\dfrac{3x - 6}{x^2 - 4} = \dfrac{3(x - 2)}{(x - 2)(x + 2)} = \dfrac{3}{x + 2}\).`
+    ),
+    th(
+      "rule",
+      "Quy \u0111\u1ED3ng m\u1EABu th\u1EE9c nhi\u1EC1u ph\xE2n th\u1EE9c",
+      r4`- Phân tích các mẫu thành nhân tử rồi tìm **mẫu thức chung** (MTC): tích của các nhân tử, mỗi nhân tử lấy với số mũ lớn nhất.
+- Tìm **nhân tử phụ** của mỗi mẫu (MTC chia cho mẫu đó).
+- Nhân tử và mẫu của mỗi phân thức với nhân tử phụ tương ứng.`,
+      void 0,
+      r4`\(\dfrac{1}{2x}\), \(\dfrac{3}{x^2}\) có MTC \(2x^2\): \(\dfrac{x}{2x^2}\), \(\dfrac{6}{2x^2}\).`
+    ),
+    th("note", "L\u01B0u \xFD", r4`- Chỉ rút gọn **nhân tử** chung, không rút gọn **hạng tử**: \(\dfrac{x + 2}{x + 3} \ne \dfrac23\).
+- Giá trị của phân thức sau khi rút gọn chỉ dùng được với các giá trị của biến thỏa mãn điều kiện xác định của phân thức ban đầu.`)
+  ],
+  formulas: [
+    {
+      group: "T\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n",
+      items: [
+        fc("Nh\xE2n t\u1EED v\xE0 m\u1EABu", r4`\dfrac{A}{B} = \dfrac{A\cdot M}{B\cdot M}`, r4`- \(M\): đa thức khác đa thức 0`, r4`\(\dfrac{x}{x - 1} = \dfrac{x(x + 1)}{x^2 - 1}\).`),
+        fc("Chia t\u1EED v\xE0 m\u1EABu cho nh\xE2n t\u1EED chung", r4`\dfrac{A}{B} = \dfrac{A : N}{B : N}`, r4`- \(N\): nhân tử chung của \(A\) và \(B\)`, r4`\(\dfrac{6x^2y}{9xy^3} = \dfrac{2x}{3y^2}\).`),
+        fc("Quy t\u1EAFc \u0111\u1ED5i d\u1EA5u", r4`\dfrac{A}{B} = \dfrac{-A}{-B}`, r4`- \(A, B\): đa thức, \(B \ne 0\)`, r4`\(\dfrac{-x}{1 - x} = \dfrac{x}{x - 1}\).`)
+      ]
+    },
+    {
+      group: "Quy \u0111\u1ED3ng m\u1EABu th\u1EE9c",
+      items: [
+        fc("Nh\xE2n t\u1EED ph\u1EE5", r4`\text{nhân tử phụ} = \text{MTC} : \text{mẫu}`, r4`- MTC: mẫu thức chung`, r4`MTC \(2(x - 2)(x + 2)\), mẫu \(2x + 4\): nhân tử phụ \(x - 2\).`)
+      ]
+    }
+  ],
+  examples: {
+    "van-dung-tinh-chat-co-ban": [
+      ex(
+        1,
+        r4`Điền đa thức thích hợp vào chỗ trống: \(\dfrac{x}{x - 1} = \dfrac{\ldots}{x^2 - 1}\).`,
+        "M\u1EABu m\u1EDBi \\(x^2 - 1 = (x - 1)(x + 1)\\): m\u1EABu c\u0169 \u0111\xE3 \u0111\u01B0\u1EE3c nh\xE2n v\u1EDBi \\(x + 1\\).",
+        "T\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n c\u1EE7a ph\xE2n th\u1EE9c.",
+        [r4`\(x^2 - 1 = (x - 1)(x + 1)\) nên mẫu được nhân với \(x + 1\).`, r4`Nhân tử với \(x + 1\): \(x(x + 1) = x^2 + x\).`],
+        r4`Điền \(x^2 + x\).`
+      ),
+      ex(
+        2,
+        r4`a) Dùng quy tắc đổi dấu, viết \(\dfrac{2 - x}{3 - x}\) và \(\dfrac{-x}{1 - x}\) thành phân thức có mẫu với hệ số của \(x\) dương.
+b) Chứng tỏ \(\dfrac{x^2 + 2x}{x^2 - 4} = \dfrac{x}{x - 2}\).`,
+        "a) \u0110\u1ED5i d\u1EA5u c\u1EA3 t\u1EED v\xE0 m\u1EABu. b) Chia c\u1EA3 t\u1EED v\xE0 m\u1EABu cho nh\xE2n t\u1EED chung \\(x + 2\\).",
+        "Quy t\u1EAFc \u0111\u1ED5i d\u1EA5u; t\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n c\u1EE7a ph\xE2n th\u1EE9c.",
+        [r4`a) \(\dfrac{2 - x}{3 - x} = \dfrac{x - 2}{x - 3}\); \(\dfrac{-x}{1 - x} = \dfrac{x}{x - 1}\).`, r4`b) \(\dfrac{x^2 + 2x}{x^2 - 4} = \dfrac{x(x + 2)}{(x - 2)(x + 2)}\).`, r4`Chia tử và mẫu cho \(x + 2\): được \(\dfrac{x}{x - 2}\).`],
+        r4`a) \(\dfrac{x - 2}{x - 3}\); \(\dfrac{x}{x - 1}\). b) Đẳng thức đúng (với \(x \ne \pm2\)).`
+      )
+    ],
+    "rut-gon-phan-thuc": [
+      ex(
+        2,
+        r4`Rút gọn: a) \(\dfrac{6x^2y}{9xy^3}\); b) \(\dfrac{3x - 6}{x^2 - 4}\).`,
+        "a) Chia t\u1EED v\xE0 m\u1EABu cho \u01AFCLN c\u1EE7a h\u1EC7 s\u1ED1 v\xE0 l\u0169y th\u1EEBa chung. b) Ph\xE2n t\xEDch t\u1EED, m\u1EABu th\xE0nh nh\xE2n t\u1EED.",
+        "R\xFAt g\u1ECDn ph\xE2n th\u1EE9c; \u0111\u1EB7t nh\xE2n t\u1EED chung; hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+        [r4`a) Nhân tử chung \(3xy\): \(\dfrac{6x^2y}{9xy^3} = \dfrac{2x}{3y^2}\).`, r4`b) \(\dfrac{3(x - 2)}{(x - 2)(x + 2)} = \dfrac{3}{x + 2}\).`],
+        r4`a) \(\dfrac{2x}{3y^2}\); b) \(\dfrac{3}{x + 2}\).`
+      ),
+      ex(
+        3,
+        r4`Rút gọn phân thức \(\dfrac{x^2 - 2x + 1}{x^3 - 1}\).`,
+        "T\u1EED l\xE0 b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u, m\u1EABu l\xE0 hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng: c\xF9ng c\xF3 nh\xE2n t\u1EED \\(x - 1\\).",
+        "H\u1EB1ng \u0111\u1EB3ng th\u1EE9c; r\xFAt g\u1ECDn ph\xE2n th\u1EE9c.",
+        [r4`\(x^2 - 2x + 1 = (x - 1)^2\); \(x^3 - 1 = (x - 1)(x^2 + x + 1)\).`, r4`Chia tử và mẫu cho \(x - 1\): \(\dfrac{x - 1}{x^2 + x + 1}\).`],
+        r4`\(\dfrac{x - 1}{x^2 + x + 1}\).`
+      )
+    ],
+    "quy-dong-mau-thuc": [
+      ex(
+        2,
+        r4`Quy đồng mẫu thức hai phân thức \(\dfrac{1}{2x}\) và \(\dfrac{3}{x^2}\).`,
+        "MTC l\u1EA5y h\u1EC7 s\u1ED1 2 v\xE0 l\u0169y th\u1EEBa cao nh\u1EA5t \\(x^2\\).",
+        "Quy \u0111\u1ED3ng m\u1EABu th\u1EE9c.",
+        [r4`MTC \(= 2x^2\).`, r4`Nhân tử phụ: \(2x^2 : 2x = x\); \(2x^2 : x^2 = 2\).`, r4`\(\dfrac{1}{2x} = \dfrac{x}{2x^2}\); \(\dfrac{3}{x^2} = \dfrac{6}{2x^2}\).`],
+        r4`\(\dfrac{x}{2x^2}\) và \(\dfrac{6}{2x^2}\).`
+      ),
+      ex(
+        3,
+        r4`Quy đồng mẫu thức hai phân thức \(\dfrac{1}{x^2 - 4}\) và \(\dfrac{x}{2x + 4}\).`,
+        "Ph\xE2n t\xEDch c\xE1c m\u1EABu th\xE0nh nh\xE2n t\u1EED tr\u01B0\u1EDBc khi t\xECm MTC.",
+        "Ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED; quy \u0111\u1ED3ng m\u1EABu th\u1EE9c.",
+        [r4`\(x^2 - 4 = (x - 2)(x + 2)\); \(2x + 4 = 2(x + 2)\). MTC \(= 2(x - 2)(x + 2)\).`, r4`Nhân tử phụ lần lượt là \(2\) và \(x - 2\).`, r4`\(\dfrac{1}{x^2 - 4} = \dfrac{2}{2(x - 2)(x + 2)}\); \(\dfrac{x}{2x + 4} = \dfrac{x(x - 2)}{2(x - 2)(x + 2)}\).`],
+        r4`\(\dfrac{2}{2(x - 2)(x + 2)}\) và \(\dfrac{x(x - 2)}{2(x - 2)(x + 2)}\).`,
+        "\u0110\u1EC3 MTC \u1EDF d\u1EA1ng t\xEDch gi\xFAp t\xECm nh\xE2n t\u1EED ph\u1EE5 v\xE0 r\xFAt g\u1ECDn v\u1EC1 sau d\u1EC5 h\u01A1n."
+      )
+    ],
+    "rut-gon-tinh-gia-tri-phan-thuc-tong-hop": [
+      ex(
+        3,
+        r4`Cho \(A = \dfrac{x^2 - 9}{x^2 + 3x}\). Rút gọn \(A\) rồi tính giá trị của \(A\) tại \(x = -1\).`,
+        "T\xECm \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh, r\xFAt g\u1ECDn, ki\u1EC3m tra \\(x = -1\\) th\u1ECFa m\xE3n \u0111i\u1EC1u ki\u1EC7n r\u1ED3i thay s\u1ED1.",
+        "\u0110i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh; r\xFAt g\u1ECDn ph\xE2n th\u1EE9c.",
+        [r4`Điều kiện: \(x(x + 3) \ne 0\), tức \(x \ne 0\), \(x \ne -3\).`, r4`\(A = \dfrac{(x - 3)(x + 3)}{x(x + 3)} = \dfrac{x - 3}{x}\).`, r4`\(x = -1\) thỏa mãn điều kiện: \(A = \dfrac{-1 - 3}{-1} = 4\).`],
+        r4`\(A = \dfrac{x - 3}{x}\); tại \(x = -1\), \(A = 4\).`
+      ),
+      ex(
+        4,
+        r4`Cho \(B = \dfrac{2x + 6}{x^2 + 3x}\). Tìm các giá trị nguyên của \(x\) để \(B\) nhận giá trị nguyên.`,
+        "R\xFAt g\u1ECDn \\(B\\) v\u1EC1 d\u1EA1ng \\(\\dfrac{k}{\\text{bi\u1EC3u th\u1EE9c}}\\); \\(B\\) nguy\xEAn khi m\u1EABu l\xE0 \u01B0\u1EDBc c\u1EE7a \\(k\\).",
+        "R\xFAt g\u1ECDn ph\xE2n th\u1EE9c; \u01B0\u1EDBc c\u1EE7a s\u1ED1 nguy\xEAn; \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh.",
+        [r4`Điều kiện: \(x \ne 0\), \(x \ne -3\). \(B = \dfrac{2(x + 3)}{x(x + 3)} = \dfrac{2}{x}\).`, r4`\(B\) nguyên khi \(x\) là ước của 2: \(x \in \{-2; -1; 1; 2\}\).`, r4`Các giá trị này đều thỏa mãn điều kiện xác định.`],
+        r4`\(x \in \{-2; -1; 1; 2\}\).`,
+        "\u0110\u1EEBng qu\xEAn lo\u1EA1i c\xE1c gi\xE1 tr\u1ECB vi ph\u1EA1m \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh (\u1EDF \u0111\xE2y \\(x = -3\\) kh\xF4ng xu\u1EA5t hi\u1EC7n nh\u01B0ng ph\u1EA3i ki\u1EC3m tra)."
+      )
+    ]
+  },
+  notes: {
+    "van-dung-tinh-chat-co-ban": "So s\xE1nh m\u1EABu (ho\u1EB7c t\u1EED) c\u0169 v\xE0 m\u1EDBi \u0111\u1EC3 bi\u1EBFt \u0111\xE3 nh\xE2n, chia v\u1EDBi \u0111a th\u1EE9c n\xE0o; \u0111\u1ED5i d\u1EA5u th\xEC \u0111\u1ED5i c\u1EA3 t\u1EED l\u1EABn m\u1EABu.",
+    "rut-gon-phan-thuc": "Ph\xE2n t\xEDch t\u1EED v\xE0 m\u1EABu th\xE0nh nh\xE2n t\u1EED r\u1ED3i m\u1EDBi chia; ch\u1EC9 chia nh\xE2n t\u1EED chung, kh\xF4ng g\u1EA1ch h\u1EA1ng t\u1EED.",
+    "quy-dong-mau-thuc": "Ph\xE2n t\xEDch m\u1EABu th\xE0nh nh\xE2n t\u1EED, MTC l\u1EA5y m\u1ED7i nh\xE2n t\u1EED v\u1EDBi s\u1ED1 m\u0169 l\u1EDBn nh\u1EA5t; \u0111\u1EC3 \xFD nh\xE2n t\u1EED \u0111\u1ED1i nhau nh\u01B0 \\(x - 2\\) v\xE0 \\(2 - x\\).",
+    "rut-gon-tinh-gia-tri-phan-thuc-tong-hop": "T\xECm \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh tr\u01B0\u1EDBc, r\xFAt g\u1ECDn sau; m\u1ECDi gi\xE1 tr\u1ECB t\xECm \u0111\u01B0\u1EE3c ph\u1EA3i \u0111\u1ED1i chi\u1EBFu \u0111i\u1EC1u ki\u1EC7n."
+  }
+};
+var BAI_23 = {
+  slug: "bai-23-phep-cong-va-phep-tru-phan-thuc-dai-so",
+  applications: r4`- Tính tổng công việc hai vòi nước, hai người cùng làm trong một giờ: \(\dfrac1a + \dfrac1b\).
+- Tính tổng thời gian đi và về khi vận tốc khác nhau.
+- Rút gọn biểu thức trước khi giải phương trình, bài toán thực tế.`,
+  theory: [
+    th(
+      "rule",
+      "C\u1ED9ng hai ph\xE2n th\u1EE9c c\xF9ng m\u1EABu",
+      r4`Muốn cộng hai phân thức có cùng mẫu thức, ta cộng các tử thức với nhau và giữ nguyên mẫu thức.`,
+      r4`\dfrac{A}{M} + \dfrac{B}{M} = \dfrac{A + B}{M}`,
+      r4`\(\dfrac{2x + 1}{x + 3} + \dfrac{x - 4}{x + 3} = \dfrac{3x - 3}{x + 3}\).`
+    ),
+    th("rule", "C\u1ED9ng hai ph\xE2n th\u1EE9c kh\xE1c m\u1EABu", r4`Muốn cộng hai phân thức có mẫu khác nhau, ta quy đồng mẫu thức rồi cộng các phân thức có cùng mẫu vừa tìm được.`),
+    th("definition", "Ph\xE2n th\u1EE9c \u0111\u1ED1i", r4`Hai phân thức gọi là đối nhau nếu tổng của chúng bằng 0. Phân thức đối của \(\dfrac{A}{B}\) là \(-\dfrac{A}{B}\).`, r4`-\dfrac{A}{B} = \dfrac{-A}{B} = \dfrac{A}{-B}`),
+    th("rule", "Tr\u1EEB hai ph\xE2n th\u1EE9c", r4`Muốn trừ phân thức \(\dfrac{A}{B}\) cho phân thức \(\dfrac{C}{D}\), ta cộng \(\dfrac{A}{B}\) với phân thức đối của \(\dfrac{C}{D}\).`, r4`\dfrac{A}{B} - \dfrac{C}{D} = \dfrac{A}{B} + \left(-\dfrac{C}{D}\right)`),
+    th("property", "T\xEDnh ch\u1EA5t c\u1EE7a ph\xE9p c\u1ED9ng", r4`Phép cộng phân thức có tính chất giao hoán và kết hợp; có thể nhóm các phân thức cùng mẫu hoặc dễ quy đồng để tính nhanh.`),
+    th("note", "L\u01B0u \xFD", r4`- Dấu trừ trước một phân thức áp dụng cho **cả tử thức**: đặt tử trong ngoặc khi trừ.
+- Luôn rút gọn kết quả (nếu được).`)
+  ],
+  formulas: [
+    {
+      group: "C\u1ED9ng, tr\u1EEB ph\xE2n th\u1EE9c",
+      items: [
+        fc("C\u1ED9ng c\xF9ng m\u1EABu", r4`\dfrac{A}{M} + \dfrac{B}{M} = \dfrac{A + B}{M}`, r4`- \(M\): mẫu thức chung, khác 0`, r4`\(\dfrac{x}{x + 1} + \dfrac{1}{x + 1} = 1\).`),
+        fc("Tr\u1EEB c\xF9ng m\u1EABu", r4`\dfrac{A}{M} - \dfrac{B}{M} = \dfrac{A - B}{M}`, r4`- \(M\): mẫu thức chung, khác 0`, r4`\(\dfrac{3x}{x - 1} - \dfrac{3}{x - 1} = 3\).`),
+        fc("C\u1ED9ng kh\xE1c m\u1EABu", r4`\dfrac{A}{B} + \dfrac{C}{D} = \dfrac{AD + BC}{BD}`, r4`- \(B, D\): mẫu khác 0 (có thể dùng MTC nhỏ hơn \(BD\))`, r4`\(\dfrac{1}{x} + \dfrac{1}{x + 2} = \dfrac{2x + 2}{x(x + 2)}\).`),
+        fc("T\xE1ch ph\xE2n th\u1EE9c", r4`\dfrac{1}{k(k + 1)} = \dfrac{1}{k} - \dfrac{1}{k + 1}`, r4`- \(k\): biểu thức khác 0 và khác \(-1\)`, r4`\(\dfrac{1}{x(x + 1)} = \dfrac1x - \dfrac{1}{x + 1}\).`)
+      ]
+    }
+  ],
+  examples: {
+    "cong-hai-phan-thuc": [
+      ex(
+        1,
+        r4`Thực hiện phép cộng \(\dfrac{2x + 1}{x + 3} + \dfrac{x - 4}{x + 3}\).`,
+        "Hai ph\xE2n th\u1EE9c c\xF9ng m\u1EABu: c\u1ED9ng c\xE1c t\u1EED.",
+        "C\u1ED9ng hai ph\xE2n th\u1EE9c c\xF9ng m\u1EABu.",
+        [r4`\(\dfrac{(2x + 1) + (x - 4)}{x + 3} = \dfrac{3x - 3}{x + 3}\).`, r4`Tử \(3(x - 1)\) và mẫu \(x + 3\) không có nhân tử chung nên không rút gọn được.`],
+        r4`\(\dfrac{3x - 3}{x + 3}\).`
+      ),
+      ex(
+        2,
+        r4`Thực hiện phép cộng \(\dfrac{1}{x - 2} + \dfrac{3}{x + 2}\).`,
+        "Hai m\u1EABu kh\xE1c nhau: quy \u0111\u1ED3ng v\u1EDBi MTC \\((x - 2)(x + 2)\\).",
+        "Quy \u0111\u1ED3ng m\u1EABu th\u1EE9c; c\u1ED9ng ph\xE2n th\u1EE9c.",
+        [r4`MTC \(= (x - 2)(x + 2)\).`, r4`\(\dfrac{x + 2}{(x - 2)(x + 2)} + \dfrac{3(x - 2)}{(x - 2)(x + 2)} = \dfrac{4x - 4}{(x - 2)(x + 2)}\).`],
+        r4`\(\dfrac{4x - 4}{x^2 - 4}\).`
+      )
+    ],
+    "tru-hai-phan-thuc": [
+      ex(
+        1,
+        r4`Thực hiện phép trừ \(\dfrac{3x}{x - 1} - \dfrac{3}{x - 1}\).`,
+        "C\xF9ng m\u1EABu: tr\u1EEB c\xE1c t\u1EED r\u1ED3i r\xFAt g\u1ECDn.",
+        "Tr\u1EEB hai ph\xE2n th\u1EE9c c\xF9ng m\u1EABu; r\xFAt g\u1ECDn.",
+        [r4`\(\dfrac{3x - 3}{x - 1} = \dfrac{3(x - 1)}{x - 1}\).`, r4`Rút gọn: \(= 3\) (với \(x \ne 1\)).`],
+        r4`\(3\).`
+      ),
+      ex(
+        2,
+        r4`Thực hiện phép trừ \(\dfrac{x}{x - 3} - \dfrac{9}{x^2 - 3x}\).`,
+        "M\u1EABu th\u1EE9 hai \\(x^2 - 3x = x(x - 3)\\) ch\xEDnh l\xE0 MTC.",
+        "Quy \u0111\u1ED3ng; tr\u1EEB ph\xE2n th\u1EE9c; r\xFAt g\u1ECDn.",
+        [r4`MTC \(= x(x - 3)\).`, r4`\(\dfrac{x\cdot x}{x(x - 3)} - \dfrac{9}{x(x - 3)} = \dfrac{x^2 - 9}{x(x - 3)}\).`, r4`\(= \dfrac{(x - 3)(x + 3)}{x(x - 3)} = \dfrac{x + 3}{x}\).`],
+        r4`\(\dfrac{x + 3}{x}\).`
+      )
+    ],
+    "cong-tru-nhieu-phan-thuc": [
+      ex(
+        2,
+        r4`Tính \(\dfrac{1}{x} + \dfrac{2}{x + 1} - \dfrac{1}{x(x + 1)}\).`,
+        "MTC l\xE0 \\(x(x + 1)\\); quy \u0111\u1ED3ng ba ph\xE2n th\u1EE9c r\u1ED3i c\u1ED9ng, tr\u1EEB t\u1EED.",
+        "Quy \u0111\u1ED3ng m\u1EABu; c\u1ED9ng, tr\u1EEB ph\xE2n th\u1EE9c.",
+        [r4`MTC \(= x(x + 1)\).`, r4`Tử: \((x + 1) + 2x - 1 = 3x\).`, r4`Kết quả: \(\dfrac{3x}{x(x + 1)} = \dfrac{3}{x + 1}\).`],
+        r4`\(\dfrac{3}{x + 1}\).`
+      ),
+      ex(
+        3,
+        r4`Tính \(\dfrac{x}{x - 2} - \dfrac{2}{x + 2} - \dfrac{8}{x^2 - 4}\).`,
+        "MTC l\xE0 \\(x^2 - 4 = (x - 2)(x + 2)\\).",
+        "Quy \u0111\u1ED3ng m\u1EABu; tr\u1EEB ph\xE2n th\u1EE9c; r\xFAt g\u1ECDn.",
+        [r4`Tử sau khi quy đồng: \(x(x + 2) - 2(x - 2) - 8\).`, r4`\(= x^2 + 2x - 2x + 4 - 8 = x^2 - 4\).`, r4`Kết quả: \(\dfrac{x^2 - 4}{x^2 - 4} = 1\) (với \(x \ne \pm2\)).`],
+        r4`\(1\).`
+      ),
+      ex(
+        4,
+        r4`Tính nhanh \(\dfrac{1}{x(x + 1)} + \dfrac{1}{(x + 1)(x + 2)} + \dfrac{1}{(x + 2)(x + 3)}\).`,
+        "M\u1ED7i ph\xE2n th\u1EE9c c\xF3 d\u1EA1ng \\(\\dfrac{1}{k(k + 1)}\\): t\xE1ch th\xE0nh hi\u1EC7u \u0111\u1EC3 c\xE1c s\u1ED1 h\u1EA1ng tri\u1EC7t ti\xEAu d\u1EA7n.",
+        r4`\(\dfrac{1}{k(k + 1)} = \dfrac1k - \dfrac{1}{k + 1}\).`,
+        [r4`Tách: \(\left(\dfrac1x - \dfrac{1}{x + 1}\right) + \left(\dfrac{1}{x + 1} - \dfrac{1}{x + 2}\right) + \left(\dfrac{1}{x + 2} - \dfrac{1}{x + 3}\right)\).`, r4`Các số hạng ở giữa triệt tiêu: \(= \dfrac1x - \dfrac{1}{x + 3}\).`, r4`\(= \dfrac{x + 3 - x}{x(x + 3)} = \dfrac{3}{x(x + 3)}\).`],
+        r4`\(\dfrac{3}{x(x + 3)}\).`,
+        "Nh\u1EADn ra hai th\u1EEBa s\u1ED1 \u1EDF m\u1EABu h\u01A1n k\xE9m nhau 1 l\xE0 d\u1EA5u hi\u1EC7u d\xF9ng k\u0129 thu\u1EADt t\xE1ch ph\xE2n th\u1EE9c."
+      )
+    ],
+    "thuc-te-cong-tru-phan-thuc": [
+      ex(
+        3,
+        r4`Hai vòi nước cùng chảy vào một bể cạn. Nếu chảy riêng, vòi thứ nhất chảy đầy bể trong \(x\) giờ, vòi thứ hai trong \(x + 2\) giờ.
+a) Viết phân thức biểu thị phần bể cả hai vòi chảy được trong 1 giờ.
+b) Tính phần bể đó khi \(x = 4\).`,
+        "Trong 1 gi\u1EDD, v\xF2i ch\u1EA3y \u0111\u1EA7y b\u1EC3 trong \\(a\\) gi\u1EDD th\xEC ch\u1EA3y \u0111\u01B0\u1EE3c \\(\\dfrac1a\\) b\u1EC3.",
+        "Ph\xE2n th\u1EE9c bi\u1EC3u th\u1ECB n\u0103ng su\u1EA5t; c\u1ED9ng ph\xE2n th\u1EE9c.",
+        [r4`Trong 1 giờ: vòi thứ nhất chảy \(\dfrac1x\) bể, vòi thứ hai chảy \(\dfrac{1}{x + 2}\) bể.`, r4`a) Cả hai vòi: \(\dfrac1x + \dfrac{1}{x + 2} = \dfrac{2x + 2}{x(x + 2)}\) (bể).`, r4`b) Khi \(x = 4\): \(\dfrac{10}{24} = \dfrac{5}{12}\) (bể).`],
+        r4`a) \(\dfrac{2x + 2}{x(x + 2)}\) bể; b) \(\dfrac{5}{12}\) bể.`,
+        "B\xE0i to\xE1n l\xE0m chung: \u0111\u1ED5i \u201Cth\u1EDDi gian l\xE0m xong\u201D th\xE0nh \u201Cph\u1EA7n vi\u1EC7c l\xE0m \u0111\u01B0\u1EE3c trong m\u1ED9t \u0111\u01A1n v\u1ECB th\u1EDDi gian\u201D."
+      )
+    ]
+  },
+  notes: {
+    "cong-hai-phan-thuc": "C\xF9ng m\u1EABu th\xEC c\u1ED9ng t\u1EED; kh\xE1c m\u1EABu th\xEC quy \u0111\u1ED3ng tr\u01B0\u1EDBc; r\xFAt g\u1ECDn k\u1EBFt qu\u1EA3.",
+    "tru-hai-phan-thuc": "\u0110\u1EB7t t\u1EED c\u1EE7a ph\xE2n th\u1EE9c b\u1ECB tr\u1EEB trong ngo\u1EB7c \u0111\u1EC3 \u0111\u1ED5i d\u1EA5u \u0111\xFAng m\u1ECDi h\u1EA1ng t\u1EED.",
+    "cong-tru-nhieu-phan-thuc": "Ph\xE2n t\xEDch c\xE1c m\u1EABu, t\xECm MTC m\u1ED9t l\u1EA7n cho t\u1EA5t c\u1EA3; ch\xFA \xFD c\xE1c m\u1EABu \u0111\u1ED1i nhau v\xE0 k\u0129 thu\u1EADt t\xE1ch ph\xE2n th\u1EE9c.",
+    "thuc-te-cong-tru-phan-thuc": "\u0110\u1EB7t \u1EA9n, bi\u1EC3u di\u1EC5n c\xE1c \u0111\u1EA1i l\u01B0\u1EE3ng b\u1EB1ng ph\xE2n th\u1EE9c, r\u1ED3i c\u1ED9ng, tr\u1EEB; ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n th\u1EF1c t\u1EBF."
+  }
+};
+var BAI_24 = {
+  slug: "bai-24-phep-nhan-va-phep-chia-phan-thuc-dai-so",
+  applications: r4`- Tính chiều dài khi biết diện tích và chiều rộng là các phân thức; tính quãng đường khi biết vận tốc và thời gian.
+- Đổi đơn vị, tính tỉ lệ trong khoa học: mật độ, năng suất.
+- Rút gọn biểu thức phức tạp trước khi tính giá trị hoặc tìm giá trị nguyên.`,
+  theory: [
+    th(
+      "rule",
+      "Nh\xE2n hai ph\xE2n th\u1EE9c",
+      r4`Muốn nhân hai phân thức, ta nhân các tử thức với nhau, các mẫu thức với nhau.`,
+      r4`\dfrac{A}{B}\cdot\dfrac{C}{D} = \dfrac{A\cdot C}{B\cdot D}`,
+      r4`\(\dfrac{3x}{y^2}\cdot\dfrac{y}{6x^2} = \dfrac{3xy}{6x^2y^2} = \dfrac{1}{2xy}\).`
+    ),
+    th("property", "T\xEDnh ch\u1EA5t c\u1EE7a ph\xE9p nh\xE2n", r4`Phép nhân phân thức có tính chất giao hoán, kết hợp và phân phối đối với phép cộng.`, r4`\dfrac{A}{B}\left(\dfrac{C}{D} + \dfrac{E}{F}\right) = \dfrac{A}{B}\cdot\dfrac{C}{D} + \dfrac{A}{B}\cdot\dfrac{E}{F}`),
+    th("definition", "Ph\xE2n th\u1EE9c ngh\u1ECBch \u0111\u1EA3o", r4`Hai phân thức gọi là nghịch đảo của nhau nếu tích của chúng bằng 1. Phân thức nghịch đảo của \(\dfrac{A}{B}\) (\(A \ne 0\)) là \(\dfrac{B}{A}\).`),
+    th("rule", "Chia hai ph\xE2n th\u1EE9c", r4`Muốn chia phân thức \(\dfrac{A}{B}\) cho phân thức \(\dfrac{C}{D}\) khác 0, ta nhân \(\dfrac{A}{B}\) với phân thức nghịch đảo của \(\dfrac{C}{D}\).`, r4`\dfrac{A}{B} : \dfrac{C}{D} = \dfrac{A}{B}\cdot\dfrac{D}{C}\quad \left(\dfrac{C}{D} \ne 0\right)`),
+    th("rule", "Th\u1EE9 t\u1EF1 th\u1EF1c hi\u1EC7n ph\xE9p t\xEDnh", r4`Trong ngoặc trước; nhân, chia trước; cộng, trừ sau – giống như với các số.`),
+    th("note", "L\u01B0u \xFD", r4`Phân tích tử và mẫu thành nhân tử **trước khi nhân** để rút gọn ngay, tránh khai triển dài. Khi chia, cần thêm điều kiện phân thức chia khác 0.`)
+  ],
+  formulas: [
+    {
+      group: "Nh\xE2n, chia ph\xE2n th\u1EE9c",
+      items: [
+        fc("Nh\xE2n ph\xE2n th\u1EE9c", r4`\dfrac{A}{B}\cdot\dfrac{C}{D} = \dfrac{AC}{BD}`, r4`- \(B, D\): đa thức khác 0`, r4`\(\dfrac{x^2 - 1}{2x + 4}\cdot\dfrac{x + 2}{x - 1} = \dfrac{x + 1}{2}\).`),
+        fc("Ph\xE2n th\u1EE9c ngh\u1ECBch \u0111\u1EA3o", r4`\dfrac{A}{B}\cdot\dfrac{B}{A} = 1`, r4`- \(A, B\): đa thức khác 0`, r4`Nghịch đảo của \(\dfrac{x - 2}{x + 1}\) là \(\dfrac{x + 1}{x - 2}\).`),
+        fc("Chia ph\xE2n th\u1EE9c", r4`\dfrac{A}{B} : \dfrac{C}{D} = \dfrac{A}{B}\cdot\dfrac{D}{C}`, r4`- \(\dfrac{C}{D} \ne 0\)`, r4`\(\dfrac{4x}{5y} : \dfrac{2x}{15y^2} = 6y\).`)
+      ]
+    }
+  ],
+  examples: {
+    "nhan-phan-thuc": [
+      ex(
+        1,
+        r4`Tính \(\dfrac{3x}{y^2}\cdot\dfrac{y}{6x^2}\).`,
+        "Nh\xE2n t\u1EED v\u1EDBi t\u1EED, m\u1EABu v\u1EDBi m\u1EABu r\u1ED3i r\xFAt g\u1ECDn.",
+        "Quy t\u1EAFc nh\xE2n ph\xE2n th\u1EE9c; r\xFAt g\u1ECDn.",
+        [r4`\(\dfrac{3x\cdot y}{y^2\cdot6x^2} = \dfrac{3xy}{6x^2y^2}\).`, r4`Rút gọn cho \(3xy\): \(\dfrac{1}{2xy}\).`],
+        r4`\(\dfrac{1}{2xy}\).`
+      ),
+      ex(
+        2,
+        r4`Tính \(\dfrac{x^2 - 1}{2x + 4}\cdot\dfrac{x + 2}{x - 1}\).`,
+        "Ph\xE2n t\xEDch c\xE1c t\u1EED, m\u1EABu th\xE0nh nh\xE2n t\u1EED tr\u01B0\u1EDBc khi nh\xE2n.",
+        "Nh\xE2n ph\xE2n th\u1EE9c; hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng; r\xFAt g\u1ECDn.",
+        [r4`\(= \dfrac{(x - 1)(x + 1)}{2(x + 2)}\cdot\dfrac{x + 2}{x - 1}\).`, r4`Rút gọn \(x - 1\) và \(x + 2\): \(= \dfrac{x + 1}{2}\).`],
+        r4`\(\dfrac{x + 1}{2}\).`
+      )
+    ],
+    "chia-phan-thuc": [
+      ex(
+        1,
+        r4`Tính \(\dfrac{4x}{5y} : \dfrac{2x}{15y^2}\).`,
+        "Chuy\u1EC3n ph\xE9p chia th\xE0nh ph\xE9p nh\xE2n v\u1EDBi ngh\u1ECBch \u0111\u1EA3o.",
+        "Quy t\u1EAFc chia ph\xE2n th\u1EE9c.",
+        [r4`\(= \dfrac{4x}{5y}\cdot\dfrac{15y^2}{2x} = \dfrac{60xy^2}{10xy}\).`, r4`\(= 6y\).`],
+        r4`\(6y\).`
+      ),
+      ex(
+        2,
+        r4`Tính \(\dfrac{x^2 - 4}{x^2 + x} : \dfrac{x - 2}{x + 1}\).`,
+        "Nh\xE2n v\u1EDBi ngh\u1ECBch \u0111\u1EA3o, ph\xE2n t\xEDch th\xE0nh nh\xE2n t\u1EED v\xE0 r\xFAt g\u1ECDn.",
+        "Chia ph\xE2n th\u1EE9c; ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED.",
+        [r4`\(= \dfrac{(x - 2)(x + 2)}{x(x + 1)}\cdot\dfrac{x + 1}{x - 2}\).`, r4`\(= \dfrac{x + 2}{x}\).`],
+        r4`\(\dfrac{x + 2}{x}\).`
+      )
+    ],
+    "tim-thanh-phan-chua-biet-phan-thuc": [
+      ex(
+        2,
+        r4`Tìm phân thức \(M\), biết \(M\cdot\dfrac{x}{x + 1} = \dfrac{x^2}{x^2 - 1}\).`,
+        "\\(M\\) l\xE0 m\u1ED9t th\u1EEBa s\u1ED1: th\u1EEBa s\u1ED1 = t\xEDch : th\u1EEBa s\u1ED1 kia.",
+        "Chia ph\xE2n th\u1EE9c.",
+        [r4`\(M = \dfrac{x^2}{x^2 - 1} : \dfrac{x}{x + 1} = \dfrac{x^2}{(x - 1)(x + 1)}\cdot\dfrac{x + 1}{x}\).`, r4`\(M = \dfrac{x}{x - 1}\).`],
+        r4`\(M = \dfrac{x}{x - 1}\).`
+      ),
+      ex(
+        3,
+        r4`Tìm phân thức \(N\), biết \(N : \dfrac{x - 3}{x} = \dfrac{x^2 + 3x}{x^2 - 9}\).`,
+        "\\(N\\) l\xE0 s\u1ED1 b\u1ECB chia: s\u1ED1 b\u1ECB chia = th\u01B0\u01A1ng \xD7 s\u1ED1 chia.",
+        "Nh\xE2n ph\xE2n th\u1EE9c; ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED.",
+        [r4`\(N = \dfrac{x^2 + 3x}{x^2 - 9}\cdot\dfrac{x - 3}{x}\).`, r4`\(= \dfrac{x(x + 3)(x - 3)}{(x - 3)(x + 3)\,x} = 1\) (với \(x \ne 0\), \(x \ne \pm3\)).`],
+        r4`\(N = 1\).`,
+        "K\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 l\xE0 m\u1ED9t h\u1EB1ng s\u1ED1 \u2013 v\u1EABn ph\u1EA3i ghi \u0111i\u1EC1u ki\u1EC7n c\u1EE7a bi\u1EBFn."
+      )
+    ],
+    "tong-hop-cac-phep-tinh-phan-thuc": [
+      ex(
+        3,
+        r4`Rút gọn biểu thức \(\left(\dfrac{1}{x - 1} - \dfrac{1}{x + 1}\right) : \dfrac{2}{x^2 - 1}\).`,
+        "L\xE0m ph\xE9p tr\u1EEB trong ngo\u1EB7c tr\u01B0\u1EDBc, r\u1ED3i chia.",
+        "Th\u1EE9 t\u1EF1 th\u1EF1c hi\u1EC7n ph\xE9p t\xEDnh; tr\u1EEB v\xE0 chia ph\xE2n th\u1EE9c.",
+        [r4`Trong ngoặc: \(\dfrac{(x + 1) - (x - 1)}{(x - 1)(x + 1)} = \dfrac{2}{x^2 - 1}\).`, r4`Chia: \(\dfrac{2}{x^2 - 1} : \dfrac{2}{x^2 - 1} = 1\) (với \(x \ne \pm1\)).`],
+        r4`Biểu thức bằng 1.`
+      ),
+      ex(
+        4,
+        r4`Cho \(Q = \left(\dfrac{x + 1}{x - 1} - \dfrac{x - 1}{x + 1}\right) : \dfrac{2x}{x + 1}\). a) Rút gọn \(Q\). b) Tìm \(x\) nguyên để \(Q\) nhận giá trị nguyên.`,
+        "R\xFAt g\u1ECDn trong ngo\u1EB7c b\u1EB1ng hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng \u1EDF t\u1EED; sau \u0111\xF3 \\(Q\\) c\xF3 d\u1EA1ng \\(\\dfrac{k}{x - 1}\\).",
+        "C\u1ED9ng, tr\u1EEB, chia ph\xE2n th\u1EE9c; \u01B0\u1EDBc c\u1EE7a s\u1ED1 nguy\xEAn; \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh.",
+        [r4`Điều kiện: \(x \ne 1\), \(x \ne -1\), \(x \ne 0\).`, r4`Trong ngoặc: \(\dfrac{(x + 1)^2 - (x - 1)^2}{(x - 1)(x + 1)} = \dfrac{4x}{(x - 1)(x + 1)}\).`, r4`\(Q = \dfrac{4x}{(x - 1)(x + 1)}\cdot\dfrac{x + 1}{2x} = \dfrac{2}{x - 1}\).`, r4`\(Q\) nguyên khi \(x - 1 \in \{-2; -1; 1; 2\}\), tức \(x \in \{-1; 0; 2; 3\}\); đối chiếu điều kiện, loại \(x = -1\), \(x = 0\).`],
+        r4`a) \(Q = \dfrac{2}{x - 1}\); b) \(x \in \{2; 3\}\).`,
+        "\u0110i\u1EC1u ki\u1EC7n \\(x \\ne 0\\) xu\u1EA5t hi\u1EC7n do ph\xE9p chia cho \\(\\dfrac{2x}{x + 1}\\) \u2013 r\u1EA5t d\u1EC5 b\u1ECF s\xF3t."
+      )
+    ],
+    "thuc-te-nhan-chia-phan-thuc": [
+      ex(
+        3,
+        r4`Một hình chữ nhật có diện tích \(\dfrac{x^2 - 1}{x}\) (m²) và chiều rộng \(\dfrac{x - 1}{2}\) (m), với \(x > 1\). Tìm phân thức biểu thị chiều dài, rồi tính chiều dài khi \(x = 3\).`,
+        "Chi\u1EC1u d\xE0i = di\u1EC7n t\xEDch : chi\u1EC1u r\u1ED9ng.",
+        "Chia ph\xE2n th\u1EE9c; gi\xE1 tr\u1ECB c\u1EE7a ph\xE2n th\u1EE9c.",
+        [r4`Chiều dài: \(\dfrac{x^2 - 1}{x} : \dfrac{x - 1}{2} = \dfrac{(x - 1)(x + 1)}{x}\cdot\dfrac{2}{x - 1} = \dfrac{2(x + 1)}{x}\) (m).`, r4`Khi \(x = 3\): \(\dfrac{2\cdot4}{3} = \dfrac83\) (m).`, r4`Kiểm tra: chiều rộng \(1\) m, diện tích \(\dfrac{8}{3}\) m² \(= \dfrac83\cdot1\). Đúng.`],
+        r4`Chiều dài \(\dfrac{2(x + 1)}{x}\) m; khi \(x = 3\) là \(\dfrac83\) m.`
+      )
+    ]
+  },
+  notes: {
+    "nhan-phan-thuc": "Ph\xE2n t\xEDch th\xE0nh nh\xE2n t\u1EED r\u1ED3i r\xFAt g\u1ECDn ch\xE9o tr\u01B0\u1EDBc khi nh\xE2n \u0111\u1EC3 k\u1EBFt qu\u1EA3 g\u1ECDn.",
+    "chia-phan-thuc": "\u0110\u1ED5i chia th\xE0nh nh\xE2n v\u1EDBi ngh\u1ECBch \u0111\u1EA3o; \u0111i\u1EC1u ki\u1EC7n: ph\xE2n th\u1EE9c chia kh\xE1c 0.",
+    "tim-thanh-phan-chua-biet-phan-thuc": "X\xE1c \u0111\u1ECBnh vai tr\xF2 c\u1EE7a ph\xE2n th\u1EE9c c\u1EA7n t\xECm (th\u1EEBa s\u1ED1, s\u1ED1 b\u1ECB chia, s\u1ED1 chia) r\u1ED3i d\xF9ng ph\xE9p t\xEDnh ng\u01B0\u1EE3c.",
+    "tong-hop-cac-phep-tinh-phan-thuc": "Ghi \u0111\u1EE7 \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh (c\u1EA3 \u0111i\u1EC1u ki\u1EC7n t\u1EEB ph\xE9p chia), l\xE0m theo th\u1EE9 t\u1EF1 ph\xE9p t\xEDnh, r\xFAt g\u1ECDn t\u1EEBng b\u01B0\u1EDBc.",
+    "thuc-te-nhan-chia-phan-thuc": "Vi\u1EBFt c\xF4ng th\u1EE9c li\xEAn h\u1EC7 c\xE1c \u0111\u1EA1i l\u01B0\u1EE3ng, thay ph\xE2n th\u1EE9c v\xE0o v\xE0 r\xFAt g\u1ECDn; ki\u1EC3m tra l\u1EA1i b\u1EB1ng s\u1ED1 c\u1EE5 th\u1EC3."
+  }
+};
+var CHUONG_62 = [BAI_21, BAI_22, BAI_23, BAI_24];
+
+// src/seed/toan8-lessons/chuong-7.ts
+var BAI_25 = {
+  slug: "bai-25-phuong-trinh-bac-nhat-mot-an",
+  applications: r4`- Tìm một số lượng chưa biết từ dữ kiện: số vé, số sản phẩm, số tiền.
+- Tính ngược trong công thức vật lí, hóa học: biết \(s\), \(v\) tìm \(t\).
+- Là công cụ để giải bài toán bằng cách lập phương trình (Bài 26).`,
+  theory: [
+    th(
+      "definition",
+      "Ph\u01B0\u01A1ng tr\xECnh m\u1ED9t \u1EA9n v\xE0 nghi\u1EC7m",
+      r4`- Phương trình ẩn \(x\) có dạng \(A(x) = B(x)\), trong đó vế trái \(A(x)\) và vế phải \(B(x)\) là hai biểu thức của cùng biến \(x\).
+- Giá trị \(x = x_0\) làm hai vế có cùng giá trị gọi là **nghiệm** của phương trình.
+- **Giải phương trình** là tìm tất cả các nghiệm của phương trình đó.`,
+      void 0,
+      r4`\(x = 2\) là nghiệm của \(3x - 1 = x + 3\) vì hai vế cùng bằng 5.`
+    ),
+    th(
+      "definition",
+      "Ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n",
+      r4`Phương trình dạng \(ax + b = 0\), với \(a\), \(b\) là hai số đã cho và \(a \ne 0\), gọi là **phương trình bậc nhất một ẩn**.`,
+      r4`ax + b = 0\quad (a \ne 0)`,
+      r4`\(2x - 3 = 0\) (\(a = 2\), \(b = -3\)); \(3 - 0{,}5y = 0\) (\(a = -0{,}5\), \(b = 3\)).`
+    ),
+    th("rule", "Hai quy t\u1EAFc bi\u1EBFn \u0111\u1ED5i ph\u01B0\u01A1ng tr\xECnh", r4`- **Quy tắc chuyển vế**: chuyển một hạng tử từ vế này sang vế kia và đổi dấu hạng tử đó.
+- **Quy tắc nhân (chia)**: nhân (hoặc chia) cả hai vế với cùng một số khác 0.`),
+    th(
+      "rule",
+      "C\xE1ch gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n",
+      r4`Phương trình \(ax + b = 0\) (\(a \ne 0\)) có nghiệm duy nhất:`,
+      r4`ax + b = 0 \iff ax = -b \iff x = -\dfrac{b}{a}`,
+      r4`\(3x - 12 = 0 \iff 3x = 12 \iff x = 4\).`
+    ),
+    th("rule", "Ph\u01B0\u01A1ng tr\xECnh \u0111\u01B0a \u0111\u01B0\u1EE3c v\u1EC1 d\u1EA1ng ax + b = 0", r4`- Bỏ dấu ngoặc (hoặc quy đồng mẫu rồi khử mẫu).
+- Chuyển các hạng tử chứa ẩn sang một vế, các hằng số sang vế kia.
+- Thu gọn và giải phương trình nhận được.`),
+    th("special", "Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", r4`Sau khi thu gọn được \(0x = c\):
+- Nếu \(c \ne 0\): phương trình **vô nghiệm**.
+- Nếu \(c = 0\): phương trình **nghiệm đúng với mọi** \(x\).`),
+    th("note", "L\u01B0u \xFD", r4`Khi khử mẫu, nhân **mọi hạng tử** của cả hai vế với mẫu chung; tử là đa thức thì đặt trong ngoặc.`)
+  ],
+  formulas: [
+    {
+      group: "Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh",
+      items: [
+        fc("Nghi\u1EC7m c\u1EE7a ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t", r4`ax + b = 0 \iff x = -\dfrac{b}{a}`, r4`- \(a \ne 0\), \(b\): hệ số`, r4`\(5 - 2x = 0 \iff x = \dfrac52\).`, r4`\(a \ne 0\).`),
+        fc("Chuy\u1EC3n v\u1EBF", r4`A + B = C \iff A = C - B`, r4`- \(A, B, C\): biểu thức`, r4`\(x + 7 = 10 \iff x = 3\).`),
+        fc("Nh\xE2n hai v\u1EBF", r4`A = B \iff kA = kB`, r4`- \(k\): số khác 0`, r4`\(\dfrac{x}{3} = 2 \iff x = 6\).`, r4`\(k \ne 0\).`)
+      ]
+    }
+  ],
+  examples: {
+    "kiem-tra-nghiem": [
+      ex(
+        1,
+        r4`\(x = 2\) có phải là nghiệm của phương trình \(3x - 1 = x + 3\) không?`,
+        "Thay \\(x = 2\\) v\xE0o t\u1EEBng v\u1EBF r\u1ED3i so s\xE1nh.",
+        "Nghi\u1EC7m c\u1EE7a ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`Vế trái: \(3\cdot2 - 1 = 5\); vế phải: \(2 + 3 = 5\).`, r4`Hai vế bằng nhau nên \(x = 2\) là nghiệm.`],
+        r4`\(x = 2\) là nghiệm.`
+      ),
+      ex(
+        2,
+        r4`Trong các số \(-1\); \(0\); \(2\), số nào là nghiệm của phương trình \(x^2 - x = 2\)?`,
+        "Thay l\u1EA7n l\u01B0\u1EE3t t\u1EEBng s\u1ED1 v\xE0o v\u1EBF tr\xE1i v\xE0 so s\xE1nh v\u1EDBi 2.",
+        "Nghi\u1EC7m c\u1EE7a ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`\(x = -1\): \(1 + 1 = 2\). Đúng.`, r4`\(x = 0\): \(0 - 0 = 0 \ne 2\).`, r4`\(x = 2\): \(4 - 2 = 2\). Đúng.`],
+        r4`Các nghiệm là \(-1\) và \(2\).`,
+        "M\u1ED9t ph\u01B0\u01A1ng tr\xECnh c\xF3 th\u1EC3 c\xF3 nhi\u1EC1u nghi\u1EC7m; ph\u1EA3i th\u1EED h\u1EBFt c\xE1c s\u1ED1."
+      )
+    ],
+    "nhan-dang-phuong-trinh-bac-nhat": [
+      ex(
+        1,
+        r4`Trong các phương trình sau, phương trình nào là phương trình bậc nhất một ẩn? Chỉ ra hệ số \(a\), \(b\).
+\(2x - 3 = 0\); \(x^2 + 1 = 0\); \(0x + 5 = 0\); \(3 - 0{,}5y = 0\); \(\dfrac1x + 2 = 0\).`,
+        "So s\xE1nh v\u1EDBi d\u1EA1ng \\(ax + b = 0\\), \\(a \\ne 0\\).",
+        "\u0110\u1ECBnh ngh\u0129a ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t m\u1ED9t \u1EA9n.",
+        [r4`\(2x - 3 = 0\): bậc nhất, \(a = 2\), \(b = -3\). \(3 - 0{,}5y = 0\): bậc nhất ẩn \(y\), \(a = -0{,}5\), \(b = 3\).`, r4`\(x^2 + 1 = 0\) có \(x^2\); \(0x + 5 = 0\) có \(a = 0\); \(\dfrac1x + 2 = 0\) có ẩn ở mẫu: không phải phương trình bậc nhất.`],
+        r4`Hai phương trình bậc nhất: \(2x - 3 = 0\) và \(3 - 0{,}5y = 0\).`
+      )
+    ],
+    "giai-phuong-trinh-bac-nhat": [
+      ex(
+        1,
+        r4`Giải phương trình \(3x - 12 = 0\).`,
+        "Chuy\u1EC3n v\u1EBF h\u1EB1ng s\u1ED1 r\u1ED3i chia cho h\u1EC7 s\u1ED1 c\u1EE7a \\(x\\).",
+        "Quy t\u1EAFc chuy\u1EC3n v\u1EBF, quy t\u1EAFc chia.",
+        [r4`\(3x = 12\).`, r4`\(x = 4\).`],
+        r4`Phương trình có nghiệm \(x = 4\).`
+      ),
+      ex(
+        2,
+        r4`Giải các phương trình: a) \(5 - 2x = 0\); b) \(\dfrac12x + 3 = 0\).`,
+        "H\u1EC7 s\u1ED1 c\u1EE7a \\(x\\) \xE2m ho\u1EB7c l\xE0 ph\xE2n s\u1ED1: v\u1EABn chuy\u1EC3n v\u1EBF r\u1ED3i chia (ho\u1EB7c nh\xE2n v\u1EDBi ngh\u1ECBch \u0111\u1EA3o).",
+        "C\xE1ch gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t.",
+        [r4`a) \(-2x = -5 \iff x = \dfrac52\).`, r4`b) \(\dfrac12x = -3 \iff x = -6\).`],
+        r4`a) \(x = \dfrac52\); b) \(x = -6\).`
+      )
+    ],
+    "phuong-trinh-dua-ve-ax-b": [
+      ex(
+        2,
+        r4`Giải phương trình \(2(x - 3) + 5 = x + 4\).`,
+        "B\u1ECF ngo\u1EB7c, chuy\u1EC3n v\u1EBF, thu g\u1ECDn.",
+        "Ph\u01B0\u01A1ng tr\xECnh \u0111\u01B0a \u0111\u01B0\u1EE3c v\u1EC1 d\u1EA1ng \\(ax + b = 0\\).",
+        [r4`\(2x - 6 + 5 = x + 4\).`, r4`\(2x - x = 4 + 1\).`, r4`\(x = 5\).`],
+        r4`\(x = 5\).`
+      ),
+      ex(
+        3,
+        r4`Giải phương trình \(\dfrac{x - 1}{2} - \dfrac{x + 1}{3} = 1\).`,
+        "Quy \u0111\u1ED3ng v\u1EDBi m\u1EABu chung 6 r\u1ED3i kh\u1EED m\u1EABu; \u0111\u1EB7t t\u1EED trong ngo\u1EB7c.",
+        "Quy \u0111\u1ED3ng, kh\u1EED m\u1EABu; quy t\u1EAFc chuy\u1EC3n v\u1EBF.",
+        [r4`Nhân hai vế với 6: \(3(x - 1) - 2(x + 1) = 6\).`, r4`\(3x - 3 - 2x - 2 = 6\).`, r4`\(x - 5 = 6 \iff x = 11\).`],
+        r4`\(x = 11\).`,
+        "L\u1ED7i th\u01B0\u1EDDng g\u1EB7p: qu\xEAn \u0111\u1EB7t \\(x + 1\\) trong ngo\u1EB7c n\xEAn ch\u1EC9 \u0111\u1ED5i d\u1EA5u \\(x\\) m\xE0 kh\xF4ng \u0111\u1ED5i d\u1EA5u 1."
+      ),
+      ex(
+        4,
+        r4`Giải các phương trình: a) \((x + 2)^2 - x(x - 1) = 10\); b) \(3(x - 1) = 3x + 2\); c) \(2(x + 1) - 3 = 2x - 1\).`,
+        "Khai tri\u1EC3n, thu g\u1ECDn; ch\xFA \xFD c\xE1c tr\u01B0\u1EDDng h\u1EE3p h\u1EC7 s\u1ED1 c\u1EE7a \\(x\\) b\u1EB1ng 0.",
+        r4`Hằng đẳng thức; phương trình dạng \(0x = c\).`,
+        [r4`a) \(x^2 + 4x + 4 - x^2 + x = 10 \iff 5x = 6 \iff x = \dfrac65\).`, r4`b) \(3x - 3 = 3x + 2 \iff 0x = 5\): phương trình vô nghiệm.`, r4`c) \(2x - 1 = 2x - 1 \iff 0x = 0\): phương trình nghiệm đúng với mọi \(x\).`],
+        r4`a) \(x = \dfrac65\); b) vô nghiệm; c) nghiệm đúng với mọi \(x\).`,
+        "Kh\xF4ng ph\u1EA3i ph\u01B0\u01A1ng tr\xECnh n\xE0o c\u0169ng c\xF3 \u0111\xFAng m\u1ED9t nghi\u1EC7m \u2013 lu\xF4n x\xE9t tr\u01B0\u1EDDng h\u1EE3p \\(0x = c\\)."
+      )
+    ],
+    "tim-x-de-bieu-thuc-nhan-gia-tri": [
+      ex(
+        2,
+        r4`Tìm \(x\) để biểu thức \(A = 3x - 7\) có giá trị bằng 8.`,
+        "L\u1EADp ph\u01B0\u01A1ng tr\xECnh \\(A = 8\\) r\u1ED3i gi\u1EA3i.",
+        "Gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t.",
+        [r4`\(3x - 7 = 8\).`, r4`\(3x = 15 \iff x = 5\).`],
+        r4`\(x = 5\).`
+      ),
+      ex(
+        3,
+        r4`Tìm \(x\) để hai biểu thức \(\dfrac{2x + 1}{3}\) và \(\dfrac{x - 2}{2}\) có giá trị bằng nhau.`,
+        "Cho hai bi\u1EC3u th\u1EE9c b\u1EB1ng nhau \u0111\u1EC3 \u0111\u01B0\u1EE3c ph\u01B0\u01A1ng tr\xECnh; kh\u1EED m\u1EABu.",
+        "Ph\u01B0\u01A1ng tr\xECnh \u0111\u01B0a v\u1EC1 d\u1EA1ng \\(ax + b = 0\\).",
+        [r4`\(\dfrac{2x + 1}{3} = \dfrac{x - 2}{2}\).`, r4`Nhân hai vế với 6: \(2(2x + 1) = 3(x - 2) \iff 4x + 2 = 3x - 6\).`, r4`\(x = -8\). Thử lại: hai biểu thức cùng bằng \(-5\).`],
+        r4`\(x = -8\).`
+      )
+    ],
+    "thuc-te-dan-toi-phuong-trinh": [
+      ex(
+        3,
+        r4`Vé vào một công viên: người lớn 50 000 đồng, trẻ em 30 000 đồng. Một nhóm gồm 3 người lớn và một số trẻ em đã trả tổng cộng 330 000 đồng. Nhóm có bao nhiêu trẻ em?`,
+        "G\u1ECDi s\u1ED1 tr\u1EBB em l\xE0 \\(x\\); t\u1ED5ng ti\u1EC1n = ti\u1EC1n v\xE9 ng\u01B0\u1EDDi l\u1EDBn + ti\u1EC1n v\xE9 tr\u1EBB em.",
+        "L\u1EADp v\xE0 gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t.",
+        [r4`Gọi số trẻ em là \(x\) (\(x\) nguyên dương).`, r4`Phương trình: \(3\cdot50\,000 + 30\,000x = 330\,000\).`, r4`\(30\,000x = 180\,000 \iff x = 6\) (thỏa mãn).`],
+        "Nh\xF3m c\xF3 6 tr\u1EBB em."
+      )
+    ]
+  },
+  notes: {
+    "kiem-tra-nghiem": "Thay gi\xE1 tr\u1ECB v\xE0o c\u1EA3 hai v\u1EBF, t\xEDnh ri\xEAng t\u1EEBng v\u1EBF r\u1ED3i so s\xE1nh.",
+    "nhan-dang-phuong-trinh-bac-nhat": "Ph\u1EA3i \u0111\u01B0a v\u1EC1 \u0111\xFAng d\u1EA1ng \\(ax + b = 0\\) v\xE0 ki\u1EC3m tra \\(a \\ne 0\\); \u1EA9n kh\xF4ng \u1EDF m\u1EABu, kh\xF4ng c\xF3 l\u0169y th\u1EEBa b\u1EADc cao.",
+    "giai-phuong-trinh-bac-nhat": "Chuy\u1EC3n v\u1EBF nh\u1EDB \u0111\u1ED5i d\u1EA5u; chia hai v\u1EBF cho h\u1EC7 s\u1ED1 c\u1EE7a \u1EA9n (kh\xE1c 0).",
+    "phuong-trinh-dua-ve-ax-b": "B\u1ECF ngo\u1EB7c, kh\u1EED m\u1EABu c\u1EA9n th\u1EADn; n\u1EBFu thu \u0111\u01B0\u1EE3c \\(0x = c\\) th\xEC k\u1EBFt lu\u1EADn v\xF4 nghi\u1EC7m ho\u1EB7c v\xF4 s\u1ED1 nghi\u1EC7m.",
+    "tim-x-de-bieu-thuc-nhan-gia-tri": "Chuy\u1EC3n y\xEAu c\u1EA7u \u201Cbi\u1EC3u th\u1EE9c b\u1EB1ng\u2026\u201D th\xE0nh ph\u01B0\u01A1ng tr\xECnh r\u1ED3i gi\u1EA3i; th\u1EED l\u1EA1i k\u1EBFt qu\u1EA3.",
+    "thuc-te-dan-toi-phuong-trinh": "Ch\u1ECDn \u1EA9n v\xE0 \u0111i\u1EC1u ki\u1EC7n ph\xF9 h\u1EE3p th\u1EF1c t\u1EBF (nguy\xEAn d\u01B0\u01A1ng), \u0111\u1ED1i chi\u1EBFu \u0111i\u1EC1u ki\u1EC7n tr\u01B0\u1EDBc khi tr\u1EA3 l\u1EDDi."
+  }
+};
+var BAI_26 = {
+  slug: "bai-26-giai-bai-toan-bang-cach-lap-phuong-trinh",
+  applications: r4`- Tính quãng đường, vận tốc, thời gian trong giao thông; thời điểm hai xe gặp nhau.
+- Lập kế hoạch sản xuất, tính năng suất, số sản phẩm.
+- Tính giá trước và sau khi giảm giá, lãi suất, dân số tăng theo tỉ lệ phần trăm.`,
+  theory: [
+    th("rule", "C\xE1c b\u01B0\u1EDBc gi\u1EA3i b\xE0i to\xE1n b\u1EB1ng c\xE1ch l\u1EADp ph\u01B0\u01A1ng tr\xECnh", r4`- **Bước 1. Lập phương trình**: chọn ẩn, ghi đơn vị và điều kiện; biểu diễn các đại lượng chưa biết theo ẩn; lập phương trình biểu thị mối quan hệ giữa các đại lượng.
+- **Bước 2. Giải phương trình**.
+- **Bước 3. Trả lời**: kiểm tra nghiệm có thỏa mãn điều kiện của ẩn không rồi kết luận.`),
+    th("concept", "C\xE1c d\u1EA1ng to\xE1n th\u01B0\u1EDDng g\u1EB7p", r4`- Chuyển động: \(s = v\cdot t\).
+- Năng suất: khối lượng công việc = năng suất × thời gian.
+- Tỉ số phần trăm: tăng \(p\%\) thì giá trị mới bằng \((1 + p\%)\) lần giá trị cũ.
+- Hình học: chu vi, diện tích.
+- Quan hệ giữa các số, tuổi.`),
+    th("rule", "Chuy\u1EC3n \u0111\u1ED9ng tr\xEAn d\xF2ng n\u01B0\u1EDBc", r4`Vận tốc xuôi dòng bằng vận tốc riêng cộng vận tốc dòng nước; vận tốc ngược dòng bằng vận tốc riêng trừ vận tốc dòng nước.`, r4`v_{\text{xuôi}} = v_{\text{riêng}} + v_{\text{nước}};\quad v_{\text{ngược}} = v_{\text{riêng}} - v_{\text{nước}}`),
+    th("note", "L\u01B0u \xFD", r4`- Thường chọn ẩn là đại lượng đề bài hỏi.
+- Thống nhất đơn vị (phút – giờ, m – km) trước khi lập phương trình.
+- Lập bảng các đại lượng giúp nhìn rõ quan hệ.`)
+  ],
+  formulas: [
+    {
+      group: "Chuy\u1EC3n \u0111\u1ED9ng",
+      items: [
+        fc("Qu\xE3ng \u0111\u01B0\u1EDDng \u2013 v\u1EADn t\u1ED1c \u2013 th\u1EDDi gian", r4`s = v\cdot t`, r4`- \(s\): quãng đường; \(v\): vận tốc; \(t\): thời gian`, r4`\(v = 40\) km/h, \(t = 3\) giờ: \(s = 120\) km.`, "C\xF9ng h\u1EC7 \u0111\u01A1n v\u1ECB."),
+        fc("Xu\xF4i d\xF2ng, ng\u01B0\u1EE3c d\xF2ng", r4`v_{\text{xuôi}} = v + v_n,\quad v_{\text{ngược}} = v - v_n`, r4`- \(v\): vận tốc riêng; \(v_n\): vận tốc dòng nước`, r4`\(v = 18\), \(v_n = 2\): xuôi 20 km/h, ngược 16 km/h.`)
+      ]
+    },
+    {
+      group: "N\u0103ng su\u1EA5t, ph\u1EA7n tr\u0103m, h\xECnh h\u1ECDc",
+      items: [
+        fc("Kh\u1ED1i l\u01B0\u1EE3ng c\xF4ng vi\u1EC7c", r4`A = N\cdot t`, r4`- \(A\): khối lượng công việc; \(N\): năng suất; \(t\): thời gian`, r4`50 sản phẩm/ngày trong 10 ngày: 500 sản phẩm.`),
+        fc("T\u0103ng, gi\u1EA3m theo ph\u1EA7n tr\u0103m", r4`a_{\text{mới}} = a\,(1 \pm p\%)`, r4`- \(a\): giá trị ban đầu; \(p\%\): tỉ lệ tăng (+) hoặc giảm (−)`, r4`Giảm 20% từ 300 000 đồng còn \(300\,000\cdot0{,}8 = 240\,000\) đồng.`),
+        fc("Chu vi, di\u1EC7n t\xEDch h\xECnh ch\u1EEF nh\u1EADt", r4`P = 2(a + b),\quad S = a\cdot b`, r4`- \(a, b\): chiều dài, chiều rộng`, r4`\(a = 17\), \(b = 11\): \(P = 56\).`)
+      ]
+    }
+  ],
+  examples: {
+    "bai-toan-chuyen-dong": [
+      ex(
+        2,
+        r4`Một xe máy đi từ A đến B với vận tốc 40 km/h hết nhiều thời gian hơn một ô tô đi với vận tốc 60 km/h là 1 giờ. Tính quãng đường AB.`,
+        "G\u1ECDi qu\xE3ng \u0111\u01B0\u1EDDng l\xE0 \u1EA9n; th\u1EDDi gian c\u1EE7a m\u1ED7i xe b\u1EB1ng qu\xE3ng \u0111\u01B0\u1EDDng chia v\u1EADn t\u1ED1c; hi\u1EC7u th\u1EDDi gian l\xE0 1 gi\u1EDD.",
+        "C\xF4ng th\u1EE9c \\(t = \\dfrac{s}{v}\\); l\u1EADp v\xE0 gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`Gọi quãng đường AB là \(x\) (km), \(x > 0\).`, r4`Thời gian xe máy: \(\dfrac{x}{40}\) giờ; ô tô: \(\dfrac{x}{60}\) giờ. Phương trình: \(\dfrac{x}{40} - \dfrac{x}{60} = 1\).`, r4`Nhân hai vế với 120: \(3x - 2x = 120 \iff x = 120\) (thỏa mãn).`],
+        "Qu\xE3ng \u0111\u01B0\u1EDDng AB d\xE0i 120 km."
+      ),
+      ex(
+        3,
+        r4`Lúc 7 giờ, một xe máy đi từ A về B với vận tốc 40 km/h. Lúc 8 giờ, một ô tô cũng đi từ A về B với vận tốc 60 km/h. Hỏi ô tô đuổi kịp xe máy lúc mấy giờ?`,
+        "Khi g\u1EB7p nhau, hai xe \u0111i \u0111\u01B0\u1EE3c c\xF9ng qu\xE3ng \u0111\u01B0\u1EDDng t\u1EEB A; xe m\xE1y \u0111i l\xE2u h\u01A1n \xF4 t\xF4 1 gi\u1EDD.",
+        "Chuy\u1EC3n \u0111\u1ED9ng c\xF9ng chi\u1EC1u; l\u1EADp ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`Gọi thời gian ô tô đi đến lúc gặp là \(t\) (giờ), \(t > 0\); xe máy đã đi \(t + 1\) giờ.`, r4`Phương trình: \(60t = 40(t + 1)\).`, r4`\(20t = 40 \iff t = 2\) (thỏa mãn). Thời điểm gặp: \(8 + 2 = 10\) giờ.`],
+        "\xD4 t\xF4 \u0111u\u1ED5i k\u1ECBp xe m\xE1y l\xFAc 10 gi\u1EDD.",
+        "L\u1EADp b\u1EA3ng (v\u1EADn t\u1ED1c \u2013 th\u1EDDi gian \u2013 qu\xE3ng \u0111\u01B0\u1EDDng) cho t\u1EEBng xe gi\xFAp vi\u1EBFt ph\u01B0\u01A1ng tr\xECnh nhanh."
+      ),
+      ex(
+        4,
+        r4`Một ca nô xuôi dòng từ bến A đến bến B hết 4 giờ và ngược dòng từ B về A hết 5 giờ. Biết vận tốc dòng nước là 2 km/h, tính khoảng cách AB.`,
+        "Qu\xE3ng \u0111\u01B0\u1EDDng xu\xF4i v\xE0 ng\u01B0\u1EE3c b\u1EB1ng nhau; v\u1EADn t\u1ED1c xu\xF4i, ng\u01B0\u1EE3c ph\u1EE5 thu\u1ED9c v\u1EADn t\u1ED1c ri\xEAng c\u1EE7a ca n\xF4.",
+        "V\u1EADn t\u1ED1c xu\xF4i d\xF2ng, ng\u01B0\u1EE3c d\xF2ng; l\u1EADp ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`Gọi vận tốc riêng của ca nô là \(x\) (km/h), \(x > 2\).`, r4`Vận tốc xuôi \(x + 2\), ngược \(x - 2\). Phương trình: \(4(x + 2) = 5(x - 2)\).`, r4`\(4x + 8 = 5x - 10 \iff x = 18\) (thỏa mãn).`, r4`AB \(= 4\cdot(18 + 2) = 80\) (km).`],
+        "Kho\u1EA3ng c\xE1ch AB l\xE0 80 km.",
+        "C\xF3 th\u1EC3 ch\u1ECDn \u1EA9n l\xE0 qu\xE3ng \u0111\u01B0\u1EDDng AB c\u0169ng \u0111\u01B0\u1EE3c; ch\u1ECDn v\u1EADn t\u1ED1c ri\xEAng l\xE0m \u1EA9n cho ph\u01B0\u01A1ng tr\xECnh g\u1ECDn h\u01A1n."
+      )
+    ],
+    "bai-toan-nang-suat": [
+      ex(
+        3,
+        r4`Theo kế hoạch, mỗi ngày một tổ sản xuất phải làm 50 sản phẩm. Thực tế, mỗi ngày tổ làm được 57 sản phẩm nên đã hoàn thành trước kế hoạch 1 ngày và còn làm thêm được 13 sản phẩm. Theo kế hoạch, tổ phải làm bao nhiêu sản phẩm?`,
+        "S\u1ED1 ng\xE0y theo k\u1EBF ho\u1EA1ch h\u01A1n s\u1ED1 ng\xE0y th\u1EF1c t\u1EBF 1 ng\xE0y; s\u1ED1 s\u1EA3n ph\u1EA9m th\u1EF1c t\u1EBF nhi\u1EC1u h\u01A1n k\u1EBF ho\u1EA1ch 13.",
+        "Kh\u1ED1i l\u01B0\u1EE3ng c\xF4ng vi\u1EC7c = n\u0103ng su\u1EA5t \xD7 th\u1EDDi gian.",
+        [r4`Gọi số sản phẩm theo kế hoạch là \(x\), \(x\) nguyên dương.`, r4`Số ngày kế hoạch \(\dfrac{x}{50}\); thực tế làm \(x + 13\) sản phẩm trong \(\dfrac{x + 13}{57}\) ngày.`, r4`Phương trình: \(\dfrac{x}{50} - \dfrac{x + 13}{57} = 1\).`, r4`Nhân với 2850: \(57x - 50x - 650 = 2850 \iff 7x = 3500 \iff x = 500\).`],
+        "Theo k\u1EBF ho\u1EA1ch, t\u1ED5 ph\u1EA3i l\xE0m 500 s\u1EA3n ph\u1EA9m.",
+        "Ki\u1EC3m tra: k\u1EBF ho\u1EA1ch 10 ng\xE0y; th\u1EF1c t\u1EBF 513 s\u1EA3n ph\u1EA9m trong 9 ng\xE0y, \u0111\xFAng 57 s\u1EA3n ph\u1EA9m/ng\xE0y."
+      )
+    ],
+    "bai-toan-ti-so-phan-tram": [
+      ex(
+        2,
+        r4`Một chiếc áo sau khi giảm giá 20% có giá 240 000 đồng. Hỏi giá ban đầu của chiếc áo là bao nhiêu?`,
+        "Gi\xE1 sau khi gi\u1EA3m 20% b\u1EB1ng 80% gi\xE1 ban \u0111\u1EA7u.",
+        "T\u1EC9 s\u1ED1 ph\u1EA7n tr\u0103m; gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`Gọi giá ban đầu là \(x\) (đồng), \(x > 0\).`, r4`Phương trình: \(x\cdot(1 - 20\%) = 240\,000 \iff 0{,}8x = 240\,000\).`, r4`\(x = 300\,000\).`],
+        "Gi\xE1 ban \u0111\u1EA7u l\xE0 300 000 \u0111\u1ED3ng.",
+        "Kh\xF4ng l\u1EA5y 240 000 c\u1ED9ng 20% c\u1EE7a 240 000 \u2013 20% \u0111\u01B0\u1EE3c t\xEDnh tr\xEAn gi\xE1 ban \u0111\u1EA7u."
+      ),
+      ex(
+        3,
+        r4`Năm ngoái, tổng dân số của hai tỉnh A và B là 4 triệu người. Năm nay dân số tỉnh A tăng 1,1%, tỉnh B tăng 1,2%, tổng dân số hai tỉnh là 4 045 000 người. Tính dân số mỗi tỉnh năm ngoái.`,
+        "G\u1ECDi d\xE2n s\u1ED1 t\u1EC9nh A n\u0103m ngo\xE1i l\xE0 \u1EA9n; bi\u1EC3u di\u1EC5n d\xE2n s\u1ED1 n\u0103m nay c\u1EE7a m\u1ED7i t\u1EC9nh theo t\u1EC9 l\u1EC7 t\u0103ng.",
+        "T\u0103ng theo t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m; l\u1EADp ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`Gọi dân số tỉnh A năm ngoái là \(x\) (người), \(0 < x < 4\,000\,000\); tỉnh B là \(4\,000\,000 - x\).`, r4`Phương trình: \(1{,}011x + 1{,}012(4\,000\,000 - x) = 4\,045\,000\).`, r4`\(4\,048\,000 - 0{,}001x = 4\,045\,000 \iff x = 3\,000\,000\).`],
+        "N\u0103m ngo\xE1i t\u1EC9nh A c\xF3 3 tri\u1EC7u ng\u01B0\u1EDDi, t\u1EC9nh B c\xF3 1 tri\u1EC7u ng\u01B0\u1EDDi."
+      )
+    ],
+    "bai-toan-chu-vi-dien-tich": [
+      ex(
+        2,
+        r4`Một hình chữ nhật có chu vi 56 m, chiều dài hơn chiều rộng 6 m. Tính các kích thước của hình chữ nhật.`,
+        "G\u1ECDi chi\u1EC1u r\u1ED9ng l\xE0 \u1EA9n; chi\u1EC1u d\xE0i b\u1EB1ng chi\u1EC1u r\u1ED9ng c\u1ED9ng 6.",
+        "Chu vi h\xECnh ch\u1EEF nh\u1EADt; l\u1EADp ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`Gọi chiều rộng là \(x\) (m), \(x > 0\); chiều dài \(x + 6\) (m).`, r4`Phương trình: \(2(x + x + 6) = 56 \iff 4x + 12 = 56\).`, r4`\(x = 11\) (thỏa mãn); chiều dài 17 m.`],
+        "Chi\u1EC1u r\u1ED9ng 11 m, chi\u1EC1u d\xE0i 17 m."
+      ),
+      ex(
+        3,
+        r4`Một mảnh vườn hình chữ nhật có chiều dài gấp 3 lần chiều rộng. Nếu tăng chiều rộng thêm 5 m và giảm chiều dài đi 5 m thì diện tích tăng thêm 75 m². Tính các kích thước của mảnh vườn.`,
+        "Vi\u1EBFt di\u1EC7n t\xEDch m\u1EDBi v\xE0 di\u1EC7n t\xEDch c\u0169 theo \u1EA9n; hi\u1EC7u b\u1EB1ng 75.",
+        "Di\u1EC7n t\xEDch h\xECnh ch\u1EEF nh\u1EADt; nh\xE2n \u0111a th\u1EE9c; l\u1EADp ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`Gọi chiều rộng là \(x\) (m), \(x > 0\); chiều dài \(3x\) (m), cần \(3x > 5\).`, r4`Phương trình: \((x + 5)(3x - 5) - 3x\cdot x = 75\).`, r4`\(3x^2 + 10x - 25 - 3x^2 = 75 \iff 10x = 100 \iff x = 10\) (thỏa mãn).`],
+        "Chi\u1EC1u r\u1ED9ng 10 m, chi\u1EC1u d\xE0i 30 m.",
+        "Ki\u1EC3m tra: \\(15\\cdot25 - 10\\cdot30 = 375 - 300 = 75\\)."
+      )
+    ],
+    "bai-toan-quan-he-so-tuoi": [
+      ex(
+        2,
+        r4`Tổng của hai số là 90, số này gấp đôi số kia. Tìm hai số đó.`,
+        "G\u1ECDi s\u1ED1 nh\u1ECF l\xE0 \u1EA9n, s\u1ED1 l\u1EDBn g\u1EA5p \u0111\xF4i.",
+        "L\u1EADp v\xE0 gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`Gọi số nhỏ là \(x\); số lớn là \(2x\).`, r4`\(x + 2x = 90 \iff x = 30\).`],
+        "Hai s\u1ED1 l\xE0 30 v\xE0 60."
+      ),
+      ex(
+        3,
+        r4`Năm nay tuổi mẹ gấp 3 lần tuổi con. Sau 12 năm nữa, tuổi mẹ chỉ còn gấp 2 lần tuổi con. Tính tuổi con năm nay.`,
+        "Sau 12 n\u0103m, tu\u1ED5i m\u1ED7i ng\u01B0\u1EDDi \u0111\u1EC1u t\u0103ng 12.",
+        "B\xE0i to\xE1n v\u1EC1 tu\u1ED5i; l\u1EADp ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`Gọi tuổi con năm nay là \(x\) (tuổi), \(x\) nguyên dương; tuổi mẹ \(3x\).`, r4`Sau 12 năm: \(3x + 12 = 2(x + 12)\).`, r4`\(3x + 12 = 2x + 24 \iff x = 12\) (thỏa mãn).`],
+        "N\u0103m nay con 12 tu\u1ED5i (m\u1EB9 36 tu\u1ED5i).",
+        "Hi\u1EC7u s\u1ED1 tu\u1ED5i hai ng\u01B0\u1EDDi kh\xF4ng \u0111\u1ED5i theo th\u1EDDi gian."
+      )
+    ]
+  },
+  notes: {
+    "bai-toan-chuyen-dong": "L\u1EADp b\u1EA3ng v\u1EADn t\u1ED1c \u2013 th\u1EDDi gian \u2013 qu\xE3ng \u0111\u01B0\u1EDDng cho t\u1EEBng \u0111\u1ED1i t\u01B0\u1EE3ng; th\u1ED1ng nh\u1EA5t \u0111\u01A1n v\u1ECB gi\u1EDD, km.",
+    "bai-toan-nang-suat": "Ph\xE2n bi\u1EC7t k\u1EBF ho\u1EA1ch v\xE0 th\u1EF1c t\u1EBF; kh\u1ED1i l\u01B0\u1EE3ng c\xF4ng vi\u1EC7c = n\u0103ng su\u1EA5t \xD7 th\u1EDDi gian.",
+    "bai-toan-ti-so-phan-tram": "T\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m lu\xF4n t\xEDnh tr\xEAn gi\xE1 tr\u1ECB ban \u0111\u1EA7u; t\u0103ng \\(p\\%\\) th\xEC nh\xE2n v\u1EDBi \\(1 + p\\%\\).",
+    "bai-toan-chu-vi-dien-tich": "Bi\u1EC3u di\u1EC5n m\u1ECDi k\xEDch th\u01B0\u1EDBc theo m\u1ED9t \u1EA9n; ki\u1EC3m tra c\xE1c k\xEDch th\u01B0\u1EDBc sau khi thay \u0111\u1ED5i v\u1EABn d\u01B0\u01A1ng.",
+    "bai-toan-quan-he-so-tuoi": "Tu\u1ED5i m\u1ECDi ng\u01B0\u1EDDi c\xF9ng t\u0103ng (gi\u1EA3m) nh\u01B0 nhau theo th\u1EDDi gian; \u1EA9n l\xE0 s\u1ED1 nguy\xEAn d\u01B0\u01A1ng."
+  }
+};
+var BAI_27 = {
+  slug: "bai-27-khai-niem-ham-so-va-do-thi-cua-ham-so",
+  applications: r4`- Mô tả sự phụ thuộc giữa các đại lượng: quãng đường theo thời gian, tiền điện theo số điện, cước taxi theo số km.
+- Xác định vị trí trên bản đồ, màn hình, bàn cờ bằng tọa độ.
+- Đọc đồ thị để biết xu hướng, tìm giá trị tương ứng mà không cần tính.`,
+  theory: [
+    th(
+      "definition",
+      "H\xE0m s\u1ED1",
+      r4`Nếu đại lượng \(y\) phụ thuộc vào đại lượng thay đổi \(x\) sao cho với mỗi giá trị của \(x\) ta luôn xác định được **chỉ một** giá trị tương ứng của \(y\) thì \(y\) được gọi là **hàm số** của \(x\), và \(x\) gọi là **biến số**. Hàm số có thể cho bằng bảng hoặc bằng công thức.`,
+      void 0,
+      r4`\(s = 50t\) cho quãng đường \(s\) là hàm số của thời gian \(t\).`
+    ),
+    th("concept", "K\xED hi\u1EC7u v\xE0 gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1", r4`Hàm số \(y\) của \(x\) thường viết \(y = f(x)\). Giá trị của hàm số tại \(x = a\) kí hiệu \(f(a)\).`, r4`f(x) = 2x - 3 \Rightarrow f(2) = 1`),
+    th("special", "H\xE0m h\u1EB1ng", r4`Nếu \(y\) luôn nhận một giá trị không đổi khi \(x\) thay đổi (ví dụ \(y = 5\)) thì \(y\) vẫn là hàm số của \(x\), gọi là **hàm hằng**.`),
+    th("definition", "M\u1EB7t ph\u1EB3ng t\u1ECDa \u0111\u1ED9", r4`Hai trục số \(Ox\) (trục hoành) và \(Oy\) (trục tung) vuông góc tại gốc \(O\) tạo thành **mặt phẳng tọa độ** \(Oxy\). Mỗi điểm \(M\) xác định một cặp số \((x_0; y_0)\): \(x_0\) là **hoành độ**, \(y_0\) là **tung độ**, viết \(M(x_0; y_0)\).`),
+    th("property", "\u0110i\u1EC3m tr\xEAn c\xE1c tr\u1EE5c", r4`- Điểm nằm trên trục hoành có tung độ bằng 0: \(M(a; 0)\).
+- Điểm nằm trên trục tung có hoành độ bằng 0: \(N(0; b)\).`),
+    th("definition", "\u0110\u1ED3 th\u1ECB c\u1EE7a h\xE0m s\u1ED1", r4`**Đồ thị** của hàm số \(y = f(x)\) là tập hợp tất cả các điểm \(M(x; f(x))\) trên mặt phẳng tọa độ.`, r4`M(x_0; y_0) \in \text{đồ thị} \iff y_0 = f(x_0)`),
+    th("note", "L\u01B0u \xFD", r4`Viết tọa độ hoành độ trước, tung độ sau; \(A(2; 3)\) khác \(B(3; 2)\).`)
+  ],
+  formulas: [
+    {
+      group: "H\xE0m s\u1ED1 v\xE0 \u0111\u1ED3 th\u1ECB",
+      items: [
+        fc("Gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1", r4`y = f(x),\quad f(a) \text{ là giá trị tại } x = a`, r4`- \(x\): biến số; \(y\): hàm số`, r4`\(f(x) = x^2 - 2x\): \(f(-2) = 8\).`),
+        fc("\u0110i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB", r4`M(x_0; y_0) \in \text{đồ thị} \iff y_0 = f(x_0)`, r4`- \(x_0\): hoành độ; \(y_0\): tung độ`, r4`\(A(1; 2)\) thuộc đồ thị \(y = 2x\) vì \(2\cdot1 = 2\).`)
+      ]
+    }
+  ],
+  examples: {
+    "ham-so-cho-boi-bang-cong-thuc": [
+      ex(
+        1,
+        r4`Một ô tô chạy với vận tốc 50 km/h. Quãng đường \(s\) (km) đi được sau \(t\) giờ là \(s = 50t\). \(s\) có phải là hàm số của \(t\) không? Lập bảng giá trị của \(s\) khi \(t = 1; 2; 3; 4\).`,
+        "Ki\u1EC3m tra: m\u1ED7i gi\xE1 tr\u1ECB c\u1EE7a \\(t\\) cho \u0111\xFAng m\u1ED9t gi\xE1 tr\u1ECB c\u1EE7a \\(s\\).",
+        "\u0110\u1ECBnh ngh\u0129a h\xE0m s\u1ED1 cho b\u1EB1ng c\xF4ng th\u1EE9c.",
+        [r4`Với mỗi \(t\), công thức \(s = 50t\) cho đúng một giá trị \(s\) nên \(s\) là hàm số của \(t\).`, r4`\(t = 1; 2; 3; 4\) cho \(s = 50; 100; 150; 200\).`],
+        r4`\(s\) là hàm số của \(t\).
+| \(t\) (giờ) | 1 | 2 | 3 | 4 |
+|---|---|---|---|---|
+| \(s\) (km) | 50 | 100 | 150 | 200 |`
+      ),
+      ex(
+        2,
+        r4`Công thức nào sau đây cho \(y\) là hàm số của \(x\)? a) \(y = 3x - 1\); b) \(y = 5\); c) \(|y| = x\).`,
+        "T\xECm xem c\xF3 gi\xE1 tr\u1ECB n\xE0o c\u1EE7a \\(x\\) \u1EE9ng v\u1EDBi hai gi\xE1 tr\u1ECB kh\xE1c nhau c\u1EE7a \\(y\\) kh\xF4ng.",
+        "\u0110\u1ECBnh ngh\u0129a h\xE0m s\u1ED1; h\xE0m h\u1EB1ng.",
+        [r4`a) Mỗi \(x\) cho đúng một \(y = 3x - 1\): là hàm số.`, r4`b) Mọi \(x\) đều cho \(y = 5\): là hàm số (hàm hằng).`, r4`c) Với \(x = 2\) có \(y = 2\) hoặc \(y = -2\): không phải hàm số.`],
+        "a) v\xE0 b) cho \\(y\\) l\xE0 h\xE0m s\u1ED1 c\u1EE7a \\(x\\); c) kh\xF4ng."
+      )
+    ],
+    "tinh-gia-tri-ham-so": [
+      ex(
+        1,
+        r4`Cho hàm số \(f(x) = 2x - 3\). Tính \(f(0)\), \(f(2)\), \(f(-1)\).`,
+        "Thay t\u1EEBng gi\xE1 tr\u1ECB c\u1EE7a \\(x\\) v\xE0o c\xF4ng th\u1EE9c.",
+        "Gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1.",
+        [r4`\(f(0) = 2\cdot0 - 3 = -3\); \(f(2) = 4 - 3 = 1\).`, r4`\(f(-1) = -2 - 3 = -5\).`],
+        r4`\(f(0) = -3\); \(f(2) = 1\); \(f(-1) = -5\).`
+      ),
+      ex(
+        2,
+        r4`Cho hàm số \(y = f(x) = x^2 - 2x\). Tính \(f(-2)\), \(f\left(\dfrac12\right)\) và tìm \(x\) để \(f(x) = 0\).`,
+        "Thay s\u1ED1 \u0111\u1EC3 t\xEDnh; \u0111\u1EC3 t\xECm \\(x\\), l\u1EADp ph\u01B0\u01A1ng tr\xECnh \\(f(x) = 0\\) v\xE0 ph\xE2n t\xEDch th\xE0nh nh\xE2n t\u1EED.",
+        "Gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1; ph\u01B0\u01A1ng tr\xECnh t\xEDch.",
+        [r4`\(f(-2) = 4 + 4 = 8\); \(f\left(\dfrac12\right) = \dfrac14 - 1 = -\dfrac34\).`, r4`\(f(x) = 0 \iff x(x - 2) = 0 \iff x = 0\) hoặc \(x = 2\).`],
+        r4`\(f(-2) = 8\); \(f\left(\dfrac12\right) = -\dfrac34\); \(f(x) = 0\) khi \(x = 0\) hoặc \(x = 2\).`
+      ),
+      ex(
+        3,
+        r4`Giá cước một hãng taxi: 12 000 đồng cho km đầu tiên, mỗi km tiếp theo 10 000 đồng. Viết công thức tính số tiền \(y\) (đồng) phải trả khi đi \(x\) km (\(x \ge 1\)). \(y\) có là hàm số của \(x\) không? Tính số tiền khi đi 8 km.`,
+        "Ti\u1EC1n = ti\u1EC1n km \u0111\u1EA7u + ti\u1EC1n c\xE1c km c\xF2n l\u1EA1i (\\(x - 1\\) km).",
+        "H\xE0m s\u1ED1 cho b\u1EB1ng c\xF4ng th\u1EE9c; gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1.",
+        [r4`\(y = 12\,000 + 10\,000(x - 1) = 10\,000x + 2\,000\).`, r4`Mỗi \(x\) cho đúng một giá trị \(y\) nên \(y\) là hàm số của \(x\).`, r4`Khi \(x = 8\): \(y = 80\,000 + 2\,000 = 82\,000\) (đồng).`],
+        r4`\(y = 10\,000x + 2\,000\); đi 8 km trả 82 000 đồng.`
+      )
+    ],
+    "toa-do-diem": [
+      ex(
+        1,
+        r4`Biểu diễn các điểm \(A(2; 3)\), \(B(-1; 2)\), \(C(0; -2)\), \(D(-3; 0)\) trên mặt phẳng tọa độ. Điểm nào nằm trên các trục tọa độ?`,
+        "T\u1EEB ho\xE0nh \u0111\u1ED9 tr\xEAn \\(Ox\\) v\xE0 tung \u0111\u1ED9 tr\xEAn \\(Oy\\), k\u1EBB \u0111\u01B0\u1EDDng gi\xF3ng \u0111\u1EC3 x\xE1c \u0111\u1ECBnh \u0111i\u1EC3m.",
+        "T\u1ECDa \u0111\u1ED9 c\u1EE7a m\u1ED9t \u0111i\u1EC3m; \u0111i\u1EC3m tr\xEAn c\xE1c tr\u1EE5c.",
+        [r4`Mỗi điểm: đi theo trục hoành đến hoành độ, rồi theo phương thẳng đứng đến tung độ.`, r4`\(C(0; -2)\) có hoành độ 0 nên nằm trên trục tung; \(D(-3; 0)\) có tung độ 0 nên nằm trên trục hoành.`],
+        r4`\(C\) nằm trên trục tung, \(D\) nằm trên trục hoành.
+[bieudo]
+loai: dothi
+diem: A(2; 3); B(-1; 2); C(0; -2); D(-3; 0)
+x: -4; 4
+y: -3; 4
+[/bieudo]`
+      ),
+      ex(
+        2,
+        r4`Cho \(A(1; 1)\), \(B(4; 1)\), \(C(4; 3)\). Tìm tọa độ điểm \(D\) để \(ABCD\) là hình chữ nhật và tính diện tích hình chữ nhật đó.`,
+        r4`\(AB\) nằm ngang, \(BC\) thẳng đứng: \(D\) có hoành độ của \(A\), tung độ của \(C\).`,
+        "T\u1ECDa \u0111\u1ED9 \u0111i\u1EC3m; h\xECnh ch\u1EEF nh\u1EADt.",
+        [r4`\(AB\) song song với \(Ox\), \(BC\) song song với \(Oy\) nên \(D\) có hoành độ bằng hoành độ của \(A\) và tung độ bằng tung độ của \(C\): \(D(1; 3)\).`, r4`\(AB = 4 - 1 = 3\); \(BC = 3 - 1 = 2\). Diện tích \(= 3\cdot2 = 6\) (đơn vị diện tích).`],
+        r4`\(D(1; 3)\); diện tích bằng 6.
+[bieudo]
+loai: dothi
+diem: A(1; 1); B(4; 1); C(4; 3); D(1; 3)
+x: -1; 5
+y: -1; 4
+[/bieudo]`
+      )
+    ],
+    "ve-doc-do-thi": [
+      ex(
+        2,
+        r4`Hàm số \(y = f(x)\) cho bởi bảng: \(x = -2; -1; 0; 1; 2\) tương ứng \(y = 4; 1; 0; 1; 4\). Vẽ đồ thị của hàm số.`,
+        "\u0110\u1ED3 th\u1ECB l\xE0 t\u1EADp h\u1EE3p c\xE1c \u0111i\u1EC3m \\((x; y)\\) trong b\u1EA3ng.",
+        "\u0110\u1ED3 th\u1ECB c\u1EE7a h\xE0m s\u1ED1 cho b\u1EB1ng b\u1EA3ng.",
+        [r4`Các điểm của đồ thị: \((-2; 4)\), \((-1; 1)\), \((0; 0)\), \((1; 1)\), \((2; 4)\).`, r4`Biểu diễn năm điểm này trên mặt phẳng tọa độ; đồ thị gồm đúng năm điểm đó.`],
+        r4`Đồ thị gồm 5 điểm:
+[bieudo]
+loai: dothi
+diem: A(-2; 4); B(-1; 1); E(0; 0); C(1; 1); D(2; 4)
+x: -3; 3
+y: -1; 5
+[/bieudo]`,
+        "H\xE0m s\u1ED1 cho b\u1EB1ng b\u1EA3ng ch\u1EC9 c\xF3 c\xE1c \u0111i\u1EC3m r\u1EDDi r\u1EA1c \u2013 kh\xF4ng n\u1ED1i ch\xFAng l\u1EA1i."
+      ),
+      ex(
+        3,
+        r4`Quãng đường \(y\) (km) một người đi bộ được sau \(x\) giờ là \(y = 5x\) (\(0 \le x \le 3\)), có đồ thị như hình. Dựa vào đồ thị (và kiểm tra bằng công thức), cho biết: a) sau 1,5 giờ người đó đi được bao nhiêu km; b) đi 12 km thì mất bao lâu.
+[bieudo]
+loai: dothi
+ham so: 5x
+x: 0; 3
+y: 0; 15
+diem: M(2; 10)
+[/bieudo]`,
+        "\u0110\u1ECDc gi\xE1 tr\u1ECB tr\xEAn \u0111\u1ED3 th\u1ECB: t\u1EEB \\(x\\) gi\xF3ng l\xEAn \u0111\u1ED3 th\u1ECB r\u1ED3i sang tr\u1EE5c tung (v\xE0 ng\u01B0\u1EE3c l\u1EA1i).",
+        "\u0110\u1ECDc \u0111\u1ED3 th\u1ECB; gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1; ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t.",
+        [r4`a) \(x = 1{,}5\): \(y = 5\cdot1{,}5 = 7{,}5\) (km).`, r4`b) \(y = 12\): \(5x = 12 \iff x = 2{,}4\) (giờ), tức 2 giờ 24 phút.`],
+        r4`a) 7,5 km; b) 2,4 giờ (2 giờ 24 phút).`
+      )
+    ]
+  },
+  notes: {
+    "ham-so-cho-boi-bang-cong-thuc": "Ch\u1EC9 c\u1EA7n m\u1ED9t gi\xE1 tr\u1ECB c\u1EE7a \\(x\\) \u1EE9ng v\u1EDBi hai gi\xE1 tr\u1ECB \\(y\\) kh\xE1c nhau l\xE0 \\(y\\) kh\xF4ng ph\u1EA3i h\xE0m s\u1ED1 c\u1EE7a \\(x\\).",
+    "tinh-gia-tri-ham-so": "Thay gi\xE1 tr\u1ECB v\xE0o bi\u1EBFn (s\u1ED1 \xE2m \u0111\u1EB7t trong ngo\u1EB7c); t\xECm \\(x\\) khi bi\u1EBFt \\(f(x)\\) th\xEC gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh.",
+    "toa-do-diem": "Ho\xE0nh \u0111\u1ED9 vi\u1EBFt tr\u01B0\u1EDBc, tung \u0111\u1ED9 vi\u1EBFt sau; \u0111i\u1EC3m tr\xEAn tr\u1EE5c ho\xE0nh c\xF3 tung \u0111\u1ED9 0, tr\xEAn tr\u1EE5c tung c\xF3 ho\xE0nh \u0111\u1ED9 0.",
+    "ve-doc-do-thi": "\u0110\u1ED3 th\u1ECB l\xE0 t\u1EADp h\u1EE3p c\xE1c \u0111i\u1EC3m \\((x; f(x))\\); \u0111\u1ECDc \u0111\u1ED3 th\u1ECB b\u1EB1ng \u0111\u01B0\u1EDDng gi\xF3ng song song v\u1EDBi c\xE1c tr\u1EE5c."
+  }
+};
+var BAI_28 = {
+  slug: "bai-28-ham-so-bac-nhat-va-do-thi-cua-ham-so-bac-nhat",
+  applications: r4`- Mô tả các quan hệ "giá cố định + giá theo số lượng": cước taxi, tiền điện, tiền nước, tiền thuê xe.
+- So sánh hai phương án (hai hãng, hai gói cước) bằng cách xét giao điểm hai đồ thị.
+- Dự đoán lượng nước trong bể, quãng đường theo thời gian khi tốc độ không đổi.`,
+  theory: [
+    th(
+      "definition",
+      "H\xE0m s\u1ED1 b\u1EADc nh\u1EA5t",
+      r4`Hàm số bậc nhất là hàm số cho bởi công thức \(y = ax + b\), trong đó \(a\), \(b\) là các số cho trước và \(a \ne 0\).`,
+      r4`y = ax + b\quad (a \ne 0)`,
+      r4`\(y = 3x - 2\) (\(a = 3\), \(b = -2\)); \(y = \dfrac{x}{3}\) (\(a = \dfrac13\), \(b = 0\)).`
+    ),
+    th("property", "\u0110\u1ED3 th\u1ECB c\u1EE7a h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t", r4`Đồ thị của hàm số \(y = ax + b\) (\(a \ne 0\)) là một **đường thẳng**:
+- Cắt trục tung tại điểm có tung độ bằng \(b\).
+- Song song với đường thẳng \(y = ax\) nếu \(b \ne 0\); trùng với đường thẳng \(y = ax\) nếu \(b = 0\).`),
+    th("rule", "C\xE1ch v\u1EBD \u0111\u1ED3 th\u1ECB", r4`Xác định hai điểm phân biệt của đồ thị rồi vẽ đường thẳng đi qua hai điểm đó. Thường chọn:
+- \(P(0; b)\) – giao điểm với trục tung;
+- \(Q\left(-\dfrac{b}{a}; 0\right)\) – giao điểm với trục hoành (hoặc một điểm có hoành độ dễ tính).`),
+    th("condition", "\u0110i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB", r4`Điểm \(M(x_0; y_0)\) thuộc đồ thị hàm số \(y = ax + b\) khi và chỉ khi \(y_0 = ax_0 + b\).`, r4`M(x_0; y_0) \in d \iff y_0 = ax_0 + b`),
+    th("special", "Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", r4`- \(b = 0\): đồ thị \(y = ax\) đi qua gốc tọa độ \(O\) và điểm \((1; a)\).
+- \(a = 0\): \(y = b\) là hàm hằng (không phải hàm số bậc nhất), đồ thị là đường thẳng song song với trục hoành.`),
+    th("note", "L\u01B0u \xFD", r4`Muốn xác định \(y = ax + b\), cần đủ hai dữ kiện (hai điểm, hoặc một điểm và một hệ số) để lập đủ hai đẳng thức.`)
+  ],
+  formulas: [
+    {
+      group: "H\xE0m s\u1ED1 b\u1EADc nh\u1EA5t",
+      items: [
+        fc("D\u1EA1ng t\u1ED5ng qu\xE1t", r4`y = ax + b\quad (a \ne 0)`, r4`- \(a\): hệ số của \(x\); \(b\): hệ số tự do`, r4`\(y = -x + 3\): \(a = -1\), \(b = 3\).`, r4`\(a \ne 0\).`),
+        fc("Giao \u0111i\u1EC3m v\u1EDBi hai tr\u1EE5c", r4`Oy:\ (0; b),\qquad Ox:\ \left(-\dfrac{b}{a}; 0\right)`, r4`- \(a \ne 0\)`, r4`\(y = 2x - 4\): cắt \(Oy\) tại \((0; -4)\), cắt \(Ox\) tại \((2; 0)\).`),
+        fc("\u0110i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB", r4`M(x_0; y_0) \in d \iff y_0 = ax_0 + b`, r4`- \(d\): đồ thị \(y = ax + b\)`, r4`\(A(1; 1)\) thuộc \(y = 3x - 2\) vì \(3\cdot1 - 2 = 1\).`)
+      ]
+    }
+  ],
+  examples: {
+    "nhan-dang-ham-so-bac-nhat": [
+      ex(
+        1,
+        r4`Trong các hàm số \(y = 3x - 2\); \(y = 5 - x\); \(y = 2x^2 + 1\); \(y = 4\); \(y = \dfrac{x}{3}\), hàm số nào là hàm số bậc nhất? Chỉ ra \(a\), \(b\).`,
+        "So s\xE1nh v\u1EDBi d\u1EA1ng \\(y = ax + b\\), \\(a \\ne 0\\).",
+        "\u0110\u1ECBnh ngh\u0129a h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t.",
+        [r4`\(y = 3x - 2\): \(a = 3\), \(b = -2\). \(y = 5 - x\): \(a = -1\), \(b = 5\). \(y = \dfrac{x}{3}\): \(a = \dfrac13\), \(b = 0\).`, r4`\(y = 2x^2 + 1\) có \(x^2\); \(y = 4\) có \(a = 0\): không phải hàm số bậc nhất.`],
+        r4`Các hàm số bậc nhất: \(y = 3x - 2\); \(y = 5 - x\); \(y = \dfrac{x}{3}\).`
+      ),
+      ex(
+        2,
+        r4`Tìm \(m\) để hàm số \(y = (m - 2)x + 3\) là hàm số bậc nhất. Với \(m = 5\), chỉ ra hệ số \(a\), \(b\).`,
+        "\u0110i\u1EC1u ki\u1EC7n l\xE0 h\u1EC7 s\u1ED1 c\u1EE7a \\(x\\) kh\xE1c 0.",
+        "\u0110\u1ECBnh ngh\u0129a h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t.",
+        [r4`Hàm số là bậc nhất khi \(m - 2 \ne 0\), tức \(m \ne 2\).`, r4`Với \(m = 5\): \(y = 3x + 3\), \(a = 3\), \(b = 3\).`],
+        r4`\(m \ne 2\); khi \(m = 5\): \(a = 3\), \(b = 3\).`
+      )
+    ],
+    "bang-gia-tri-ham-so-bac-nhat": [
+      ex(
+        1,
+        r4`Cho hàm số \(y = 2x + 1\). Lập bảng giá trị với \(x = -2; -1; 0; 1; 2\).`,
+        "Thay t\u1EEBng gi\xE1 tr\u1ECB c\u1EE7a \\(x\\) v\xE0o c\xF4ng th\u1EE9c.",
+        "Gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t.",
+        [r4`\(x = -2 \Rightarrow y = -3\); \(x = -1 \Rightarrow y = -1\); \(x = 0 \Rightarrow y = 1\).`, r4`\(x = 1 \Rightarrow y = 3\); \(x = 2 \Rightarrow y = 5\).`],
+        r4`| \(x\) | \(-2\) | \(-1\) | 0 | 1 | 2 |
+|---|---|---|---|---|---|
+| \(y\) | \(-3\) | \(-1\) | 1 | 3 | 5 |`
+      ),
+      ex(
+        2,
+        r4`Cho \(f(x) = -3x + 5\). Tính \(f(-1)\), \(f\left(\dfrac23\right)\) và tìm \(x\) để \(f(x) = -1\).`,
+        "Thay s\u1ED1 \u0111\u1EC3 t\xEDnh gi\xE1 tr\u1ECB; gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh \u0111\u1EC3 t\xECm \\(x\\).",
+        "Gi\xE1 tr\u1ECB c\u1EE7a h\xE0m s\u1ED1; ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t.",
+        [r4`\(f(-1) = 3 + 5 = 8\); \(f\left(\dfrac23\right) = -2 + 5 = 3\).`, r4`\(-3x + 5 = -1 \iff -3x = -6 \iff x = 2\).`],
+        r4`\(f(-1) = 8\); \(f\left(\dfrac23\right) = 3\); \(x = 2\).`
+      )
+    ],
+    "ve-do-thi-ham-so-bac-nhat": [
+      ex(
+        2,
+        r4`Vẽ đồ thị của hàm số \(y = -x + 3\).`,
+        "T\xECm giao \u0111i\u1EC3m v\u1EDBi hai tr\u1EE5c t\u1ECDa \u0111\u1ED9 r\u1ED3i n\u1ED1i.",
+        "C\xE1ch v\u1EBD \u0111\u1ED3 th\u1ECB h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t.",
+        [r4`Cho \(x = 0\) thì \(y = 3\): điểm \(P(0; 3)\).`, r4`Cho \(y = 0\) thì \(x = 3\): điểm \(Q(3; 0)\).`, r4`Vẽ đường thẳng đi qua \(P\) và \(Q\).`],
+        r4`Đồ thị là đường thẳng \(PQ\):
+[bieudo]
+loai: dothi
+ham so: -x + 3
+diem: P(0; 3); Q(3; 0)
+x: -1; 4
+y: -1; 4
+[/bieudo]`
+      ),
+      ex(
+        3,
+        r4`Vẽ trên cùng một mặt phẳng tọa độ đồ thị của hai hàm số \(y = x + 1\) và \(y = -2x + 4\). Tìm tọa độ giao điểm của hai đồ thị.`,
+        "V\u1EBD t\u1EEBng \u0111\u01B0\u1EDDng th\u1EB3ng qua hai \u0111i\u1EC3m; ho\xE0nh \u0111\u1ED9 giao \u0111i\u1EC3m l\xE0 nghi\u1EC7m c\u1EE7a ph\u01B0\u01A1ng tr\xECnh ho\xE0nh \u0111\u1ED9.",
+        "V\u1EBD \u0111\u1ED3 th\u1ECB; gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t.",
+        [r4`\(y = x + 1\) qua \((0; 1)\) và \((-1; 0)\); \(y = -2x + 4\) qua \((0; 4)\) và \((2; 0)\).`, r4`Hoành độ giao điểm: \(x + 1 = -2x + 4 \iff 3x = 3 \iff x = 1\).`, r4`Tung độ: \(y = 1 + 1 = 2\). Giao điểm \(I(1; 2)\).`],
+        r4`Giao điểm \(I(1; 2)\).
+[bieudo]
+loai: dothi
+ham so: x + 1; -2x + 4
+diem: I(1; 2)
+x: -2; 3
+y: -1; 5
+[/bieudo]`,
+        "\u0110\u1ECDc giao \u0111i\u1EC3m tr\xEAn h\xECnh r\u1ED3i ki\u1EC3m tra l\u1EA1i b\u1EB1ng ph\xE9p t\xEDnh."
+      )
+    ],
+    "diem-thuoc-do-thi-tim-he-so": [
+      ex(
+        2,
+        r4`Trong các điểm \(A(1; 1)\), \(B(2; 5)\), \(C(-1; -4)\), điểm nào thuộc đồ thị hàm số \(y = 3x - 2\)?`,
+        "Thay ho\xE0nh \u0111\u1ED9 v\xE0o h\xE0m s\u1ED1, so s\xE1nh k\u1EBFt qu\u1EA3 v\u1EDBi tung \u0111\u1ED9.",
+        "\u0110i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB h\xE0m s\u1ED1.",
+        [r4`\(A\): \(3\cdot1 - 2 = 1\). Đúng bằng tung độ.`, r4`\(B\): \(3\cdot2 - 2 = 4 \ne 5\). \(C\): \(3\cdot(-1) - 2 = -5 \ne -4\).`],
+        r4`Chỉ có điểm \(A\) thuộc đồ thị.`
+      ),
+      ex(
+        3,
+        r4`Xác định hệ số \(a\) để đồ thị hàm số \(y = ax + 3\) đi qua điểm \(A(2; 7)\).`,
+        "Thay t\u1ECDa \u0111\u1ED9 c\u1EE7a \\(A\\) v\xE0o h\xE0m s\u1ED1 \u0111\u1EC3 c\xF3 ph\u01B0\u01A1ng tr\xECnh \u1EA9n \\(a\\).",
+        "\u0110i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB; ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t.",
+        [r4`\(A \in\) đồ thị nên \(7 = a\cdot2 + 3\).`, r4`\(2a = 4 \iff a = 2\) (thỏa mãn \(a \ne 0\)).`],
+        r4`\(a = 2\), hàm số \(y = 2x + 3\).`
+      ),
+      ex(
+        4,
+        r4`Xác định hàm số \(y = ax + b\) biết đồ thị đi qua hai điểm \(A(1; 3)\) và \(B(-1; -1)\).`,
+        "M\u1ED7i \u0111i\u1EC3m cho m\u1ED9t \u0111\u1EB3ng th\u1EE9c; c\u1ED9ng (tr\u1EEB) hai \u0111\u1EB3ng th\u1EE9c \u0111\u1EC3 t\xECm \\(a\\), \\(b\\).",
+        "\u0110i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB; gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`\(A \in\) đồ thị: \(a + b = 3\); \(B \in\) đồ thị: \(-a + b = -1\).`, r4`Cộng hai đẳng thức: \(2b = 2 \iff b = 1\); suy ra \(a = 2\).`, r4`Kiểm tra: \(2\cdot1 + 1 = 3\), \(2\cdot(-1) + 1 = -1\). Đúng.`],
+        r4`\(y = 2x + 1\).`,
+        "Hai \u0111i\u1EC3m ph\xE2n bi\u1EC7t x\xE1c \u0111\u1ECBnh \u0111\xFAng m\u1ED9t \u0111\u01B0\u1EDDng th\u1EB3ng."
+      )
+    ],
+    "thuc-te-ham-so-bac-nhat": [
+      ex(
+        3,
+        r4`Một bể đang chứa 50 lít nước. Người ta mở vòi chảy thêm vào bể mỗi phút 4 lít. a) Viết hàm số biểu thị lượng nước \(y\) (lít) trong bể sau \(x\) phút. b) Sau bao lâu bể có 130 lít nước?`,
+        "L\u01B0\u1EE3ng n\u01B0\u1EDBc = l\u01B0\u1EE3ng ban \u0111\u1EA7u + l\u01B0\u1EE3ng ch\u1EA3y th\xEAm.",
+        "H\xE0m s\u1ED1 b\u1EADc nh\u1EA5t trong th\u1EF1c t\u1EBF; ph\u01B0\u01A1ng tr\xECnh b\u1EADc nh\u1EA5t.",
+        [r4`a) \(y = 4x + 50\) (\(x \ge 0\)).`, r4`b) \(4x + 50 = 130 \iff 4x = 80 \iff x = 20\).`],
+        r4`a) \(y = 4x + 50\); b) sau 20 phút.`
+      ),
+      ex(
+        4,
+        r4`Hãng taxi A tính 15 000 đồng mở cửa và 11 000 đồng mỗi km; hãng B tính 10 000 đồng mở cửa và 12 000 đồng mỗi km. a) Viết hàm số biểu thị số tiền \(y_A\), \(y_B\) (đồng) khi đi \(x\) km. b) Đi bao nhiêu km thì hai hãng thu tiền bằng nhau? c) Đi 10 km nên chọn hãng nào?`,
+        "M\u1ED7i h\xE3ng l\xE0 m\u1ED9t h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t; hai h\xE3ng b\u1EB1ng ti\u1EC1n t\u1EA1i ho\xE0nh \u0111\u1ED9 giao \u0111i\u1EC3m c\u1EE7a hai \u0111\u1ED3 th\u1ECB.",
+        "H\xE0m s\u1ED1 b\u1EADc nh\u1EA5t; giao \u0111i\u1EC3m hai \u0111\u1ED3 th\u1ECB; ph\u01B0\u01A1ng tr\xECnh.",
+        [r4`a) \(y_A = 11\,000x + 15\,000\); \(y_B = 12\,000x + 10\,000\).`, r4`b) \(11\,000x + 15\,000 = 12\,000x + 10\,000 \iff 1000x = 5000 \iff x = 5\) (km).`, r4`c) Với \(x = 10\): \(y_A = 125\,000\), \(y_B = 130\,000\). Nên chọn hãng A.`],
+        r4`Bằng nhau khi đi 5 km; đi 10 km chọn hãng A (rẻ hơn 5 000 đồng).
+[bieudo]
+loai: dothi
+ham so: 1,1x + 1,5; 1,2x + 1
+x: 0; 10
+y: 0; 14
+diem: I(5; 7)
+tieude: Số tiền (chục nghìn đồng) theo số km
+[/bieudo]`,
+        "Sau giao \u0111i\u1EC3m, \u0111\u01B0\u1EDDng n\xE0o th\u1EA5p h\u01A1n th\xEC ph\u01B0\u01A1ng \xE1n \u0111\xF3 r\u1EBB h\u01A1n."
+      )
+    ]
+  },
+  notes: {
+    "nhan-dang-ham-so-bac-nhat": "\u0110\u01B0a v\u1EC1 d\u1EA1ng \\(y = ax + b\\) v\xE0 ki\u1EC3m tra \\(a \\ne 0\\); c\xF3 tham s\u1ED1 th\xEC \u0111\u1EB7t \u0111i\u1EC1u ki\u1EC7n cho h\u1EC7 s\u1ED1 c\u1EE7a \\(x\\).",
+    "bang-gia-tri-ham-so-bac-nhat": "Thay s\u1ED1 c\u1EA9n th\u1EADn (s\u1ED1 \xE2m \u0111\u1EB7t trong ngo\u1EB7c); t\xECm \\(x\\) khi bi\u1EBFt \\(y\\) th\xEC gi\u1EA3i ph\u01B0\u01A1ng tr\xECnh.",
+    "ve-do-thi-ham-so-bac-nhat": "Ch\u1EC9 c\u1EA7n hai \u0111i\u1EC3m; \u01B0u ti\xEAn giao \u0111i\u1EC3m v\u1EDBi hai tr\u1EE5c, n\u1EBFu \\(b = 0\\) th\xEC ch\u1ECDn th\xEAm \u0111i\u1EC3m \\((1; a)\\).",
+    "diem-thuoc-do-thi-tim-he-so": "\u0110i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB th\xEC t\u1ECDa \u0111\u1ED9 th\u1ECFa m\xE3n c\xF4ng th\u1EE9c; m\u1ED7i d\u1EEF ki\u1EC7n cho m\u1ED9t ph\u01B0\u01A1ng tr\xECnh.",
+    "thuc-te-ham-so-bac-nhat": "X\xE1c \u0111\u1ECBnh ph\u1EA7n c\u1ED1 \u0111\u1ECBnh (\\(b\\)) v\xE0 ph\u1EA7n thay \u0111\u1ED5i theo \u0111\u01A1n v\u1ECB (\\(a\\)); so s\xE1nh ph\u01B0\u01A1ng \xE1n b\u1EB1ng giao \u0111i\u1EC3m hai \u0111\u1ED3 th\u1ECB."
+  }
+};
+var BAI_29 = {
+  slug: "bai-29-he-so-goc-cua-duong-thang",
+  applications: r4`- Hệ số góc cho biết đại lượng thay đổi nhanh hay chậm: giá cước mỗi km, tốc độ chảy của vòi nước.
+- Độ dốc của đường, mái nhà, đường trượt được mô tả bằng hệ số góc.
+- Nhận biết hai phương án tăng cùng tốc độ (song song) hay sẽ gặp nhau (cắt nhau).`,
+  theory: [
+    th("definition", "H\u1EC7 s\u1ED1 g\xF3c", r4`Đường thẳng \(y = ax + b\) (\(a \ne 0\)) có **hệ số góc** là \(a\).`, void 0, r4`\(y = 3x - 1\) có hệ số góc 3; \(y = -x + 2\) có hệ số góc \(-1\).`),
+    th("property", "G\xF3c t\u1EA1o b\u1EDFi \u0111\u01B0\u1EDDng th\u1EB3ng v\xE0 tr\u1EE5c Ox", r4`Gọi \(\alpha\) là góc tạo bởi đường thẳng \(y = ax + b\) với tia \(Ox\) (tính ngược chiều kim đồng hồ):
+- \(a > 0\) thì \(\alpha\) là góc nhọn; \(a\) càng lớn thì góc càng lớn.
+- \(a < 0\) thì \(\alpha\) là góc tù.`),
+    th("condition", "V\u1ECB tr\xED c\u1EE7a hai \u0111\u01B0\u1EDDng th\u1EB3ng", r4`Với \(d: y = ax + b\) và \(d': y = a'x + b'\) (\(a, a' \ne 0\)):`, r4`d \parallel d' \iff a = a',\ b \ne b';\quad d \equiv d' \iff a = a',\ b = b';\quad d \text{ cắt } d' \iff a \ne a'`),
+    th("special", "C\u1EAFt nhau t\u1EA1i m\u1ED9t \u0111i\u1EC3m tr\xEAn tr\u1EE5c tung", r4`\(d\) và \(d'\) cắt nhau tại một điểm trên trục tung khi \(a \ne a'\) và \(b = b'\).`),
+    th("note", "L\u01B0u \xFD", r4`Khi đường thẳng có tham số, luôn kèm điều kiện hệ số của \(x\) khác 0 (để là hàm số bậc nhất) và đối chiếu kết quả với điều kiện này.`)
+  ],
+  formulas: [
+    {
+      group: "H\u1EC7 s\u1ED1 g\xF3c v\xE0 v\u1ECB tr\xED hai \u0111\u01B0\u1EDDng th\u1EB3ng",
+      items: [
+        fc("Song song", r4`d \parallel d' \iff a = a',\ b \ne b'`, r4`- \(d: y = ax + b\), \(d': y = a'x + b'\)`, r4`\(y = 2x + 1\) và \(y = 2x - 3\) song song.`),
+        fc("Tr\xF9ng nhau", r4`d \equiv d' \iff a = a',\ b = b'`, r4`- như trên`, r4`\(y = 3x + 2\) và \(y = \dfrac{6x + 4}{2}\) trùng nhau.`),
+        fc("C\u1EAFt nhau", r4`d \text{ cắt } d' \iff a \ne a'`, r4`- như trên`, r4`\(y = 2x + 1\) và \(y = -x + 1\) cắt nhau tại \((0; 1)\).`)
+      ]
+    }
+  ],
+  examples: {
+    "xac-dinh-he-so-goc": [
+      ex(
+        1,
+        r4`Xác định hệ số góc của các đường thẳng: \(y = 3x - 1\); \(y = -x + 2\); \(y = \dfrac{1 - 2x}{3}\).`,
+        "\u0110\u01B0a v\u1EC1 d\u1EA1ng \\(y = ax + b\\) r\u1ED3i \u0111\u1ECDc \\(a\\).",
+        "\u0110\u1ECBnh ngh\u0129a h\u1EC7 s\u1ED1 g\xF3c.",
+        [r4`\(y = 3x - 1\): hệ số góc 3; \(y = -x + 2\): hệ số góc \(-1\).`, r4`\(y = \dfrac{1 - 2x}{3} = -\dfrac23x + \dfrac13\): hệ số góc \(-\dfrac23\).`],
+        r4`\(3\); \(-1\); \(-\dfrac23\).`
+      ),
+      ex(
+        2,
+        r4`Góc tạo bởi mỗi đường thẳng \(y = 2x + 1\) và \(y = -x + 3\) với trục \(Ox\) là góc nhọn hay góc tù?`,
+        "X\xE9t d\u1EA5u h\u1EC7 s\u1ED1 g\xF3c.",
+        "Quan h\u1EC7 gi\u1EEFa d\u1EA5u c\u1EE7a h\u1EC7 s\u1ED1 g\xF3c v\xE0 g\xF3c t\u1EA1o v\u1EDBi tr\u1EE5c Ox.",
+        [r4`\(y = 2x + 1\) có \(a = 2 > 0\): góc nhọn.`, r4`\(y = -x + 3\) có \(a = -1 < 0\): góc tù.`],
+        r4`Đường thứ nhất tạo góc nhọn, đường thứ hai tạo góc tù với \(Ox\).
+[bieudo]
+loai: dothi
+ham so: 2x + 1; -x + 3
+x: -2; 4
+y: -2; 5
+[/bieudo]`
+      )
+    ],
+    "song-song-cat-nhau": [
+      ex(
+        1,
+        r4`Xét vị trí tương đối của các cặp đường thẳng: \(d_1: y = 2x + 1\); \(d_2: y = 2x - 3\); \(d_3: y = -x + 1\).`,
+        "So s\xE1nh h\u1EC7 s\u1ED1 g\xF3c, r\u1ED3i h\u1EC7 s\u1ED1 t\u1EF1 do.",
+        "\u0110i\u1EC1u ki\u1EC7n song song, c\u1EAFt nhau.",
+        [r4`\(d_1\), \(d_2\): \(a = a' = 2\), \(b \ne b'\) nên song song.`, r4`\(d_1\), \(d_3\): \(2 \ne -1\) nên cắt nhau; lại có \(b = b' = 1\) nên cắt nhau tại điểm \((0; 1)\) trên trục tung.`, r4`\(d_2\), \(d_3\): \(2 \ne -1\) nên cắt nhau.`],
+        r4`\(d_1 \parallel d_2\); \(d_1\) cắt \(d_3\) tại \((0; 1)\); \(d_2\) cắt \(d_3\).`
+      ),
+      ex(
+        2,
+        r4`Hai đường thẳng \(d: y = 3x - 2\) và \(d': y = \dfrac{6x + 4}{2}\) có vị trí như thế nào?`,
+        "R\xFAt g\u1ECDn \\(d'\\) v\u1EC1 d\u1EA1ng \\(y = ax + b\\) tr\u01B0\u1EDBc khi so s\xE1nh.",
+        "V\u1ECB tr\xED c\u1EE7a hai \u0111\u01B0\u1EDDng th\u1EB3ng.",
+        [r4`\(d': y = 3x + 2\).`, r4`\(a = a' = 3\), \(b = -2 \ne 2 = b'\) nên \(d \parallel d'\).`],
+        r4`\(d \parallel d'\).`
+      )
+    ],
+    "tim-tham-so-song-song-cat-nhau": [
+      ex(
+        2,
+        r4`Tìm \(m\) để đường thẳng \(y = (m + 1)x + 3\) song song với đường thẳng \(y = 2x - 1\).`,
+        "Song song: h\u1EC7 s\u1ED1 g\xF3c b\u1EB1ng nhau, h\u1EC7 s\u1ED1 t\u1EF1 do kh\xE1c nhau.",
+        "\u0110i\u1EC1u ki\u1EC7n hai \u0111\u01B0\u1EDDng th\u1EB3ng song song.",
+        [r4`Điều kiện: \(m + 1 = 2\) và \(3 \ne -1\).`, r4`\(m = 1\) (khi đó \(m + 1 = 2 \ne 0\), thỏa mãn).`],
+        r4`\(m = 1\).`
+      ),
+      ex(
+        3,
+        r4`Cho \(d: y = (m - 1)x + 2m\) (\(m \ne 1\)) và \(d': y = 3x - 4\). Tìm \(m\) để: a) \(d \parallel d'\); b) \(d\) cắt \(d'\) tại một điểm trên trục tung.`,
+        "a) \\(a = a'\\), \\(b \\ne b'\\). b) \\(a \\ne a'\\), \\(b = b'\\).",
+        "V\u1ECB tr\xED c\u1EE7a hai \u0111\u01B0\u1EDDng th\u1EB3ng; \u0111i\u1EC1u ki\u1EC7n h\xE0m s\u1ED1 b\u1EADc nh\u1EA5t.",
+        [r4`a) \(m - 1 = 3 \iff m = 4\); khi đó \(2m = 8 \ne -4\). Vậy \(m = 4\).`, r4`b) \(2m = -4 \iff m = -2\); khi đó \(m - 1 = -3 \ne 3\) và \(m \ne 1\). Vậy \(m = -2\).`],
+        r4`a) \(m = 4\); b) \(m = -2\).`,
+        "Sau khi t\xECm \\(m\\), lu\xF4n thay l\u1EA1i \u0111\u1EC3 ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n c\xF2n l\u1EA1i."
+      )
+    ],
+    "tim-ham-so-bac-nhat": [
+      ex(
+        3,
+        r4`Xác định hàm số bậc nhất \(y = ax + b\) biết đồ thị song song với đường thẳng \(y = -2x + 1\) và đi qua điểm \(M(1; 3)\).`,
+        "Song song cho \\(a\\); \u0111i qua \\(M\\) cho \\(b\\).",
+        "\u0110i\u1EC1u ki\u1EC7n song song; \u0111i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB.",
+        [r4`Song song với \(y = -2x + 1\) nên \(a = -2\), \(b \ne 1\).`, r4`Đi qua \(M(1; 3)\): \(3 = -2\cdot1 + b \iff b = 5\) (thỏa mãn \(b \ne 1\)).`],
+        r4`\(y = -2x + 5\).`
+      ),
+      ex(
+        4,
+        r4`Xác định hàm số \(y = ax + b\) biết đồ thị cắt trục tung tại điểm có tung độ \(-3\) và đi qua giao điểm của hai đường thẳng \(y = x + 1\) và \(y = -x + 5\).`,
+        "T\xECm giao \u0111i\u1EC3m tr\u01B0\u1EDBc; tung \u0111\u1ED9 g\u1ED1c cho \\(b\\).",
+        "Giao \u0111i\u1EC3m hai \u0111\u01B0\u1EDDng th\u1EB3ng; \u0111i\u1EC3m thu\u1ED9c \u0111\u1ED3 th\u1ECB.",
+        [r4`Giao điểm: \(x + 1 = -x + 5 \iff x = 2\), \(y = 3\). Điểm \(I(2; 3)\).`, r4`Cắt trục tung tại tung độ \(-3\) nên \(b = -3\).`, r4`Đi qua \(I\): \(3 = 2a - 3 \iff a = 3\).`],
+        r4`\(y = 3x - 3\).
+[bieudo]
+loai: dothi
+ham so: x + 1; -x + 5; 3x - 3
+diem: I(2; 3)
+x: -1; 4
+y: -4; 6
+[/bieudo]`,
+        "Ba \u0111\u01B0\u1EDDng th\u1EB3ng c\xF9ng \u0111i qua \\(I\\): \u0111\xE2y c\u0169ng l\xE0 c\xE1ch ch\u1EE9ng minh ba \u0111\u01B0\u1EDDng th\u1EB3ng \u0111\u1ED3ng quy."
+      )
+    ]
+  },
+  notes: {
+    "xac-dinh-he-so-goc": "\u0110\u01B0a v\u1EC1 d\u1EA1ng \\(y = ax + b\\) r\u1ED3i \u0111\u1ECDc h\u1EC7 s\u1ED1 g\xF3c \\(a\\) (c\u1EA3 d\u1EA5u); \\(a > 0\\) g\xF3c nh\u1ECDn, \\(a < 0\\) g\xF3c t\xF9.",
+    "song-song-cat-nhau": "So s\xE1nh h\u1EC7 s\u1ED1 g\xF3c tr\u01B0\u1EDBc: kh\xE1c nhau th\xEC c\u1EAFt nhau; b\u1EB1ng nhau th\xEC x\xE9t h\u1EC7 s\u1ED1 t\u1EF1 do (song song ho\u1EB7c tr\xF9ng).",
+    "tim-tham-so-song-song-cat-nhau": "Vi\u1EBFt \u0111\u1EE7 c\xE1c \u0111i\u1EC1u ki\u1EC7n (c\u1EA3 \\(b \\ne b'\\) v\xE0 h\u1EC7 s\u1ED1 c\u1EE7a \\(x\\) kh\xE1c 0) r\u1ED3i \u0111\u1ED1i chi\u1EBFu k\u1EBFt qu\u1EA3.",
+    "tim-ham-so-bac-nhat": "Chuy\u1EC3n m\u1ED7i d\u1EEF ki\u1EC7n th\xE0nh m\u1ED9t \u0111\u1EB3ng th\u1EE9c c\u1EE7a \\(a\\), \\(b\\); song song cho \\(a\\), c\u1EAFt tr\u1EE5c tung cho \\(b\\)."
+  }
+};
+var CHUONG_72 = [BAI_25, BAI_26, BAI_27, BAI_28, BAI_29];
+
 // src/seed/toan8-lessons/index.ts
-var TOAN8_LESSONS = [...CHUONG_12, ...CHUONG_22, ...CHUONG_32, ...CHUONG_42, ...CHUONG_52];
+var TOAN8_LESSONS = [...CHUONG_12, ...CHUONG_22, ...CHUONG_32, ...CHUONG_42, ...CHUONG_52, ...CHUONG_62, ...CHUONG_72];
 
 // src/seed/lesson-content.ts
 async function applyLessonContent(db, log = console.log) {
