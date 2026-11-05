@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import LocalPractice from './LocalPractice';
 import { ContinuePanel, LessonComplete, ProgressPage, StatsPanel } from './panels';
 import { load, markViewed } from './store';
+import { SearchPanel, StudyCorner, initStudyFeatures } from './study';
 import type { OfflinePractice } from './types';
 
 function readJson<T>(id: string): T | null {
@@ -57,6 +58,9 @@ mount('[data-panel=continue]', () => <ContinuePanel />);
 mount('[data-panel=stats]', () => <StatsPanel />);
 mount('[data-panel=progress]', () => <ProgressPage />);
 mount('[data-panel=complete]', (el) => <LessonComplete slug={el.dataset.slug!} />);
+mount('[data-panel=corner]', () => <StudyCorner />);
+mount('[data-panel=search]', () => <SearchPanel />);
+initStudyFeatures();
 
 // Chế độ trình chiếu
 const PRESENT_KEY = 'ml-present';

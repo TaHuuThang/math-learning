@@ -16,6 +16,7 @@ import {
   type Res,
 } from './context';
 import type { Router } from './router';
+import { parseMultipart, type UploadedFile } from './multipart';
 import { renderErrorPage } from '../../ui/pages/ErrorPage';
 
 const CSRF_COOKIE = 'ml_csrf';
@@ -147,6 +148,7 @@ export function createServer(router: Router, db: Database, cfg: AppConfig) {
     }
 
     let formCache: FormData | null = null;
+    let filesCache: UploadedFile[] = [];
     let bodyCache: Buffer | null = null;
     const body = async () => (bodyCache ??= await readBody(req, MAX_BODY));
 
@@ -170,9 +172,23 @@ export function createServer(router: Router, db: Database, cfg: AppConfig) {
       async form() {
         if (formCache) return formCache;
         const type = String(req.headers['content-type'] ?? '');
+        if (type.startsWith('multipart/form-data')) {
+          try {
+            const parsed = parseMultipart(await body(), type);
+            filesCache = parsed.files;
+            formCache = new FormData(parsed.fields);
+          } catch {
+            throw new HttpError(400, 'Dữ liệu tải lên không hợp lệ.');
+          }
+          return formCache;
+        }
         if (!type.startsWith('application/x-www-form-urlencoded')) throw new HttpError(415, 'Định dạng dữ liệu không được hỗ trợ.');
         formCache = new FormData(new URLSearchParams((await body()).toString('utf8')));
         return formCache;
+      },
+      async files() {
+        await ctx.form();
+        return filesCache;
       },
       async json() {
         const type = String(req.headers['content-type'] ?? '');
@@ -219,7 +235,7 @@ export function createServer(router: Router, db: Database, cfg: AppConfig) {
         }
         const headerToken = req.headers['x-csrf-token'];
         let sent = typeof headerToken === 'string' ? headerToken : '';
-        if (!sent && String(req.headers['content-type'] ?? '').startsWith('application/x-www-form-urlencoded')) {
+        if (!sent && /^(application\/x-www-form-urlencoded|multipart\/form-data)/.test(String(req.headers['content-type'] ?? ''))) {
           sent = (await ctx.form()).str('_csrf', 200);
         }
         if (!cookies[CSRF_COOKIE] || !sent || !safeEqual(sent, cookies[CSRF_COOKIE])) {

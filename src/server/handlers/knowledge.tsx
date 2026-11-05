@@ -22,6 +22,8 @@ import {
   type TopicNode,
 } from '../../domain/knowledge';
 import { getQuestions, toView } from '../../domain/questions';
+import { getTopicExamples, getViewedExampleIds } from '../../domain/lesson-content';
+import { WorkedExample } from '../../ui/components/lesson-v3';
 import { Badge, Breadcrumbs, Html, LinkButton, Notice, PageTitle, Panel, ProgressBar, buttonClass, cx } from '../../ui/components/ui';
 import {
   CHAPTER_TEST_PLAN,
@@ -293,6 +295,7 @@ export async function topicPage(ctx: Ctx): Promise<Res> {
   const questions = (await getQuestions(ctx.db, qids.map((r) => r.id))).map((q) => toView(q, false));
   const label = lessonLabel(lesson);
   const chapterName = chapterLabel({ kind: lesson.chapterKind, code: lesson.chapterCode, title: lesson.chapterTitle });
+  const [examples, viewed] = await Promise.all([getTopicExamples(ctx.db, topic.id, !staff), ctx.user ? getViewedExampleIds(ctx.db, ctx.user.id) : Promise.resolve(new Set<number>())]);
 
   return page(
     ctx,
@@ -343,7 +346,18 @@ export async function topicPage(ctx: Ctx): Promise<Res> {
         </header>
 
         <div className="mt-6 space-y-6">
-          <TopicArticle t={topic} />
+          <TopicArticle
+            t={topic}
+            examples={
+              examples.length ? (
+                <div className="space-y-4">
+                  {examples.map((e, i) => (
+                    <WorkedExample key={e.id} e={e} index={i + 1} viewed={viewed.has(e.id)} />
+                  ))}
+                </div>
+              ) : undefined
+            }
+          />
 
           <section aria-labelledby="bai-tap-luyen-tap">
             <h2 id="bai-tap-luyen-tap" className="mb-3 text-xl font-extrabold">

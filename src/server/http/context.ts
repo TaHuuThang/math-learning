@@ -72,6 +72,8 @@ export interface Ctx {
   db: Database;
   config: AppConfig;
   form(): Promise<FormData>;
+  /** Tệp tải lên của biểu mẫu multipart/form-data (rỗng với biểu mẫu thường). */
+  files(): Promise<import('./multipart').UploadedFile[]>;
   json(): Promise<unknown>;
   setFlash(flash: Flash): void;
 }

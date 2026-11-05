@@ -123,12 +123,21 @@ export function flattenLessons(tree: SemesterNode[]) {
   return tree.flatMap((s) => s.chapters.flatMap((c) => c.lessons.map((l) => ({ ...l, chapter: c, semester: s }))));
 }
 
+export type SectionKind =
+  | 'objective' | 'knowledge' | 'formula' | 'example' | 'note'
+  | 'concept' | 'definition' | 'property' | 'theorem' | 'rule' | 'special' | 'condition';
+
 export interface LessonSection {
   id: number;
-  kind: 'objective' | 'knowledge' | 'formula' | 'example' | 'note';
+  kind: SectionKind;
   title: string | null;
   body: string;
   solution: string | null;
+  /** Công thức kèm theo mục kiến thức (giai đoạn 3). */
+  formula: string | null;
+  /** Ví dụ ngắn kèm theo mục kiến thức (giai đoạn 3). */
+  example: string | null;
+  status: 'draft' | 'published';
   sortOrder: number;
 }
 
@@ -170,10 +179,13 @@ export interface LessonDetail {
   verifyNote: string | null;
   chapterStatus: 'draft' | 'published';
   sortOrder: number;
+  /** Ứng dụng thực tế (giai đoạn 3). */
+  applications: string | null;
 }
 
 const LESSON_COLS = sql`l.id, l.textbook_id, l.slug, l.number, l.title, l.kind, l.summary, l.periods, l.estimated_minutes, l.status, l.updated_at,
   l.code, l.objectives, l.prerequisites, l.concepts, l.formulas, l.properties, l.theorems, l.difficulty, l.verify_status, l.verify_note, l.sort_order,
+  l.applications,
   c.id as chapter_id, c.code as chapter_code, c.title as chapter_title, c.kind as chapter_kind, c.status as chapter_status,
   s.number as semester_number, s.name as semester_name`;
 
@@ -191,9 +203,11 @@ export async function getLessonById(q: Queryable, id: number) {
     where l.id = ${id}`);
 }
 
-export async function getLessonSections(q: Queryable, lessonId: number) {
+/** Các mục nội dung của bài; onlyPublished: bỏ mục đang ẩn (trang học sinh, bản HTML). */
+export async function getLessonSections(q: Queryable, lessonId: number, onlyPublished = false) {
   return q.many<LessonSection>(sql`
-    select id, kind, title, body, solution, sort_order from lesson_sections where lesson_id = ${lessonId} order by sort_order, id`);
+    select id, kind, title, body, solution, formula, example, status, sort_order from lesson_sections
+    where lesson_id = ${lessonId} ${onlyPublished ? sql`and status = 'published'` : sql.empty} order by sort_order, id`);
 }
 
 export async function getLessonTopics(q: Queryable, lessonId: number) {

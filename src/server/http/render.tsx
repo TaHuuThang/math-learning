@@ -70,7 +70,7 @@ export function page(ctx: Ctx, opts: PageOptions, body: ReactNode): Res {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(opts.description ?? 'Học Toán THCS theo chương trình GDPT 2018 – bài học, luyện tập, kiểm tra và theo dõi tiến độ.')}">
-<meta name="csrf-token" content="${escapeHtml(ctx.csrfToken)}">
+<meta name="csrf-token" content="${escapeHtml(ctx.csrfToken)}">${ctx.user ? '\n<meta name="ml-user" content="1">' : ''}
 <meta name="author" content="${escapeHtml(AUTHOR)}">
 <meta name="copyright" content="${escapeHtml(COPYRIGHT)}">
 <meta name="theme-color" content="#3B2A8C">

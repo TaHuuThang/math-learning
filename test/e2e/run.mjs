@@ -239,7 +239,8 @@ try {
     await student.goto(`${BASE}/hoc/toan-8/bai/bai-1-don-thuc`);
     const crumbs = await student.locator('nav[aria-label="Đường dẫn"]').textContent();
     for (const c of ['Toán 8', 'Học kì I', 'Chương I. Đa thức', 'Bài 1. Đơn thức']) assert.ok(crumbs.includes(c), `đường dẫn thiếu ${c}`);
-    for (const h of ['Mục tiêu kiến thức', 'Tóm tắt bài học', 'Kiến thức', 'Công thức', 'Ví dụ', 'Chủ đề và dạng toán', 'Bài tập']) assert.ok(await student.getByRole('heading', { name: h, exact: true }).count(), `thiếu mục ${h}`);
+    for (const h of [/Giới thiệu bài học/, /Mục tiêu cần đạt/, /Khám phá kiến thức mới/, /CÔNG THỨC CẦN NHỚ/, /Ví dụ minh họa/, /Hướng dẫn giải các dạng toán/, /Luyện tập/, /Ghi chú của em/])
+      assert.ok(await student.getByRole('heading', { name: h }).count(), `thiếu mục ${h}`);
     assert.ok((await student.locator('.katex').count()) > 10);
     assert.equal(await student.locator('.math-error').count(), 0, 'không có công thức lỗi');
     await shot(student, '02-bai-hoc');
@@ -252,6 +253,53 @@ try {
     assert.ok(await student.evaluate(() => document.documentElement.classList.contains('present')));
     await shot(student, '03-trinh-chieu', false);
     await student.click('[data-present-toggle]');
+  });
+
+  await step('Bài học đầy đủ: lời giải từng bước, lưu bài và công thức yêu thích, ghi chú, góc học tập, xem nhanh công thức, tìm kiếm', async () => {
+    await student.goto(`${BASE}/hoc/toan-8/bai/bai-1-don-thuc`);
+    // mục lục bài học + thẻ công thức
+    assert.ok((await student.locator('[data-toc-link]').count()) >= 6, 'mục lục bài học');
+    assert.ok((await student.locator('[data-formula]').count()) >= 3, 'có thẻ công thức cần nhớ');
+    // lời giải từng bước: mở ra chỉ thấy bước 1, bấm tiếp mới thấy bước 2, xem hết mới hiện kết luận
+    const ex = student.locator('[data-example]').nth(2);
+    await ex.locator('details[data-steps-root] > summary').click();
+    assert.equal(await ex.locator('[data-step]:visible').count(), 1);
+    assert.equal(await ex.locator('[data-after-steps]:visible').count(), 0, 'chưa hiện kết luận');
+    await ex.locator('[data-step-next]').click();
+    assert.equal(await ex.locator('[data-step]:visible').count(), 2);
+    await ex.locator('[data-step-all]').click();
+    assert.ok(await ex.locator('[data-after-steps]:visible').count(), 'xem hết thì hiện kết luận');
+    assert.ok(await ex.locator('[data-viewed-badge]').isVisible());
+    // chuyển nhanh giữa các dạng toán
+    await student.locator('[data-ex-chip]').nth(2).click();
+    assert.equal(await student.locator('[data-ex-group]:visible').count(), 1, 'chỉ hiện ví dụ của dạng đã chọn');
+    await student.locator('[data-ex-chip=all]').click();
+    // lưu bài yêu thích, công thức yêu thích, ghi chú
+    await Promise.all([student.waitForNavigation(), student.click('button:has-text("Lưu bài yêu thích")')]);
+    assert.ok(await student.getByText('★ Bài yêu thích').count());
+    await Promise.all([student.waitForNavigation(), student.locator('[data-formula] .fav-btn').first().click()]);
+    assert.equal(await student.locator('[data-formula] .fav-btn').first().getAttribute('aria-pressed'), 'true');
+    await student.fill('#note-body', 'Nhớ: thu gọn rồi mới tìm bậc.');
+    await Promise.all([student.waitForNavigation(), student.click('button:has-text("Lưu ghi chú")')]);
+    assert.match(await flash(student), /ghi chú/i);
+    await shot(student, '06-bai-hoc-day-du');
+    await student.goto(`${BASE}/goc-hoc-tap`);
+    const corner = await student.locator('main').textContent();
+    for (const t of ['Bài 1. Đơn thức', 'Nhớ: thu gọn rồi mới tìm bậc.', 'Công thức yêu thích (1)', 'Ví dụ em đã xem lời giải (1)']) assert.ok(corner.includes(t), `góc học tập thiếu "${t}"`);
+    await shot(student, '07-goc-hoc-tap');
+    // xem nhanh công thức: lọc theo từ khóa, chỉ yêu thích
+    await student.goto(`${BASE}/cong-thuc`);
+    const all = await student.locator('[data-formula]:visible').count();
+    await student.fill('[data-formula-filter]', 'dong dang');
+    const filtered = await student.locator('[data-formula]:visible').count();
+    assert.ok(filtered > 0 && filtered < all, 'lọc công thức không dấu');
+    await student.fill('[data-formula-filter]', '');
+    await student.check('[data-formula-favonly]');
+    assert.equal(await student.locator('[data-formula]:visible').count(), 1, 'chỉ công thức yêu thích');
+    // tìm kiếm không dấu
+    await student.goto(`${BASE}/tim-kiem?q=don%20thuc%20dong%20dang`);
+    assert.match(await student.locator('main a[href*="bai-1-don-thuc"]').first().textContent(), /Đơn thức|đồng dạng/i);
+    await shot(student, '08-tim-kiem');
   });
 
   await step('Luyện tập: chấm ngay, hiện lời giải, cộng XP, tổng kết lượt', async () => {
@@ -268,6 +316,10 @@ try {
       else await art.locator('textarea').fill('Diện tích \\(S = 6xy\\).');
       await art.locator('button:has-text("Kiểm tra"), button:has-text("Gửi bài làm")').click();
       await art.locator('[role=status]').waitFor();
+      if ((await art.locator('[role=status]').textContent()).includes('Chưa đúng')) {
+        assert.ok(await art.locator('[role=status] a:has-text("Dạng toán"), [role=status] a:has-text("Bài học")').count(), 'làm sai: gợi ý kiến thức cần ôn lại');
+        state.reviewHints = (state.reviewHints ?? 0) + 1;
+      }
       n++;
       if (n === 1) await shot(student, '04-luyen-tap-phan-hoi');
       const next = art.locator('button:has-text("Câu tiếp theo")');
@@ -384,7 +436,75 @@ try {
     assert.match(await flash(teacher), /Đã thêm mục nội dung/);
     await shot(teacher, '31-soan-bai-hoc');
     await student.goto(`${BASE}/hoc/toan-8/bai/bai-11-hinh-thang-can`);
-    assert.ok(await student.getByRole('heading', { name: 'Công thức', exact: true }).count(), 'học sinh thấy nội dung mới');
+    assert.ok(await student.locator('article[id^="kt-"]', { hasText: 'Hình thang cân' }).count(), 'học sinh thấy nội dung mới');
+  });
+
+  await step('Giáo viên soạn công thức, ví dụ minh họa, ảnh minh họa và ẩn/hiện – không cần sửa mã', async () => {
+    await teacher.goto(`${BASE}/giao-vien/chuong-trinh`);
+    await teacher.click('tr:has-text("Bài 2. Đa thức") a:has-text("Soạn")');
+    await teacher.waitForLoadState('load');
+    await hydrated(teacher);
+    const lessonEditor = teacher.url();
+    // tải ảnh minh họa (PNG 1×1)
+    const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==', 'base64');
+    await teacher.setInputFiles('#image-file', { name: 'hinh.png', mimeType: 'image/png', buffer: png });
+    await Promise.all([teacher.waitForNavigation(), teacher.click('form[enctype="multipart/form-data"] button')]);
+    const up = await flash(teacher);
+    const code = /\[anh:(\d+)\]/.exec(up)?.[0];
+    assert.ok(code, 'tải ảnh lên được mã chèn');
+    // ảnh không phải PNG/JPEG/WebP bị từ chối
+    await teacher.setInputFiles('#image-file', { name: 'x.png', mimeType: 'image/png', buffer: Buffer.from('<svg onload=alert(1)>') });
+    await Promise.all([teacher.waitForNavigation(), teacher.click('form[enctype="multipart/form-data"] button')]);
+    assert.match(await flash(teacher), /Chỉ nhận ảnh/);
+    // thêm công thức có ảnh trong ví dụ
+    await hydrated(teacher);
+    await teacher.click('summary:has-text("+ Thêm công thức")');
+    const ff = teacher.locator('form:has(input[name=_action][value=add-formula])');
+    await ff.locator('[name=group_title]').fill('Kiểm thử');
+    await ff.locator('[name=name]').fill('Công thức kiểm thử');
+    await ff.locator('[name=tex]').fill('P(x) + 0 = P(x)');
+    await ff.locator('textarea[name=symbols]').fill('- \\(P(x)\\): đa thức bất kì');
+    await ff.locator('textarea[name=example]').fill(`\\(x^2 + 0 = x^2\\). ${code}`);
+    await Promise.all([teacher.waitForNavigation(), ff.locator('button:has-text("Thêm công thức")').click()]);
+    assert.match(await flash(teacher), /Đã thêm công thức/);
+    await student.goto(`${BASE}/hoc/toan-8/bai/bai-2-da-thuc`);
+    const card = student.locator('[data-formula]', { hasText: 'Công thức kiểm thử' });
+    assert.ok(await card.count(), 'học sinh thấy công thức mới');
+    assert.ok(await card.locator('img.lesson-image').count(), 'ảnh minh họa hiện trong nội dung');
+    // ẩn công thức → học sinh không thấy
+    await teacher.goto(lessonEditor);
+    await Promise.all([teacher.waitForNavigation(), teacher.locator('button[aria-label="Ẩn công thức"]').last().click()]);
+    await student.reload();
+    assert.equal(await student.locator('[data-formula]', { hasText: 'Công thức kiểm thử' }).count(), 0, 'công thức đã ẩn');
+    // thêm ví dụ minh họa cho một dạng toán, báo lỗi công thức sai
+    await teacher.goto(lessonEditor);
+    await Promise.all([teacher.waitForNavigation(), teacher.locator('a[href^="/giao-vien/dang-toan/"]').first().click()]);
+    await hydrated(teacher);
+    await teacher.click('summary:has-text("+ Thêm ví dụ")');
+    let ef = teacher.locator('form:has(input[name=_action][value=add-example])');
+    await ef.locator('select[name=level]').selectOption('2');
+    await ef.locator('textarea[name=problem]').fill('Lỗi \\(\\frac{1}{\\)');
+    await ef.locator('textarea[name=steps]').fill('Bước 1');
+    await ef.locator('textarea[name=answer]').fill('x');
+    await ef.locator('button:has-text("Thêm ví dụ")').click();
+    await teacher.waitForLoadState('load');
+    assert.ok(await teacher.getByText('bị lỗi').count(), 'báo lỗi công thức trong ví dụ');
+    await hydrated(teacher);
+    await teacher.click('summary:has-text("+ Thêm ví dụ")');
+    ef = teacher.locator('form:has(input[name=_action][value=add-example])');
+    await ef.locator('select[name=level]').selectOption('2');
+    await ef.locator('textarea[name=problem]').fill('Ví dụ kiểm thử: \\(x^2 - x^2 + 3x\\) có phải đa thức bậc 2?');
+    await ef.locator('textarea[name=steps]').fill('Thu gọn: \\(x^2 - x^2 + 3x = 3x\\).\nĐa thức \\(3x\\) có bậc 1.');
+    await ef.locator('textarea[name=answer]').fill('Không, đa thức có bậc 1.');
+    await Promise.all([teacher.waitForNavigation(), ef.locator('button:has-text("Thêm ví dụ")').click()]);
+    assert.match(await flash(teacher), /Đã thêm ví dụ/);
+    await shot(teacher, '32-soan-vi-du');
+    const topicPublic = await teacher.locator('a:has-text("Xem như học sinh")').getAttribute('href');
+    await student.goto(`${BASE}${topicPublic}`);
+    const added = student.locator('[data-example]', { hasText: 'Ví dụ kiểm thử' });
+    assert.ok(await added.count(), 'học sinh thấy ví dụ mới trên trang dạng toán');
+    await added.locator('details[data-steps-root] > summary').click();
+    assert.equal(await added.locator('[data-step]:visible').count(), 1);
   });
 
   await step('Học sinh do giáo viên tạo: đăng nhập, đổi mật khẩu', async () => {
@@ -477,7 +597,7 @@ try {
     assert.match(student.url(), /bai-28-ham-so-bac-nhat/);
     await Promise.all([student.waitForNavigation(), student.locator('a:has-text("Vẽ đồ thị hàm số bậc nhất")').first().click()]);
     assert.match(student.url(), /\/dang\//);
-    for (const h of ['Kiến thức sử dụng', 'Dấu hiệu nhận biết', 'Phương pháp giải', 'Lỗi sai thường gặp', 'Ví dụ minh họa', 'Bài tập luyện tập'])
+    for (const h of ['Kiến thức sử dụng', 'Dấu hiệu nhận biết', 'Phương pháp giải', 'Lỗi sai thường gặp', /^Ví dụ minh họa/, 'Bài tập luyện tập'])
       assert.ok(await student.getByRole('heading', { name: h }).count(), `trang dạng toán thiếu "${h}"`);
     assert.ok((await student.locator('svg.chart-svg').count()) >= 1, 'có đồ thị hàm số trong lời giải');
     assert.equal(await student.locator('.math-error').count(), 0);

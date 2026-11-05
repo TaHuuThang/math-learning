@@ -4,6 +4,7 @@ import { TOAN8_CHAPTERS, TOAN8_PPCT_2026 } from './toan8-structure';
 import { TOAN8_CONTENT } from './toan8-content';
 import { TOAN8_QUESTIONS, type SeedQuestion } from './toan8-questions';
 import { applyKnowledgeMap } from './knowledge-map';
+import { applyLessonContent } from './lesson-content';
 
 const LABELS_MCQ = ['A', 'B', 'C', 'D'];
 const LABELS_TF = ['a', 'b', 'c', 'd'];
@@ -145,4 +146,5 @@ export async function seedAll(db: Database, log: (m: string) => void = console.l
   await seedBase(db);
   await seedToan8(db, log);
   await applyKnowledgeMap(db, log);
+  await applyLessonContent(db, log);
 }

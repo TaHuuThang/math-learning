@@ -73,16 +73,18 @@ export function PostForm({
   className,
   confirm,
   id,
+  encType,
 }: {
   action: string;
   children: ReactNode;
   className?: string;
   confirm?: string;
   id?: string;
+  encType?: 'multipart/form-data';
 }) {
   const { csrfToken } = useApp();
   return (
-    <form method="post" action={action} className={className} data-confirm={confirm} id={id}>
+    <form method="post" action={action} className={className} data-confirm={confirm} id={id} encType={encType}>
       <input type="hidden" name="_csrf" value={csrfToken} />
       {children}
     </form>
@@ -192,7 +194,7 @@ export function ErrorList({ errors }: { errors?: string[] }) {
   );
 }
 
-const inputClass =
+export const inputClass =
   'w-full rounded-xl border border-line-2 bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink-3 focus:border-tim-500 focus:outline-none focus:ring-4 focus:ring-tim-100';
 
 export function Field({

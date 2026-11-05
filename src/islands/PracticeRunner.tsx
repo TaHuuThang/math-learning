@@ -209,6 +209,15 @@ export function PracticeCore({
                 Em vừa nhận huy hiệu: <strong>{fb.achievements.map((a) => a.name).join(', ')}</strong>
               </p>
             )}
+            {(fb.status === 'incorrect' || fb.status === 'partial') && q.review && (
+              <p className="mt-3 rounded-xl bg-white/80 px-4 py-3 text-[15px]">
+                <strong>Em nên ôn lại:</strong>{' '}
+                <a href={q.review.href} className="font-semibold text-tim-700 underline underline-offset-2">
+                  {q.review.label}
+                </a>{' '}
+                – xem lại kiến thức, phương pháp và ví dụ minh họa rồi thử lại câu tương tự.
+              </p>
+            )}
             {fb.solutionHtml && (
               <div className="mt-3 rounded-xl bg-white/80 p-4">
                 <div className="mb-1 text-sm font-bold text-ink-2">Lời giải</div>

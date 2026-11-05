@@ -1,6 +1,7 @@
 import type { Router } from '../../http/router';
 import { teacherHome } from './overview';
 import { classAction, classDetailPage, classesPage, createClassAction, studentResetAction, studentsPage } from './classes';
+import { uploadImageAction } from './lesson-v3-editor';
 import { chapterEditorAction, chapterEditorPage, curriculumAction, curriculumAdminPage, lessonEditorAction, lessonEditorPage, topicEditorAction, topicEditorPage } from './content';
 import { importPage, importAction, importTemplate } from './import';
 import {
@@ -32,6 +33,7 @@ export function registerTeacherRoutes(r: Router) {
   r.post('/giao-vien/dang-toan/:id', topicEditorAction);
   r.get('/giao-vien/bai-hoc/:id', (ctx) => lessonEditorPage(ctx));
   r.post('/giao-vien/bai-hoc/:id', lessonEditorAction);
+  r.post('/giao-vien/anh', uploadImageAction);
   r.get('/giao-vien/cau-hoi', questionBankPage);
   r.get('/giao-vien/cau-hoi/nhap', (ctx) => importPage(ctx));
   r.post('/giao-vien/cau-hoi/nhap', importAction);

@@ -23,13 +23,18 @@ export interface Store {
   responses: StoredResponse[];
   xp: Record<string, number>;
   badges: Record<string, string>;
+  /** Giai đoạn 3: bài yêu thích (slug → thời điểm), công thức yêu thích (id → thời điểm), ghi chú theo bài, ví dụ đã xem. */
+  favLessons: Record<string, string>;
+  favFormulas: Record<string, string>;
+  notes: Record<string, { body: string; t: string }>;
+  examples: Record<string, string>;
 }
 
 let memory: Store | null = null;
 let persistent = true;
 
 function empty(): Store {
-  return { v: 1, completed: {}, viewed: {}, responses: [], xp: {}, badges: {} };
+  return { v: 1, completed: {}, viewed: {}, responses: [], xp: {}, badges: {}, favLessons: {}, favFormulas: {}, notes: {}, examples: {} };
 }
 
 export function load(): Store {
@@ -207,4 +212,39 @@ export function importJson(text: string) {
   const parsed = JSON.parse(text) as Store;
   if (!parsed || parsed.v !== 1 || typeof parsed.completed !== 'object' || !Array.isArray(parsed.responses)) throw new Error('Tệp không phải bản sao lưu tiến độ của trang.');
   save({ ...empty(), ...parsed });
+}
+
+// ---------------- Giai đoạn 3: yêu thích, ghi chú, ví dụ đã xem ----------------
+
+const now = () => new Date().toISOString();
+
+export function toggleFavLesson(slug: string): boolean {
+  const s = load();
+  if (s.favLessons[slug]) delete s.favLessons[slug];
+  else s.favLessons[slug] = now();
+  save(s);
+  return !!s.favLessons[slug];
+}
+
+export function toggleFavFormula(id: number): boolean {
+  const s = load();
+  const k = String(id);
+  if (s.favFormulas[k]) delete s.favFormulas[k];
+  else s.favFormulas[k] = now();
+  save(s);
+  return !!s.favFormulas[k];
+}
+
+export function saveNote(slug: string, body: string) {
+  const s = load();
+  const text = body.trim().slice(0, 5000);
+  if (text) s.notes[slug] = { body: text, t: now() };
+  else delete s.notes[slug];
+  save(s);
+}
+
+export function markExample(id: number) {
+  const s = load();
+  s.examples[String(id)] = now();
+  save(s);
 }

@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { ReactNode } from 'react';
 import { renderToString } from 'react-dom/server';
-import { LuArrowLeft, LuArrowRight, LuBookOpen, LuClipboardCheck, LuClock, LuMap, LuMenu, LuPencilRuler, LuPresentation, LuRocket } from 'react-icons/lu';
+import { LuArrowLeft, LuArrowRight, LuBookOpen, LuClipboardCheck, LuClock, LuMap, LuMenu, LuPencilRuler, LuPresentation, LuRocket, LuSearch, LuSigma, LuStar } from 'react-icons/lu';
 import { sql, type Database } from '../server/db';
 import {
   chapterLabel,
@@ -24,14 +24,15 @@ import {
   type LessonNode,
 } from '../domain/curriculum';
 import { getQuestions, imageHtml, latestQuestions, toView, type QuestionFull } from '../domain/questions';
+import { buildSearchEntries, getBookFormulas, getLessonExamples, getLessonFormulas, getReviewLinks, getTopicExamples } from '../domain/lesson-content';
+import { ExamplesSection, FormulaCard, FormulaSection, LegacyExamples, LessonIntro, LessonToc, NotesBlock, TheorySection, TopicGuideSection, WorkedExample, type TocId } from '../ui/components/lesson-v3';
 import { listAchievements } from '../domain/gamification';
-import { LessonBody } from '../ui/components/lesson';
 import { CHAPTER_TEST_PLAN, ChapterOverview, DifficultyBadge, LessonMetaPanel, LevelBadges, QuestionCoverage, ThemeList, TopicArticle } from '../ui/components/knowledge';
 import { LEVEL_LABELS as KLEVEL, countTopics, getChapterMetas, getThemesByLesson, getTopicById, getTopicQuestionCounts, summarizeChapter, topicKey, type Level, type TopicNode } from '../domain/knowledge';
 import { ChapterStats, KnowledgeTree, MapTotalsBar, mapTotals } from '../server/handlers/knowledge';
 import { AreaModel, BadgeMark } from '../ui/components/learning';
 import { LogoMark, Wordmark } from '../ui/components/Logo';
-import { Badge, Breadcrumbs, Notice, PageTitle, Panel, buttonClass, cx } from '../ui/components/ui';
+import { Badge, Breadcrumbs, Notice, PageTitle, Panel, buttonClass, cx, inputClass } from '../ui/components/ui';
 import { LESSON_KIND_LABELS, LEVEL_LABELS, TYPE_LABELS, TYPE_SHORT, formatDate } from '../shared/labels';
 import { QUESTION_TYPES, type QuestionType } from '../shared/grading';
 import { escapeHtml, plainExcerpt, renderRich, renderRichInline } from '../shared/richtext';
@@ -43,7 +44,7 @@ interface Page {
   title: string;
   description?: string;
   body: ReactNode;
-  nav?: 'home' | 'program' | 'practice' | 'progress';
+  nav?: 'home' | 'program' | 'formulas' | 'practice' | 'corner' | 'progress' | 'search';
   lesson?: string;
 }
 
@@ -56,7 +57,9 @@ function rel(from: string, to: string) {
 const NAV: { key: Page['nav']; file: string; label: string }[] = [
   { key: 'home', file: 'index.html', label: 'Trang chủ' },
   { key: 'program', file: 'chuong-trinh.html', label: 'Chương trình học' },
+  { key: 'formulas', file: 'cong-thuc.html', label: 'Công thức' },
   { key: 'practice', file: 'luyen-tap.html', label: 'Luyện tập' },
+  { key: 'corner', file: 'goc-hoc-tap.html', label: 'Góc học tập' },
   { key: 'progress', file: 'tien-do.html', label: 'Tiến độ & thành tích' },
 ];
 
@@ -82,7 +85,10 @@ function Layout({ page, children }: { page: Page; children: ReactNode }) {
               </a>
             ))}
           </nav>
-          <details className="relative ml-auto lg:hidden" data-menu>
+          <a href={R('tim-kiem.html')} className="ml-auto flex h-10 w-10 items-center justify-center rounded-xl border border-line text-lg text-ink-2 hover:border-tim-300 hover:text-tim-800" aria-label="Tìm kiếm kiến thức" title="Tìm kiếm kiến thức">
+            <LuSearch aria-hidden="true" />
+          </a>
+          <details className="relative lg:hidden" data-menu>
             <summary className="flex h-10 w-10 items-center justify-center rounded-xl border border-line text-xl" aria-label="Mở menu">
               <LuMenu aria-hidden="true" />
             </summary>
@@ -188,8 +194,10 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
   const themes = await getThemesByLesson(db, book.id);
   const chapterFile = (c: { code: string }) => `chuong-${c.code.toLowerCase()}.html`;
 
+  const reviews = await getReviewLinks(db, full, { lesson: (slug) => `../bai/${slug}.html`, topic: (slug, key) => `../dang/${slug}/${key}.html` });
   const offline = (q: QuestionFull): OfflineQuestion => {
     const view = toView(q);
+    view.review = reviews.get(q.id);
     view.mediaHtml = q.images.map((img) =>
       img.kind === 'upload' ? `<img src="${uploads.get(img.id) ?? ''}" alt="${escapeHtml(img.alt || 'Hình minh họa')}" class="max-w-full h-auto rounded-lg">` : imageHtml(img),
     );
@@ -631,8 +639,30 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
   // ---------------- Bài học ----------------
   for (const [idx, l] of flat.entries()) {
     const file = `bai/${l.slug}.html`;
-    const [sections, counts, detail] = await Promise.all([getLessonSections(db, l.id), getLessonQuestionCounts(db, l.id), getLessonById(db, l.id)]);
+    const [sections, counts, detail, formulas, examplesByTopic] = await Promise.all([
+      getLessonSections(db, l.id, true),
+      getLessonQuestionCounts(db, l.id),
+      getLessonById(db, l.id),
+      getLessonFormulas(db, l.id, true),
+      getLessonExamples(db, l.id, true),
+    ]);
     const lessonThemes = themes.get(l.id) ?? [];
+    const exampleGroups = lessonThemes.flatMap((th) =>
+      th.topics.filter((t) => examplesByTopic.get(t.id)?.length).map((t) => ({ topic: t, href: `../dang/${l.slug}/${topicKey(t)}.html`, examples: examplesByTopic.get(t.id)! })),
+    );
+    const exampleTotal = exampleGroups.reduce((n, g) => n + g.examples.length, 0);
+    const theoryItems = sections.filter((s) => s.kind !== 'objective' && s.kind !== 'example');
+    const legacyObjectives = sections.filter((s) => s.kind === 'objective').map((s) => s.body);
+    const hasLegacyExamples = sections.some((s) => s.kind === 'example');
+    const toc: TocId[] = ['gioi-thieu'];
+    if (theoryItems.length || l.kind === 'lesson') toc.push('kham-pha');
+    if (formulas.length) toc.push('cong-thuc');
+    if (exampleGroups.length || hasLegacyExamples) toc.push('vi-du');
+    if (lessonThemes.length) toc.push('dang-toan');
+    toc.push('bai-tap', 'ghi-chu');
+    const num = (id: TocId) => toc.indexOf(id) + 1;
+    const chapterItems = flat.filter((x) => x.chapterId === l.chapterId);
+    const posInChapter = chapterItems.findIndex((x) => x.id === l.id) + 1;
     const topicTotal = countTopics(lessonThemes);
     const prev = flat[idx - 1];
     const next = flat[idx + 1];
@@ -669,6 +699,8 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
                   <LuClock aria-hidden="true" /> {l.periods ?? 0} tiết
                 </span>
                 {topicTotal > 0 && <span>{topicTotal} dạng toán</span>}
+                {formulas.length > 0 && <span>{formulas.length} công thức</span>}
+                {exampleTotal > 0 && <span>{exampleTotal} ví dụ</span>}
                 <span>{total} bài tập</span>
               </div>
               <div className="no-print mt-5 flex flex-wrap gap-2">
@@ -677,27 +709,74 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
                     Luyện tập bài này
                   </a>
                 )}
+                <button type="button" data-fav-lesson={l.slug} aria-pressed="false" className={buttonClass('secondary', 'md')}>
+                  <LuStar aria-hidden="true" /> <span data-fav-label>Lưu bài yêu thích</span>
+                </button>
                 <button type="button" data-present-toggle aria-pressed="false" className={buttonClass('secondary', 'md')}>
                   <LuPresentation aria-hidden="true" /> <span data-present-label>Trình chiếu</span>
                 </button>
               </div>
             </header>
-            <div className="lesson-body mt-8 space-y-10">
-              {sections.length === 0 && (
-                <Notice tone="info">
-                  Phần lí thuyết chi tiết của mục này đang được biên soạn. {topicTotal > 0 ? 'Em có thể xem tóm tắt bài học và học theo từng dạng toán bên dưới.' : ''}
-                </Notice>
-              )}
-              <LessonBody
-                sections={sections}
-                themes={lessonThemes}
-                topicHref={(t) => `../dang/${l.slug}/${topicKey(t)}.html`}
-                lessonObjectives={detail?.objectives}
-                meta={detail ? <LessonMetaPanel m={detail} showFormulas={!sections.some((s) => s.kind === 'formula')} /> : null}
+            <div className="lesson-body mt-8 space-y-12">
+              <LessonToc ids={toc} variant="chips" />
+              <LessonIntro
+                n={num('gioi-thieu')}
+                d={{
+                  title: label,
+                  position: `${l.kind === 'lesson' ? 'Bài' : 'Mục'} thứ ${posInChapter}/${chapterItems.length} của ${chapterName} · ${l.semester.name}`,
+                  objectives: [detail?.objectives, ...legacyObjectives].filter(Boolean).join('\n') || null,
+                  concepts: detail?.concepts ?? null,
+                  prerequisites: detail?.prerequisites ?? null,
+                  applications: detail?.applications ?? null,
+                }}
               />
+              {toc.includes('kham-pha') && (
+                <TheorySection
+                  n={num('kham-pha')}
+                  sections={sections}
+                  empty={
+                    <>
+                      <Notice tone="info">Phần lí thuyết chi tiết của bài này đang được biên soạn. Dưới đây là tóm tắt từ bản đồ kiến thức.</Notice>
+                      {detail && (
+                        <div className="mt-4">
+                          <LessonMetaPanel m={detail} />
+                        </div>
+                      )}
+                    </>
+                  }
+                />
+              )}
+              {formulas.length > 0 && (
+                <FormulaSection
+                  n={num('cong-thuc')}
+                  formulas={formulas}
+                  allHref="../cong-thuc.html"
+                  fav={(f) => (
+                    <button type="button" className="fav-btn" data-fav-formula={f.id} aria-pressed="false" title="Lưu vào công thức yêu thích">
+                      ☆
+                    </button>
+                  )}
+                />
+              )}
+              {toc.includes('vi-du') && (
+                <>
+                  {exampleGroups.length > 0 && <ExamplesSection n={num('vi-du')} groups={exampleGroups} />}
+                  {hasLegacyExamples && (
+                    <section aria-labelledby={exampleGroups.length ? undefined : 'vi-du'}>
+                      {!exampleGroups.length && (
+                        <h2 id="vi-du" className="mb-4 scroll-mt-24 text-[22px] font-extrabold tracking-tight">
+                          <span className="mr-2 text-tim-400">{num('vi-du')}.</span>Ví dụ minh họa
+                        </h2>
+                      )}
+                      <LegacyExamples sections={sections} />
+                    </section>
+                  )}
+                </>
+              )}
+              {lessonThemes.length > 0 && <TopicGuideSection n={num('dang-toan')} themes={lessonThemes} topicHref={(t) => `../dang/${l.slug}/${topicKey(t)}.html`} />}
               <section aria-labelledby="bai-tap">
-                <h2 id="bai-tap" className="mb-3 text-xl font-extrabold">
-                  Bài tập
+                <h2 id="bai-tap" className="mb-4 scroll-mt-24 text-[22px] font-extrabold tracking-tight">
+                  <span className="mr-2 text-tim-400">{num('bai-tap')}.</span>Luyện tập
                 </h2>
                 {total > 0 ? (
                   <Panel className="p-5">
@@ -710,7 +789,7 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
                         </li>
                       ))}
                     </ul>
-                    <p className="mt-3 text-[15px] text-ink-2">Làm từng câu, xem đáp án và lời giải ngay sau khi kiểm tra. Mỗi câu đúng lần đầu được 10 XP.</p>
+                    <p className="mt-3 text-[15px] text-ink-2">Làm từng câu, xem đáp án và lời giải ngay sau khi kiểm tra. Mỗi câu đúng lần đầu được 10 XP. Làm sai, em sẽ được gợi ý dạng toán cần ôn lại.</p>
                     <a href={`../luyen-tap/${l.slug}.html`} className={buttonClass('primary', 'md', 'mt-4')}>
                       Bắt đầu luyện tập
                     </a>
@@ -719,6 +798,29 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
                   <p className="text-[15px] text-ink-2">Bài này chưa có câu hỏi luyện tập.</p>
                 )}
               </section>
+              <NotesBlock n={num('ghi-chu')}>
+                <div className="rounded-[20px] border border-line bg-white p-5">
+                  <label htmlFor="note-body" className="sr-only">
+                    Ghi chú của em
+                  </label>
+                  <textarea
+                    id="note-body"
+                    data-note={l.slug}
+                    rows={5}
+                    maxLength={5000}
+                    className={cx(inputClass, 'min-h-[120px] text-[15.5px]')}
+                    placeholder="Ví dụ: Nhớ đổi dấu khi bỏ ngoặc có dấu trừ phía trước…"
+                  />
+                  <div className="mt-3 flex flex-wrap items-center gap-3">
+                    <span data-note-status className="text-[13px] text-ink-3">
+                      Ghi chú tự lưu trong trình duyệt của máy này.
+                    </span>
+                    <a href="../goc-hoc-tap.html" className="ml-auto text-[13.5px] font-semibold text-tim-700 hover:underline">
+                      Góc học tập của em →
+                    </a>
+                  </div>
+                </div>
+              </NotesBlock>
               <section className="no-print rounded-[22px] border-2 border-dashed border-tim-200 p-6 text-center">
                 <div data-panel="complete" data-slug={l.slug}>
                   <NoScript />
@@ -741,10 +843,16 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
                 )}
               </nav>
             </div>
+            {formulas.length > 0 && (
+              <a href="#cong-thuc" className="formula-fab no-print" aria-label="Xem nhanh công thức của bài">
+                <LuSigma aria-hidden="true" /> <span className="fab-label">Công thức</span>
+              </a>
+            )}
           </div>
           <aside className="lesson-sidebar no-print">
             <div className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-[22px] border border-line bg-white p-3">
-              <div className="px-2 pb-2 pt-1">
+              <LessonToc ids={toc} variant="side" />
+              <div className="border-t border-line px-2 pb-2 pt-3">
                 <div className="text-[13px] text-ink-3">{book.title}</div>
                 <div className="text-[15px] font-bold">{chapterName}</div>
                 <div className="mt-2" data-cp={chapterSlugs(l.chapter)} hidden>
@@ -986,6 +1094,7 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
     for (const [idx, tn] of all.entries()) {
       const t = (await getTopicById(db, tn.id))!;
       const counts = await getTopicQuestionCounts(db, t.id);
+      const topicExamples = await getTopicExamples(db, t.id, true);
       const qs = (byTopic.get(t.id) ?? []).sort((a, b) => a.level - b.level || a.id - b.id).slice(0, 30);
       const label = lessonLabel(l);
       if (qs.length) practicedTopics.push({ t: tn, lessonSlug: l.slug, label });
@@ -1035,7 +1144,18 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
                 </div>
               </header>
               <div className="mt-6 space-y-6">
-                <TopicArticle t={t} />
+                <TopicArticle
+                  t={t}
+                  examples={
+                    topicExamples.length ? (
+                      <div className="space-y-4">
+                        {topicExamples.map((e, i) => (
+                          <WorkedExample key={e.id} e={e} index={i + 1} />
+                        ))}
+                      </div>
+                    ) : undefined
+                  }
+                />
                 <section aria-labelledby="bai-tap-luyen-tap">
                   <h2 id="bai-tap-luyen-tap" className="mb-3 text-xl font-extrabold">
                     Bài tập luyện tập
@@ -1250,7 +1370,7 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
       'Thử thách Toán học',
       '5 câu mức vận dụng – vận dụng cao, chọn ngẫu nhiên mỗi lượt. Mỗi câu đúng lần đầu được 20 XP.',
       [{ href: 'luyen-tap.html', label: 'Luyện tập' }, { label: 'Thử thách' }],
-      { questions: challengeQs.map(offline), context: 'challenge', limit: 5, restartHref: 'thu-thach.html', backHref: 'luyen-tap.html', backLabel: 'Về trang luyện tập' },
+      { questions: challengeQs.map((q) => { const v = offline(q); return v.review ? { ...v, review: { ...v.review, href: v.review.href.replace(/^\.\.\//, '') } } : v; }), context: 'challenge', limit: 5, restartHref: 'thu-thach.html', backHref: 'luyen-tap.html', backLabel: 'Về trang luyện tập' },
       lessonOfAll,
     ),
   });
@@ -1322,6 +1442,120 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
     ),
   });
 
+  // ---------------- Giai đoạn 3: công thức, góc học tập, tìm kiếm ----------------
+  const bookFormulas = await getBookFormulas(db, book.id);
+  const formulaChapters: { label: string; lessons: { slug: string; label: string; items: typeof bookFormulas }[] }[] = [];
+  for (const f of bookFormulas) {
+    let c = formulaChapters.find((x) => x.label === f.chapterLabel);
+    if (!c) formulaChapters.push((c = { label: f.chapterLabel, lessons: [] }));
+    let ls = c.lessons.find((x) => x.slug === f.lessonSlug);
+    if (!ls) c.lessons.push((ls = { slug: f.lessonSlug, label: f.lessonLabel, items: [] }));
+    ls.items.push(f);
+  }
+  pages.push({
+    file: 'cong-thuc.html',
+    title: 'Công thức cần nhớ',
+    description: 'Xem nhanh mọi công thức Toán 8 theo chương, bài; lưu công thức yêu thích để ôn tập.',
+    nav: 'formulas',
+    body: (
+      <>
+        <PageTitle
+          crumbs={[{ href: 'muc-luc.html', label: book.title }, { label: 'Công thức cần nhớ' }]}
+          title="Công thức cần nhớ"
+          sub={`${bookFormulas.length} công thức của ${book.title}, xếp theo chương và bài. Gõ từ khóa để lọc nhanh, bấm ☆ để lưu công thức yêu thích.`}
+        />
+        <div className="no-print sticky top-16 z-10 -mx-1 mb-6 flex flex-wrap items-center gap-3 rounded-2xl border border-line bg-white/95 px-4 py-3 backdrop-blur">
+          <label className="flex min-w-[220px] flex-1 items-center gap-2">
+            <span className="sr-only">Lọc công thức</span>
+            <input type="search" data-formula-filter placeholder="Lọc: hằng đẳng thức, diện tích, xác suất…" className={cx(inputClass, 'py-2')} />
+          </label>
+          <label className="flex items-center gap-2 text-[14.5px]">
+            <input type="checkbox" data-formula-favonly className="h-4 w-4 accent-tim-700" /> Chỉ công thức yêu thích
+          </label>
+          <span data-formula-count className="text-[13.5px] text-ink-3">
+            {bookFormulas.length} công thức
+          </span>
+        </div>
+        <div className="space-y-10">
+          {formulaChapters.map((c) => (
+            <section key={c.label} data-formula-group>
+              <h2 className="mb-4 text-[22px] font-extrabold tracking-tight">{c.label}</h2>
+              <div className="space-y-6">
+                {c.lessons.map((ls) => (
+                  <div key={ls.slug} data-formula-group>
+                    <h3 className="mb-3 text-[16px] font-extrabold">
+                      <a href={`bai/${ls.slug}.html#cong-thuc`} className="text-tim-800 hover:underline">
+                        {ls.label}
+                      </a>
+                    </h3>
+                    <div className="grid gap-4 md:grid-cols-2">
+                      {ls.items.map((f) => (
+                        <FormulaCard
+                          key={f.id}
+                          f={f}
+                          context={f.groupTitle || undefined}
+                          fav={
+                            <button type="button" className="fav-btn" data-fav-formula={f.id} aria-pressed="false" title="Lưu vào công thức yêu thích">
+                              ☆
+                            </button>
+                          }
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      </>
+    ),
+  });
+
+  const lessonFileOf = (slug: string) => `bai/${slug}.html`;
+  const searchEntries = await buildSearchEntries(db, book.id, { lesson: lessonFileOf, topic: (slug, key) => `dang/${slug}/${key}.html` });
+  const exampleIndex: Record<number, { href: string; title: string; level: number; text: string }> = {};
+  for (const e of searchEntries) {
+    const m = e.kind === 'example' ? /#vd-(\d+)$/.exec(e.href) : null;
+    if (m) exampleIndex[Number(m[1])] = { href: e.href, title: `${e.title.replace(/^Ví dụ – /, '')} · ${e.context}`, level: 0, text: e.snippet };
+  }
+  const formulaIndex: Record<number, { href: string; name: string; lesson: string; html: string }> = {};
+  for (const f of bookFormulas) formulaIndex[f.id] = { href: `bai/${f.lessonSlug}.html#ct-${f.id}`, name: f.name, lesson: f.lessonLabel, html: renderRichInline(`\\(${f.tex}\\)`) };
+  pages.push({
+    file: 'goc-hoc-tap.html',
+    title: 'Góc học tập của em',
+    nav: 'corner',
+    body: (
+      <>
+        <PageTitle title="Góc học tập của em" sub="Bài học và công thức em đã lưu, ghi chú cá nhân và các ví dụ em đã xem lời giải – lưu trong trình duyệt của máy này." />
+        <div data-panel="corner">
+          <NoScript />
+        </div>
+        <script
+          dangerouslySetInnerHTML={{ __html: `window.ML_CORNER = ${JSON.stringify({ examples: exampleIndex, formulas: formulaIndex }).replace(/</g, '\\u003c')};` }}
+        />
+      </>
+    ),
+  });
+  pages.push({
+    file: 'tim-kiem.html',
+    title: 'Tìm kiếm kiến thức',
+    nav: 'search',
+    body: (
+      <>
+        <PageTitle title="Tìm kiếm kiến thức" sub="Tìm bài học, mục kiến thức, công thức, dạng toán và ví dụ. Gõ có dấu hay không dấu đều được." />
+        <div data-panel="search">
+          <NoScript />
+        </div>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ML_SEARCH = ${JSON.stringify(searchEntries).replace(/</g, '\\u003c')};`,
+          }}
+        />
+      </>
+    ),
+  });
+
   // ---------------- Tiến độ & thành tích ----------------
   pages.push({
     file: 'tien-do.html',
@@ -1342,7 +1576,7 @@ export async function exportHtml(db: Database, outDir: string, assetsDir: string
   // Chỉ xóa khi thấy tệp đánh dấu, để không bao giờ đụng vào thư mục khác của người dùng.
   const MARK = '.math-learning-html';
   if (fs.existsSync(path.join(outDir, MARK))) {
-    for (const d of ['bai', 'luyen-tap', 'assets']) fs.rmSync(path.join(outDir, d), { recursive: true, force: true });
+    for (const d of ['bai', 'dang', 'chuong', 'luyen-tap', 'assets']) fs.rmSync(path.join(outDir, d), { recursive: true, force: true });
     for (const f of fs.readdirSync(outDir)) if (f.endsWith('.html')) fs.rmSync(path.join(outDir, f));
   } else if (fs.existsSync(outDir) && fs.readdirSync(outDir).some((f) => f.endsWith('.html') || f === 'bai')) {
     throw new Error(`Thư mục ${outDir} đã có trang HTML không do lệnh export-html tạo – hãy chọn thư mục khác.`);

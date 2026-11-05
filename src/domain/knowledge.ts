@@ -174,6 +174,8 @@ export interface TopicDetail {
   method: string | null;
   steps: string | null;
   mistakes: string | null;
+  /** Những lưu ý khi giải (giai đoạn 3). */
+  notes: string | null;
   example: string | null;
   exampleSolution: string | null;
   levels: Level[];
@@ -184,7 +186,7 @@ export interface TopicDetail {
   themeStatus: PublishStatus | null;
 }
 
-const TOPIC_COLS = sql`t.id, t.lesson_id, t.theme_id, t.code, t.slug, t.title, t.knowledge, t.signs, t.method, t.steps, t.mistakes, t.example,
+const TOPIC_COLS = sql`t.id, t.lesson_id, t.theme_id, t.code, t.slug, t.title, t.knowledge, t.signs, t.method, t.steps, t.mistakes, t.notes, t.example,
   t.example_solution, t.levels, t.status, t.sort_order, t.updated_at, th.title as theme_title, th.status as theme_status`;
 
 function fixLevels<T extends { levels: Level[] } | null>(t: T): T {

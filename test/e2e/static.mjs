@@ -72,7 +72,8 @@ try {
 
   await step('Bài học: nội dung, đánh dấu học xong, tiến độ cập nhật ở mục lục', async () => {
     await page.goto(url('bai/bai-1-don-thuc.html'));
-    for (const h of ['Mục tiêu kiến thức', 'Tóm tắt bài học', 'Kiến thức', 'Công thức', 'Ví dụ', 'Chủ đề và dạng toán', 'Bài tập']) assert.ok(await page.getByRole('heading', { name: h, exact: true }).count(), `thiếu ${h}`);
+    for (const h of [/Giới thiệu bài học/, /Mục tiêu cần đạt/, /Khám phá kiến thức mới/, /CÔNG THỨC CẦN NHỚ/, /Ví dụ minh họa/, /Hướng dẫn giải các dạng toán/, /Luyện tập/, /Ghi chú của em/])
+      assert.ok(await page.getByRole('heading', { name: h }).count(), `thiếu ${h}`);
     assert.equal(await page.locator('.math-error').count(), 0);
     await page.click('button:has-text("Đánh dấu đã học xong")');
     const msg = await page.locator('[role=status]').first().textContent();
@@ -83,6 +84,39 @@ try {
     assert.equal(await page.locator('.ml-status.is-done').count(), 1);
     await page.goto(url('index.html'));
     await page.getByText('Mở bài học').waitFor();
+  });
+
+  await step('Bài học đầy đủ: lời giải từng bước, yêu thích, ghi chú lưu trên máy, góc học tập, công thức, tìm kiếm', async () => {
+    await page.goto(url('bai/bai-1-don-thuc.html'));
+    const ex = page.locator('[data-example]').nth(1);
+    await ex.locator('details[data-steps-root] > summary').click();
+    assert.equal(await ex.locator('[data-step]:visible').count(), 1);
+    await ex.locator('[data-step-all]').click();
+    assert.ok(await ex.locator('[data-after-steps]:visible').count());
+    await page.click('[data-fav-lesson]');
+    assert.equal(await page.getAttribute('[data-fav-lesson]', 'aria-pressed'), 'true');
+    await page.locator('[data-fav-formula]').first().click();
+    await page.fill('textarea[data-note]', 'Ghi chú bản HTML');
+    await page.waitForTimeout(800);
+    await page.reload();
+    assert.equal(await page.inputValue('textarea[data-note]'), 'Ghi chú bản HTML', 'ghi chú còn sau khi tải lại');
+    assert.equal(await page.locator('[data-fav-formula]').first().textContent(), '★');
+    assert.ok(await ex.locator('[data-viewed-badge]').isVisible(), 'nhớ ví dụ đã xem');
+    await page.goto(url('goc-hoc-tap.html'));
+    const corner = await page.locator('main').textContent();
+    for (const t of ['Bài 1. Đơn thức', 'Ghi chú bản HTML', 'Công thức yêu thích (1)', 'Ví dụ em đã xem lời giải (1)']) assert.ok(corner.includes(t), `góc học tập thiếu "${t}"`);
+    await shot('02b-goc-hoc-tap');
+    await page.goto(url('cong-thuc.html'));
+    const all = await page.locator('[data-formula]:visible').count();
+    await page.fill('[data-formula-filter]', 'dong dang');
+    const f = await page.locator('[data-formula]:visible').count();
+    assert.ok(f > 0 && f < all, 'lọc công thức');
+    await page.goto(url('tim-kiem.html') + '?q=don%20thuc%20dong%20dang');
+    await page.locator('main a[href*="bai-1-don-thuc"]').first().waitFor();
+    // mọi đích trong chỉ mục tìm kiếm là tệp có thật
+    const hrefs = await page.evaluate(() => window.ML_SEARCH.map((e) => e.href));
+    for (const h of hrefs) assert.ok(fs.existsSync(path.join(dir, h.split('#')[0])), `chỉ mục tìm kiếm trỏ tới tệp thiếu: ${h}`);
+    await shot('02c-tim-kiem', false);
   });
 
   await step('Luyện tập: chấm ngay trong trình duyệt, lời giải, tổng kết, XP', async () => {

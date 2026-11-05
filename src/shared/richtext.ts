@@ -1,6 +1,7 @@
 import katex from 'katex';
 import { figureToSvg } from './figure';
 import { chartToSvg } from './chart';
+import { diagramToSvg } from './diagram';
 
 /**
  * Văn bản bài học / câu hỏi:
@@ -55,7 +56,25 @@ const TOKEN_RE = /\u0000(\d+)\u0000/g;
 
 interface Extracted {
   text: string;
-  math: { tex: string; display: boolean; figure?: boolean; chart?: boolean }[];
+  math: { tex: string; display: boolean; figure?: boolean; chart?: boolean; diagram?: boolean; image?: { id: number; alt: string } }[];
+}
+
+/** Đường dẫn ảnh tải lên ([anh:12]). Bản máy chủ: /media/12; bản HTML thay bằng tệp trong assets. */
+let mediaUrl = (id: number) => `/media/${id}`;
+export function setMediaUrl(fn: (id: number) => string) {
+  mediaUrl = fn;
+}
+const IMAGE_RE = /\[anh:(\d+)(?:\|([^\]\n]{0,200}))?\]/g;
+const DIAGRAM_RE = /\[sodo\]([\s\S]*?)\[\/sodo\]/g;
+
+function renderImage(img: { id: number; alt: string }): string {
+  return `<img class="lesson-image" src="${escapeHtml(mediaUrl(img.id))}" alt="${escapeHtml(img.alt || 'Hình minh họa')}" loading="lazy">`;
+}
+
+function renderDiagramBlock(source: string): string {
+  const { svg, errors } = diagramToSvg(source.trim());
+  if (errors.length) return `<span class="math-error">Sơ đồ lỗi: ${escapeHtml(errors[0])}</span>`;
+  return `<span class="lesson-diagram">${svg}</span>`;
 }
 
 const FIGURE_RE = /\[hinh\]([\s\S]*?)\[\/hinh\]/g;
@@ -75,7 +94,15 @@ function renderFigureBlock(source: string): string {
 
 function extractMath(src: string): Extracted {
   const math: Extracted['math'] = [];
-  const withCharts = src.replace(CHART_RE, (_, body: string) => {
+  const withDiagrams = src.replace(DIAGRAM_RE, (_, body: string) => {
+    math.push({ tex: body, display: true, diagram: true });
+    return `\u0000${math.length - 1}\u0000`;
+  });
+  const withImages = withDiagrams.replace(IMAGE_RE, (_, id: string, alt: string | undefined) => {
+    math.push({ tex: '', display: true, image: { id: Number(id), alt: (alt ?? '').trim() } });
+    return `\u0000${math.length - 1}\u0000`;
+  });
+  const withCharts = withImages.replace(CHART_RE, (_, body: string) => {
     math.push({ tex: body, display: true, chart: true });
     return `\u0000${math.length - 1}\u0000`;
   });
@@ -99,6 +126,8 @@ function formatInline(text: string, math: Extracted['math']): string {
     if (!m) return '';
     if (m.figure) return renderFigureBlock(m.tex);
     if (m.chart) return renderChartBlock(m.tex);
+    if (m.diagram) return renderDiagramBlock(m.tex);
+    if (m.image) return renderImage(m.image);
     return m.display ? `<span class="math-display">${renderMath(m.tex, true)}</span>` : renderMath(m.tex, false);
   });
 }
@@ -124,7 +153,11 @@ export function renderRich(src: string): string {
     const joined = para.join('\n');
     const onlyDisplay = /^\s*\u0000(\d+)\u0000\s*$/.exec(joined);
     const single = onlyDisplay ? math[Number(onlyDisplay[1])] : undefined;
-    if (single?.chart) {
+    if (single?.diagram) {
+      out.push(`<figure class="diagram-block">${renderDiagramBlock(single.tex)}</figure>`);
+    } else if (single?.image) {
+      out.push(`<figure class="image-block">${renderImage(single.image)}${single.image.alt ? `<figcaption>${escapeHtml(single.image.alt)}</figcaption>` : ''}</figure>`);
+    } else if (single?.chart) {
       out.push(`<figure class="chart-block">${renderChartBlock(single.tex)}</figure>`);
     } else if (single?.figure) {
       out.push(`<figure class="figure-block">${renderFigureBlock(single.tex)}</figure>`);
@@ -213,7 +246,7 @@ const SYMBOLS: [RegExp, string][] = [
 
 /** Bản rút gọn dạng chữ (cho bảng, tiêu đề): đổi kí hiệu LaTeX thường gặp sang kí tự Unicode. */
 export function plainExcerpt(src: string, max = 140): string {
-  let t = src.replace(/\[bieudo\][\s\S]*?\[\/bieudo\]/g, ' (biểu đồ) ').replace(/\[hinh\][\s\S]*?\[\/hinh\]/g, ' ').replace(/\\\(|\\\)|\\\[|\\\]/g, '');
+  let t = src.replace(/\[sodo\][\s\S]*?\[\/sodo\]/g, ' (sơ đồ) ').replace(/\[anh:\d+[^\]]*\]/g, ' (hình) ').replace(/\[bieudo\][\s\S]*?\[\/bieudo\]/g, ' (biểu đồ) ').replace(/\[hinh\][\s\S]*?\[\/hinh\]/g, ' ').replace(/\\\(|\\\)|\\\[|\\\]/g, '');
   for (const [re, rep] of SYMBOLS) t = t.replace(re, rep);
   t = t
     .replace(/\^\{([0-9n-]+)\}/g, (_, d: string) => [...d].map((c) => SUP[c] ?? c).join(''))
@@ -247,8 +280,13 @@ export function findMathErrors(src: string): string[] {
       for (const e of chartToSvg(m.tex).errors) errors.push('Biểu đồ: ' + e);
       continue;
     }
+    if (m.diagram) {
+      for (const e of diagramToSvg(m.tex).errors) errors.push('Sơ đồ: ' + e);
+      continue;
+    }
+    if (m.image) continue;
     try {
-      katex.renderToString(m.tex, { throwOnError: true, strict: 'ignore', displayMode: m.display });
+      quietKatex(() => katex.renderToString(m.tex, { throwOnError: true, strict: 'ignore', displayMode: m.display }));
     } catch (err) {
       errors.push(`Công thức "${m.tex.slice(0, 40)}" bị lỗi: ${(err as Error).message.replace(/^KaTeX parse error: /, '')}`);
     }

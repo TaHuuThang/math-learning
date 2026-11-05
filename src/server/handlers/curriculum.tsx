@@ -1,4 +1,4 @@
-import { LuArrowLeft, LuArrowRight, LuCircleCheck, LuClock, LuMap, LuPencilRuler, LuPresentation } from 'react-icons/lu';
+import { LuArrowLeft, LuArrowRight, LuCircleCheck, LuClock, LuMap, LuPencilRuler, LuPresentation, LuSigma, LuStar } from 'react-icons/lu';
 import { HttpError, redirect, type Ctx, type Res } from '../http/context';
 import { page } from '../http/render';
 import { requireBook } from './common';
@@ -20,8 +20,18 @@ import { completeLesson, reopenLesson, touchLesson } from '../../domain/progress
 import { CHAPTER_STATE_LABELS, getThemesByLesson, summarizeChapter, type ThemeNode } from '../../domain/knowledge';
 import { ChapterStats, mapTotals, MapTotalsBar, topicHref } from './knowledge';
 import { DifficultyBadge, LessonMetaPanel, VerifyBadge, VerifyNotice } from '../../ui/components/knowledge';
-import { Badge, LinkButton, Notice, Panel, PageTitle, PostForm, ProgressBar, buttonClass, cx, Breadcrumbs } from '../../ui/components/ui';
-import { LessonBody } from '../../ui/components/lesson';
+import { Badge, LinkButton, Notice, Panel, PageTitle, PostForm, ProgressBar, buttonClass, cx, Breadcrumbs, inputClass } from '../../ui/components/ui';
+import { ExamplesSection, FormulaSection, LegacyExamples, LessonIntro, LessonToc, NotesBlock, TheorySection, TopicGuideSection, type TocId } from '../../ui/components/lesson-v3';
+import {
+  getFavoriteFormulaIds,
+  getLessonExamples,
+  getLessonFormulas,
+  getLessonNote,
+  getViewedExampleIds,
+  isLessonFavorite,
+  saveLessonNote,
+  toggleLessonFavorite,
+} from '../../domain/lesson-content';
 import { LESSON_KIND_LABELS, TYPE_LABELS, formatDate, percent } from '../../shared/labels';
 import type { QuestionType } from '../../shared/grading';
 
@@ -272,12 +282,18 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
   const staff = isStaff(ctx.user);
   if (!lesson || ((lesson.status !== 'published' || lesson.chapterStatus !== 'published') && !staff)) throw new HttpError(404, 'Không tìm thấy bài học.');
   if (ctx.user?.role === 'student') await touchLesson(ctx.db, ctx.user.id, lesson.id);
-  const [tree, sections, themesAll, counts] = await Promise.all([
+  const [tree, sections, themesAll, counts, formulas, examplesByTopic] = await Promise.all([
     getCourseTree(ctx.db, book.id, ctx.user?.id ?? null, staff),
-    getLessonSections(ctx.db, lesson.id),
+    getLessonSections(ctx.db, lesson.id, !staff),
     getThemesByLesson(ctx.db, book.id, staff),
     getLessonQuestionCounts(ctx.db, lesson.id),
+    getLessonFormulas(ctx.db, lesson.id, !staff),
+    getLessonExamples(ctx.db, lesson.id, !staff),
   ]);
+  const user = ctx.user;
+  const [favorite, favFormulas, note, viewed] = user
+    ? await Promise.all([isLessonFavorite(ctx.db, user.id, lesson.id), getFavoriteFormulaIds(ctx.db, user.id), getLessonNote(ctx.db, user.id, lesson.id), getViewedExampleIds(ctx.db, user.id)])
+    : [false, new Set<number>(), null, new Set<number>()];
   const themes = themesAll.get(lesson.id) ?? [];
   const topicCount = themes.reduce((n, th) => n + th.topics.length, 0);
   const flat = flattenLessons(tree);
@@ -287,9 +303,27 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
   const me = flat[idx];
   const completed = me?.progress === 'completed';
   const totalQuestions = Object.values(counts).reduce((a, b) => a + (b ?? 0), 0);
-  const chapterDone = flat.filter((l) => l.chapterId === lesson.chapterId);
+  const chapterItems = flat.filter((l) => l.chapterId === lesson.chapterId);
   const label = lessonLabel(lesson);
   const chapterName = chapterLabel({ kind: lesson.chapterKind, code: lesson.chapterCode, title: lesson.chapterTitle });
+  const here = `/hoc/${book.slug}/bai/${lesson.slug}`;
+  const exampleGroups = themes.flatMap((th) =>
+    th.topics
+      .filter((t) => examplesByTopic.get(t.id)?.length)
+      .map((t) => ({ topic: t, href: topicHref(book.slug, lesson.slug, t), examples: examplesByTopic.get(t.id)! })),
+  );
+  const theoryItems = sections.filter((s) => s.kind !== 'objective' && s.kind !== 'example');
+  const legacyObjectives = sections.filter((s) => s.kind === 'objective').map((s) => s.body);
+  const hasLegacyExamples = sections.some((s) => s.kind === 'example');
+  const isLesson = lesson.kind === 'lesson';
+  const toc: TocId[] = ['gioi-thieu'];
+  if (theoryItems.length || isLesson) toc.push('kham-pha');
+  if (formulas.length) toc.push('cong-thuc');
+  if (exampleGroups.length || hasLegacyExamples) toc.push('vi-du');
+  if (themes.length) toc.push('dang-toan');
+  toc.push('bai-tap', 'ghi-chu');
+  const num = (id: TocId) => toc.indexOf(id) + 1;
+  const posInChapter = chapterItems.findIndex((l) => l.id === lesson.id) + 1;
 
   return page(
     ctx,
@@ -312,6 +346,7 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
             {lesson.status !== 'published' && <Badge tone="gray">Bản nháp – học sinh chưa thấy</Badge>}
             {staff && <VerifyBadge status={lesson.verifyStatus} note={lesson.verifyNote} />}
             {completed ? <Badge tone="tre">Đã học xong</Badge> : me?.progress === 'in_progress' ? <Badge tone="hl">Đang học</Badge> : null}
+            {favorite && <Badge tone="hl">★ Bài yêu thích</Badge>}
           </div>
           <h1 className="mt-2 text-[30px] font-extrabold leading-tight tracking-tight md:text-[38px]">{label}</h1>
           {lesson.summary && <p className="mt-2 max-w-2xl text-[16px] text-ink-2">{lesson.summary}</p>}
@@ -320,11 +355,19 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
               <LuClock aria-hidden="true" /> {lesson.periods ?? 0} tiết{lesson.estimatedMinutes ? ` (khoảng ${lesson.estimatedMinutes} phút)` : ''}
             </span>
             {topicCount > 0 && <span>{topicCount} dạng toán</span>}
+            {formulas.length > 0 && <span>{formulas.length} công thức</span>}
+            {exampleGroups.length > 0 && <span>{exampleGroups.reduce((n, g) => n + g.examples.length, 0)} ví dụ</span>}
             <span>{totalQuestions} bài tập</span>
-            <span>Cập nhật {formatDate(lesson.updatedAt)}</span>
           </div>
           <div className="no-print mt-5 flex flex-wrap gap-2">
             {totalQuestions > 0 && <LinkButton href={`/luyen-tap/bai/${lesson.slug}`}>Luyện tập bài này</LinkButton>}
+            {user ? (
+              <PostForm action={`${here}/yeu-thich`}>
+                <button className={buttonClass('secondary', 'md')} aria-pressed={favorite}>
+                  {favorite ? <LuStar aria-hidden="true" className="fill-current text-cam" /> : <LuStar aria-hidden="true" />} {favorite ? 'Bỏ yêu thích' : 'Lưu bài yêu thích'}
+                </button>
+              </PostForm>
+            ) : null}
             <button type="button" data-present-toggle aria-pressed="false" className={buttonClass('secondary', 'md')}>
               <LuPresentation aria-hidden="true" /> <span data-present-label>Trình chiếu</span>
             </button>
@@ -336,27 +379,79 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
           </div>
         </header>
 
-        <div className="lesson-body mt-8 space-y-10">
+        <div className="lesson-body mt-8 space-y-12">
+          <LessonToc ids={toc} variant="chips" />
           {staff && <VerifyNotice status={lesson.verifyStatus} note={lesson.verifyNote} />}
-          {sections.length === 0 && (
-            <Notice tone="info">
-              Phần lí thuyết chi tiết của mục này đang được biên soạn.{' '}
-              {topicCount > 0 ? 'Em có thể xem tóm tắt bài học và học theo từng dạng toán bên dưới.' : ''}
-              {staff ? ' Giáo viên có thể thêm nội dung bằng nút "Soạn nội dung".' : ''}
-            </Notice>
-          )}
 
-          <LessonBody
-            sections={sections}
-            themes={themes}
-            topicHref={(t) => topicHref(book.slug, lesson.slug, t)}
-            lessonObjectives={lesson.objectives}
-            meta={<LessonMetaPanel m={lesson} showFormulas={!sections.some((s) => s.kind === 'formula')} />}
+          <LessonIntro
+            n={num('gioi-thieu')}
+            d={{
+              title: label,
+              position: `${isLesson ? 'Bài' : 'Mục'} thứ ${posInChapter}/${chapterItems.length} của ${chapterName} · ${lesson.semesterName}`,
+              objectives: [lesson.objectives, ...legacyObjectives].filter(Boolean).join('\n') || null,
+              concepts: lesson.concepts,
+              prerequisites: lesson.prerequisites,
+              applications: lesson.applications,
+            }}
           />
 
+          {toc.includes('kham-pha') && (
+            <TheorySection
+              n={num('kham-pha')}
+              sections={sections}
+              empty={
+                <>
+                  <Notice tone="info">
+                    Phần lí thuyết chi tiết của bài này đang được biên soạn. Dưới đây là tóm tắt từ bản đồ kiến thức.
+                    {staff ? ' Giáo viên thêm mục kiến thức bằng nút "Soạn nội dung".' : ''}
+                  </Notice>
+                  <div className="mt-4">
+                    <LessonMetaPanel m={lesson} />
+                  </div>
+                </>
+              }
+            />
+          )}
+
+          {formulas.length > 0 && (
+            <FormulaSection
+              n={num('cong-thuc')}
+              formulas={formulas}
+              allHref="/cong-thuc"
+              fav={(f) =>
+                user ? (
+                  <PostForm action={`/cong-thuc/${f.id}/yeu-thich`}>
+                    <input type="hidden" name="next" value={`${here}#ct-${f.id}`} />
+                    <button className="fav-btn" aria-pressed={favFormulas.has(f.id)} title={favFormulas.has(f.id) ? 'Bỏ khỏi công thức yêu thích' : 'Lưu vào công thức yêu thích'}>
+                      {favFormulas.has(f.id) ? '★' : '☆'}
+                    </button>
+                  </PostForm>
+                ) : null
+              }
+            />
+          )}
+
+          {toc.includes('vi-du') && (
+            <>
+              {exampleGroups.length > 0 && <ExamplesSection n={num('vi-du')} groups={exampleGroups} viewed={viewed} />}
+              {hasLegacyExamples && (
+                <section aria-labelledby={exampleGroups.length ? undefined : 'vi-du'}>
+                  {!exampleGroups.length && (
+                    <h2 id="vi-du" className="mb-4 scroll-mt-24 text-[22px] font-extrabold tracking-tight">
+                      <span className="mr-2 text-tim-400">{num('vi-du')}.</span>Ví dụ minh họa
+                    </h2>
+                  )}
+                  <LegacyExamples sections={sections} />
+                </section>
+              )}
+            </>
+          )}
+
+          {themes.length > 0 && <TopicGuideSection n={num('dang-toan')} themes={themes} topicHref={(t) => topicHref(book.slug, lesson.slug, t)} />}
+
           <section aria-labelledby="bai-tap">
-            <h2 id="bai-tap" className="mb-3 text-xl font-extrabold">
-              Bài tập
+            <h2 id="bai-tap" className="mb-4 scroll-mt-24 text-[22px] font-extrabold tracking-tight">
+              <span className="mr-2 text-tim-400">{num('bai-tap')}.</span>Luyện tập
             </h2>
             {totalQuestions > 0 ? (
               <Panel className="p-5">
@@ -369,7 +464,7 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-3 text-[15px] text-ink-2">Làm từng câu, xem đáp án và lời giải ngay sau khi kiểm tra. Mỗi câu đúng lần đầu được 10 XP.</p>
+                <p className="mt-3 text-[15px] text-ink-2">Làm từng câu, xem đáp án và lời giải ngay sau khi kiểm tra. Mỗi câu đúng lần đầu được 10 XP. Làm sai, em sẽ được gợi ý dạng toán cần ôn lại.</p>
                 <LinkButton href={`/luyen-tap/bai/${lesson.slug}`} className="mt-4">
                   Bắt đầu luyện tập
                 </LinkButton>
@@ -379,19 +474,44 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
             )}
           </section>
 
+          <NotesBlock n={num('ghi-chu')}>
+            {user ? (
+              <PostForm action={`${here}/ghi-chu`} className="rounded-[20px] border border-line bg-white p-5">
+                <label htmlFor="note-body" className="sr-only">
+                  Ghi chú của em
+                </label>
+                <textarea id="note-body" name="body" rows={5} maxLength={5000} defaultValue={note?.body ?? ''} className={cx(inputClass, "min-h-[120px] text-[15.5px]")} placeholder="Ví dụ: Nhớ đổi dấu khi bỏ ngoặc có dấu trừ phía trước…" />
+                <div className="mt-3 flex flex-wrap items-center gap-3">
+                  <button className={buttonClass('primary', 'sm')}>Lưu ghi chú</button>
+                  {note && <span className="text-[13px] text-ink-3">Lưu lúc {formatDate(note.updatedAt)}</span>}
+                  <a href="/goc-hoc-tap" className="ml-auto text-[13.5px] font-semibold text-tim-700 hover:underline">
+                    Góc học tập của em →
+                  </a>
+                </div>
+              </PostForm>
+            ) : (
+              <Notice tone="info">
+                <a href={`/dang-nhap?next=${encodeURIComponent(ctx.path)}`} className="font-semibold underline">
+                  Đăng nhập
+                </a>{' '}
+                để viết ghi chú, lưu bài và công thức yêu thích.
+              </Notice>
+            )}
+          </NotesBlock>
+
           {ctx.user?.role === 'student' && (
             <section className="no-print rounded-[22px] border-2 border-dashed border-tim-200 p-6 text-center">
               {completed ? (
                 <>
                   <p className="font-semibold text-tre">Em đã đánh dấu học xong mục này.</p>
-                  <PostForm action={`/hoc/${book.slug}/bai/${lesson.slug}/hoc-lai`} className="mt-3">
+                  <PostForm action={`${here}/hoc-lai`} className="mt-3">
                     <button className={buttonClass('quiet', 'sm')}>Đánh dấu là đang học lại</button>
                   </PostForm>
                 </>
               ) : (
                 <>
                   <p className="text-[15px] text-ink-2">Đọc xong lý thuyết và ví dụ? Đánh dấu để lưu tiến độ (+20 XP lần đầu).</p>
-                  <PostForm action={`/hoc/${book.slug}/bai/${lesson.slug}/hoan-thanh`} className="mt-3">
+                  <PostForm action={`${here}/hoan-thanh`} className="mt-3">
                     <button className={buttonClass('primary', 'lg')}>
                       <LuCircleCheck aria-hidden="true" /> Đánh dấu đã học xong
                     </button>
@@ -426,21 +546,27 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
             )}
           </nav>
         </div>
+        {formulas.length > 0 && (
+          <a href="#cong-thuc" className="formula-fab no-print" aria-label="Xem nhanh công thức của bài">
+            <LuSigma aria-hidden="true" /> <span className="fab-label">Công thức</span>
+          </a>
+        )}
       </div>
 
       <aside className="lesson-sidebar no-print">
         <div className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-[22px] border border-line bg-white p-3">
-          <div className="px-2 pb-2 pt-1">
+          <LessonToc ids={toc} variant="side" />
+          <div className="border-t border-line px-2 pb-2 pt-3">
             <div className="text-[13px] text-ink-3">{book.title}</div>
             <div className="text-[15px] font-bold">{chapterName}</div>
             <div className="mt-2">
               <ProgressBar
                 tone="tre"
-                value={percent(chapterDone.filter((l) => l.progress === 'completed').length, chapterDone.length)}
+                value={percent(chapterItems.filter((l) => l.progress === 'completed').length, chapterItems.length)}
                 label="Tiến độ chương"
               />
               <div className="mt-1 text-[12px] text-ink-3">
-                {chapterDone.filter((l) => l.progress === 'completed').length}/{chapterDone.length} mục đã học xong
+                {chapterItems.filter((l) => l.progress === 'completed').length}/{chapterItems.length} mục đã học xong
               </div>
             </div>
           </div>
@@ -477,6 +603,28 @@ export async function lessonPage(ctx: Ctx): Promise<Res> {
       </aside>
     </div>,
   );
+}
+
+/** Lưu / bỏ bài yêu thích. */
+export async function toggleFavoriteLessonAction(ctx: Ctx): Promise<Res> {
+  const user = requireUser(ctx);
+  const book = await requireBook(ctx, ctx.params.book);
+  const lesson = await getLessonBySlug(ctx.db, book.id, ctx.params.slug);
+  if (!lesson) throw new HttpError(404);
+  const on = await toggleLessonFavorite(ctx.db, user.id, lesson.id);
+  return redirect(`/hoc/${book.slug}/bai/${lesson.slug}`, { type: 'success', message: on ? 'Đã lưu vào bài yêu thích.' : 'Đã bỏ khỏi bài yêu thích.' }, ctx);
+}
+
+/** Lưu ghi chú cá nhân của bài (để trống để xóa). */
+export async function saveNoteAction(ctx: Ctx): Promise<Res> {
+  const user = requireUser(ctx);
+  const book = await requireBook(ctx, ctx.params.book);
+  const lesson = await getLessonBySlug(ctx.db, book.id, ctx.params.slug);
+  if (!lesson) throw new HttpError(404);
+  const form = await ctx.form();
+  const body = form.text('body', 5000);
+  await saveLessonNote(ctx.db, user.id, lesson.id, body);
+  return redirect(`/hoc/${book.slug}/bai/${lesson.slug}#ghi-chu`, { type: 'success', message: body.trim() ? 'Đã lưu ghi chú.' : 'Đã xóa ghi chú.' }, ctx);
 }
 
 export async function completeLessonAction(ctx: Ctx): Promise<Res> {

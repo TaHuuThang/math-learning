@@ -83,6 +83,8 @@ export interface QuestionView {
   statements?: { label: string; html: string }[];
   unit?: string;
   hintHtml?: string;
+  /** Khi làm sai: liên kết ôn lại kiến thức (dạng toán hoặc bài học). */
+  review?: { label: string; href: string };
 }
 
 export function imageHtml(img: QuestionImage): string {

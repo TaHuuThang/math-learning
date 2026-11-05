@@ -3,7 +3,7 @@
  * (mọi đường dẫn truyền vào từ bên ngoài).
  */
 import type { ReactNode } from 'react';
-import { LuCircleAlert, LuCompass, LuListChecks, LuRoute, LuSearch, LuSigma, LuTriangleAlert } from 'react-icons/lu';
+import { LuCircleAlert, LuCompass, LuLightbulb, LuListChecks, LuRoute, LuSearch, LuSigma, LuTriangleAlert } from 'react-icons/lu';
 import { Badge, Panel, Rich, cx } from './ui';
 import { DIFFICULTY_LABELS, LEVEL_LABELS, LEVEL_SHORT, VERIFY_LABELS, type Level, type ThemeNode, type TopicNode, type VerifyStatus } from '../../domain/knowledge';
 import { TYPE_LABELS } from '../../shared/labels';
@@ -107,11 +107,13 @@ export interface TopicContent {
   mistakes: string | null;
   example: string | null;
   exampleSolution: string | null;
+  /** Giai đoạn 3: những lưu ý khi giải. */
+  notes?: string | null;
 }
 
 /** Nội dung một dạng toán: kiến thức, dấu hiệu, phương pháp, các bước, lỗi sai, ví dụ. */
-export function TopicArticle({ t }: { t: TopicContent }) {
-  const empty = !t.knowledge && !t.signs && !t.method && !t.steps && !t.example;
+export function TopicArticle({ t, examples }: { t: TopicContent; examples?: ReactNode }) {
+  const empty = !t.knowledge && !t.signs && !t.method && !t.steps && !t.example && !examples;
   return (
     <div className="space-y-4">
       {empty && <p className="rounded-2xl border border-dashed border-line-2 px-5 py-4 text-[15px] text-ink-3">Nội dung của dạng toán này đang được biên soạn.</p>}
@@ -138,12 +140,21 @@ export function TopicArticle({ t }: { t: TopicContent }) {
           )}
         </Block>
       )}
+      {t.notes && (
+        <Block icon={<LuLightbulb />} title="Những lưu ý khi giải" id="luu-y">
+          <Rich src={t.notes} className="text-[15.5px]" />
+        </Block>
+      )}
       {t.mistakes && (
         <Block icon={<LuTriangleAlert />} title="Lỗi sai thường gặp" id="loi-sai" tone="warn">
           <Rich src={t.mistakes} className="text-[15.5px]" />
         </Block>
       )}
-      {t.example && (
+      {examples ? (
+        <Block icon={<LuSigma />} title="Ví dụ minh họa theo mức độ" id="vi-du-minh-hoa">
+          {examples}
+        </Block>
+      ) : t.example && (
         <Block icon={<LuSigma />} title="Ví dụ minh họa" id="vi-du-minh-hoa">
           <Rich src={t.example} className="text-[16.5px]" />
           {t.exampleSolution && (

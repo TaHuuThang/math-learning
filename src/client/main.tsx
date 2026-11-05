@@ -1,6 +1,8 @@
 import type { ReactElement } from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import { islands, type IslandName } from '../islands/registry';
+import { csrfToken } from '../islands/shared';
+import { enhanceExampleChips, enhanceExamples, enhanceFormulaFilter, enhanceToc } from './lesson-enhance';
 
 // Gắn React cho các "đảo" tương tác do máy chủ dựng sẵn
 document.querySelectorAll<HTMLElement>('[data-island]').forEach((el) => {
@@ -77,3 +79,12 @@ document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((b) => {
     }
   });
 });
+
+// Giai đoạn 3: lời giải từng bước, mục lục bài học, lọc công thức
+enhanceExamples((id) => {
+  if (!document.querySelector('meta[name="ml-user"]')) return;
+  fetch(`/api/vi-du/${id}/da-xem`, { method: 'POST', headers: { 'X-CSRF-Token': csrfToken(), Accept: 'application/json' } }).catch(() => undefined);
+});
+enhanceToc();
+enhanceExampleChips();
+enhanceFormulaFilter((id) => document.getElementById(`ct-${id}`)?.closest<HTMLElement>('[data-fav]')?.dataset.fav === '1');

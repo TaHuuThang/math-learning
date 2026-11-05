@@ -1,7 +1,8 @@
 import { LuPencilRuler, LuRocket } from 'react-icons/lu';
 import { HttpError, json, type Ctx, type Res } from '../http/context';
 import { page } from '../http/render';
-import { requireBook, intParam } from './common';
+import { DEFAULT_BOOK, requireBook, intParam } from './common';
+import { getReviewLinks } from '../../domain/lesson-content';
 import { requireUser } from '../auth/guards';
 import { sql } from '../db';
 import { chapterLabel, getCourseTree, getLessonById, getLessonBySlug, lessonLabel } from '../../domain/curriculum';
@@ -120,7 +121,9 @@ async function sessionPage(
 ) {
   const user = requireUser(ctx);
   const ids = opts.pick ? await opts.pick() : await pickPracticeQuestionIds(ctx.db, opts.scope, user.id, opts.context === 'challenge' ? 5 : SESSION_SIZE);
-  const questions = (await getQuestions(ctx.db, ids)).map((q) => toView(q));
+  const full = await getQuestions(ctx.db, ids);
+  const reviews = await getReviewLinks(ctx.db, full, { lesson: (slug) => `/hoc/${DEFAULT_BOOK}/bai/${slug}`, topic: (slug, key) => `/hoc/${DEFAULT_BOOK}/bai/${slug}/dang/${key}` });
+  const questions = full.map((q) => ({ ...toView(q), review: reviews.get(q.id) }));
   return page(
     ctx,
     { title: opts.title },
@@ -245,10 +248,11 @@ export async function practiceAnswerApi(ctx: Ctx): Promise<Res> {
 }
 
 export async function mediaFile(ctx: Ctx): Promise<Res> {
-  requireUser(ctx);
   const id = intParam(ctx, 'id');
-  const img = await ctx.db.one<{ mime: string; data: Buffer }>(sql`select mime, data from images where id = ${id} and kind = 'upload'`);
+  const img = await ctx.db.one<{ mime: string; data: Buffer; isPublic: boolean }>(sql`select mime, data, is_public from images where id = ${id} and kind = 'upload'`);
   if (!img) throw new HttpError(404);
+  // Ảnh minh họa bài học (công khai) ai cũng xem được; ảnh của câu hỏi cần đăng nhập.
+  if (!img.isPublic) requireUser(ctx);
   return { type: 'bytes', status: 200, contentType: img.mime, body: img.data, cacheSeconds: 86400 };
 }
 

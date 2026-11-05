@@ -34,8 +34,18 @@ export const SECTION_LABELS: Record<string, string> = {
   knowledge: 'Kiến thức',
   formula: 'Công thức',
   example: 'Ví dụ',
-  note: 'Ghi nhớ',
+  note: 'Lưu ý',
+  concept: 'Khái niệm',
+  definition: 'Định nghĩa',
+  property: 'Tính chất',
+  theorem: 'Định lí',
+  rule: 'Quy tắc',
+  special: 'Trường hợp đặc biệt',
+  condition: 'Điều kiện áp dụng',
 };
+
+/** Thứ tự loại mục trong ô chọn của trình soạn bài (mục "Khám phá kiến thức mới"). */
+export const THEORY_KINDS = ['concept', 'definition', 'property', 'theorem', 'rule', 'formula', 'special', 'condition', 'note', 'knowledge', 'example', 'objective'] as const;
 
 export const LESSON_KIND_LABELS: Record<string, string> = {
   lesson: 'Bài học',

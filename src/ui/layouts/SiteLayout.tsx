@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
-import { LuChevronDown, LuLayoutDashboard, LuLogOut, LuMenu, LuShield, LuUser } from 'react-icons/lu';
+import {
+  LuBookmark, LuChevronDown, LuLayoutDashboard, LuLogOut, LuMenu, LuSearch, LuShield, LuUser } from 'react-icons/lu';
 import { useApp } from '../app-context';
 import { Logo } from '../components/Logo';
 import { FlashBanner, PostForm, buttonClass, cx } from '../components/ui';
@@ -9,6 +10,7 @@ import { COPYRIGHT, COPYRIGHT_NOTE } from '../../shared/brand';
 const NAV = [
   { href: '/', label: 'Trang chủ', match: (p: string) => p === '/' },
   { href: '/chuong-trinh', label: 'Chương trình học', match: (p: string) => p.startsWith('/chuong-trinh') || p.startsWith('/hoc') },
+  { href: '/cong-thuc', label: 'Công thức', match: (p: string) => p.startsWith('/cong-thuc') },
   { href: '/luyen-tap', label: 'Luyện tập', match: (p: string) => p.startsWith('/luyen-tap') || p.startsWith('/thu-thach') },
   { href: '/kiem-tra', label: 'Kiểm tra', match: (p: string) => p.startsWith('/kiem-tra') },
   { href: '/thanh-tich', label: 'Thành tích', match: (p: string) => p.startsWith('/thanh-tich') },
@@ -40,6 +42,9 @@ function UserMenu() {
         <hr className="my-1 border-line" />
         <a href="/ca-nhan" className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[15px] hover:bg-tim-50">
           <LuUser aria-hidden="true" /> Trang cá nhân
+        </a>
+        <a href="/goc-hoc-tap" className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[15px] hover:bg-tim-50">
+          <LuBookmark aria-hidden="true" /> Góc học tập
         </a>
         {(user.role === 'teacher' || user.role === 'admin') && (
           <a href="/giao-vien" className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[15px] hover:bg-tim-50">
@@ -83,6 +88,9 @@ export function SiteHeader() {
           })}
         </nav>
         <div className="ml-auto flex items-center gap-2">
+          <a href="/tim-kiem" className="flex h-9 w-9 items-center justify-center rounded-xl border border-line text-[17px] text-ink-2 hover:border-tim-300 hover:text-tim-800" aria-label="Tìm kiếm kiến thức" title="Tìm kiếm kiến thức">
+            <LuSearch aria-hidden="true" />
+          </a>
           {user ? (
             <UserMenu />
           ) : (

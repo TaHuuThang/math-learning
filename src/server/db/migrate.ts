@@ -1,11 +1,13 @@
 import m001 from '../../../migrations/001_init.sql';
 import m002 from '../../../migrations/002_knowledge_map.sql';
+import m003 from '../../../migrations/003_lesson_content.sql';
 import { Database } from './index';
 
 /** Danh sách migration theo thứ tự. Thêm tệp mới: tạo migrations/00N_ten.sql rồi khai báo ở đây. */
 export const MIGRATIONS: { version: string; sql: string }[] = [
   { version: '001_init', sql: m001 },
   { version: '002_knowledge_map', sql: m002 },
+  { version: '003_lesson_content', sql: m003 },
 ];
 
 const LOCK_ID = 727_001;

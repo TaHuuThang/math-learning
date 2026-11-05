@@ -45,6 +45,7 @@ import { Badge, Button, Checkbox, ErrorList, Field, PageTitle, Panel, PostForm, 
 import { LevelBadges, QuestionCoverage, VerifyBadge } from '../../../ui/components/knowledge';
 import { LESSON_KIND_LABELS, SECTION_LABELS, formatDateTime } from '../../../shared/labels';
 import { findMathErrors, renderRich } from '../../../shared/richtext';
+import { ExamplePanel, FormulaPanel, ImagePanel, handleExampleAction, handleFormulaAction, loadExamples, loadFormulas, recentImages } from './lesson-v3-editor';
 
 const STATUS_OPTIONS = [
   { value: 'published', label: 'Xuất bản – học sinh thấy' },
@@ -366,7 +367,7 @@ export async function chapterEditorAction(ctx: Ctx): Promise<Res> {
 
 // ---------------- /giao-vien/bai-hoc/:id ----------------
 
-const SECTION_KINDS = ['objective', 'knowledge', 'formula', 'example', 'note'] as const;
+const SECTION_KINDS = ['concept', 'definition', 'property', 'theorem', 'rule', 'formula', 'special', 'condition', 'note', 'knowledge', 'objective', 'example'] as const;
 
 function SectionForm({ lessonId, s, idx }: { lessonId: number; s?: LessonSection; idx: string }) {
   return (
@@ -390,11 +391,18 @@ function SectionForm({ lessonId, s, idx }: { lessonId: number; s?: LessonSection
         }}
         key={`body-${idx}`}
       />
+      <TextArea label="Công thức nổi bật (mã TeX, không bắt buộc)" name="formula" rows={2} defaultValue={s?.formula ?? ''} hint="Hiện trong khung công thức của mục. Ví dụ: x^m \cdot x^n = x^{m+n}" />
       <Island
         name="RichField"
-        props={{ name: 'solution', label: 'Lời giải (dùng cho Ví dụ)', defaultValue: s?.solution ?? '', initialHtml: s?.solution ? renderRich(s.solution) : '', rows: 4 }}
+        props={{ name: 'example', label: 'Ví dụ ngắn (không bắt buộc)', defaultValue: s?.example ?? '', initialHtml: s?.example ? renderRich(s.example) : '', rows: 3 }}
+        key={`ex-${idx}`}
+      />
+      <Island
+        name="RichField"
+        props={{ name: 'solution', label: 'Lời giải (chỉ dùng cho loại Ví dụ của bản cũ)', defaultValue: s?.solution ?? '', initialHtml: s?.solution ? renderRich(s.solution) : '', rows: 3 }}
         key={`sol-${idx}`}
       />
+      <Select label="Trạng thái" name="status" defaultValue={s?.status ?? 'published'} options={STATUS_OPTIONS} />
       <Button>{s ? 'Lưu mục này' : 'Thêm vào bài'}</Button>
     </PostForm>
   );
@@ -405,7 +413,7 @@ export async function lessonEditorPage(ctx: Ctx, errors?: string[]): Promise<Res
   const lesson = await getLessonById(ctx.db, intParam(ctx, 'id'));
   if (!lesson) throw new HttpError(404, 'Không tìm thấy bài học.');
   const book = await ctx.db.one<{ slug: string; title: string }>(sql`select slug, title from textbooks where id = ${lesson.textbookId}`);
-  const [sections, themes] = await Promise.all([getLessonSections(ctx.db, lesson.id), getLessonThemes(ctx.db, lesson.textbookId, lesson.id, true)]);
+  const [sections, themes, formulas, images] = await Promise.all([getLessonSections(ctx.db, lesson.id), getLessonThemes(ctx.db, lesson.textbookId, lesson.id, true), loadFormulas(ctx, lesson.id), recentImages(ctx)]);
   const label = lessonLabel(lesson);
   const A = `/giao-vien/bai-hoc/${lesson.id}`;
   const realThemes = themes.filter((th) => th.id);
@@ -532,8 +540,12 @@ export async function lessonEditorPage(ctx: Ctx, errors?: string[]): Promise<Res
                     <div className="flex items-center gap-2">
                       <Badge>{SECTION_LABELS[s.kind]}</Badge>
                       {s.title && <strong>{s.title}</strong>}
+                      {s.status === 'draft' && <Badge tone="gray">Đang ẩn</Badge>}
                     </div>
                     <div className="flex gap-1">
+                      <ActionButton action={A} fields={{ _action: 'section-status', section_id: s.id, status: s.status === 'published' ? 'draft' : 'published' }} label={s.status === 'published' ? 'Ẩn mục' : 'Xuất bản mục'}>
+                        {s.status === 'published' ? <LuEyeOff aria-hidden="true" /> : <LuEye aria-hidden="true" />}
+                      </ActionButton>
                       <ActionButton action={A} fields={{ _action: 'move-section', section_id: s.id, dir: -1 }} label="Đưa lên" disabled={i === 0}>
                         Lên
                       </ActionButton>
@@ -546,6 +558,17 @@ export async function lessonEditorPage(ctx: Ctx, errors?: string[]): Promise<Res
                     </div>
                   </div>
                   <Rich src={s.body} />
+                  {s.formula && (
+                    <div className="formula-frame mt-3 px-4 py-2">
+                      <Rich src={`\\[${s.formula}\\]`} />
+                    </div>
+                  )}
+                  {s.example && (
+                    <div className="mt-3 rounded-xl border border-dashed border-tim-200 px-4 py-2">
+                      <div className="text-[13px] font-semibold text-ink-3">Ví dụ</div>
+                      <Rich src={s.example} />
+                    </div>
+                  )}
                   {s.solution && (
                     <div className="mt-2 rounded-xl bg-mist px-4 py-2">
                       <div className="text-[13px] font-semibold text-ink-3">Lời giải</div>
@@ -566,9 +589,13 @@ export async function lessonEditorPage(ctx: Ctx, errors?: string[]): Promise<Res
             <h2 className="mb-3 text-lg font-extrabold">Thêm mục nội dung</h2>
             <SectionForm lessonId={lesson.id} idx="new" />
           </Panel>
+          <div id="cong-thuc-bai" className="scroll-mt-24">
+            <FormulaPanel action={A} formulas={formulas} />
+          </div>
         </div>
 
         <div className="space-y-6">
+          <ImagePanel next={A} images={images} />
           <Panel className="p-5">
             <h2 className="text-lg font-extrabold">Thông tin bài</h2>
             <PostForm action={A} className="mt-3 space-y-3">
@@ -603,6 +630,7 @@ export async function lessonEditorPage(ctx: Ctx, errors?: string[]): Promise<Res
               <RichInput name="formulas" label="Công thức" value={lesson.formulas} />
               <RichInput name="properties" label="Tính chất" value={lesson.properties} />
               <RichInput name="theorems" label="Định lí" value={lesson.theorems} />
+              <RichInput name="applications" label="Ứng dụng thực tế" value={lesson.applications} />
               <Select label="Đối chiếu với SGK" name="verify_status" defaultValue={lesson.verifyStatus} options={VERIFY_OPTIONS} />
               <TextArea label="Ghi chú đối chiếu" name="verify_note" defaultValue={lesson.verifyNote} rows={2} />
               <Button variant="secondary">Lưu bản đồ kiến thức</Button>
@@ -673,32 +701,58 @@ export async function lessonEditorAction(ctx: Ctx): Promise<Res> {
         ]),
       );
       if (errors.length) return lessonEditorPage(ctx, errors);
+      const applications = nullable(form.text('applications', 8000));
+      const appErrors = findMathErrors(applications ?? '').map((e) => 'Ứng dụng thực tế: ' + e);
+      if (appErrors.length) return lessonEditorPage(ctx, appErrors);
       await updateLessonMeta(ctx.db, lessonId, m, user.id);
+      await ctx.db.exec(sql`update lessons set applications = ${applications} where id = ${lessonId}`);
       return redirect(back, { type: 'success', message: 'Đã lưu bản đồ kiến thức của bài.' }, ctx);
+    }
+
+    const formulaRes = await handleFormulaAction(ctx, lessonId, form, back, (errs) => lessonEditorPage(ctx, errs));
+    if (formulaRes) {
+      await touch();
+      return formulaRes;
     }
 
     if (action === 'add-section' || action === 'update-section') {
       const kind = form.str('kind');
       const body = form.text('body', 20000).trim();
       const solution = form.text('solution', 20000).trim();
+      const formula = form.text('formula', 4000).trim();
+      const example = form.text('example', 8000).trim();
+      const st = form.str('status') === 'draft' ? 'draft' : 'published';
       const errors: string[] = [];
       if (!(SECTION_KINDS as readonly string[]).includes(kind)) errors.push('Loại mục không hợp lệ.');
       if (!body) errors.push('Nội dung không được để trống.');
-      errors.push(...findMathErrors(body), ...findMathErrors(solution).map((e) => 'Lời giải: ' + e));
+      if (/\\\(|\\\[/.test(formula)) errors.push('Ô công thức nổi bật chỉ nhập mã TeX, không kèm \\( \\) hay \\[ \\].');
+      errors.push(
+        ...findMathErrors(body),
+        ...findMathErrors(solution).map((e) => 'Lời giải: ' + e),
+        ...(formula ? findMathErrors(`\\[${formula}\\]`).map((e) => 'Công thức: ' + e) : []),
+        ...findMathErrors(example).map((e) => 'Ví dụ: ' + e),
+      );
       if (errors.length) return lessonEditorPage(ctx, errors);
       if (action === 'add-section') {
         await ctx.db.exec(sql`
-          insert into lesson_sections (lesson_id, kind, title, body, solution, sort_order)
-          values (${lessonId}, ${kind}, ${form.str('title', 200) || null}, ${body}, ${solution || null},
+          insert into lesson_sections (lesson_id, kind, title, body, solution, formula, example, status, sort_order)
+          values (${lessonId}, ${kind}, ${form.str('title', 200) || null}, ${body}, ${solution || null}, ${formula || null}, ${example || null}, ${st},
             (select coalesce(max(sort_order), 0) + 1 from lesson_sections where lesson_id = ${lessonId}))`);
       } else {
         const n = await ctx.db.exec(sql`
-          update lesson_sections set kind = ${kind}, title = ${form.str('title', 200) || null}, body = ${body}, solution = ${solution || null}
+          update lesson_sections set kind = ${kind}, title = ${form.str('title', 200) || null}, body = ${body}, solution = ${solution || null},
+            formula = ${formula || null}, example = ${example || null}, status = ${st}, updated_at = now()
           where id = ${form.int('section_id')} and lesson_id = ${lessonId}`);
         if (!n) throw new HttpError(404);
       }
       await touch();
       return redirect(back, { type: 'success', message: action === 'add-section' ? 'Đã thêm mục nội dung.' : 'Đã lưu mục nội dung.' }, ctx);
+    }
+
+    if (action === 'section-status') {
+      await ctx.db.exec(sql`update lesson_sections set status = ${form.str('status') === 'draft' ? 'draft' : 'published'}, updated_at = now() where id = ${form.int('section_id')} and lesson_id = ${lessonId}`);
+      await touch();
+      return redirect(back, { type: 'success', message: form.str('status') === 'draft' ? 'Đã ẩn mục nội dung.' : 'Đã xuất bản mục nội dung.' }, ctx);
     }
 
     if (action === 'delete-section') {
@@ -771,7 +825,7 @@ export async function topicEditorPage(ctx: Ctx, errors?: string[]): Promise<Res>
   const lesson = await getLessonById(ctx.db, topic.lessonId);
   const book = await ctx.db.one<{ slug: string }>(sql`select slug from textbooks where id = ${lesson!.textbookId}`);
   const themes = (await getLessonThemes(ctx.db, lesson!.textbookId, lesson!.id, true)).filter((th) => th.id);
-  const counts = await getTopicQuestionCounts(ctx.db, topic.id);
+  const [counts, examples, images] = await Promise.all([getTopicQuestionCounts(ctx.db, topic.id), loadExamples(ctx, topic.id), recentImages(ctx, 6)]);
   const A = `/giao-vien/dang-toan/${topic.id}`;
   const label = lessonLabel(lesson!);
   return page(
@@ -844,6 +898,12 @@ export async function topicEditorPage(ctx: Ctx, errors?: string[]): Promise<Res>
               <button className={buttonClass('ghost', 'sm', 'text-le hover:bg-le-soft')}>Xóa dạng toán</button>
             </PostForm>
           </Panel>
+          <ImagePanel next={A} images={images} />
+        </div>
+      </div>
+      <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
+        <div className="min-w-0 space-y-6">
+          <ExamplePanel action={A} examples={examples} levels={topic.levels} notes={topic.notes ?? null} />
         </div>
       </div>
     </>,
@@ -856,6 +916,8 @@ export async function topicEditorAction(ctx: Ctx): Promise<Res> {
   const topic = await getTopicById(ctx.db, topicId);
   if (!topic) throw new HttpError(404);
   const form = await ctx.form();
+  const exampleRes = await handleExampleAction(ctx, topicId, form, `/giao-vien/dang-toan/${topicId}`, (errs) => topicEditorPage(ctx, errs));
+  if (exampleRes) return exampleRes;
   if (form.str('_action') === 'delete') {
     await deleteTopic(ctx.db, topicId);
     return redirect(`/giao-vien/bai-hoc/${topic.lessonId}`, { type: 'success', message: 'Đã xóa dạng toán.' }, ctx);

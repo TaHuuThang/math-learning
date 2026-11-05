@@ -206,6 +206,10 @@
   background: #fff;
   box-shadow: 6px 6px 0 0 var(--color-tim-100);
 }
+.formula-frame {
+  overflow-x: auto;
+  max-width: 100%;
+}
 .formula-frame .prose-math .math-block {
   margin: 0.15em 0;
 }
@@ -336,4 +340,174 @@ html.present .lesson-main {
 }
 [hidden] {
   display: none !important;
+}
+
+/* ====== Giai đoạn 3: bài học đầy đủ ====== */
+.image-block,
+.diagram-block {
+  margin: 0.75em 0;
+  display: flex;
+  justify-content: center;
+}
+.lesson-image {
+  display: block;
+  max-width: 100%;
+  max-height: 520px;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--color-line);
+}
+.lesson-diagram {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.lesson-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+/* Nút ngôi sao lưu yêu thích */
+.fav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  background: #fff;
+  color: var(--color-cam);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.fav-btn:hover {
+  border-color: var(--color-cam);
+  background: var(--color-cam-soft);
+}
+.fav-btn[aria-pressed="true"] {
+  background: var(--color-hl-soft);
+  border-color: #f2df95;
+}
+/* Nút nổi "Công thức" trên trang bài học */
+.formula-fab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--color-tim-700);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14.5px;
+  box-shadow: 0 8px 24px -8px rgb(30 21 75 / 0.55);
+}
+.formula-fab:hover {
+  background: var(--color-tim-800);
+}
+html.present .formula-fab {
+  display: none;
+}
+@media (max-width: 640px) {
+  .formula-fab {
+    right: 12px;
+    bottom: 12px;
+    padding: 12px;
+    font-size: 17px;
+  }
+  .formula-fab .fab-label {
+    display: none;
+  }
+}
+/* Mục lục bài học: mục đang đọc */
+.toc-active {
+  color: var(--color-tim-800) !important;
+  background: var(--color-tim-50);
+  font-weight: 700;
+}
+/* Bảng Giả thiết / Kết luận */
+.gtkl {
+  border-collapse: collapse;
+}
+.gtkl th,
+.gtkl td {
+  border: 1px solid var(--color-line-2);
+  padding: 0.4em 0.75em;
+  text-align: left;
+  vertical-align: top;
+}
+.gtkl th {
+  width: 3.2em;
+  background: var(--color-tim-50);
+  font-weight: 800;
+  color: var(--color-tim-800);
+}
+.ex-think > summary,
+.ex-solution > summary {
+  cursor: pointer;
+  font-weight: 700;
+  list-style-position: outside;
+}
+.ex-steps > li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.step-no {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-top: 2px;
+  border-radius: 999px;
+  background: var(--color-tim-700);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+}
+html.present .worked-example {
+  font-size: 1.1em;
+}
+@media print {
+  .ex-think,
+  .ex-solution {
+    break-inside: avoid;
+  }
+  .ex-steps > li[hidden] {
+    display: flex !important;
+  }
+  [data-after-steps][hidden] {
+    display: block !important;
+  }
+  .formula-fab {
+    display: none !important;
+  }
+}
+
+/* Chọn dạng toán trong mục Ví dụ minh họa */
+.ex-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  background: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-ink-2);
+}
+.ex-chip:hover {
+  border-color: var(--color-tim-300);
+  color: var(--color-tim-800);
+}
+.ex-chip.ex-chip-on {
+  background: var(--color-tim-700);
+  border-color: var(--color-tim-700);
+  color: #fff;
 }
