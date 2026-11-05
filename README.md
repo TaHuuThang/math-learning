@@ -86,7 +86,7 @@ Ghi chú: yêu cầu ban đầu đề xuất Next.js. Môi trường xây dựng
 
 ## 4. Cấu trúc thư mục
 ```
-migrations/001_init.sql        Lược đồ CSDL (tự áp dụng khi khởi động)
+migrations/00*.sql             Lược đồ CSDL theo giai đoạn (tự áp dụng khi khởi động)
 src/
   server/
     main.ts                    Điểm vào: serve | migrate | seed | create-admin
@@ -109,7 +109,7 @@ src/
   styles/app.css               Hệ màu, lưới ô li, khung công thức, chế độ trình chiếu
 scripts/                       build.mjs, dev.mjs, test.mjs
 test/unit                      Kiểm thử chấm điểm, nội dung, hình vẽ, trình kết nối PostgreSQL
-test/e2e/run.mjs               Kiểm thử đầu-cuối 20 bước bằng Chromium
+test/e2e/run.mjs               Kiểm thử đầu-cuối 25 bước bằng Chromium (static.mjs: 9 bước cho bản HTML)
 dist/                          Bản dựng chạy được (server.mjs + public/assets)
 ```
 
@@ -150,13 +150,22 @@ Không có gì "cứng" cho Toán 8: môn → khối → **bộ sách (textbooks
 - **Nâng cấp CSDL cũ an toàn**: `npm run migrate && npm run seed` (hoặc tự chạy khi khởi động) chỉ điền ô còn trống, nối dạng toán cũ theo tên, không thêm trùng câu hỏi, không ghi đè phần giáo viên đã sửa.
 - Dữ liệu nguồn: `src/seed/toan8-map/chuong-*.ts`. Bản HTML (GitHub Pages) có đủ trang chương, trang dạng toán và luyện tập theo dạng.
 
+## 6c. Giai đoạn 3 – Lí thuyết, công thức và ví dụ minh họa Toán 8
+- **Đủ 39/39 bài** (`src/seed/toan8-lessons/chuong-1.ts` … `chuong-10.ts`): 229 mục "Khám phá kiến thức mới" (khái niệm, định nghĩa, tính chất, định lí, quy tắc, trường hợp đặc biệt, điều kiện áp dụng, lưu ý – mỗi mục có giải thích, công thức, ví dụ ngắn), **135 công thức cần nhớ** (nhóm, kí hiệu, điều kiện, ví dụ), **323 ví dụ minh họa** phủ mọi mức độ phù hợp của 157 dạng toán (đề, phân tích, kiến thức sử dụng, lời giải từng bước, kết luận, nhận xét – mẹo; ví dụ hình học có hình vẽ SVG, bảng GT/KL), "Những lưu ý khi giải" cho mọi dạng. Kiểm thử `test/unit/lesson-content.test.ts` bảo đảm không thiếu bài, không thiếu mức độ, mọi công thức và hình vẽ hợp lệ.
+- **Trang bài học** có mục lục (thanh bên và dạng thẻ trên điện thoại), 1. Giới thiệu (vị trí trong chương, mục tiêu, kiến thức cần nắm, kiến thức nền, ứng dụng thực tế), 2. Khám phá kiến thức mới, 3. CÔNG THỨC CẦN NHỚ, 4. Ví dụ minh họa (chọn nhanh từng dạng; "Bước tiếp theo" mở dần lời giải), 5. Hướng dẫn giải các dạng toán, 6. Luyện tập, 7. Ghi chú của em; nút nổi "Công thức"; lưu bài yêu thích; đánh dấu học xong; trình chiếu.
+- **Học sinh**: `/cong-thuc` (xem nhanh mọi công thức, lọc không dấu, chỉ công thức yêu thích), `/goc-hoc-tap` (bài, công thức yêu thích, ghi chú, ví dụ đã xem lời giải), `/tim-kiem` (tìm bài, mục kiến thức, công thức, dạng, ví dụ – gõ có dấu hay không dấu), làm sai khi luyện tập thì được chỉ tới dạng toán cần ôn.
+- **Giáo viên** (không cần sửa mã): trong *Soạn nội dung* của bài – thêm/sửa/xóa/sắp xếp/ẩn mục kiến thức (chọn loại, công thức nổi bật, ví dụ ngắn), công thức cần nhớ, ô "Ứng dụng thực tế"; trong trang dạng toán – thêm/sửa/xóa/sắp xếp/ẩn ví dụ theo mức độ (mỗi bước lời giải một dòng, hình vẽ, GT/KL), "Những lưu ý khi giải"; **tải ảnh** PNG/JPEG/WebP ≤ 3 MB rồi chèn mã `[anh:số]`; vẽ **sơ đồ** bằng `[sodo] … [/sodo]`; nút "Xem như học sinh" để xem trước.
+- **Bản HTML** (GitHub Pages) có đủ trang bài học mới, `cong-thuc.html`, `goc-hoc-tap.html`, `tim-kiem.html`; yêu thích, ghi chú, ví dụ đã xem lưu trong trình duyệt.
+- CSDL: `migrations/003_lesson_content.sql` (bảng `formulas`, `worked_examples`, `lesson_favorites`, `formula_favorites`, `lesson_notes`, `example_views`; thêm cột cho `lesson_sections`, `lessons.applications`, `topics.notes`, `images.is_public`). Nâng cấp CSDL cũ: chỉ thay phần lí thuyết mẫu giai đoạn 1 còn nguyên, không đụng vào nội dung giáo viên đã soạn.
+
 ## 7. Bảo mật
 Mật khẩu băm **scrypt** có muối; phiên lưu bằng mã băm SHA‑256, cookie `HttpOnly; SameSite=Lax` (+`Secure` khi HTTPS); chống **CSRF** (mã double‑submit + kiểm tra Origin); khóa tạm sau 5 lần đăng nhập sai/15 phút; phân quyền ở mọi trang và API (học sinh/giáo viên/quản trị, giáo viên chỉ thấy lớp và đề của mình); mọi truy vấn có tham số; văn bản người dùng luôn được escape (KaTeX `trust: false`); tiêu đề CSP, X‑Frame‑Options, nosniff; chống chuyển hướng mở; đáp án không gửi xuống trình duyệt trước khi chấm.
 
 ## 8. Chưa làm ở giai đoạn này
-- Bài giảng lý thuyết chi tiết (mục kiến thức, ví dụ theo từng tiết) mới có ở Chương I, Chương II, Bài 10 và Bài 35; các bài khác đã có tóm tắt bài học từ bản đồ kiến thức (mục tiêu, khái niệm, công thức, tính chất, định lí, dạng toán, ví dụ) – giai đoạn tiếp theo triển khai lý thuyết, ví dụ và bài tập đầy đủ.
-- Ngân hàng câu hỏi có 382 câu mẫu; nhiều dạng chưa đủ cả 5 hình thức (trang dạng toán ghi rõ hình thức nào "chưa có") – giáo viên bổ sung bằng nhập hàng loạt.
-- Chưa có: tải ảnh lên cho câu hỏi (bảng `images` đã hỗ trợ, giao diện chưa có nút tải), nhập câu hỏi từ tệp Word, quên mật khẩu qua email, GeoGebra nhúng, ứng dụng di động riêng.
+- Nội dung do hệ thống soạn theo chương trình SGK Toán 8 Kết nối tri thức nhưng **không chép nguyên văn SGK**; giáo viên nên đọc lại và chỉnh lời văn cho phù hợp lớp mình (mọi phần đều sửa được trong trang giáo viên).
+- Các mục Luyện tập chung, Bài tập cuối chương, Hoạt động trải nghiệm chưa có ví dụ minh họa riêng (dùng ví dụ của các bài và kiểm tra cuối chương).
+- Ngân hàng câu hỏi có 382 câu mẫu; nhiều dạng chưa đủ cả 5 hình thức – giáo viên bổ sung bằng nhập hàng loạt.
+- Chưa có: nút tải ảnh trong trình soạn câu hỏi (ảnh tải lên dùng được trong nội dung bài học), nhập câu hỏi từ tệp Word, quên mật khẩu qua email, GeoGebra nhúng, ứng dụng di động riêng.
 - Kiểm tra kiểu TypeScript trong môi trường xây dựng dùng khai báo React rút gọn (`tsconfig.offline.json`) vì không tải được `@types/react`; khi có mạng hãy chạy `npm install && npm run typecheck`.
 
 ## Tên và bản quyền
