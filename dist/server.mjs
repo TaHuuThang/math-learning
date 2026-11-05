@@ -36745,8 +36745,818 @@ ABCDA EF`,
 };
 var CHUONG_32 = [BAI_10, BAI_11, BAI_12, BAI_13, BAI_14];
 
+// src/seed/toan8-lessons/chuong-4.ts
+var BAI_15 = {
+  slug: "bai-15-dinh-li-thales-trong-tam-giac",
+  applications: r4`- Đo khoảng cách giữa hai điểm không đến được (qua sông, hồ) bằng cách dựng các đường thẳng song song.
+- Chia một đoạn thẳng (tấm gỗ, dải vải) thành nhiều phần bằng nhau hoặc theo tỉ lệ cho trước.
+- Tính độ dài các thanh giằng song song trong khung mái nhà, thang chữ A.`,
+  theory: [
+    th(
+      "definition",
+      "T\u1EC9 s\u1ED1 c\u1EE7a hai \u0111o\u1EA1n th\u1EB3ng",
+      r4`**Tỉ số của hai đoạn thẳng** là tỉ số độ dài của chúng theo cùng một đơn vị đo. Tỉ số này không phụ thuộc vào đơn vị đo.`,
+      void 0,
+      r4`\(AB = 3\) dm, \(CD = 50\) cm: \(\dfrac{AB}{CD} = \dfrac{30}{50} = \dfrac{3}{5}\).`
+    ),
+    th(
+      "definition",
+      "\u0110o\u1EA1n th\u1EB3ng t\u1EC9 l\u1EC7",
+      r4`Hai đoạn thẳng \(AB\), \(CD\) gọi là **tỉ lệ** với hai đoạn thẳng \(A'B'\), \(C'D'\) nếu có tỉ lệ thức:`,
+      r4`\dfrac{AB}{CD} = \dfrac{A'B'}{C'D'}`,
+      r4`\(AB = 6\), \(CD = 8\), \(A'B' = 9\), \(C'D' = 12\): \(\dfrac68 = \dfrac{9}{12} = \dfrac34\) nên chúng tỉ lệ.`
+    ),
+    th("theorem", "\u0110\u1ECBnh l\xED Thal\xE8s", r4`Nếu một đường thẳng song song với một cạnh của tam giác và cắt hai cạnh còn lại thì nó định ra trên hai cạnh đó những đoạn thẳng tương ứng tỉ lệ.
+Với \(\triangle ABC\), \(B' \in AB\), \(C' \in AC\), \(B'C' \parallel BC\):`, r4`\dfrac{AB'}{AB} = \dfrac{AC'}{AC};\quad \dfrac{AB'}{B'B} = \dfrac{AC'}{C'C};\quad \dfrac{B'B}{AB} = \dfrac{C'C}{AC}`),
+    th("theorem", "\u0110\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o", r4`Nếu một đường thẳng cắt hai cạnh của một tam giác và định ra trên hai cạnh này những đoạn thẳng tương ứng tỉ lệ thì đường thẳng đó song song với cạnh còn lại của tam giác.`, r4`\dfrac{AB'}{B'B} = \dfrac{AC'}{C'C} \Rightarrow B'C' \parallel BC`),
+    th("special", "Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", r4`Định lí Thalès vẫn đúng khi đường thẳng song song với một cạnh cắt **phần kéo dài** của hai cạnh còn lại (ví dụ trong hình thang có hai cạnh bên kéo dài cắt nhau).`),
+    th("note", "L\u01B0u \xFD", r4`- Các đoạn trong tỉ lệ thức phải **tương ứng** trên hai cạnh (đoạn kề đỉnh chung với đoạn kề đỉnh chung).
+- Từ \(\dfrac{a}{b} = \dfrac{c}{d}\) suy ra \(ad = bc\) để tìm đoạn chưa biết.`)
+  ],
+  formulas: [
+    {
+      group: "\u0110\u1ECBnh l\xED Thal\xE8s",
+      items: [
+        fc("Thal\xE8s \u2013 \u0111o\u1EA1n k\u1EC1 \u0111\u1EC9nh v\xE0 c\u1EA3 c\u1EA1nh", r4`\dfrac{AB'}{AB} = \dfrac{AC'}{AC}`, r4`- \(B' \in AB\), \(C' \in AC\), \(B'C' \parallel BC\)`, r4`\(AB' = 2\), \(AB = 6\), \(AC = 9\) thì \(AC' = 3\).`, r4`\(B'C' \parallel BC\).`),
+        fc("Thal\xE8s \u2013 hai \u0111o\u1EA1n tr\xEAn m\u1ED7i c\u1EA1nh", r4`\dfrac{AB'}{B'B} = \dfrac{AC'}{C'C}`, r4`- \(B' \in AB\), \(C' \in AC\), \(B'C' \parallel BC\)`, r4`\(AD = 3\), \(DB = 2\), \(AE = 4{,}5\) thì \(EC = 3\).`, r4`\(B'C' \parallel BC\).`),
+        fc("Thal\xE8s \u0111\u1EA3o", r4`\dfrac{AB'}{B'B} = \dfrac{AC'}{C'C} \Rightarrow B'C' \parallel BC`, r4`- \(B' \in AB\), \(C' \in AC\)`, r4`\(\dfrac{AD}{DB} = \dfrac{AE}{EC} = \dfrac12\) thì \(DE \parallel BC\).`)
+      ]
+    },
+    {
+      group: "T\u1EC9 l\u1EC7 th\u1EE9c",
+      items: [
+        fc("T\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n c\u1EE7a t\u1EC9 l\u1EC7 th\u1EE9c", r4`\dfrac{a}{b} = \dfrac{c}{d} \Rightarrow ad = bc`, r4`- \(a, b, c, d\): các số khác 0`, r4`\(\dfrac{4}{6} = \dfrac{5}{x}\) thì \(x = \dfrac{6\cdot5}{4} = 7{,}5\).`)
+      ]
+    }
+  ],
+  examples: {
+    "doan-thang-ti-le": [
+      ex(
+        1,
+        r4`Cho \(AB = 6\) cm, \(CD = 8\) cm, \(MN = 9\) cm, \(PQ = 12\) cm. Hai đoạn thẳng \(AB\), \(CD\) có tỉ lệ với hai đoạn thẳng \(MN\), \(PQ\) không?`,
+        "So s\xE1nh hai t\u1EC9 s\u1ED1 \\(\\dfrac{AB}{CD}\\) v\xE0 \\(\\dfrac{MN}{PQ}\\).",
+        "T\u1EC9 s\u1ED1 c\u1EE7a hai \u0111o\u1EA1n th\u1EB3ng; \u0111\u1ECBnh ngh\u0129a \u0111o\u1EA1n th\u1EB3ng t\u1EC9 l\u1EC7.",
+        [r4`\(\dfrac{AB}{CD} = \dfrac{6}{8} = \dfrac34\); \(\dfrac{MN}{PQ} = \dfrac{9}{12} = \dfrac34\).`, r4`Hai tỉ số bằng nhau nên \(AB\), \(CD\) tỉ lệ với \(MN\), \(PQ\).`],
+        "C\xF3 t\u1EC9 l\u1EC7."
+      ),
+      ex(
+        2,
+        r4`a) Tính tỉ số \(\dfrac{AB}{CD}\) biết \(AB = 45\) cm, \(CD = 1{,}2\) m.
+b) Biết \(\dfrac{EF}{GH} = \dfrac{2}{3}\) và \(GH = 12\) cm. Tính \(EF\).`,
+        "\u0110\u1ED5i v\u1EC1 c\xF9ng \u0111\u01A1n v\u1ECB tr\u01B0\u1EDBc khi l\u1EADp t\u1EC9 s\u1ED1; d\xF9ng t\u1EC9 l\u1EC7 th\u1EE9c \u0111\u1EC3 t\xECm \u0111o\u1EA1n ch\u01B0a bi\u1EBFt.",
+        "T\u1EC9 s\u1ED1 c\u1EE7a hai \u0111o\u1EA1n th\u1EB3ng; t\xEDnh ch\u1EA5t t\u1EC9 l\u1EC7 th\u1EE9c.",
+        [r4`a) \(CD = 1{,}2\) m \(= 120\) cm, nên \(\dfrac{AB}{CD} = \dfrac{45}{120} = \dfrac38\).`, r4`b) \(EF = \dfrac{2}{3}\cdot GH = \dfrac23\cdot12 = 8\) (cm).`],
+        r4`a) \(\dfrac38\); b) \(EF = 8\) cm.`,
+        "Qu\xEAn \u0111\u1ED5i \u0111\u01A1n v\u1ECB l\xE0 l\u1ED7i hay g\u1EB7p nh\u1EA5t khi l\u1EADp t\u1EC9 s\u1ED1."
+      )
+    ],
+    "tinh-do-dai-dinh-li-thales": [
+      gx(
+        2,
+        r4`Cho tam giác \(ABC\), \(D \in AB\), \(E \in AC\) sao cho \(DE \parallel BC\). Biết \(AD = 3\) cm, \(DB = 2\) cm, \(AE = 4{,}5\) cm. Tính \(EC\).`,
+        `A(2,5) B(0,0) C(7,0) D(0.8,2) E(5,2)
+ABCA DE`,
+        r4`\(\triangle ABC\); \(DE \parallel BC\); \(AD = 3\) cm, \(DB = 2\) cm, \(AE = 4{,}5\) cm`,
+        r4`\(EC = ?\)`,
+        "C\xE1c \u0111o\u1EA1n \u0111\xE3 bi\u1EBFt n\u1EB1m tr\xEAn hai c\u1EA1nh \\(AB\\), \\(AC\\) v\u1EDBi \\(DE \\parallel BC\\): \xE1p d\u1EE5ng \u0111\u1ECBnh l\xED Thal\xE8s.",
+        "\u0110\u1ECBnh l\xED Thal\xE8s d\u1EA1ng \\(\\dfrac{AD}{DB} = \\dfrac{AE}{EC}\\).",
+        [r4`Vì \(DE \parallel BC\), theo định lí Thalès: \(\dfrac{AD}{DB} = \dfrac{AE}{EC}\).`, r4`\(\dfrac{3}{2} = \dfrac{4{,}5}{EC}\), suy ra \(EC = \dfrac{2\cdot4{,}5}{3} = 3\) (cm).`],
+        r4`\(EC = 3\) cm.`
+      ),
+      gx(
+        3,
+        r4`Hình thang \(ABCD\) (\(AB \parallel CD\)) có hai cạnh bên \(AD\), \(BC\) kéo dài cắt nhau tại \(E\). Biết \(EA = 4\) cm, \(AD = 6\) cm, \(EB = 5\) cm. Tính \(BC\).`,
+        `D(0,0) C(10,0) E(4,7) A(2.4,4.2) B(6.4,4.2)
+ED EC AB DC`,
+        r4`Hình thang \(ABCD\), \(AB \parallel CD\); \(E = AD \cap BC\); \(EA = 4\), \(AD = 6\), \(EB = 5\) (cm)`,
+        r4`\(BC = ?\)`,
+        r4`Xét tam giác \(EDC\): \(AB \parallel DC\) cắt hai cạnh \(ED\), \(EC\).`,
+        "\u0110\u1ECBnh l\xED Thal\xE8s trong tam gi\xE1c.",
+        [r4`Trong \(\triangle EDC\) có \(A \in ED\), \(B \in EC\), \(AB \parallel DC\).`, r4`Theo định lí Thalès: \(\dfrac{EA}{AD} = \dfrac{EB}{BC}\), tức \(\dfrac46 = \dfrac{5}{BC}\).`, r4`\(BC = \dfrac{6\cdot5}{4} = 7{,}5\) (cm).`],
+        r4`\(BC = 7{,}5\) cm.`,
+        "V\u1EDBi h\xECnh thang, k\xE9o d\xE0i hai c\u1EA1nh b\xEAn \u0111\u1EC3 c\xF3 tam gi\xE1c ch\u1EE9a \u0111\u01B0\u1EDDng th\u1EB3ng song song."
+      )
+    ],
+    "chung-minh-song-song-he-thuc-thales": [
+      gx(
+        3,
+        r4`Cho tam giác \(ABC\) có \(AB = 9\) cm, \(AC = 12\) cm. Lấy \(D \in AB\), \(E \in AC\) sao cho \(AD = 3\) cm, \(AE = 4\) cm. Chứng minh \(DE \parallel BC\).`,
+        `A(2,6) B(0,0) C(8,0) D(1.33,4) E(4,4)
+ABCA DE`,
+        r4`\(\triangle ABC\), \(AB = 9\) cm, \(AC = 12\) cm; \(AD = 3\) cm, \(AE = 4\) cm`,
+        r4`\(DE \parallel BC\)`,
+        "Mu\u1ED1n ch\u1EE9ng minh song song t\u1EEB c\xE1c \u0111\u1ED9 d\xE0i: ki\u1EC3m tra c\xE1c \u0111o\u1EA1n t\u01B0\u01A1ng \u1EE9ng t\u1EC9 l\u1EC7 r\u1ED3i d\xF9ng \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o.",
+        "\u0110\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o.",
+        [r4`\(DB = 9 - 3 = 6\) cm; \(EC = 12 - 4 = 8\) cm.`, r4`\(\dfrac{AD}{DB} = \dfrac36 = \dfrac12\); \(\dfrac{AE}{EC} = \dfrac48 = \dfrac12\).`, r4`Vì \(\dfrac{AD}{DB} = \dfrac{AE}{EC}\), theo định lí Thalès đảo, \(DE \parallel BC\).`],
+        r4`\(DE \parallel BC\).`
+      ),
+      gx(
+        4,
+        r4`Cho tứ giác \(ABCD\), \(O\) là giao điểm hai đường chéo. Qua \(O\) kẻ đường thẳng song song với \(BC\) cắt \(AB\) tại \(E\), đường thẳng song song với \(CD\) cắt \(AD\) tại \(F\). Chứng minh \(EF \parallel BD\).`,
+        `A(0,0) B(6,0) C(7,5) D(1,4) O(3.17,2.26) E(2.72,0) F(0.45,1.81)
+ABCDA AC BD OE OF EF`,
+        r4`Tứ giác \(ABCD\), \(O = AC \cap BD\); \(OE \parallel BC\) (\(E \in AB\)); \(OF \parallel CD\) (\(F \in AD\))`,
+        r4`\(EF \parallel BD\)`,
+        r4`Dùng Thalès hai lần để có \(\dfrac{AE}{EB}\) và \(\dfrac{AF}{FD}\) cùng bằng \(\dfrac{AO}{OC}\), rồi dùng Thalès đảo trong tam giác \(ABD\).`,
+        "\u0110\u1ECBnh l\xED Thal\xE8s v\xE0 \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o.",
+        [r4`Trong \(\triangle ABC\), \(OE \parallel BC\) nên \(\dfrac{AE}{EB} = \dfrac{AO}{OC}\).`, r4`Trong \(\triangle ACD\), \(OF \parallel CD\) nên \(\dfrac{AF}{FD} = \dfrac{AO}{OC}\).`, r4`Suy ra \(\dfrac{AE}{EB} = \dfrac{AF}{FD}\).`, r4`Trong \(\triangle ABD\), theo định lí Thalès đảo, \(EF \parallel BD\).`],
+        r4`\(EF \parallel BD\).`,
+        "M\u1ED9t t\u1EC9 s\u1ED1 trung gian (\\(\\dfrac{AO}{OC}\\)) gi\xFAp n\u1ED1i hai t\u1EC9 l\u1EC7 th\u1EE9c v\u1EDBi nhau."
+      )
+    ],
+    "do-dac-thuc-te-dinh-li-thales": [
+      gx(
+        3,
+        r4`Để đo khoảng cách giữa hai điểm \(A\), \(B\) ở hai bờ một con kênh, người ta chọn điểm \(O\) sao cho \(O\), \(A\), \(B\) thẳng hàng, rồi chọn \(C\), \(D\) sao cho \(O\), \(C\), \(D\) thẳng hàng và \(AC \parallel BD\). Đo được \(OA = 8\) m, \(OC = 10\) m, \(CD = 15\) m. Tính \(AB\).`,
+        `O(0,0) A(4,2) B(10,5) C(5,0) D(12.5,0)
+OB OD AC BD`,
+        r4`\(O, A, B\) thẳng hàng; \(O, C, D\) thẳng hàng; \(AC \parallel BD\); \(OA = 8\) m, \(OC = 10\) m, \(CD = 15\) m`,
+        r4`\(AB = ?\)`,
+        r4`Mô hình hóa: tam giác \(OBD\) có \(AC \parallel BD\); đoạn cần đo \(AB\) nằm trên cạnh \(OB\).`,
+        "\u0110\u1ECBnh l\xED Thal\xE8s; t\u1EC9 l\u1EC7 th\u1EE9c.",
+        [r4`Trong \(\triangle OBD\) có \(A \in OB\), \(C \in OD\), \(AC \parallel BD\).`, r4`Theo định lí Thalès: \(\dfrac{OA}{AB} = \dfrac{OC}{CD}\), tức \(\dfrac{8}{AB} = \dfrac{10}{15}\).`, r4`\(AB = \dfrac{8\cdot15}{10} = 12\) (m).`],
+        r4`Khoảng cách \(AB = 12\) m.`,
+        "B\xE0i to\xE1n th\u1EF1c t\u1EBF: v\u1EBD h\xECnh, ch\u1EC9 ra tam gi\xE1c v\xE0 c\u1EB7p \u0111\u01B0\u1EDDng th\u1EB3ng song song, ghi \u0111\u01A1n v\u1ECB \u1EDF k\u1EBFt qu\u1EA3."
+      )
+    ]
+  },
+  notes: {
+    "doan-thang-ti-le": "\u0110\u1ED5i c\xE1c \u0111o\u1EA1n v\u1EC1 c\xF9ng \u0111\u01A1n v\u1ECB; vi\u1EBFt t\u1EC9 s\u1ED1 d\u01B0\u1EDBi d\u1EA1ng ph\xE2n s\u1ED1 t\u1ED1i gi\u1EA3n \u0111\u1EC3 so s\xE1nh.",
+    "tinh-do-dai-dinh-li-thales": "Ch\u1ECDn \u0111\xFAng tam gi\xE1c ch\u1EE9a \u0111\u01B0\u1EDDng th\u1EB3ng song song; vi\u1EBFt t\u1EC9 l\u1EC7 th\u1EE9c c\xF3 \u0111o\u1EA1n c\u1EA7n t\xECm r\u1ED3i nh\xE2n ch\xE9o.",
+    "chung-minh-song-song-he-thuc-thales": "Ch\u1EE9ng minh song song th\xEC d\xF9ng Thal\xE8s \u0111\u1EA3o; n\u1EBFu c\xF3 hai t\u1EC9 l\u1EC7 th\u1EE9c, t\xECm t\u1EC9 s\u1ED1 trung gian chung.",
+    "do-dac-thuc-te-dinh-li-thales": "V\u1EBD s\u01A1 \u0111\u1ED3, \u0111\u1EB7t t\xEAn \u0111i\u1EC3m, x\xE1c \u0111\u1ECBnh tam gi\xE1c v\xE0 \u0111\u01B0\u1EDDng th\u1EB3ng song song; k\u1EBFt qu\u1EA3 ghi r\xF5 \u0111\u01A1n v\u1ECB."
+  }
+};
+var BAI_16 = {
+  slug: "bai-16-duong-trung-binh-cua-tam-giac",
+  applications: r4`- Đo khoảng cách giữa hai điểm bị ngăn cách (hai đầu hồ): đo đoạn nối trung điểm rồi nhân đôi.
+- Xác định trung điểm, kẻ đường song song khi thiết kế, cắt ghép.
+- Chứng minh các tứ giác tạo bởi trung điểm các cạnh là hình bình hành.`,
+  theory: [
+    th("definition", "\u0110\u01B0\u1EDDng trung b\xECnh c\u1EE7a tam gi\xE1c", r4`**Đường trung bình** của tam giác là đoạn thẳng nối trung điểm hai cạnh của tam giác. Mỗi tam giác có ba đường trung bình.`),
+    th(
+      "theorem",
+      "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh",
+      r4`Đường trung bình của tam giác thì song song với cạnh thứ ba và bằng nửa cạnh ấy.`,
+      r4`MA = MB,\ NA = NC \Rightarrow MN \parallel BC,\ MN = \dfrac{BC}{2}`,
+      r4`\(BC = 10\) cm thì đường trung bình \(MN = 5\) cm.`
+    ),
+    th("theorem", "\u0110\u01B0\u1EDDng th\u1EB3ng qua trung \u0111i\u1EC3m v\xE0 song song", r4`Đường thẳng đi qua trung điểm một cạnh của tam giác và song song với cạnh thứ hai thì đi qua trung điểm của cạnh thứ ba (suy ra từ định lí Thalès).`),
+    th("property", "Ba \u0111\u01B0\u1EDDng trung b\xECnh", r4`Ba đường trung bình chia tam giác thành bốn tam giác bằng nhau; tam giác tạo bởi ba đường trung bình có chu vi bằng nửa chu vi tam giác ban đầu.`),
+    th("note", "L\u01B0u \xFD", r4`Khi đề có **hai trung điểm** trên hai cạnh của một tam giác, hãy nghĩ ngay đến đường trung bình. Nếu chỉ có một trung điểm, có thể **lấy thêm trung điểm** để tạo đường trung bình.`)
+  ],
+  formulas: [
+    {
+      group: "\u0110\u01B0\u1EDDng trung b\xECnh",
+      items: [
+        fc("T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh", r4`MN \parallel BC,\quad MN = \dfrac{BC}{2}`, r4`- \(M, N\): trung điểm của \(AB\), \(AC\)`, r4`\(MN = 45\) m thì \(BC = 90\) m.`),
+        fc("Chu vi tam gi\xE1c trung \u0111i\u1EC3m", r4`P_{MNP} = \dfrac{P_{ABC}}{2}`, r4`- \(M, N, P\): trung điểm ba cạnh`, r4`\(AB = 8\), \(AC = 10\), \(BC = 12\): \(P_{MNP} = 15\).`)
+      ]
+    }
+  ],
+  examples: {
+    "tinh-do-dai-duong-trung-binh": [
+      gx(
+        1,
+        r4`Cho tam giác \(ABC\) có \(BC = 10\) cm. Gọi \(M\), \(N\) lần lượt là trung điểm của \(AB\), \(AC\). Tính \(MN\).`,
+        `A(2,5) B(0,0) C(8,0) M(1,2.5) N(5,2.5)
+ABCA MN`,
+        r4`\(\triangle ABC\), \(BC = 10\) cm; \(MA = MB\), \(NA = NC\)`,
+        r4`\(MN = ?\)`,
+        r4`\(MN\) nối trung điểm hai cạnh nên là đường trung bình.`,
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh.",
+        [r4`\(MN\) là đường trung bình của \(\triangle ABC\).`, r4`\(MN = \dfrac{BC}{2} = \dfrac{10}{2} = 5\) (cm).`],
+        r4`\(MN = 5\) cm.`
+      ),
+      gx(
+        2,
+        r4`Tam giác \(ABC\) có \(AB = 8\) cm, \(AC = 10\) cm, \(BC = 12\) cm. Gọi \(M\), \(N\), \(P\) lần lượt là trung điểm của \(AB\), \(AC\), \(BC\). Tính chu vi tam giác \(MNP\).`,
+        `A(1,5) B(0,0) C(8,0) M(0.5,2.5) N(4.5,2.5) P(4,0)
+ABCA MNPM`,
+        r4`\(\triangle ABC\); \(AB = 8\), \(AC = 10\), \(BC = 12\) (cm); \(M, N, P\) là trung điểm \(AB, AC, BC\)`,
+        r4`Chu vi \(\triangle MNP = ?\)`,
+        "M\u1ED7i c\u1EA1nh c\u1EE7a tam gi\xE1c \\(MNP\\) l\xE0 m\u1ED9t \u0111\u01B0\u1EDDng trung b\xECnh, b\u1EB1ng n\u1EEDa c\u1EA1nh song song v\u1EDBi n\xF3.",
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh.",
+        [r4`\(MN = \dfrac{BC}{2} = 6\); \(NP = \dfrac{AB}{2} = 4\); \(MP = \dfrac{AC}{2} = 5\) (cm).`, r4`Chu vi \(\triangle MNP = 6 + 4 + 5 = 15\) (cm).`],
+        r4`Chu vi tam giác \(MNP\) là 15 cm.`,
+        "Chu vi tam gi\xE1c t\u1EA1o b\u1EDFi ba trung \u0111i\u1EC3m b\u1EB1ng n\u1EEDa chu vi tam gi\xE1c ban \u0111\u1EA7u."
+      ),
+      gx(
+        3,
+        r4`Để đo khoảng cách giữa hai điểm \(B\), \(C\) ở hai đầu một hồ nước, người ta chọn một điểm \(A\) ở ngoài hồ, xác định trung điểm \(M\) của \(AB\), trung điểm \(N\) của \(AC\) và đo được \(MN = 45\) m. Tính khoảng cách \(BC\).`,
+        `A(3,8) B(0,0) C(10,0) M(1.5,4) N(6.5,4)
+AB AC MN BC:dash`,
+        r4`\(MA = MB\), \(NA = NC\); \(MN = 45\) m`,
+        r4`\(BC = ?\)`,
+        r4`Đoạn \(BC\) không đo trực tiếp được nhưng \(MN\) là đường trung bình của tam giác \(ABC\).`,
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh.",
+        [r4`\(MN\) là đường trung bình của \(\triangle ABC\) nên \(MN = \dfrac{BC}{2}\).`, r4`\(BC = 2\cdot MN = 2\cdot45 = 90\) (m).`],
+        r4`\(BC = 90\) m.`
+      )
+    ],
+    "song-song-thang-hang-duong-trung-binh": [
+      gx(
+        3,
+        r4`Cho tam giác \(ABC\), \(M\) là trung điểm của \(AB\). Đường thẳng qua \(M\) song song với \(BC\) cắt \(AC\) tại \(N\). Chứng minh \(N\) là trung điểm của \(AC\) và \(MN = \dfrac{BC}{2}\).`,
+        `A(2,5) B(0,0) C(8,0) M(1,2.5) N(5,2.5)
+ABCA MN`,
+        r4`\(\triangle ABC\); \(MA = MB\); \(MN \parallel BC\), \(N \in AC\)`,
+        r4`\(NA = NC\); \(MN = \dfrac{BC}{2}\)`,
+        "D\xF9ng \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EC3 c\xF3 t\u1EC9 s\u1ED1 tr\xEAn c\u1EA1nh \\(AC\\), sau \u0111\xF3 \\(MN\\) tr\u1EDF th\xE0nh \u0111\u01B0\u1EDDng trung b\xECnh.",
+        "\u0110\u1ECBnh l\xED Thal\xE8s; t\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh.",
+        [r4`\(MN \parallel BC\) nên theo định lí Thalès: \(\dfrac{AN}{NC} = \dfrac{AM}{MB} = 1\).`, r4`Suy ra \(AN = NC\): \(N\) là trung điểm của \(AC\).`, r4`\(MN\) nối trung điểm hai cạnh nên là đường trung bình: \(MN = \dfrac{BC}{2}\).`],
+        r4`\(N\) là trung điểm \(AC\) và \(MN = \dfrac{BC}{2}\).`
+      ),
+      gx(
+        4,
+        r4`Cho tam giác \(ABC\), đường trung tuyến \(AM\). Gọi \(I\) là trung điểm của \(AM\), \(D\) là giao điểm của \(BI\) và \(AC\). Chứng minh \(AD = \dfrac{1}{2}DC\).`,
+        `A(2,6) B(0,0) C(8,0) M(4,0) I(3,3) D(4,4) E(6,2)
+ABCA AM BD ME:dash`,
+        r4`\(\triangle ABC\), \(MB = MC\); \(IA = IM\); \(D = BI \cap AC\)`,
+        r4`\(AD = \dfrac12 DC\)`,
+        r4`Chỉ có trung điểm \(M\) của \(BC\): lấy thêm trung điểm \(E\) của \(DC\) để có đường trung bình \(ME\) của tam giác \(BDC\).`,
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh; \u0111\u01B0\u1EDDng th\u1EB3ng qua trung \u0111i\u1EC3m v\xE0 song song \u0111i qua trung \u0111i\u1EC3m c\u1EA1nh th\u1EE9 ba.",
+        [r4`Gọi \(E\) là trung điểm của \(DC\). \(ME\) là đường trung bình của \(\triangle BDC\) nên \(ME \parallel BD\), tức \(ME \parallel ID\).`, r4`Trong \(\triangle AME\): \(I\) là trung điểm \(AM\) và \(ID \parallel ME\) nên \(D\) là trung điểm của \(AE\).`, r4`Do đó \(AD = DE = EC\), suy ra \(AD = \dfrac12 DC\).`],
+        r4`\(AD = \dfrac12 DC\).`,
+        "K\u1EBB th\xEAm trung \u0111i\u1EC3m \u0111\u1EC3 t\u1EA1o \u0111\u01B0\u1EDDng trung b\xECnh l\xE0 k\u0129 thu\u1EADt r\u1EA5t hay d\xF9ng."
+      )
+    ],
+    "tu-giac-tao-boi-trung-diem": [
+      gx(
+        3,
+        r4`Cho tứ giác \(ABCD\). Gọi \(E\), \(F\), \(G\), \(H\) lần lượt là trung điểm của \(AB\), \(BC\), \(CD\), \(DA\). Chứng minh \(EFGH\) là hình bình hành.`,
+        `A(0,0) B(6,-1) C(8,4) D(2,5) E(3,-0.5) F(7,1.5) G(5,4.5) H(1,2.5)
+ABCDA EFGHE AC:dash`,
+        r4`Tứ giác \(ABCD\); \(E, F, G, H\) là trung điểm \(AB, BC, CD, DA\)`,
+        r4`\(EFGH\) là hình bình hành`,
+        r4`Đường chéo \(AC\) chia tứ giác thành hai tam giác \(ABC\), \(ADC\); \(EF\) và \(HG\) là đường trung bình của hai tam giác này.`,
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh; d\u1EA5u hi\u1EC7u h\xECnh b\xECnh h\xE0nh.",
+        [r4`\(EF\) là đường trung bình của \(\triangle ABC\): \(EF \parallel AC\), \(EF = \dfrac{AC}{2}\).`, r4`\(HG\) là đường trung bình của \(\triangle ADC\): \(HG \parallel AC\), \(HG = \dfrac{AC}{2}\).`, r4`Do đó \(EF \parallel HG\) và \(EF = HG\): \(EFGH\) là hình bình hành.`],
+        r4`\(EFGH\) là hình bình hành.`
+      ),
+      gx(
+        4,
+        r4`Với tứ giác \(ABCD\) và các trung điểm \(E, F, G, H\) như ví dụ trước, tứ giác \(ABCD\) cần điều kiện gì về hai đường chéo để \(EFGH\) là: a) hình chữ nhật; b) hình thoi?`,
+        `A(0,0) B(6,-1) C(8,4) D(2,5) E(3,-0.5) F(7,1.5) G(5,4.5) H(1,2.5)
+ABCDA EFGHE AC:dash BD:dash`,
+        r4`Tứ giác \(ABCD\); \(EFGH\) là hình bình hành (ví dụ trước)`,
+        r4`Điều kiện để \(EFGH\) là hình chữ nhật, hình thoi`,
+        r4`Các cạnh của \(EFGH\) song song và bằng nửa các đường chéo \(AC\), \(BD\): góc của \(EFGH\) phụ thuộc góc giữa hai đường chéo, cạnh phụ thuộc độ dài hai đường chéo.`,
+        "\u0110\u01B0\u1EDDng trung b\xECnh; d\u1EA5u hi\u1EC7u h\xECnh ch\u1EEF nh\u1EADt, h\xECnh thoi.",
+        [r4`\(EF \parallel AC\), \(EF = \dfrac{AC}{2}\); \(FG \parallel BD\), \(FG = \dfrac{BD}{2}\).`, r4`a) Hình bình hành \(EFGH\) là hình chữ nhật \(\iff EF \perp FG \iff AC \perp BD\).`, r4`b) Hình bình hành \(EFGH\) là hình thoi \(\iff EF = FG \iff AC = BD\).`],
+        r4`a) Khi \(AC \perp BD\); b) khi \(AC = BD\).`,
+        "N\u1EBFu \\(AC \\perp BD\\) v\xE0 \\(AC = BD\\) th\xEC \\(EFGH\\) l\xE0 h\xECnh vu\xF4ng."
+      )
+    ]
+  },
+  notes: {
+    "tinh-do-dai-duong-trung-binh": "X\xE1c \u0111\u1ECBnh \u0111\xFAng c\u1EA1nh song song v\u1EDBi \u0111\u01B0\u1EDDng trung b\xECnh: \u0111\u01B0\u1EDDng trung b\xECnh b\u1EB1ng n\u1EEDa c\u1EA1nh \u0111\xF3.",
+    "song-song-thang-hang-duong-trung-binh": 'Thi\u1EBFu trung \u0111i\u1EC3m th\xEC l\u1EA5y th\xEAm trung \u0111i\u1EC3m; d\xF9ng "qua trung \u0111i\u1EC3m v\xE0 song song th\xEC \u0111i qua trung \u0111i\u1EC3m".',
+    "tu-giac-tao-boi-trung-diem": "K\u1EBB \u0111\u01B0\u1EDDng ch\xE9o \u0111\u1EC3 chia t\u1EE9 gi\xE1c th\xE0nh tam gi\xE1c; t\xEDnh ch\u1EA5t c\u1EE7a t\u1EE9 gi\xE1c trung \u0111i\u1EC3m ph\u1EE5 thu\u1ED9c v\xE0o hai \u0111\u01B0\u1EDDng ch\xE9o."
+  }
+};
+var BAI_17 = {
+  slug: "bai-17-tinh-chat-duong-phan-giac-cua-tam-giac",
+  applications: r4`- Chia một đoạn đường, một cạnh khu đất theo tỉ lệ hai cạnh kề (ví dụ chia phần đất theo tỉ lệ mặt tiền).
+- Tính độ dài các đoạn trên cạnh tam giác khi biết đường phân giác.
+- So sánh diện tích hai phần của một mảnh đất tam giác bị chia bởi đường phân giác.`,
+  theory: [
+    th(
+      "theorem",
+      "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c c\u1EE7a tam gi\xE1c",
+      r4`Trong tam giác, đường phân giác của một góc chia cạnh đối diện thành hai đoạn thẳng tỉ lệ với hai cạnh kề hai đoạn ấy.`,
+      r4`AD \text{ là phân giác của } \widehat{BAC} \Rightarrow \dfrac{DB}{DC} = \dfrac{AB}{AC}`,
+      r4`\(AB = 6\), \(AC = 9\), \(DB = 4\) thì \(DC = \dfrac{4\cdot9}{6} = 6\).`
+    ),
+    th("rule", "T\xEDnh hai \u0111o\u1EA1n tr\xEAn c\u1EA1nh \u0111\u1ED1i di\u1EC7n", r4`Từ \(\dfrac{DB}{DC} = \dfrac{AB}{AC}\) và \(DB + DC = BC\), dùng tính chất dãy tỉ số bằng nhau:`, r4`DB = \dfrac{BC\cdot AB}{AB + AC},\quad DC = \dfrac{BC\cdot AC}{AB + AC}`),
+    th("property", "T\u1EC9 s\u1ED1 di\u1EC7n t\xEDch", r4`Hai tam giác \(ABD\) và \(ACD\) có chung đường cao kẻ từ \(A\) nên tỉ số diện tích bằng tỉ số hai đáy \(DB\), \(DC\), tức bằng \(\dfrac{AB}{AC}\).`, r4`\dfrac{S_{ABD}}{S_{ACD}} = \dfrac{DB}{DC} = \dfrac{AB}{AC}`),
+    th("special", "Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", r4`- Tam giác cân tại \(A\): phân giác \(AD\) chia \(BC\) thành hai phần bằng nhau (\(D\) là trung điểm).
+- Tính chất vẫn đúng với đường phân giác của góc ngoài: nếu \(AE\) là phân giác góc ngoài tại \(A\) (\(E\) thuộc đường thẳng \(BC\), \(AB \ne AC\)) thì \(\dfrac{EB}{EC} = \dfrac{AB}{AC}\).`),
+    th("note", "L\u01B0u \xFD", r4`Viết tỉ lệ thức đúng thứ tự: đoạn kề đỉnh \(B\) ứng với cạnh \(AB\), đoạn kề đỉnh \(C\) ứng với cạnh \(AC\).`)
+  ],
+  formulas: [
+    {
+      group: "\u0110\u01B0\u1EDDng ph\xE2n gi\xE1c trong tam gi\xE1c",
+      items: [
+        fc("T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c", r4`\dfrac{DB}{DC} = \dfrac{AB}{AC}`, r4`- \(AD\): phân giác của \(\widehat{BAC}\), \(D \in BC\)`, r4`\(AB = 5\), \(AC = 7\) thì \(\dfrac{DB}{DC} = \dfrac57\).`),
+        fc("\u0110\u1ED9 d\xE0i hai \u0111o\u1EA1n", r4`DB = \dfrac{a\,c}{b + c},\quad DC = \dfrac{a\,b}{b + c}`, r4`- \(a = BC\), \(b = CA\), \(c = AB\)`, r4`\(a = 10\), \(b = 8\), \(c = 6\): \(DB = \dfrac{60}{14} = \dfrac{30}{7}\).`),
+        fc("T\u1EC9 s\u1ED1 di\u1EC7n t\xEDch", r4`\dfrac{S_{ABD}}{S_{ACD}} = \dfrac{AB}{AC}`, r4`- \(AD\): phân giác góc \(A\)`, r4`\(AB = 5\), \(AC = 7\): tỉ số diện tích \(\dfrac57\).`)
+      ]
+    }
+  ],
+  examples: {
+    "tinh-do-dai-canh-duong-phan-giac": [
+      gx(
+        1,
+        r4`Tam giác \(ABC\) có \(AB = 6\) cm, \(AC = 9\) cm, \(AD\) là đường phân giác (\(D \in BC\)) và \(DB = 4\) cm. Tính \(DC\).`,
+        `A(2,5) B(0,0) C(10,0) D(4,0)
+ABCA AD
+goc(B,A,D) goc(D,A,C)`,
+        r4`\(\triangle ABC\), \(AB = 6\) cm, \(AC = 9\) cm; \(AD\) phân giác; \(DB = 4\) cm`,
+        r4`\(DC = ?\)`,
+        "C\xF3 \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c v\xE0 bi\u1EBFt ba trong b\u1ED1n \u0111\u1ED9 d\xE0i c\u1EE7a t\u1EC9 l\u1EC7 th\u1EE9c.",
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c c\u1EE7a tam gi\xE1c.",
+        [r4`\(\dfrac{DB}{DC} = \dfrac{AB}{AC}\), tức \(\dfrac{4}{DC} = \dfrac69\).`, r4`\(DC = \dfrac{4\cdot9}{6} = 6\) (cm).`],
+        r4`\(DC = 6\) cm.`
+      ),
+      gx(
+        2,
+        r4`Tam giác \(ABC\) có \(AB = 15\) cm, \(AC = 20\) cm, \(BC = 25\) cm, đường phân giác \(AD\). Tính \(DB\), \(DC\).`,
+        `A(0,0) B(0,6) C(8,0) D(3.43,3.43)
+ABCA AD
+vuong(B,A,C)`,
+        r4`\(\triangle ABC\), \(AB = 15\), \(AC = 20\), \(BC = 25\) (cm); \(AD\) phân giác`,
+        r4`\(DB, DC = ?\)`,
+        "Bi\u1EBFt t\u1EC9 s\u1ED1 \\(DB : DC\\) v\xE0 t\u1ED5ng \\(DB + DC = BC\\): d\xF9ng t\xEDnh ch\u1EA5t d\xE3y t\u1EC9 s\u1ED1 b\u1EB1ng nhau.",
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c; d\xE3y t\u1EC9 s\u1ED1 b\u1EB1ng nhau.",
+        [r4`\(\dfrac{DB}{DC} = \dfrac{15}{20} = \dfrac34\), nên \(\dfrac{DB}{3} = \dfrac{DC}{4} = \dfrac{DB + DC}{7} = \dfrac{25}{7}\).`, r4`\(DB = \dfrac{75}{7} \approx 10{,}71\) cm; \(DC = \dfrac{100}{7} \approx 14{,}29\) cm.`],
+        r4`\(DB = \dfrac{75}{7}\) cm, \(DC = \dfrac{100}{7}\) cm.`,
+        "Ki\u1EC3m tra: \\(\\dfrac{75}{7} + \\dfrac{100}{7} = 25\\)."
+      )
+    ],
+    "ti-so-dien-tich-duong-phan-giac": [
+      gx(
+        2,
+        r4`Tam giác \(ABC\) có \(AB = 5\) cm, \(AC = 7\) cm, đường phân giác \(AD\). Tính tỉ số diện tích của tam giác \(ABD\) và tam giác \(ACD\).`,
+        `A(2,5) B(0,0) C(9,0) D(3.75,0) H(2,0)
+ABCA AD AH:dash
+vuong(A,H,C)`,
+        r4`\(\triangle ABC\), \(AB = 5\) cm, \(AC = 7\) cm; \(AD\) phân giác`,
+        r4`\(\dfrac{S_{ABD}}{S_{ACD}} = ?\)`,
+        r4`Hai tam giác có chung đường cao \(AH\) nên tỉ số diện tích bằng tỉ số hai đáy \(DB\), \(DC\).`,
+        "Di\u1EC7n t\xEDch tam gi\xE1c; t\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c.",
+        [r4`\(S_{ABD} = \dfrac12 AH\cdot DB\); \(S_{ACD} = \dfrac12 AH\cdot DC\), nên \(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac{DB}{DC}\).`, r4`Theo tính chất đường phân giác: \(\dfrac{DB}{DC} = \dfrac{AB}{AC} = \dfrac57\).`],
+        r4`\(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac57\).`
+      ),
+      gx(
+        3,
+        r4`Tam giác \(ABC\) vuông tại \(A\) có \(AB = 6\) cm, \(AC = 8\) cm, \(BC = 10\) cm, đường phân giác \(AD\). Tính \(BD\), \(DC\) và diện tích tam giác \(ABD\).`,
+        `A(0,0) B(0,6) C(8,0) D(3.43,3.43)
+ABCA AD
+vuong(B,A,C) goc(B,A,D)`,
+        r4`\(\triangle ABC\) vuông tại \(A\), \(AB = 6\), \(AC = 8\), \(BC = 10\) (cm); \(AD\) phân giác`,
+        r4`\(BD, DC = ?\); \(S_{ABD} = ?\)`,
+        r4`Tìm \(BD\), \(DC\) theo tỉ lệ \(3 : 4\); diện tích tam giác \(ABD\) chiếm \(\dfrac{BD}{BC}\) diện tích tam giác \(ABC\).`,
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c; di\u1EC7n t\xEDch tam gi\xE1c vu\xF4ng; t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch.",
+        [r4`\(\dfrac{BD}{DC} = \dfrac68 = \dfrac34\) nên \(BD = \dfrac{3}{7}\cdot10 = \dfrac{30}{7}\) cm, \(DC = \dfrac{40}{7}\) cm.`, r4`\(S_{ABC} = \dfrac12\cdot6\cdot8 = 24\) (cm²).`, r4`\(S_{ABD} = \dfrac{BD}{BC}\cdot S_{ABC} = \dfrac{3}{7}\cdot24 = \dfrac{72}{7}\) (cm²).`],
+        r4`\(BD = \dfrac{30}{7}\) cm, \(DC = \dfrac{40}{7}\) cm, \(S_{ABD} = \dfrac{72}{7}\) cm².`
+      )
+    ],
+    "phan-giac-ket-hop-thales": [
+      gx(
+        3,
+        r4`Tam giác \(ABC\) có \(AB = 6\) cm, \(AC = 9\) cm, đường phân giác \(AD\). Qua \(D\) kẻ \(DE \parallel AB\) (\(E \in AC\)). Tính \(AE\), \(EC\).`,
+        `A(2,5) B(0,0) C(10,0) D(4,0) E(5.2,3)
+ABCA AD DE`,
+        r4`\(\triangle ABC\), \(AB = 6\) cm, \(AC = 9\) cm; \(AD\) phân giác; \(DE \parallel AB\), \(E \in AC\)`,
+        r4`\(AE, EC = ?\)`,
+        r4`Tính chất phân giác cho tỉ số \(\dfrac{CD}{CB}\); định lí Thalès trong tam giác \(CAB\) chuyển tỉ số đó sang cạnh \(CA\).`,
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c; \u0111\u1ECBnh l\xED Thal\xE8s.",
+        [r4`\(\dfrac{DB}{DC} = \dfrac{AB}{AC} = \dfrac69 = \dfrac23\), nên \(\dfrac{CD}{CB} = \dfrac{3}{5}\).`, r4`Trong \(\triangle CAB\), \(DE \parallel AB\) nên \(\dfrac{CE}{CA} = \dfrac{CD}{CB} = \dfrac35\).`, r4`\(CE = \dfrac35\cdot9 = 5{,}4\) cm; \(AE = 9 - 5{,}4 = 3{,}6\) cm.`],
+        r4`\(AE = 3{,}6\) cm, \(EC = 5{,}4\) cm.`
+      ),
+      gx(
+        4,
+        r4`Cho tam giác \(ABC\), đường trung tuyến \(AM\). Tia phân giác của góc \(AMB\) cắt \(AB\) tại \(D\), tia phân giác của góc \(AMC\) cắt \(AC\) tại \(E\). Chứng minh \(DE \parallel BC\).`,
+        `A(3,6) B(0,0) C(10,0) M(5,0) D(1.33,2.65) E(6.9,2.65)
+ABCA AM MD ME DE`,
+        r4`\(\triangle ABC\), \(MB = MC\); \(MD\) phân giác \(\widehat{AMB}\); \(ME\) phân giác \(\widehat{AMC}\)`,
+        r4`\(DE \parallel BC\)`,
+        r4`Áp dụng tính chất phân giác trong hai tam giác \(AMB\), \(AMC\); vì \(MB = MC\) nên hai tỉ số bằng nhau, rồi dùng Thalès đảo.`,
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c; \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o.",
+        [r4`Trong \(\triangle AMB\), \(MD\) là phân giác: \(\dfrac{DA}{DB} = \dfrac{MA}{MB}\).`, r4`Trong \(\triangle AMC\), \(ME\) là phân giác: \(\dfrac{EA}{EC} = \dfrac{MA}{MC}\).`, r4`Vì \(MB = MC\) nên \(\dfrac{DA}{DB} = \dfrac{EA}{EC}\).`, r4`Trong \(\triangle ABC\), theo định lí Thalès đảo: \(DE \parallel BC\).`],
+        r4`\(DE \parallel BC\).`,
+        "Hai t\u1EC9 l\u1EC7 th\u1EE9c c\xF3 chung m\u1ED9t v\u1EBF (do \\(MB = MC\\)) l\xE0 ch\xECa kh\xF3a c\u1EE7a b\xE0i."
+      )
+    ]
+  },
+  notes: {
+    "tinh-do-dai-canh-duong-phan-giac": "Vi\u1EBFt \u0111\xFAng t\u1EC9 l\u1EC7 th\u1EE9c \\(\\dfrac{DB}{DC} = \\dfrac{AB}{AC}\\); n\u1EBFu bi\u1EBFt t\u1ED5ng hai \u0111o\u1EA1n th\xEC d\xF9ng d\xE3y t\u1EC9 s\u1ED1 b\u1EB1ng nhau.",
+    "ti-so-dien-tich-duong-phan-giac": "Hai tam gi\xE1c chung \u0111\u01B0\u1EDDng cao th\xEC t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch b\u1EB1ng t\u1EC9 s\u1ED1 hai \u0111\xE1y.",
+    "phan-giac-ket-hop-thales": "T\xEDnh ch\u1EA5t ph\xE2n gi\xE1c cho t\u1EC9 s\u1ED1 tr\xEAn m\u1ED9t c\u1EA1nh; Thal\xE8s (ho\u1EB7c Thal\xE8s \u0111\u1EA3o) chuy\u1EC3n t\u1EC9 s\u1ED1 sang c\u1EA1nh kh\xE1c."
+  }
+};
+var CHUONG_42 = [BAI_15, BAI_16, BAI_17];
+
+// src/seed/toan8-lessons/chuong-5.ts
+var CLB = `[bieudo]
+loai: cot
+tieude: S\u1ED1 h\u1ECDc sinh tham gia c\xE1c c\xE2u l\u1EA1c b\u1ED9
+nhan: To\xE1n; Ti\u1EBFng Anh; B\xF3ng \u0111\xE1; M\u0129 thu\u1EADt
+so lieu: 35; 42; 30; 18
+donvi: h\u1ECDc sinh
+[/bieudo]`;
+var HSG2 = `[bieudo]
+loai: cotkep
+tieude: S\u1ED1 h\u1ECDc sinh gi\u1ECFi c\u1EE7a c\xE1c l\u1EDBp kh\u1ED1i 8
+nhan: 8A; 8B; 8C; 8D
+so lieu: 7; 9; 5; 8
+so lieu 2: 10; 12; 11; 8
+ten: H\u1ECDc k\xEC I; H\u1ECDc k\xEC II
+donvi: h\u1ECDc sinh
+[/bieudo]`;
+var BAO_TANG = `[bieudo]
+loai: doanthang
+tieude: S\u1ED1 l\u01B0\u1EE3t kh\xE1ch tham quan m\u1ED9t b\u1EA3o t\xE0ng
+nhan: 2019; 2020; 2021; 2022; 2023; 2024
+so lieu: 58; 30; 20; 45; 60; 72
+donvi: ngh\xECn l\u01B0\u1EE3t
+[/bieudo]`;
+var RAC = `[bieudo]
+loai: quat
+tieude: T\u1EC9 l\u1EC7 c\xE1c lo\u1EA1i r\xE1c th\u1EA3i sinh ho\u1EA1t c\u1EE7a m\u1ED9t khu d\xE2n c\u01B0
+nhan: H\u1EEFu c\u01A1; Nh\u1EF1a; Gi\u1EA5y; Lo\u1EA1i kh\xE1c
+so lieu: 55; 20; 15; 10
+[/bieudo]`;
+var BAI_18 = {
+  slug: "bai-18-thu-thap-va-phan-loai-du-lieu",
+  applications: r4`- Khảo sát ý kiến học sinh về món ăn bán trú, câu lạc bộ, giờ học thêm.
+- Thu thập số liệu thời tiết, dân số, giá cả từ các nguồn tin cậy để học tập và nghiên cứu.
+- Kiểm tra số liệu trước khi dùng: phát hiện số liệu nhập sai, mẫu khảo sát không đại diện.`,
+  theory: [
+    th("concept", "D\u1EEF li\u1EC7u", r4`**Dữ liệu** là các thông tin thu thập được (số, chữ, hình ảnh, …) về một vấn đề cần tìm hiểu. Muốn rút ra kết luận đúng, cần thu thập dữ liệu đúng cách và kiểm tra tính hợp lí của dữ liệu.`),
+    th(
+      "rule",
+      "Ph\u01B0\u01A1ng ph\xE1p thu th\u1EADp d\u1EEF li\u1EC7u",
+      r4`- **Thu thập trực tiếp**: quan sát, làm thí nghiệm, lập phiếu hỏi, phỏng vấn.
+- **Thu thập gián tiếp**: lấy từ nguồn có sẵn như sách báo, trang web, cơ quan thống kê.`,
+      void 0,
+      r4`Đếm số xe qua cổng trường là thu thập trực tiếp; lấy dân số các tỉnh từ trang của Tổng cục Thống kê là thu thập gián tiếp.`
+    ),
+    th("definition", "Ph\xE2n lo\u1EA1i d\u1EEF li\u1EC7u", r4`- **Dữ liệu định lượng** (là số): **rời rạc** (đếm được: số anh chị em) hoặc **liên tục** (đo được: chiều cao, cân nặng).
+- **Dữ liệu định tính** (không phải là số): có thể **sắp thứ tự** (mức độ hài lòng, xếp loại) hoặc **không sắp thứ tự** (màu sắc, môn học yêu thích).`),
+    th(
+      "condition",
+      "T\xEDnh h\u1EE3p l\xED c\u1EE7a d\u1EEF li\u1EC7u",
+      r4`Dữ liệu hợp lí khi: đúng định dạng, đúng đơn vị, nằm trong phạm vi có thể xảy ra trong thực tế và phù hợp với câu hỏi khảo sát.`,
+      void 0,
+      r4`Chiều cao học sinh lớp 8 là \(415\) cm là không hợp lí (có thể gõ nhầm từ \(145\)).`
+    ),
+    th("condition", "T\xEDnh \u0111\u1EA1i di\u1EC7n c\u1EE7a d\u1EEF li\u1EC7u", r4`Mẫu khảo sát phải **đại diện** cho toàn bộ đối tượng cần nghiên cứu: đủ lớn, được chọn ngẫu nhiên và có mặt các nhóm khác nhau (khối lớp, nam nữ, …).`),
+    th("note", "L\u01B0u \xFD", r4`Kết luận rút ra từ mẫu không đại diện (chỉ hỏi một nhóm nhỏ, cùng sở thích) dễ sai lệch. Trước khi phân tích, hãy loại bỏ hoặc kiểm tra lại các số liệu bất thường.`)
+  ],
+  formulas: [
+    {
+      group: "X\u1EED l\xED d\u1EEF li\u1EC7u",
+      items: [
+        fc("T\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m", r4`\text{Tỉ lệ} = \dfrac{a}{n}\cdot100\%`, r4`- \(a\): số đối tượng có tính chất cần xét
+- \(n\): tổng số đối tượng`, r4`12 trong 40 bạn đi xe đạp: \(\dfrac{12}{40}\cdot100\% = 30\%\).`),
+        fc("S\u1ED1 trung b\xECnh c\u1ED9ng", r4`\overline{x} = \dfrac{x_1 + x_2 + \dots + x_n}{n}`, r4`- \(x_1, \dots, x_n\): các giá trị
+- \(n\): số giá trị`, r4`Trung bình của \(6; 7; 8\) là \(7\).`, "Ch\u1EC9 d\xF9ng cho d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng.")
+      ]
+    }
+  ],
+  examples: {
+    "phuong-phap-thu-thap-du-lieu": [
+      ex(
+        1,
+        r4`Cho biết phương pháp thu thập dữ liệu trong mỗi trường hợp:
+a) Đếm số xe máy đi qua cổng trường từ 6 giờ 30 đến 7 giờ.
+b) Lấy số liệu dân số các tỉnh trên trang web của Tổng cục Thống kê.
+c) Phát phiếu hỏi về món ăn yêu thích của các bạn trong lớp.`,
+        "X\xE9t xem ng\u01B0\u1EDDi thu th\u1EADp t\u1EF1 t\u1EA1o ra d\u1EEF li\u1EC7u (quan s\xE1t, h\u1ECFi) hay l\u1EA5y t\u1EEB ngu\u1ED3n c\xF3 s\u1EB5n.",
+        "Ph\u01B0\u01A1ng ph\xE1p thu th\u1EADp tr\u1EF1c ti\u1EBFp, gi\xE1n ti\u1EBFp.",
+        [r4`a) Tự quan sát, đếm: thu thập **trực tiếp**.`, r4`b) Lấy từ nguồn có sẵn: thu thập **gián tiếp**.`, r4`c) Lập phiếu hỏi: thu thập **trực tiếp**.`],
+        "a) tr\u1EF1c ti\u1EBFp; b) gi\xE1n ti\u1EBFp; c) tr\u1EF1c ti\u1EBFp."
+      ),
+      ex(
+        2,
+        r4`Bạn Lan muốn tìm hiểu thời gian tự học ở nhà mỗi ngày của các bạn lớp 8A. Hãy đề xuất cách thu thập dữ liệu và thiết kế một câu hỏi trong phiếu khảo sát.`,
+        "\u0110\u1ED1i t\u01B0\u1EE3ng l\xE0 c\xE1c b\u1EA1n trong l\u1EDBp n\xEAn c\xF3 th\u1EC3 h\u1ECFi tr\u1EF1c ti\u1EBFp; c\xE2u h\u1ECFi c\u1EA7n r\xF5 r\xE0ng, c\xF3 ph\u01B0\u01A1ng \xE1n d\u1EC5 tr\u1EA3 l\u1EDDi.",
+        "Ph\u01B0\u01A1ng ph\xE1p thu th\u1EADp tr\u1EF1c ti\u1EBFp b\u1EB1ng phi\u1EBFu h\u1ECFi.",
+        [r4`Chọn phương pháp trực tiếp: phát phiếu hỏi cho tất cả học sinh lớp 8A (không ghi tên để các bạn trả lời trung thực).`, r4`Câu hỏi: "Mỗi ngày em tự học ở nhà bao lâu?" với các lựa chọn: dưới 1 giờ; từ 1 đến dưới 2 giờ; từ 2 đến dưới 3 giờ; từ 3 giờ trở lên.`, r4`Thu phiếu, đếm số bạn chọn mỗi phương án và ghi vào bảng thống kê.`],
+        "Thu th\u1EADp tr\u1EF1c ti\u1EBFp b\u1EB1ng phi\u1EBFu h\u1ECFi v\u1EDBi c\xE1c kho\u1EA3ng th\u1EDDi gian r\xF5 r\xE0ng, kh\xF4ng tr\xF9ng nhau.",
+        'C\xE1c ph\u01B0\u01A1ng \xE1n tr\u1EA3 l\u1EDDi kh\xF4ng \u0111\u01B0\u1EE3c ch\u1ED3ng l\u1EA5n (v\xED d\u1EE5 "1\u20132 gi\u1EDD" v\xE0 "2\u20133 gi\u1EDD" c\xF9ng ch\u1EE9a 2 gi\u1EDD).'
+      )
+    ],
+    "tinh-hop-li-dai-dien-du-lieu": [
+      ex(
+        2,
+        r4`Bạn Minh ghi chiều cao (cm) của 6 bạn trong tổ: \(152\); \(148\); \(1{,}55\); \(160\); \(415\); \(157\). Chỉ ra các dữ liệu không hợp lí.`,
+        "So s\xE1nh t\u1EEBng s\u1ED1 li\u1EC7u v\u1EDBi \u0111\u01A1n v\u1ECB v\xE0 ph\u1EA1m vi chi\u1EC1u cao th\u1EF1c t\u1EBF c\u1EE7a h\u1ECDc sinh l\u1EDBp 8.",
+        "T\xEDnh h\u1EE3p l\xED c\u1EE7a d\u1EEF li\u1EC7u.",
+        [r4`Chiều cao học sinh lớp 8 thường từ khoảng \(130\) cm đến \(180\) cm.`, r4`\(1{,}55\) ghi theo mét, sai đơn vị (đúng phải là \(155\) cm).`, r4`\(415\) cm là không thể xảy ra, có thể gõ nhầm (ví dụ \(145\)).`],
+        r4`Hai dữ liệu không hợp lí: \(1{,}55\) và \(415\); cần đo hoặc ghi lại.`
+      ),
+      ex(
+        3,
+        r4`Để biết học sinh của trường thích môn thể thao nào nhất, bạn An hỏi 30 bạn trong đội bóng đá của trường và kết luận: "Đa số học sinh trường em thích bóng đá nhất". Kết luận này có đáng tin không? Hãy đề xuất cách chọn mẫu tốt hơn.`,
+        "X\xE9t xem m\u1EABu 30 b\u1EA1n trong \u0111\u1ED9i b\xF3ng c\xF3 \u0111\u1EA1i di\u1EC7n cho to\xE0n tr\u01B0\u1EDDng kh\xF4ng.",
+        "T\xEDnh \u0111\u1EA1i di\u1EC7n c\u1EE7a m\u1EABu kh\u1EA3o s\xE1t.",
+        [r4`Các bạn trong đội bóng đá đương nhiên thích bóng đá nên mẫu bị lệch, không đại diện cho toàn trường.`, r4`Kết luận vì vậy không đáng tin.`, r4`Cách tốt hơn: chọn ngẫu nhiên mỗi lớp một số bạn (cả nam và nữ, đủ các khối 6 – 9), tổng số đủ lớn (ví dụ 10 bạn mỗi lớp).`],
+        "K\u1EBFt lu\u1EADn kh\xF4ng \u0111\xE1ng tin v\xEC m\u1EABu kh\xF4ng \u0111\u1EA1i di\u1EC7n; c\u1EA7n ch\u1ECDn m\u1EABu ng\u1EABu nhi\xEAn \u1EDF t\u1EA5t c\u1EA3 c\xE1c l\u1EDBp, c\xE1c kh\u1ED1i.",
+        "M\u1EABu \u0111\u1EA1i di\u1EC7n: \u0111\u1EE7 l\u1EDBn, ng\u1EABu nhi\xEAn, c\xF3 m\u1EB7t c\xE1c nh\xF3m kh\xE1c nhau."
+      )
+    ],
+    "phan-loai-du-lieu": [
+      ex(
+        1,
+        r4`Phân loại các dữ liệu sau: a) Cân nặng (kg) của học sinh; b) Màu sắc yêu thích; c) Số anh chị em ruột; d) Mức độ hài lòng: rất hài lòng, hài lòng, không hài lòng.`,
+        "X\xE9t d\u1EEF li\u1EC7u c\xF3 ph\u1EA3i l\xE0 s\u1ED1 kh\xF4ng; n\u1EBFu l\xE0 s\u1ED1 th\xEC \u0111\u1EBFm hay \u0111o; n\u1EBFu kh\xF4ng l\xE0 s\u1ED1 th\xEC c\xF3 s\u1EAFp \u0111\u01B0\u1EE3c th\u1EE9 t\u1EF1 kh\xF4ng.",
+        "D\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng (r\u1EDDi r\u1EA1c, li\xEAn t\u1EE5c), d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh (c\xF3 th\u1EE9 t\u1EF1, kh\xF4ng c\xF3 th\u1EE9 t\u1EF1).",
+        [r4`a) Cân nặng là số, đo được: định lượng **liên tục**.`, r4`b) Màu sắc không phải số, không sắp thứ tự: định tính.`, r4`c) Số anh chị em là số đếm được: định lượng **rời rạc**.`, r4`d) Mức độ hài lòng không phải số nhưng sắp thứ tự được: định tính **có thứ tự**.`],
+        "a) \u0111\u1ECBnh l\u01B0\u1EE3ng li\xEAn t\u1EE5c; b) \u0111\u1ECBnh t\xEDnh; c) \u0111\u1ECBnh l\u01B0\u1EE3ng r\u1EDDi r\u1EA1c; d) \u0111\u1ECBnh t\xEDnh c\xF3 th\u1EE9 t\u1EF1."
+      ),
+      ex(
+        2,
+        r4`Phiếu thông tin học sinh gồm: họ và tên; năm sinh; chiều cao; xếp loại học tập (Tốt, Khá, Đạt, Chưa đạt); môn học yêu thích; số giờ ngủ mỗi đêm. Hãy phân loại các dữ liệu này.`,
+        "L\u1EA7n l\u01B0\u1EE3t x\xE9t t\u1EEBng m\u1EE5c theo hai c\xE2u h\u1ECFi: c\xF3 ph\u1EA3i l\xE0 s\u1ED1? s\u1EAFp th\u1EE9 t\u1EF1 \u0111\u01B0\u1EE3c kh\xF4ng?",
+        "Ph\xE2n lo\u1EA1i d\u1EEF li\u1EC7u.",
+        [r4`Dữ liệu định lượng: năm sinh (rời rạc), chiều cao (liên tục), số giờ ngủ mỗi đêm (liên tục).`, r4`Dữ liệu định tính: họ và tên, môn học yêu thích (không có thứ tự); xếp loại học tập (có thứ tự).`],
+        "\u0110\u1ECBnh l\u01B0\u1EE3ng: n\u0103m sinh, chi\u1EC1u cao, s\u1ED1 gi\u1EDD ng\u1EE7. \u0110\u1ECBnh t\xEDnh: h\u1ECD t\xEAn, m\xF4n h\u1ECDc y\xEAu th\xEDch, x\u1EBFp lo\u1EA1i h\u1ECDc t\u1EADp.",
+        "D\u1EEF li\u1EC7u l\xE0 s\u1ED1 nh\u01B0ng ch\u1EC9 d\xF9ng l\xE0m m\xE3 (s\u1ED1 b\xE1o danh) v\u1EABn kh\xF4ng d\xF9ng \u0111\u1EC3 t\xEDnh to\xE1n nh\u01B0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng."
+      )
+    ]
+  },
+  notes: {
+    "phuong-phap-thu-thap-du-lieu": "T\u1EF1 quan s\xE1t, h\u1ECFi, th\xED nghi\u1EC7m l\xE0 tr\u1EF1c ti\u1EBFp; l\u1EA5y t\u1EEB ngu\u1ED3n c\xF3 s\u1EB5n l\xE0 gi\xE1n ti\u1EBFp. C\xE2u h\u1ECFi kh\u1EA3o s\xE1t c\u1EA7n r\xF5 r\xE0ng, c\xE1c ph\u01B0\u01A1ng \xE1n kh\xF4ng ch\u1ED3ng nhau.",
+    "tinh-hop-li-dai-dien-du-lieu": "Ki\u1EC3m tra \u0111\u01A1n v\u1ECB, ph\u1EA1m vi th\u1EF1c t\u1EBF c\u1EE7a t\u1EEBng s\u1ED1 li\u1EC7u; m\u1EABu kh\u1EA3o s\xE1t ph\u1EA3i \u0111\u1EA1i di\u1EC7n cho to\xE0n b\u1ED9 \u0111\u1ED1i t\u01B0\u1EE3ng.",
+    "phan-loai-du-lieu": "H\u1ECFi hai c\xE2u: d\u1EEF li\u1EC7u c\xF3 ph\u1EA3i l\xE0 s\u1ED1? N\u1EBFu l\xE0 s\u1ED1 th\xEC \u0111\u1EBFm (r\u1EDDi r\u1EA1c) hay \u0111o (li\xEAn t\u1EE5c); n\u1EBFu kh\xF4ng th\xEC c\xF3 s\u1EAFp th\u1EE9 t\u1EF1 kh\xF4ng."
+  }
+};
+var BAI_19 = {
+  slug: "bai-19-bieu-dien-du-lieu-bang-bang-bieu-do",
+  applications: r4`- Trình bày kết quả khảo sát của lớp bằng biểu đồ trong giờ sinh hoạt, báo tường.
+- Đọc nhanh thông tin trên báo, bản tin thời tiết, báo cáo kinh doanh.
+- Chọn biểu đồ phù hợp để thuyết trình rõ ràng, thuyết phục.`,
+  theory: [
+    th("concept", "C\xE1c c\xE1ch bi\u1EC3u di\u1EC5n d\u1EEF li\u1EC7u", r4`Dữ liệu có thể biểu diễn bằng **bảng thống kê**, **biểu đồ tranh**, **biểu đồ cột**, **biểu đồ cột kép**, **biểu đồ đoạn thẳng**, **biểu đồ hình quạt tròn**. Cùng một dữ liệu có thể chuyển từ dạng này sang dạng khác.`),
+    th("rule", "Ch\u1ECDn bi\u1EC3u \u0111\u1ED3 ph\xF9 h\u1EE3p", r4`- So sánh số lượng của các đối tượng: **biểu đồ cột**.
+- So sánh hai nhóm dữ liệu cùng loại: **biểu đồ cột kép**.
+- Thể hiện sự thay đổi theo thời gian (xu hướng): **biểu đồ đoạn thẳng**.
+- Thể hiện tỉ lệ các phần trong một tổng thể: **biểu đồ hình quạt tròn**.`),
+    th("rule", "C\xE1c b\u01B0\u1EDBc v\u1EBD bi\u1EC3u \u0111\u1ED3 c\u1ED9t", r4`- Vẽ trục ngang (ghi đối tượng) và trục đứng (ghi số liệu), chọn đơn vị chia đều bắt đầu từ 0.
+- Vẽ các cột có chiều rộng bằng nhau, chiều cao bằng số liệu.
+- Ghi tên biểu đồ, đơn vị, chú giải (nếu là cột kép).`),
+    th(
+      "rule",
+      "Chuy\u1EC3n d\u1EEF li\u1EC7u sang bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n",
+      r4`Tính tỉ lệ phần trăm của mỗi phần so với tổng; mỗi phần được biểu diễn bằng một hình quạt có góc ở tâm tương ứng.`,
+      r4`\text{Góc ở tâm} = \text{tỉ lệ phần trăm}\cdot360^\circ`,
+      r4`Phần chiếm \(25\%\) ứng với hình quạt có góc \(0{,}25\cdot360^\circ = 90^\circ\).`
+    ),
+    th("note", "L\u01B0u \xFD", r4`- Tổng các tỉ lệ trong biểu đồ hình quạt phải bằng \(100\%\).
+- Trục số liệu của biểu đồ cột nên bắt đầu từ 0 và chia đều để không gây hiểu lầm.`)
+  ],
+  formulas: [
+    {
+      group: "Bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n",
+      items: [
+        fc("T\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m c\u1EE7a m\u1ED7i ph\u1EA7n", r4`p = \dfrac{a}{n}\cdot100\%`, r4`- \(a\): số lượng của phần đó
+- \(n\): tổng số lượng`, r4`\(\dfrac{18}{40}\cdot100\% = 45\%\).`),
+        fc("G\xF3c \u1EDF t\xE2m c\u1EE7a h\xECnh qu\u1EA1t", r4`\alpha = \dfrac{a}{n}\cdot360^\circ`, r4`- \(\alpha\): số đo góc ở tâm
+- \(a\), \(n\): như trên`, r4`\(45\%\) ứng với \(0{,}45\cdot360^\circ = 162^\circ\).`)
+      ]
+    }
+  ],
+  examples: {
+    "chon-dang-bieu-do": [
+      ex(
+        1,
+        r4`Nên dùng loại biểu đồ nào để biểu diễn: a) Lượng mưa các tháng trong năm; b) Tỉ lệ các loại rác thải của một khu phố; c) Số học sinh giỏi của các lớp khối 8?`,
+        "X\xE1c \u0111\u1ECBnh m\u1EE5c \u0111\xEDch: xem xu h\u01B0\u1EDBng theo th\u1EDDi gian, xem t\u1EC9 l\u1EC7 trong t\u1ED5ng th\u1EC3 hay so s\xE1nh s\u1ED1 l\u01B0\u1EE3ng.",
+        "C\xE1ch ch\u1ECDn bi\u1EC3u \u0111\u1ED3 ph\xF9 h\u1EE3p.",
+        [r4`a) Thay đổi theo thời gian: biểu đồ đoạn thẳng.`, r4`b) Tỉ lệ các phần trong tổng thể: biểu đồ hình quạt tròn.`, r4`c) So sánh số lượng các lớp: biểu đồ cột.`],
+        "a) \u0111o\u1EA1n th\u1EB3ng; b) h\xECnh qu\u1EA1t tr\xF2n; c) c\u1ED9t."
+      ),
+      ex(
+        2,
+        r4`Bảng sau cho biết số học sinh nam và nữ tham gia các câu lạc bộ: Toán (12 nam, 10 nữ), Văn (5 nam, 14 nữ), Tiếng Anh (9 nam, 13 nữ), Thể thao (18 nam, 8 nữ). Nên chọn biểu đồ nào để so sánh số học sinh nam, nữ ở từng câu lạc bộ? Vì sao không nên dùng biểu đồ hình quạt?`,
+        "C\xF3 hai nh\xF3m d\u1EEF li\u1EC7u (nam, n\u1EEF) tr\xEAn c\xF9ng c\xE1c \u0111\u1ED1i t\u01B0\u1EE3ng (c\xE2u l\u1EA1c b\u1ED9).",
+        "Bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p; \xFD ngh\u0129a c\u1EE7a bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n.",
+        [r4`Cần so sánh hai nhóm dữ liệu cùng loại trên từng câu lạc bộ: dùng biểu đồ cột kép.`, r4`Biểu đồ hình quạt chỉ biểu diễn tỉ lệ các phần của **một** tổng thể, không so sánh trực tiếp được hai nhóm trên nhiều đối tượng.`],
+        "D\xF9ng bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p.",
+        'N\u1EBFu ch\u1EC9 h\u1ECFi "t\u1EC9 l\u1EC7 h\u1ECDc sinh c\u1EE7a m\u1ED7i c\xE2u l\u1EA1c b\u1ED9 trong t\u1ED5ng s\u1ED1" th\xEC m\u1EDBi d\xF9ng h\xECnh qu\u1EA1t.'
+      )
+    ],
+    "ve-bieu-do": [
+      ex(
+        2,
+        r4`Số sách các tổ của lớp 8A đọc được trong tháng 10: Tổ 1: 12 cuốn; Tổ 2: 18 cuốn; Tổ 3: 15 cuốn; Tổ 4: 9 cuốn. Vẽ biểu đồ cột biểu diễn dữ liệu trên.`,
+        "B\u1ED1n \u0111\u1ED1i t\u01B0\u1EE3ng (t\u1ED5) c\u1EA7n so s\xE1nh s\u1ED1 l\u01B0\u1EE3ng: d\xF9ng bi\u1EC3u \u0111\u1ED3 c\u1ED9t.",
+        "C\xE1c b\u01B0\u1EDBc v\u1EBD bi\u1EC3u \u0111\u1ED3 c\u1ED9t.",
+        [r4`Trục ngang ghi Tổ 1, Tổ 2, Tổ 3, Tổ 4; trục đứng ghi số sách, chia đều từ 0 đến 20 (mỗi vạch 2 hoặc 5 cuốn).`, r4`Vẽ bốn cột rộng bằng nhau, cao lần lượt 12; 18; 15; 9.`, r4`Ghi tên biểu đồ và đơn vị "cuốn".`],
+        r4`Biểu đồ:
+[bieudo]
+loai: cot
+tieude: Số sách các tổ lớp 8A đọc trong tháng 10
+nhan: Tổ 1; Tổ 2; Tổ 3; Tổ 4
+so lieu: 12; 18; 15; 9
+donvi: cuốn
+[/bieudo]`
+      ),
+      ex(
+        3,
+        r4`Nhiệt độ trung bình (°C) các tháng đầu năm ở một thành phố: Tháng 1: 17; Tháng 2: 18; Tháng 3: 20; Tháng 4: 24; Tháng 5: 28; Tháng 6: 30. Vẽ biểu đồ phù hợp và nhận xét xu hướng nhiệt độ.`,
+        "D\u1EEF li\u1EC7u thay \u0111\u1ED5i theo th\u1EDDi gian n\xEAn d\xF9ng bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng.",
+        "Bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng; nh\u1EADn x\xE9t xu h\u01B0\u1EDBng.",
+        [r4`Trục ngang: các tháng; trục đứng: nhiệt độ (°C).`, r4`Đánh dấu 6 điểm (tháng, nhiệt độ) rồi nối liên tiếp bằng các đoạn thẳng.`, r4`Nhận xét: nhiệt độ tăng liên tục từ tháng 1 đến tháng 6; tăng nhanh nhất từ tháng 3 sang tháng 4 và từ tháng 4 sang tháng 5 (tăng 4 °C).`],
+        r4`Biểu đồ đoạn thẳng cho thấy nhiệt độ tăng dần:
+[bieudo]
+loai: doanthang
+tieude: Nhiệt độ trung bình các tháng
+nhan: T1; T2; T3; T4; T5; T6
+so lieu: 17; 18; 20; 24; 28; 30
+donvi: °C
+[/bieudo]`,
+        "\u0110o\u1EA1n th\u1EB3ng c\xE0ng d\u1ED1c th\xEC \u0111\u1EA1i l\u01B0\u1EE3ng thay \u0111\u1ED5i c\xE0ng nhanh."
+      )
+    ],
+    "chuyen-du-lieu-sang-bieu-do-quat": [
+      ex(
+        2,
+        r4`Kết quả khảo sát phương tiện đến trường của 40 học sinh: đi bộ 10 bạn; xe đạp 18 bạn; xe buýt 4 bạn; bố mẹ đưa 8 bạn. Tính tỉ lệ phần trăm mỗi loại để biểu diễn bằng biểu đồ hình quạt tròn.`,
+        "M\u1ED7i h\xECnh qu\u1EA1t bi\u1EC3u di\u1EC5n t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m s\u1ED1 h\u1ECDc sinh so v\u1EDBi t\u1ED5ng 40.",
+        "T\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m; bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n.",
+        [r4`Đi bộ: \(\dfrac{10}{40}\cdot100\% = 25\%\); xe đạp: \(\dfrac{18}{40}\cdot100\% = 45\%\).`, r4`Xe buýt: \(\dfrac{4}{40}\cdot100\% = 10\%\); bố mẹ đưa: \(\dfrac{8}{40}\cdot100\% = 20\%\).`, r4`Kiểm tra: \(25\% + 45\% + 10\% + 20\% = 100\%\).`],
+        r4`Tỉ lệ: 25%; 45%; 10%; 20%.
+[bieudo]
+loai: quat
+tieude: Phương tiện đến trường của 40 học sinh
+nhan: Đi bộ; Xe đạp; Xe buýt; Bố mẹ đưa
+so lieu: 25; 45; 10; 20
+[/bieudo]`
+      ),
+      ex(
+        3,
+        r4`Một cửa hàng bán được 250 chiếc áo gồm: cỡ S 50 chiếc, cỡ M 100 chiếc, cỡ L 75 chiếc, cỡ XL 25 chiếc. Lập bảng tỉ lệ phần trăm và số đo góc ở tâm của mỗi hình quạt, rồi vẽ biểu đồ hình quạt tròn.`,
+        "T\xEDnh t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m tr\u01B0\u1EDBc, sau \u0111\xF3 nh\xE2n v\u1EDBi 360\xB0 \u0111\u1EC3 \u0111\u01B0\u1EE3c g\xF3c \u1EDF t\xE2m.",
+        "T\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m; g\xF3c \u1EDF t\xE2m c\u1EE7a h\xECnh qu\u1EA1t.",
+        [r4`Tỉ lệ: S \(\dfrac{50}{250} = 20\%\); M \(40\%\); L \(30\%\); XL \(10\%\).`, r4`Góc ở tâm: S \(0{,}2\cdot360^\circ = 72^\circ\); M \(144^\circ\); L \(108^\circ\); XL \(36^\circ\).`, r4`Kiểm tra: \(72^\circ + 144^\circ + 108^\circ + 36^\circ = 360^\circ\).`],
+        r4`Bảng: S 20% (72°); M 40% (144°); L 30% (108°); XL 10% (36°).
+[bieudo]
+loai: quat
+tieude: Tỉ lệ áo bán được theo cỡ
+nhan: S; M; L; XL
+so lieu: 20; 40; 30; 10
+[/bieudo]`,
+        "T\u1ED5ng c\xE1c g\xF3c \u1EDF t\xE2m lu\xF4n b\u1EB1ng 360\xB0."
+      )
+    ]
+  },
+  notes: {
+    "chon-dang-bieu-do": "H\u1ECFi m\u1EE5c \u0111\xEDch: so s\xE1nh (c\u1ED9t, c\u1ED9t k\xE9p), xu h\u01B0\u1EDBng theo th\u1EDDi gian (\u0111o\u1EA1n th\u1EB3ng), t\u1EC9 l\u1EC7 trong t\u1ED5ng th\u1EC3 (h\xECnh qu\u1EA1t).",
+    "ve-bieu-do": "Tr\u1EE5c s\u1ED1 li\u1EC7u b\u1EAFt \u0111\u1EA7u t\u1EEB 0, chia \u0111\u1EC1u; lu\xF4n ghi t\xEAn bi\u1EC3u \u0111\u1ED3, \u0111\u01A1n v\u1ECB v\xE0 ch\xFA gi\u1EA3i.",
+    "chuyen-du-lieu-sang-bieu-do-quat": "T\xEDnh t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m, ki\u1EC3m tra t\u1ED5ng b\u1EB1ng 100%; g\xF3c \u1EDF t\xE2m b\u1EB1ng t\u1EC9 l\u1EC7 nh\xE2n 360\xB0."
+  }
+};
+var BAI_20 = {
+  slug: "bai-20-phan-tich-so-lieu-thong-ke-dua-vao-bieu-do",
+  applications: r4`- Đọc hiểu biểu đồ trên báo chí, bản tin, báo cáo của trường lớp.
+- Phát hiện xu hướng (tăng, giảm) để dự đoán, lập kế hoạch: lượng khách, doanh thu, lượng mưa.
+- Nhận ra biểu đồ "đánh lừa thị giác" trong quảng cáo để không bị hiểu sai.`,
+  theory: [
+    th("rule", "\u0110\u1ECDc bi\u1EC3u \u0111\u1ED3", r4`Xác định: tên biểu đồ, các đối tượng (trục ngang hoặc chú giải), đơn vị đo, giá trị của từng đối tượng.`),
+    th("rule", "Ph\xE2n t\xEDch s\u1ED1 li\u1EC7u t\u1EEB bi\u1EC3u \u0111\u1ED3", r4`- Tìm giá trị lớn nhất, nhỏ nhất; so sánh các giá trị.
+- Tính tổng, hiệu, tỉ số, tỉ lệ phần trăm.
+- Nhận xét xu hướng tăng, giảm theo thời gian; rút ra kết luận.`),
+    th("property", "Bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng", r4`Đoạn thẳng đi lên: đại lượng tăng; đi xuống: giảm; nằm ngang: không đổi. Đoạn càng dốc thì thay đổi càng nhanh.`),
+    th("property", "Bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n", r4`Cả hình tròn ứng với \(100\%\). Số lượng của một phần bằng tổng số nhân với tỉ lệ phần trăm của phần đó.`, r4`a = n\cdot p\%`),
+    th("note", "Bi\u1EC3u \u0111\u1ED3 g\xE2y hi\u1EC3u l\u1EA7m", r4`Một biểu đồ có thể gây hiểu lầm khi:
+- Trục số liệu không bắt đầu từ 0 hoặc chia không đều (làm chênh lệch trông lớn hơn thực tế).
+- Dùng hình vẽ có diện tích không tỉ lệ với số liệu.
+- Tổng các phần trăm của biểu đồ hình quạt khác \(100\%\).`)
+  ],
+  formulas: [
+    {
+      group: "Ph\xE2n t\xEDch s\u1ED1 li\u1EC7u",
+      items: [
+        fc("T\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m t\u0103ng (gi\u1EA3m)", r4`\dfrac{\text{giá trị mới} - \text{giá trị cũ}}{\text{giá trị cũ}}\cdot100\%`, r4`- Kết quả dương: tăng; âm: giảm`, r4`Từ 60 lên 72: \(\dfrac{12}{60}\cdot100\% = 20\%\).`),
+        fc("S\u1ED1 l\u01B0\u1EE3ng t\u1EEB t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m", r4`a = n\cdot p\%`, r4`- \(n\): tổng số lượng
+- \(p\%\): tỉ lệ của phần cần tính`, r4`\(55\%\) của 4 tấn là \(2{,}2\) tấn.`)
+      ]
+    }
+  ],
+  examples: {
+    "phan-tich-bieu-do-cot": [
+      ex(
+        1,
+        r4`Quan sát biểu đồ. Câu lạc bộ nào có nhiều học sinh tham gia nhất, ít nhất?
+${CLB}`,
+        "\u0110\u1ECDc chi\u1EC1u cao c\xE1c c\u1ED9t v\xE0 so s\xE1nh.",
+        "\u0110\u1ECDc bi\u1EC3u \u0111\u1ED3 c\u1ED9t.",
+        [r4`Số học sinh: Toán 35; Tiếng Anh 42; Bóng đá 30; Mĩ thuật 18.`, r4`Cột cao nhất là Tiếng Anh (42), thấp nhất là Mĩ thuật (18).`],
+        "Nhi\u1EC1u nh\u1EA5t: Ti\u1EBFng Anh (42 h\u1ECDc sinh); \xEDt nh\u1EA5t: M\u0129 thu\u1EADt (18 h\u1ECDc sinh)."
+      ),
+      ex(
+        2,
+        r4`Với biểu đồ ở ví dụ trước (số học sinh tham gia các câu lạc bộ), tính tổng số học sinh tham gia và tỉ lệ phần trăm học sinh tham gia câu lạc bộ Toán.
+${CLB}`,
+        "C\u1ED9ng c\xE1c gi\xE1 tr\u1ECB \u0111\u1EC3 c\xF3 t\u1ED5ng, r\u1ED3i l\u1EADp t\u1EC9 s\u1ED1 c\u1EE7a c\xE2u l\u1EA1c b\u1ED9 To\xE1n v\u1EDBi t\u1ED5ng.",
+        "\u0110\u1ECDc bi\u1EC3u \u0111\u1ED3 c\u1ED9t; t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m.",
+        [r4`Tổng: \(35 + 42 + 30 + 18 = 125\) (học sinh).`, r4`Tỉ lệ câu lạc bộ Toán: \(\dfrac{35}{125}\cdot100\% = 28\%\).`],
+        r4`Tổng 125 học sinh; câu lạc bộ Toán chiếm 28%.`
+      ),
+      ex(
+        3,
+        r4`Biểu đồ sau cho biết số học sinh giỏi của các lớp khối 8 trong hai học kì. Lớp nào tiến bộ nhiều nhất? Số học sinh giỏi của cả khối tăng bao nhiêu phần trăm?
+${HSG2}`,
+        "So s\xE1nh t\u1EEBng c\u1EB7p c\u1ED9t c\u1EE7a m\u1ED7i l\u1EDBp; t\xEDnh t\u1ED5ng m\u1ED7i h\u1ECDc k\xEC \u0111\u1EC3 t\xEDnh t\u1EC9 l\u1EC7 t\u0103ng.",
+        "\u0110\u1ECDc bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p; t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m t\u0103ng.",
+        [r4`Mức tăng: 8A tăng 3; 8B tăng 3; 8C tăng 6; 8D không đổi. Lớp 8C tiến bộ nhiều nhất.`, r4`Tổng học kì I: \(7 + 9 + 5 + 8 = 29\); học kì II: \(10 + 12 + 11 + 8 = 41\).`, r4`Tỉ lệ tăng: \(\dfrac{41 - 29}{29}\cdot100\% \approx 41{,}4\%\).`],
+        r4`Lớp 8C tiến bộ nhiều nhất; cả khối tăng khoảng 41,4%.`,
+        "T\u1EC9 l\u1EC7 t\u0103ng lu\xF4n t\xEDnh so v\u1EDBi gi\xE1 tr\u1ECB ban \u0111\u1EA7u (h\u1ECDc k\xEC I)."
+      )
+    ],
+    "phan-tich-bieu-do-doan-thang": [
+      ex(
+        1,
+        r4`Quan sát biểu đồ. Năm nào bảo tàng đón nhiều khách nhất, ít khách nhất?
+${BAO_TANG}`,
+        "T\xECm \u0111i\u1EC3m cao nh\u1EA5t v\xE0 th\u1EA5p nh\u1EA5t tr\xEAn \u0111\u01B0\u1EDDng g\u1EA5p kh\xFAc.",
+        "\u0110\u1ECDc bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng.",
+        [r4`Số lượt khách (nghìn lượt): 58; 30; 20; 45; 60; 72 ứng với các năm 2019 – 2024.`, r4`Cao nhất năm 2024 (72 nghìn lượt), thấp nhất năm 2021 (20 nghìn lượt).`],
+        "Nhi\u1EC1u nh\u1EA5t: 2024; \xEDt nh\u1EA5t: 2021."
+      ),
+      ex(
+        2,
+        r4`Dựa vào biểu đồ số lượt khách tham quan bảo tàng, cho biết giai đoạn nào số khách giảm, giai đoạn nào tăng. Từ năm 2023 đến năm 2024, số khách tăng bao nhiêu phần trăm?
+${BAO_TANG}`,
+        "\u0110\u01B0\u1EDDng \u0111i xu\u1ED1ng l\xE0 gi\u1EA3m, \u0111i l\xEAn l\xE0 t\u0103ng; t\xEDnh t\u1EC9 l\u1EC7 t\u0103ng so v\u1EDBi n\u0103m 2023.",
+        "\u0110\u1ECDc xu h\u01B0\u1EDBng tr\xEAn bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng; t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m t\u0103ng.",
+        [r4`Từ 2019 đến 2021 đường đi xuống: số khách giảm. Từ 2021 đến 2024 đường đi lên: số khách tăng.`, r4`Tỉ lệ tăng 2023 – 2024: \(\dfrac{72 - 60}{60}\cdot100\% = 20\%\).`],
+        "Gi\u1EA3m giai \u0111o\u1EA1n 2019 \u2013 2021, t\u0103ng giai \u0111o\u1EA1n 2021 \u2013 2024; n\u0103m 2024 t\u0103ng 20% so v\u1EDBi 2023."
+      ),
+      ex(
+        3,
+        r4`Nếu năm 2025 số khách tiếp tục tăng với cùng tỉ lệ như từ năm 2023 sang năm 2024 thì năm 2025 bảo tàng đón khoảng bao nhiêu lượt khách? Nhận xét về cách dự đoán này.
+${BAO_TANG}`,
+        "D\xF9ng t\u1EC9 l\u1EC7 t\u0103ng 20% v\u1EEBa t\xEDnh \u0111\u1EC3 \u01B0\u1EDBc l\u01B0\u1EE3ng; d\u1EF1 \u0111o\xE1n ch\u1EC9 \u0111\xFAng khi \u0111i\u1EC1u ki\u1EC7n kh\xF4ng thay \u0111\u1ED5i nhi\u1EC1u.",
+        "T\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m; d\u1EF1 \u0111o\xE1n d\u1EF1a v\xE0o xu h\u01B0\u1EDBng.",
+        [r4`Tỉ lệ tăng 2023 – 2024 là 20%.`, r4`Dự đoán năm 2025: \(72\cdot(1 + 20\%) = 72\cdot1{,}2 = 86{,}4\) (nghìn lượt).`, r4`Đây chỉ là ước lượng: số khách còn phụ thuộc thời tiết, dịch bệnh, sự kiện… nên có thể khác thực tế.`],
+        r4`Khoảng 86,4 nghìn lượt khách (ước lượng theo xu hướng).`,
+        "D\u1EF1 \u0111o\xE1n t\u1EEB bi\u1EC3u \u0111\u1ED3 c\u1EA7n n\xEAu r\xF5 gi\u1EA3 thi\u1EBFt \u201Cgi\u1EEF nguy\xEAn xu h\u01B0\u1EDBng\u201D."
+      )
+    ],
+    "phan-tich-bieu-do-quat-tron": [
+      ex(
+        1,
+        r4`Quan sát biểu đồ. Loại rác nào chiếm tỉ lệ lớn nhất? Rác nhựa chiếm bao nhiêu phần trăm?
+${RAC}`,
+        "\u0110\u1ECDc t\u1EC9 l\u1EC7 ghi tr\xEAn t\u1EEBng h\xECnh qu\u1EA1t.",
+        "\u0110\u1ECDc bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n.",
+        [r4`Hữu cơ 55%; nhựa 20%; giấy 15%; loại khác 10%.`, r4`Lớn nhất là rác hữu cơ (55%); rác nhựa chiếm 20%.`],
+        "R\xE1c h\u1EEFu c\u01A1 chi\u1EBFm t\u1EC9 l\u1EC7 l\u1EDBn nh\u1EA5t (55%); r\xE1c nh\u1EF1a chi\u1EBFm 20%."
+      ),
+      ex(
+        2,
+        r4`Mỗi ngày khu dân cư thải ra 4 tấn rác với tỉ lệ như biểu đồ. Tính khối lượng mỗi loại rác.
+${RAC}`,
+        "Kh\u1ED1i l\u01B0\u1EE3ng m\u1ED7i lo\u1EA1i b\u1EB1ng t\u1ED5ng kh\u1ED1i l\u01B0\u1EE3ng nh\xE2n t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m.",
+        r4`\(a = n\cdot p\%\).`,
+        [r4`Hữu cơ: \(4\cdot55\% = 2{,}2\) tấn; nhựa: \(4\cdot20\% = 0{,}8\) tấn.`, r4`Giấy: \(4\cdot15\% = 0{,}6\) tấn; loại khác: \(4\cdot10\% = 0{,}4\) tấn.`],
+        r4`2,2 tấn; 0,8 tấn; 0,6 tấn; 0,4 tấn.`
+      ),
+      ex(
+        3,
+        r4`Nếu tái chế được toàn bộ rác nhựa và rác giấy thì lượng rác phải xử lí của khu dân cư (4 tấn/ngày) giảm bao nhiêu phần trăm, bao nhiêu tấn mỗi tháng (30 ngày)?
+${RAC}`,
+        "Ph\u1EA7n gi\u1EA3m l\xE0 t\u1ED5ng t\u1EC9 l\u1EC7 nh\u1EF1a v\xE0 gi\u1EA5y; \u0111\u1ED5i ra kh\u1ED1i l\u01B0\u1EE3ng m\u1ED7i ng\xE0y r\u1ED3i nh\xE2n 30.",
+        "\u0110\u1ECDc bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t; t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m.",
+        [r4`Tỉ lệ giảm: \(20\% + 15\% = 35\%\).`, r4`Mỗi ngày giảm: \(4\cdot35\% = 1{,}4\) tấn.`, r4`Mỗi tháng giảm: \(1{,}4\cdot30 = 42\) tấn.`],
+        r4`Giảm 35%, tức 42 tấn mỗi tháng.`,
+        "B\xE0i th\u1EF1c t\u1EBF: n\xEAu r\xF5 ph\xE9p t\xEDnh v\xE0 \u0111\u01A1n v\u1ECB \u1EDF m\u1ED7i b\u01B0\u1EDBc."
+      )
+    ],
+    "bieu-do-gay-hieu-lam": [
+      ex(
+        3,
+        r4`Một tờ quảng cáo vẽ biểu đồ cột so sánh doanh số sản phẩm A (96 triệu đồng) và sản phẩm B (100 triệu đồng), nhưng trục doanh số bắt đầu từ 95 nên cột B cao gấp 5 lần cột A. Biểu đồ có gây hiểu lầm không? Vì sao? Nên sửa thế nào?`,
+        "So s\xE1nh t\u1EC9 l\u1EC7 chi\u1EC1u cao hai c\u1ED9t tr\xEAn h\xECnh v\u1EDBi t\u1EC9 l\u1EC7 s\u1ED1 li\u1EC7u th\u1EADt.",
+        "Bi\u1EC3u \u0111\u1ED3 g\xE2y hi\u1EC3u l\u1EA7m; t\u1EC9 s\u1ED1, t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m.",
+        [r4`Trên hình: cột A cao \(96 - 95 = 1\) đơn vị, cột B cao \(100 - 95 = 5\) đơn vị, nên B trông gấp 5 lần A.`, r4`Thực tế: \(\dfrac{100}{96} \approx 1{,}04\), B chỉ hơn A khoảng 4%.`, r4`Vậy biểu đồ gây hiểu lầm; cần vẽ lại với trục doanh số bắt đầu từ 0.`],
+        r4`Có gây hiểu lầm. Biểu đồ đúng:
+[bieudo]
+loai: cot
+tieude: Doanh số hai sản phẩm
+nhan: Sản phẩm A; Sản phẩm B
+so lieu: 96; 100
+donvi: triệu đồng
+[/bieudo]`,
+        "Khi \u0111\u1ECDc bi\u1EC3u \u0111\u1ED3 c\u1ED9t, lu\xF4n nh\xECn v\u1EA1ch b\u1EAFt \u0111\u1EA7u c\u1EE7a tr\u1EE5c s\u1ED1 li\u1EC7u."
+      ),
+      ex(
+        4,
+        r4`Một biểu đồ hình quạt về môn thể thao yêu thích ghi các tỉ lệ: Bóng đá 45%, Cầu lông 30%, Bơi lội 20%, Cờ vua 15%. Biểu đồ này đúng hay sai? Biết rằng các số 45; 30; 20; 15 thực ra là **số học sinh** chọn mỗi môn, hãy tính lại các tỉ lệ đúng.`,
+        "Ki\u1EC3m tra t\u1ED5ng c\xE1c t\u1EC9 l\u1EC7; n\u1EBFu s\u1ED1 li\u1EC7u l\xE0 s\u1ED1 h\u1ECDc sinh th\xEC ph\u1EA3i chia cho t\u1ED5ng s\u1ED1 h\u1ECDc sinh.",
+        "T\u1ED5ng c\xE1c t\u1EC9 l\u1EC7 c\u1EE7a bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t b\u1EB1ng 100%; t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m.",
+        [r4`Tổng các tỉ lệ: \(45\% + 30\% + 20\% + 15\% = 110\% \ne 100\%\), nên biểu đồ sai.`, r4`Tổng số học sinh: \(45 + 30 + 20 + 15 = 110\).`, r4`Tỉ lệ đúng: bóng đá \(\dfrac{45}{110} \approx 40{,}9\%\); cầu lông \(\approx 27{,}3\%\); bơi lội \(\approx 18{,}2\%\); cờ vua \(\approx 13{,}6\%\).`],
+        r4`Biểu đồ sai; tỉ lệ đúng khoảng 40,9%; 27,3%; 18,2%; 13,6%.`,
+        "L\u1ED7i hay g\u1EB7p: ghi th\u1EB3ng s\u1ED1 l\u01B0\u1EE3ng th\xE0nh ph\u1EA7n tr\u0103m khi t\u1ED5ng kh\xF4ng ph\u1EA3i l\xE0 100."
+      )
+    ]
+  },
+  notes: {
+    "phan-tich-bieu-do-cot": "\u0110\u1ECDc \u0111\xFAng \u0111\u01A1n v\u1ECB v\xE0 ch\xFA gi\u1EA3i; t\u1EC9 l\u1EC7 t\u0103ng gi\u1EA3m t\xEDnh so v\u1EDBi gi\xE1 tr\u1ECB ban \u0111\u1EA7u.",
+    "phan-tich-bieu-do-doan-thang": "\u0110o\u1EA1n \u0111i l\xEAn l\xE0 t\u0103ng, \u0111i xu\u1ED1ng l\xE0 gi\u1EA3m; d\u1EF1 \u0111o\xE1n d\u1EF1a v\xE0o xu h\u01B0\u1EDBng ch\u1EC9 l\xE0 \u01B0\u1EDBc l\u01B0\u1EE3ng.",
+    "phan-tich-bieu-do-quat-tron": "S\u1ED1 l\u01B0\u1EE3ng m\u1ED7i ph\u1EA7n b\u1EB1ng t\u1ED5ng nh\xE2n t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m; t\u1ED5ng c\xE1c t\u1EC9 l\u1EC7 b\u1EB1ng 100%.",
+    "bieu-do-gay-hieu-lam": "Ki\u1EC3m tra v\u1EA1ch b\u1EAFt \u0111\u1EA7u c\u1EE7a tr\u1EE5c, c\xE1ch chia \u0111\u01A1n v\u1ECB v\xE0 t\u1ED5ng ph\u1EA7n tr\u0103m tr\u01B0\u1EDBc khi tin v\xE0o bi\u1EC3u \u0111\u1ED3."
+  }
+};
+var CHUONG_52 = [BAI_18, BAI_19, BAI_20];
+
 // src/seed/toan8-lessons/index.ts
-var TOAN8_LESSONS = [...CHUONG_12, ...CHUONG_22, ...CHUONG_32];
+var TOAN8_LESSONS = [...CHUONG_12, ...CHUONG_22, ...CHUONG_32, ...CHUONG_42, ...CHUONG_52];
 
 // src/seed/lesson-content.ts
 async function applyLessonContent(db, log = console.log) {
