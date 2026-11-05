@@ -65,6 +65,7 @@ function checkExample(e: WorkedExample, where: string) {
   for (const [k, v] of Object.entries({ problem: e.problem, analysis: e.analysis, knowledge: e.knowledge, answer: e.answer, tip: e.tip, given: e.given, toProve: e.toProve })) checkText(v, `${where} ${k}`);
   e.steps.forEach((s, i) => {
     assert.ok(s.trim(), `${where} bước ${i + 1} rỗng`);
+    assert.ok(!s.includes('\n'), `${where} bước ${i + 1}: mỗi bước một dòng`);
     checkText(s, `${where} bước ${i + 1}`);
   });
   if (e.figure) assert.deepEqual(figureToSvg(e.figure).errors, [], `${where}: hình vẽ hợp lệ`);

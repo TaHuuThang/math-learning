@@ -34640,6 +34640,18 @@ var ex = (level, problem, analysis, knowledge, steps, answer, tip) => ({
   answer,
   ...tip ? { tip } : {}
 });
+var gx = (level, problem, figure, given, toProve, analysis, knowledge, steps, answer, tip) => ({
+  level,
+  problem,
+  figure,
+  given,
+  toProve,
+  analysis,
+  knowledge,
+  steps,
+  answer,
+  ...tip ? { tip } : {}
+});
 
 // src/seed/toan8-lessons/chuong-1.ts
 var BAI_1 = {
@@ -35382,8 +35394,1359 @@ var BAI_5 = {
 };
 var CHUONG_12 = [BAI_1, BAI_2, BAI_3, BAI_4, BAI_5];
 
+// src/seed/toan8-lessons/chuong-2.ts
+var BAI_6 = {
+  slug: "bai-6-hieu-hai-binh-phuong-binh-phuong-cua-mot-tong-hay-mot-hieu",
+  applications: r4`- Tính nhẩm nhanh: \(102^2 = 10\,404\); \(98\cdot102 = 9996\).
+- Tính diện tích hình vuông khi cạnh tăng thêm một đoạn: \((a + b)^2 = a^2 + 2ab + b^2\) (ghép hình vuông và hình chữ nhật).
+- Tìm giá trị lớn nhất, nhỏ nhất của đại lượng (chi phí, diện tích) trong bài toán tối ưu đơn giản.`,
+  theory: [
+    th(
+      "definition",
+      "H\u1EB1ng \u0111\u1EB3ng th\u1EE9c",
+      r4`**Hằng đẳng thức** là đẳng thức mà hai vế luôn nhận cùng một giá trị khi thay các chữ bằng những số tùy ý.`,
+      void 0,
+      r4`\(a(b + c) = ab + ac\) là một hằng đẳng thức; còn \(x + 1 = 3\) không phải (chỉ đúng khi \(x = 2\)).`
+    ),
+    th(
+      "rule",
+      "B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng",
+      r4`Bình phương của một tổng bằng bình phương số thứ nhất, cộng hai lần tích hai số, cộng bình phương số thứ hai.`,
+      r4`(A + B)^2 = A^2 + 2AB + B^2`,
+      r4`\((x + 3)^2 = x^2 + 2\cdot x\cdot3 + 3^2 = x^2 + 6x + 9\).`
+    ),
+    th(
+      "rule",
+      "B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u",
+      r4`Bình phương của một hiệu bằng bình phương số thứ nhất, trừ hai lần tích hai số, cộng bình phương số thứ hai.`,
+      r4`(A - B)^2 = A^2 - 2AB + B^2`,
+      r4`\((2x - 1)^2 = 4x^2 - 4x + 1\).`
+    ),
+    th(
+      "rule",
+      "Hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng",
+      r4`Hiệu hai bình phương bằng tích của hiệu hai số với tổng hai số đó.`,
+      r4`A^2 - B^2 = (A - B)(A + B)`,
+      r4`\(99\cdot101 = (100 - 1)(100 + 1) = 100^2 - 1 = 9999\).`
+    ),
+    th(
+      "property",
+      "D\xF9ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c theo hai chi\u1EC1u",
+      r4`- Chiều từ trái sang phải: **khai triển** (bỏ ngoặc).
+- Chiều từ phải sang trái: **viết gọn** thành bình phương hoặc tích – dùng để rút gọn, phân tích, tính nhanh.`,
+      void 0,
+      r4`\(x^2 + 4x + 4 = x^2 + 2\cdot x\cdot2 + 2^2 = (x + 2)^2\).`
+    ),
+    th("special", "Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", r4`- \((A - B)^2 = (B - A)^2\); \((-A - B)^2 = (A + B)^2\).
+- \(A^2 + B^2\) **không** bằng \((A + B)^2\): thiếu hạng tử \(2AB\).
+- \((A + B)^2 \ge 0\) và \((A - B)^2 \ge 0\) với mọi \(A, B\).`),
+    th("note", "L\u01B0u \xFD", r4`- Xác định đúng \(A\) và \(B\) trước khi áp dụng, nhất là khi \(A, B\) là biểu thức: \((2x - 3y)^2\) có \(A = 2x\), \(B = 3y\).
+- Viết biểu thức dạng \((x + a)^2 + m\) để chứng minh luôn dương, tìm giá trị nhỏ nhất.`)
+  ],
+  formulas: [
+    {
+      group: "Ba h\u1EB1ng \u0111\u1EB3ng th\u1EE9c b\u1EADc hai",
+      items: [
+        fc("B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng", r4`(A + B)^2 = A^2 + 2AB + B^2`, r4`- \(A, B\): số hoặc biểu thức`, r4`\((x + 5)^2 = x^2 + 10x + 25\).`),
+        fc("B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u", r4`(A - B)^2 = A^2 - 2AB + B^2`, r4`- \(A, B\): số hoặc biểu thức`, r4`\((3 - y)^2 = 9 - 6y + y^2\).`),
+        fc("Hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng", r4`A^2 - B^2 = (A - B)(A + B)`, r4`- \(A, B\): số hoặc biểu thức`, r4`\(4x^2 - 9 = (2x - 3)(2x + 3)\).`)
+      ]
+    },
+    {
+      group: "H\u1EC7 qu\u1EA3 th\u01B0\u1EDDng d\xF9ng",
+      items: [
+        fc("Li\xEAn h\u1EC7 t\u1ED5ng v\xE0 hi\u1EC7u", r4`(A + B)^2 - (A - B)^2 = 4AB`, r4`- \(A, B\): số hoặc biểu thức`, r4`\((x + 1)^2 - (x - 1)^2 = 4x\).`),
+        fc("T\u1ED5ng hai b\xECnh ph\u01B0\u01A1ng", r4`A^2 + B^2 = (A + B)^2 - 2AB`, r4`- \(A, B\): số hoặc biểu thức`, r4`Nếu \(a + b = 5\), \(ab = 6\) thì \(a^2 + b^2 = 25 - 12 = 13\).`),
+        fc("B\xECnh ph\u01B0\u01A1ng kh\xF4ng \xE2m", r4`(A \pm B)^2 + m \ge m`, r4`- \(m\): hằng số`, r4`\(x^2 + 4x + 7 = (x + 2)^2 + 3 \ge 3\).`, r4`Dấu "=" xảy ra khi \(A \pm B = 0\).`)
+      ]
+    }
+  ],
+  examples: {
+    "hoan-thanh-hang-dang-thuc-binh-phuong": [
+      ex(
+        1,
+        r4`Khai triển: a) \((x + 3)^2\); b) \((y - 5)^2\); c) \((x - 2)(x + 2)\).`,
+        "M\u1ED7i bi\u1EC3u th\u1EE9c c\xF3 d\u1EA1ng m\u1ED9t h\u1EB1ng \u0111\u1EB3ng th\u1EE9c b\u1EADc hai; x\xE1c \u0111\u1ECBnh \\(A\\), \\(B\\) r\u1ED3i thay v\xE0o.",
+        "B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng, m\u1ED9t hi\u1EC7u; hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+        [r4`a) \(A = x\), \(B = 3\): \((x + 3)^2 = x^2 + 6x + 9\).`, r4`b) \(A = y\), \(B = 5\): \((y - 5)^2 = y^2 - 10y + 25\).`, r4`c) \((x - 2)(x + 2) = x^2 - 2^2 = x^2 - 4\).`],
+        r4`\(x^2 + 6x + 9\); \(y^2 - 10y + 25\); \(x^2 - 4\).`
+      ),
+      ex(
+        2,
+        r4`Điền vào chỗ trống để được hằng đẳng thức:
+a) \(x^2 + 8x + \ldots = (\ldots)^2\);
+b) \(4a^2 - \ldots + 9b^2 = (2a - 3b)^2\);
+c) \(\ldots - 25 = (3x - 5)(3x + 5)\).`,
+        r4`So sánh với mẫu \(A^2 \pm 2AB + B^2\) và \(A^2 - B^2\) để tìm phần còn thiếu.`,
+        "Ba h\u1EB1ng \u0111\u1EB3ng th\u1EE9c b\u1EADc hai, d\xF9ng theo chi\u1EC1u vi\u1EBFt g\u1ECDn.",
+        [r4`a) \(x^2 = A^2\) nên \(A = x\); \(8x = 2\cdot x\cdot B\) nên \(B = 4\). Điền \(16\) và \(x + 4\).`, r4`b) \(A = 2a\), \(B = 3b\) nên \(2AB = 12ab\). Điền \(12ab\).`, r4`c) \((3x - 5)(3x + 5) = (3x)^2 - 5^2 = 9x^2 - 25\). Điền \(9x^2\).`],
+        r4`a) \(x^2 + 8x + 16 = (x + 4)^2\); b) \(12ab\); c) \(9x^2\).`,
+        "T\xECm \\(B\\) t\u1EEB h\u1EA1ng t\u1EED gi\u1EEFa: \\(B = \\dfrac{\\text{h\u1EA1ng t\u1EED gi\u1EEFa}}{2A}\\)."
+      )
+    ],
+    "tinh-gia-tri-rut-gon-bieu-thuc-binh-phuong": [
+      ex(
+        2,
+        r4`Tính nhanh: a) \(102^2\); b) \(49^2\); c) \(98\cdot102\).`,
+        "Vi\u1EBFt c\xE1c s\u1ED1 d\u01B0\u1EDBi d\u1EA1ng t\u1ED5ng, hi\u1EC7u v\u1EDBi s\u1ED1 tr\xF2n tr\u0103m, tr\xF2n ch\u1EE5c \u0111\u1EC3 d\xF9ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c.",
+        "B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng, m\u1ED9t hi\u1EC7u; hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+        [r4`a) \(102^2 = (100 + 2)^2 = 10\,000 + 400 + 4 = 10\,404\).`, r4`b) \(49^2 = (50 - 1)^2 = 2500 - 100 + 1 = 2401\).`, r4`c) \(98\cdot102 = (100 - 2)(100 + 2) = 10\,000 - 4 = 9996\).`],
+        r4`\(10\,404\); \(2401\); \(9996\).`
+      ),
+      ex(
+        3,
+        r4`Rút gọn rồi tính giá trị của \(B = (2x + 1)^2 + (2x - 1)^2 - 2(2x + 1)(2x - 1)\) tại \(x = 2026\).`,
+        r4`Đặt \(a = 2x + 1\), \(b = 2x - 1\) thì \(B = a^2 + b^2 - 2ab\) – đúng dạng bình phương của một hiệu.`,
+        r4`\((A - B)^2 = A^2 - 2AB + B^2\) dùng theo chiều viết gọn.`,
+        [r4`\(B = \left[(2x + 1) - (2x - 1)\right]^2\).`, r4`\((2x + 1) - (2x - 1) = 2\) nên \(B = 2^2 = 4\).`, r4`Giá trị của \(B\) không phụ thuộc vào \(x\), tại \(x = 2026\) vẫn bằng 4.`],
+        r4`\(B = 4\).`,
+        "Nh\xECn bi\u1EC3u th\u1EE9c nh\u01B0 m\u1ED9t kh\u1ED1i \\(A\\), \\(B\\) thay v\xEC khai tri\u1EC3n t\u1EEBng ph\u1EA7n gi\xFAp t\xEDnh r\u1EA5t nhanh."
+      )
+    ],
+    "tim-x-hang-dang-thuc-binh-phuong": [
+      ex(
+        2,
+        r4`Tìm \(x\), biết \((x + 3)^2 - x^2 = 15\).`,
+        r4`Khai triển \((x + 3)^2\); các hạng tử \(x^2\) triệt tiêu.`,
+        "B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng; t\xECm \\(x\\) t\u1EEB \\(ax + b = c\\).",
+        [r4`\(x^2 + 6x + 9 - x^2 = 15\).`, r4`\(6x + 9 = 15\), suy ra \(6x = 6\).`, r4`\(x = 1\).`],
+        r4`\(x = 1\).`
+      ),
+      ex(
+        3,
+        r4`Tìm \(x\), biết \((2x - 1)^2 - (2x + 3)(2x - 3) = 6\).`,
+        "Khai tri\u1EC3n b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u v\xE0 t\xEDch d\u1EA1ng hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+        "B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u; hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+        [r4`\((2x - 1)^2 = 4x^2 - 4x + 1\); \((2x + 3)(2x - 3) = 4x^2 - 9\).`, r4`Vế trái: \(4x^2 - 4x + 1 - 4x^2 + 9 = -4x + 10\).`, r4`\(-4x + 10 = 6\) nên \(x = 1\).`, r4`Thử lại: \(1^2 - 5\cdot(-1) = 6\). Đúng.`],
+        r4`\(x = 1\).`
+      )
+    ],
+    "chung-minh-voi-hang-dang-thuc-binh-phuong": [
+      ex(
+        3,
+        r4`Chứng minh đẳng thức \((a + b)^2 - (a - b)^2 = 4ab\).`,
+        "Khai tri\u1EC3n hai b\xECnh ph\u01B0\u01A1ng \u1EDF v\u1EBF tr\xE1i r\u1ED3i thu g\u1ECDn.",
+        "B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng, m\u1ED9t hi\u1EC7u.",
+        [r4`\((a + b)^2 = a^2 + 2ab + b^2\); \((a - b)^2 = a^2 - 2ab + b^2\).`, r4`Vế trái \(= a^2 + 2ab + b^2 - a^2 + 2ab - b^2 = 4ab\) = vế phải.`],
+        "\u0110\u1EB3ng th\u1EE9c \u0111\u01B0\u1EE3c ch\u1EE9ng minh.",
+        "C\xF3 th\u1EC3 d\xF9ng hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng: \\([(a + b) - (a - b)][(a + b) + (a - b)] = 2b\\cdot2a\\)."
+      ),
+      ex(
+        4,
+        r4`Chứng minh biểu thức \(P = x^2 - 6x + 11\) luôn dương với mọi giá trị của \(x\).`,
+        r4`Tách \(11 = 9 + 2\) để tạo bình phương \((x - 3)^2\).`,
+        r4`Bình phương của một hiệu; \((x - 3)^2 \ge 0\).`,
+        [r4`\(P = x^2 - 2\cdot x\cdot3 + 9 + 2 = (x - 3)^2 + 2\).`, r4`Vì \((x - 3)^2 \ge 0\) với mọi \(x\) nên \(P \ge 2 > 0\).`],
+        r4`\(P = (x - 3)^2 + 2 > 0\) với mọi \(x\).`,
+        "L\u1EA5y n\u1EEDa h\u1EC7 s\u1ED1 c\u1EE7a \\(x\\) (\u1EDF \u0111\xE2y l\xE0 3) \u0111\u1EC3 bi\u1EBFt c\u1EA7n th\xEAm s\u1ED1 n\xE0o t\u1EA1o b\xECnh ph\u01B0\u01A1ng."
+      )
+    ],
+    "tim-gia-tri-nho-nhat-lon-nhat": [
+      ex(
+        3,
+        r4`a) Tìm giá trị nhỏ nhất của \(A = x^2 + 4x + 7\).
+b) Tìm giá trị lớn nhất của \(B = -x^2 + 6x - 2\).`,
+        "\u0110\u01B0a v\u1EC1 d\u1EA1ng \\((x + a)^2 + m\\) (\u0111\u1EC3 t\xECm nh\u1ECF nh\u1EA5t) ho\u1EB7c \\(m - (x + a)^2\\) (\u0111\u1EC3 t\xECm l\u1EDBn nh\u1EA5t).",
+        r4`Bình phương của một tổng, một hiệu; \((x + a)^2 \ge 0\).`,
+        [r4`a) \(A = (x^2 + 4x + 4) + 3 = (x + 2)^2 + 3 \ge 3\). Dấu "=" khi \(x = -2\).`, r4`b) \(B = -(x^2 - 6x + 9) + 7 = 7 - (x - 3)^2 \le 7\). Dấu "=" khi \(x = 3\).`],
+        r4`Giá trị nhỏ nhất của \(A\) là 3 khi \(x = -2\); giá trị lớn nhất của \(B\) là 7 khi \(x = 3\).`,
+        'Lu\xF4n ch\u1EC9 ra gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn \u0111\u1EC3 d\u1EA5u "=" x\u1EA3y ra \u2013 thi\u1EBFu b\u01B0\u1EDBc n\xE0y b\xE0i l\xE0m ch\u01B0a tr\u1ECDn v\u1EB9n.'
+      ),
+      ex(
+        4,
+        r4`Tìm giá trị nhỏ nhất của \(C = x^2 - 2xy + 2y^2 + 2y + 5\).`,
+        r4`Có hai biến: nhóm \(x^2 - 2xy + y^2 = (x - y)^2\), phần còn lại \(y^2 + 2y + 5\) tạo bình phương theo \(y\).`,
+        "B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u, m\u1ED9t t\u1ED5ng; t\u1ED5ng c\xE1c s\u1ED1 kh\xF4ng \xE2m.",
+        [r4`\(C = (x^2 - 2xy + y^2) + (y^2 + 2y + 1) + 4\).`, r4`\(C = (x - y)^2 + (y + 1)^2 + 4 \ge 4\).`, r4`Dấu "=" khi \(y + 1 = 0\) và \(x - y = 0\), tức \(y = -1\), \(x = -1\).`],
+        r4`Giá trị nhỏ nhất của \(C\) là 4, đạt khi \(x = y = -1\).`,
+        "V\u1EDBi hai bi\u1EBFn, t\xE1ch th\xE0nh t\u1ED5ng c\xE1c b\xECnh ph\u01B0\u01A1ng r\u1ED3i cho t\u1EEBng b\xECnh ph\u01B0\u01A1ng b\u1EB1ng 0."
+      )
+    ]
+  },
+  notes: {
+    "hoan-thanh-hang-dang-thuc-binh-phuong": "Vi\u1EBFt r\xF5 \\(A\\), \\(B\\) tr\u01B0\u1EDBc khi thay; khi \\(A\\) c\xF3 h\u1EC7 s\u1ED1 (nh\u01B0 \\(2x\\)) ph\u1EA3i b\xECnh ph\u01B0\u01A1ng c\u1EA3 h\u1EC7 s\u1ED1: \\((2x)^2 = 4x^2\\).",
+    "tinh-gia-tri-rut-gon-bieu-thuc-binh-phuong": "T\xECm c\u1EA5u tr\xFAc chung c\u1EE7a bi\u1EC3u th\u1EE9c (coi m\u1ED9t nh\xF3m l\xE0 \\(A\\), nh\xF3m kia l\xE0 \\(B\\)) tr\u01B0\u1EDBc khi khai tri\u1EC3n.",
+    "tim-x-hang-dang-thuc-binh-phuong": "Khai tri\u1EC3n, thu g\u1ECDn \u0111\u01B0a v\u1EC1 \\(ax = b\\); th\u1EED l\u1EA1i nghi\u1EC7m v\xE0o \u0111\u1EC1 b\xE0i.",
+    "chung-minh-voi-hang-dang-thuc-binh-phuong": "\u0110\u1EC3 ch\u1EE9ng minh bi\u1EC3u th\u1EE9c lu\xF4n d\u01B0\u01A1ng, \u0111\u01B0a v\u1EC1 d\u1EA1ng \\((\\ldots)^2 + m\\) v\u1EDBi \\(m > 0\\).",
+    "tim-gia-tri-nho-nhat-lon-nhat": 'K\u1EBFt lu\u1EADn ph\u1EA3i n\xEAu c\u1EA3 gi\xE1 tr\u1ECB nh\u1ECF nh\u1EA5t (l\u1EDBn nh\u1EA5t) v\xE0 gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn l\xE0m d\u1EA5u "=" x\u1EA3y ra.'
+  }
+};
+var BAI_7 = {
+  slug: "bai-7-lap-phuong-cua-mot-tong-lap-phuong-cua-mot-hieu",
+  applications: r4`- Tính thể tích khối lập phương khi cạnh tăng hoặc giảm: \((a + b)^3\).
+- Tính nhẩm lập phương của các số gần số tròn: \(101^3 = (100 + 1)^3\).
+- Tính giá trị biểu thức đối xứng khi biết tổng và tích: \(x^3 + y^3 = (x + y)^3 - 3xy(x + y)\).`,
+  theory: [
+    th(
+      "rule",
+      "L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng",
+      r4`Lập phương của một tổng bằng lập phương số thứ nhất, cộng ba lần tích bình phương số thứ nhất với số thứ hai, cộng ba lần tích số thứ nhất với bình phương số thứ hai, cộng lập phương số thứ hai.`,
+      r4`(A + B)^3 = A^3 + 3A^2B + 3AB^2 + B^3`,
+      r4`\((x + 1)^3 = x^3 + 3x^2 + 3x + 1\).`
+    ),
+    th(
+      "rule",
+      "L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u",
+      r4`Lập phương của một hiệu có các hạng tử như lập phương của một tổng nhưng **dấu xen kẽ** \(+, -, +, -\).`,
+      r4`(A - B)^3 = A^3 - 3A^2B + 3AB^2 - B^3`,
+      r4`\((x - 2)^3 = x^3 - 6x^2 + 12x - 8\).`
+    ),
+    th("property", "Nh\u1EADn bi\u1EBFt m\u1ED9t khai tri\u1EC3n l\u1EADp ph\u01B0\u01A1ng", r4`- Có 4 hạng tử, hai hạng tử ngoài là lập phương \(A^3\), \(B^3\).
+- Các hệ số (khi \(A, B\) là đơn thức hệ số 1) lần lượt là \(1; 3; 3; 1\).
+- Số mũ của \(A\) giảm dần \(3, 2, 1, 0\), số mũ của \(B\) tăng dần \(0, 1, 2, 3\).`),
+    th(
+      "rule",
+      "D\u1EA1ng vi\u1EBFt theo t\u1ED5ng v\xE0 t\xEDch",
+      r4`Nhóm hai hạng tử giữa ta được công thức hay dùng khi biết \(A + B\) và \(AB\).`,
+      r4`(A + B)^3 = A^3 + B^3 + 3AB(A + B)`,
+      r4`Nếu \(x + y = 3\), \(xy = 2\) thì \(x^3 + y^3 = 27 - 3\cdot2\cdot3 = 9\).`
+    ),
+    th("special", "Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", r4`- \((-A)^3 = -A^3\); \((A - B)^3 = -(B - A)^3\).
+- \((A + B)^3\) **khác** \(A^3 + B^3\).`),
+    th("note", "L\u01B0u \xFD", r4`Khi \(A\) có hệ số, nhớ lũy thừa cả hệ số: \((2x)^3 = 8x^3\), \(3(2x)^2\cdot1 = 12x^2\).`)
+  ],
+  formulas: [
+    {
+      group: "H\u1EB1ng \u0111\u1EB3ng th\u1EE9c b\u1EADc ba",
+      items: [
+        fc("L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng", r4`(A + B)^3 = A^3 + 3A^2B + 3AB^2 + B^3`, r4`- \(A, B\): số hoặc biểu thức`, r4`\((x + 2)^3 = x^3 + 6x^2 + 12x + 8\).`),
+        fc("L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u", r4`(A - B)^3 = A^3 - 3A^2B + 3AB^2 - B^3`, r4`- \(A, B\): số hoặc biểu thức`, r4`\((2x - 1)^3 = 8x^3 - 12x^2 + 6x - 1\).`)
+      ]
+    },
+    {
+      group: "D\u1EA1ng vi\u1EBFt g\u1ECDn theo t\u1ED5ng (hi\u1EC7u) v\xE0 t\xEDch",
+      items: [
+        fc("L\u1EADp ph\u01B0\u01A1ng t\u1ED5ng theo t\u1ED5ng v\xE0 t\xEDch", r4`(A + B)^3 = A^3 + B^3 + 3AB(A + B)`, r4`- \(A + B\): tổng; \(AB\): tích`, r4`\(x + y = 2\), \(xy = -3\): \(x^3 + y^3 = 8 + 18 = 26\).`),
+        fc("L\u1EADp ph\u01B0\u01A1ng hi\u1EC7u theo hi\u1EC7u v\xE0 t\xEDch", r4`(A - B)^3 = A^3 - B^3 - 3AB(A - B)`, r4`- \(A - B\): hiệu; \(AB\): tích`, r4`\(a - b = 1\), \(ab = 6\): \(a^3 - b^3 = 1 + 18 = 19\).`)
+      ]
+    }
+  ],
+  examples: {
+    "hoan-thanh-hang-dang-thuc-lap-phuong": [
+      ex(
+        1,
+        r4`Khai triển \((x + 2)^3\).`,
+        r4`Biểu thức có dạng \((A + B)^3\) với \(A = x\), \(B = 2\).`,
+        "L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng.",
+        [r4`\((x + 2)^3 = x^3 + 3\cdot x^2\cdot2 + 3\cdot x\cdot2^2 + 2^3\).`, r4`\(= x^3 + 6x^2 + 12x + 8\).`],
+        r4`\(x^3 + 6x^2 + 12x + 8\).`
+      ),
+      ex(
+        2,
+        r4`Viết \(8x^3 - 12x^2 + 6x - 1\) dưới dạng lập phương của một hiệu.`,
+        r4`Hai hạng tử ngoài \(8x^3 = (2x)^3\) và \(1 = 1^3\); dấu xen kẽ nên là lập phương của một hiệu.`,
+        "L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u, d\xF9ng theo chi\u1EC1u vi\u1EBFt g\u1ECDn.",
+        [r4`Chọn \(A = 2x\), \(B = 1\).`, r4`Kiểm tra: \(3A^2B = 3\cdot4x^2 = 12x^2\); \(3AB^2 = 6x\). Khớp với đề.`, r4`Vậy \(8x^3 - 12x^2 + 6x - 1 = (2x - 1)^3\).`],
+        r4`\((2x - 1)^3\).`,
+        "Lu\xF4n ki\u1EC3m tra hai h\u1EA1ng t\u1EED gi\u1EEFa tr\u01B0\u1EDBc khi k\u1EBFt lu\u1EADn."
+      )
+    ],
+    "tinh-gia-tri-rut-gon-bieu-thuc-lap-phuong": [
+      ex(
+        2,
+        r4`Tính giá trị của biểu thức \(x^3 + 3x^2 + 3x + 1\) tại \(x = 99\).`,
+        r4`Biểu thức là khai triển của \((x + 1)^3\); viết gọn trước rồi mới thay số.`,
+        "L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng (chi\u1EC1u vi\u1EBFt g\u1ECDn).",
+        [r4`\(x^3 + 3x^2 + 3x + 1 = (x + 1)^3\).`, r4`Tại \(x = 99\): \((99 + 1)^3 = 100^3 = 1\,000\,000\).`],
+        r4`Giá trị bằng \(1\,000\,000\).`
+      ),
+      ex(
+        3,
+        r4`Rút gọn biểu thức \(A = (x + 1)^3 - (x - 1)^3 - 6x^2\).`,
+        "Khai tri\u1EC3n hai l\u1EADp ph\u01B0\u01A1ng r\u1ED3i thu g\u1ECDn.",
+        "L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng, m\u1ED9t hi\u1EC7u.",
+        [r4`\((x + 1)^3 = x^3 + 3x^2 + 3x + 1\); \((x - 1)^3 = x^3 - 3x^2 + 3x - 1\).`, r4`Hiệu: \((x + 1)^3 - (x - 1)^3 = 6x^2 + 2\).`, r4`\(A = 6x^2 + 2 - 6x^2 = 2\).`],
+        r4`\(A = 2\).`
+      )
+    ],
+    "tim-x-hang-dang-thuc-lap-phuong": [
+      ex(
+        2,
+        r4`Tìm \(x\), biết \(x^3 - 6x^2 + 12x - 8 = 27\).`,
+        r4`Vế trái là \((x - 2)^3\); vế phải \(27 = 3^3\).`,
+        r4`Lập phương của một hiệu; \(a^3 = b^3 \Rightarrow a = b\).`,
+        [r4`\((x - 2)^3 = 3^3\).`, r4`\(x - 2 = 3\), nên \(x = 5\).`],
+        r4`\(x = 5\).`
+      ),
+      ex(
+        3,
+        r4`Tìm \(x\), biết \((x + 1)^3 - x(x^2 + 3x) = 10\).`,
+        r4`Khai triển rồi thu gọn, các hạng tử \(x^3\), \(x^2\) triệt tiêu.`,
+        "L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng; nh\xE2n \u0111\u01A1n th\u1EE9c v\u1EDBi \u0111a th\u1EE9c.",
+        [r4`\((x + 1)^3 = x^3 + 3x^2 + 3x + 1\); \(x(x^2 + 3x) = x^3 + 3x^2\).`, r4`Vế trái: \(3x + 1 = 10\).`, r4`\(x = 3\).`],
+        r4`\(x = 3\).`
+      )
+    ],
+    "chung-minh-hang-dang-thuc-lap-phuong": [
+      ex(
+        3,
+        r4`Chứng minh \((a + b)^3 = a^3 + b^3 + 3ab(a + b)\).`,
+        "Bi\u1EBFn \u0111\u1ED5i v\u1EBF ph\u1EA3i r\u1ED3i so s\xE1nh v\u1EDBi khai tri\u1EC3n l\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng.",
+        "L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng; nh\xE2n \u0111\u01A1n th\u1EE9c v\u1EDBi \u0111a th\u1EE9c.",
+        [r4`Vế phải: \(a^3 + b^3 + 3a^2b + 3ab^2\).`, r4`Sắp xếp lại: \(a^3 + 3a^2b + 3ab^2 + b^3 = (a + b)^3\) = vế trái.`],
+        "\u0110\u1EB3ng th\u1EE9c \u0111\u01B0\u1EE3c ch\u1EE9ng minh."
+      ),
+      ex(
+        4,
+        r4`Cho \(x + y = 3\) và \(xy = 2\). Tính \(x^3 + y^3\).`,
+        r4`Không cần tìm \(x, y\); dùng \(x^3 + y^3 = (x + y)^3 - 3xy(x + y)\).`,
+        "L\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng vi\u1EBFt theo t\u1ED5ng v\xE0 t\xEDch.",
+        [r4`\(x^3 + y^3 = (x + y)^3 - 3xy(x + y)\).`, r4`\(= 3^3 - 3\cdot2\cdot3 = 27 - 18 = 9\).`, r4`Kiểm tra: \(x = 1\), \(y = 2\) thỏa mãn đề và \(1 + 8 = 9\).`],
+        r4`\(x^3 + y^3 = 9\).`,
+        "B\xE0i cho t\u1ED5ng v\xE0 t\xEDch: h\xE3y bi\u1EC3u di\u1EC5n bi\u1EC3u th\u1EE9c c\u1EA7n t\xEDnh qua \\(x + y\\) v\xE0 \\(xy\\)."
+      )
+    ]
+  },
+  notes: {
+    "hoan-thanh-hang-dang-thuc-lap-phuong": "Nh\u1EDB m\u1EABu h\u1EC7 s\u1ED1 1 \u2013 3 \u2013 3 \u2013 1; v\u1EDBi l\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u, d\u1EA5u xen k\u1EBD b\u1EAFt \u0111\u1EA7u b\u1EB1ng d\u1EA5u c\u1ED9ng.",
+    "tinh-gia-tri-rut-gon-bieu-thuc-lap-phuong": "Nh\u1EADn ra bi\u1EC3u th\u1EE9c l\xE0 m\u1ED9t l\u1EADp ph\u01B0\u01A1ng \u0111\u1EC3 vi\u1EBFt g\u1ECDn tr\u01B0\u1EDBc khi thay s\u1ED1.",
+    "tim-x-hang-dang-thuc-lap-phuong": "Hai l\u1EADp ph\u01B0\u01A1ng b\u1EB1ng nhau th\xEC hai c\u01A1 s\u1ED1 b\u1EB1ng nhau: \\(a^3 = b^3 \\Rightarrow a = b\\).",
+    "chung-minh-hang-dang-thuc-lap-phuong": "Khi \u0111\u1EC1 cho t\u1ED5ng v\xE0 t\xEDch, bi\u1EC3u di\u1EC5n qua \\(S = x + y\\), \\(P = xy\\) thay v\xEC t\xECm t\u1EEBng s\u1ED1."
+  }
+};
+var BAI_8 = {
+  slug: "bai-8-tong-va-hieu-hai-lap-phuong",
+  applications: r4`- Tính nhanh các biểu thức số dạng \(a^3 \pm b^3\).
+- Phân tích đa thức có dạng \(x^3 \pm a^3\) thành nhân tử (Bài 9).
+- Rút gọn biểu thức, chứng minh chia hết: \(a^3 + b^3\) luôn chia hết cho \(a + b\).`,
+  theory: [
+    th(
+      "rule",
+      "T\u1ED5ng hai l\u1EADp ph\u01B0\u01A1ng",
+      r4`Tổng hai lập phương bằng tích của tổng hai số với bình phương thiếu của hiệu hai số.`,
+      r4`A^3 + B^3 = (A + B)(A^2 - AB + B^2)`,
+      r4`\(x^3 + 8 = x^3 + 2^3 = (x + 2)(x^2 - 2x + 4)\).`
+    ),
+    th(
+      "rule",
+      "Hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng",
+      r4`Hiệu hai lập phương bằng tích của hiệu hai số với bình phương thiếu của tổng hai số.`,
+      r4`A^3 - B^3 = (A - B)(A^2 + AB + B^2)`,
+      r4`\(27 - y^3 = (3 - y)(9 + 3y + y^2)\).`
+    ),
+    th("concept", "B\xECnh ph\u01B0\u01A1ng thi\u1EBFu", r4`- \(A^2 - AB + B^2\) gọi là **bình phương thiếu của hiệu** \(A - B\) (so với \((A - B)^2\) thiếu một \(AB\)).
+- \(A^2 + AB + B^2\) gọi là **bình phương thiếu của tổng** \(A + B\).`),
+    th("property", "B\u1EA3y h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\xE1ng nh\u1EDB", r4`- \((A + B)^2 = A^2 + 2AB + B^2\)
+- \((A - B)^2 = A^2 - 2AB + B^2\)
+- \(A^2 - B^2 = (A - B)(A + B)\)
+- \((A + B)^3 = A^3 + 3A^2B + 3AB^2 + B^3\)
+- \((A - B)^3 = A^3 - 3A^2B + 3AB^2 - B^3\)
+- \(A^3 + B^3 = (A + B)(A^2 - AB + B^2)\)
+- \(A^3 - B^3 = (A - B)(A^2 + AB + B^2)\)`),
+    th("note", "M\u1EB9o nh\u1EDB d\u1EA5u", r4`Dấu ở thừa số thứ nhất **giống** dấu của đề (tổng → \(A + B\)); dấu của \(AB\) trong thừa số thứ hai **ngược lại**.`),
+    th("special", "Tr\u01B0\u1EDDng h\u1EE3p hay g\u1EB7p", r4`- \(x^3 + 1 = (x + 1)(x^2 - x + 1)\); \(x^3 - 1 = (x - 1)(x^2 + x + 1)\).
+- \(8x^3 - 27 = (2x)^3 - 3^3 = (2x - 3)(4x^2 + 6x + 9)\).`)
+  ],
+  formulas: [
+    {
+      group: "T\u1ED5ng v\xE0 hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng",
+      items: [
+        fc("T\u1ED5ng hai l\u1EADp ph\u01B0\u01A1ng", r4`A^3 + B^3 = (A + B)(A^2 - AB + B^2)`, r4`- \(A, B\): số hoặc biểu thức
+- \(A^2 - AB + B^2\): bình phương thiếu của hiệu`, r4`\(x^3 + 27 = (x + 3)(x^2 - 3x + 9)\).`),
+        fc("Hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng", r4`A^3 - B^3 = (A - B)(A^2 + AB + B^2)`, r4`- \(A, B\): số hoặc biểu thức
+- \(A^2 + AB + B^2\): bình phương thiếu của tổng`, r4`\(x^3 - 8 = (x - 2)(x^2 + 2x + 4)\).`)
+      ]
+    },
+    {
+      group: "Li\xEAn h\u1EC7 v\u1EDBi l\u1EADp ph\u01B0\u01A1ng c\u1EE7a t\u1ED5ng, hi\u1EC7u",
+      items: [
+        fc("T\u1ED5ng hai l\u1EADp ph\u01B0\u01A1ng theo t\u1ED5ng v\xE0 t\xEDch", r4`A^3 + B^3 = (A + B)^3 - 3AB(A + B)`, r4`- \(A + B\): tổng; \(AB\): tích`, r4`\(a + b = 5\), \(ab = 6\): \(a^3 + b^3 = 125 - 90 = 35\).`),
+        fc("Hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng theo hi\u1EC7u v\xE0 t\xEDch", r4`A^3 - B^3 = (A - B)^3 + 3AB(A - B)`, r4`- \(A - B\): hiệu; \(AB\): tích`, r4`\(a - b = 1\), \(ab = 6\): \(a^3 - b^3 = 1 + 18 = 19\).`)
+      ]
+    }
+  ],
+  examples: {
+    "hoan-thanh-hang-dang-thuc-tong-hieu-lap-phuong": [
+      ex(
+        1,
+        r4`Viết dưới dạng tích: a) \(x^3 + 27\); b) \(8 - y^3\).`,
+        r4`Viết mỗi số hạng thành lập phương: \(27 = 3^3\), \(8 = 2^3\).`,
+        "T\u1ED5ng v\xE0 hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng.",
+        [r4`a) \(x^3 + 3^3 = (x + 3)(x^2 - 3x + 9)\).`, r4`b) \(2^3 - y^3 = (2 - y)(4 + 2y + y^2)\).`],
+        r4`\((x + 3)(x^2 - 3x + 9)\); \((2 - y)(4 + 2y + y^2)\).`
+      ),
+      ex(
+        2,
+        r4`Điền vào chỗ trống: a) \((2x - \ldots)(4x^2 + \ldots + 1) = 8x^3 - 1\); b) \((x + 3y)(\ldots) = x^3 + 27y^3\).`,
+        r4`So sánh với mẫu: tìm \(A\), \(B\) từ hai lập phương ở vế phải.`,
+        "T\u1ED5ng v\xE0 hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng.",
+        [r4`a) \(8x^3 - 1 = (2x)^3 - 1^3\): \(A = 2x\), \(B = 1\), \(AB = 2x\). Điền \(1\) và \(2x\).`, r4`b) \(x^3 + 27y^3 = x^3 + (3y)^3\): \(A = x\), \(B = 3y\). Thừa số thứ hai là \(x^2 - 3xy + 9y^2\).`],
+        r4`a) \((2x - 1)(4x^2 + 2x + 1)\); b) \(x^2 - 3xy + 9y^2\).`
+      )
+    ],
+    "tinh-gia-tri-bieu-thuc-tong-hieu-lap-phuong": [
+      ex(
+        2,
+        r4`Tính giá trị của \(A = (x + 2)(x^2 - 2x + 4)\) tại \(x = -3\).`,
+        r4`Tích có dạng \((A + B)(A^2 - AB + B^2)\) nên bằng \(x^3 + 8\).`,
+        "T\u1ED5ng hai l\u1EADp ph\u01B0\u01A1ng (chi\u1EC1u nh\xE2n ng\u01B0\u1EE3c).",
+        [r4`\(A = x^3 + 2^3 = x^3 + 8\).`, r4`Tại \(x = -3\): \(A = -27 + 8 = -19\).`],
+        r4`\(A = -19\).`
+      ),
+      ex(
+        3,
+        r4`Tính nhanh \(M = \dfrac{37^3 + 13^3}{50} - 37\cdot13\).`,
+        r4`\(37 + 13 = 50\): dùng tổng hai lập phương để rút gọn phân số.`,
+        "T\u1ED5ng hai l\u1EADp ph\u01B0\u01A1ng; b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u.",
+        [r4`\(37^3 + 13^3 = 50\,(37^2 - 37\cdot13 + 13^2)\).`, r4`\(M = 37^2 - 37\cdot13 + 13^2 - 37\cdot13 = 37^2 - 2\cdot37\cdot13 + 13^2\).`, r4`\(M = (37 - 13)^2 = 24^2 = 576\).`],
+        r4`\(M = 576\).`,
+        "Th\u1EA5y t\u1ED5ng hai c\u01A1 s\u1ED1 tr\xF2n (50) l\xE0 d\u1EA5u hi\u1EC7u d\xF9ng t\u1ED5ng hai l\u1EADp ph\u01B0\u01A1ng."
+      )
+    ],
+    "rut-gon-chung-minh-bay-hang-dang-thuc": [
+      ex(
+        3,
+        r4`Rút gọn \(A = (x + 1)(x^2 - x + 1) - (x - 1)(x^2 + x + 1)\).`,
+        "Hai t\xEDch l\u1EA7n l\u01B0\u1EE3t l\xE0 t\u1ED5ng v\xE0 hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng.",
+        "T\u1ED5ng v\xE0 hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng.",
+        [r4`\((x + 1)(x^2 - x + 1) = x^3 + 1\); \((x - 1)(x^2 + x + 1) = x^3 - 1\).`, r4`\(A = (x^3 + 1) - (x^3 - 1) = 2\).`],
+        r4`\(A = 2\).`
+      ),
+      ex(
+        4,
+        r4`Cho \(a + b = 5\), \(ab = 6\) và \(a > b\). Tính \(a^3 + b^3\) và \(a^3 - b^3\).`,
+        r4`Biểu diễn qua tổng và tích; tìm \(a - b\) nhờ \((a - b)^2 = (a + b)^2 - 4ab\).`,
+        "B\u1EA3y h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\xE1ng nh\u1EDB.",
+        [r4`\(a^3 + b^3 = (a + b)^3 - 3ab(a + b) = 125 - 90 = 35\).`, r4`\((a - b)^2 = 25 - 24 = 1\), mà \(a > b\) nên \(a - b = 1\).`, r4`\(a^3 - b^3 = (a - b)(a^2 + ab + b^2) = 1\cdot\left[(a + b)^2 - ab\right] = 25 - 6 = 19\).`, r4`Kiểm tra với \(a = 3\), \(b = 2\): \(27 + 8 = 35\), \(27 - 8 = 19\).`],
+        r4`\(a^3 + b^3 = 35\); \(a^3 - b^3 = 19\).`,
+        "\u0110i\u1EC1u ki\u1EC7n \\(a > b\\) d\xF9ng \u0111\u1EC3 ch\u1ECDn \\(a - b = 1\\) ch\u1EE9 kh\xF4ng ph\u1EA3i \\(-1\\)."
+      )
+    ]
+  },
+  notes: {
+    "hoan-thanh-hang-dang-thuc-tong-hieu-lap-phuong": "Vi\u1EBFt t\u1EEBng s\u1ED1 h\u1EA1ng th\xE0nh l\u1EADp ph\u01B0\u01A1ng tr\u01B0\u1EDBc (\\(8x^3 = (2x)^3\\)); d\u1EA5u c\u1EE7a \\(AB\\) trong th\u1EEBa s\u1ED1 th\u1EE9 hai ng\u01B0\u1EE3c d\u1EA5u \u0111\u1EC1 b\xE0i.",
+    "tinh-gia-tri-bieu-thuc-tong-hieu-lap-phuong": "Nh\u1EADn d\u1EA1ng t\xEDch \\((A \\pm B)(A^2 \\mp AB + B^2)\\) \u0111\u1EC3 thu g\u1ECDn th\xE0nh \\(A^3 \\pm B^3\\) tr\u01B0\u1EDBc khi thay s\u1ED1.",
+    "rut-gon-chung-minh-bay-hang-dang-thuc": "Ghi nh\u1EDB b\u1EA3y h\u1EB1ng \u0111\u1EB3ng th\u1EE9c theo c\u1EA3 hai chi\u1EC1u; v\u1EDBi b\xE0i cho t\u1ED5ng v\xE0 t\xEDch, \u0111\u01B0a m\u1ECDi th\u1EE9 v\u1EC1 \\(a + b\\) v\xE0 \\(ab\\)."
+  }
+};
+var BAI_9 = {
+  slug: "bai-9-phan-tich-da-thuc-thanh-nhan-tu",
+  applications: r4`- Giải phương trình tích \(A\cdot B = 0\) (tìm \(x\)).
+- Tính nhanh giá trị biểu thức: \(77^2 + 77\cdot23 = 77\cdot100\).
+- Rút gọn phân thức đại số (Chương VI), chứng minh chia hết.`,
+  theory: [
+    th(
+      "definition",
+      "Ph\xE2n t\xEDch \u0111a th\u1EE9c th\xE0nh nh\xE2n t\u1EED",
+      r4`**Phân tích đa thức thành nhân tử** (hay thừa số) là biến đổi đa thức đó thành một tích của những đa thức.`,
+      void 0,
+      r4`\(x^2 - 3x = x(x - 3)\); \(x^2 - 9 = (x - 3)(x + 3)\).`
+    ),
+    th(
+      "rule",
+      "Ph\u01B0\u01A1ng ph\xE1p \u0111\u1EB7t nh\xE2n t\u1EED chung",
+      r4`Tìm nhân tử chung của các hạng tử (ƯCLN của các hệ số nhân với lũy thừa chung có số mũ nhỏ nhất của các biến), rồi đặt ra ngoài dấu ngoặc.`,
+      r4`AB + AC = A(B + C)`,
+      r4`\(6x^2y - 9xy^2 = 3xy(2x - 3y)\).`
+    ),
+    th(
+      "rule",
+      "Ph\u01B0\u01A1ng ph\xE1p d\xF9ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c",
+      r4`Viết đa thức dưới dạng vế phải của một hằng đẳng thức rồi biến đổi thành tích (bình phương, lập phương hoặc tích).`,
+      void 0,
+      r4`\(x^2 - 6x + 9 = (x - 3)^2\); \(x^3 + 1 = (x + 1)(x^2 - x + 1)\).`
+    ),
+    th(
+      "rule",
+      "Ph\u01B0\u01A1ng ph\xE1p nh\xF3m h\u1EA1ng t\u1EED",
+      r4`Nhóm các hạng tử thích hợp để mỗi nhóm phân tích được, đồng thời xuất hiện nhân tử chung (hoặc hằng đẳng thức) giữa các nhóm.`,
+      void 0,
+      r4`\(x^2 - xy + x - y = x(x - y) + (x - y) = (x - y)(x + 1)\).`
+    ),
+    th(
+      "special",
+      "\u0110\u1ED5i d\u1EA5u \u0111\u1EC3 xu\u1EA5t hi\u1EC7n nh\xE2n t\u1EED chung",
+      r4`Dùng \(B - A = -(A - B)\) để tạo nhân tử chung.`,
+      r4`B - A = -(A - B)`,
+      r4`\(x(y - 1) - 2(1 - y) = x(y - 1) + 2(y - 1) = (y - 1)(x + 2)\).`
+    ),
+    th(
+      "rule",
+      "\u1EE8ng d\u1EE5ng: t\xECm x t\u1EEB t\xEDch b\u1EB1ng 0",
+      r4`Một tích bằng 0 khi và chỉ khi có ít nhất một thừa số bằng 0.`,
+      r4`A\cdot B = 0 \iff A = 0 \ \text{hoặc}\ B = 0`,
+      r4`\(x(x - 3) = 0\) nên \(x = 0\) hoặc \(x = 3\).`
+    ),
+    th("note", "Th\u1EE9 t\u1EF1 n\xEAn th\u1EED", r4`- Đặt nhân tử chung (nếu có).
+- Dùng hằng đẳng thức.
+- Nhóm hạng tử; phối hợp nhiều phương pháp.
+Phân tích đến khi các nhân tử không phân tích tiếp được nữa.`)
+  ],
+  formulas: [
+    {
+      group: "C\xE1c ph\u01B0\u01A1ng ph\xE1p c\u01A1 b\u1EA3n",
+      items: [
+        fc("\u0110\u1EB7t nh\xE2n t\u1EED chung", r4`AB + AC - AD = A(B + C - D)`, r4`- \(A\): nhân tử chung
+- \(B, C, D\): phần còn lại của mỗi hạng tử`, r4`\(4x^3 - 2x = 2x(2x^2 - 1)\).`),
+        fc("Hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng", r4`A^2 - B^2 = (A - B)(A + B)`, r4`- \(A, B\): biểu thức`, r4`\((x + 1)^2 - 4 = (x - 1)(x + 3)\).`),
+        fc("B\xECnh ph\u01B0\u01A1ng c\u1EE7a t\u1ED5ng, hi\u1EC7u", r4`A^2 \pm 2AB + B^2 = (A \pm B)^2`, r4`- \(A, B\): biểu thức`, r4`\(4x^2 + 4x + 1 = (2x + 1)^2\).`),
+        fc("T\u1ED5ng, hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng", r4`A^3 \pm B^3 = (A \pm B)(A^2 \mp AB + B^2)`, r4`- \(A, B\): biểu thức`, r4`\(x^3 - 27 = (x - 3)(x^2 + 3x + 9)\).`)
+      ]
+    },
+    {
+      group: "\u1EE8ng d\u1EE5ng",
+      items: [
+        fc("T\xEDch b\u1EB1ng 0", r4`A\cdot B = 0 \iff A = 0 \ \text{hoặc}\ B = 0`, r4`- \(A, B\): các thừa số`, r4`\((x - 4)(3x + 2) = 0 \iff x = 4\) hoặc \(x = -\dfrac23\).`),
+        fc("\u0110\u1ED5i d\u1EA5u", r4`B - A = -(A - B)`, r4`- \(A, B\): biểu thức`, r4`\(5(3 - x) = -5(x - 3)\).`)
+      ]
+    }
+  ],
+  examples: {
+    "dat-nhan-tu-chung": [
+      ex(
+        1,
+        r4`Phân tích thành nhân tử: a) \(6x^2 - 9x\); b) \(5x^2y + 10xy^2\).`,
+        "T\xECm \u01AFCLN c\u1EE7a c\xE1c h\u1EC7 s\u1ED1 v\xE0 l\u0169y th\u1EEBa chung c\u1EE7a bi\u1EBFn.",
+        "Ph\u01B0\u01A1ng ph\xE1p \u0111\u1EB7t nh\xE2n t\u1EED chung.",
+        [r4`a) Nhân tử chung \(3x\): \(6x^2 - 9x = 3x(2x - 3)\).`, r4`b) Nhân tử chung \(5xy\): \(5x^2y + 10xy^2 = 5xy(x + 2y)\).`],
+        r4`\(3x(2x - 3)\); \(5xy(x + 2y)\).`,
+        "Ki\u1EC3m tra b\u1EB1ng c\xE1ch nh\xE2n ng\u01B0\u1EE3c l\u1EA1i."
+      ),
+      ex(
+        2,
+        r4`Phân tích thành nhân tử: \(2x(x - 3) - 5(3 - x)\).`,
+        r4`Hai nhóm có \(x - 3\) và \(3 - x\) đối nhau: đổi dấu để có nhân tử chung.`,
+        r4`Đặt nhân tử chung; \(3 - x = -(x - 3)\).`,
+        [r4`\(-5(3 - x) = 5(x - 3)\).`, r4`Biểu thức \(= 2x(x - 3) + 5(x - 3) = (x - 3)(2x + 5)\).`],
+        r4`\((x - 3)(2x + 5)\).`
+      )
+    ],
+    "su-dung-hang-dang-thuc": [
+      ex(
+        2,
+        r4`Phân tích thành nhân tử: a) \(x^2 - 16\); b) \(9x^2 + 6x + 1\); c) \(x^3 - 8\).`,
+        "M\u1ED7i \u0111a th\u1EE9c l\xE0 v\u1EBF ph\u1EA3i c\u1EE7a m\u1ED9t h\u1EB1ng \u0111\u1EB3ng th\u1EE9c.",
+        "Hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng; b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng; hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng.",
+        [r4`a) \(x^2 - 4^2 = (x - 4)(x + 4)\).`, r4`b) \((3x)^2 + 2\cdot3x\cdot1 + 1^2 = (3x + 1)^2\).`, r4`c) \(x^3 - 2^3 = (x - 2)(x^2 + 2x + 4)\).`],
+        r4`\((x - 4)(x + 4)\); \((3x + 1)^2\); \((x - 2)(x^2 + 2x + 4)\).`
+      ),
+      ex(
+        3,
+        r4`Phân tích thành nhân tử: \((x + 2)^2 - (2x - 1)^2\).`,
+        r4`Dạng \(A^2 - B^2\) với \(A = x + 2\), \(B = 2x - 1\).`,
+        "Hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng v\u1EDBi \\(A, B\\) l\xE0 \u0111a th\u1EE9c.",
+        [r4`\(= \left[(x + 2) - (2x - 1)\right]\left[(x + 2) + (2x - 1)\right]\).`, r4`\((x + 2) - (2x - 1) = 3 - x\); \((x + 2) + (2x - 1) = 3x + 1\).`, r4`Kết quả: \((3 - x)(3x + 1)\).`],
+        r4`\((3 - x)(3x + 1)\).`,
+        "\u0110\u1EB7t \\(B\\) trong ngo\u1EB7c khi tr\u1EEB \u0111\u1EC3 kh\xF4ng sai d\u1EA5u."
+      )
+    ],
+    "nhom-hang-tu": [
+      ex(
+        2,
+        r4`Phân tích thành nhân tử: \(x^2 - xy + 3x - 3y\).`,
+        r4`Nhóm hai hạng tử đầu và hai hạng tử cuối sẽ cùng xuất hiện \(x - y\).`,
+        "Nh\xF3m h\u1EA1ng t\u1EED; \u0111\u1EB7t nh\xE2n t\u1EED chung.",
+        [r4`\(= (x^2 - xy) + (3x - 3y)\).`, r4`\(= x(x - y) + 3(x - y)\).`, r4`\(= (x - y)(x + 3)\).`],
+        r4`\((x - y)(x + 3)\).`
+      ),
+      ex(
+        3,
+        r4`Phân tích thành nhân tử: \(x^2 - 2x + 1 - y^2\).`,
+        r4`Ba hạng tử đầu là \((x - 1)^2\); sau đó là hiệu hai bình phương.`,
+        "Nh\xF3m h\u1EA1ng t\u1EED; b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u; hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+        [r4`\(= (x^2 - 2x + 1) - y^2 = (x - 1)^2 - y^2\).`, r4`\(= (x - 1 - y)(x - 1 + y)\).`],
+        r4`\((x - y - 1)(x + y - 1)\).`,
+        "Nh\xF3m sao cho m\u1ED7i nh\xF3m c\xF3 \u201Cd\xE1ng\u201D h\u1EB1ng \u0111\u1EB3ng th\u1EE9c ho\u1EB7c nh\xE2n t\u1EED chung."
+      )
+    ],
+    "tach-hang-tu-them-bot-hang-tu": [
+      ex(
+        4,
+        r4`Phân tích thành nhân tử: \(x^2 - 5x + 6\).`,
+        r4`Không có nhân tử chung, không phải hằng đẳng thức: tách \(-5x = -2x - 3x\) vì \((-2)\cdot(-3) = 6\).`,
+        "T\xE1ch h\u1EA1ng t\u1EED; nh\xF3m h\u1EA1ng t\u1EED.",
+        [r4`\(x^2 - 5x + 6 = x^2 - 2x - 3x + 6\).`, r4`\(= x(x - 2) - 3(x - 2)\).`, r4`\(= (x - 2)(x - 3)\).`],
+        r4`\((x - 2)(x - 3)\).`,
+        "V\u1EDBi \\(x^2 + bx + c\\): t\xECm hai s\u1ED1 c\xF3 t\u1ED5ng \\(b\\) v\xE0 t\xEDch \\(c\\)."
+      ),
+      ex(
+        4,
+        r4`Phân tích thành nhân tử: \(x^4 + 4\).`,
+        r4`Thêm và bớt \(4x^2\) để tạo bình phương \((x^2 + 2)^2\), rồi dùng hiệu hai bình phương.`,
+        "Th\xEAm b\u1EDBt h\u1EA1ng t\u1EED; hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+        [r4`\(x^4 + 4 = x^4 + 4x^2 + 4 - 4x^2 = (x^2 + 2)^2 - (2x)^2\).`, r4`\(= (x^2 + 2 - 2x)(x^2 + 2 + 2x)\).`, r4`\(= (x^2 - 2x + 2)(x^2 + 2x + 2)\).`],
+        r4`\((x^2 - 2x + 2)(x^2 + 2x + 2)\).`
+      )
+    ],
+    "tim-x-phan-tich-nhan-tu": [
+      ex(
+        2,
+        r4`Tìm \(x\), biết \(x^2 - 3x = 0\).`,
+        "Ph\xE2n t\xEDch v\u1EBF tr\xE1i th\xE0nh t\xEDch r\u1ED3i cho t\u1EEBng th\u1EEBa s\u1ED1 b\u1EB1ng 0.",
+        r4`Đặt nhân tử chung; \(A\cdot B = 0 \iff A = 0\) hoặc \(B = 0\).`,
+        [r4`\(x(x - 3) = 0\).`, r4`\(x = 0\) hoặc \(x - 3 = 0\), tức \(x = 3\).`],
+        r4`\(x = 0\) hoặc \(x = 3\).`,
+        "Kh\xF4ng chia hai v\u1EBF cho \\(x\\) \u2013 s\u1EBD l\xE0m m\u1EA5t nghi\u1EC7m \\(x = 0\\)."
+      ),
+      ex(
+        3,
+        r4`Tìm \(x\), biết \((2x - 1)^2 - (x + 3)^2 = 0\).`,
+        "V\u1EBF tr\xE1i l\xE0 hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+        "Hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng; t\xEDch b\u1EB1ng 0.",
+        [r4`\(\left[(2x - 1) - (x + 3)\right]\left[(2x - 1) + (x + 3)\right] = 0\).`, r4`\((x - 4)(3x + 2) = 0\).`, r4`\(x = 4\) hoặc \(x = -\dfrac{2}{3}\).`],
+        r4`\(x = 4\) hoặc \(x = -\dfrac23\).`
+      )
+    ],
+    "tinh-gia-tri-phan-tich-nhan-tu": [
+      ex(
+        2,
+        r4`Tính giá trị của biểu thức \(x^2 + xy\) tại \(x = 77\), \(y = 23\).`,
+        r4`Đặt nhân tử chung để xuất hiện \(x + y = 100\).`,
+        "\u0110\u1EB7t nh\xE2n t\u1EED chung.",
+        [r4`\(x^2 + xy = x(x + y)\).`, r4`Tại \(x = 77\), \(y = 23\): \(77\cdot100 = 7700\).`],
+        r4`Giá trị bằng 7700.`
+      ),
+      ex(
+        3,
+        r4`Tính giá trị của \(A = x^2 - y^2 - 2y - 1\) tại \(x = 93\), \(y = 6\).`,
+        r4`Nhóm \(y^2 + 2y + 1 = (y + 1)^2\) rồi dùng hiệu hai bình phương.`,
+        "Nh\xF3m h\u1EA1ng t\u1EED; hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+        [r4`\(A = x^2 - (y^2 + 2y + 1) = x^2 - (y + 1)^2\).`, r4`\(A = (x - y - 1)(x + y + 1)\).`, r4`Tại \(x = 93\), \(y = 6\): \(A = 86\cdot100 = 8600\).`],
+        r4`\(A = 8600\).`
+      )
+    ]
+  },
+  notes: {
+    "dat-nhan-tu-chung": "L\u1EA5y \u01AFCLN c\u1EE7a c\xE1c h\u1EC7 s\u1ED1 v\xE0 m\u1ED7i bi\u1EBFn chung v\u1EDBi s\u1ED1 m\u0169 nh\u1ECF nh\u1EA5t; d\xF9ng \u0111\u1ED5i d\u1EA5u khi hai nh\xF3m \u0111\u1ED1i nhau.",
+    "su-dung-hang-dang-thuc": "Vi\u1EBFt t\u1EEBng h\u1EA1ng t\u1EED th\xE0nh b\xECnh ph\u01B0\u01A1ng, l\u1EADp ph\u01B0\u01A1ng \u0111\u1EC3 nh\u1EADn ra h\u1EB1ng \u0111\u1EB3ng th\u1EE9c; \\(A, B\\) c\xF3 th\u1EC3 l\xE0 \u0111a th\u1EE9c.",
+    "nhom-hang-tu": "Th\u1EED nhi\u1EC1u c\xE1ch nh\xF3m; nh\xF3m \u0111\xFAng khi c\xE1c nh\xF3m c\xF3 chung nh\xE2n t\u1EED ho\u1EB7c t\u1EA1o th\xE0nh h\u1EB1ng \u0111\u1EB3ng th\u1EE9c.",
+    "tach-hang-tu-them-bot-hang-tu": "Tam th\u1EE9c \\(x^2 + bx + c\\): t\xE1ch \\(bx\\) theo hai s\u1ED1 c\xF3 t\u1ED5ng \\(b\\), t\xEDch \\(c\\); th\xEAm b\u1EDBt \u0111\u1EC3 t\u1EA1o b\xECnh ph\u01B0\u01A1ng \u0111\u1EE7.",
+    "tim-x-phan-tich-nhan-tu": "Chuy\u1EC3n h\u1EBFt sang m\u1ED9t v\u1EBF cho v\u1EBF kia b\u1EB1ng 0, ph\xE2n t\xEDch th\xE0nh t\xEDch; kh\xF4ng chia cho bi\u1EC3u th\u1EE9c ch\u1EE9a \\(x\\).",
+    "tinh-gia-tri-phan-tich-nhan-tu": "Ph\xE2n t\xEDch tr\u01B0\u1EDBc \u0111\u1EC3 xu\u1EA5t hi\u1EC7n s\u1ED1 tr\xF2n ch\u1EE5c, tr\xF2n tr\u0103m r\u1ED3i m\u1EDBi thay s\u1ED1."
+  }
+};
+var CHUONG_22 = [BAI_6, BAI_7, BAI_8, BAI_9];
+
+// src/seed/toan8-lessons/chuong-3.ts
+var BAI_10 = {
+  slug: "bai-10-tu-giac",
+  applications: r4`- Nhận biết và đo góc của các khung hình tứ giác trong đời sống: khung cửa, mảnh ruộng, viên gạch lát.
+- Kiểm tra một khung tứ giác có "vuông" hay không bằng cách đo góc, đo đường chéo.
+- Tính góc còn thiếu khi thiết kế, cắt ghép các tấm vật liệu hình tứ giác.`,
+  theory: [
+    th("definition", "T\u1EE9 gi\xE1c", r4`**Tứ giác** \(ABCD\) là hình gồm bốn đoạn thẳng \(AB\), \(BC\), \(CD\), \(DA\), trong đó không có hai đoạn thẳng nào cùng nằm trên một đường thẳng.
+- Các điểm \(A, B, C, D\) là các **đỉnh**; các đoạn \(AB, BC, CD, DA\) là các **cạnh**; \(AC\), \(BD\) là hai **đường chéo**.
+- Hai cạnh cùng xuất phát tại một đỉnh là hai cạnh kề; hai cạnh không kề là hai cạnh đối.`),
+    th("definition", "T\u1EE9 gi\xE1c l\u1ED3i", r4`**Tứ giác lồi** là tứ giác luôn nằm về một phía của đường thẳng chứa bất kì cạnh nào của tứ giác. Khi nói tứ giác mà không giải thích gì thêm, ta hiểu đó là tứ giác lồi.`),
+    th(
+      "theorem",
+      "T\u1ED5ng c\xE1c g\xF3c c\u1EE7a m\u1ED9t t\u1EE9 gi\xE1c",
+      r4`Tổng các góc của một tứ giác bằng \(360^\circ\).
+Giải thích: đường chéo \(AC\) chia tứ giác thành hai tam giác \(ABC\) và \(ACD\); tổng các góc của hai tam giác là \(2\cdot180^\circ = 360^\circ\).`,
+      r4`\widehat{A} + \widehat{B} + \widehat{C} + \widehat{D} = 360^\circ`,
+      r4`Tứ giác có \(\widehat{A} = 80^\circ\), \(\widehat{B} = 110^\circ\), \(\widehat{C} = 70^\circ\) thì \(\widehat{D} = 360^\circ - 260^\circ = 100^\circ\).`
+    ),
+    th("property", "G\xF3c ngo\xE0i c\u1EE7a t\u1EE9 gi\xE1c", r4`Góc kề bù với một góc của tứ giác gọi là góc ngoài tại đỉnh đó. Tổng bốn góc ngoài (mỗi đỉnh một góc) của tứ giác cũng bằng \(360^\circ\).`),
+    th("special", "Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", r4`- Tứ giác có ba góc vuông thì góc còn lại cũng vuông.
+- Một tứ giác không thể có cả bốn góc nhọn (tổng sẽ nhỏ hơn \(360^\circ\)), cũng không thể có cả bốn góc tù.`),
+    th("note", "L\u01B0u \xFD", r4`Khi giải bài về cạnh và đường chéo, thường chia tứ giác thành các tam giác rồi dùng bất đẳng thức tam giác, tổng ba góc của tam giác hoặc các trường hợp bằng nhau của tam giác.`)
+  ],
+  formulas: [
+    {
+      group: "G\xF3c c\u1EE7a t\u1EE9 gi\xE1c",
+      items: [
+        fc("T\u1ED5ng c\xE1c g\xF3c c\u1EE7a t\u1EE9 gi\xE1c", r4`\widehat{A} + \widehat{B} + \widehat{C} + \widehat{D} = 360^\circ`, r4`- \(\widehat{A}, \widehat{B}, \widehat{C}, \widehat{D}\): bốn góc của tứ giác \(ABCD\)`, r4`\(\widehat{A} = \widehat{B} = 90^\circ\), \(\widehat{C} = 120^\circ\) thì \(\widehat{D} = 60^\circ\).`),
+        fc("G\xF3c ngo\xE0i", r4`\widehat{A}_{\text{ngoài}} = 180^\circ - \widehat{A}`, r4`- \(\widehat{A}\): góc trong tại đỉnh \(A\)`, r4`\(\widehat{A} = 70^\circ\) thì góc ngoài tại \(A\) bằng \(110^\circ\).`)
+      ]
+    },
+    {
+      group: "C\u1EA1nh v\xE0 \u0111\u01B0\u1EDDng ch\xE9o",
+      items: [
+        fc("B\u1EA5t \u0111\u1EB3ng th\u1EE9c tam gi\xE1c", r4`AC < AB + BC`, r4`- \(AB, BC, AC\): ba cạnh của tam giác \(ABC\)`, r4`Trong tứ giác \(ABCD\): \(AC < AB + BC\) và \(AC < AD + DC\).`)
+      ]
+    }
+  ],
+  examples: {
+    "tinh-so-do-goc-tu-giac": [
+      gx(
+        1,
+        r4`Tứ giác \(ABCD\) có \(\widehat{A} = 80^\circ\), \(\widehat{B} = 110^\circ\), \(\widehat{C} = 70^\circ\). Tính \(\widehat{D}\).`,
+        `A(0,0) B(6,0) C(7,4) D(1,3.5)
+ABCDA`,
+        r4`Tứ giác \(ABCD\); \(\widehat{A} = 80^\circ\), \(\widehat{B} = 110^\circ\), \(\widehat{C} = 70^\circ\)`,
+        r4`\(\widehat{D} = ?\)`,
+        "Bi\u1EBFt ba g\xF3c, t\xECm g\xF3c th\u1EE9 t\u01B0 nh\u1EDD t\u1ED5ng c\xE1c g\xF3c c\u1EE7a t\u1EE9 gi\xE1c.",
+        "T\u1ED5ng c\xE1c g\xF3c c\u1EE7a m\u1ED9t t\u1EE9 gi\xE1c b\u1EB1ng \\(360^\\circ\\).",
+        [r4`\(\widehat{A} + \widehat{B} + \widehat{C} + \widehat{D} = 360^\circ\).`, r4`\(\widehat{D} = 360^\circ - (80^\circ + 110^\circ + 70^\circ) = 360^\circ - 260^\circ = 100^\circ\).`],
+        r4`\(\widehat{D} = 100^\circ\).`
+      ),
+      gx(
+        2,
+        r4`Tứ giác \(ABCD\) có các góc tỉ lệ \(\widehat{A} : \widehat{B} : \widehat{C} : \widehat{D} = 1 : 2 : 3 : 4\). Tính các góc của tứ giác.`,
+        `A(0,0) B(5,0) C(6,3) D(2,4)
+ABCDA`,
+        r4`Tứ giác \(ABCD\); \(\widehat{A} : \widehat{B} : \widehat{C} : \widehat{D} = 1 : 2 : 3 : 4\)`,
+        r4`Tính \(\widehat{A}, \widehat{B}, \widehat{C}, \widehat{D}\)`,
+        "B\u1ED1n g\xF3c chia \\(360^\\circ\\) theo t\u1EC9 l\u1EC7; d\xF9ng t\xEDnh ch\u1EA5t d\xE3y t\u1EC9 s\u1ED1 b\u1EB1ng nhau.",
+        "T\u1ED5ng c\xE1c g\xF3c c\u1EE7a t\u1EE9 gi\xE1c; t\xEDnh ch\u1EA5t d\xE3y t\u1EC9 s\u1ED1 b\u1EB1ng nhau.",
+        [r4`Đặt \(\widehat{A} = k\), \(\widehat{B} = 2k\), \(\widehat{C} = 3k\), \(\widehat{D} = 4k\).`, r4`\(k + 2k + 3k + 4k = 360^\circ\) nên \(10k = 360^\circ\), \(k = 36^\circ\).`, r4`\(\widehat{A} = 36^\circ\), \(\widehat{B} = 72^\circ\), \(\widehat{C} = 108^\circ\), \(\widehat{D} = 144^\circ\).`],
+        r4`\(36^\circ\); \(72^\circ\); \(108^\circ\); \(144^\circ\).`,
+        "Ki\u1EC3m tra l\u1EA1i: t\u1ED5ng b\u1ED1n g\xF3c v\u1EEBa t\xECm ph\u1EA3i b\u1EB1ng \\(360^\\circ\\)."
+      ),
+      gx(
+        3,
+        r4`Tứ giác \(ABCD\) có \(\widehat{C} = 70^\circ\), \(\widehat{D} = 80^\circ\). Các tia phân giác của góc \(A\) và góc \(B\) cắt nhau tại \(I\). Tính \(\widehat{AIB}\).`,
+        `A(0,0) B(7,0) C(5.5,4.5) D(1.5,4) I(3.6,2.1)
+ABCDA AI BI
+goc(A,I,B)`,
+        r4`Tứ giác \(ABCD\), \(\widehat{C} = 70^\circ\), \(\widehat{D} = 80^\circ\); \(AI\), \(BI\) là phân giác của \(\widehat{A}\), \(\widehat{B}\)`,
+        r4`\(\widehat{AIB} = ?\)`,
+        r4`Trong tam giác \(AIB\) chỉ cần biết \(\widehat{IAB} + \widehat{IBA} = \dfrac{\widehat{A} + \widehat{B}}{2}\); còn \(\widehat{A} + \widehat{B}\) tính được từ tổng các góc của tứ giác.`,
+        "T\u1ED5ng c\xE1c g\xF3c c\u1EE7a t\u1EE9 gi\xE1c, c\u1EE7a tam gi\xE1c; t\xEDnh ch\u1EA5t tia ph\xE2n gi\xE1c.",
+        [r4`\(\widehat{A} + \widehat{B} = 360^\circ - (\widehat{C} + \widehat{D}) = 360^\circ - 150^\circ = 210^\circ\).`, r4`Vì \(AI\), \(BI\) là phân giác: \(\widehat{IAB} + \widehat{IBA} = \dfrac{\widehat{A} + \widehat{B}}{2} = 105^\circ\).`, r4`Trong tam giác \(AIB\): \(\widehat{AIB} = 180^\circ - 105^\circ = 75^\circ\).`],
+        r4`\(\widehat{AIB} = 75^\circ\).`,
+        r4`Tổng quát: \(\widehat{AIB} = \dfrac{\widehat{C} + \widehat{D}}{2}\).`
+      )
+    ],
+    "canh-goc-duong-cheo-tu-giac": [
+      gx(
+        3,
+        r4`Cho tứ giác \(ABCD\) có \(AB = AD\), \(CB = CD\). Chứng minh \(AC\) là đường trung trực của \(BD\) và \(\widehat{B} = \widehat{D}\).`,
+        `A(3,6) B(0,3) C(3,-2) D(6,3) H(3,3)
+ABCDA AC BD:dash
+vuong(A,H,B)`,
+        r4`Tứ giác \(ABCD\); \(AB = AD\), \(CB = CD\)`,
+        r4`\(AC\) là đường trung trực của \(BD\); \(\widehat{ABC} = \widehat{ADC}\)`,
+        r4`\(A\) và \(C\) cùng cách đều hai đầu đoạn \(BD\). Để có góc bằng nhau, chứng minh hai tam giác \(ABC\) và \(ADC\) bằng nhau.`,
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung tr\u1EF1c; tr\u01B0\u1EDDng h\u1EE3p b\u1EB1ng nhau c\u1EA1nh \u2013 c\u1EA1nh \u2013 c\u1EA1nh.",
+        [r4`\(AB = AD\) nên \(A\) thuộc đường trung trực của \(BD\); \(CB = CD\) nên \(C\) thuộc đường trung trực của \(BD\).`, r4`Hai điểm phân biệt \(A\), \(C\) cùng thuộc đường trung trực của \(BD\) nên \(AC\) là đường trung trực của \(BD\).`, r4`Xét \(\triangle ABC\) và \(\triangle ADC\): \(AB = AD\), \(CB = CD\), \(AC\) chung, nên \(\triangle ABC = \triangle ADC\) (c.c.c).`, r4`Suy ra \(\widehat{ABC} = \widehat{ADC}\).`],
+        r4`\(AC\) là đường trung trực của \(BD\) và \(\widehat{B} = \widehat{D}\).`,
+        'T\u1EE9 gi\xE1c nh\u01B0 v\u1EADy th\u01B0\u1EDDng g\u1ECDi l\xE0 "h\xECnh c\xE1nh di\u1EC1u": hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c v\u1EDBi nhau.'
+      ),
+      gx(
+        4,
+        r4`Cho tứ giác lồi \(ABCD\) có chu vi \(P\). Chứng minh tổng hai đường chéo lớn hơn nửa chu vi và nhỏ hơn chu vi: \(\dfrac{P}{2} < AC + BD < P\).`,
+        `A(0,0) B(6,-0.5) C(7,4) D(1,3.5) O(3.14,1.79)
+ABCDA AC BD`,
+        r4`Tứ giác lồi \(ABCD\), \(P = AB + BC + CD + DA\); \(O\) là giao điểm của \(AC\) và \(BD\)`,
+        r4`\(\dfrac{P}{2} < AC + BD < P\)`,
+        "Chia t\u1EE9 gi\xE1c th\xE0nh c\xE1c tam gi\xE1c: d\xF9ng b\u1EA5t \u0111\u1EB3ng th\u1EE9c tam gi\xE1c cho b\u1ED1n tam gi\xE1c c\xF3 \u0111\u1EC9nh \\(O\\) (v\u1EBF tr\xE1i) v\xE0 b\u1ED1n tam gi\xE1c t\u1EA1o b\u1EDFi m\u1ED9t \u0111\u01B0\u1EDDng ch\xE9o v\u1EDBi hai c\u1EA1nh (v\u1EBF ph\u1EA3i).",
+        "B\u1EA5t \u0111\u1EB3ng th\u1EE9c tam gi\xE1c; trong t\u1EE9 gi\xE1c l\u1ED3i hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau.",
+        [r4`Gọi \(O\) là giao điểm hai đường chéo. Trong các tam giác \(OAB\), \(OBC\), \(OCD\), \(ODA\): \(OA + OB > AB\), \(OB + OC > BC\), \(OC + OD > CD\), \(OD + OA > DA\).`, r4`Cộng vế: \(2(OA + OC) + 2(OB + OD) > P\), tức \(2(AC + BD) > P\), nên \(AC + BD > \dfrac{P}{2}\).`, r4`Trong các tam giác \(ABC\), \(ADC\), \(ABD\), \(CBD\): \(AC < AB + BC\), \(AC < AD + DC\), \(BD < AB + AD\), \(BD < CB + CD\).`, r4`Cộng vế: \(2(AC + BD) < 2P\), nên \(AC + BD < P\).`],
+        r4`\(\dfrac{P}{2} < AC + BD < P\).`,
+        "B\xE0i v\u1EC1 b\u1EA5t \u0111\u1EB3ng th\u1EE9c trong t\u1EE9 gi\xE1c: vi\u1EBFt b\u1EA5t \u0111\u1EB3ng th\u1EE9c tam gi\xE1c cho t\u1EEBng tam gi\xE1c r\u1ED3i c\u1ED9ng v\u1EBF."
+      )
+    ]
+  },
+  notes: {
+    "tinh-so-do-goc-tu-giac": "\u0110\u1EB7t \u1EA9n cho g\xF3c ch\u01B0a bi\u1EBFt, l\u1EADp \u0111\u1EB3ng th\u1EE9c t\u1ED5ng b\u1ED1n g\xF3c b\u1EB1ng \\(360^\\circ\\); khi c\xF3 tia ph\xE2n gi\xE1c, x\xE9t tam gi\xE1c ch\u1EE9a g\xF3c c\u1EA7n t\xECm.",
+    "canh-goc-duong-cheo-tu-giac": "K\u1EBB \u0111\u01B0\u1EDDng ch\xE9o \u0111\u1EC3 chia t\u1EE9 gi\xE1c th\xE0nh tam gi\xE1c; v\u1EDBi b\u1EA5t \u0111\u1EB3ng th\u1EE9c, vi\u1EBFt \u0111\u1EE7 c\xE1c b\u1EA5t \u0111\u1EB3ng th\u1EE9c tam gi\xE1c r\u1ED3i c\u1ED9ng v\u1EBF."
+  }
+};
+var BAI_11 = {
+  slug: "bai-11-hinh-thang-can",
+  applications: r4`- Mặt cắt của con đê, lòng mương, chân bàn ghế, mái nhà thường có dạng hình thang cân.
+- Tính diện tích mảnh đất, tấm kính hình thang: \(S = \dfrac{(a + b)h}{2}\).
+- Thiết kế đối xứng (cửa sổ, logo) dựa vào tính đối xứng của hình thang cân.`,
+  theory: [
+    th("definition", "H\xECnh thang", r4`**Hình thang** là tứ giác có hai cạnh đối song song. Hai cạnh song song gọi là hai **đáy**, hai cạnh còn lại là hai **cạnh bên**. Đoạn vuông góc kẻ từ một đỉnh đến đáy đối diện là **đường cao**.`),
+    th("property", "G\xF3c c\u1EE7a h\xECnh thang", r4`Trong hình thang \(ABCD\) (\(AB \parallel CD\)), hai góc kề một cạnh bên bù nhau.`, r4`\widehat{A} + \widehat{D} = 180^\circ,\quad \widehat{B} + \widehat{C} = 180^\circ`),
+    th("definition", "H\xECnh thang vu\xF4ng, h\xECnh thang c\xE2n", r4`- **Hình thang vuông** là hình thang có một góc vuông.
+- **Hình thang cân** là hình thang có hai góc kề một đáy bằng nhau.`),
+    th("theorem", "T\xEDnh ch\u1EA5t c\u1EE7a h\xECnh thang c\xE2n", r4`Trong hình thang cân:
+- Hai góc kề một đáy bằng nhau.
+- Hai cạnh bên bằng nhau.
+- Hai đường chéo bằng nhau.`, r4`AD = BC,\quad AC = BD`),
+    th("condition", "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh thang c\xE2n", r4`- Hình thang có hai góc kề một đáy bằng nhau là hình thang cân.
+- Hình thang có hai đường chéo bằng nhau là hình thang cân.`),
+    th("note", "L\u01B0u \xFD", r4`Hình thang có hai cạnh bên bằng nhau **chưa chắc** là hình thang cân (có thể là hình bình hành). Muốn chứng minh hình thang cân, dùng góc kề đáy hoặc đường chéo.`),
+    th("special", "Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", r4`- Hình thang có hai cạnh bên song song thì hai cạnh bên bằng nhau và hai đáy bằng nhau.
+- Hình thang có hai đáy bằng nhau thì hai cạnh bên song song và bằng nhau.`)
+  ],
+  formulas: [
+    {
+      group: "G\xF3c v\xE0 c\u1EA1nh",
+      items: [
+        fc("Hai g\xF3c k\u1EC1 c\u1EA1nh b\xEAn b\xF9 nhau", r4`\widehat{A} + \widehat{D} = 180^\circ`, r4`- \(ABCD\) là hình thang, \(AB \parallel CD\)`, r4`\(\widehat{A} = 110^\circ\) thì \(\widehat{D} = 70^\circ\).`),
+        fc("H\xECnh thang c\xE2n", r4`\widehat{C} = \widehat{D},\ \widehat{A} = \widehat{B},\ AD = BC,\ AC = BD`, r4`- \(ABCD\) là hình thang cân, đáy \(AB\), \(CD\)`, r4`\(\widehat{D} = 65^\circ\) thì \(\widehat{C} = 65^\circ\), \(\widehat{A} = \widehat{B} = 115^\circ\).`)
+      ]
+    },
+    {
+      group: "Di\u1EC7n t\xEDch",
+      items: [
+        fc("Di\u1EC7n t\xEDch h\xECnh thang", r4`S = \dfrac{(a + b)\,h}{2}`, r4`- \(a, b\): độ dài hai đáy
+- \(h\): chiều cao`, r4`\(a = 4\), \(b = 10\), \(h = 3\): \(S = \dfrac{14\cdot3}{2} = 21\).`, "C\xF9ng \u0111\u01A1n v\u1ECB \u0111o.")
+      ]
+    }
+  ],
+  examples: {
+    "tinh-goc-canh-hinh-thang": [
+      gx(
+        1,
+        r4`Hình thang \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{A} = 110^\circ\), \(\widehat{B} = 125^\circ\). Tính \(\widehat{C}\), \(\widehat{D}\).`,
+        `A(2,3) B(6,3) C(8,0) D(0,0)
+ABCDA`,
+        r4`Hình thang \(ABCD\), \(AB \parallel CD\); \(\widehat{A} = 110^\circ\), \(\widehat{B} = 125^\circ\)`,
+        r4`\(\widehat{C}, \widehat{D} = ?\)`,
+        "Hai g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh b\xEAn c\u1EE7a h\xECnh thang b\xF9 nhau.",
+        "G\xF3c trong c\xF9ng ph\xEDa t\u1EA1o b\u1EDFi hai \u0111\u01B0\u1EDDng th\u1EB3ng song song.",
+        [r4`\(AB \parallel CD\) nên \(\widehat{A} + \widehat{D} = 180^\circ\), suy ra \(\widehat{D} = 70^\circ\).`, r4`Tương tự \(\widehat{B} + \widehat{C} = 180^\circ\), suy ra \(\widehat{C} = 55^\circ\).`],
+        r4`\(\widehat{C} = 55^\circ\), \(\widehat{D} = 70^\circ\).`
+      ),
+      gx(
+        2,
+        r4`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{A} = 2\widehat{D}\). Tính các góc của hình thang.`,
+        `A(2,3.46) B(6,3.46) C(8,0) D(0,0)
+ABCDA`,
+        r4`Hình thang cân \(ABCD\), \(AB \parallel CD\); \(\widehat{A} = 2\widehat{D}\)`,
+        r4`Tính \(\widehat{A}, \widehat{B}, \widehat{C}, \widehat{D}\)`,
+        "K\u1EBFt h\u1EE3p: hai g\xF3c k\u1EC1 c\u1EA1nh b\xEAn b\xF9 nhau v\xE0 hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y b\u1EB1ng nhau.",
+        "G\xF3c c\u1EE7a h\xECnh thang; t\xEDnh ch\u1EA5t h\xECnh thang c\xE2n.",
+        [r4`\(\widehat{A} + \widehat{D} = 180^\circ\) và \(\widehat{A} = 2\widehat{D}\) nên \(3\widehat{D} = 180^\circ\), \(\widehat{D} = 60^\circ\), \(\widehat{A} = 120^\circ\).`, r4`Hình thang cân: \(\widehat{C} = \widehat{D} = 60^\circ\), \(\widehat{B} = \widehat{A} = 120^\circ\).`],
+        r4`\(\widehat{A} = \widehat{B} = 120^\circ\), \(\widehat{C} = \widehat{D} = 60^\circ\).`
+      ),
+      gx(
+        3,
+        r4`Hình thang cân \(ABCD\) có đáy nhỏ \(AB = 4\) cm, đáy lớn \(CD = 10\) cm và \(\widehat{D} = 45^\circ\). Tính đường cao \(AH\) và diện tích hình thang.`,
+        `A(3,3) B(7,3) C(10,0) D(0,0) H(3,0) K(7,0)
+ABCDA AH:dash BK:dash
+vuong(A,H,D) vuong(B,K,C)`,
+        r4`Hình thang cân \(ABCD\), \(AB = 4\) cm, \(CD = 10\) cm, \(\widehat{D} = 45^\circ\); \(AH \perp CD\), \(BK \perp CD\)`,
+        r4`\(AH = ?\); \(S_{ABCD} = ?\)`,
+        r4`Kẻ hai đường cao \(AH\), \(BK\): \(ABKH\) là hình chữ nhật, hai tam giác vuông hai bên bằng nhau nên \(DH = KC\).`,
+        "T\xEDnh ch\u1EA5t h\xECnh thang c\xE2n; tam gi\xE1c vu\xF4ng c\xE2n; di\u1EC7n t\xEDch h\xECnh thang.",
+        [r4`\(\triangle ADH = \triangle BCK\) (cạnh huyền \(AD = BC\), góc nhọn \(\widehat{D} = \widehat{C}\)) nên \(DH = CK\).`, r4`\(HK = AB = 4\) nên \(DH = \dfrac{10 - 4}{2} = 3\) cm.`, r4`\(\triangle ADH\) vuông tại \(H\) có \(\widehat{D} = 45^\circ\) nên vuông cân: \(AH = DH = 3\) cm.`, r4`\(S = \dfrac{(4 + 10)\cdot3}{2} = 21\) (cm²).`],
+        r4`\(AH = 3\) cm; \(S = 21\) cm².`,
+        "V\u1EDBi h\xECnh thang c\xE2n, h\u1EA1 hai \u0111\u01B0\u1EDDng cao t\u1EEB hai \u0111\u1EC9nh \u0111\xE1y nh\u1ECF l\xE0 c\xE1ch l\xE0m quen thu\u1ED9c."
+      )
+    ],
+    "chung-minh-doan-thang-goc-bang-nhau-hinh-thang-can": [
+      gx(
+        3,
+        r4`Cho hình thang cân \(ABCD\) (\(AB \parallel CD\)), hai đường chéo cắt nhau tại \(O\). Chứng minh \(\widehat{ACD} = \widehat{BDC}\) và \(OC = OD\).`,
+        `A(2,3) B(6,3) C(8,0) D(0,0) O(4,2)
+ABCDA AC BD`,
+        r4`Hình thang cân \(ABCD\), \(AB \parallel CD\); \(O = AC \cap BD\)`,
+        r4`\(\widehat{ACD} = \widehat{BDC}\); \(OC = OD\)`,
+        r4`Hai góc cần chứng minh là hai góc tương ứng của \(\triangle ADC\) và \(\triangle BCD\).`,
+        "T\xEDnh ch\u1EA5t h\xECnh thang c\xE2n; tr\u01B0\u1EDDng h\u1EE3p b\u1EB1ng nhau c.g.c; tam gi\xE1c c\xE2n.",
+        [r4`Xét \(\triangle ADC\) và \(\triangle BCD\): \(AD = BC\) (cạnh bên hình thang cân), \(\widehat{ADC} = \widehat{BCD}\) (góc kề đáy), \(DC\) chung.`, r4`Do đó \(\triangle ADC = \triangle BCD\) (c.g.c), suy ra \(\widehat{ACD} = \widehat{BDC}\).`, r4`Tam giác \(OCD\) có \(\widehat{OCD} = \widehat{ODC}\) nên cân tại \(O\), do đó \(OC = OD\).`],
+        r4`\(\widehat{ACD} = \widehat{BDC}\) và \(OC = OD\).`,
+        "T\u1EEB \\(OC = OD\\) v\xE0 \\(AC = BD\\) suy ra th\xEAm \\(OA = OB\\)."
+      ),
+      gx(
+        4,
+        r4`Cho hình thang cân \(ABCD\) (\(AB \parallel CD\), \(AB < CD\)). Gọi \(E\) là giao điểm của các đường thẳng \(AD\) và \(BC\), \(O\) là giao điểm hai đường chéo, \(M\) là trung điểm của \(CD\). Chứng minh ba điểm \(E\), \(O\), \(M\) thẳng hàng.`,
+        `A(2,3) B(6,3) C(8,0) D(0,0) O(4,2) E(4,6) M(4,0)
+DC DE CE AB AC BD EM:dash`,
+        r4`Hình thang cân \(ABCD\) (\(AB \parallel CD\)); \(E = AD \cap BC\); \(O = AC \cap BD\); \(MC = MD\)`,
+        r4`\(E, O, M\) thẳng hàng`,
+        r4`Chứng minh cả ba điểm cùng nằm trên đường trung trực của \(CD\): mỗi điểm cách đều \(C\) và \(D\).`,
+        "T\xEDnh ch\u1EA5t h\xECnh thang c\xE2n; tam gi\xE1c c\xE2n; \u0111\u01B0\u1EDDng trung tr\u1EF1c c\u1EE7a \u0111o\u1EA1n th\u1EB3ng.",
+        [r4`\(\widehat{EDC} = \widehat{ECD}\) (hai góc kề đáy \(CD\)) nên \(\triangle EDC\) cân tại \(E\): \(ED = EC\).`, r4`Theo ví dụ trước, \(OC = OD\).`, r4`\(MC = MD\) (\(M\) là trung điểm của \(CD\)).`, r4`Ba điểm \(E\), \(O\), \(M\) cách đều \(C\) và \(D\) nên cùng nằm trên đường trung trực của \(CD\). Vậy chúng thẳng hàng.`],
+        r4`\(E\), \(O\), \(M\) thẳng hàng (cùng nằm trên trục đối xứng của hình thang cân).`,
+        "Ch\u1EE9ng minh th\u1EB3ng h\xE0ng: ch\u1EC9 ra c\xE1c \u0111i\u1EC3m c\xF9ng thu\u1ED9c m\u1ED9t \u0111\u01B0\u1EDDng th\u1EB3ng \u0111\u1EB7c bi\u1EC7t (trung tr\u1EF1c, ph\xE2n gi\xE1c\u2026)."
+      )
+    ],
+    "chung-minh-hinh-thang-can": [
+      gx(
+        2,
+        r4`Cho tam giác \(ABC\) cân tại \(A\). Một đường thẳng song song với \(BC\) cắt \(AB\), \(AC\) lần lượt tại \(D\), \(E\). Chứng minh \(BDEC\) là hình thang cân.`,
+        `A(0,6) B(-4,0) C(4,0) D(-2,3) E(2,3)
+ABCA DE`,
+        r4`\(\triangle ABC\) cân tại \(A\); \(D \in AB\), \(E \in AC\), \(DE \parallel BC\)`,
+        r4`\(BDEC\) là hình thang cân`,
+        "Ch\u1EE9ng minh l\xE0 h\xECnh thang tr\u01B0\u1EDBc (c\xF3 c\u1EB7p c\u1EA1nh song song), r\u1ED3i ch\u1EC9 ra hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y b\u1EB1ng nhau.",
+        "\u0110\u1ECBnh ngh\u0129a h\xECnh thang, h\xECnh thang c\xE2n; tam gi\xE1c c\xE2n.",
+        [r4`\(DE \parallel BC\) nên \(BDEC\) là hình thang (đáy \(DE\), \(BC\)).`, r4`\(\triangle ABC\) cân tại \(A\) nên \(\widehat{B} = \widehat{C}\).`, r4`Hình thang \(BDEC\) có hai góc kề đáy \(BC\) bằng nhau nên là hình thang cân.`],
+        r4`\(BDEC\) là hình thang cân.`
+      ),
+      gx(
+        3,
+        r4`Cho tam giác \(ABC\) cân tại \(A\), các đường phân giác \(BD\), \(CE\) (\(D \in AC\), \(E \in AB\)). Chứng minh \(BEDC\) là hình thang cân có \(ED = EB\).`,
+        `A(0,6) B(-4,0) C(4,0) D(1.9,3.16) E(-1.9,3.16)
+ABCA BD CE ED`,
+        r4`\(\triangle ABC\) cân tại \(A\); \(BD\), \(CE\) là phân giác`,
+        r4`\(BEDC\) là hình thang cân; \(ED = EB\)`,
+        r4`Cần \(ED \parallel BC\): chứng minh \(AD = AE\) để \(\triangle ADE\) cân, khi đó \(\widehat{AED} = \widehat{ABC}\) (đồng vị).`,
+        "Tr\u01B0\u1EDDng h\u1EE3p b\u1EB1ng nhau g.c.g; tam gi\xE1c c\xE2n; g\xF3c \u0111\u1ED3ng v\u1ECB, so le trong; d\u1EA5u hi\u1EC7u h\xECnh thang c\xE2n.",
+        [r4`\(\triangle ABD = \triangle ACE\) (g.c.g): \(\widehat{A}\) chung, \(AB = AC\), \(\widehat{ABD} = \widehat{ACE} = \dfrac{\widehat{B}}{2}\). Suy ra \(AD = AE\).`, r4`\(\triangle ADE\) cân tại \(A\) nên \(\widehat{AED} = \dfrac{180^\circ - \widehat{A}}{2} = \widehat{ABC}\). Hai góc này ở vị trí đồng vị nên \(ED \parallel BC\).`, r4`Hình thang \(BEDC\) có \(\widehat{B} = \widehat{C}\) nên là hình thang cân.`, r4`\(\widehat{EDB} = \widehat{DBC}\) (so le trong) \(= \widehat{EBD}\) nên \(\triangle EBD\) cân tại \(E\): \(ED = EB\).`],
+        r4`\(BEDC\) là hình thang cân và \(ED = EB\).`,
+        "Ph\xE2n gi\xE1c c\xF9ng v\u1EDBi song song th\u01B0\u1EDDng t\u1EA1o ra tam gi\xE1c c\xE2n."
+      )
+    ]
+  },
+  notes: {
+    "tinh-goc-canh-hinh-thang": 'X\xE1c \u0111\u1ECBnh \u0111\xFAng hai \u0111\xE1y; d\xF9ng "hai g\xF3c k\u1EC1 c\u1EA1nh b\xEAn b\xF9 nhau" cho m\u1ECDi h\xECnh thang, "hai g\xF3c k\u1EC1 \u0111\xE1y b\u1EB1ng nhau" ch\u1EC9 cho h\xECnh thang c\xE2n.',
+    "chung-minh-doan-thang-goc-bang-nhau-hinh-thang-can": "T\xECm hai tam gi\xE1c ch\u1EE9a hai \u0111o\u1EA1n (hai g\xF3c) c\u1EA7n ch\u1EE9ng minh, d\xF9ng c\u1EA1nh b\xEAn, \u0111\u01B0\u1EDDng ch\xE9o, g\xF3c k\u1EC1 \u0111\xE1y b\u1EB1ng nhau.",
+    "chung-minh-hinh-thang-can": "Hai b\u01B0\u1EDBc: ch\u1EE9ng minh h\xECnh thang (c\u1EB7p c\u1EA1nh song song), r\u1ED3i d\xF9ng m\u1ED9t trong hai d\u1EA5u hi\u1EC7u (g\xF3c k\u1EC1 \u0111\xE1y ho\u1EB7c \u0111\u01B0\u1EDDng ch\xE9o)."
+  }
+};
+var BAI_12 = {
+  slug: "bai-12-hinh-binh-hanh",
+  applications: r4`- Cơ cấu hình bình hành giữ mặt phẳng luôn song song: giá treo đèn, cầu nâng, thước kẻ song song, cửa xếp.
+- Tìm trung điểm, kiểm tra thẳng hàng nhờ tính chất đường chéo.
+- Tính diện tích mảnh đất hình bình hành: \(S = a\cdot h\).`,
+  theory: [
+    th("definition", "H\xECnh b\xECnh h\xE0nh", r4`**Hình bình hành** là tứ giác có các cạnh đối song song.`, r4`AB \parallel CD,\quad AD \parallel BC`),
+    th("theorem", "T\xEDnh ch\u1EA5t c\u1EE7a h\xECnh b\xECnh h\xE0nh", r4`Trong hình bình hành:
+- Các cạnh đối bằng nhau.
+- Các góc đối bằng nhau.
+- Hai đường chéo cắt nhau tại trung điểm của mỗi đường.`, r4`AB = CD,\ AD = BC;\ \widehat{A} = \widehat{C},\ \widehat{B} = \widehat{D};\ OA = OC,\ OB = OD`),
+    th("property", "Hai g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh", r4`Hai góc kề một cạnh của hình bình hành bù nhau (vì là hình thang).`, r4`\widehat{A} + \widehat{B} = 180^\circ`),
+    th("condition", "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh", r4`- Tứ giác có các cạnh đối song song.
+- Tứ giác có các cạnh đối bằng nhau.
+- Tứ giác có hai cạnh đối song song và bằng nhau.
+- Tứ giác có các góc đối bằng nhau.
+- Tứ giác có hai đường chéo cắt nhau tại trung điểm của mỗi đường.`),
+    th("special", "Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", r4`- Hình thang có hai cạnh bên song song là hình bình hành.
+- Giao điểm \(O\) của hai đường chéo là **tâm đối xứng** của hình bình hành: mọi đường thẳng qua \(O\) cắt hai cạnh đối tại hai điểm đối xứng qua \(O\).`),
+    th("note", "L\u01B0u \xFD", r4`Tứ giác có hai cạnh đối song song, hai cạnh kia bằng nhau **chưa chắc** là hình bình hành (có thể là hình thang cân). Dấu hiệu "song song và bằng nhau" phải nói về **cùng một cặp** cạnh đối.`)
+  ],
+  formulas: [
+    {
+      group: "T\xEDnh ch\u1EA5t",
+      items: [
+        fc("C\u1EA1nh \u0111\u1ED1i, g\xF3c \u0111\u1ED1i", r4`AB = CD,\ AD = BC,\ \widehat{A} = \widehat{C},\ \widehat{B} = \widehat{D}`, r4`- \(ABCD\) là hình bình hành`, r4`\(\widehat{A} = 65^\circ\) thì \(\widehat{C} = 65^\circ\), \(\widehat{B} = \widehat{D} = 115^\circ\).`),
+        fc("\u0110\u01B0\u1EDDng ch\xE9o", r4`OA = OC = \dfrac{AC}{2},\quad OB = OD = \dfrac{BD}{2}`, r4`- \(O\): giao điểm hai đường chéo`, r4`\(AC = 12\), \(BD = 8\) thì \(OA = 6\), \(OB = 4\).`)
+      ]
+    },
+    {
+      group: "Chu vi, di\u1EC7n t\xEDch",
+      items: [
+        fc("Chu vi h\xECnh b\xECnh h\xE0nh", r4`P = 2(a + b)`, r4`- \(a, b\): hai cạnh kề`, r4`\(a = 9\), \(b = 6\): \(P = 30\).`),
+        fc("Di\u1EC7n t\xEDch h\xECnh b\xECnh h\xE0nh", r4`S = a\cdot h`, r4`- \(a\): một cạnh (đáy)
+- \(h\): chiều cao ứng với cạnh đó`, r4`\(a = 8\), \(h = 5\): \(S = 40\).`)
+      ]
+    }
+  ],
+  examples: {
+    "tinh-goc-canh-hinh-binh-hanh": [
+      gx(
+        1,
+        r4`Hình bình hành \(ABCD\) có \(\widehat{A} = 65^\circ\). Tính các góc còn lại.`,
+        `A(0,0) B(5,0) C(7,3) D(2,3)
+ABCDA`,
+        r4`Hình bình hành \(ABCD\); \(\widehat{A} = 65^\circ\)`,
+        r4`\(\widehat{B}, \widehat{C}, \widehat{D} = ?\)`,
+        "D\xF9ng g\xF3c \u0111\u1ED1i b\u1EB1ng nhau v\xE0 hai g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh b\xF9 nhau.",
+        "T\xEDnh ch\u1EA5t g\xF3c c\u1EE7a h\xECnh b\xECnh h\xE0nh.",
+        [r4`\(\widehat{C} = \widehat{A} = 65^\circ\) (góc đối).`, r4`\(\widehat{B} = 180^\circ - 65^\circ = 115^\circ\) (kề cạnh \(AB\)); \(\widehat{D} = \widehat{B} = 115^\circ\).`],
+        r4`\(\widehat{C} = 65^\circ\); \(\widehat{B} = \widehat{D} = 115^\circ\).`
+      ),
+      gx(
+        2,
+        r4`Hình bình hành \(ABCD\) có chu vi 30 cm và \(AB - AD = 3\) cm. Hai đường chéo \(AC = 12\) cm, \(BD = 8\) cm cắt nhau tại \(O\). Tính \(AB\), \(AD\), \(OA\), \(OB\).`,
+        `A(0,0) B(5,0) C(7,3) D(2,3) O(3.5,1.5)
+ABCDA AC BD`,
+        r4`Hình bình hành \(ABCD\), chu vi 30 cm, \(AB - AD = 3\) cm, \(AC = 12\) cm, \(BD = 8\) cm`,
+        r4`\(AB, AD, OA, OB = ?\)`,
+        "Chu vi cho t\u1ED5ng hai c\u1EA1nh k\u1EC1; k\u1EBFt h\u1EE3p v\u1EDBi hi\u1EC7u \u0111\u1EC3 t\xECm t\u1EEBng c\u1EA1nh. \u0110\u01B0\u1EDDng ch\xE9o b\u1ECB chia \u0111\xF4i t\u1EA1i \\(O\\).",
+        "C\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau; hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m m\u1ED7i \u0111\u01B0\u1EDDng.",
+        [r4`Chu vi \(= 2(AB + AD) = 30\) nên \(AB + AD = 15\).`, r4`Kết hợp \(AB - AD = 3\): \(AB = 9\) cm, \(AD = 6\) cm.`, r4`\(OA = \dfrac{AC}{2} = 6\) cm; \(OB = \dfrac{BD}{2} = 4\) cm.`],
+        r4`\(AB = 9\) cm, \(AD = 6\) cm, \(OA = 6\) cm, \(OB = 4\) cm.`
+      )
+    ],
+    "dung-tinh-chat-hinh-binh-hanh": [
+      gx(
+        2,
+        r4`Cho hình bình hành \(ABCD\). Kẻ \(AH \perp BD\), \(CK \perp BD\) (\(H, K \in BD\)). Chứng minh \(AH = CK\).`,
+        `A(0,0) B(4,0) C(6,3) D(2,3) H(2.77,1.85) K(3.23,1.15)
+ABCDA BD AH CK
+vuong(A,H,B) vuong(C,K,D)`,
+        r4`Hình bình hành \(ABCD\); \(AH \perp BD\), \(CK \perp BD\)`,
+        r4`\(AH = CK\)`,
+        r4`\(AH\), \(CK\) là cạnh của hai tam giác vuông \(ABH\), \(CDK\); chúng có cạnh huyền bằng nhau và một góc nhọn bằng nhau.`,
+        "T\xEDnh ch\u1EA5t h\xECnh b\xECnh h\xE0nh; g\xF3c so le trong; tr\u01B0\u1EDDng h\u1EE3p b\u1EB1ng nhau c\u1EA1nh huy\u1EC1n \u2013 g\xF3c nh\u1ECDn.",
+        [r4`\(AB = CD\) (cạnh đối hình bình hành) và \(AB \parallel CD\) nên \(\widehat{ABH} = \widehat{CDK}\) (so le trong).`, r4`\(\triangle ABH\) và \(\triangle CDK\) vuông tại \(H\), \(K\) có cạnh huyền \(AB = CD\) và góc nhọn bằng nhau nên bằng nhau.`, r4`Suy ra \(AH = CK\).`],
+        r4`\(AH = CK\).`
+      ),
+      gx(
+        3,
+        r4`Cho hình bình hành \(ABCD\). Gọi \(E\), \(F\) lần lượt là trung điểm của \(AB\), \(CD\). Chứng minh \(DE = BF\) và \(DE \parallel BF\).`,
+        `A(0,0) B(6,0) C(8,3) D(2,3) E(3,0) F(5,3)
+ABCDA DE BF`,
+        r4`Hình bình hành \(ABCD\); \(EA = EB\), \(FC = FD\)`,
+        r4`\(DE = BF\); \(DE \parallel BF\)`,
+        r4`Chứng minh \(DEBF\) là hình bình hành: có cặp cạnh \(EB\), \(DF\) song song và bằng nhau.`,
+        "T\xEDnh ch\u1EA5t v\xE0 d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh.",
+        [r4`\(EB = \dfrac{AB}{2}\), \(DF = \dfrac{CD}{2}\) mà \(AB = CD\) nên \(EB = DF\).`, r4`\(EB \parallel DF\) (vì \(AB \parallel CD\)).`, r4`Tứ giác \(DEBF\) có hai cạnh đối \(EB\), \(DF\) song song và bằng nhau nên là hình bình hành.`, r4`Do đó \(DE = BF\) và \(DE \parallel BF\).`],
+        r4`\(DE = BF\) và \(DE \parallel BF\).`,
+        "Mu\u1ED1n ch\u1EE9ng minh hai \u0111o\u1EA1n v\u1EEBa song song v\u1EEBa b\u1EB1ng nhau, h\xE3y ch\u1EE9ng minh ch\xFAng l\xE0 hai c\u1EA1nh \u0111\u1ED1i c\u1EE7a m\u1ED9t h\xECnh b\xECnh h\xE0nh."
+      )
+    ],
+    "chung-minh-hinh-binh-hanh": [
+      gx(
+        2,
+        r4`Cho tam giác \(ABC\), \(M\) là trung điểm của \(BC\). Lấy điểm \(D\) sao cho \(M\) là trung điểm của \(AD\). Chứng minh \(ABDC\) là hình bình hành.`,
+        `A(1,4) B(0,0) C(5,0) M(2.5,0) D(4,-4)
+ABCA AD:dash BD DC`,
+        r4`\(\triangle ABC\); \(MB = MC\); \(MA = MD\)`,
+        r4`\(ABDC\) là hình bình hành`,
+        r4`Hai đoạn \(AD\), \(BC\) là hai đường chéo của tứ giác \(ABDC\) và cắt nhau tại trung điểm \(M\) của mỗi đường.`,
+        "D\u1EA5u hi\u1EC7u: hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m c\u1EE7a m\u1ED7i \u0111\u01B0\u1EDDng.",
+        [r4`Tứ giác \(ABDC\) có hai đường chéo \(AD\) và \(BC\) cắt nhau tại \(M\).`, r4`\(M\) là trung điểm của \(BC\) và của \(AD\).`, r4`Vậy \(ABDC\) là hình bình hành.`],
+        r4`\(ABDC\) là hình bình hành.`
+      ),
+      gx(
+        3,
+        r4`Cho hình bình hành \(ABCD\), \(O\) là giao điểm hai đường chéo. Trên đường chéo \(AC\) lấy hai điểm \(E\), \(F\) sao cho \(AE = CF\) (\(E\) nằm giữa \(A\) và \(O\)). Chứng minh \(BEDF\) là hình bình hành.`,
+        `A(0,0) B(6,0) C(8,4) D(2,4) O(4,2) E(1.6,0.8) F(6.4,3.2)
+ABCDA AC BD BEDFB`,
+        r4`Hình bình hành \(ABCD\), \(O = AC \cap BD\); \(E, F \in AC\), \(AE = CF\)`,
+        r4`\(BEDF\) là hình bình hành`,
+        r4`Tứ giác \(BEDF\) có hai đường chéo \(EF\) và \(BD\) cùng đi qua \(O\); cần \(OE = OF\).`,
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ch\xE9o h\xECnh b\xECnh h\xE0nh; d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh.",
+        [r4`\(O\) là trung điểm của \(AC\) và \(BD\): \(OA = OC\), \(OB = OD\).`, r4`\(OE = OA - AE\), \(OF = OC - CF\) mà \(OA = OC\), \(AE = CF\) nên \(OE = OF\).`, r4`Tứ giác \(BEDF\) có hai đường chéo \(BD\), \(EF\) cắt nhau tại trung điểm \(O\) của mỗi đường nên là hình bình hành.`],
+        r4`\(BEDF\) là hình bình hành.`
+      )
+    ],
+    "thang-hang-dong-quy-hinh-binh-hanh": [
+      gx(
+        3,
+        r4`Cho hình bình hành \(ABCD\), \(O\) là giao điểm hai đường chéo. Gọi \(M\), \(N\) lần lượt là trung điểm của \(AD\), \(BC\). Chứng minh ba điểm \(M\), \(O\), \(N\) thẳng hàng.`,
+        `A(0,0) B(6,0) C(8,3) D(2,3) O(4,1.5) M(1,1.5) N(7,1.5)
+ABCDA AC BD AN CM MN:dash`,
+        r4`Hình bình hành \(ABCD\), \(O = AC \cap BD\); \(MA = MD\), \(NB = NC\)`,
+        r4`\(M, O, N\) thẳng hàng`,
+        r4`Tìm một hình bình hành nhận \(AC\) và \(MN\) làm hai đường chéo: khi đó \(MN\) đi qua trung điểm \(O\) của \(AC\).`,
+        "D\u1EA5u hi\u1EC7u h\xECnh b\xECnh h\xE0nh; hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m m\u1ED7i \u0111\u01B0\u1EDDng; m\u1ED9t \u0111o\u1EA1n th\u1EB3ng ch\u1EC9 c\xF3 m\u1ED9t trung \u0111i\u1EC3m.",
+        [r4`\(AM = \dfrac{AD}{2}\), \(NC = \dfrac{BC}{2}\) mà \(AD = BC\) nên \(AM = NC\); lại có \(AM \parallel NC\).`, r4`Tứ giác \(AMCN\) có \(AM\), \(NC\) song song và bằng nhau nên là hình bình hành.`, r4`Hai đường chéo \(AC\), \(MN\) của nó cắt nhau tại trung điểm của \(AC\), chính là \(O\).`, r4`Vậy \(MN\) đi qua \(O\): \(M\), \(O\), \(N\) thẳng hàng.`],
+        r4`\(M\), \(O\), \(N\) thẳng hàng.`,
+        "Ch\u1EE9ng minh th\u1EB3ng h\xE0ng: ch\u1EC9 ra \u0111o\u1EA1n th\u1EB3ng n\u1ED1i hai \u0111i\u1EC3m \u0111i qua trung \u0111i\u1EC3m \u0111\xE3 bi\u1EBFt."
+      ),
+      gx(
+        4,
+        r4`Cho hình bình hành \(ABCD\). Gọi \(E\), \(F\) lần lượt là trung điểm của \(AB\), \(CD\); \(M\) là giao điểm của \(AF\) và \(DE\); \(N\) là giao điểm của \(BF\) và \(CE\). Chứng minh ba đường thẳng \(AC\), \(EF\), \(MN\) đồng quy.`,
+        `A(0,0) B(8,0) C(10,4) D(2,4) E(4,0) F(6,4) M(3,2) N(7,2) I(5,2)
+ABCDA AF DE BF CE AC:dash EF MN:dash`,
+        r4`Hình bình hành \(ABCD\); \(E\), \(F\) là trung điểm của \(AB\), \(CD\); \(M = AF \cap DE\), \(N = BF \cap CE\)`,
+        r4`\(AC\), \(EF\), \(MN\) đồng quy`,
+        r4`Ba đoạn \(AC\), \(EF\), \(MN\) cùng đi qua trung điểm \(I\) của \(EF\) nếu \(AECF\) và \(EMFN\) đều là hình bình hành.`,
+        "D\u1EA5u hi\u1EC7u, t\xEDnh ch\u1EA5t h\xECnh b\xECnh h\xE0nh; ba \u0111\u01B0\u1EDDng th\u1EB3ng \u0111\u1ED3ng quy khi c\xF9ng \u0111i qua m\u1ED9t \u0111i\u1EC3m.",
+        [r4`\(AE = CF\), \(AE \parallel CF\) nên \(AECF\) là hình bình hành, suy ra \(AF \parallel CE\).`, r4`Tương tự \(EB = DF\), \(EB \parallel DF\) nên \(EBFD\) là hình bình hành, suy ra \(DE \parallel BF\).`, r4`Tứ giác \(EMFN\) có \(EM \parallel NF\) và \(MF \parallel EN\) nên là hình bình hành. Hai đường chéo \(EF\), \(MN\) cắt nhau tại trung điểm \(I\) của \(EF\).`, r4`Hai đường chéo \(AC\), \(EF\) của hình bình hành \(AECF\) cũng cắt nhau tại trung điểm \(I\) của \(EF\).`, r4`Vậy \(AC\), \(EF\), \(MN\) cùng đi qua \(I\): ba đường thẳng đồng quy.`],
+        r4`Ba đường thẳng \(AC\), \(EF\), \(MN\) đồng quy tại trung điểm của \(EF\).`,
+        "Ch\u1EE9ng minh \u0111\u1ED3ng quy: t\xECm m\u1ED9t \u0111i\u1EC3m chung (th\u01B0\u1EDDng l\xE0 trung \u0111i\u1EC3m) m\xE0 c\u1EA3 ba \u0111\u01B0\u1EDDng c\xF9ng \u0111i qua."
+      )
+    ]
+  },
+  notes: {
+    "tinh-goc-canh-hinh-binh-hanh": "G\xF3c \u0111\u1ED1i b\u1EB1ng nhau, hai g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh b\xF9 nhau; chu vi b\u1EB1ng hai l\u1EA7n t\u1ED5ng hai c\u1EA1nh k\u1EC1.",
+    "dung-tinh-chat-hinh-binh-hanh": "D\xF9ng c\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau, song song (t\u1EA1o g\xF3c so le trong) \u0111\u1EC3 ch\u1EE9ng minh c\xE1c tam gi\xE1c b\u1EB1ng nhau.",
+    "chung-minh-hinh-binh-hanh": "Ch\u1ECDn d\u1EA5u hi\u1EC7u ph\xF9 h\u1EE3p v\u1EDBi gi\u1EA3 thi\u1EBFt: c\xF3 trung \u0111i\u1EC3m \u2192 d\xF9ng \u0111\u01B0\u1EDDng ch\xE9o; c\xF3 song song v\xE0 b\u1EB1ng nhau \u2192 d\xF9ng m\u1ED9t c\u1EB7p c\u1EA1nh \u0111\u1ED1i.",
+    "thang-hang-dong-quy-hinh-binh-hanh": '\u0110\u01B0a v\u1EC1 "\u0111o\u1EA1n th\u1EB3ng \u0111i qua trung \u0111i\u1EC3m c\u1EE7a \u0111\u01B0\u1EDDng ch\xE9o"; m\u1ED9t \u0111o\u1EA1n th\u1EB3ng ch\u1EC9 c\xF3 m\u1ED9t trung \u0111i\u1EC3m.'
+  }
+};
+var BAI_13 = {
+  slug: "bai-13-hinh-chu-nhat",
+  applications: r4`- Thợ xây kiểm tra khung cửa, nền nhà có vuông hay không bằng cách đo hai đường chéo.
+- Tính diện tích, chu vi các vật hình chữ nhật: sân, phòng, màn hình.
+- Trung tuyến ứng với cạnh huyền giúp xác định tâm đường tròn đi qua ba đỉnh tam giác vuông.`,
+  theory: [
+    th("definition", "H\xECnh ch\u1EEF nh\u1EADt", r4`**Hình chữ nhật** là tứ giác có bốn góc vuông. Hình chữ nhật cũng là một hình bình hành, một hình thang cân.`),
+    th("theorem", "T\xEDnh ch\u1EA5t c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt", r4`Hình chữ nhật có tất cả các tính chất của hình bình hành và hình thang cân. Đặc biệt: **hai đường chéo bằng nhau và cắt nhau tại trung điểm của mỗi đường**.`, r4`AC = BD,\quad OA = OB = OC = OD`),
+    th("condition", "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh ch\u1EEF nh\u1EADt", r4`- Tứ giác có ba góc vuông.
+- Hình thang cân có một góc vuông.
+- Hình bình hành có một góc vuông.
+- Hình bình hành có hai đường chéo bằng nhau.`),
+    th("theorem", "Trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n", r4`- Trong tam giác vuông, đường trung tuyến ứng với cạnh huyền bằng nửa cạnh huyền.
+- Ngược lại, nếu một tam giác có đường trung tuyến ứng với một cạnh bằng nửa cạnh ấy thì tam giác đó vuông.`, r4`\triangle ABC \text{ vuông tại } A,\ MB = MC \Rightarrow AM = \dfrac{BC}{2}`),
+    th("special", "Tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t", r4`Tam giác vuông có một góc \(30^\circ\): cạnh góc vuông đối diện góc \(30^\circ\) bằng nửa cạnh huyền.`),
+    th("note", "L\u01B0u \xFD", r4`Hình bình hành có hai đường chéo **vuông góc** là hình thoi, không phải hình chữ nhật. Dấu hiệu hình chữ nhật dùng hai đường chéo **bằng nhau**.`)
+  ],
+  formulas: [
+    {
+      group: "H\xECnh ch\u1EEF nh\u1EADt",
+      items: [
+        fc("\u0110\u01B0\u1EDDng ch\xE9o h\xECnh ch\u1EEF nh\u1EADt", r4`AC = BD,\ OA = OB = OC = OD = \dfrac{AC}{2}`, r4`- \(O\): giao điểm hai đường chéo`, r4`\(AC = 10\) cm thì \(OA = OB = 5\) cm.`),
+        fc("Chu vi, di\u1EC7n t\xEDch", r4`P = 2(a + b),\quad S = a\cdot b`, r4`- \(a, b\): chiều dài, chiều rộng`, r4`\(a = 8\), \(b = 5\): \(P = 26\), \(S = 40\).`)
+      ]
+    },
+    {
+      group: "Tam gi\xE1c vu\xF4ng",
+      items: [
+        fc("Trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n", r4`AM = \dfrac{BC}{2}`, r4`- \(\triangle ABC\) vuông tại \(A\)
+- \(M\): trung điểm cạnh huyền \(BC\)`, r4`\(BC = 13\) cm thì \(AM = 6{,}5\) cm.`)
+      ]
+    }
+  ],
+  examples: {
+    "chung-minh-hinh-chu-nhat": [
+      gx(
+        2,
+        r4`Cho tam giác \(ABC\) vuông tại \(A\), \(M\) là một điểm trên cạnh \(BC\). Kẻ \(MD \perp AB\) (\(D \in AB\)), \(ME \perp AC\) (\(E \in AC\)). Chứng minh \(ADME\) là hình chữ nhật.`,
+        `A(0,0) B(0,4) C(6,0) M(3,2) D(0,2) E(3,0)
+ABCA MD ME
+vuong(B,A,C) vuong(A,D,M) vuong(A,E,M)`,
+        r4`\(\triangle ABC\) vuông tại \(A\); \(M \in BC\); \(MD \perp AB\), \(ME \perp AC\)`,
+        r4`\(ADME\) là hình chữ nhật`,
+        "\u0110\u1EBFm s\u1ED1 g\xF3c vu\xF4ng c\u1EE7a t\u1EE9 gi\xE1c \\(ADME\\).",
+        "D\u1EA5u hi\u1EC7u: t\u1EE9 gi\xE1c c\xF3 ba g\xF3c vu\xF4ng.",
+        [r4`\(\widehat{DAE} = 90^\circ\) (tam giác vuông tại \(A\)).`, r4`\(\widehat{ADM} = 90^\circ\) (\(MD \perp AB\)); \(\widehat{AEM} = 90^\circ\) (\(ME \perp AC\)).`, r4`Tứ giác \(ADME\) có ba góc vuông nên là hình chữ nhật.`],
+        r4`\(ADME\) là hình chữ nhật.`
+      ),
+      gx(
+        3,
+        r4`Cho tam giác \(ABC\) cân tại \(A\), đường cao \(AH\). Gọi \(I\) là trung điểm của \(AC\), \(K\) là điểm đối xứng với \(H\) qua \(I\). Chứng minh \(AHCK\) là hình chữ nhật.`,
+        `A(0,5) B(-3,0) C(3,0) H(0,0) I(1.5,2.5) K(3,5)
+ABCA AH HK:dash AK CK
+vuong(A,H,C)`,
+        r4`\(\triangle ABC\) cân tại \(A\), \(AH \perp BC\); \(IA = IC\); \(IH = IK\)`,
+        r4`\(AHCK\) là hình chữ nhật`,
+        r4`\(I\) là trung điểm của hai đoạn \(AC\) và \(HK\) nên \(AHCK\) là hình bình hành; cần thêm một góc vuông.`,
+        "D\u1EA5u hi\u1EC7u h\xECnh b\xECnh h\xE0nh (\u0111\u01B0\u1EDDng ch\xE9o); d\u1EA5u hi\u1EC7u h\xECnh ch\u1EEF nh\u1EADt (h\xECnh b\xECnh h\xE0nh c\xF3 m\u1ED9t g\xF3c vu\xF4ng).",
+        [r4`Tứ giác \(AHCK\) có hai đường chéo \(AC\), \(HK\) cắt nhau tại trung điểm \(I\) của mỗi đường nên là hình bình hành.`, r4`\(AH \perp BC\) nên \(\widehat{AHC} = 90^\circ\).`, r4`Hình bình hành \(AHCK\) có một góc vuông nên là hình chữ nhật.`],
+        r4`\(AHCK\) là hình chữ nhật.`
+      )
+    ],
+    "dung-tinh-chat-hinh-chu-nhat": [
+      gx(
+        2,
+        r4`Hình chữ nhật \(ABCD\) có hai đường chéo cắt nhau tại \(O\), \(AC = 10\) cm và \(\widehat{OAB} = 30^\circ\). Tính \(OA\), \(OB\) và \(\widehat{AOB}\).`,
+        `A(0,0) B(6,0) C(6,3.46) D(0,3.46) O(3,1.73)
+ABCDA AC BD`,
+        r4`Hình chữ nhật \(ABCD\), \(O = AC \cap BD\), \(AC = 10\) cm, \(\widehat{OAB} = 30^\circ\)`,
+        r4`\(OA, OB = ?\); \(\widehat{AOB} = ?\)`,
+        "Hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau v\xE0 c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m n\xEAn \\(OA = OB\\): tam gi\xE1c \\(OAB\\) c\xE2n.",
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ch\xE9o h\xECnh ch\u1EEF nh\u1EADt; tam gi\xE1c c\xE2n.",
+        [r4`\(OA = OB = \dfrac{AC}{2} = 5\) cm.`, r4`\(\triangle OAB\) cân tại \(O\) nên \(\widehat{OBA} = \widehat{OAB} = 30^\circ\).`, r4`\(\widehat{AOB} = 180^\circ - 2\cdot30^\circ = 120^\circ\).`],
+        r4`\(OA = OB = 5\) cm; \(\widehat{AOB} = 120^\circ\).`
+      ),
+      gx(
+        3,
+        r4`Cho hình chữ nhật \(ABCD\). Kẻ \(AH \perp BD\), \(CK \perp BD\) (\(H, K \in BD\)). Chứng minh \(AHCK\) là hình bình hành.`,
+        `A(0,0) B(6,0) C(6,4) D(0,4) H(1.85,2.77) K(4.15,1.23)
+ABCDA BD AH CK AK:dash CH:dash
+vuong(A,H,B) vuong(C,K,D)`,
+        r4`Hình chữ nhật \(ABCD\); \(AH \perp BD\), \(CK \perp BD\)`,
+        r4`\(AHCK\) là hình bình hành`,
+        r4`\(AH\) và \(CK\) cùng vuông góc với \(BD\) nên song song; chứng minh thêm \(AH = CK\).`,
+        "Quan h\u1EC7 vu\xF4ng g\xF3c \u2013 song song; tr\u01B0\u1EDDng h\u1EE3p b\u1EB1ng nhau c\u1EA1nh huy\u1EC1n \u2013 g\xF3c nh\u1ECDn; d\u1EA5u hi\u1EC7u h\xECnh b\xECnh h\xE0nh.",
+        [r4`\(AH \perp BD\), \(CK \perp BD\) nên \(AH \parallel CK\).`, r4`\(\triangle AHD\) và \(\triangle CKB\) vuông tại \(H\), \(K\): \(AD = CB\), \(\widehat{ADH} = \widehat{CBK}\) (so le trong, \(AD \parallel BC\)). Nên \(\triangle AHD = \triangle CKB\), suy ra \(AH = CK\).`, r4`Tứ giác \(AHCK\) có \(AH\), \(CK\) song song và bằng nhau nên là hình bình hành.`],
+        r4`\(AHCK\) là hình bình hành.`
+      )
+    ],
+    "trung-tuyen-ung-voi-canh-huyen": [
+      gx(
+        2,
+        r4`Tam giác \(ABC\) vuông tại \(A\) có đường trung tuyến \(AM = 6{,}5\) cm. Tính \(BC\).`,
+        `A(0,0) B(0,5) C(12,0) M(6,2.5)
+ABCA AM
+vuong(B,A,C)`,
+        r4`\(\triangle ABC\) vuông tại \(A\); \(MB = MC\); \(AM = 6{,}5\) cm`,
+        r4`\(BC = ?\)`,
+        "Trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n b\u1EB1ng n\u1EEDa c\u1EA1nh huy\u1EC1n.",
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n.",
+        [r4`\(AM = \dfrac{BC}{2}\).`, r4`\(BC = 2AM = 2\cdot6{,}5 = 13\) (cm).`],
+        r4`\(BC = 13\) cm.`
+      ),
+      gx(
+        3,
+        r4`Cho tam giác \(ABC\) vuông tại \(A\) có \(\widehat{B} = 60^\circ\), đường trung tuyến \(AM\). Chứng minh tam giác \(AMB\) đều và \(AB = \dfrac{BC}{2}\).`,
+        `A(0,0) B(0,3) C(5.2,0) M(2.6,1.5)
+ABCA AM
+vuong(B,A,C)`,
+        r4`\(\triangle ABC\) vuông tại \(A\), \(\widehat{B} = 60^\circ\); \(MB = MC\)`,
+        r4`\(\triangle AMB\) đều; \(AB = \dfrac{BC}{2}\)`,
+        r4`\(MA = MB\) nên tam giác \(AMB\) cân; tam giác cân có một góc \(60^\circ\) là tam giác đều.`,
+        "Trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n; tam gi\xE1c c\xE2n c\xF3 m\u1ED9t g\xF3c 60\xB0 l\xE0 tam gi\xE1c \u0111\u1EC1u.",
+        [r4`\(AM = \dfrac{BC}{2} = MB\) nên \(\triangle AMB\) cân tại \(M\).`, r4`Tam giác cân \(AMB\) có \(\widehat{B} = 60^\circ\) nên là tam giác đều.`, r4`Do đó \(AB = MB = \dfrac{BC}{2}\).`],
+        r4`\(\triangle AMB\) đều và \(AB = \dfrac{BC}{2}\).`,
+        '\u0110\xE2y l\xE0 t\xEDnh ch\u1EA5t "c\u1EA1nh g\xF3c vu\xF4ng \u0111\u1ED1i di\u1EC7n g\xF3c 30\xB0 b\u1EB1ng n\u1EEDa c\u1EA1nh huy\u1EC1n" (v\xEC \\(\\widehat{C} = 30^\\circ\\)).'
+      ),
+      gx(
+        4,
+        r4`Cho tam giác nhọn \(ABC\) có các đường cao \(BD\), \(CE\). Gọi \(M\), \(N\) lần lượt là trung điểm của \(BC\), \(DE\). Chứng minh \(MN \perp DE\).`,
+        `A(2,6) B(0,0) C(8,0) D(4,4) E(0.8,2.4) M(4,0) N(2.4,3.2)
+ABCA BD CE DE MD:dash ME:dash MN
+vuong(B,D,C) vuong(C,E,B)`,
+        r4`\(\triangle ABC\) nhọn; \(BD \perp AC\), \(CE \perp AB\); \(MB = MC\); \(ND = NE\)`,
+        r4`\(MN \perp DE\)`,
+        r4`\(M\) là trung điểm cạnh huyền chung của hai tam giác vuông \(BDC\), \(BEC\); từ đó \(MD = ME\) và \(MN\) là trung tuyến của tam giác cân \(MDE\).`,
+        "Trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n; trong tam gi\xE1c c\xE2n, \u0111\u01B0\u1EDDng trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh \u0111\xE1y \u0111\u1ED3ng th\u1EDDi l\xE0 \u0111\u01B0\u1EDDng cao.",
+        [r4`\(\triangle BDC\) vuông tại \(D\), \(DM\) là trung tuyến nên \(MD = \dfrac{BC}{2}\).`, r4`\(\triangle BEC\) vuông tại \(E\), \(EM\) là trung tuyến nên \(ME = \dfrac{BC}{2}\).`, r4`Suy ra \(MD = ME\): \(\triangle MDE\) cân tại \(M\).`, r4`\(MN\) là trung tuyến ứng với đáy \(DE\) nên cũng là đường cao: \(MN \perp DE\).`],
+        r4`\(MN \perp DE\).`,
+        "Khi th\u1EA5y nhi\u1EC1u g\xF3c vu\xF4ng chung m\u1ED9t c\u1EA1nh huy\u1EC1n, h\xE3y ngh\u0129 \u0111\u1EBFn trung \u0111i\u1EC3m c\u1EA1nh huy\u1EC1n."
+      )
+    ]
+  },
+  notes: {
+    "chung-minh-hinh-chu-nhat": "\u0110\xE3 c\xF3 h\xECnh b\xECnh h\xE0nh th\xEC ch\u1EC9 c\u1EA7n th\xEAm m\u1ED9t g\xF3c vu\xF4ng ho\u1EB7c hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau; ch\u01B0a c\xF3 th\xEC \u0111\u1EBFm \u0111\u1EE7 ba g\xF3c vu\xF4ng.",
+    "dung-tinh-chat-hinh-chu-nhat": "B\u1ED1n \u0111o\u1EA1n \\(OA, OB, OC, OD\\) b\u1EB1ng nhau t\u1EA1o ra c\xE1c tam gi\xE1c c\xE2n \u2013 r\u1EA5t hay d\xF9ng \u0111\u1EC3 t\xEDnh g\xF3c.",
+    "trung-tuyen-ung-voi-canh-huyen": "T\xECm tam gi\xE1c vu\xF4ng v\xE0 trung \u0111i\u1EC3m c\u1EA1nh huy\u1EC1n; nhi\u1EC1u tam gi\xE1c vu\xF4ng chung c\u1EA1nh huy\u1EC1n th\xEC c\xE1c \u0111\u1EC9nh g\xF3c vu\xF4ng c\xE1ch \u0111\u1EC1u trung \u0111i\u1EC3m \u0111\xF3."
+  }
+};
+var BAI_14 = {
+  slug: "bai-14-hinh-thoi-va-hinh-vuong",
+  applications: r4`- Hoa văn gạch lát, mắt lưới, biển báo giao thông hình thoi; ô bàn cờ, gạch men hình vuông.
+- Cơ cấu hình thoi trong kích nâng ô tô: hai đường chéo vuông góc giúp nâng thẳng đứng.
+- Tính diện tích hình thoi theo hai đường chéo: \(S = \dfrac{d_1d_2}{2}\).`,
+  theory: [
+    th("definition", "H\xECnh thoi", r4`**Hình thoi** là tứ giác có bốn cạnh bằng nhau. Hình thoi cũng là một hình bình hành.`),
+    th("theorem", "T\xEDnh ch\u1EA5t c\u1EE7a h\xECnh thoi", r4`Hình thoi có tất cả các tính chất của hình bình hành. Ngoài ra:
+- Hai đường chéo vuông góc với nhau.
+- Hai đường chéo là các đường phân giác của các góc của hình thoi.`, r4`AC \perp BD`),
+    th("condition", "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh thoi", r4`- Tứ giác có bốn cạnh bằng nhau.
+- Hình bình hành có hai cạnh kề bằng nhau.
+- Hình bình hành có hai đường chéo vuông góc.
+- Hình bình hành có một đường chéo là đường phân giác của một góc.`),
+    th("definition", "H\xECnh vu\xF4ng", r4`**Hình vuông** là tứ giác có bốn góc vuông và bốn cạnh bằng nhau. Hình vuông vừa là hình chữ nhật, vừa là hình thoi.`),
+    th("condition", "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh vu\xF4ng", r4`- Hình chữ nhật có hai cạnh kề bằng nhau, hoặc hai đường chéo vuông góc, hoặc một đường chéo là phân giác của một góc.
+- Hình thoi có một góc vuông, hoặc hai đường chéo bằng nhau.`),
+    th("property", "S\u01A1 \u0111\u1ED3 quan h\u1EC7 gi\u1EEFa c\xE1c t\u1EE9 gi\xE1c", r4`Mỗi mũi tên ghi điều kiện thêm vào để được tứ giác đặc biệt hơn.
+
+[sodo]
+T(1.5,0) Tứ giác
+H(1.5,1) Hình thang
+C(0,2) Hình thang cân
+B(2.5,2) Hình bình hành
+N(1.5,3)* Hình chữ nhật
+O(3.5,3)* Hình thoi
+V(2.5,4)** Hình vuông
+T > H : 2 cạnh đối song song
+H > C : 2 góc kề đáy bằng nhau
+H > B : 2 cạnh bên song song
+C > N : 1 góc vuông
+B > N : 1 góc vuông
+B > O : 2 cạnh kề bằng nhau
+N > V : 2 cạnh kề bằng nhau
+O > V : 1 góc vuông
+[/sodo]`),
+    th("note", "L\u01B0u \xFD", r4`Muốn dùng dấu hiệu "đường chéo vuông góc" hay "đường chéo là phân giác" thì tứ giác phải **là hình bình hành** trước.`)
+  ],
+  formulas: [
+    {
+      group: "H\xECnh thoi",
+      items: [
+        fc("Chu vi h\xECnh thoi", r4`P = 4a`, r4`- \(a\): độ dài cạnh`, r4`\(a = 6\) cm: \(P = 24\) cm.`),
+        fc("Di\u1EC7n t\xEDch h\xECnh thoi", r4`S = \dfrac{d_1\,d_2}{2}`, r4`- \(d_1, d_2\): độ dài hai đường chéo`, r4`\(d_1 = 8\), \(d_2 = 6\): \(S = 24\).`)
+      ]
+    },
+    {
+      group: "H\xECnh vu\xF4ng",
+      items: [
+        fc("Chu vi, di\u1EC7n t\xEDch h\xECnh vu\xF4ng", r4`P = 4a,\quad S = a^2`, r4`- \(a\): độ dài cạnh`, r4`\(a = 5\) cm: \(P = 20\) cm, \(S = 25\) cm².`),
+        fc("\u0110\u01B0\u1EDDng ch\xE9o h\xECnh vu\xF4ng", r4`AC = BD,\ AC \perp BD,\ OA = OB = OC = OD`, r4`- \(O\): giao điểm hai đường chéo`, r4`Tam giác \(OAB\) vuông cân tại \(O\).`)
+      ]
+    }
+  ],
+  examples: {
+    "tinh-goc-canh-hinh-thoi": [
+      gx(
+        1,
+        r4`Hình thoi \(ABCD\) có chu vi 24 cm và \(\widehat{A} = 50^\circ\). Tính độ dài cạnh và các góc của hình thoi.`,
+        `A(0,0) B(5,0) C(8.2,3.8) D(3.2,3.8)
+ABCDA`,
+        r4`Hình thoi \(ABCD\), chu vi 24 cm, \(\widehat{A} = 50^\circ\)`,
+        r4`Cạnh \(= ?\); \(\widehat{B}, \widehat{C}, \widehat{D} = ?\)`,
+        "H\xECnh thoi c\xF3 b\u1ED1n c\u1EA1nh b\u1EB1ng nhau v\xE0 l\xE0 h\xECnh b\xECnh h\xE0nh.",
+        "\u0110\u1ECBnh ngh\u0129a, t\xEDnh ch\u1EA5t h\xECnh thoi.",
+        [r4`Cạnh hình thoi: \(24 : 4 = 6\) (cm).`, r4`\(\widehat{C} = \widehat{A} = 50^\circ\); \(\widehat{B} = \widehat{D} = 180^\circ - 50^\circ = 130^\circ\).`],
+        r4`Cạnh 6 cm; \(\widehat{C} = 50^\circ\), \(\widehat{B} = \widehat{D} = 130^\circ\).`
+      ),
+      gx(
+        2,
+        r4`Hình thoi \(ABCD\) có hai đường chéo \(AC = 8\) cm, \(BD = 6\) cm cắt nhau tại \(O\) và \(\widehat{BAC} = 35^\circ\). Tính diện tích hình thoi, \(\widehat{AOB}\) và các góc của hình thoi.`,
+        `A(0,3) B(4,6) C(8,3) D(4,0) O(4,3)
+ABCDA AC BD
+vuong(A,O,B)`,
+        r4`Hình thoi \(ABCD\), \(AC = 8\) cm, \(BD = 6\) cm, \(\widehat{BAC} = 35^\circ\)`,
+        r4`\(S = ?\); \(\widehat{AOB} = ?\); các góc của hình thoi`,
+        "\u0110\u01B0\u1EDDng ch\xE9o h\xECnh thoi vu\xF4ng g\xF3c v\xE0 l\xE0 ph\xE2n gi\xE1c c\u1EE7a c\xE1c g\xF3c.",
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ch\xE9o h\xECnh thoi; di\u1EC7n t\xEDch h\xECnh thoi.",
+        [r4`\(S = \dfrac{AC\cdot BD}{2} = \dfrac{8\cdot6}{2} = 24\) (cm²).`, r4`\(AC \perp BD\) nên \(\widehat{AOB} = 90^\circ\).`, r4`\(AC\) là phân giác góc \(A\): \(\widehat{BAD} = 2\cdot35^\circ = 70^\circ\); \(\widehat{BCD} = 70^\circ\); \(\widehat{ABC} = \widehat{ADC} = 110^\circ\).`],
+        r4`\(S = 24\) cm²; \(\widehat{AOB} = 90^\circ\); các góc \(70^\circ, 110^\circ, 70^\circ, 110^\circ\).`
+      )
+    ],
+    "dung-tinh-chat-hinh-thoi-hinh-vuong": [
+      gx(
+        2,
+        r4`Cho hình vuông \(ABCD\), \(O\) là giao điểm hai đường chéo. Chứng minh tam giác \(OAB\) vuông cân.`,
+        `A(0,4) B(4,4) C(4,0) D(0,0) O(2,2)
+ABCDA AC BD
+vuong(A,O,B)`,
+        r4`Hình vuông \(ABCD\); \(O = AC \cap BD\)`,
+        r4`\(\triangle OAB\) vuông cân tại \(O\)`,
+        "H\xECnh vu\xF4ng v\u1EEBa l\xE0 h\xECnh ch\u1EEF nh\u1EADt (\u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau) v\u1EEBa l\xE0 h\xECnh thoi (\u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c).",
+        "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt, h\xECnh thoi.",
+        [r4`Hình vuông là hình chữ nhật nên \(OA = OB\).`, r4`Hình vuông là hình thoi nên \(AC \perp BD\), tức \(\widehat{AOB} = 90^\circ\).`, r4`Vậy \(\triangle OAB\) vuông cân tại \(O\).`],
+        r4`\(\triangle OAB\) vuông cân tại \(O\).`
+      ),
+      gx(
+        3,
+        r4`Cho hình vuông \(ABCD\). Trên các cạnh \(AB\), \(BC\) lấy \(E\), \(F\) sao cho \(AE = BF\). Chứng minh \(DE = AF\) và \(DE \perp AF\).`,
+        `A(0,4) B(4,4) C(4,0) D(0,0) E(1.5,4) F(4,2.5) I(1.32,3.51)
+ABCDA DE AF
+vuong(A,I,E)`,
+        r4`Hình vuông \(ABCD\); \(E \in AB\), \(F \in BC\), \(AE = BF\); \(I = DE \cap AF\)`,
+        r4`\(DE = AF\); \(DE \perp AF\)`,
+        r4`Hai tam giác vuông \(DAE\) và \(ABF\) bằng nhau; từ cặp góc bằng nhau suy ra góc tại \(I\) vuông.`,
+        "T\xEDnh ch\u1EA5t h\xECnh vu\xF4ng; tr\u01B0\u1EDDng h\u1EE3p b\u1EB1ng nhau c.g.c; t\u1ED5ng hai g\xF3c nh\u1ECDn trong tam gi\xE1c vu\xF4ng.",
+        [r4`\(\triangle DAE\) và \(\triangle ABF\): \(DA = AB\), \(\widehat{DAE} = \widehat{ABF} = 90^\circ\), \(AE = BF\). Nên \(\triangle DAE = \triangle ABF\) (c.g.c), suy ra \(DE = AF\) và \(\widehat{ADE} = \widehat{BAF}\).`, r4`Trong \(\triangle DAE\) vuông tại \(A\): \(\widehat{ADE} + \widehat{AED} = 90^\circ\).`, r4`Xét \(\triangle AIE\): \(\widehat{IAE} + \widehat{AEI} = \widehat{ADE} + \widehat{AED} = 90^\circ\), nên \(\widehat{AIE} = 90^\circ\).`],
+        r4`\(DE = AF\) và \(DE \perp AF\).`,
+        "Ch\u1EE9ng minh vu\xF4ng g\xF3c: t\xECm tam gi\xE1c c\xF3 hai g\xF3c nh\u1ECDn v\u1EDBi t\u1ED5ng b\u1EB1ng 90\xB0."
+      )
+    ],
+    "chung-minh-hinh-thoi-hinh-vuong": [
+      gx(
+        2,
+        r4`Cho tam giác \(ABC\) cân tại \(A\), \(M\) là trung điểm của \(BC\). Lấy \(D\) đối xứng với \(A\) qua \(M\). Chứng minh \(ABDC\) là hình thoi.`,
+        `A(0,6) B(-3,0) C(3,0) M(0,0) D(0,-6)
+ABDCA AD BC`,
+        r4`\(\triangle ABC\) cân tại \(A\); \(MB = MC\); \(MA = MD\)`,
+        r4`\(ABDC\) là hình thoi`,
+        "Ch\u1EE9ng minh h\xECnh b\xECnh h\xE0nh (\u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m), sau \u0111\xF3 c\xF3 hai c\u1EA1nh k\u1EC1 b\u1EB1ng nhau.",
+        "D\u1EA5u hi\u1EC7u h\xECnh b\xECnh h\xE0nh; d\u1EA5u hi\u1EC7u h\xECnh thoi.",
+        [r4`Tứ giác \(ABDC\) có hai đường chéo \(AD\), \(BC\) cắt nhau tại trung điểm \(M\) của mỗi đường nên là hình bình hành.`, r4`Hình bình hành \(ABDC\) có hai cạnh kề \(AB = AC\) nên là hình thoi.`],
+        r4`\(ABDC\) là hình thoi.`
+      ),
+      gx(
+        3,
+        r4`Cho hình chữ nhật \(ABCD\) có \(AB = 2AD\). Gọi \(M\), \(N\) lần lượt là trung điểm của \(AB\), \(CD\). Chứng minh \(AMND\) là hình vuông.`,
+        `A(0,3) B(6,3) C(6,0) D(0,0) M(3,3) N(3,0)
+ABCDA MN`,
+        r4`Hình chữ nhật \(ABCD\), \(AB = 2AD\); \(MA = MB\), \(NC = ND\)`,
+        r4`\(AMND\) là hình vuông`,
+        r4`Đi qua các bước: hình bình hành → hình chữ nhật (góc vuông) → hình vuông (hai cạnh kề bằng nhau).`,
+        "D\u1EA5u hi\u1EC7u h\xECnh b\xECnh h\xE0nh, h\xECnh ch\u1EEF nh\u1EADt, h\xECnh vu\xF4ng.",
+        [r4`\(AM = \dfrac{AB}{2}\), \(DN = \dfrac{CD}{2}\), \(AB = CD\), \(AB \parallel CD\) nên \(AM\), \(DN\) song song và bằng nhau: \(AMND\) là hình bình hành.`, r4`\(\widehat{A} = 90^\circ\) nên \(AMND\) là hình chữ nhật.`, r4`\(AM = \dfrac{AB}{2} = AD\): hình chữ nhật có hai cạnh kề bằng nhau nên \(AMND\) là hình vuông.`],
+        r4`\(AMND\) là hình vuông.`
+      )
+    ],
+    "dieu-kien-hinh-thoi-hinh-vuong": [
+      gx(
+        3,
+        r4`Cho tam giác \(ABC\) vuông tại \(A\), \(M\) là trung điểm của \(BC\). Kẻ \(MD \perp AB\), \(ME \perp AC\) (\(D \in AB\), \(E \in AC\)).
+a) Tứ giác \(ADME\) là hình gì?
+b) Tam giác \(ABC\) cần thêm điều kiện gì để \(ADME\) là hình vuông?`,
+        `A(0,0) B(0,4) C(4,0) M(2,2) D(0,2) E(2,0)
+ABCA MD ME AM:dash
+vuong(B,A,C) vuong(A,D,M) vuong(A,E,M)`,
+        r4`\(\triangle ABC\) vuông tại \(A\); \(MB = MC\); \(MD \perp AB\), \(ME \perp AC\)`,
+        r4`a) \(ADME\) là hình gì? b) Điều kiện để \(ADME\) là hình vuông`,
+        r4`a) Đếm góc vuông. b) Hình chữ nhật là hình vuông khi đường chéo \(AM\) là phân giác góc \(A\); kết hợp \(MA = MB\).`,
+        "D\u1EA5u hi\u1EC7u h\xECnh ch\u1EEF nh\u1EADt, h\xECnh vu\xF4ng; trung tuy\u1EBFn \u1EE9ng v\u1EDBi c\u1EA1nh huy\u1EC1n.",
+        [r4`a) \(ADME\) có ba góc vuông (\(\widehat{A}\), \(\widehat{D}\), \(\widehat{E}\)) nên là hình chữ nhật.`, r4`b) Hình chữ nhật \(ADME\) là hình vuông khi và chỉ khi đường chéo \(AM\) là phân giác của \(\widehat{DAE}\), tức \(\widehat{BAM} = 45^\circ\).`, r4`\(MA = MB = \dfrac{BC}{2}\) nên \(\triangle MAB\) cân tại \(M\): \(\widehat{B} = \widehat{BAM}\).`, r4`Do đó \(ADME\) là hình vuông khi và chỉ khi \(\widehat{B} = 45^\circ\), tức \(\triangle ABC\) vuông cân tại \(A\).`],
+        r4`a) Hình chữ nhật. b) Khi tam giác \(ABC\) vuông cân tại \(A\).`,
+        "B\xE0i t\xECm \u0111i\u1EC1u ki\u1EC7n: gi\u1EA3 s\u1EED h\xECnh \u0111\xE3 l\xE0 h\xECnh vu\xF4ng, suy ra \u0111i\u1EC1u ki\u1EC7n, r\u1ED3i ki\u1EC3m tra \u0111i\u1EC1u ki\u1EC7n \u0111\xF3 l\xE0 \u0111\u1EE7."
+      ),
+      gx(
+        4,
+        r4`Cho hình bình hành \(ABCD\) có \(AB = 2AD\). Gọi \(E\), \(F\) lần lượt là trung điểm của \(AB\), \(CD\).
+a) Chứng minh \(AEFD\) là hình thoi.
+b) Hình bình hành \(ABCD\) cần thêm điều kiện gì để \(AEFD\) là hình vuông?`,
+        `A(0,0) B(6,0) C(7.5,2.6) D(1.5,2.6) E(3,0) F(4.5,2.6)
+ABCDA EF`,
+        r4`Hình bình hành \(ABCD\), \(AB = 2AD\); \(EA = EB\), \(FC = FD\)`,
+        r4`a) \(AEFD\) là hình thoi; b) Điều kiện để \(AEFD\) là hình vuông`,
+        r4`a) Hình bình hành có hai cạnh kề bằng nhau. b) Hình thoi là hình vuông khi có một góc vuông.`,
+        "D\u1EA5u hi\u1EC7u h\xECnh b\xECnh h\xE0nh, h\xECnh thoi, h\xECnh vu\xF4ng.",
+        [r4`a) \(AE = DF\) (nửa hai cạnh đối bằng nhau) và \(AE \parallel DF\) nên \(AEFD\) là hình bình hành.`, r4`\(AE = \dfrac{AB}{2} = AD\): hình bình hành có hai cạnh kề bằng nhau nên là hình thoi.`, r4`b) Hình thoi \(AEFD\) là hình vuông khi và chỉ khi \(\widehat{DAE} = 90^\circ\).`, r4`\(\widehat{DAE} = \widehat{DAB}\) nên điều kiện là \(\widehat{A} = 90^\circ\), tức \(ABCD\) là hình chữ nhật.`],
+        r4`a) \(AEFD\) là hình thoi. b) Khi \(ABCD\) là hình chữ nhật (có \(AB = 2AD\)).`
+      )
+    ]
+  },
+  notes: {
+    "tinh-goc-canh-hinh-thoi": "D\xF9ng b\u1ED1n c\u1EA1nh b\u1EB1ng nhau, \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c v\xE0 l\xE0 ph\xE2n gi\xE1c; di\u1EC7n t\xEDch h\xECnh thoi b\u1EB1ng n\u1EEDa t\xEDch hai \u0111\u01B0\u1EDDng ch\xE9o.",
+    "dung-tinh-chat-hinh-thoi-hinh-vuong": "H\xECnh vu\xF4ng c\xF3 \u0111\u1EE7 t\xEDnh ch\u1EA5t c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt v\xE0 h\xECnh thoi: t\u1EADn d\u1EE5ng c\u1EA3 c\u1EA1nh b\u1EB1ng nhau l\u1EABn g\xF3c vu\xF4ng.",
+    "chung-minh-hinh-thoi-hinh-vuong": "Th\u01B0\u1EDDng \u0111i theo chu\u1ED7i: h\xECnh b\xECnh h\xE0nh \u2192 h\xECnh ch\u1EEF nh\u1EADt / h\xECnh thoi \u2192 h\xECnh vu\xF4ng, m\u1ED7i b\u01B0\u1EDBc m\u1ED9t d\u1EA5u hi\u1EC7u.",
+    "dieu-kien-hinh-thoi-hinh-vuong": "Gi\u1EA3 s\u1EED t\u1EE9 gi\xE1c \u0111\xE3 l\xE0 h\xECnh c\u1EA7n t\xECm, suy ra \u0111i\u1EC1u ki\u1EC7n c\u1EE7a h\xECnh ban \u0111\u1EA7u; tr\xECnh b\xE0y l\u1EA1i theo chi\u1EC1u thu\u1EADn."
+  }
+};
+var CHUONG_32 = [BAI_10, BAI_11, BAI_12, BAI_13, BAI_14];
+
 // src/seed/toan8-lessons/index.ts
-var TOAN8_LESSONS = [...CHUONG_12];
+var TOAN8_LESSONS = [...CHUONG_12, ...CHUONG_22, ...CHUONG_32];
 
 // src/seed/lesson-content.ts
 async function applyLessonContent(db, log = console.log) {
