@@ -288,6 +288,10 @@ export function createServer(router: Router, db: Database, cfg: AppConfig) {
         res.statusCode = result.status;
         res.setHeader('Content-Type', result.contentType);
         res.setHeader('Cache-Control', result.cacheSeconds ? `private, max-age=${result.cacheSeconds}` : 'no-store');
+        if (result.filename) {
+          const ascii = result.filename.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^\w.-]+/g, '-');
+          res.setHeader('Content-Disposition', `attachment; filename="${ascii}"; filename*=UTF-8''${encodeURIComponent(result.filename)}`);
+        }
         res.end(result.body);
         break;
     }

@@ -1,12 +1,15 @@
 import type { QuestionView } from '../domain/questions';
+import EssayInput from './EssayInput';
 
 /** Câu trả lời phía trình duyệt (chưa kiểm tra) – máy chủ luôn kiểm tra lại. */
-export type AnswerValue = { choice?: string; values?: Record<string, boolean>; text?: string };
+export type AnswerValue = { choice?: string; values?: Record<string, boolean>; text?: string; images?: number[] };
 
 export interface Reveal {
   correctChoice?: string;
   correctValues?: Record<string, boolean>;
   acceptedHtml?: string[];
+  /** Giải thích từng phương án (theo nhãn hiển thị) / từng nhận định. */
+  notesHtml?: Record<string, string>;
 }
 
 export function csrfToken(): string {
@@ -38,7 +41,7 @@ export function isAnswered(q: QuestionView, v: AnswerValue | undefined): boolean
   if (!v) return false;
   if (q.type === 'mcq') return !!v.choice;
   if (q.type === 'true_false') return Object.keys(v.values ?? {}).length > 0;
-  return !!v.text?.trim();
+  return !!v.text?.trim() || !!v.images?.length;
 }
 
 export function isComplete(q: QuestionView, v: AnswerValue | undefined): boolean {
@@ -68,12 +71,14 @@ export function AnswerInput({
   onChange,
   disabled,
   reveal,
+  onUpload,
 }: {
   q: QuestionView;
   value: AnswerValue | undefined;
   onChange: (v: AnswerValue) => void;
   disabled?: boolean;
   reveal?: Reveal | null;
+  onUpload?: (file: File) => Promise<number>;
 }) {
   if (q.type === 'mcq') {
     return (
@@ -127,7 +132,15 @@ export function AnswerInput({
           return (
             <div key={s.label} className={cls('flex flex-wrap items-center gap-3 px-4 py-3', i > 0 && 'border-t border-line', reveal && (ok ? 'bg-tre-soft/60' : 'bg-le-soft/50'))}>
               <span className="font-bold text-tim-700">{s.label})</span>
-              <span className="prose-math min-w-[200px] flex-1" dangerouslySetInnerHTML={{ __html: s.html }} />
+              <span className="min-w-[200px] flex-1">
+                <span className="prose-math" dangerouslySetInnerHTML={{ __html: s.html }} />
+                {reveal?.notesHtml?.[s.label] && (
+                  <span className="mt-1 block text-[14px] text-ink-2">
+                    <strong className={correct ? 'text-tre' : 'text-le'}>{correct ? 'Đúng' : 'Sai'}:</strong>{' '}
+                    <span className="prose-math" dangerouslySetInnerHTML={{ __html: reveal.notesHtml[s.label] }} />
+                  </span>
+                )}
+              </span>
               <div className="flex gap-2" role="radiogroup" aria-label={`Ý ${s.label}`}>
                 {[true, false].map((b) => {
                   const chosen = v === b;
@@ -181,11 +194,14 @@ export function AnswerInput({
               'w-full rounded-xl border-2 bg-white px-4 py-2.5 text-lg font-semibold focus:outline-none focus:ring-4 focus:ring-tim-100',
               reveal ? 'border-line' : 'border-line-2 focus:border-tim-500',
             )}
-            placeholder="Ví dụ: -1,5 hoặc 3/4"
+            placeholder="Ví dụ: -1,5 · 3/4 · 2x + 1 · x = 1; x = -2"
           />
           {q.unit && <span className="text-lg font-semibold text-ink-2">{q.unit}</span>}
         </div>
-        <p className="mt-1.5 text-[13px] text-ink-3">Ghi số nguyên, số thập phân (dấu phẩy hoặc dấu chấm) hoặc phân số dạng a/b.</p>
+        <p className="mt-1.5 text-[13px] text-ink-3">
+          Số thập phân dùng dấu phẩy hoặc dấu chấm; phân số viết a/b; lũy thừa viết x^2; căn viết √ hoặc sqrt(); nhiều giá trị cách nhau bởi dấu ;
+          {q.unit ? ` · Đơn vị: ${q.unit} (ghi đơn vị khác cùng loại cũng được, ví dụ m thay cho cm).` : ''}
+        </p>
         {reveal?.acceptedHtml && (
           <p className="mt-2 text-[15px]">
             Đáp số đúng: <strong dangerouslySetInnerHTML={{ __html: reveal.acceptedHtml.join(' hoặc ') }} />
@@ -196,22 +212,5 @@ export function AnswerInput({
     );
   }
 
-  return (
-    <div>
-      <label className="mb-1.5 block text-sm font-semibold text-ink-2" htmlFor={`ans-${q.id}`}>
-        Bài làm của em
-      </label>
-      <textarea
-        id={`ans-${q.id}`}
-        rows={7}
-        maxLength={10000}
-        disabled={disabled}
-        value={value?.text ?? ''}
-        onChange={(e) => onChange({ text: e.target.value })}
-        className="w-full rounded-xl border-2 border-line-2 bg-white px-4 py-3 text-[16px] leading-relaxed focus:border-tim-500 focus:outline-none focus:ring-4 focus:ring-tim-100"
-        placeholder="Trình bày lời giải. Có thể viết công thức dạng \( x^2 + 1 \)."
-      />
-      <p className="mt-1.5 text-[13px] text-ink-3">Câu tự luận do giáo viên chấm.</p>
-    </div>
-  );
+  return <EssayInput id={`ans-${q.id}`} value={value} onChange={(v) => onChange(v)} disabled={disabled} onUpload={onUpload} />;
 }

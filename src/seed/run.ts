@@ -5,6 +5,7 @@ import { TOAN8_CONTENT } from './toan8-content';
 import { TOAN8_QUESTIONS, type SeedQuestion } from './toan8-questions';
 import { applyKnowledgeMap } from './knowledge-map';
 import { applyLessonContent } from './lesson-content';
+import { applyQuestionBank } from './question-bank';
 
 const LABELS_MCQ = ['A', 'B', 'C', 'D'];
 const LABELS_TF = ['a', 'b', 'c', 'd'];
@@ -147,4 +148,5 @@ export async function seedAll(db: Database, log: (m: string) => void = console.l
   await seedToan8(db, log);
   await applyKnowledgeMap(db, log);
   await applyLessonContent(db, log);
+  await applyQuestionBank(db, log);
 }

@@ -2,8 +2,11 @@ import { chooseByLevel } from '../shared/pick';
 import { sql, type Database, type Queryable } from '../server/db';
 import type { FormData } from '../server/http/context';
 import { QUESTION_TYPES, type AnswerKey, type QuestionSettings, type QuestionType } from '../shared/grading';
-import { escapeHtml, findMathErrors, renderRich, renderRichInline } from '../shared/richtext';
+import { escapeHtml, renderRich, renderRichInline } from '../shared/richtext';
 import { figureToSvg } from '../shared/figure';
+import { MATCH_MODES, type MatchMode } from '../shared/answer-match';
+import { checkQuestion } from '../shared/question-quality';
+import { reorderOptions, toDisplayLabel } from '../shared/shuffle';
 
 export interface QuestionImage {
   id: number;
@@ -22,29 +25,40 @@ export interface QuestionFull {
   stem: string;
   settings: QuestionSettings;
   points: number;
-  status: 'draft' | 'published' | 'archived';
+  status: QuestionStatus;
   source: string | null;
   createdBy: string | null;
   createdByName: string | null;
   createdAt: Date;
   updatedAt: Date;
-  answers: (AnswerKey & { id: number; sortOrder: number })[];
+  answers: (AnswerKey & { id: number; sortOrder: number; explanation: string | null })[];
   solution: string | null;
   hint: string | null;
+  rubric: string | null;
   images: QuestionImage[];
   usedInTests: number;
+  qualityIssues: string[];
+  verifiedAt: Date | null;
 }
+
+export type QuestionStatus = 'draft' | 'review' | 'published' | 'archived';
+export const QUESTION_STATUS_LABELS: Record<QuestionStatus, string> = {
+  draft: 'Bản nháp',
+  review: 'Chờ duyệt',
+  published: 'Đã xuất bản',
+  archived: 'Lưu trữ',
+};
 
 export async function getQuestions(q: Queryable, ids: number[]): Promise<QuestionFull[]> {
   if (!ids.length) return [];
-  const rows = await q.many<Omit<QuestionFull, 'answers' | 'solution' | 'hint' | 'images'>>(sql`
+  const rows = await q.many<Omit<QuestionFull, 'answers' | 'solution' | 'hint' | 'rubric' | 'images'>>(sql`
     select qq.id, et.code as type, qq.textbook_id, qq.lesson_id, qq.topic_id, qq.level, qq.stem, qq.settings, qq.points, qq.status,
-      qq.source, qq.created_by, u.full_name as created_by_name, qq.created_at, qq.updated_at,
+      qq.source, qq.created_by, u.full_name as created_by_name, qq.created_at, qq.updated_at, qq.quality_issues, qq.verified_at,
       (select count(*)::int from test_questions tq where tq.question_id = qq.id) as used_in_tests
     from questions qq join exercise_types et on et.id = qq.exercise_type_id left join users u on u.id = qq.created_by
     where qq.id = any(${ids}::int[])`);
-  const answers = await q.many<AnswerKey & { id: number; sortOrder: number; questionId: number }>(sql`
-    select id, question_id, label, content, is_correct, sort_order from answers where question_id = any(${ids}::int[]) order by sort_order`);
+  const answers = await q.many<AnswerKey & { id: number; sortOrder: number; questionId: number; explanation: string | null }>(sql`
+    select id, question_id, label, content, is_correct, sort_order, explanation from answers where question_id = any(${ids}::int[]) order by sort_order`);
   const sols = await q.many<{ questionId: number; kind: string; content: string }>(sql`
     select question_id, kind, content from solutions where question_id = any(${ids}::int[])`);
   const imgs = await q.many<QuestionImage & { questionId: number }>(sql`
@@ -59,6 +73,7 @@ export async function getQuestions(q: Queryable, ids: number[]): Promise<Questio
         answers: answers.filter((a) => a.questionId === r.id),
         solution: sols.find((s) => s.questionId === r.id && s.kind === 'full')?.content ?? null,
         hint: sols.find((s) => s.questionId === r.id && s.kind === 'hint')?.content ?? null,
+        rubric: sols.find((s) => s.questionId === r.id && s.kind === 'rubric')?.content ?? null,
         images: imgs.filter((i) => i.questionId === r.id),
       } as QuestionFull,
     ]),
@@ -95,7 +110,10 @@ export function imageHtml(img: QuestionImage): string {
   return `<img src="/media/${img.id}" alt="${escapeHtml(img.alt || 'Hình minh họa')}" loading="lazy" class="max-w-full h-auto rounded-lg">`;
 }
 
-export function toView(q: QuestionFull, includeHint = true): QuestionView {
+/**
+ * Đề bài cho học sinh – không kèm đáp án. `order` (ví dụ "CADB") là thứ tự phương án hiển thị khi đề được đảo phương án.
+ */
+export function toView(q: QuestionFull, includeHint = true, order?: string | null): QuestionView {
   const view: QuestionView = {
     id: q.id,
     type: q.type,
@@ -104,7 +122,7 @@ export function toView(q: QuestionFull, includeHint = true): QuestionView {
     stemHtml: renderRich(q.stem),
     mediaHtml: q.images.map(imageHtml),
   };
-  if (q.type === 'mcq') view.options = q.answers.map((a) => ({ label: a.label, html: renderRichInline(a.content) }));
+  if (q.type === 'mcq') view.options = reorderOptions(q.answers, order).map((a) => ({ label: a.label, html: renderRichInline(a.content) }));
   if (q.type === 'true_false') view.statements = q.answers.map((a) => ({ label: a.label, html: renderRichInline(a.content) }));
   if (q.type === 'short_answer' && q.settings.unit) view.unit = q.settings.unit;
   if (includeHint && q.hint) view.hintHtml = renderRich(q.hint);
@@ -116,14 +134,27 @@ export interface AnswerReveal {
   correctValues?: Record<string, boolean>;
   acceptedHtml?: string[];
   solutionHtml?: string;
+  /** Giải thích từng phương án (theo nhãn hiển thị) hoặc từng nhận định. */
+  notesHtml?: Record<string, string>;
 }
 
-export function revealAnswer(q: QuestionFull): AnswerReveal {
+export function revealAnswer(q: QuestionFull, order?: string | null): AnswerReveal {
   const out: AnswerReveal = {};
-  if (q.type === 'mcq') out.correctChoice = q.answers.find((a) => a.isCorrect)?.label;
+  if (q.type === 'mcq') {
+    const orig = q.answers.find((a) => a.isCorrect)?.label;
+    out.correctChoice = orig ? toDisplayLabel(order, orig) : undefined;
+  }
   if (q.type === 'true_false') out.correctValues = Object.fromEntries(q.answers.map((a) => [a.label, a.isCorrect]));
   if (q.type === 'short_answer') out.acceptedHtml = q.answers.map((a) => renderRichInline(a.content));
   if (q.solution) out.solutionHtml = renderRich(q.solution);
+  if (q.type === 'mcq' || q.type === 'true_false') {
+    const notes: Record<string, string> = {};
+    for (const a of q.answers) {
+      if (!a.explanation?.trim()) continue;
+      notes[q.type === 'mcq' ? toDisplayLabel(order, a.label) : a.label] = renderRichInline(a.explanation);
+    }
+    if (Object.keys(notes).length) out.notesHtml = notes;
+  }
   return out;
 }
 
@@ -147,6 +178,7 @@ export interface QuestionListRow {
   updatedAt: Date;
   responses: number;
   correctRate: number | null;
+  issueCount: number;
 }
 
 export interface QuestionFilters {
@@ -158,11 +190,13 @@ export interface QuestionFilters {
   mineOf?: string | null;
   search?: string | null;
   topicId?: number | null;
+  /** Chỉ câu có cảnh báo chất lượng. */
+  issues?: boolean;
 }
 
 function filterSql(f: QuestionFilters) {
   const type = f.type && (QUESTION_TYPES as string[]).includes(f.type) ? f.type : null;
-  const status = f.status && ['draft', 'published', 'archived'].includes(f.status) ? f.status : null;
+  const status = f.status && ['draft', 'review', 'published', 'archived'].includes(f.status) ? f.status : null;
   const search = f.search ? `%${f.search.toLowerCase()}%` : null;
   return sql`
     where qq.textbook_id = ${f.textbookId}
@@ -173,7 +207,8 @@ function filterSql(f: QuestionFilters) {
       and (${status}::text is null or qq.status = ${status})
       and (${status}::text is not null or qq.status <> 'archived')
       and (${f.mineOf ?? null}::uuid is null or qq.created_by = ${f.mineOf ?? null})
-      and (${search}::text is null or lower(qq.stem) like ${search})`;
+      and (${search}::text is null or lower(qq.stem) like ${search} or qq.id::text = ${f.search ?? ''})
+      and (not ${!!f.issues} or jsonb_array_length(qq.quality_issues) > 0)`;
 }
 
 export async function listQuestions(q: Queryable, f: QuestionFilters, limit: number, offset: number) {
@@ -181,7 +216,7 @@ export async function listQuestions(q: Queryable, f: QuestionFilters, limit: num
   const rows = await q.many<QuestionListRow>(sql`
     select qq.id, et.code as type, qq.level, qq.stem, qq.status, qq.points, qq.lesson_id,
       l.title as lesson_title, l.number as lesson_number, l.kind as lesson_kind, c.code as chapter_code,
-      qq.created_by, u.full_name as created_by_name, qq.source, qq.updated_at,
+      qq.created_by, u.full_name as created_by_name, qq.source, qq.updated_at, jsonb_array_length(qq.quality_issues) as issue_count,
       (select count(*)::int from question_responses r where r.question_id = qq.id and r.status <> 'pending') as responses,
       (select round(100.0 * count(*) filter (where r.status = 'correct') / nullif(count(*), 0))::int
          from question_responses r where r.question_id = qq.id and r.status <> 'pending') as correct_rate
@@ -255,17 +290,23 @@ export interface QuestionInput {
   topicId: number | null;
   level: number;
   points: number;
+  /** Trạng thái giáo viên muốn: nháp hoặc đưa vào ngân hàng (published). Câu còn cảnh báo sẽ thành "chờ duyệt". */
   status: 'draft' | 'published';
   stem: string;
   options: string[];
+  optionNotes: string[];
   correct: string;
-  statements: { text: string; value: boolean | null }[];
+  statements: { text: string; value: boolean | null; note: string }[];
   accepted: string[];
   tolerance: number;
   unit: string;
+  match: MatchMode;
   solution: string;
   hint: string;
+  rubric: string;
   figure: string;
+  /** Giáo viên xác nhận đã kiểm tra câu hỏi (duyệt dù còn cảnh báo). */
+  approve: boolean;
 }
 
 export function emptyQuestionInput(type: QuestionType): QuestionInput {
@@ -278,14 +319,18 @@ export function emptyQuestionInput(type: QuestionType): QuestionInput {
     status: 'published',
     stem: '',
     options: ['', '', '', ''],
+    optionNotes: ['', '', '', ''],
     correct: '',
-    statements: ['a', 'b', 'c', 'd'].map(() => ({ text: '', value: null })),
+    statements: ['a', 'b', 'c', 'd'].map(() => ({ text: '', value: null, note: '' })),
     accepted: [],
     tolerance: 0,
     unit: '',
+    match: 'auto',
     solution: '',
     hint: '',
+    rubric: '',
     figure: '',
+    approve: false,
   };
 }
 
@@ -295,27 +340,50 @@ export function questionToInput(qf: QuestionFull): QuestionInput {
   input.topicId = qf.topicId;
   input.level = qf.level;
   input.points = qf.points;
-  input.status = qf.status === 'archived' ? 'draft' : qf.status;
+  input.status = qf.status === 'draft' || qf.status === 'archived' ? 'draft' : 'published';
   input.stem = qf.stem;
   if (qf.type === 'mcq') {
     input.options = ['A', 'B', 'C', 'D'].map((l) => qf.answers.find((a) => a.label === l)?.content ?? '');
+    input.optionNotes = ['A', 'B', 'C', 'D'].map((l) => qf.answers.find((a) => a.label === l)?.explanation ?? '');
     input.correct = qf.answers.find((a) => a.isCorrect)?.label ?? '';
   }
   if (qf.type === 'true_false') {
     input.statements = ['a', 'b', 'c', 'd'].map((l) => {
       const a = qf.answers.find((x) => x.label === l);
-      return { text: a?.content ?? '', value: a ? a.isCorrect : null };
+      return { text: a?.content ?? '', value: a ? a.isCorrect : null, note: a?.explanation ?? '' };
     });
   }
   if (qf.type === 'short_answer') {
     input.accepted = qf.answers.map((a) => a.content);
     input.tolerance = qf.settings.tolerance ?? 0;
     input.unit = qf.settings.unit ?? '';
+    input.match = qf.settings.match ?? 'auto';
   }
   input.solution = qf.solution ?? '';
   input.hint = qf.hint ?? '';
+  input.rubric = qf.rubric ?? '';
   input.figure = qf.images.find((i) => i.kind === 'figure')?.figureSource ?? '';
   return input;
+}
+
+/** Chạy bộ kiểm tra chất lượng trên dữ liệu soạn câu hỏi. */
+export function qualityOf(input: QuestionInput, topicLevels?: number[]) {
+  return checkQuestion({
+    type: input.type,
+    stem: input.stem,
+    level: input.level,
+    topicLevels,
+    options: input.type === 'mcq' ? input.options : undefined,
+    correct: input.type === 'mcq' ? input.correct : undefined,
+    optionNotes: input.type === 'mcq' ? input.optionNotes : undefined,
+    statements: input.type === 'true_false' ? input.statements : undefined,
+    accepted: input.type === 'short_answer' ? input.accepted : undefined,
+    rule: input.type === 'short_answer' ? { mode: input.match, tolerance: input.tolerance, unit: input.unit || undefined } : undefined,
+    solution: input.solution,
+    hint: input.hint,
+    rubric: input.type === 'essay' || input.type === 'geometry_essay' ? input.rubric : undefined,
+    figure: input.figure,
+  });
 }
 
 export function parseQuestionForm(form: FormData): { input: QuestionInput; errors: string[] } {
@@ -328,37 +396,25 @@ export function parseQuestionForm(form: FormData): { input: QuestionInput; error
   input.level = Math.min(4, Math.max(1, form.int('level') ?? 1));
   input.points = form.num('points') ?? 1;
   input.status = form.str('status') === 'draft' ? 'draft' : 'published';
+  input.approve = form.str('approve') === '1';
   input.stem = form.text('stem', 8000).trim();
   input.solution = form.text('solution', 8000).trim();
   input.hint = form.text('hint', 2000).trim();
+  input.rubric = form.text('rubric', 4000).trim();
   input.figure = form.text('figure', 4000).trim();
 
-  if (!input.stem) errors.push('Chưa nhập nội dung câu hỏi.');
   if (!(input.points > 0 && input.points <= 100)) errors.push('Điểm của câu hỏi phải lớn hơn 0 và không quá 100.');
-  if (!input.lessonId) errors.push('Chọn bài học cho câu hỏi.');
+  if (!input.lessonId && !input.topicId) errors.push('Chọn bài học (hoặc dạng toán) cho câu hỏi.');
 
-  const texts: [string, string][] = [['Đề bài', input.stem], ['Lời giải', input.solution], ['Gợi ý', input.hint]];
   if (type === 'mcq') {
     input.options = ['A', 'B', 'C', 'D'].map((l) => form.text(`option_${l}`, 2000).trim());
+    input.optionNotes = ['A', 'B', 'C', 'D'].map((l) => form.text(`note_${l}`, 2000).trim());
     input.correct = form.str('correct');
-    input.options.forEach((o, i) => {
-      if (!o) errors.push(`Phương án ${'ABCD'[i]} đang để trống.`);
-      texts.push([`Phương án ${'ABCD'[i]}`, o]);
-    });
-    if (!/^[A-D]$/.test(input.correct)) errors.push('Chọn phương án đúng.');
-    const nonEmpty = input.options.filter(Boolean);
-    if (new Set(nonEmpty.map((o) => o.replace(/\s+/g, ''))).size < nonEmpty.length) errors.push('Có hai phương án trùng nhau.');
   }
   if (type === 'true_false') {
     input.statements = ['a', 'b', 'c', 'd'].map((l) => {
       const v = form.str(`tf_${l}`);
-      return { text: form.text(`stmt_${l}`, 2000).trim(), value: v === 'true' ? true : v === 'false' ? false : null };
-    });
-    input.statements.forEach((s, i) => {
-      const l = 'abcd'[i];
-      if (!s.text) errors.push(`Ý ${l}) đang để trống.`);
-      if (s.value === null) errors.push(`Chọn Đúng hoặc Sai cho ý ${l}).`);
-      texts.push([`Ý ${l})`, s.text]);
+      return { text: form.text(`stmt_${l}`, 2000).trim(), value: v === 'true' ? true : v === 'false' ? false : null, note: form.text(`note_${l}`, 2000).trim() };
     });
   }
   if (type === 'short_answer') {
@@ -370,65 +426,93 @@ export function parseQuestionForm(form: FormData): { input: QuestionInput; error
       .slice(0, 10);
     input.tolerance = Math.abs(form.num('tolerance') ?? 0);
     input.unit = form.str('unit', 20);
-    if (!input.accepted.length) errors.push('Nhập ít nhất một đáp án được chấp nhận (mỗi dòng một đáp án).');
+    const m = form.str('match') as MatchMode;
+    input.match = MATCH_MODES.some((x) => x.value === m) ? m : 'auto';
   }
-  if (type === 'geometry_essay' && !input.figure) errors.push('Câu tự luận hình học cần hình vẽ (mô tả bằng văn bản ở ô "Hình vẽ").');
-  if (input.figure) {
-    const { errors: figErrors } = figureToSvg(input.figure);
-    figErrors.forEach((e) => errors.push('Hình vẽ – ' + e));
-  }
-  for (const [name, text] of texts) {
-    if (text) findMathErrors(text).forEach((e) => errors.push(`${name}: ${e}`));
-  }
+  errors.push(...qualityOf(input).errors);
   return { input, errors };
 }
 
 /** Kiểm tra bài và dạng toán thuộc đúng sách; nếu chọn dạng toán thì bài lấy theo dạng toán. */
-async function resolveLessonTopic(q: Queryable, textbookId: number, input: QuestionInput): Promise<string | null> {
+async function resolveLessonTopic(q: Queryable, textbookId: number, input: QuestionInput): Promise<{ error: string | null; topicLevels?: number[] }> {
+  let topicLevels: number[] | undefined;
   if (input.topicId) {
-    const t = await q.one<{ lessonId: number; textbookId: number }>(sql`
-      select t.lesson_id, l.textbook_id from topics t join lessons l on l.id = t.lesson_id where t.id = ${input.topicId}`);
-    if (!t || t.textbookId !== textbookId) return 'Dạng toán không hợp lệ.';
-    if (input.lessonId && input.lessonId !== t.lessonId) return 'Dạng toán đã chọn không thuộc bài học đã chọn.';
+    const t = await q.one<{ lessonId: number; textbookId: number; levels: number[] }>(sql`
+      select t.lesson_id, l.textbook_id, t.levels from topics t join lessons l on l.id = t.lesson_id where t.id = ${input.topicId}`);
+    if (!t || t.textbookId !== textbookId) return { error: 'Dạng toán không hợp lệ.' };
+    if (input.lessonId && input.lessonId !== t.lessonId) return { error: 'Dạng toán đã chọn không thuộc bài học đã chọn.' };
     input.lessonId = t.lessonId;
+    topicLevels = (t.levels ?? []).map(Number);
   }
   if (input.lessonId) {
     const l = await q.one(sql`select 1 from lessons where id = ${input.lessonId} and textbook_id = ${textbookId}`);
-    if (!l) return 'Bài học không hợp lệ.';
+    if (!l) return { error: 'Bài học không hợp lệ.' };
   }
-  return null;
+  return { error: null, topicLevels };
 }
 
-export async function saveQuestion(db: Database, id: number | null, textbookId: number, input: QuestionInput, userId: string): Promise<{ id?: number; error?: string }> {
+export interface SaveQuestionResult {
+  id?: number;
+  error?: string;
+  status?: QuestionStatus;
+  warnings?: string[];
+}
+
+/**
+ * Lưu câu hỏi. Câu giáo viên muốn xuất bản nhưng còn cảnh báo chất lượng → "chờ duyệt" (không vào ngân hàng chính thức),
+ * trừ khi giáo viên đánh dấu đã kiểm tra.
+ */
+export async function saveQuestion(
+  db: Database,
+  id: number | null,
+  textbookId: number,
+  input: QuestionInput,
+  userId: string | null,
+  opts: { forceReview?: boolean } = {},
+): Promise<SaveQuestionResult> {
   return db.tx(async (t) => {
-    const problem = await resolveLessonTopic(t, textbookId, input);
-    if (problem) return { error: problem };
-    const settings: QuestionSettings = input.type === 'short_answer' ? { tolerance: input.tolerance, ...(input.unit ? { unit: input.unit } : {}) } : {};
+    const { error, topicLevels } = await resolveLessonTopic(t, textbookId, input);
+    if (error) return { error };
+    const report = qualityOf(input, topicLevels);
+    if (report.errors.length) return { error: report.errors[0] };
+    const warnings = report.warnings;
+    const status: QuestionStatus = input.status === 'draft' ? 'draft' : opts.forceReview || (warnings.length && !input.approve) ? 'review' : 'published';
+    const verified = status === 'published' && input.approve;
+    const settings: QuestionSettings =
+      input.type === 'short_answer'
+        ? { tolerance: input.tolerance, ...(input.unit ? { unit: input.unit } : {}), ...(input.match !== 'auto' ? { match: input.match } : {}) }
+        : {};
     let qid = id;
     if (qid) {
       await t.exec(sql`
         update questions set exercise_type_id = (select id from exercise_types where code = ${input.type}), lesson_id = ${input.lessonId},
           topic_id = ${input.topicId}, level = ${input.level}, stem = ${input.stem}, settings = ${settings}, points = ${input.points},
-          status = ${input.status}, updated_at = now()
+          status = ${status}, quality_issues = ${JSON.stringify(warnings)}::jsonb, updated_at = now(),
+          verified_by = case when ${verified} then ${userId}::uuid else null end,
+          verified_at = case when ${verified} then now() else null end
         where id = ${qid}`);
       await t.exec(sql`delete from answers where question_id = ${qid}`);
       await t.exec(sql`delete from solutions where question_id = ${qid}`);
     } else {
       const row = await t.one<{ id: number }>(sql`
-        insert into questions (exercise_type_id, textbook_id, lesson_id, topic_id, level, stem, settings, points, status, created_by)
+        insert into questions (exercise_type_id, textbook_id, lesson_id, topic_id, level, stem, settings, points, status, created_by, quality_issues,
+          verified_by, verified_at)
         values ((select id from exercise_types where code = ${input.type}), ${textbookId}, ${input.lessonId}, ${input.topicId}, ${input.level},
-          ${input.stem}, ${settings}, ${input.points}, ${input.status}, ${userId})
+          ${input.stem}, ${settings}, ${input.points}, ${status}, ${userId}, ${JSON.stringify(warnings)}::jsonb,
+          case when ${verified} then ${userId}::uuid else null end, case when ${verified} then now() else null end)
         returning id`);
       qid = row!.id;
     }
     if (input.type === 'mcq') {
       for (const [i, text] of input.options.entries()) {
         const label = 'ABCD'[i];
-        await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order) values (${qid}, ${label}, ${text}, ${label === input.correct}, ${i + 1})`);
+        await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order, explanation)
+          values (${qid}, ${label}, ${text}, ${label === input.correct}, ${i + 1}, ${input.optionNotes[i] || null})`);
       }
     } else if (input.type === 'true_false') {
-      for (const [i, s] of input.statements.entries()) {
-        await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order) values (${qid}, ${'abcd'[i]}, ${s.text}, ${!!s.value}, ${i + 1})`);
+      for (const [i, st] of input.statements.entries()) {
+        await t.exec(sql`insert into answers (question_id, label, content, is_correct, sort_order, explanation)
+          values (${qid}, ${'abcd'[i]}, ${st.text}, ${!!st.value}, ${i + 1}, ${st.note || null})`);
       }
     } else if (input.type === 'short_answer') {
       for (const [i, a] of input.accepted.entries()) {
@@ -437,17 +521,28 @@ export async function saveQuestion(db: Database, id: number | null, textbookId: 
     }
     if (input.solution) await t.exec(sql`insert into solutions (question_id, kind, content) values (${qid}, 'full', ${input.solution})`);
     if (input.hint) await t.exec(sql`insert into solutions (question_id, kind, content, sort_order) values (${qid}, 'hint', ${input.hint}, 1)`);
-    // Hình vẽ: thay hình vẽ cũ (nếu có) bằng hình mới
+    if (input.rubric && (input.type === 'essay' || input.type === 'geometry_essay'))
+      await t.exec(sql`insert into solutions (question_id, kind, content, sort_order) values (${qid}, 'rubric', ${input.rubric}, 2)`);
+    // Hình vẽ: thay hình vẽ cũ (nếu có) bằng hình mới; ảnh tải lên giữ nguyên
     await t.exec(sql`
       delete from images where id in (
         select i.id from question_images qi join images i on i.id = qi.image_id where qi.question_id = ${qid} and i.kind = 'figure')`);
     if (input.figure) {
       const img = await t.one<{ id: number }>(sql`
-        insert into images (kind, figure_source, alt, created_by) values ('figure', ${input.figure}, 'Hình vẽ minh họa đề bài', ${userId}) returning id`);
+        insert into images (kind, figure_source, alt, created_by, purpose) values ('figure', ${input.figure}, 'Hình vẽ minh họa đề bài', ${userId}, 'question') returning id`);
       await t.exec(sql`insert into question_images (question_id, image_id, sort_order) values (${qid}, ${img!.id}, 0)`);
     }
-    return { id: qid! };
+    return { id: qid!, status, warnings };
   });
+}
+
+/** Duyệt câu hỏi chờ duyệt (giáo viên đã kiểm tra) → đưa vào ngân hàng chính thức. */
+export async function approveQuestions(db: Database, ids: number[], userId: string): Promise<number> {
+  if (!ids.length) return 0;
+  const rows = await db.many<{ id: number }>(sql`
+    update questions set status = 'published', verified_by = ${userId}, verified_at = now(), updated_at = now()
+    where id = any(${ids}::int[]) and status = 'review' returning id`);
+  return rows.length;
 }
 
 /** Câu đã dùng trong đề kiểm tra thì chuyển sang lưu trữ thay vì xóa (giữ kết quả bài làm). */

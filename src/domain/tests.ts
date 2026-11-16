@@ -1,3 +1,4 @@
+import { toDisplayLabel, toOriginalLabel } from '../shared/shuffle';
 import { sql, type Database, type Queryable } from '../server/db';
 import type { SessionUser } from '../server/http/context';
 import { gradeResponse, isAutoGraded, normalizeResponse, toTenScale, type GradeStatus, type ResponsePayload } from '../shared/grading';
@@ -90,6 +91,8 @@ export interface TestQuestionRow {
   questionId: number;
   sortOrder: number;
   points: number;
+  /** Thứ tự phương án của mã đề (đảo phương án), ví dụ "CADB". */
+  optionOrder: string | null;
   type: string;
   level: number;
   stem: string;
@@ -101,7 +104,7 @@ export interface TestQuestionRow {
 
 export async function testQuestions(q: Queryable, testId: number): Promise<TestQuestionRow[]> {
   const rows = await q.many<TestQuestionRow>(sql`
-    select tq.question_id, tq.sort_order, tq.points, et.code as type, qq.level, qq.stem, qq.status,
+    select tq.question_id, tq.sort_order, tq.points, tq.option_order, et.code as type, qq.level, qq.stem, qq.status,
       l.title as lesson_title, l.number as lesson_number, l.kind as lesson_kind
     from test_questions tq join questions qq on qq.id = tq.question_id join exercise_types et on et.id = qq.exercise_type_id
     left join lessons l on l.id = qq.lesson_id
@@ -283,7 +286,10 @@ export async function getAttempt(q: Queryable, resultId: number): Promise<Attemp
 export async function attemptQuestionViews(q: Queryable, testId: number): Promise<(QuestionView & { testPoints: number })[]> {
   const tq = await testQuestions(q, testId);
   const full = await getQuestions(q, tq.map((r) => r.questionId));
-  return full.map((f) => ({ ...toView(f, false), testPoints: tq.find((r) => r.questionId === f.id)!.points }));
+  return full.map((f) => {
+    const row = tq.find((r) => r.questionId === f.id)!;
+    return { ...toView(f, false, row.optionOrder), testPoints: row.points };
+  });
 }
 
 export async function saveDraft(q: Queryable, attempt: AttemptRow, answers: Record<string, unknown>) {
@@ -312,9 +318,14 @@ export async function submitAttempt(
     let maxScore = 0;
     let pending = 0;
     for (const qf of full) {
-      const pts = tq.find((r) => r.questionId === qf.id)!.points;
+      const row = tq.find((r) => r.questionId === qf.id)!;
+      const pts = row.points;
       maxScore += pts;
-      const resp: ResponsePayload | null = normalizeResponse(qf.type, source[String(qf.id)]);
+      // đề đảo phương án: đổi nhãn học sinh chọn về nhãn gốc trước khi chấm
+      let raw = source[String(qf.id)];
+      if (qf.type === 'mcq' && row.optionOrder && raw && typeof raw === 'object' && typeof (raw as { choice?: unknown }).choice === 'string')
+        raw = { ...(raw as object), choice: toOriginalLabel(row.optionOrder, (raw as { choice: string }).choice) };
+      const resp: ResponsePayload | null = normalizeResponse(qf.type, raw);
       const grade = gradeResponse(qf.type, qf.answers, qf.settings, resp);
       if (grade.status === 'pending') pending++;
       const awarded = grade.score === null ? null : Math.round(grade.score * pts * 100) / 100;
@@ -353,12 +364,14 @@ export async function resultDetails(q: Queryable, attempt: AttemptRow, reveal: b
     from question_responses where test_result_id = ${attempt.id}`);
   return full.map((f) => {
     const r = responses.find((x) => x.questionId === f.id);
+    const row = tq.find((x) => x.questionId === f.id)!;
+    const resp = r?.response as { choice?: string } | null | undefined;
     return {
-      ...toView(f, false),
-      ...(reveal ? revealAnswer(f) : {}),
-      testPoints: tq.find((x) => x.questionId === f.id)!.points,
+      ...toView(f, false, row.optionOrder),
+      ...(reveal ? revealAnswer(f, row.optionOrder) : {}),
+      testPoints: row.points,
       responseId: r?.id ?? null,
-      response: r?.response ?? null,
+      response: f.type === 'mcq' && resp?.choice ? { ...resp, choice: toDisplayLabel(row.optionOrder, resp.choice) } : r?.response ?? null,
       status: r?.status ?? null,
       pointsAwarded: r?.pointsAwarded ?? null,
       feedback: r?.feedback ?? null,

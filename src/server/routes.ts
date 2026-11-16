@@ -5,7 +5,28 @@ import { loginPage, loginSubmit, logout, registerPage, registerSubmit, setupPage
 import { completeLessonAction, coursePage, lessonPage, programPage, reopenLessonAction, saveNoteAction, teachingPlanPage, toggleFavoriteLessonAction } from './handlers/curriculum';
 import { exampleViewedApi, formulasPage, searchPage, studyCornerPage, toggleFormulaFavoriteAction } from './handlers/study';
 import { chapterPage, knowledgeMapPage, topicPage } from './handlers/knowledge';
-import { chapterTestPage, challengePage, mediaFile, practiceAnswerApi, practiceChapter, practiceHub, practiceLesson, practiceTopic } from './handlers/practice';
+import {
+  chapterTestPage,
+  challengePage,
+  createSessionAction,
+  historyPage,
+  mediaFile,
+  practiceAnswerApi,
+  practiceChapter,
+  practiceHub,
+  practiceLesson,
+  practiceTopic,
+  progressPage,
+  retrySessionAction,
+  retryWrongAction,
+  sessionCheckApi,
+  sessionPage,
+  sessionResultPage,
+  sessionSaveApi,
+  sessionSubmitApi,
+  uploadResponseImageApi,
+  wrongQuestionsPage,
+} from './handlers/practice';
 import { saveDraftApi, startTestAction, studentTestsPage, submitTestApi, takeTestPage, testIntroPage, testResultPage } from './handlers/tests-student';
 import { achievementsPage, changePasswordAction, joinClassAction, profilePage } from './handlers/profile';
 import { registerTeacherRoutes } from './handlers/teacher/routes';
@@ -36,6 +57,18 @@ export function buildRouter(): Router {
   r.get('/luyen-tap/chuong/:code', practiceChapter);
   r.get('/luyen-tap/chuong/:code/kiem-tra', chapterTestPage);
   r.get('/luyen-tap/dang/:id', practiceTopic);
+  r.post('/luyen-tap/tao', createSessionAction);
+  r.get('/luyen-tap/phien/:id', sessionPage);
+  r.get('/luyen-tap/ket-qua/:id', sessionResultPage);
+  r.post('/luyen-tap/ket-qua/:id/lam-lai', retrySessionAction);
+  r.get('/luyen-tap/lich-su', historyPage);
+  r.get('/luyen-tap/cau-hay-sai', wrongQuestionsPage);
+  r.post('/luyen-tap/cau-hay-sai/lam-lai', retryWrongAction);
+  r.get('/luyen-tap/tien-do', progressPage);
+  r.post('/api/luyen-tap/phien/:id/kiem-tra', sessionCheckApi);
+  r.post('/api/luyen-tap/phien/:id/luu', sessionSaveApi);
+  r.post('/api/luyen-tap/phien/:id/nop', sessionSubmitApi);
+  r.post('/api/bai-lam/anh', uploadResponseImageApi);
   r.get('/thu-thach', challengePage);
   r.post('/api/luyen-tap/tra-loi', practiceAnswerApi);
   r.get('/kiem-tra', studentTestsPage);

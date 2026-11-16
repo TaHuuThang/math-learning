@@ -93,7 +93,20 @@ export async function testsPage(ctx: Ctx, errors?: string[], values?: TestInput)
     ctx,
     { title: 'Đề kiểm tra', layout: 'dashboard', section: 'tests', status: errors ? 422 : 200 },
     <>
-      <PageTitle title="Đề kiểm tra" sub="Tạo đề từ ngân hàng câu hỏi, giao cho lớp, theo dõi bài nộp và chấm câu tự luận." />
+      <PageTitle
+        title="Đề kiểm tra"
+        sub="Tạo đề từ ngân hàng câu hỏi, giao cho lớp, theo dõi bài nộp và chấm câu tự luận."
+        actions={
+          <>
+            <a href="/giao-vien/cham-luyen-tap" className={buttonClass('quiet', 'md')}>
+              Chấm tự luận luyện tập
+            </a>
+            <a href="/giao-vien/de-kiem-tra/tu-dong" className={buttonClass('primary', 'md')}>
+              Tạo đề tự động (nhiều mã đề)
+            </a>
+          </>
+        }
+      />
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
         <div>
           {tests.length ? (

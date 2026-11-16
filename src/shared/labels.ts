@@ -23,6 +23,8 @@ export const LEVEL_LABELS: Record<number, string> = {
   4: 'Vận dụng cao',
 };
 
+export const LEVEL_SHORT: Record<number, string> = { 1: 'NB', 2: 'TH', 3: 'VD', 4: 'VDC' };
+
 export const ROLE_LABELS: Record<string, string> = {
   admin: 'Quản trị viên',
   teacher: 'Giáo viên',
@@ -56,6 +58,7 @@ export const LESSON_KIND_LABELS: Record<string, string> = {
 
 export const STATUS_LABELS: Record<string, string> = {
   draft: 'Bản nháp',
+  review: 'Chờ duyệt',
   published: 'Đã xuất bản',
   archived: 'Lưu trữ',
   closed: 'Đã đóng',

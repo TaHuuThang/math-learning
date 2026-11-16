@@ -1,6 +1,7 @@
 /**
  * Bộ chấm điểm – hàm thuần, không phụ thuộc CSDL, dùng chung cho luyện tập và kiểm tra.
  */
+import { matchShortAnswer, type MatchMode } from './answer-match';
 
 export type QuestionType = 'mcq' | 'true_false' | 'short_answer' | 'essay' | 'geometry_essay';
 export const QUESTION_TYPES: QuestionType[] = ['mcq', 'true_false', 'short_answer', 'essay', 'geometry_essay'];
@@ -14,15 +15,17 @@ export interface AnswerKey {
 export interface QuestionSettings {
   /** Trả lời ngắn: sai số tuyệt đối chấp nhận (mặc định 0). */
   tolerance?: number;
-  /** Trả lời ngắn: đơn vị hiển thị cạnh ô nhập. */
+  /** Trả lời ngắn: đơn vị hiển thị cạnh ô nhập (học sinh ghi đơn vị khác cùng loại thì được tự đổi). */
   unit?: string;
+  /** Trả lời ngắn: quy tắc so khớp do giáo viên chọn (mặc định tự nhận biết). */
+  match?: MatchMode;
 }
 
 export type ResponsePayload =
   | { kind: 'mcq'; choice: string }
   | { kind: 'true_false'; values: Record<string, boolean> }
   | { kind: 'short_answer'; text: string }
-  | { kind: 'essay'; text: string };
+  | { kind: 'essay'; text: string; images?: number[] };
 
 export type GradeStatus = 'correct' | 'partial' | 'incorrect' | 'pending';
 
@@ -31,6 +34,8 @@ export interface GradeResult {
   /** Tỉ lệ điểm 0..1; null khi chờ giáo viên chấm. */
   score: number | null;
   correctCount?: number;
+  /** Ghi chú khi chấm trả lời ngắn (đổi đơn vị, chưa ở dạng tích…). */
+  note?: string;
 }
 
 /** Thang điểm câu Đúng/Sai theo số ý đúng (0–4 ý) – theo cấu trúc đề từ năm 2025. */
@@ -82,8 +87,11 @@ export function normalizeResponse(type: QuestionType, raw: unknown): ResponsePay
     case 'short_answer':
       return typeof r.text === 'string' && r.text.length <= 100 ? { kind: 'short_answer', text: r.text.trim() } : null;
     case 'essay':
-    case 'geometry_essay':
-      return typeof r.text === 'string' && r.text.length <= 10_000 ? { kind: 'essay', text: r.text.trim() } : null;
+    case 'geometry_essay': {
+      if (typeof r.text !== 'string' || r.text.length > 10_000) return null;
+      const images = Array.isArray(r.images) ? r.images.filter((x): x is number => Number.isInteger(x) && (x as number) > 0).slice(0, 4) : [];
+      return images.length ? { kind: 'essay', text: r.text.trim(), images } : { kind: 'essay', text: r.text.trim() };
+    }
   }
 }
 
@@ -94,6 +102,8 @@ export function isEmptyResponse(resp: ResponsePayload | null): boolean {
       return !resp.choice;
     case 'true_false':
       return Object.keys(resp.values).length === 0;
+    case 'essay':
+      return !resp.text.trim() && !resp.images?.length;
     default:
       return !resp.text.trim();
   }
@@ -129,14 +139,11 @@ export function gradeResponse(
     case 'short_answer': {
       if (response!.kind !== 'short_answer') return { status: 'incorrect', score: 0 };
       const given = response!.text;
-      const tol = Math.abs(settings.tolerance ?? 0);
-      const givenNum = parseNumber(given);
-      const ok = answers.some((a) => {
-        const expected = parseNumber(a.content);
-        if (expected !== null && givenNum !== null) return Math.abs(expected - givenNum) <= tol + 1e-9;
-        return normalizeText(a.content) === normalizeText(given);
-      });
-      return { status: ok ? 'correct' : 'incorrect', score: ok ? 1 : 0 };
+      const accepted = answers.map((a) => a.content);
+      let m = matchShortAnswer(given, accepted, { mode: settings.match, tolerance: settings.tolerance, unit: settings.unit });
+      // tương thích cách chấm cũ: so khớp chữ sau chuẩn hóa
+      if (!m.ok && answers.some((a) => normalizeText(a.content) === normalizeText(given))) m = { ok: true };
+      return { status: m.ok ? 'correct' : 'incorrect', score: m.ok ? 1 : 0, ...(m.note ? { note: m.note } : {}) };
     }
     case 'essay':
     case 'geometry_essay':

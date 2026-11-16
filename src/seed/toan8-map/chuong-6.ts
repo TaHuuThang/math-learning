@@ -175,7 +175,7 @@ b) Viết \(\dfrac{1 - x}{3 - x}\) thành phân thức có mẫu \(x - 3\).`,
               solution: r`a) \(x^2 - 4 = (x - 2)(x + 2)\) nên đa thức cần điền là \(x(x + 2) = x^2 + 2x\).
 b) \(\dfrac{1 - x}{3 - x} = \dfrac{-(1 - x)}{-(3 - x)} = \dfrac{x - 1}{x - 3}\).`,
               exercises: [
-                mcq(1, r`\(\dfrac{-2}{1 - x}\) bằng`, [r`\(\dfrac{2}{x - 1}\)`, r`\(\dfrac{2}{1 - x}\)`, r`\(\dfrac{-2}{x - 1}\)`, r`\(\dfrac{2}{-x - 1}\)`], 'A', r`Đổi dấu cả tử và mẫu: \(\dfrac{-2}{1 - x} = \dfrac{2}{x - 1}\).`),
+                mcq(1, r`\(\dfrac{-2}{1 - x}\) bằng`, [r`\(\dfrac{2}{x - 1}\)`, r`\(\dfrac{2}{1 - x}\)`, r`\(\dfrac{-2}{x + 1}\)`, r`\(\dfrac{2}{-x - 1}\)`], 'A', r`Đổi dấu cả tử và mẫu: \(\dfrac{-2}{1 - x} = \dfrac{2}{x - 1}\).`),
                 sa(2, r`Cho \(\dfrac{3}{x + 1} = \dfrac{A}{x^2 - 1}\). Đa thức \(A\) có dạng \(ax + b\). Tính \(a + b\).`, ['0'], r`\(x^2 - 1 = (x + 1)(x - 1)\) nên \(A = 3(x - 1) = 3x - 3\). Vậy \(a + b = 0\).`),
               ],
             },

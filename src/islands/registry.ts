@@ -1,6 +1,7 @@
 import type { ComponentProps } from 'react';
 import PracticeRunner from './PracticeRunner';
 import TestRunner from './TestRunner';
+import SessionRunner from './SessionRunner';
 import RichField from './RichField';
 import FigureField from './FigureField';
 
@@ -8,6 +9,7 @@ import FigureField from './FigureField';
 export const islands = {
   PracticeRunner,
   TestRunner,
+  SessionRunner,
   RichField,
   FigureField,
 };

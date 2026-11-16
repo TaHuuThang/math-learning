@@ -16,6 +16,10 @@ import {
 } from './questions';
 import { createTestAction, gradingAction, gradingPage, testAction, testDetailPage, testQuestionAction, testResultsPage, testsPage } from './tests';
 import { statsPage } from './stats';
+import { blueprintAction, blueprintPage, generatorAction, generatorPage } from './exam-generator';
+import { exportQuestions } from './import';
+import { approveQuestionAction, bulkApproveAction, questionImageAction } from './questions';
+import { practiceGradingAction, practiceGradingPage } from './practice-grading';
 
 export function registerTeacherRoutes(r: Router) {
   r.get('/giao-vien', teacherHome);
@@ -38,6 +42,9 @@ export function registerTeacherRoutes(r: Router) {
   r.get('/giao-vien/cau-hoi/nhap', (ctx) => importPage(ctx));
   r.post('/giao-vien/cau-hoi/nhap', importAction);
   r.get('/giao-vien/cau-hoi/nhap/mau.csv', importTemplate);
+  r.get('/giao-vien/cau-hoi/nhap/mau.xlsx', importTemplate);
+  r.get('/giao-vien/cau-hoi/xuat', exportQuestions);
+  r.post('/giao-vien/cau-hoi/duyet', bulkApproveAction);
   r.get('/giao-vien/cau-hoi/moi', newQuestionPage);
   r.post('/giao-vien/cau-hoi/moi', createQuestionAction);
   r.get('/giao-vien/cau-hoi/:id', editQuestionPage);
@@ -45,7 +52,14 @@ export function registerTeacherRoutes(r: Router) {
   r.get('/giao-vien/cau-hoi/:id/xem', previewQuestionPage);
   r.post('/giao-vien/cau-hoi/:id/xoa', deleteQuestionAction);
   r.post('/giao-vien/cau-hoi/:id/nhan-ban', duplicateQuestionAction);
+  r.post('/giao-vien/cau-hoi/:id/duyet', approveQuestionAction);
+  r.post('/giao-vien/cau-hoi/:id/anh', questionImageAction);
+  r.post('/giao-vien/cau-hoi/:id/anh/:imageId/xoa', questionImageAction);
   r.get('/giao-vien/de-kiem-tra', (ctx) => testsPage(ctx));
+  r.get('/giao-vien/de-kiem-tra/tu-dong', (ctx) => generatorPage(ctx));
+  r.post('/giao-vien/de-kiem-tra/tu-dong', generatorAction);
+  r.get('/giao-vien/de-kiem-tra/cau-hinh/:id', (ctx) => blueprintPage(ctx));
+  r.post('/giao-vien/de-kiem-tra/cau-hinh/:id/:action', blueprintAction);
   r.post('/giao-vien/de-kiem-tra', createTestAction);
   r.get('/giao-vien/de-kiem-tra/:id', (ctx) => testDetailPage(ctx));
   r.post('/giao-vien/de-kiem-tra/:id', testAction);
@@ -55,4 +69,6 @@ export function registerTeacherRoutes(r: Router) {
   r.get('/giao-vien/cham-bai/:id', (ctx) => gradingPage(ctx));
   r.post('/giao-vien/cham-bai/:id', gradingAction);
   r.get('/giao-vien/thong-ke', statsPage);
+  r.get('/giao-vien/cham-luyen-tap', (ctx) => practiceGradingPage(ctx));
+  r.post('/giao-vien/cham-luyen-tap/:id', practiceGradingAction);
 }

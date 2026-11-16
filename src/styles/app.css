@@ -529,3 +529,34 @@ html.present .worked-example {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Giao diện làm bài: chế độ chữ lớn để trình chiếu trên lớp */
+.runner-large article .prose-math {
+  font-size: 1.32em;
+  line-height: 1.6;
+}
+.runner-large article h2 {
+  font-size: 1.5rem;
+}
+.runner-large article button,
+.runner-large article input,
+.runner-large article textarea {
+  font-size: 1.15em;
+}
+.runner-large article .katex {
+  font-size: 1.12em;
+}
+.runner-large article svg {
+  max-width: 100%;
+  height: auto;
+  min-width: min(100%, 460px);
+}
+.session-runner .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+@media print {
+  .session-runner .sticky {
+    position: static;
+  }
+}

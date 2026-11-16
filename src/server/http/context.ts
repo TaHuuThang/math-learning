@@ -82,7 +82,7 @@ export type Res =
   | { type: 'html'; status: number; html: string }
   | { type: 'redirect'; location: string; status?: number }
   | { type: 'json'; status: number; data: unknown }
-  | { type: 'bytes'; status: number; contentType: string; body: Buffer | string; cacheSeconds?: number };
+  | { type: 'bytes'; status: number; contentType: string; body: Buffer | string; cacheSeconds?: number; filename?: string };
 
 export class HttpError extends Error {
   constructor(
