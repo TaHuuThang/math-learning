@@ -47714,8 +47714,396 @@ Diện tích \(ABCD\) là \(4\) cm², nên phần nằm giữa hai hình vuông 
 };
 var BANK_CHUONG_9 = [B33, B34, B35, B36, B37];
 
+// src/seed/toan8-bank/chuong-10.ts
+var CM5 = { unit: "cm" };
+var CM24 = { unit: "cm\xB2" };
+var M22 = { unit: "m\xB2" };
+var CHOP_TAM_GIAC2 = `S(4,7.5) B(0,0) C(7,0) A(5,3.2) O(4,1.07) M(3.5,0)
+BC SB SC SM
+AB:dash AC:dash SA:dash SO:dash OM:dash
+vuong(S,O,M) vuong(S,M,C)`;
+var CHOP_TU_GIAC2 = `S(4,6) A(0,0) B(6,0) C(8,2) D(2,2) O(4,1) M(3,0)
+ABC SA SB SC SM
+AD:dash DC:dash SD:dash SO:dash OM:dash AC:dash BD:dash
+vuong(S,M,B) vuong(S,O,M)`;
+var NB2 = "nhan-biet-hinh-chop-tam-giac-deu";
+var XQ = "dien-tich-xung-quanh-chop-tam-giac";
+var TT5 = "the-tich-chop-tam-giac";
+var TH3 = "tong-hop-chop-tam-giac";
+var TTE = "thuc-te-chop-tam-giac";
+var B38 = {
+  slug: "bai-38-hinh-chop-tam-giac-deu",
+  questions: [
+    mc(1, NB2, "M\u1EB7t \u0111\xE1y c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u l\xE0", ["tam gi\xE1c \u0111\u1EC1u", "tam gi\xE1c c\xE2n", "tam gi\xE1c vu\xF4ng", "h\xECnh vu\xF4ng"], "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 \u0111\xE1y l\xE0 tam gi\xE1c \u0111\u1EC1u.", [
+      void 0,
+      "Tam gi\xE1c c\xE2n l\xE0 c\xE1c m\u1EB7t b\xEAn.",
+      "\u0110\xE1y kh\xF4ng ph\u1EA3i tam gi\xE1c vu\xF4ng.",
+      "\u0110\xE1y h\xECnh vu\xF4ng l\xE0 c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u."
+    ]),
+    mc(1, NB2, "C\xE1c m\u1EB7t b\xEAn c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u l\xE0", ["nh\u1EEFng tam gi\xE1c c\xE2n b\u1EB1ng nhau c\xF3 chung \u0111\u1EC9nh", "nh\u1EEFng tam gi\xE1c vu\xF4ng", "nh\u1EEFng h\xECnh ch\u1EEF nh\u1EADt b\u1EB1ng nhau", "nh\u1EEFng h\xECnh thang c\xE2n"], "C\xE1c m\u1EB7t b\xEAn l\xE0 nh\u1EEFng tam gi\xE1c c\xE2n b\u1EB1ng nhau c\xF3 chung \u0111\u1EC9nh c\u1EE7a h\xECnh ch\xF3p.", [
+      void 0,
+      "M\u1EB7t b\xEAn l\xE0 tam gi\xE1c c\xE2n.",
+      "H\xECnh ch\u1EEF nh\u1EADt l\xE0 m\u1EB7t b\xEAn c\u1EE7a h\xECnh l\u0103ng tr\u1EE5 \u0111\u1EE9ng.",
+      "M\u1EB7t b\xEAn l\xE0 tam gi\xE1c."
+    ]),
+    mc(1, NB2, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 bao nhi\xEAu c\u1EA1nh?", ["6", "4", "8", "9"], "3 c\u1EA1nh \u0111\xE1y v\xE0 3 c\u1EA1nh b\xEAn: 6 c\u1EA1nh.", [
+      void 0,
+      "\u0110\xF3 l\xE0 s\u1ED1 \u0111\u1EC9nh (ho\u1EB7c s\u1ED1 m\u1EB7t).",
+      "\u0110\xF3 l\xE0 s\u1ED1 c\u1EA1nh c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c.",
+      "\u0110\xF3 l\xE0 s\u1ED1 c\u1EA1nh c\u1EE7a h\xECnh l\u0103ng tr\u1EE5 tam gi\xE1c."
+    ]),
+    mc(2, NB2, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 bao nhi\xEAu m\u1EB7t (k\u1EC3 c\u1EA3 m\u1EB7t \u0111\xE1y)?", ["4", "3", "5", "6"], "1 m\u1EB7t \u0111\xE1y v\xE0 3 m\u1EB7t b\xEAn: 4 m\u1EB7t.", [
+      void 0,
+      "Ch\u01B0a t\xEDnh m\u1EB7t \u0111\xE1y.",
+      "\u0110\xF3 l\xE0 s\u1ED1 m\u1EB7t c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c.",
+      "\u0110\xF3 l\xE0 s\u1ED1 c\u1EA1nh."
+    ]),
+    mc(2, NB2, r5`Trong hình chóp tam giác đều \(S.ABC\), trung đoạn là`, [r5`đường cao của mặt bên kẻ từ đỉnh \(S\)`, r5`đường cao \(SO\) của hình chóp`, r5`cạnh bên \(SA\)`, "\u0111\u01B0\u1EDDng cao c\u1EE7a tam gi\xE1c \u0111\xE1y"], r5`Trung đoạn là đường cao vẽ từ đỉnh \(S\) của mỗi mặt bên.`, [
+      void 0,
+      "\u0110\xF3 l\xE0 \u0111\u01B0\u1EDDng cao c\u1EE7a h\xECnh ch\xF3p.",
+      "\u0110\xF3 l\xE0 c\u1EA1nh b\xEAn.",
+      "\u0110\u01B0\u1EDDng cao c\u1EE7a tam gi\xE1c \u0111\xE1y n\u1EB1m trong m\u1EB7t \u0111\xE1y."
+    ]),
+    mc(2, XQ, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 5 cm v\xE0 trung \u0111o\u1EA1n 8 cm. Di\u1EC7n t\xEDch xung quanh l\xE0", [r5`\(60\) cm²`, r5`\(120\) cm²`, r5`\(40\) cm²`, r5`\(20\) cm²`], r5`\(S_{xq} = p\cdot d = 7{,}5\cdot8 = 60\) cm².`, [
+      void 0,
+      "D\xF9ng chu vi thay cho n\u1EEDa chu vi.",
+      "\u0110\xF3 l\xE0 t\xEDch c\u1EA1nh \u0111\xE1y v\xE0 trung \u0111o\u1EA1n.",
+      "\u0110\xF3 l\xE0 di\u1EC7n t\xEDch m\u1ED9t m\u1EB7t b\xEAn."
+    ]),
+    mc(3, XQ, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 10 cm v\xE0 c\u1EA1nh b\xEAn 13 cm. Di\u1EC7n t\xEDch xung quanh l\xE0", [r5`\(180\) cm²`, r5`\(195\) cm²`, r5`\(360\) cm²`, r5`\(130\) cm²`], r5`Trung đoạn \(d = \sqrt{13^2 - 5^2} = 12\) cm; \(S_{xq} = 15\cdot12 = 180\) cm².`, [
+      void 0,
+      "D\xF9ng c\u1EA1nh b\xEAn thay cho trung \u0111o\u1EA1n.",
+      "D\xF9ng chu vi thay cho n\u1EEDa chu vi.",
+      "Nh\xE2n c\u1EA1nh \u0111\xE1y v\u1EDBi c\u1EA1nh b\xEAn."
+    ]),
+    mc(3, XQ, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 di\u1EC7n t\xEDch xung quanh 54 cm\xB2 v\xE0 c\u1EA1nh \u0111\xE1y 6 cm. Trung \u0111o\u1EA1n b\u1EB1ng", [r5`\(6\) cm`, r5`\(3\) cm`, r5`\(9\) cm`, r5`\(18\) cm`], r5`Nửa chu vi đáy \(p = 9\) cm; \(d = \dfrac{54}{9} = 6\) cm.`, [
+      void 0,
+      "Chia cho chu vi thay v\xEC n\u1EEDa chu vi.",
+      "\u0110\xF3 l\xE0 n\u1EEDa chu vi \u0111\xE1y.",
+      "Chia cho c\u1EA1nh \u0111\xE1y r\u1ED3i nh\xE2n 2."
+    ]),
+    mc(2, TT5, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 di\u1EC7n t\xEDch \u0111\xE1y 20 cm\xB2 v\xE0 chi\u1EC1u cao 9 cm. Th\u1EC3 t\xEDch l\xE0", [r5`\(60\) cm³`, r5`\(180\) cm³`, r5`\(90\) cm³`, r5`\(29\) cm³`], r5`\(V = \dfrac13\cdot20\cdot9 = 60\) cm³.`, [
+      void 0,
+      r5`Quên nhân \(\dfrac13\).`,
+      r5`Nhân \(\dfrac12\) thay vì \(\dfrac13\).`,
+      "C\u1ED9ng thay v\xEC nh\xE2n."
+    ]),
+    mc(3, TT5, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 th\u1EC3 t\xEDch 40 cm\xB3 v\xE0 di\u1EC7n t\xEDch \u0111\xE1y 12 cm\xB2. Chi\u1EC1u cao l\xE0", [r5`\(10\) cm`, r5`\(\dfrac{10}{3}\) cm`, r5`\(28\) cm`, r5`\(480\) cm`], r5`\(h = \dfrac{3V}{S} = \dfrac{120}{12} = 10\) cm.`, [
+      void 0,
+      "Qu\xEAn nh\xE2n 3.",
+      "L\u1EA5y hi\u1EC7u, kh\xF4ng ph\u1EA3i th\u01B0\u01A1ng.",
+      "Nh\xE2n thay v\xEC chia."
+    ]),
+    mc(3, TT5, "M\u1ED9t h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u v\xE0 m\u1ED9t h\xECnh l\u0103ng tr\u1EE5 \u0111\u1EE9ng tam gi\xE1c c\xF3 c\xF9ng \u0111\xE1y v\xE0 c\xF9ng chi\u1EC1u cao. T\u1EC9 s\u1ED1 th\u1EC3 t\xEDch h\xECnh ch\xF3p so v\u1EDBi h\xECnh l\u0103ng tr\u1EE5 l\xE0", [r5`\(\dfrac13\)`, r5`\(\dfrac12\)`, r5`\(3\)`, r5`\(1\)`], r5`\(V_{\text{chóp}} = \dfrac13 Sh\), \(V_{\text{lăng trụ}} = Sh\).`, [
+      void 0,
+      r5`Hệ số là \(\dfrac13\), không phải \(\dfrac12\).`,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "Hai th\u1EC3 t\xEDch kh\xF4ng b\u1EB1ng nhau."
+    ]),
+    mc(3, TH3, "T\u1EE9 di\u1EC7n \u0111\u1EC1u c\xF3 c\u1EA1nh 2 cm (b\u1ED1n m\u1EB7t l\xE0 tam gi\xE1c \u0111\u1EC1u). Di\u1EC7n t\xEDch to\xE0n ph\u1EA7n l\xE0", [r5`\(4\sqrt3\) cm²`, r5`\(3\sqrt3\) cm²`, r5`\(\sqrt3\) cm²`, r5`\(8\) cm²`], r5`Mỗi mặt có diện tích \(\dfrac{2^2\sqrt3}{4} = \sqrt3\) cm²; bốn mặt: \(4\sqrt3\) cm².`, [
+      void 0,
+      "Ch\u1EC9 t\xEDnh ba m\u1EB7t b\xEAn.",
+      "\u0110\xF3 l\xE0 di\u1EC7n t\xEDch m\u1ED9t m\u1EB7t.",
+      r5`Dùng nhầm diện tích mỗi mặt là \(\dfrac{a^2}{2}\).`
+    ]),
+    mc(4, TH3, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 di\u1EC7n t\xEDch xung quanh 72 cm\xB2 v\xE0 trung \u0111o\u1EA1n 6 cm. C\u1EA1nh \u0111\xE1y b\u1EB1ng", [r5`\(8\) cm`, r5`\(4\) cm`, r5`\(12\) cm`, r5`\(24\) cm`], r5`\(p = \dfrac{72}{6} = 12\) cm nên chu vi đáy 24 cm, cạnh đáy \(8\) cm.`, [
+      void 0,
+      "Chia chu vi cho 6.",
+      "\u0110\xF3 l\xE0 n\u1EEDa chu vi \u0111\xE1y.",
+      "\u0110\xF3 l\xE0 chu vi \u0111\xE1y."
+    ]),
+    mc(3, TTE, "M\u1ED9t h\u1ED9p qu\xE0 c\xF3 d\u1EA1ng h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u, c\u1EA1nh \u0111\xE1y 10 cm, trung \u0111o\u1EA1n 12 cm. Di\u1EC7n t\xEDch gi\u1EA5y c\u1EA7n \u0111\u1EC3 d\xE1n k\xEDn ba m\u1EB7t b\xEAn l\xE0", [r5`\(180\) cm²`, r5`\(360\) cm²`, r5`\(120\) cm²`, r5`\(60\) cm²`], r5`\(S_{xq} = 15\cdot12 = 180\) cm².`, [
+      void 0,
+      "D\xF9ng chu vi thay cho n\u1EEDa chu vi.",
+      "Nh\xE2n c\u1EA1nh \u0111\xE1y v\u1EDBi trung \u0111o\u1EA1n.",
+      "\u0110\xF3 l\xE0 di\u1EC7n t\xEDch m\u1ED9t m\u1EB7t b\xEAn."
+    ]),
+    mc(3, TTE, "M\u1ED9t kh\u1ED1i pha l\xEA c\xF3 d\u1EA1ng h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u, di\u1EC7n t\xEDch \u0111\xE1y 43,3 cm\xB2 v\xE0 chi\u1EC1u cao 12 cm. Th\u1EC3 t\xEDch kh\u1ED1i pha l\xEA l\xE0", [r5`\(173{,}2\) cm³`, r5`\(519{,}6\) cm³`, r5`\(259{,}8\) cm³`, r5`\(55{,}3\) cm³`], r5`\(V = \dfrac13\cdot43{,}3\cdot12 = 173{,}2\) cm³.`, [
+      void 0,
+      r5`Quên nhân \(\dfrac13\).`,
+      r5`Nhân \(\dfrac12\) thay vì \(\dfrac13\).`,
+      "C\u1ED9ng thay v\xEC nh\xE2n."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, NB2, r5`Cho hình chóp tam giác đều \(S.ABC\).`, [
+      [r5`Đáy \(ABC\) là tam giác đều.`, true, "Theo \u0111\u1ECBnh ngh\u0129a."],
+      [r5`\(SA = SB = SC\).`, true, "C\xE1c c\u1EA1nh b\xEAn b\u1EB1ng nhau."],
+      ["H\xECnh ch\xF3p c\xF3 4 \u0111\u1EC9nh.", true, r5`Gồm \(S\), \(A\), \(B\), \(C\).`],
+      ["C\xE1c m\u1EB7t b\xEAn lu\xF4n l\xE0 tam gi\xE1c \u0111\u1EC1u.", false, "L\xE0 tam gi\xE1c c\xE2n; ch\u1EC9 \u0111\u1EC1u khi l\xE0 t\u1EE9 di\u1EC7n \u0111\u1EC1u."]
+    ]),
+    tf2(2, NB2, r5`Hình chóp tam giác đều \(S.ABC\) có \(O\) là tâm tam giác đáy, \(M\) là trung điểm của \(BC\).`, [
+      [r5`\(SO\) là đường cao của hình chóp.`, true, "Ch\xE2n \u0111\u01B0\u1EDDng cao l\xE0 t\xE2m \u0111\xE1y."],
+      [r5`\(SM\) là một trung đoạn.`, true, r5`Tam giác \(SBC\) cân tại \(S\) nên \(SM \perp BC\).`],
+      [r5`\(SM \perp BC\).`, true, "Trung tuy\u1EBFn c\u1EE7a tam gi\xE1c c\xE2n."],
+      [r5`\(SM = SB\).`, false, r5`\(SB\) là cạnh huyền của tam giác vuông \(SMB\) nên \(SM < SB\).`]
+    ]),
+    tf2(2, XQ, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 8 cm v\xE0 trung \u0111o\u1EA1n 10 cm.", [
+      ["N\u1EEDa chu vi \u0111\xE1y l\xE0 12 cm.", true, r5`\(\dfrac{3\cdot8}{2}\).`],
+      ["Di\u1EC7n t\xEDch m\u1ED9t m\u1EB7t b\xEAn l\xE0 40 cm\xB2.", true, r5`\(\dfrac12\cdot8\cdot10\).`],
+      ["Di\u1EC7n t\xEDch xung quanh l\xE0 120 cm\xB2.", true, r5`\(12\cdot10\).`],
+      ["Di\u1EC7n t\xEDch xung quanh l\xE0 240 cm\xB2.", false, "D\xF9ng chu vi thay cho n\u1EEDa chu vi."]
+    ]),
+    tf2(3, XQ, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 16 cm v\xE0 c\u1EA1nh b\xEAn 10 cm.", [
+      ["Trung \u0111o\u1EA1n b\u1EB1ng 6 cm.", true, r5`\(\sqrt{100 - 64}\).`],
+      ["M\u1ED7i m\u1EB7t b\xEAn c\xF3 di\u1EC7n t\xEDch 48 cm\xB2.", true, r5`\(\dfrac12\cdot16\cdot6\).`],
+      ["Di\u1EC7n t\xEDch xung quanh l\xE0 144 cm\xB2.", true, r5`\(24\cdot6\).`],
+      ["Di\u1EC7n t\xEDch xung quanh l\xE0 240 cm\xB2.", false, "D\xF9ng c\u1EA1nh b\xEAn thay cho trung \u0111o\u1EA1n."]
+    ]),
+    tf2(2, TT5, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 di\u1EC7n t\xEDch \u0111\xE1y 27 cm\xB2 v\xE0 chi\u1EC1u cao 10 cm.", [
+      ["Th\u1EC3 t\xEDch h\xECnh ch\xF3p l\xE0 90 cm\xB3.", true, r5`\(\dfrac13\cdot27\cdot10\).`],
+      ["H\xECnh l\u0103ng tr\u1EE5 \u0111\u1EE9ng c\xF3 c\xF9ng \u0111\xE1y, c\xF9ng chi\u1EC1u cao c\xF3 th\u1EC3 t\xEDch 270 cm\xB3.", true, r5`\(27\cdot10\).`],
+      ["Th\u1EC3 t\xEDch h\xECnh ch\xF3p l\xE0 270 cm\xB3.", false, r5`Quên nhân \(\dfrac13\).`],
+      ["N\u1EBFu chi\u1EC1u cao t\u0103ng g\u1EA5p \u0111\xF4i, \u0111\xE1y gi\u1EEF nguy\xEAn th\xEC th\u1EC3 t\xEDch t\u0103ng g\u1EA5p \u0111\xF4i.", true, "Th\u1EC3 t\xEDch t\u1EC9 l\u1EC7 v\u1EDBi chi\u1EC1u cao."]
+    ]),
+    tf2(3, TT5, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 th\u1EC3 t\xEDch 50 cm\xB3 v\xE0 chi\u1EC1u cao 6 cm.", [
+      ["Di\u1EC7n t\xEDch \u0111\xE1y l\xE0 25 cm\xB2.", true, r5`\(\dfrac{3\cdot50}{6}\).`],
+      [r5`Diện tích đáy là \(\dfrac{25}{3}\) cm².`, false, "Qu\xEAn nh\xE2n 3."],
+      ["Gi\u1EEF nguy\xEAn \u0111\xE1y, t\u0103ng chi\u1EC1u cao th\xEAm 3 cm th\xEC th\u1EC3 t\xEDch l\xE0 75 cm\xB3.", true, r5`\(\dfrac13\cdot25\cdot9\).`],
+      ["Di\u1EC7n t\xEDch \u0111\xE1y gi\u1EA3m m\u1ED9t n\u1EEDa, chi\u1EC1u cao t\u0103ng g\u1EA5p \u0111\xF4i th\xEC th\u1EC3 t\xEDch kh\xF4ng \u0111\u1ED5i.", true, "T\xEDch \u0111\xE1y v\xE0 chi\u1EC1u cao kh\xF4ng \u0111\u1ED5i."]
+    ]),
+    tf2(3, TH3, "T\u1EE9 di\u1EC7n \u0111\u1EC1u c\xF3 c\u1EA1nh 4 cm (b\u1ED1n m\u1EB7t \u0111\u1EC1u l\xE0 tam gi\xE1c \u0111\u1EC1u).", [
+      [r5`Trung đoạn bằng \(2\sqrt3\) cm.`, true, r5`\(\sqrt{16 - 4}\).`],
+      [r5`Diện tích xung quanh là \(12\sqrt3\) cm².`, true, r5`\(6\cdot2\sqrt3\).`],
+      [r5`Diện tích toàn phần là \(16\sqrt3\) cm².`, true, "B\u1ED1n m\u1EB7t b\u1EB1ng nhau."],
+      [r5`Diện tích toàn phần là \(12\sqrt3\) cm².`, false, "Ch\u01B0a c\u1ED9ng m\u1EB7t \u0111\xE1y."]
+    ]),
+    tf2(4, TH3, r5`Hình chóp tam giác đều \(S.ABC\) có cạnh đáy 6 cm; \(M\) là trung điểm \(BC\), trung đoạn \(SM = 5\) cm; \(O\) là tâm đáy.`, [
+      [r5`\(AM = 3\sqrt3\) cm.`, true, "\u0110\u01B0\u1EDDng cao tam gi\xE1c \u0111\u1EC1u c\u1EA1nh 6."],
+      [r5`\(OM = \dfrac13AM = \sqrt3\) cm.`, true, r5`\(O\) là trọng tâm tam giác \(ABC\).`],
+      [r5`Chiều cao \(SO = \sqrt{22}\) cm.`, true, r5`\(\sqrt{25 - 3}\).`],
+      ["Di\u1EC7n t\xEDch xung quanh l\xE0 90 cm\xB2.", false, r5`\(S_{xq} = 9\cdot5 = 45\) cm².`]
+    ]),
+    tf2(3, TTE, "M\u1ED9t chi\u1EBFc l\u1EC1u c\xF3 d\u1EA1ng h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u (kh\xF4ng c\xF3 \u0111\xE1y), c\u1EA1nh \u0111\xE1y 3 m, trung \u0111o\u1EA1n 2,5 m.", [
+      ["L\u1EC1u c\xF3 3 m\u1EB7t b\xEAn b\u1EB1ng v\u1EA3i.", true, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 3 m\u1EB7t b\xEAn."],
+      ["Di\u1EC7n t\xEDch v\u1EA3i l\xE0m ba m\u1EB7t b\xEAn l\xE0 11,25 m\xB2.", true, r5`\(4{,}5\cdot2{,}5\).`],
+      ["N\u1EBFu c\u1EA7n th\xEAm 20% v\u1EA3i cho \u0111\u01B0\u1EDDng may th\xEC ph\u1EA3i d\xF9ng 13,5 m\xB2 v\u1EA3i.", true, r5`\(11{,}25\cdot1{,}2\).`],
+      ["Di\u1EC7n t\xEDch v\u1EA3i l\xE0m ba m\u1EB7t b\xEAn l\xE0 22,5 m\xB2.", false, "D\xF9ng chu vi thay cho n\u1EEDa chu vi."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, XQ, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 7 cm v\xE0 trung \u0111o\u1EA1n 10 cm. T\xEDnh di\u1EC7n t\xEDch xung quanh.", "105", r5`\(p = 10{,}5\) cm; \(S_{xq} = 10{,}5\cdot10 = 105\) cm².`, CM24),
+    sa2(3, TT5, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 di\u1EC7n t\xEDch \u0111\xE1y 36 cm\xB2 v\xE0 th\u1EC3 t\xEDch 96 cm\xB3. T\xEDnh chi\u1EC1u cao.", "8", r5`\(h = \dfrac{3V}{S} = \dfrac{288}{36} = 8\) cm.`, CM5),
+    sa2(3, TTE, "M\u1ED9t kh\u1ED1i pha l\xEA c\xF3 d\u1EA1ng h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u v\u1EDBi di\u1EC7n t\xEDch \u0111\xE1y 15 cm\xB2, chi\u1EC1u cao 8 cm. Bi\u1EBFt m\u1ED7i cm\xB3 pha l\xEA n\u1EB7ng 2,5 g, t\xEDnh kh\u1ED1i l\u01B0\u1EE3ng kh\u1ED1i pha l\xEA.", "100", r5`\(V = \dfrac13\cdot15\cdot8 = 40\) cm³; khối lượng \(40\cdot2{,}5 = 100\) g.`, { unit: "g" }),
+    // ---- Tự luận ----
+    es2(2, NB2, "M\u1ED9t h\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 5 cm v\xE0 c\u1EA1nh b\xEAn 7 cm. H\xECnh ch\xF3p c\xF3 bao nhi\xEAu m\u1EB7t, bao nhi\xEAu \u0111\u1EC9nh, bao nhi\xEAu c\u1EA1nh? T\xEDnh t\u1ED5ng \u0111\u1ED9 d\xE0i t\u1EA5t c\u1EA3 c\xE1c c\u1EA1nh.", r5`Hình chóp tam giác đều có 4 mặt (1 đáy, 3 mặt bên), 4 đỉnh, 6 cạnh (3 cạnh đáy, 3 cạnh bên).
+Tổng độ dài các cạnh: \(3\cdot5 + 3\cdot7 = 36\) cm.`, r5`0,5 điểm: nêu đúng số mặt, đỉnh, cạnh.
+0,5 điểm: tính đúng tổng độ dài.`),
+    es2(3, XQ, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 24 cm v\xE0 c\u1EA1nh b\xEAn 13 cm. T\xEDnh trung \u0111o\u1EA1n v\xE0 di\u1EC7n t\xEDch xung quanh c\u1EE7a h\xECnh ch\xF3p.", r5`Trung đoạn là đường cao của mặt bên (tam giác cân), chia cạnh đáy thành hai đoạn 12 cm: \(d = \sqrt{13^2 - 12^2} = 5\) cm.
+Nửa chu vi đáy \(p = 36\) cm; \(S_{xq} = 36\cdot5 = 180\) cm².`, r5`0,5 điểm: tính đúng trung đoạn.
+0,5 điểm: tính đúng diện tích xung quanh.`),
+    es2(3, TT5, r5`Hình chóp tam giác đều có cạnh đáy 4 cm và chiều cao 6 cm. Tính diện tích đáy và thể tích hình chóp (làm tròn kết quả đến hàng phần trăm).`, r5`Đường cao tam giác đáy: \(\sqrt{4^2 - 2^2} = 2\sqrt3\) cm.
+Diện tích đáy \(S = \dfrac12\cdot4\cdot2\sqrt3 = 4\sqrt3 \approx 6{,}93\) cm².
+\(V = \dfrac13\cdot4\sqrt3\cdot6 = 8\sqrt3 \approx 13{,}86\) cm³.`, r5`0,5 điểm: tính đúng diện tích đáy.
+0,5 điểm: tính đúng thể tích.`),
+    es2(4, TH3, "H\xECnh ch\xF3p tam gi\xE1c \u0111\u1EC1u c\xF3 di\u1EC7n t\xEDch xung quanh 120 cm\xB2 v\xE0 c\u1EA1nh \u0111\xE1y 8 cm. T\xEDnh trung \u0111o\u1EA1n v\xE0 \u0111\u1ED9 d\xE0i c\u1EA1nh b\xEAn (l\xE0m tr\xF2n \u0111\u1EBFn h\xE0ng ph\u1EA7n tr\u0103m).", r5`Nửa chu vi đáy \(p = 12\) cm; trung đoạn \(d = \dfrac{120}{12} = 10\) cm.
+Trong tam giác vuông tạo bởi trung đoạn, nửa cạnh đáy (4 cm) và cạnh bên: cạnh bên \(= \sqrt{10^2 + 4^2} = \sqrt{116} \approx 10{,}77\) cm.`, r5`0,5 điểm: tính đúng trung đoạn.
+0,5 điểm: tính đúng cạnh bên.`),
+    ge2(2, XQ, r5`Cho hình chóp tam giác đều \(S.ABC\) có cạnh đáy \(BC = 9\) cm; \(M\) là trung điểm \(BC\), trung đoạn \(SM = 12\) cm. Giải thích vì sao \(SM \perp BC\) và tính diện tích xung quanh của hình chóp.`, CHOP_TAM_GIAC2, r5`Mặt bên \(SBC\) là tam giác cân tại \(S\), \(SM\) là trung tuyến nên cũng là đường cao: \(SM \perp BC\).
+Nửa chu vi đáy \(p = \dfrac{3\cdot9}{2} = 13{,}5\) cm; \(S_{xq} = p\cdot d = 13{,}5\cdot12 = 162\) cm².`, r5`0,5 điểm: giải thích \(SM \perp BC\).
+0,5 điểm: tính đúng diện tích xung quanh.`),
+    ge2(3, TH3, r5`Cho hình chóp tam giác đều \(S.ABC\) có cạnh đáy \(AB = 16\) cm, cạnh bên \(SA = 17\) cm; \(M\) là trung điểm \(BC\). Tính trung đoạn \(SM\), diện tích xung quanh và diện tích toàn phần của hình chóp (làm tròn đến hàng phần trăm).`, CHOP_TAM_GIAC2, r5`Tam giác \(SMC\) vuông tại \(M\), \(MC = 8\) cm: \(SM = \sqrt{17^2 - 8^2} = 15\) cm.
+\(S_{xq} = 24\cdot15 = 360\) cm².
+Đường cao tam giác đáy \(AM = \sqrt{16^2 - 8^2} = 8\sqrt3\) cm, diện tích đáy \(\dfrac12\cdot16\cdot8\sqrt3 = 64\sqrt3 \approx 110{,}85\) cm².
+\(S_{tp} \approx 360 + 110{,}85 = 470{,}85\) cm².`, r5`0,25 điểm: tính đúng \(SM\).
+0,25 điểm: tính đúng \(S_{xq}\).
+0,5 điểm: tính diện tích đáy và \(S_{tp}\).`),
+    ge2(4, TH3, r5`Cho hình chóp tam giác đều \(S.ABC\) có cạnh đáy 12 cm, chiều cao \(SO = 2\) cm (\(O\) là tâm đáy), \(M\) là trung điểm \(BC\). Tính \(OM\), trung đoạn \(SM\), diện tích xung quanh và thể tích hình chóp (thể tích làm tròn đến hàng phần trăm).`, CHOP_TAM_GIAC2, r5`\(AM = \sqrt{12^2 - 6^2} = 6\sqrt3\) cm; \(O\) là trọng tâm nên \(OM = \dfrac13AM = 2\sqrt3\) cm.
+Tam giác \(SOM\) vuông tại \(O\): \(SM = \sqrt{2^2 + (2\sqrt3)^2} = \sqrt{16} = 4\) cm.
+\(S_{xq} = 18\cdot4 = 72\) cm².
+Diện tích đáy \(\dfrac12\cdot12\cdot6\sqrt3 = 36\sqrt3\) cm²; \(V = \dfrac13\cdot36\sqrt3\cdot2 = 24\sqrt3 \approx 41{,}57\) cm³.`, r5`0,25 điểm: tính đúng \(OM\).
+0,25 điểm: tính đúng \(SM\).
+0,25 điểm: tính \(S_{xq}\).
+0,25 điểm: tính thể tích.`)
+  ]
+};
+var NB4 = "nhan-biet-hinh-chop-tu-giac-deu";
+var XQ4 = "dien-tich-xung-quanh-chop-tu-giac";
+var TT43 = "the-tich-chop-tu-giac";
+var TH42 = "tong-hop-chop-tu-giac";
+var TTE4 = "thuc-te-chop-tu-giac";
+var B39 = {
+  slug: "bai-39-hinh-chop-tu-giac-deu",
+  questions: [
+    mc(1, NB4, "M\u1EB7t \u0111\xE1y c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u l\xE0", ["h\xECnh vu\xF4ng", "h\xECnh ch\u1EEF nh\u1EADt", "h\xECnh thoi", "t\u1EE9 gi\xE1c b\u1EA5t k\xEC"], "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 \u0111\xE1y l\xE0 h\xECnh vu\xF4ng.", [
+      void 0,
+      "H\xECnh ch\u1EEF nh\u1EADt ch\u01B0a ch\u1EAFc c\xF3 c\xE1c c\u1EA1nh b\u1EB1ng nhau.",
+      "H\xECnh thoi ch\u01B0a ch\u1EAFc c\xF3 g\xF3c vu\xF4ng.",
+      "\u0110\xE1y ph\u1EA3i l\xE0 t\u1EE9 gi\xE1c \u0111\u1EC1u, t\u1EE9c h\xECnh vu\xF4ng."
+    ]),
+    mc(1, NB4, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 bao nhi\xEAu m\u1EB7t b\xEAn?", ["4", "5", "3", "6"], "M\u1ED7i c\u1EA1nh \u0111\xE1y \u1EE9ng v\u1EDBi m\u1ED9t m\u1EB7t b\xEAn: 4 m\u1EB7t b\xEAn.", [
+      void 0,
+      "\u0110\xF3 l\xE0 t\u1ED5ng s\u1ED1 m\u1EB7t k\u1EC3 c\u1EA3 \u0111\xE1y.",
+      "\u0110\xF3 l\xE0 s\u1ED1 m\u1EB7t b\xEAn c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c.",
+      "\u0110\xF3 l\xE0 s\u1ED1 m\u1EB7t c\u1EE7a h\xECnh h\u1ED9p."
+    ]),
+    mc(1, NB4, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 bao nhi\xEAu c\u1EA1nh?", ["8", "4", "6", "12"], "4 c\u1EA1nh \u0111\xE1y v\xE0 4 c\u1EA1nh b\xEAn: 8 c\u1EA1nh.", [
+      void 0,
+      "M\u1EDBi \u0111\u1EBFm c\u1EA1nh \u0111\xE1y ho\u1EB7c c\u1EA1nh b\xEAn.",
+      "\u0110\xF3 l\xE0 s\u1ED1 c\u1EA1nh c\u1EE7a h\xECnh ch\xF3p tam gi\xE1c.",
+      "\u0110\xF3 l\xE0 s\u1ED1 c\u1EA1nh c\u1EE7a h\xECnh h\u1ED9p."
+    ]),
+    mc(2, NB4, r5`Chân đường cao \(SO\) của hình chóp tứ giác đều \(S.ABCD\) là`, ["giao \u0111i\u1EC3m hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a \u0111\xE1y", r5`trung điểm cạnh \(AB\)`, r5`đỉnh \(A\)`, r5`trung điểm cạnh \(SA\)`], r5`\(O\) là tâm hình vuông đáy, tức giao điểm của \(AC\) và \(BD\).`, [
+      void 0,
+      "Trung \u0111i\u1EC3m c\u1EA1nh \u0111\xE1y l\xE0 ch\xE2n trung \u0111o\u1EA1n.",
+      "\u0110\u01B0\u1EDDng cao kh\xF4ng \u0111i qua \u0111\u1EC9nh \u0111\xE1y.",
+      "\u0110i\u1EC3m n\xE0y kh\xF4ng n\u1EB1m tr\xEAn m\u1EB7t \u0111\xE1y."
+    ]),
+    mc(2, NB4, r5`Cho hình chóp tứ giác đều \(S.ABCD\). Khẳng định nào sau đây đúng?`, [r5`\(SA = SB = SC = SD\)`, r5`\(SA = AB\)`, r5`\(SO = SA\)`, "C\xE1c m\u1EB7t b\xEAn l\xE0 tam gi\xE1c vu\xF4ng"], "C\xE1c c\u1EA1nh b\xEAn c\u1EE7a h\xECnh ch\xF3p \u0111\u1EC1u b\u1EB1ng nhau.", [
+      void 0,
+      "C\u1EA1nh b\xEAn ch\u01B0a ch\u1EAFc b\u1EB1ng c\u1EA1nh \u0111\xE1y.",
+      r5`\(SA\) là cạnh huyền của tam giác vuông \(SOA\).`,
+      "C\xE1c m\u1EB7t b\xEAn l\xE0 tam gi\xE1c c\xE2n."
+    ]),
+    mc(2, XQ4, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 6 cm v\xE0 trung \u0111o\u1EA1n 9 cm. Di\u1EC7n t\xEDch xung quanh l\xE0", [r5`\(108\) cm²`, r5`\(216\) cm²`, r5`\(54\) cm²`, r5`\(144\) cm²`], r5`\(S_{xq} = p\cdot d = 12\cdot9 = 108\) cm².`, [
+      void 0,
+      "D\xF9ng chu vi thay cho n\u1EEDa chu vi.",
+      "\u0110\xF3 l\xE0 di\u1EC7n t\xEDch hai m\u1EB7t b\xEAn.",
+      "\u0110\xF3 l\xE0 di\u1EC7n t\xEDch to\xE0n ph\u1EA7n."
+    ]),
+    mc(3, XQ4, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 16 cm v\xE0 c\u1EA1nh b\xEAn 17 cm. Di\u1EC7n t\xEDch xung quanh l\xE0", [r5`\(480\) cm²`, r5`\(544\) cm²`, r5`\(960\) cm²`, r5`\(240\) cm²`], r5`Trung đoạn \(d = \sqrt{17^2 - 8^2} = 15\) cm; \(S_{xq} = 32\cdot15 = 480\) cm².`, [
+      void 0,
+      "D\xF9ng c\u1EA1nh b\xEAn thay cho trung \u0111o\u1EA1n.",
+      "D\xF9ng chu vi thay cho n\u1EEDa chu vi.",
+      "\u0110\xF3 l\xE0 di\u1EC7n t\xEDch hai m\u1EB7t b\xEAn."
+    ]),
+    mc(3, XQ4, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 10 cm v\xE0 chi\u1EC1u cao 12 cm. Di\u1EC7n t\xEDch xung quanh l\xE0", [r5`\(260\) cm²`, r5`\(240\) cm²`, r5`\(520\) cm²`, r5`\(130\) cm²`], r5`Trung đoạn \(d = \sqrt{12^2 + 5^2} = 13\) cm; \(S_{xq} = 20\cdot13 = 260\) cm².`, [
+      void 0,
+      "D\xF9ng chi\u1EC1u cao thay cho trung \u0111o\u1EA1n.",
+      "D\xF9ng chu vi thay cho n\u1EEDa chu vi.",
+      "\u0110\xF3 l\xE0 di\u1EC7n t\xEDch hai m\u1EB7t b\xEAn."
+    ]),
+    mc(2, TT43, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 9 cm v\xE0 chi\u1EC1u cao 10 cm. Th\u1EC3 t\xEDch l\xE0", [r5`\(270\) cm³`, r5`\(810\) cm³`, r5`\(90\) cm³`, r5`\(30\) cm³`], r5`\(V = \dfrac13\cdot81\cdot10 = 270\) cm³.`, [
+      void 0,
+      r5`Quên nhân \(\dfrac13\).`,
+      "D\xF9ng c\u1EA1nh \u0111\xE1y thay cho di\u1EC7n t\xEDch \u0111\xE1y (qu\xEAn nh\xE2n \\(\\dfrac13\\)).",
+      "D\xF9ng c\u1EA1nh \u0111\xE1y thay cho di\u1EC7n t\xEDch \u0111\xE1y."
+    ]),
+    mc(3, TT43, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 th\u1EC3 t\xEDch 200 cm\xB3 v\xE0 c\u1EA1nh \u0111\xE1y 10 cm. Chi\u1EC1u cao l\xE0", [r5`\(6\) cm`, r5`\(2\) cm`, r5`\(20\) cm`, r5`\(60\) cm`], r5`\(h = \dfrac{3V}{a^2} = \dfrac{600}{100} = 6\) cm.`, [
+      void 0,
+      "Qu\xEAn nh\xE2n 3.",
+      "Chia cho c\u1EA1nh \u0111\xE1y thay v\xEC di\u1EC7n t\xEDch \u0111\xE1y (qu\xEAn nh\xE2n 3).",
+      "Chia cho c\u1EA1nh \u0111\xE1y thay v\xEC di\u1EC7n t\xEDch \u0111\xE1y."
+    ]),
+    mc(3, TT43, "N\u1EBFu c\u1EA1nh \u0111\xE1y c\u1EE7a h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u t\u0103ng g\u1EA5p \u0111\xF4i v\xE0 chi\u1EC1u cao gi\u1EEF nguy\xEAn th\xEC th\u1EC3 t\xEDch", ["t\u0103ng 4 l\u1EA7n", "t\u0103ng 2 l\u1EA7n", "t\u0103ng 8 l\u1EA7n", "kh\xF4ng \u0111\u1ED5i"], r5`Diện tích đáy \(a^2\) tăng 4 lần nên thể tích tăng 4 lần.`, [
+      void 0,
+      "Di\u1EC7n t\xEDch \u0111\xE1y t\u0103ng theo b\xECnh ph\u01B0\u01A1ng c\u1EA1nh.",
+      "Chi\u1EC1u cao kh\xF4ng \u0111\u1ED5i n\xEAn kh\xF4ng t\u0103ng 8 l\u1EA7n.",
+      "Di\u1EC7n t\xEDch \u0111\xE1y thay \u0111\u1ED5i."
+    ]),
+    mc(3, TH42, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 6 cm v\xE0 trung \u0111o\u1EA1n 5 cm. Di\u1EC7n t\xEDch to\xE0n ph\u1EA7n l\xE0", [r5`\(96\) cm²`, r5`\(60\) cm²`, r5`\(156\) cm²`, r5`\(66\) cm²`], r5`\(S_{xq} = 12\cdot5 = 60\) cm², \(S_{đáy} = 36\) cm²; \(S_{tp} = 96\) cm².`, [
+      void 0,
+      "\u0110\xF3 m\u1EDBi l\xE0 di\u1EC7n t\xEDch xung quanh.",
+      "D\xF9ng chu vi thay cho n\u1EEDa chu vi.",
+      "C\u1ED9ng c\u1EA1nh \u0111\xE1y thay cho di\u1EC7n t\xEDch \u0111\xE1y."
+    ]),
+    mc(4, TH42, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 trung \u0111o\u1EA1n 13 cm v\xE0 c\u1EA1nh \u0111\xE1y 24 cm. Chi\u1EC1u cao c\u1EE7a h\xECnh ch\xF3p l\xE0", [r5`\(5\) cm`, r5`\(\sqrt{313}\) cm`, r5`\(1\) cm`, r5`\(12\) cm`], r5`Tam giác vuông tạo bởi chiều cao, trung đoạn và nửa cạnh đáy (12 cm): \(h = \sqrt{169 - 144} = 5\) cm.`, [
+      void 0,
+      "C\u1ED9ng b\xECnh ph\u01B0\u01A1ng thay v\xEC tr\u1EEB.",
+      "Tr\u1EEB \u0111\u1ED9 d\xE0i thay v\xEC b\xECnh ph\u01B0\u01A1ng.",
+      "\u0110\xF3 l\xE0 n\u1EEDa c\u1EA1nh \u0111\xE1y."
+    ]),
+    mc(3, TTE4, "M\u1ED9t m\xE1i che c\xF3 d\u1EA1ng h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u (kh\xF4ng c\xF3 \u0111\xE1y), c\u1EA1nh \u0111\xE1y 4 m, trung \u0111o\u1EA1n 3 m. Di\u1EC7n t\xEDch c\u1EA7n l\u1EE3p m\xE1i l\xE0", [r5`\(24\) m²`, r5`\(48\) m²`, r5`\(40\) m²`, r5`\(12\) m²`], r5`\(S_{xq} = 8\cdot3 = 24\) m².`, [
+      void 0,
+      "D\xF9ng chu vi thay cho n\u1EEDa chu vi.",
+      "C\u1ED9ng th\xEAm di\u1EC7n t\xEDch \u0111\xE1y, trong khi m\xE1i kh\xF4ng c\xF3 \u0111\xE1y.",
+      "\u0110\xF3 l\xE0 di\u1EC7n t\xEDch hai m\u1EB7t b\xEAn."
+    ]),
+    mc(3, TTE4, "M\u1ED9t chi\u1EBFc ch\u1EB7n gi\u1EA5y b\u1EB1ng g\u1ED7 c\xF3 d\u1EA1ng h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u, c\u1EA1nh \u0111\xE1y 6 cm, chi\u1EC1u cao 5 cm. Th\u1EC3 t\xEDch g\u1ED7 l\xE0m ch\u1EB7n gi\u1EA5y l\xE0", [r5`\(60\) cm³`, r5`\(180\) cm³`, r5`\(10\) cm³`, r5`\(120\) cm³`], r5`\(V = \dfrac13\cdot36\cdot5 = 60\) cm³.`, [
+      void 0,
+      r5`Quên nhân \(\dfrac13\).`,
+      "D\xF9ng c\u1EA1nh \u0111\xE1y thay cho di\u1EC7n t\xEDch \u0111\xE1y.",
+      r5`Nhân \(\dfrac23\) thay vì \(\dfrac13\).`
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, NB4, r5`Cho hình chóp tứ giác đều \(S.ABCD\).`, [
+      [r5`Đáy \(ABCD\) là hình vuông.`, true, "Theo \u0111\u1ECBnh ngh\u0129a."],
+      ["H\xECnh ch\xF3p c\xF3 5 m\u1EB7t.", true, "1 m\u1EB7t \u0111\xE1y v\xE0 4 m\u1EB7t b\xEAn."],
+      ["H\xECnh ch\xF3p c\xF3 5 \u0111\u1EC9nh.", true, r5`\(S\) và bốn đỉnh đáy.`],
+      ["H\xECnh ch\xF3p c\xF3 6 c\u1EA1nh.", false, "C\xF3 8 c\u1EA1nh: 4 c\u1EA1nh \u0111\xE1y, 4 c\u1EA1nh b\xEAn."]
+    ]),
+    tf2(2, NB4, r5`Hình chóp tứ giác đều \(S.ABCD\) có \(O\) là giao điểm \(AC\) và \(BD\), \(M\) là trung điểm của \(CD\).`, [
+      [r5`\(SO\) là đường cao của hình chóp.`, true, "Ch\xE2n \u0111\u01B0\u1EDDng cao l\xE0 t\xE2m \u0111\xE1y."],
+      [r5`\(SM\) là một trung đoạn.`, true, r5`Tam giác \(SCD\) cân tại \(S\).`],
+      [r5`\(SM \perp CD\).`, true, "Trung tuy\u1EBFn c\u1EE7a tam gi\xE1c c\xE2n."],
+      [r5`\(OM = CD\).`, false, r5`\(OM = \dfrac{CD}{2}\).`]
+    ]),
+    tf2(2, XQ4, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 10 cm v\xE0 trung \u0111o\u1EA1n 8 cm.", [
+      ["N\u1EEDa chu vi \u0111\xE1y l\xE0 20 cm.", true, r5`\(\dfrac{4\cdot10}{2}\).`],
+      ["Di\u1EC7n t\xEDch m\u1ED9t m\u1EB7t b\xEAn l\xE0 40 cm\xB2.", true, r5`\(\dfrac12\cdot10\cdot8\).`],
+      ["Di\u1EC7n t\xEDch xung quanh l\xE0 160 cm\xB2.", true, r5`\(20\cdot8\).`],
+      ["Di\u1EC7n t\xEDch to\xE0n ph\u1EA7n l\xE0 160 cm\xB2.", false, r5`\(S_{tp} = 160 + 100 = 260\) cm².`]
+    ]),
+    tf2(3, XQ4, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 6 cm v\xE0 c\u1EA1nh b\xEAn 5 cm.", [
+      ["Trung \u0111o\u1EA1n b\u1EB1ng 4 cm.", true, r5`\(\sqrt{25 - 9}\).`],
+      ["Di\u1EC7n t\xEDch xung quanh l\xE0 48 cm\xB2.", true, r5`\(12\cdot4\).`],
+      ["Di\u1EC7n t\xEDch to\xE0n ph\u1EA7n l\xE0 84 cm\xB2.", true, r5`\(48 + 36\).`],
+      ["Di\u1EC7n t\xEDch xung quanh l\xE0 60 cm\xB2.", false, "D\xF9ng c\u1EA1nh b\xEAn thay cho trung \u0111o\u1EA1n."]
+    ]),
+    tf2(2, TT43, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 3 cm v\xE0 chi\u1EC1u cao 5 cm.", [
+      ["Di\u1EC7n t\xEDch \u0111\xE1y l\xE0 9 cm\xB2.", true, r5`\(3^2\).`],
+      ["Th\u1EC3 t\xEDch l\xE0 15 cm\xB3.", true, r5`\(\dfrac13\cdot9\cdot5\).`],
+      ["Th\u1EC3 t\xEDch l\xE0 45 cm\xB3.", false, r5`Quên nhân \(\dfrac13\).`],
+      ["N\u1EBFu chi\u1EC1u cao t\u0103ng g\u1EA5p 3, \u0111\xE1y gi\u1EEF nguy\xEAn th\xEC th\u1EC3 t\xEDch l\xE0 45 cm\xB3.", true, r5`\(3\cdot15\).`]
+    ]),
+    tf2(3, TT43, "M\u1ED9t h\xECnh h\u1ED9p ch\u1EEF nh\u1EADt c\xF3 \u0111\xE1y l\xE0 h\xECnh vu\xF4ng c\u1EA1nh 4 cm, chi\u1EC1u cao 9 cm v\xE0 m\u1ED9t h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\xF9ng \u0111\xE1y, c\xF9ng chi\u1EC1u cao.", [
+      ["Th\u1EC3 t\xEDch h\xECnh h\u1ED9p l\xE0 144 cm\xB3.", true, r5`\(16\cdot9\).`],
+      ["Th\u1EC3 t\xEDch h\xECnh ch\xF3p l\xE0 48 cm\xB3.", true, r5`\(\dfrac13\cdot16\cdot9\).`],
+      [r5`Thể tích hình chóp bằng \(\dfrac13\) thể tích hình hộp.`, true, "C\xF9ng \u0111\xE1y, c\xF9ng chi\u1EC1u cao."],
+      ["Th\u1EC3 t\xEDch h\xECnh ch\xF3p l\xE0 72 cm\xB3.", false, r5`Nhân \(\dfrac12\) thay vì \(\dfrac13\).`]
+    ]),
+    tf2(3, TH42, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 16 cm v\xE0 chi\u1EC1u cao 15 cm.", [
+      ["Kho\u1EA3ng c\xE1ch t\u1EEB t\xE2m \u0111\xE1y \u0111\u1EBFn trung \u0111i\u1EC3m m\u1ED9t c\u1EA1nh \u0111\xE1y l\xE0 8 cm.", true, "B\u1EB1ng n\u1EEDa c\u1EA1nh \u0111\xE1y."],
+      ["Trung \u0111o\u1EA1n b\u1EB1ng 17 cm.", true, r5`\(\sqrt{225 + 64}\).`],
+      ["Di\u1EC7n t\xEDch xung quanh l\xE0 544 cm\xB2.", true, r5`\(32\cdot17\).`],
+      ["Th\u1EC3 t\xEDch l\xE0 3840 cm\xB3.", false, r5`Quên \(\dfrac13\): \(V = 1280\) cm³.`]
+    ]),
+    tf2(4, TH42, r5`Hình chóp tứ giác đều \(S.ABCD\) có tất cả các cạnh đều bằng 4 cm.`, [
+      ["C\xE1c m\u1EB7t b\xEAn l\xE0 tam gi\xE1c \u0111\u1EC1u.", true, "Ba c\u1EA1nh b\u1EB1ng nhau."],
+      [r5`Trung đoạn bằng \(2\sqrt3\) cm.`, true, r5`\(\sqrt{16 - 4}\).`],
+      [r5`Diện tích xung quanh là \(16\sqrt3\) cm².`, true, r5`\(8\cdot2\sqrt3\).`],
+      [r5`Chiều cao bằng \(2\sqrt3\) cm.`, false, r5`\(h = \sqrt{12 - 4} = 2\sqrt2\) cm.`]
+    ]),
+    tf2(3, TTE4, "M\u1ED9t c\xF4ng tr\xECnh m\xE1i k\xEDnh c\xF3 d\u1EA1ng h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u v\u1EDBi c\u1EA1nh \u0111\xE1y 35 m v\xE0 chi\u1EC1u cao 21 m.", [
+      ["Di\u1EC7n t\xEDch \u0111\xE1y l\xE0 1225 m\xB2.", true, r5`\(35^2\).`],
+      ["Th\u1EC3 t\xEDch kh\xF4ng gian b\xEAn trong l\xE0 8575 m\xB3.", true, r5`\(\dfrac13\cdot1225\cdot21\).`],
+      ["Th\u1EC3 t\xEDch kh\xF4ng gian b\xEAn trong l\xE0 25 725 m\xB3.", false, r5`Quên nhân \(\dfrac13\).`],
+      ["N\u1EBFu c\u1EA1nh \u0111\xE1y gi\u1EA3m m\u1ED9t n\u1EEDa, chi\u1EC1u cao gi\u1EEF nguy\xEAn th\xEC th\u1EC3 t\xEDch gi\u1EA3m 4 l\u1EA7n.", true, "Di\u1EC7n t\xEDch \u0111\xE1y gi\u1EA3m 4 l\u1EA7n."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, XQ4, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 7 cm v\xE0 trung \u0111o\u1EA1n 9 cm. T\xEDnh di\u1EC7n t\xEDch xung quanh.", "126", r5`\(S_{xq} = p\cdot d = 14\cdot9 = 126\) cm².`, CM24),
+    sa2(3, TT43, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 th\u1EC3 t\xEDch 75 cm\xB3 v\xE0 chi\u1EC1u cao 9 cm. T\xEDnh c\u1EA1nh \u0111\xE1y.", "5", r5`Diện tích đáy \(\dfrac{3\cdot75}{9} = 25\) cm² nên cạnh đáy \(5\) cm.`, CM5),
+    sa2(3, TTE4, "M\u1ED9t chi\u1EBFc l\u1EC1u c\xF3 d\u1EA1ng h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u (kh\xF4ng c\xF3 \u0111\xE1y), c\u1EA1nh \u0111\xE1y 2,4 m, trung \u0111o\u1EA1n 2 m. T\xEDnh di\u1EC7n t\xEDch v\u1EA3i l\xE0m l\u1EC1u.", "9,6", r5`\(S_{xq} = 4{,}8\cdot2 = 9{,}6\) m².`, M22),
+    // ---- Tự luận ----
+    es2(2, NB4, "M\u1ED9t h\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 6 cm v\xE0 c\u1EA1nh b\xEAn 8 cm. Cho bi\u1EBFt h\xECnh ch\xF3p c\xF3 bao nhi\xEAu m\u1EB7t, bao nhi\xEAu \u0111\u1EC9nh v\xE0 t\xEDnh t\u1ED5ng \u0111\u1ED9 d\xE0i t\u1EA5t c\u1EA3 c\xE1c c\u1EA1nh.", r5`Hình chóp tứ giác đều có 5 mặt (1 đáy hình vuông, 4 mặt bên), 5 đỉnh, 8 cạnh.
+Tổng độ dài các cạnh: \(4\cdot6 + 4\cdot8 = 56\) cm.`, r5`0,5 điểm: nêu đúng số mặt, số đỉnh.
+0,5 điểm: tính đúng tổng độ dài các cạnh.`),
+    es2(3, XQ4, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 14 cm v\xE0 c\u1EA1nh b\xEAn 25 cm. T\xEDnh trung \u0111o\u1EA1n, di\u1EC7n t\xEDch xung quanh v\xE0 di\u1EC7n t\xEDch to\xE0n ph\u1EA7n.", r5`Trung đoạn \(d = \sqrt{25^2 - 7^2} = \sqrt{576} = 24\) cm.
+\(S_{xq} = 28\cdot24 = 672\) cm²; \(S_{tp} = 672 + 14^2 = 868\) cm².`, r5`0,5 điểm: tính đúng trung đoạn.
+0,5 điểm: tính đúng \(S_{xq}\) và \(S_{tp}\).`),
+    es2(3, TT43, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 c\u1EA1nh \u0111\xE1y 18 cm v\xE0 trung \u0111o\u1EA1n 15 cm. T\xEDnh chi\u1EC1u cao v\xE0 th\u1EC3 t\xEDch c\u1EE7a h\xECnh ch\xF3p.", r5`Chiều cao, trung đoạn và nửa cạnh đáy (9 cm) tạo thành tam giác vuông: \(h = \sqrt{15^2 - 9^2} = 12\) cm.
+\(V = \dfrac13\cdot18^2\cdot12 = 1296\) cm³.`, r5`0,5 điểm: tính đúng chiều cao.
+0,5 điểm: tính đúng thể tích.`),
+    es2(4, TH42, "H\xECnh ch\xF3p t\u1EE9 gi\xE1c \u0111\u1EC1u c\xF3 th\u1EC3 t\xEDch 400 cm\xB3 v\xE0 chi\u1EC1u cao 12 cm. T\xEDnh c\u1EA1nh \u0111\xE1y, trung \u0111o\u1EA1n v\xE0 di\u1EC7n t\xEDch to\xE0n ph\u1EA7n.", r5`Diện tích đáy \(\dfrac{3\cdot400}{12} = 100\) cm² nên cạnh đáy 10 cm.
+Trung đoạn \(d = \sqrt{12^2 + 5^2} = 13\) cm.
+\(S_{xq} = 20\cdot13 = 260\) cm²; \(S_{tp} = 260 + 100 = 360\) cm².`, r5`0,25 điểm: tính đúng cạnh đáy.
+0,25 điểm: tính đúng trung đoạn.
+0,5 điểm: tính đúng diện tích toàn phần.`),
+    ge2(2, XQ4, r5`Cho hình chóp tứ giác đều \(S.ABCD\) có cạnh đáy \(AB = 8\) cm, \(M\) là trung điểm \(AB\) và trung đoạn \(SM = 9\) cm. Tính diện tích xung quanh và diện tích toàn phần của hình chóp.`, CHOP_TU_GIAC2, r5`Nửa chu vi đáy \(p = 16\) cm; \(S_{xq} = p\cdot SM = 16\cdot9 = 144\) cm².
+Diện tích đáy \(8^2 = 64\) cm²; \(S_{tp} = 144 + 64 = 208\) cm².`, r5`0,5 điểm: tính đúng \(S_{xq}\).
+0,5 điểm: tính đúng \(S_{tp}\).`),
+    ge2(3, TT43, r5`Cho hình chóp tứ giác đều \(S.ABCD\) có cạnh đáy \(AB = 6\) cm, chiều cao \(SO = 10\) cm, \(M\) là trung điểm \(AB\). Tính thể tích hình chóp và độ dài trung đoạn \(SM\) (làm tròn đến hàng phần trăm).`, CHOP_TU_GIAC2, r5`\(V = \dfrac13\cdot6^2\cdot10 = 120\) cm³.
+\(OM = \dfrac{AD}{2} = 3\) cm; tam giác \(SOM\) vuông tại \(O\): \(SM = \sqrt{10^2 + 3^2} = \sqrt{109} \approx 10{,}44\) cm.`, r5`0,5 điểm: tính đúng thể tích.
+0,5 điểm: tính đúng \(SM\).`),
+    ge2(4, TH42, r5`Cho hình chóp tứ giác đều \(S.ABCD\) có cạnh đáy \(AB = 12\) cm, chiều cao \(SO = 8\) cm, \(M\) là trung điểm \(AB\). Tính trung đoạn \(SM\), diện tích toàn phần và thể tích của hình chóp.`, CHOP_TU_GIAC2, r5`\(OM = 6\) cm; tam giác \(SOM\) vuông tại \(O\): \(SM = \sqrt{8^2 + 6^2} = 10\) cm.
+\(S_{xq} = 24\cdot10 = 240\) cm²; \(S_{tp} = 240 + 144 = 384\) cm².
+\(V = \dfrac13\cdot144\cdot8 = 384\) cm³.`, r5`0,25 điểm: tính đúng \(SM\).
+0,5 điểm: tính đúng \(S_{tp}\).
+0,25 điểm: tính đúng thể tích.`)
+  ]
+};
+var BANK_CHUONG_10 = [B38, B39];
+
 // src/seed/toan8-bank/index.ts
-var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3, ...BANK_CHUONG_4, ...BANK_CHUONG_5, ...BANK_CHUONG_6, ...BANK_CHUONG_7, ...BANK_CHUONG_8, ...BANK_CHUONG_9];
+var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3, ...BANK_CHUONG_4, ...BANK_CHUONG_5, ...BANK_CHUONG_6, ...BANK_CHUONG_7, ...BANK_CHUONG_8, ...BANK_CHUONG_9, ...BANK_CHUONG_10];
 
 // src/seed/question-bank.ts
 var BANK_SOURCE = "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi G\u01104 \u2013 t\u1EF1 bi\xEAn so\u1EA1n theo SGK To\xE1n 8 KNTT";

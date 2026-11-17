@@ -183,8 +183,8 @@ try {
     await teacher.fill('textarea[name=stem]', 'Câu thiếu ý \\(x^2');
     await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Lưu câu hỏi")')]);
     const err = await teacher.locator('[role=alert]').first().textContent();
-    assert.match(err, /Chọn Đúng hoặc Sai/);
-    assert.match(err, /Ý a\) đang để trống/);
+    assert.match(err, /chọn Đúng hoặc Sai/i);
+    assert.match(err, /Nhận định a\) đang để trống/);
     assert.match(err, /không bằng nhau/);
     assert.equal(await teacher.inputValue('textarea[name=stem]'), 'Câu thiếu ý \\(x^2');
   });
@@ -302,12 +302,20 @@ try {
     await shot(student, '08-tim-kiem');
   });
 
-  await step('Luyện tập: chấm ngay, hiện lời giải, cộng XP, tổng kết lượt', async () => {
+  await step('Luyện tập: chọn cấu hình, chấm ngay, hiện lời giải, đánh dấu xem lại, tổng kết lượt', async () => {
     await student.goto(`${BASE}/luyen-tap/bai/bai-1-don-thuc`);
+    assert.match(student.url(), /\/luyen-tap\?kieu=bai&bai=\d+/);
+    await Promise.all([student.waitForNavigation(), student.click('button:has-text("Bắt đầu luyện tập")')]);
+    assert.match(student.url(), /\/luyen-tap\/phien\/\d+$/);
     await hydrated(student);
+    assert.ok(await student.locator('[role=progressbar]').count(), 'có thanh tiến độ');
     let n = 0;
     for (;;) {
       const art = student.locator('article');
+      if (n === 0) {
+        await art.locator('button:has-text("Đánh dấu xem lại")').click();
+        await art.locator('button[aria-pressed=true]:has-text("Đã đánh dấu")').waitFor();
+      }
       if (await art.locator('[aria-label="Chọn phương án"]').count()) await art.locator('[role=radio]').nth(1).click();
       else if (await art.locator('[aria-label^="Ý "]').count()) {
         const groups = art.locator('[aria-label^="Ý "]');
@@ -317,20 +325,23 @@ try {
       await art.locator('button:has-text("Kiểm tra"), button:has-text("Gửi bài làm")').click();
       await art.locator('[role=status]').waitFor();
       if ((await art.locator('[role=status]').textContent()).includes('Chưa đúng')) {
-        assert.ok(await art.locator('[role=status] a:has-text("Dạng toán"), [role=status] a:has-text("Bài học")').count(), 'làm sai: gợi ý kiến thức cần ôn lại');
+        assert.ok(await art.locator('[role=status] a:has-text("Ôn phương pháp"), [role=status] a:has-text("Mở lại bài học")').count(), 'làm sai: gợi ý kiến thức cần ôn lại');
         state.reviewHints = (state.reviewHints ?? 0) + 1;
       }
       n++;
       if (n === 1) await shot(student, '04-luyen-tap-phan-hoi');
-      const next = art.locator('button:has-text("Câu tiếp theo")');
+      const next = art.locator('button:has-text("Câu tiếp")');
       if (await next.count()) await next.click();
       else {
-        await art.locator('button:has-text("Xem kết quả")').click();
+        await art.locator('button:has-text("Kết thúc và xem kết quả")').click();
+        await Promise.all([student.waitForURL(/\/luyen-tap\/ket-qua\/\d+$/), student.locator('[role=alertdialog] button:has-text("Kết thúc và xem kết quả")').click()]);
         break;
       }
     }
-    await student.getByRole('heading', { name: 'Kết quả lượt luyện tập' }).waitFor();
+    await student.getByRole('heading', { name: 'Kết quả theo dạng toán' }).waitFor();
+    await student.getByRole('heading', { name: 'Kiến thức cần ôn tập' }).waitFor();
     state.practiced = n;
+    state.practiceResultUrl = student.url();
     assert.ok(n >= 6);
     await shot(student, '05-luyen-tap-tong-ket');
   });
@@ -566,12 +577,15 @@ try {
     await g.goto(`${BASE}/luyen-tap`);
     await shot(g, '17-luyen-tap');
     await g.goto(`${BASE}/thu-thach`);
-    assert.ok(g.url().includes('/dang-nhap?next=%2Fthu-thach'));
+    assert.ok(await g.locator('a[href="/dang-nhap?next=/thu-thach"]').count(), 'khách được mời đăng nhập để nhận thử thách');
     await g.goto(`${BASE}/khong-ton-tai`);
     assert.ok(await g.getByText('Không tìm thấy trang').count());
     await g.context().close();
     await student.goto(`${BASE}/thu-thach`);
+    await Promise.all([student.waitForNavigation(), student.click('button:has-text("Nhận thử thách")')]);
+    assert.match(student.url(), /\/luyen-tap\/phien\/\d+$/);
     await hydrated(student);
+    assert.equal(await student.locator('article').count(), 1);
     await shot(student, '18-thu-thach');
   });
 
@@ -603,13 +617,19 @@ try {
     assert.equal(await student.locator('.math-error').count(), 0);
     await shot(student, '42-dang-toan');
     await Promise.all([student.waitForNavigation(), student.click('a:has-text("Luyện tập dạng này")')]);
+    assert.ok(await student.getByRole('heading', { name: 'Kiến thức cần nhớ' }).count(), 'trang bắt đầu luyện dạng nhắc kiến thức');
+    await Promise.all([student.waitForNavigation(), student.click('button:has-text("Bắt đầu luyện dạng này")')]);
+    assert.match(student.url(), /\/luyen-tap\/phien\/\d+$/);
     await hydrated(student);
     assert.ok(await student.locator('article').count(), 'có câu luyện tập của dạng');
-    // Kiểm tra cuối chương
+    // Kiểm tra cuối chương: có giờ, nộp bài mới chấm
     await student.goto(`${BASE}/luyen-tap/chuong/VIII/kiem-tra`);
-    await hydrated(student);
     assert.ok(await student.getByText('Kiểm tra cuối chương').count());
+    await Promise.all([student.waitForNavigation(), student.click('button:has-text("Bắt đầu làm bài")')]);
+    assert.match(student.url(), /\/luyen-tap\/phien\/\d+$/);
+    await hydrated(student);
     assert.ok(await student.locator('article').count());
+    assert.ok(await student.locator('[role=timer]').count(), 'bài kiểm tra có đồng hồ đếm ngược');
     await shot(student, '43-kiem-tra-cuoi-chuong');
   });
 
@@ -702,11 +722,55 @@ try {
     ].join('\n');
     await teacher.fill('textarea[name=data]', tsv);
     await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Kiểm tra dữ liệu")')]);
-    assert.ok(await teacher.getByText('2 dòng hợp lệ').count(), 'đếm dòng hợp lệ');
+    assert.ok(await teacher.getByText('2 dòng dùng được').count(), 'đếm dòng hợp lệ');
     assert.ok(await teacher.getByText('Không tìm thấy dạng toán mã "T8.B99.D9"').count(), 'báo lỗi mã dạng');
     await shot(teacher, '45-nhap-cau-hoi');
-    await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Nhập 2 câu hợp lệ")')]);
-    assert.match(await flash(teacher), /Đã nhập 2 câu hỏi/);
+    await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Nhập 2 câu")')]);
+    assert.match(await flash(teacher), /Đã thêm 2 câu/);
+    assert.match(await flash(teacher), /bỏ qua 1 dòng lỗi/);
+  });
+
+  // ---------------- Giai đoạn 4: ngân hàng câu hỏi và hệ thống luyện tập ----------------
+  await step('Ngân hàng câu hỏi: lịch sử, câu hay sai, làm lại câu sai, mức thành thạo, luyện theo mức độ', async () => {
+    await student.goto(state.practiceResultUrl);
+    const retry = student.locator('button:has-text("câu sai / chưa làm")');
+    if (await retry.count()) {
+      await Promise.all([student.waitForNavigation(), retry.click()]);
+      assert.match(student.url(), /\/luyen-tap\/phien\/\d+$/);
+      await hydrated(student);
+      assert.ok(await student.locator('article').count(), 'phiên làm lại câu sai có câu hỏi');
+    }
+    await student.goto(`${BASE}/luyen-tap/lich-su`);
+    assert.ok(await student.locator(`a[href="${new URL(state.practiceResultUrl).pathname}"]`).count(), 'lịch sử có lượt vừa làm');
+    await shot(student, '50-lich-su-luyen-tap');
+    await student.goto(`${BASE}/luyen-tap/cau-hay-sai`);
+    assert.ok(await student.getByRole('heading', { name: 'Câu hay sai' }).count());
+    await student.goto(`${BASE}/luyen-tap/tien-do`);
+    assert.ok(await student.getByText('Bài 1. Đơn thức').count(), 'tiến độ theo bài và dạng toán');
+    await shot(student, '51-tien-do-thanh-thao');
+    await student.goto(`${BASE}/luyen-tap?kieu=muc-do`);
+    await Promise.all([student.waitForNavigation(), student.click('button:has-text("Bắt đầu luyện tập")')]);
+    assert.match(student.url(), /\/luyen-tap\/phien\/\d+$/);
+    await hydrated(student);
+    assert.ok(await student.locator('article').count());
+  });
+
+  await step('Giáo viên: tạo đề tự động nhiều mã đề, lọc ngân hàng, xuất Excel', async () => {
+    await teacher.goto(`${BASE}/giao-vien/de-kiem-tra/tu-dong`);
+    await teacher.fill('input[name=title]', 'Kiểm tra Chương IX (tự động)');
+    await teacher.locator('label:has-text("Chương IX.") input[name=chuong]').check();
+    await teacher.fill('input[name=so-ma-de]', '2');
+    await Promise.all([teacher.waitForNavigation(), teacher.click('button:has-text("Lưu cấu hình và tạo mã đề")')]);
+    assert.match(teacher.url(), /\/giao-vien\/de-kiem-tra\/cau-hinh\/\d+$/);
+    assert.match(await flash(teacher), /Đã tạo 2 mã đề/);
+    await shot(teacher, '52-tao-de-tu-dong');
+    await teacher.goto(`${BASE}/giao-vien/cau-hoi?q=${encodeURIComponent('hình chóp tứ giác đều')}`);
+    assert.ok((await teacher.locator('tbody tr').count()) > 5, 'tìm thấy câu trong ngân hàng');
+    await shot(teacher, '53-ngan-hang-cau-hoi');
+    const res = await teacher.request.get(`${BASE}/giao-vien/cau-hoi/xuat`);
+    assert.equal(res.status(), 200);
+    assert.match(res.headers()['content-type'], /spreadsheetml/);
+    assert.equal((await res.body()).subarray(0, 2).toString(), 'PK');
   });
 
   await step('Không có lỗi JavaScript trên các trang đã mở', async () => {

@@ -81,7 +81,7 @@ test('ngân hàng GĐ4: không trùng đề bài (kể cả với câu mẫu gia
   for (const bl of TOAN8_BANK) for (const q of bl.questions) add(q.stem, `GĐ4 ${bl.slug}`, q.options ? [...q.options].sort() : q.statements?.map((x) => x[0]));
 });
 
-test('ngân hàng GĐ4: tiến độ so với mục tiêu ban đầu (15 TN, 10 Đ/S, 10 TLN, 5 TL, 3 HH mỗi bài)', () => {
+test('ngân hàng GĐ4: mọi bài đạt số câu tối thiểu (15 TN, 10 Đ/S, 10 TLN, 5 TL, 3 HH với bài hình học)', () => {
   const counts = new Map<string, Record<QuestionType, number>>();
   const zero = (): Record<QuestionType, number> => ({ mcq: 0, true_false: 0, short_answer: 0, essay: 0, geometry_essay: 0 });
   for (const slug of mapLessons.keys()) counts.set(slug, zero());
@@ -100,4 +100,6 @@ test('ngân hàng GĐ4: tiến độ so với mục tiêu ban đầu (15 TN, 10 
   }
   console.log(`  Ngân hàng câu hỏi: ${total} câu; ${met}/${counts.size} bài đạt mục tiêu ban đầu.\n  ` + lines.join('\n  '));
   assert.ok(total > 0);
+  // Giai đoạn 4 hoàn tất: mọi bài phải giữ đủ số câu tối thiểu.
+  assert.equal(met, counts.size, 'Có bài chưa đủ số câu tối thiểu: ' + lines.filter((l) => l.startsWith('·')).join('; '));
 });

@@ -2,7 +2,7 @@
 
 **Tác giả và chủ sở hữu: Tạ Hữu Thắng.** © 2026 Tạ Hữu Thắng – mọi quyền được bảo lưu (xem tệp `LICENSE`).
 
-Website học Toán cho học sinh THCS Việt Nam (Toán 6–9). Giai đoạn 1 mở **Toán 8 – Kết nối tri thức với cuộc sống (GDPT 2018)**; Toán 6, 7, 9 hiển thị "Sắp ra mắt" và được bổ sung bằng dữ liệu, không phải viết lại hệ thống. Giai đoạn 2 đã xây xong **bản đồ kiến thức Toán 8**: Học kì → Chương → Bài → Chủ đề → Dạng toán → Bài tập (xem mục 6b).
+Website học Toán cho học sinh THCS Việt Nam (Toán 6–9). Giai đoạn 1 mở **Toán 8 – Kết nối tri thức với cuộc sống (GDPT 2018)**; Toán 6, 7, 9 hiển thị "Sắp ra mắt" và được bổ sung bằng dữ liệu, không phải viết lại hệ thống. Giai đoạn 2 đã xây xong **bản đồ kiến thức Toán 8**: Học kì → Chương → Bài → Chủ đề → Dạng toán → Bài tập (xem mục 6b); giai đoạn 3 là lí thuyết, công thức, ví dụ minh họa đủ 39 bài (mục 6c); giai đoạn 4 là **ngân hàng 1622 câu hỏi và hệ thống luyện tập – tạo đề** (mục 6d).
 
 ## 1. Chạy website
 
@@ -100,16 +100,18 @@ src/
   domain/                      Nghiệp vụ + truy vấn: curriculum, progress, questions, practice, tests,
                                classes, users, gamification, stats
   shared/                      Dùng chung máy chủ & trình duyệt: chấm điểm, văn bản có công thức, hình vẽ SVG, nhãn
-  islands/                     Thành phần tương tác: PracticeRunner, TestRunner, RichField, FigureField
+  islands/                     Thành phần tương tác: SessionRunner (luyện tập/làm đề), TestRunner, EssayInput (bài tự luận + ảnh),
+                               RichField, FigureField
   ui/                          Bố cục (SiteLayout, DashboardLayout, AuthLayout) và thành phần giao diện
   client/main.tsx              Gắn React cho các đảo, xác nhận thao tác, chế độ trình chiếu
   static/                      Bản HTML ngoại tuyến: xuất trang (export.tsx), lưu tiến độ trong trình duyệt (store.ts),
                                luyện tập chấm trên máy (LocalPractice.tsx), bảng tiến độ (panels.tsx)
-  seed/                        Dữ liệu khởi tạo: cấu trúc Toán 8 + PPCT, nội dung bài mẫu, câu hỏi mẫu, huy hiệu
+  seed/                        Dữ liệu khởi tạo: cấu trúc Toán 8 + PPCT, nội dung bài mẫu, câu hỏi mẫu, huy hiệu;
+                               toan8-bank/chuong-1.ts … chuong-10.ts: ngân hàng câu hỏi giai đoạn 4
   styles/app.css               Hệ màu, lưới ô li, khung công thức, chế độ trình chiếu
 scripts/                       build.mjs, dev.mjs, test.mjs
 test/unit                      Kiểm thử chấm điểm, nội dung, hình vẽ, trình kết nối PostgreSQL
-test/e2e/run.mjs               Kiểm thử đầu-cuối 25 bước bằng Chromium (static.mjs: 9 bước cho bản HTML)
+test/e2e/run.mjs               Kiểm thử đầu-cuối 27 bước bằng Chromium (static.mjs: 9 bước cho bản HTML)
 dist/                          Bản dựng chạy được (server.mjs + public/assets)
 ```
 
@@ -124,6 +126,7 @@ Không có gì "cứng" cho Toán 8: môn → khối → **bộ sách (textbooks
 | Câu hỏi | `exercise_types` (5 hình thức), `questions`, `answers` (phương án/ý/đáp án), `solutions` (lời giải, gợi ý), `images`, `question_images` |
 | Kiểm tra | `tests`, `test_questions`, `test_assignments`, `test_results` |
 | Học tập | `question_responses` (mọi lượt trả lời), `learning_progress`, `xp_events`, `achievements`, `user_achievements` |
+| Luyện tập – tạo đề (GĐ4) | `practice_sessions` (lượt luyện tập/làm đề: cấu hình, câu hỏi, bài làm, kết quả), `exam_blueprints` (cấu hình đề tự động), `tests.blueprint_id`/`variant_code` (mã đề), `test_questions.option_order` (thứ tự phương án đã đảo), `questions.quality_issues` + trạng thái `review` (chờ duyệt), `answers.explanation` (giải thích từng phương án) |
 
 **Thêm Toán 6/7/9:** thêm một tệp trong `src/seed/` theo mẫu `toan8-structure.ts` (chương, bài, PPCT) và gọi trong `seed/run.ts`, rồi vào **Quản trị → Khối lớp** chuyển khối đó sang "Đang mở". Có thể thêm nhiều bộ sách cho một khối (`series_code` khác nhau).
 
@@ -158,14 +161,27 @@ Không có gì "cứng" cho Toán 8: môn → khối → **bộ sách (textbooks
 - **Bản HTML** (GitHub Pages) có đủ trang bài học mới, `cong-thuc.html`, `goc-hoc-tap.html`, `tim-kiem.html`; yêu thích, ghi chú, ví dụ đã xem lưu trong trình duyệt.
 - CSDL: `migrations/003_lesson_content.sql` (bảng `formulas`, `worked_examples`, `lesson_favorites`, `formula_favorites`, `lesson_notes`, `example_views`; thêm cột cho `lesson_sections`, `lessons.applications`, `topics.notes`, `images.is_public`). Nâng cấp CSDL cũ: chỉ thay phần lí thuyết mẫu giai đoạn 1 còn nguyên, không đụng vào nội dung giáo viên đã soạn.
 
+## 6d. Giai đoạn 4 – Ngân hàng câu hỏi và hệ thống luyện tập Toán 8
+- **Ngân hàng 1622 câu** (1240 câu mới + 382 câu của giai đoạn 1–2), **39/39 bài đạt số câu tối thiểu**: mỗi bài ≥ 15 trắc nghiệm, 10 Đúng/Sai, 10 trả lời ngắn, 5 tự luận; 15 bài có nội dung hình học (Bài 10–17, 33–39) thêm ≥ 3 câu tự luận hình học có hình vẽ. Theo hình thức: 597 TN · 391 Đ/S · 393 TLN · 196 TL · 45 HH. Câu mới theo mức độ: 196 NB · 464 TH · 464 VD · 116 VDC. Dữ liệu: `src/seed/toan8-bank/chuong-*.ts`; nạp bằng `seed` (mỗi bài một lần, không ghi đè câu giáo viên đã sửa).
+- **Chất lượng được kiểm thử tự động** (`test/unit/question-bank-content.test.ts`): đúng bài, đúng dạng, mức độ nằm trong mức của dạng; 0 lỗi, 0 cảnh báo của bộ kiểm định; trắc nghiệm có giải thích cho phương án nhiễu, không có hai phương án cùng giá trị; Đ/S có giải thích từng ý, không toàn Đúng hoặc toàn Sai; đáp án trả lời ngắn tự khớp; tự luận có hướng dẫn chấm; hình vẽ có đủ các điểm nêu trong đề; không trùng đề với nhau hay với câu mẫu. Vị trí đáp án đúng được phân bố đều A–D.
+- **5 hình thức**: trắc nghiệm (giải thích vì sao đúng và vì sao từng phương án nhiễu sai); Đúng/Sai 4 ý (chấm từng ý, giải thích từng ý); trả lời ngắn (chấp nhận phân số, thập phân dấu phẩy/chấm, biểu thức tương đương, dạng nhân tử, tập nghiệm, đổi đơn vị); tự luận (gõ bài có công thức hoặc chụp/tải ảnh bài làm, giáo viên chấm theo hướng dẫn chấm); tự luận hình học có hình vẽ SVG và lời giải từng bước.
+- **Luyện tập** (`/luyen-tap`): theo bài, theo dạng, theo chương, tổng hợp nhiều chương, theo mức độ, đề luyện tập tự tạo; chọn hình thức, mức độ, số câu, thời gian, thứ tự; thử thách và kiểm tra cuối chương. Giao diện làm bài: đồng hồ, thanh tiến độ, danh sách câu, đánh dấu xem lại, câu trước/sau (phím ← →), tự lưu bài làm, kết thúc/nộp bài có xác nhận.
+- **Chấm và lưu**: chấm ngay từng câu (luyện tập) hoặc khi nộp (đề); trang kết quả có điểm thang 10, kết quả theo dạng toán, **kiến thức cần ôn** kèm liên kết về bài và dạng; **làm lại câu sai**, tạo lượt mới cùng cấu hình; `/luyen-tap/lich-su`, `/luyen-tap/cau-hay-sai`, `/luyen-tap/tien-do` (mức thành thạo từng dạng). Câu tự luận chờ giáo viên chấm ở *Đề kiểm tra → Chấm tự luận luyện tập*.
+- **Đề tự động nhiều mã đề** (giáo viên → Đề kiểm tra → Tạo đề tự động): phạm vi chương/bài/dạng, số câu và điểm từng hình thức, tỉ lệ mức độ, cân đối các mạch kiến thức, thời gian, số mã đề (101, 102…), chung hoặc riêng câu, đảo câu, đảo phương án (đáp án và lời giải tự đổi theo); lưu cấu hình để tạo thêm hoặc tạo lại mã đề.
+- **Công cụ giáo viên** (Ngân hàng câu hỏi): tìm theo nội dung đề hoặc số câu, lọc theo bài/dạng/hình thức/mức độ/trạng thái/câu có cảnh báo/câu của tôi; soạn, sửa, nhân bản, ẩn (lưu trữ), xem trước như học sinh, tải ảnh cho câu hỏi; **nhập Excel** (.xlsx, .csv hoặc dán bảng; kiểm tra trước, báo lỗi từng dòng, cập nhật câu có sẵn theo mã) và **xuất Excel**; câu có cảnh báo vào hàng **chờ duyệt**, duyệt từng câu hoặc hàng loạt.
+- **Bản HTML** (GitHub Pages) có đủ câu hỏi đã xuất bản để luyện theo bài, chương, dạng và kiểm tra cuối chương, chấm ngay trên máy; lịch sử phiên, đề nhiều mã đề, chấm tự luận và công cụ giáo viên cần bản có máy chủ.
+- CSDL: `migrations/004_question_bank.sql`.
+
 ## 7. Bảo mật
 Mật khẩu băm **scrypt** có muối; phiên lưu bằng mã băm SHA‑256, cookie `HttpOnly; SameSite=Lax` (+`Secure` khi HTTPS); chống **CSRF** (mã double‑submit + kiểm tra Origin); khóa tạm sau 5 lần đăng nhập sai/15 phút; phân quyền ở mọi trang và API (học sinh/giáo viên/quản trị, giáo viên chỉ thấy lớp và đề của mình); mọi truy vấn có tham số; văn bản người dùng luôn được escape (KaTeX `trust: false`); tiêu đề CSP, X‑Frame‑Options, nosniff; chống chuyển hướng mở; đáp án không gửi xuống trình duyệt trước khi chấm.
 
 ## 8. Chưa làm ở giai đoạn này
 - Nội dung do hệ thống soạn theo chương trình SGK Toán 8 Kết nối tri thức nhưng **không chép nguyên văn SGK**; giáo viên nên đọc lại và chỉnh lời văn cho phù hợp lớp mình (mọi phần đều sửa được trong trang giáo viên).
 - Các mục Luyện tập chung, Bài tập cuối chương, Hoạt động trải nghiệm chưa có ví dụ minh họa riêng (dùng ví dụ của các bài và kiểm tra cuối chương).
-- Ngân hàng câu hỏi có 382 câu mẫu; nhiều dạng chưa đủ cả 5 hình thức – giáo viên bổ sung bằng nhập hàng loạt.
-- Chưa có: nút tải ảnh trong trình soạn câu hỏi (ảnh tải lên dùng được trong nội dung bài học), nhập câu hỏi từ tệp Word, quên mật khẩu qua email, GeoGebra nhúng, ứng dụng di động riêng.
+- Ngân hàng đủ số câu tối thiểu theo **bài**; một số dạng toán ít câu hơn dạng khác (ưu tiên đúng bản chất dạng, không nhân bản đổi số). Câu do hệ thống soạn nên được giáo viên đọc lại; câu sửa có cảnh báo sẽ tự vào hàng chờ duyệt.
+- Mục Luyện tập chung, Bài tập cuối chương, Hoạt động trải nghiệm chưa có ngân hàng riêng (dùng luyện tập theo chương, tổng hợp và kiểm tra cuối chương).
+- Câu tự luận chỉ được chấm khi giáo viên chấm; bản HTML không lưu bài tự luận cho giáo viên.
+- Chưa có: in đề / xuất đề ra Word – PDF, nhập câu hỏi từ tệp Word, quên mật khẩu qua email, GeoGebra nhúng, ứng dụng di động riêng.
 - Kiểm tra kiểu TypeScript trong môi trường xây dựng dùng khai báo React rút gọn (`tsconfig.offline.json`) vì không tải được `@types/react`; khi có mạng hãy chạy `npm install && npm run typecheck`.
 
 ## Tên và bản quyền
