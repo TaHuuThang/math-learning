@@ -46331,8 +46331,515 @@ Vậy \(m = 1\).`, r5`0,5 điểm: tìm đúng giao điểm của hai đường 
 };
 var BANK_CHUONG_7 = [B25, B26, B27, B28, B29];
 
+// src/seed/toan8-bank/chuong-8.ts
+var LK = "liet-ke-ket-qua-co-the";
+var DK2 = "nhan-biet-dong-kha-nang";
+var TL2 = "ket-qua-thuan-loi";
+var B30 = {
+  slug: "bai-30-ket-qua-co-the-va-ket-qua-thuan-loi",
+  questions: [
+    mc(1, LK, "Gieo m\u1ED9t con x\xFAc x\u1EAFc. S\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 c\u1EE7a ph\xE9p th\u1EED l\xE0", [r5`\(6\)`, r5`\(1\)`, r5`\(3\)`, r5`\(12\)`], "X\xFAc x\u1EAFc c\xF3 6 m\u1EB7t: 1, 2, 3, 4, 5, 6 ch\u1EA5m.", [
+      void 0,
+      "C\xF3 nhi\u1EC1u k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.",
+      "\u0110\xF3 l\xE0 s\u1ED1 m\u1EB7t ch\u1EB5n ho\u1EB7c l\u1EBB.",
+      "\u0110\xF3 l\xE0 s\u1ED1 k\u1EBFt qu\u1EA3 khi gieo x\xFAc x\u1EAFc v\xE0 tung \u0111\u1ED3ng xu."
+    ]),
+    mc(1, LK, "Tung m\u1ED9t \u0111\u1ED3ng xu. C\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 l\xE0", ["S\u1EA5p; Ng\u1EEDa", "S\u1EA5p", "Ng\u1EEDa; Ng\u1EEDa", "S\u1EA5p; Ng\u1EEDa; \u0110\u1EE9ng"], "\u0110\u1ED3ng xu c\xF3 hai m\u1EB7t: s\u1EA5p (S) v\xE0 ng\u1EEDa (N).", [
+      void 0,
+      "C\xF2n k\u1EBFt qu\u1EA3 Ng\u1EEDa.",
+      "Li\u1EC7t k\xEA tr\xF9ng, thi\u1EBFu S\u1EA5p.",
+      '\u0110\u1ED3ng xu kh\xF4ng c\xF3 k\u1EBFt qu\u1EA3 "\u0111\u1EE9ng".'
+    ]),
+    mc(2, LK, "Tung \u0111\u1ED3ng th\u1EDDi hai \u0111\u1ED3ng xu. S\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 l\xE0", [r5`\(4\)`, r5`\(2\)`, r5`\(3\)`, r5`\(8\)`], "C\xE1c k\u1EBFt qu\u1EA3: SS, SN, NS, NN.", [
+      void 0,
+      "\u0110\xF3 l\xE0 s\u1ED1 k\u1EBFt qu\u1EA3 khi tung m\u1ED9t \u0111\u1ED3ng xu.",
+      "G\u1ED9p nh\u1EA7m SN v\xE0 NS th\xE0nh m\u1ED9t.",
+      "\u0110\xF3 l\xE0 s\u1ED1 k\u1EBFt qu\u1EA3 khi tung ba \u0111\u1ED3ng xu."
+    ]),
+    mc(2, LK, "Gieo \u0111\u1ED3ng th\u1EDDi hai con x\xFAc x\u1EAFc. S\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 l\xE0", [r5`\(36\)`, r5`\(12\)`, r5`\(6\)`, r5`\(21\)`], r5`Mỗi xúc xắc có 6 khả năng: \(6\cdot6 = 36\).`, [
+      void 0,
+      "C\u1ED9ng thay v\xEC nh\xE2n.",
+      "\u0110\xF3 l\xE0 s\u1ED1 k\u1EBFt qu\u1EA3 khi gieo m\u1ED9t x\xFAc x\u1EAFc.",
+      "Coi c\xE1c c\u1EB7p nh\u01B0 (1; 2) v\xE0 (2; 1) l\xE0 m\u1ED9t."
+    ]),
+    mc(2, LK, "H\u1ED9p c\xF3 3 th\u1EBB ghi s\u1ED1 1, 2, 3. R\xFAt l\u1EA7n l\u01B0\u1EE3t hai th\u1EBB (kh\xF4ng tr\u1EA3 l\u1EA1i) v\xE0 ghi s\u1ED1 theo th\u1EE9 t\u1EF1 r\xFAt. S\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 l\xE0", [r5`\(6\)`, r5`\(9\)`, r5`\(3\)`, r5`\(5\)`], r5`Lần đầu 3 khả năng, lần sau còn 2: \(3\cdot2 = 6\) (12, 13, 21, 23, 31, 32).`, [
+      void 0,
+      "Kh\xF4ng tr\u1EA3 l\u1EA1i th\u1EBB n\xEAn kh\xF4ng c\xF3 11, 22, 33.",
+      "B\u1ECF qua th\u1EE9 t\u1EF1 r\xFAt.",
+      "\u0110\u1EBFm thi\u1EBFu."
+    ]),
+    mc(1, DK2, "Ph\xE9p th\u1EED n\xE0o sau \u0111\xE2y c\xF3 c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng?", ["Gieo m\u1ED9t con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i", "Gieo m\u1ED9t con x\xFAc x\u1EAFc b\u1ECB l\u1EC7ch t\xE2m", "L\u1EA5y m\u1ED9t vi\xEAn bi trong h\u1ED9p c\xF3 5 bi \u0111\u1ECF v\xE0 1 bi xanh r\u1ED3i ghi m\xE0u", "Quay m\u1ED9t v\xF2ng quay chia th\xE0nh c\xE1c \xF4 kh\xF4ng b\u1EB1ng nhau"], "X\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i th\xEC m\u1ED7i m\u1EB7t c\xF3 kh\u1EA3 n\u0103ng xu\u1EA5t hi\u1EC7n nh\u01B0 nhau.", [
+      void 0,
+      "X\xFAc x\u1EAFc l\u1EC7ch th\xEC c\xF3 m\u1EB7t d\u1EC5 xu\u1EA5t hi\u1EC7n h\u01A1n.",
+      "M\xE0u \u0111\u1ECF c\xF3 kh\u1EA3 n\u0103ng cao h\u01A1n.",
+      "\xD4 l\u1EDBn c\xF3 kh\u1EA3 n\u0103ng cao h\u01A1n."
+    ]),
+    mc(2, DK2, 'H\u1ED9p c\xF3 4 vi\xEAn bi \u0111\u1ECF v\xE0 1 vi\xEAn bi xanh c\xF9ng k\xEDch th\u01B0\u1EDBc. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t vi\xEAn v\xE0 ghi m\xE0u. Hai k\u1EBFt qu\u1EA3 "l\u1EA5y \u0111\u01B0\u1EE3c bi \u0111\u1ECF" v\xE0 "l\u1EA5y \u0111\u01B0\u1EE3c bi xanh"', ["kh\xF4ng \u0111\u1ED3ng kh\u1EA3 n\u0103ng v\xEC s\u1ED1 bi \u0111\u1ECF nhi\u1EC1u h\u01A1n", "\u0111\u1ED3ng kh\u1EA3 n\u0103ng v\xEC ch\u1EC9 c\xF3 hai m\xE0u", "\u0111\u1ED3ng kh\u1EA3 n\u0103ng v\xEC l\u1EA5y ng\u1EABu nhi\xEAn", "kh\xF4ng x\xE1c \u0111\u1ECBnh \u0111\u01B0\u1EE3c"], "C\xF3 4 bi \u0111\u1ECF nh\u01B0ng ch\u1EC9 1 bi xanh n\xEAn kh\u1EA3 n\u0103ng l\u1EA5y \u0111\u01B0\u1EE3c bi \u0111\u1ECF l\u1EDBn h\u01A1n.", [
+      void 0,
+      "S\u1ED1 m\xE0u kh\xF4ng quy\u1EBFt \u0111\u1ECBnh \u0111\u1ED3ng kh\u1EA3 n\u0103ng.",
+      "L\u1EA5y ng\u1EABu nhi\xEAn t\u1EEBng vi\xEAn m\u1EDBi \u0111\u1ED3ng kh\u1EA3 n\u0103ng, kh\xF4ng ph\u1EA3i t\u1EEBng m\xE0u.",
+      "X\xE1c \u0111\u1ECBnh \u0111\u01B0\u1EE3c."
+    ]),
+    mc(1, TL2, 'Gieo m\u1ED9t con x\xFAc x\u1EAFc. S\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "s\u1ED1 ch\u1EA5m xu\u1EA5t hi\u1EC7n l\xE0 s\u1ED1 l\u1EBB" l\xE0', [r5`\(3\)`, r5`\(2\)`, r5`\(6\)`, r5`\(1\)`], "C\xE1c k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i: 1, 3, 5.", [
+      void 0,
+      "\u0110\u1EBFm thi\u1EBFu.",
+      "\u0110\xF3 l\xE0 s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.",
+      "\u0110\u1EBFm thi\u1EBFu."
+    ]),
+    mc(2, TL2, 'R\xFAt ng\u1EABu nhi\xEAn m\u1ED9t th\u1EBB trong 15 th\u1EBB \u0111\xE1nh s\u1ED1 t\u1EEB 1 \u0111\u1EBFn 15. S\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "s\u1ED1 tr\xEAn th\u1EBB chia h\u1EBFt cho 4" l\xE0', [r5`\(3\)`, r5`\(4\)`, r5`\(2\)`, r5`\(5\)`], "C\xE1c s\u1ED1 4, 8, 12.", [
+      void 0,
+      "16 kh\xF4ng c\xF3 trong c\xE1c th\u1EBB.",
+      "\u0110\u1EBFm thi\u1EBFu.",
+      "\u0110\u1EBFm th\u1EEBa."
+    ]),
+    mc(2, TL2, 'Gieo m\u1ED9t con x\xFAc x\u1EAFc. S\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "s\u1ED1 ch\u1EA5m l\xE0 s\u1ED1 nguy\xEAn t\u1ED1" l\xE0', [r5`\(3\)`, r5`\(4\)`, r5`\(2\)`, r5`\(5\)`], "C\xE1c s\u1ED1 nguy\xEAn t\u1ED1: 2, 3, 5.", [
+      void 0,
+      "S\u1ED1 1 kh\xF4ng ph\u1EA3i s\u1ED1 nguy\xEAn t\u1ED1.",
+      "Thi\u1EBFu s\u1ED1 2 (s\u1ED1 nguy\xEAn t\u1ED1 ch\u1EB5n duy nh\u1EA5t).",
+      "\u0110\u1EBFm th\u1EEBa."
+    ]),
+    mc(3, TL2, 'Gieo \u0111\u1ED3ng th\u1EDDi hai con x\xFAc x\u1EAFc. S\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "t\u1ED5ng s\u1ED1 ch\u1EA5m b\u1EB1ng 5" l\xE0', [r5`\(4\)`, r5`\(2\)`, r5`\(5\)`, r5`\(6\)`], "C\xE1c c\u1EB7p: (1; 4), (2; 3), (3; 2), (4; 1).", [
+      void 0,
+      "B\u1ECF qua th\u1EE9 t\u1EF1 hai x\xFAc x\u1EAFc.",
+      "\u0110\u1EBFm th\u1EEBa.",
+      "\u0110\xF3 l\xE0 s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 t\u1ED5ng b\u1EB1ng 7."
+    ]),
+    mc(3, TL2, 'Tung \u0111\u1ED3ng th\u1EDDi hai \u0111\u1ED3ng xu. S\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "c\xF3 \xEDt nh\u1EA5t m\u1ED9t m\u1EB7t ng\u1EEDa" l\xE0', [r5`\(3\)`, r5`\(1\)`, r5`\(2\)`, r5`\(4\)`], "C\xE1c k\u1EBFt qu\u1EA3 SN, NS, NN.", [
+      void 0,
+      '\u0110\xF3 l\xE0 "c\u1EA3 hai m\u1EB7t ng\u1EEDa".',
+      '\u0110\xF3 l\xE0 "\u0111\xFAng m\u1ED9t m\u1EB7t ng\u1EEDa".',
+      "SS kh\xF4ng thu\u1EADn l\u1EE3i."
+    ]),
+    mc(3, TL2, 'Ch\u1ECDn ng\u1EABu nhi\xEAn m\u1ED9t s\u1ED1 t\u1EF1 nhi\xEAn c\xF3 hai ch\u1EEF s\u1ED1. S\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "s\u1ED1 \u0111\u01B0\u1EE3c ch\u1ECDn chia h\u1EBFt cho 10" l\xE0', [r5`\(9\)`, r5`\(10\)`, r5`\(90\)`, r5`\(8\)`], "C\xE1c s\u1ED1 10, 20, \u2026, 90.", [
+      void 0,
+      "100 kh\xF4ng ph\u1EA3i s\u1ED1 c\xF3 hai ch\u1EEF s\u1ED1.",
+      "\u0110\xF3 l\xE0 s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.",
+      "\u0110\u1EBFm thi\u1EBFu."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, LK, "Gieo m\u1ED9t con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i.", [
+      ["C\xF3 6 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.", true, "S\xE1u m\u1EB7t."],
+      ['"7 ch\u1EA5m" l\xE0 m\u1ED9t k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.', false, "X\xFAc x\u1EAFc c\xF3 nhi\u1EC1u nh\u1EA5t 6 ch\u1EA5m."],
+      ["C\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 l\xE0 \u0111\u1ED3ng kh\u1EA3 n\u0103ng.", true, "X\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i."],
+      ['"1 ch\u1EA5m" l\xE0 m\u1ED9t k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.', true, "M\u1ED9t m\u1EB7t c\u1EE7a x\xFAc x\u1EAFc."]
+    ]),
+    tf2(2, LK, "Tung \u0111\u1ED3ng th\u1EDDi hai \u0111\u1ED3ng xu.", [
+      ["SN v\xE0 NS l\xE0 hai k\u1EBFt qu\u1EA3 kh\xE1c nhau.", true, "Ph\xE2n bi\u1EC7t \u0111\u1ED3ng xu th\u1EE9 nh\u1EA5t v\xE0 th\u1EE9 hai."],
+      ["C\xF3 4 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.", true, "SS, SN, NS, NN."],
+      ["C\xF3 3 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.", false, "Kh\xF4ng \u0111\u01B0\u1EE3c g\u1ED9p SN v\xE0 NS."],
+      ["NN l\xE0 m\u1ED9t k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.", true, "C\u1EA3 hai m\u1EB7t ng\u1EEDa."]
+    ]),
+    tf2(2, LK, "H\u1ED9p c\xF3 2 bi \u0111\u1ECF (\u01101, \u01102) v\xE0 1 bi xanh (X) c\xF9ng k\xEDch th\u01B0\u1EDBc.", [
+      ["L\u1EA5y m\u1ED9t vi\xEAn, li\u1EC7t k\xEA theo t\u1EEBng vi\xEAn c\xF3 3 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.", true, "\u01101, \u01102, X."],
+      ["L\u1EA5y c\xF9ng l\xFAc hai vi\xEAn c\xF3 3 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.", true, "\u01101\u01102, \u01101X, \u01102X."],
+      ['L\u1EA5y m\u1ED9t vi\xEAn, hai k\u1EBFt qu\u1EA3 "\u0111\u1ECF" v\xE0 "xanh" \u0111\u1ED3ng kh\u1EA3 n\u0103ng.', false, "C\xF3 2 bi \u0111\u1ECF, 1 bi xanh."],
+      ["Li\u1EC7t k\xEA theo t\u1EEBng vi\xEAn th\xEC c\xE1c k\u1EBFt qu\u1EA3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng.", true, "C\xE1c vi\xEAn bi nh\u01B0 nhau."]
+    ]),
+    tf2(1, DK2, "X\xE9t t\xEDnh \u0111\u1ED3ng kh\u1EA3 n\u0103ng:", [
+      ["Tung \u0111\u1ED3ng xu c\xE2n \u0111\u1ED1i: hai m\u1EB7t S, N \u0111\u1ED3ng kh\u1EA3 n\u0103ng.", true, "\u0110\u1ED3ng xu c\xE2n \u0111\u1ED1i."],
+      ["Gieo x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i: s\xE1u m\u1EB7t \u0111\u1ED3ng kh\u1EA3 n\u0103ng.", true, "X\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i."],
+      ["V\xF2ng quay chia 4 \xF4 kh\xF4ng b\u1EB1ng nhau: 4 k\u1EBFt qu\u1EA3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng.", false, "\xD4 l\u1EDBn d\u1EC5 d\u1EEBng h\u01A1n."],
+      ["R\xFAt ng\u1EABu nhi\xEAn m\u1ED9t trong 10 th\u1EBB gi\u1ED1ng nhau: c\xE1c k\u1EBFt qu\u1EA3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng.", true, "C\xE1c th\u1EBB nh\u01B0 nhau."]
+    ]),
+    tf2(2, DK2, "L\u1EDBp c\xF3 20 b\u1EA1n nam v\xE0 15 b\u1EA1n n\u1EEF. Ch\u1ECDn ng\u1EABu nhi\xEAn m\u1ED9t b\u1EA1n.", [
+      ["M\u1ED7i b\u1EA1n c\xF3 kh\u1EA3 n\u0103ng \u0111\u01B0\u1EE3c ch\u1ECDn nh\u01B0 nhau.", true, "Ch\u1ECDn ng\u1EABu nhi\xEAn."],
+      ["C\xF3 35 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 (theo t\u1EEBng b\u1EA1n).", true, r5`\(20 + 15\).`],
+      ['"Ch\u1ECDn \u0111\u01B0\u1EE3c nam" v\xE0 "ch\u1ECDn \u0111\u01B0\u1EE3c n\u1EEF" \u0111\u1ED3ng kh\u1EA3 n\u0103ng.', false, "S\u1ED1 nam nhi\u1EC1u h\u01A1n s\u1ED1 n\u1EEF."],
+      ["Kh\u1EA3 n\u0103ng ch\u1ECDn \u0111\u01B0\u1EE3c b\u1EA1n nam l\u1EDBn h\u01A1n.", true, "20 > 15."]
+    ]),
+    tf2(1, TL2, 'Gieo m\u1ED9t con x\xFAc x\u1EAFc; x\xE9t bi\u1EBFn c\u1ED1 "s\u1ED1 ch\u1EA5m l\u1EDBn h\u01A1n 4".', [
+      ["C\xE1c k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i l\xE0 5 v\xE0 6.", true, "L\u1EDBn h\u01A1n 4."],
+      ["C\xF3 2 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.", true, "5 v\xE0 6."],
+      ["4 l\xE0 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.", false, "4 kh\xF4ng l\u1EDBn h\u01A1n 4."],
+      ["6 l\xE0 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.", true, "6 > 4."]
+    ]),
+    tf2(2, TL2, 'R\xFAt m\u1ED9t th\u1EBB trong 20 th\u1EBB \u0111\xE1nh s\u1ED1 t\u1EEB 1 \u0111\u1EBFn 20; x\xE9t bi\u1EBFn c\u1ED1 "s\u1ED1 tr\xEAn th\u1EBB l\xE0 s\u1ED1 ch\xEDnh ph\u01B0\u01A1ng".', [
+      ["C\xE1c k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i l\xE0 1, 4, 9, 16.", true, "B\xECnh ph\u01B0\u01A1ng c\u1EE7a 1, 2, 3, 4."],
+      ["C\xF3 4 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.", true, "B\u1ED1n s\u1ED1 1, 4, 9, 16."],
+      ["25 l\xE0 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.", false, "Kh\xF4ng c\xF3 th\u1EBB s\u1ED1 25."],
+      ["20 kh\xF4ng ph\u1EA3i k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.", true, "20 kh\xF4ng l\xE0 s\u1ED1 ch\xEDnh ph\u01B0\u01A1ng."]
+    ]),
+    tf2(3, TL2, "Gieo \u0111\u1ED3ng th\u1EDDi hai con x\xFAc x\u1EAFc.", [
+      ['Bi\u1EBFn c\u1ED1 "t\u1ED5ng b\u1EB1ng 2" c\xF3 1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.', true, "(1; 1)."],
+      ['Bi\u1EBFn c\u1ED1 "t\u1ED5ng b\u1EB1ng 12" c\xF3 1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.', true, "(6; 6)."],
+      ['Bi\u1EBFn c\u1ED1 "t\u1ED5ng b\u1EB1ng 7" c\xF3 6 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.', true, "(1;6), (2;5), (3;4), (4;3), (5;2), (6;1)."],
+      ['Bi\u1EBFn c\u1ED1 "t\u1ED5ng b\u1EB1ng 1" c\xF3 1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.', false, "T\u1ED5ng nh\u1ECF nh\u1EA5t l\xE0 2: bi\u1EBFn c\u1ED1 kh\xF4ng th\u1EC3."]
+    ]),
+    tf2(3, TL2, "X\xE9t c\xE1c bi\u1EBFn c\u1ED1 khi gieo m\u1ED9t con x\xFAc x\u1EAFc.", [
+      ['"S\u1ED1 ch\u1EA5m kh\xF4ng v\u01B0\u1EE3t qu\xE1 6" l\xE0 bi\u1EBFn c\u1ED1 ch\u1EAFc ch\u1EAFn.', true, "M\u1ECDi k\u1EBFt qu\u1EA3 \u0111\u1EC1u thu\u1EADn l\u1EE3i."],
+      ['"S\u1ED1 ch\u1EA5m b\u1EB1ng 0" l\xE0 bi\u1EBFn c\u1ED1 kh\xF4ng th\u1EC3.', true, "Kh\xF4ng c\xF3 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i."],
+      ["Bi\u1EBFn c\u1ED1 kh\xF4ng th\u1EC3 c\xF3 \xEDt nh\u1EA5t m\u1ED9t k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.", false, "Kh\xF4ng c\xF3 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i n\xE0o."],
+      ["M\u1ECDi k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 \u0111\u1EC1u thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 ch\u1EAFc ch\u1EAFn.", true, "\u0110\u1ECBnh ngh\u0129a."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(1, LK, "Gieo m\u1ED9t con x\xFAc x\u1EAFc v\xE0 tung m\u1ED9t \u0111\u1ED3ng xu. C\xF3 bao nhi\xEAu k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3?", "12", r5`\(6\cdot2 = 12\) kết quả.`),
+    sa2(2, LK, "T\u1EEB 4 b\u1EA1n An, B\xECnh, Chi, D\u0169ng ch\u1ECDn m\u1ED9t b\u1EA1n l\xE0m l\u1EDBp tr\u01B0\u1EDFng v\xE0 m\u1ED9t b\u1EA1n kh\xE1c l\xE0m l\u1EDBp ph\xF3. C\xF3 bao nhi\xEAu k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3?", "12", r5`Lớp trưởng 4 cách, lớp phó còn 3 cách: \(4\cdot3 = 12\).`),
+    sa2(2, TL2, 'R\xFAt m\u1ED9t th\u1EBB trong 30 th\u1EBB \u0111\xE1nh s\u1ED1 t\u1EEB 1 \u0111\u1EBFn 30. C\xF3 bao nhi\xEAu k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "s\u1ED1 tr\xEAn th\u1EBB chia h\u1EBFt cho c\u1EA3 3 v\xE0 5"?', "2", "Chia h\u1EBFt cho c\u1EA3 3 v\xE0 5 l\xE0 chia h\u1EBFt cho 15: c\xE1c s\u1ED1 15, 30."),
+    sa2(2, TL2, 'Gieo m\u1ED9t con x\xFAc x\u1EAFc. C\xF3 bao nhi\xEAu k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "s\u1ED1 ch\u1EA5m l\xE0 \u01B0\u1EDBc c\u1EE7a 6"?', "4", "C\xE1c \u01B0\u1EDBc c\u1EE7a 6 l\xE0 1, 2, 3, 6."),
+    sa2(3, TL2, 'Gieo \u0111\u1ED3ng th\u1EDDi hai con x\xFAc x\u1EAFc. C\xF3 bao nhi\xEAu k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "hai m\u1EB7t c\xF3 s\u1ED1 ch\u1EA5m b\u1EB1ng nhau"?', "6", "(1;1), (2;2), (3;3), (4;4), (5;5), (6;6)."),
+    sa2(3, TL2, 'Tung \u0111\u1ED3ng th\u1EDDi ba \u0111\u1ED3ng xu. C\xF3 bao nhi\xEAu k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "c\xF3 \u0111\xFAng hai m\u1EB7t ng\u1EEDa"?', "3", "C\xF3 8 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3; thu\u1EADn l\u1EE3i: NNS, NSN, SNN."),
+    // ---- Tự luận ----
+    es2(2, LK, "Tung m\u1ED9t \u0111\u1ED3ng xu v\xE0 gieo m\u1ED9t con x\xFAc x\u1EAFc. Li\u1EC7t k\xEA t\u1EA5t c\u1EA3 c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 c\u1EE7a ph\xE9p th\u1EED.", r5`Có \(2\cdot6 = 12\) kết quả: S1, S2, S3, S4, S5, S6, N1, N2, N3, N4, N5, N6 (chữ chỉ mặt đồng xu, số chỉ số chấm xúc xắc).`, r5`0,5 điểm: liệt kê có hệ thống, không thiếu.
+0,5 điểm: đếm đúng 12 kết quả.`),
+    es2(2, DK2, 'H\u1ED9p c\xF3 3 vi\xEAn bi \u0111\u1ECF v\xE0 2 vi\xEAn bi v\xE0ng c\xF9ng k\xEDch th\u01B0\u1EDBc. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t vi\xEAn.\na) Hai k\u1EBFt qu\u1EA3 "l\u1EA5y \u0111\u01B0\u1EE3c bi \u0111\u1ECF" v\xE0 "l\u1EA5y \u0111\u01B0\u1EE3c bi v\xE0ng" c\xF3 \u0111\u1ED3ng kh\u1EA3 n\u0103ng kh\xF4ng? V\xEC sao?\nb) Li\u1EC7t k\xEA c\xE1c k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 sao cho ch\xFAng \u0111\u1ED3ng kh\u1EA3 n\u0103ng.', r5`a) Không, vì số bi đỏ (3) nhiều hơn số bi vàng (2) nên lấy được bi đỏ dễ hơn.
+b) Đánh số các viên bi: Đ1, Đ2, Đ3, V1, V2. Có 5 kết quả đồng khả năng.`, r5`0,5 điểm: câu a có giải thích.
+0,5 điểm: câu b đánh số và liệt kê đúng.`),
+    es2(2, TL2, 'R\xFAt ng\u1EABu nhi\xEAn m\u1ED9t th\u1EBB trong 12 th\u1EBB \u0111\xE1nh s\u1ED1 t\u1EEB 1 \u0111\u1EBFn 12. Li\u1EC7t k\xEA c\xE1c k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho m\u1ED7i bi\u1EBFn c\u1ED1:\nA: "S\u1ED1 tr\xEAn th\u1EBB l\xE0 s\u1ED1 ch\u1EB5n"; B: "S\u1ED1 tr\xEAn th\u1EBB chia h\u1EBFt cho 3"; C: "S\u1ED1 tr\xEAn th\u1EBB l\u1EDBn h\u01A1n 12".', r5`A: 2, 4, 6, 8, 10, 12 (6 kết quả).
+B: 3, 6, 9, 12 (4 kết quả).
+C: không có kết quả thuận lợi (biến cố không thể).`, r5`0,5 điểm: liệt kê đúng A và B.
+0,5 điểm: nhận ra C là biến cố không thể.`),
+    es2(3, TL2, 'Gieo \u0111\u1ED3ng th\u1EDDi hai con x\xFAc x\u1EAFc. C\xF3 bao nhi\xEAu k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "t\u1ED5ng s\u1ED1 ch\u1EA5m chia h\u1EBFt cho 5"? Li\u1EC7t k\xEA c\xE1c k\u1EBFt qu\u1EA3 \u0111\xF3.', r5`Tổng chia hết cho 5 là tổng bằng 5 hoặc 10.
+Tổng 5: (1;4), (2;3), (3;2), (4;1). Tổng 10: (4;6), (5;5), (6;4).
+Có 7 kết quả thuận lợi.`, r5`0,5 điểm: xác định đúng tổng 5 và 10.
+0,5 điểm: liệt kê và đếm đúng 7 kết quả.`),
+    es2(3, TL2, 'Hai b\u1EA1n An v\xE0 B\xECnh ch\u01A1i o\u1EB3n t\xF9 t\xEC (m\u1ED7i b\u1EA1n ch\u1ECDn m\u1ED9t trong ba: b\xFAa, k\xE9o, bao). H\xE3y cho bi\u1EBFt:\na) S\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.\nb) S\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho bi\u1EBFn c\u1ED1 "An th\u1EAFng" v\xE0 cho bi\u1EBFn c\u1ED1 "Hai b\u1EA1n h\xF2a".', r5`a) Mỗi bạn có 3 cách chọn: \(3\cdot3 = 9\) kết quả.
+b) An thắng: (búa; kéo), (kéo; bao), (bao; búa): 3 kết quả. Hòa: hai bạn chọn giống nhau: 3 kết quả.`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b, liệt kê đúng hai biến cố.`)
+  ]
+};
+var TX2 = "tinh-xac-suat-bien-co";
+var TH2 = "xac-suat-tinh-huong-thuc-te";
+var TK = "tim-so-ket-qua-khi-biet-xac-suat";
+var B31 = {
+  slug: "bai-31-cach-tinh-xac-suat-cua-bien-co-bang-ti-so",
+  questions: [
+    mc(1, TX2, r5`Khi các kết quả có thể đồng khả năng, xác suất của biến cố \(E\) bằng`, ["s\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho E chia cho s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3", "s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3 chia cho s\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i cho E", "s\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i tr\u1EEB s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3", "s\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i nh\xE2n s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3"], "C\xF4ng th\u1EE9c t\xEDnh x\xE1c su\u1EA5t b\u1EB1ng t\u1EC9 s\u1ED1.", [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "Kh\xF4ng ph\u1EA3i ph\xE9p tr\u1EEB.",
+      "Kh\xF4ng ph\u1EA3i ph\xE9p nh\xE2n."
+    ]),
+    mc(1, TX2, "Gieo m\u1ED9t con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i. X\xE1c su\u1EA5t xu\u1EA5t hi\u1EC7n m\u1EB7t 6 ch\u1EA5m l\xE0", [r5`\(\dfrac16\)`, r5`\(\dfrac12\)`, r5`\(6\)`, r5`\(\dfrac13\)`], r5`1 kết quả thuận lợi trong 6 kết quả có thể.`, [
+      void 0,
+      "\u0110\xF3 l\xE0 x\xE1c su\u1EA5t m\u1EB7t ch\u1EB5n.",
+      "X\xE1c su\u1EA5t kh\xF4ng l\u1EDBn h\u01A1n 1.",
+      "\u0110\u1EBFm sai."
+    ]),
+    mc(1, TX2, "Tung m\u1ED9t \u0111\u1ED3ng xu c\xE2n \u0111\u1ED1i. X\xE1c su\u1EA5t xu\u1EA5t hi\u1EC7n m\u1EB7t ng\u1EEDa l\xE0", [r5`\(\dfrac12\)`, r5`\(1\)`, r5`\(0\)`, r5`\(2\)`], r5`1 kết quả thuận lợi trong 2 kết quả.`, [
+      void 0,
+      "\u0110\xF3 l\xE0 bi\u1EBFn c\u1ED1 ch\u1EAFc ch\u1EAFn.",
+      "\u0110\xF3 l\xE0 bi\u1EBFn c\u1ED1 kh\xF4ng th\u1EC3.",
+      "X\xE1c su\u1EA5t kh\xF4ng l\u1EDBn h\u01A1n 1."
+    ]),
+    mc(2, TX2, 'Gieo m\u1ED9t con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i. X\xE1c su\u1EA5t c\u1EE7a bi\u1EBFn c\u1ED1 "s\u1ED1 ch\u1EA5m chia h\u1EBFt cho 3" l\xE0', [r5`\(\dfrac13\)`, r5`\(\dfrac12\)`, r5`\(\dfrac16\)`, r5`\(\dfrac23\)`], r5`Thuận lợi: 3, 6. \(P = \dfrac26 = \dfrac13\).`, [
+      void 0,
+      "\u0110\u1EBFm sai s\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i.",
+      "Ch\u1EC9 \u0111\u1EBFm m\u1ED9t k\u1EBFt qu\u1EA3.",
+      "\u0110\xF3 l\xE0 x\xE1c su\u1EA5t bi\u1EBFn c\u1ED1 \u0111\u1ED1i."
+    ]),
+    mc(2, TX2, "H\u1ED9p c\xF3 3 bi \u0111\u1ECF, 5 bi xanh, 2 bi v\xE0ng c\xF9ng k\xEDch th\u01B0\u1EDBc. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t vi\xEAn. X\xE1c su\u1EA5t l\u1EA5y \u0111\u01B0\u1EE3c bi xanh l\xE0", [r5`\(\dfrac12\)`, r5`\(\dfrac52\)`, r5`\(\dfrac15\)`, r5`\(\dfrac{3}{10}\)`], r5`\(P = \dfrac{5}{10} = \dfrac12\).`, [
+      void 0,
+      "Chia cho s\u1ED1 bi v\xE0ng.",
+      "Nh\u1EA7m 1 trong 5 bi xanh.",
+      "\u0110\xF3 l\xE0 x\xE1c su\u1EA5t l\u1EA5y \u0111\u01B0\u1EE3c bi \u0111\u1ECF."
+    ]),
+    mc(2, TX2, r5`Với mọi biến cố \(E\), xác suất \(P(E)\) luôn thỏa mãn`, [r5`\(0 \le P(E) \le 1\)`, r5`\(P(E) > 1\)`, r5`\(P(E) < 0\)`, r5`\(P(E) = 1\)`], "S\u1ED1 k\u1EBFt qu\u1EA3 thu\u1EADn l\u1EE3i kh\xF4ng v\u01B0\u1EE3t qu\xE1 s\u1ED1 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.", [
+      void 0,
+      "Kh\xF4ng th\u1EC3 l\u1EDBn h\u01A1n 1.",
+      "Kh\xF4ng th\u1EC3 \xE2m.",
+      "Ch\u1EC9 bi\u1EBFn c\u1ED1 ch\u1EAFc ch\u1EAFn m\u1EDBi c\xF3 x\xE1c su\u1EA5t 1."
+    ]),
+    mc(3, TX2, "Gieo \u0111\u1ED3ng th\u1EDDi hai con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i. X\xE1c su\u1EA5t \u0111\u1EC3 t\u1ED5ng s\u1ED1 ch\u1EA5m b\u1EB1ng 8 l\xE0", [r5`\(\dfrac{5}{36}\)`, r5`\(\dfrac16\)`, r5`\(\dfrac18\)`, r5`\(\dfrac19\)`], r5`Thuận lợi: (2;6), (3;5), (4;4), (5;3), (6;2). \(P = \dfrac{5}{36}\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 x\xE1c su\u1EA5t t\u1ED5ng b\u1EB1ng 7.",
+      "Nh\u1EA7m t\u1ED5ng 8 v\u1EDBi s\u1ED1 k\u1EBFt qu\u1EA3.",
+      "\u0110\xF3 l\xE0 x\xE1c su\u1EA5t t\u1ED5ng b\u1EB1ng 9."
+    ]),
+    mc(3, TX2, "Tung \u0111\u1ED3ng th\u1EDDi hai \u0111\u1ED3ng xu c\xE2n \u0111\u1ED1i. X\xE1c su\u1EA5t \u0111\u1EC3 hai m\u1EB7t gi\u1ED1ng nhau l\xE0", [r5`\(\dfrac12\)`, r5`\(\dfrac14\)`, r5`\(\dfrac13\)`, r5`\(\dfrac34\)`], r5`Thuận lợi: SS, NN. \(P = \dfrac24 = \dfrac12\).`, [
+      void 0,
+      "Ch\u1EC9 \u0111\u1EBFm m\u1ED9t k\u1EBFt qu\u1EA3.",
+      "G\u1ED9p SN v\xE0 NS n\xEAn ch\u1EC9 c\xF3 3 k\u1EBFt qu\u1EA3.",
+      "\u0110\u1EBFm th\u1EEBa."
+    ]),
+    mc(2, TH2, "L\u1EDBp 8A c\xF3 36 h\u1ECDc sinh, trong \u0111\xF3 c\xF3 16 b\u1EA1n n\u1EEF. Ch\u1ECDn ng\u1EABu nhi\xEAn m\u1ED9t b\u1EA1n. X\xE1c su\u1EA5t ch\u1ECDn \u0111\u01B0\u1EE3c b\u1EA1n nam l\xE0", [r5`\(\dfrac59\)`, r5`\(\dfrac49\)`, r5`\(\dfrac{20}{16}\)`, r5`\(\dfrac12\)`], r5`Có 20 bạn nam: \(P = \dfrac{20}{36} = \dfrac59\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 x\xE1c su\u1EA5t ch\u1ECDn b\u1EA1n n\u1EEF.",
+      "Chia cho s\u1ED1 b\u1EA1n n\u1EEF.",
+      "S\u1ED1 nam v\xE0 n\u1EEF kh\xE1c nhau."
+    ]),
+    mc(3, TH2, 'M\u1ED9t v\xF2ng quay chia th\xE0nh 8 \xF4 b\u1EB1ng nhau: 1 \xF4 "100 \u0111i\u1EC3m", 2 \xF4 "50 \u0111i\u1EC3m", c\xE1c \xF4 c\xF2n l\u1EA1i "0 \u0111i\u1EC3m". Quay m\u1ED9t l\u1EA7n. X\xE1c su\u1EA5t \u0111\u01B0\u1EE3c \u0111i\u1EC3m (kh\xE1c 0) l\xE0', [r5`\(\dfrac38\)`, r5`\(\dfrac18\)`, r5`\(\dfrac58\)`, r5`\(\dfrac35\)`], r5`Có 3 ô được điểm: \(P = \dfrac38\).`, [
+      void 0,
+      "Ch\u1EC9 t\xEDnh \xF4 100 \u0111i\u1EC3m.",
+      "\u0110\xF3 l\xE0 x\xE1c su\u1EA5t \u0111\u01B0\u1EE3c 0 \u0111i\u1EC3m.",
+      "Chia nh\u1EA7m cho s\u1ED1 \xF4 0 \u0111i\u1EC3m."
+    ]),
+    mc(3, TH2, "M\u1ED9t kh\xF3a s\u1ED1 g\u1ED3m hai ch\u1EEF s\u1ED1 (t\u1EEB 00 \u0111\u1EBFn 99). \u0110o\xE1n ng\u1EABu nhi\xEAn m\u1ED9t l\u1EA7n. X\xE1c su\u1EA5t \u0111o\xE1n \u0111\xFAng l\xE0", [r5`\(\dfrac{1}{100}\)`, r5`\(\dfrac{1}{99}\)`, r5`\(\dfrac{1}{10}\)`, r5`\(\dfrac{1}{20}\)`], "C\xF3 100 m\xE3 t\u1EEB 00 \u0111\u1EBFn 99, ch\u1EC9 1 m\xE3 \u0111\xFAng.", [
+      void 0,
+      "B\u1ECF s\xF3t m\xE3 00.",
+      "\u0110\xF3 l\xE0 x\xE1c su\u1EA5t \u0111o\xE1n \u0111\xFAng m\u1ED9t ch\u1EEF s\u1ED1.",
+      "Kh\xF4ng c\xF3 c\u01A1 s\u1EDF."
+    ]),
+    mc(3, TK, r5`Hộp có 6 bi đỏ và một số bi xanh. Lấy ngẫu nhiên một viên, xác suất lấy được bi đỏ là \(\dfrac25\). Số bi xanh trong hộp là`, [r5`\(9\)`, r5`\(15\)`, r5`\(4\)`, r5`\(6\)`], r5`Tổng số bi \(6 : \dfrac25 = 15\); số bi xanh \(15 - 6 = 9\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 t\u1ED5ng s\u1ED1 bi.",
+      "T\xEDnh sai.",
+      "\u0110\xF3 l\xE0 s\u1ED1 bi \u0111\u1ECF."
+    ]),
+    mc(4, TK, r5`Hộp có 4 bi trắng và một số bi đen; xác suất lấy được bi trắng là \(\dfrac12\). Bỏ thêm 4 bi đen vào hộp. Khi đó xác suất lấy được bi trắng là`, [r5`\(\dfrac13\)`, r5`\(\dfrac14\)`, r5`\(\dfrac12\)`, r5`\(\dfrac25\)`], r5`Ban đầu có 4 bi đen (tổng 8). Sau khi thêm: 4 trắng, 8 đen; \(P = \dfrac{4}{12} = \dfrac13\).`, [
+      void 0,
+      "T\xEDnh sai t\u1ED5ng s\u1ED1 bi.",
+      "X\xE1c su\u1EA5t \u0111\xE3 thay \u0111\u1ED5i.",
+      "T\xEDnh sai."
+    ]),
+    mc(4, TK, r5`Một túi có 10 phiếu, trong đó có một số phiếu trúng thưởng; xác suất rút được phiếu trúng thưởng là \(0{,}3\). Cần bỏ thêm bao nhiêu phiếu không trúng thưởng để xác suất này còn \(0{,}2\)?`, [r5`\(5\)`, r5`\(3\)`, r5`\(2\)`, r5`\(15\)`], r5`Có 3 phiếu trúng. \(\dfrac{3}{10 + y} = 0{,}2 \iff 10 + y = 15 \iff y = 5\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 s\u1ED1 phi\u1EBFu tr\xFAng th\u01B0\u1EDFng.",
+      "T\xEDnh sai.",
+      "\u0110\xF3 l\xE0 t\u1ED5ng s\u1ED1 phi\u1EBFu sau khi th\xEAm."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, TX2, "Gieo m\u1ED9t con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i.", [
+      [r5`Xác suất xuất hiện mặt 4 chấm là \(\dfrac16\).`, true, "1 trong 6."],
+      [r5`Xác suất số chấm chẵn là \(\dfrac12\).`, true, "3 trong 6."],
+      ["X\xE1c su\u1EA5t xu\u1EA5t hi\u1EC7n m\u1EB7t 7 ch\u1EA5m l\xE0 0.", true, "Bi\u1EBFn c\u1ED1 kh\xF4ng th\u1EC3."],
+      [r5`Xác suất số chấm không vượt quá 6 là \(\dfrac56\).`, false, "Bi\u1EBFn c\u1ED1 ch\u1EAFc ch\u1EAFn c\xF3 x\xE1c su\u1EA5t 1."]
+    ]),
+    tf2(2, TX2, "H\u1ED9p c\xF3 12 vi\xEAn bi c\xF9ng k\xEDch th\u01B0\u1EDBc: 5 \u0111\u1ECF, 4 xanh, 3 v\xE0ng. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t vi\xEAn.", [
+      [r5`\(P(\text{đỏ}) = \dfrac{5}{12}\).`, true, "5 trong 12."],
+      [r5`\(P(\text{xanh}) = \dfrac13\).`, true, r5`\(\dfrac{4}{12}\).`],
+      [r5`\(P(\text{vàng}) = \dfrac13\).`, false, r5`\(\dfrac{3}{12} = \dfrac14\).`],
+      [r5`\(P(\text{không đỏ}) = \dfrac{7}{12}\).`, true, "7 bi kh\xF4ng \u0111\u1ECF."]
+    ]),
+    tf2(2, TX2, "R\xFAt ng\u1EABu nhi\xEAn m\u1ED9t th\u1EBB trong 20 th\u1EBB \u0111\xE1nh s\u1ED1 t\u1EEB 1 \u0111\u1EBFn 20.", [
+      [r5`Xác suất rút được số chẵn là \(\dfrac12\).`, true, "10 trong 20."],
+      [r5`Xác suất rút được số chia hết cho 5 là \(\dfrac15\).`, true, "5, 10, 15, 20."],
+      [r5`Xác suất rút được số nguyên tố là \(\dfrac25\).`, true, "2, 3, 5, 7, 11, 13, 17, 19: 8 s\u1ED1."],
+      [r5`Xác suất rút được số lớn hơn 20 là \(\dfrac{1}{20}\).`, false, "Bi\u1EBFn c\u1ED1 kh\xF4ng th\u1EC3, x\xE1c su\u1EA5t 0."]
+    ]),
+    tf2(3, TX2, "Gieo \u0111\u1ED3ng th\u1EDDi hai con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i.", [
+      ["C\xF3 36 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.", true, r5`\(6\cdot6\).`],
+      [r5`Xác suất tổng bằng 7 là \(\dfrac16\).`, true, r5`\(\dfrac{6}{36}\).`],
+      [r5`Xác suất tổng bằng 2 là \(\dfrac{1}{36}\).`, true, "Ch\u1EC9 (1; 1)."],
+      [r5`Xác suất tổng bằng 13 là \(\dfrac{1}{36}\).`, false, "Bi\u1EBFn c\u1ED1 kh\xF4ng th\u1EC3."]
+    ]),
+    tf2(2, TX2, "Tung m\u1ED9t \u0111\u1ED3ng xu c\xE2n \u0111\u1ED1i hai l\u1EA7n li\xEAn ti\u1EBFp.", [
+      ["C\xF3 4 k\u1EBFt qu\u1EA3 c\xF3 th\u1EC3.", true, "SS, SN, NS, NN."],
+      [r5`Xác suất cả hai lần ngửa là \(\dfrac14\).`, true, "Ch\u1EC9 NN."],
+      [r5`Xác suất có ít nhất một lần sấp là \(\dfrac34\).`, true, "SS, SN, NS."],
+      [r5`Xác suất có đúng một lần ngửa là \(\dfrac14\).`, false, r5`SN, NS: \(\dfrac24 = \dfrac12\).`]
+    ]),
+    tf2(2, TH2, "L\u1EDBp c\xF3 40 h\u1ECDc sinh, trong \u0111\xF3 15 b\u1EA1n th\xEDch b\xF3ng \u0111\xE1. Ch\u1ECDn ng\u1EABu nhi\xEAn m\u1ED9t b\u1EA1n.", [
+      [r5`Xác suất chọn được bạn thích bóng đá là \(\dfrac38\).`, true, r5`\(\dfrac{15}{40}\).`],
+      [r5`Xác suất chọn được bạn không thích bóng đá là \(\dfrac58\).`, true, r5`\(\dfrac{25}{40}\).`],
+      ["T\u1ED5ng hai x\xE1c su\u1EA5t tr\xEAn b\u1EB1ng 1.", true, "Hai bi\u1EBFn c\u1ED1 b\xF9 nhau."],
+      [r5`Xác suất chọn được bạn thích bóng đá là \(\dfrac{15}{25}\).`, false, "Ph\u1EA3i chia cho t\u1ED5ng s\u1ED1 h\u1ECDc sinh."]
+    ]),
+    tf2(3, TH2, "M\u1ED9t \u0111\u1EE3t r\xFAt th\u0103m c\xF3 100 phi\u1EBFu, trong \u0111\xF3 1 phi\u1EBFu gi\u1EA3i nh\u1EA5t, 5 phi\u1EBFu gi\u1EA3i nh\xEC, 10 phi\u1EBFu gi\u1EA3i ba. R\xFAt ng\u1EABu nhi\xEAn m\u1ED9t phi\u1EBFu.", [
+      [r5`Xác suất trúng giải nhất là \(\dfrac{1}{100}\).`, true, "1 trong 100."],
+      [r5`Xác suất trúng một giải bất kì là \(\dfrac{4}{25}\).`, true, r5`\(\dfrac{16}{100}\).`],
+      [r5`Xác suất không trúng giải là \(\dfrac{21}{25}\).`, true, r5`\(\dfrac{84}{100}\).`],
+      [r5`Xác suất trúng giải nhì là \(\dfrac15\).`, false, r5`\(\dfrac{5}{100} = \dfrac{1}{20}\).`]
+    ]),
+    tf2(3, TK, r5`Hộp có 5 bi đỏ và một số bi khác màu; xác suất lấy được bi đỏ là \(\dfrac14\).`, [
+      ["H\u1ED9p c\xF3 t\u1ED5ng c\u1ED9ng 20 vi\xEAn bi.", true, r5`\(5 : \dfrac14\).`],
+      ["C\xF3 15 vi\xEAn bi kh\xF4ng ph\u1EA3i m\xE0u \u0111\u1ECF.", true, r5`\(20 - 5\).`],
+      [r5`Xác suất lấy được bi không đỏ là \(\dfrac34\).`, true, r5`\(1 - \dfrac14\).`],
+      ["H\u1ED9p c\xF3 t\u1ED5ng c\u1ED9ng 9 vi\xEAn bi.", false, "T\u1ED5ng l\xE0 20."]
+    ]),
+    tf2(4, TK, r5`Hộp có \(x\) bi xanh và 6 bi đỏ; xác suất lấy được bi xanh là \(\dfrac25\).`, [
+      [r5`\(\dfrac{x}{x + 6} = \dfrac25\).`, true, "C\xF4ng th\u1EE9c x\xE1c su\u1EA5t."],
+      [r5`\(x = 4\).`, true, r5`\(5x = 2x + 12\).`],
+      ["H\u1ED9p c\xF3 t\u1ED5ng c\u1ED9ng 10 vi\xEAn bi.", true, r5`\(4 + 6\).`],
+      [r5`\(x = 12\).`, false, r5`\(x = 4\).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, TX2, "H\u1ED9p c\xF3 20 t\u1EA5m th\u1EBB, trong \u0111\xF3 8 t\u1EA5m m\xE0u xanh. R\xFAt ng\u1EABu nhi\xEAn m\u1ED9t t\u1EA5m. T\xEDnh x\xE1c su\u1EA5t r\xFAt \u0111\u01B0\u1EE3c th\u1EBB m\xE0u xanh (vi\u1EBFt d\u1EA1ng ph\xE2n s\u1ED1 t\u1ED1i gi\u1EA3n).", "2/5", r5`\(\dfrac{8}{20} = \dfrac25\).`),
+    sa2(3, TH2, "M\u1ED9t v\xF2ng quay chia th\xE0nh 12 \xF4 b\u1EB1ng nhau, trong \u0111\xF3 3 \xF4 c\xF3 qu\xE0. Quay m\u1ED9t l\u1EA7n. T\xEDnh x\xE1c su\u1EA5t kh\xF4ng tr\xFAng qu\xE0.", "3/4", r5`Có 9 ô không có quà: \(\dfrac{9}{12} = \dfrac34\).`),
+    sa2(4, TK, r5`Một lớp có 18 bạn nữ. Chọn ngẫu nhiên một bạn, xác suất chọn được bạn nữ là \(0{,}45\). Lớp có bao nhiêu học sinh?`, "40", r5`\(18 : 0{,}45 = 40\) học sinh.`),
+    // ---- Tự luận ----
+    es2(2, TX2, 'Gieo m\u1ED9t con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i. T\xEDnh x\xE1c su\u1EA5t c\u1EE7a c\xE1c bi\u1EBFn c\u1ED1:\nA: "S\u1ED1 ch\u1EA5m l\xE0 s\u1ED1 ch\u1EB5n"; B: "S\u1ED1 ch\u1EA5m chia h\u1EBFt cho 3"; C: "S\u1ED1 ch\u1EA5m l\u1EDBn h\u01A1n 6".', r5`Có 6 kết quả đồng khả năng.
+\(P(A) = \dfrac36 = \dfrac12\); \(P(B) = \dfrac26 = \dfrac13\); \(P(C) = 0\) (biến cố không thể).`, r5`0,25 điểm: nêu số kết quả có thể.
+0,75 điểm: tính đúng ba xác suất (mỗi xác suất 0,25 điểm).`),
+    es2(3, TX2, 'Gieo \u0111\u1ED3ng th\u1EDDi hai con x\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i. T\xEDnh x\xE1c su\u1EA5t c\u1EE7a c\xE1c bi\u1EBFn c\u1ED1:\nA: "T\u1ED5ng s\u1ED1 ch\u1EA5m b\u1EB1ng 9"; B: "T\u1ED5ng s\u1ED1 ch\u1EA5m l\u1EDBn h\u01A1n ho\u1EB7c b\u1EB1ng 10".', r5`Có 36 kết quả đồng khả năng.
+A: (3;6), (4;5), (5;4), (6;3): \(P(A) = \dfrac{4}{36} = \dfrac19\).
+B: tổng 10: (4;6), (5;5), (6;4); tổng 11: (5;6), (6;5); tổng 12: (6;6). \(P(B) = \dfrac{6}{36} = \dfrac16\).`, r5`0,5 điểm: biến cố A.
+0,5 điểm: biến cố B.`),
+    es2(3, TH2, 'M\u1ED9t h\u1ED9p c\xF3 25 t\u1EA5m phi\u1EBFu \u0111\xE1nh s\u1ED1 t\u1EEB 1 \u0111\u1EBFn 25. R\xFAt ng\u1EABu nhi\xEAn m\u1ED9t phi\u1EBFu. T\xEDnh x\xE1c su\u1EA5t c\u1EE7a c\xE1c bi\u1EBFn c\u1ED1:\nA: "S\u1ED1 tr\xEAn phi\u1EBFu chia h\u1EBFt cho 4"; B: "S\u1ED1 tr\xEAn phi\u1EBFu c\xF3 ch\u1EE9a ch\u1EEF s\u1ED1 2".', r5`A: 4, 8, 12, 16, 20, 24: \(P(A) = \dfrac{6}{25}\).
+B: 2, 12, 20, 21, 22, 23, 24, 25: \(P(B) = \dfrac{8}{25}\).`, r5`0,5 điểm: biến cố A.
+0,5 điểm: biến cố B.`),
+    es2(3, TK, r5`Một túi có 3 viên bi đỏ và một số viên bi xanh cùng kích thước. Lấy ngẫu nhiên một viên, xác suất lấy được bi xanh là \(0{,}7\). Hỏi trong túi có bao nhiêu viên bi xanh?`, r5`Gọi số bi xanh là \(x\) (\(x\) nguyên dương).
+\(\dfrac{x}{x + 3} = 0{,}7 \iff x = 0{,}7x + 2{,}1 \iff 0{,}3x = 2{,}1 \iff x = 7\).
+Trong túi có 7 viên bi xanh.`, r5`0,5 điểm: lập đúng phương trình.
+0,5 điểm: giải đúng và trả lời.`),
+    es2(4, TK, r5`Một hộp có 10 viên bi gồm bi đỏ và bi xanh, xác suất lấy được bi đỏ là \(\dfrac35\). Cần bỏ thêm vào hộp bao nhiêu viên bi xanh để xác suất lấy được bi đỏ bằng \(\dfrac12\)?`, r5`Số bi đỏ: \(10\cdot\dfrac35 = 6\).
+Gọi số bi xanh thêm vào là \(y\): \(\dfrac{6}{10 + y} = \dfrac12 \iff 10 + y = 12 \iff y = 2\).
+Cần bỏ thêm 2 viên bi xanh.`, r5`0,5 điểm: tính đúng số bi đỏ.
+0,5 điểm: lập phương trình, giải đúng.`)
+  ]
+};
+var XT = "xac-suat-thuc-nghiem-uoc-luong";
+var DD = "du-doan-so-lan-xay-ra";
+var UL = "uoc-luong-so-luong";
+var B32 = {
+  slug: "bai-32-moi-lien-he-giua-xac-suat-thuc-nghiem-voi-xac-suat-va-ung-dung",
+  questions: [
+    mc(1, XT, 'Tung m\u1ED9t \u0111\u1ED3ng xu 40 l\u1EA7n th\u1EA5y c\xF3 18 l\u1EA7n xu\u1EA5t hi\u1EC7n m\u1EB7t ng\u1EEDa. X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m c\u1EE7a bi\u1EBFn c\u1ED1 "m\u1EB7t ng\u1EEDa xu\u1EA5t hi\u1EC7n" l\xE0', [r5`\(\dfrac{9}{20}\)`, r5`\(\dfrac{9}{11}\)`, r5`\(\dfrac{11}{20}\)`, r5`\(18\)`], r5`\(\dfrac{18}{40} = \dfrac{9}{20}\).`, [
+      void 0,
+      "Chia cho s\u1ED1 l\u1EA7n s\u1EA5p.",
+      "\u0110\xF3 l\xE0 x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m c\u1EE7a m\u1EB7t s\u1EA5p.",
+      "\u0110\xF3 l\xE0 s\u1ED1 l\u1EA7n, ch\u01B0a chia."
+    ]),
+    mc(1, XT, "X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m c\u1EE7a bi\u1EBFn c\u1ED1 E sau n l\u1EA7n th\u1EF1c hi\u1EC7n ph\xE9p th\u1EED b\u1EB1ng", ["s\u1ED1 l\u1EA7n E x\u1EA3y ra chia cho n", "n chia cho s\u1ED1 l\u1EA7n E x\u1EA3y ra", "s\u1ED1 l\u1EA7n E x\u1EA3y ra", "s\u1ED1 l\u1EA7n E kh\xF4ng x\u1EA3y ra chia cho n"], "\u0110\u1ECBnh ngh\u0129a x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m.", [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "Ch\u01B0a chia cho s\u1ED1 l\u1EA7n th\u1EED.",
+      '\u0110\xF3 l\xE0 c\u1EE7a bi\u1EBFn c\u1ED1 "E kh\xF4ng x\u1EA3y ra".'
+    ]),
+    mc(2, XT, "Gieo m\u1ED9t con x\xFAc x\u1EAFc 60 l\u1EA7n, m\u1EB7t 6 ch\u1EA5m xu\u1EA5t hi\u1EC7n 12 l\u1EA7n. X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m xu\u1EA5t hi\u1EC7n m\u1EB7t 6 ch\u1EA5m l\xE0", [r5`\(\dfrac15\)`, r5`\(\dfrac16\)`, r5`\(5\)`, r5`\(\dfrac{1}{10}\)`], r5`\(\dfrac{12}{60} = \dfrac15\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 x\xE1c su\u1EA5t l\xED thuy\u1EBFt.",
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "T\xEDnh sai."
+    ]),
+    mc(2, XT, "Khi s\u1ED1 l\u1EA7n th\u1EF1c hi\u1EC7n ph\xE9p th\u1EED c\xE0ng l\u1EDBn th\xEC x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m c\u1EE7a m\u1ED9t bi\u1EBFn c\u1ED1", ["c\xE0ng g\u1EA7n v\u1EDBi x\xE1c su\u1EA5t c\u1EE7a bi\u1EBFn c\u1ED1 \u0111\xF3", "c\xE0ng xa x\xE1c su\u1EA5t c\u1EE7a bi\u1EBFn c\u1ED1 \u0111\xF3", "lu\xF4n b\u1EB1ng 0,5", "lu\xF4n b\u1EB1ng x\xE1c su\u1EA5t c\u1EE7a bi\u1EBFn c\u1ED1 \u0111\xF3"], "M\u1ED1i li\xEAn h\u1EC7 gi\u1EEFa x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m v\xE0 x\xE1c su\u1EA5t.", [
+      void 0,
+      "Ng\u01B0\u1EE3c l\u1EA1i.",
+      "Kh\xF4ng c\xF3 c\u01A1 s\u1EDF.",
+      "Ch\u1EC9 g\u1EA7n b\u1EB1ng, kh\xF4ng lu\xF4n b\u1EB1ng."
+    ]),
+    mc(2, XT, r5`Kiểm tra 400 bóng đèn thấy có 6 bóng hỏng. Xác suất thực nghiệm của biến cố "bóng đèn bị hỏng" là`, [r5`\(0{,}015\)`, r5`\(0{,}06\)`, r5`\(0{,}15\)`, r5`\(6\)`], r5`\(\dfrac{6}{400} = 0{,}015\).`, [
+      void 0,
+      "Chia nh\u1EA7m cho 100.",
+      "\u0110\u1EB7t sai d\u1EA5u ph\u1EA9y.",
+      "\u0110\xF3 l\xE0 s\u1ED1 b\xF3ng h\u1ECFng."
+    ]),
+    mc(3, XT, r5`Bạn Minh ném 50 quả bóng vào rổ, trúng 32 quả. Ước lượng xác suất Minh ném trượt là`, [r5`\(0{,}36\)`, r5`\(0{,}64\)`, r5`\(0{,}32\)`, r5`\(18\)`], r5`Số lần trượt \(50 - 32 = 18\); \(\dfrac{18}{50} = 0{,}36\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 x\xE1c su\u1EA5t n\xE9m tr\xFAng.",
+      "Nh\u1EA7m s\u1ED1 qu\u1EA3 tr\xFAng v\u1EDBi t\u1EC9 l\u1EC7.",
+      "\u0110\xF3 l\xE0 s\u1ED1 l\u1EA7n tr\u01B0\u1EE3t."
+    ]),
+    mc(3, XT, r5`Tung một đồng xu 100 lần được 47 lần sấp. Xác suất thực nghiệm của biến cố "mặt ngửa" là`, [r5`\(0{,}53\)`, r5`\(0{,}47\)`, r5`\(0{,}5\)`, r5`\(53\)`], r5`Số lần ngửa \(100 - 47 = 53\); \(\dfrac{53}{100} = 0{,}53\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 c\u1EE7a m\u1EB7t s\u1EA5p.",
+      "\u0110\xF3 l\xE0 x\xE1c su\u1EA5t l\xED thuy\u1EBFt.",
+      "\u0110\xF3 l\xE0 s\u1ED1 l\u1EA7n, ch\u01B0a chia."
+    ]),
+    mc(2, DD, r5`Xác suất nảy mầm của một loại hạt giống khoảng \(0{,}9\). Gieo 500 hạt, dự đoán số hạt nảy mầm khoảng`, [r5`\(450\)`, r5`\(50\)`, r5`\(500\)`, r5`\(90\)`], r5`\(500\cdot0{,}9 = 450\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 s\u1ED1 h\u1EA1t kh\xF4ng n\u1EA3y m\u1EA7m.",
+      "Kh\xF4ng ph\u1EA3i m\u1ECDi h\u1EA1t \u0111\u1EC1u n\u1EA3y m\u1EA7m.",
+      "Nh\u1EA7m t\u1EC9 l\u1EC7 v\u1EDBi s\u1ED1 h\u1EA1t."
+    ]),
+    mc(2, DD, r5`Xác suất thực nghiệm một sản phẩm bị lỗi là \(0{,}02\). Trong 1500 sản phẩm, dự đoán có khoảng bao nhiêu sản phẩm lỗi?`, [r5`\(30\)`, r5`\(3\)`, r5`\(300\)`, r5`\(75\)`], r5`\(1500\cdot0{,}02 = 30\).`, [
+      void 0,
+      "\u0110\u1EB7t sai d\u1EA5u ph\u1EA9y.",
+      "\u0110\u1EB7t sai d\u1EA5u ph\u1EA9y.",
+      "T\xEDnh sai."
+    ]),
+    mc(3, DD, "Th\u1ED1ng k\xEA 2000 tr\u1EBB s\u01A1 sinh \u1EDF m\u1ED9t b\u1EC7nh vi\u1EC7n th\u1EA5y c\xF3 1036 b\xE9 trai. D\u1EF1 \u0111o\xE1n trong 1000 tr\u1EBB s\u01A1 sinh ti\u1EBFp theo c\xF3 kho\u1EA3ng bao nhi\xEAu b\xE9 g\xE1i?", [r5`\(482\)`, r5`\(518\)`, r5`\(1036\)`, r5`\(500\)`], r5`Xác suất thực nghiệm bé gái \(\dfrac{964}{2000} = 0{,}482\); dự đoán \(1000\cdot0{,}482 = 482\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 s\u1ED1 b\xE9 trai d\u1EF1 \u0111o\xE1n.",
+      "\u0110\xF3 l\xE0 s\u1ED1 b\xE9 trai \u0111\xE3 th\u1ED1ng k\xEA.",
+      "D\xF9ng x\xE1c su\u1EA5t 0,5 thay v\xEC x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m."
+    ]),
+    mc(3, DD, r5`Xác suất thực nghiệm một khách vào cửa hàng mua hàng là \(0{,}25\). Mỗi ngày có 240 khách vào cửa hàng. Dự đoán số khách mua hàng mỗi ngày khoảng`, [r5`\(60\)`, r5`\(25\)`, r5`\(240\)`, r5`\(96\)`], r5`\(240\cdot0{,}25 = 60\).`, [
+      void 0,
+      "Nh\u1EA7m t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m v\u1EDBi s\u1ED1 kh\xE1ch.",
+      "Kh\xF4ng ph\u1EA3i m\u1ECDi kh\xE1ch \u0111\u1EC1u mua.",
+      "T\xEDnh sai."
+    ]),
+    mc(3, UL, "H\u1ED9p c\xF3 20 bi tr\u1EAFng v\xE0 m\u1ED9t s\u1ED1 bi \u0111en. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t vi\xEAn, ghi m\xE0u r\u1ED3i tr\u1EA3 l\u1EA1i; l\xE0m 100 l\u1EA7n th\u1EA5y 25 l\u1EA7n \u0111\u01B0\u1EE3c bi tr\u1EAFng. \u01AF\u1EDBc l\u01B0\u1EE3ng s\u1ED1 bi \u0111en trong h\u1ED9p l\xE0", [r5`\(60\)`, r5`\(80\)`, r5`\(75\)`, r5`\(5\)`], r5`Tỉ lệ bi trắng \(\approx 0{,}25\) nên tổng số bi \(\approx 20 : 0{,}25 = 80\); số bi đen \(\approx 60\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 t\u1ED5ng s\u1ED1 bi.",
+      "\u0110\xF3 l\xE0 s\u1ED1 l\u1EA7n l\u1EA5y \u0111\u01B0\u1EE3c bi \u0111en.",
+      "T\xEDnh sai."
+    ]),
+    mc(4, UL, "\u0110\u1EC3 \u01B0\u1EDBc l\u01B0\u1EE3ng s\u1ED1 c\xE1 trong h\u1ED3, ng\u01B0\u1EDDi ta b\u1EAFt 60 con, \u0111\xE1nh d\u1EA5u r\u1ED3i th\u1EA3 l\u1EA1i. V\xE0i ng\xE0y sau b\u1EAFt 80 con th\xEC c\xF3 4 con \u0111\u01B0\u1EE3c \u0111\xE1nh d\u1EA5u. S\u1ED1 c\xE1 trong h\u1ED3 \u01B0\u1EDBc l\u01B0\u1EE3ng kho\u1EA3ng", [r5`\(1200\)`, r5`\(320\)`, r5`\(4800\)`, r5`\(140\)`], r5`\(\dfrac{4}{80} \approx \dfrac{60}{N}\) nên \(N \approx \dfrac{60\cdot80}{4} = 1200\).`, [
+      void 0,
+      "T\xEDnh sai t\u1EC9 l\u1EC7.",
+      "Qu\xEAn chia cho 4.",
+      "C\u1ED9ng thay v\xEC l\u1EADp t\u1EC9 l\u1EC7."
+    ]),
+    mc(4, UL, "Trong m\u1ED9t v\u01B0\u1EDDn qu\u1ED1c gia, ng\u01B0\u1EDDi ta \u0111\xE1nh d\u1EA5u 50 con chim r\u1ED3i th\u1EA3. L\u1EA7n sau b\u1EAFt 120 con th\xEC c\xF3 6 con \u0111\u01B0\u1EE3c \u0111\xE1nh d\u1EA5u. S\u1ED1 chim \u01B0\u1EDBc l\u01B0\u1EE3ng kho\u1EA3ng", [r5`\(1000\)`, r5`\(720\)`, r5`\(300\)`, r5`\(176\)`], r5`\(N \approx \dfrac{50\cdot120}{6} = 1000\).`, [
+      void 0,
+      "T\xEDnh sai.",
+      "T\xEDnh sai.",
+      "C\u1ED9ng c\xE1c s\u1ED1."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, XT, "Gieo m\u1ED9t con x\xFAc x\u1EAFc 30 l\u1EA7n, m\u1EB7t 1 ch\u1EA5m xu\u1EA5t hi\u1EC7n 6 l\u1EA7n.", [
+      [r5`Xác suất thực nghiệm của mặt 1 chấm là \(\dfrac15\).`, true, r5`\(\dfrac{6}{30}\).`],
+      [r5`Xác suất (lí thuyết) của mặt 1 chấm là \(\dfrac16\).`, true, "X\xFAc x\u1EAFc c\xE2n \u0111\u1ED1i."],
+      ["Hai x\xE1c su\u1EA5t tr\xEAn b\u1EB1ng nhau.", false, r5`\(\dfrac15 \ne \dfrac16\).`],
+      [r5`Gieo nhiều lần hơn thì xác suất thực nghiệm thường gần \(\dfrac16\) hơn.`, true, "M\u1ED1i li\xEAn h\u1EC7."]
+    ]),
+    tf2(2, XT, "X\xE9t t\xEDnh \u0111\xFAng sai v\u1EC1 x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m:", [
+      ["X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m ph\u1EE5 thu\u1ED9c v\xE0o k\u1EBFt qu\u1EA3 c\xE1c l\u1EA7n th\u1EED.", true, "Th\u1EED l\u1EA1i c\xF3 th\u1EC3 kh\xE1c."],
+      ["C\xF3 th\u1EC3 d\xF9ng x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m \u0111\u1EC3 \u01B0\u1EDBc l\u01B0\u1EE3ng x\xE1c su\u1EA5t khi kh\xF4ng t\xEDnh \u0111\u01B0\u1EE3c b\u1EB1ng l\xED thuy\u1EBFt.", true, "V\u1EDBi s\u1ED1 l\u1EA7n th\u1EED \u0111\u1EE7 l\u1EDBn."],
+      ["X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m lu\xF4n b\u1EB1ng x\xE1c su\u1EA5t.", false, "Ch\u1EC9 x\u1EA5p x\u1EC9."],
+      ["X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m lu\xF4n n\u1EB1m trong \u0111o\u1EA1n t\u1EEB 0 \u0111\u1EBFn 1.", true, "S\u1ED1 l\u1EA7n x\u1EA3y ra kh\xF4ng v\u01B0\u1EE3t qu\xE1 s\u1ED1 l\u1EA7n th\u1EED."]
+    ]),
+    tf2(2, XT, "Ki\u1EC3m tra 200 s\u1EA3n ph\u1EA9m th\u1EA5y 190 s\u1EA3n ph\u1EA9m \u0111\u1EA1t v\xE0 10 s\u1EA3n ph\u1EA9m l\u1ED7i.", [
+      [r5`Xác suất thực nghiệm sản phẩm lỗi là \(0{,}05\).`, true, r5`\(\dfrac{10}{200}\).`],
+      [r5`Xác suất thực nghiệm sản phẩm đạt là \(0{,}95\).`, true, r5`\(\dfrac{190}{200}\).`],
+      ["T\u1ED5ng hai x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m b\u1EB1ng 1.", true, r5`\(0{,}05 + 0{,}95\).`],
+      ["X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m s\u1EA3n ph\u1EA9m l\u1ED7i l\xE0 10.", false, "Ph\u1EA3i chia cho 200."]
+    ]),
+    tf2(1, XT, "Gieo m\u1ED9t con x\xFAc x\u1EAFc 100 l\u1EA7n, m\u1EB7t c\xF3 s\u1ED1 ch\u1EA5m ch\u1EB5n xu\u1EA5t hi\u1EC7n 52 l\u1EA7n.", [
+      [r5`Xác suất thực nghiệm của mặt chẵn là \(0{,}52\).`, true, r5`\(\dfrac{52}{100}\).`],
+      [r5`Xác suất thực nghiệm của mặt lẻ là \(0{,}48\).`, true, r5`\(\dfrac{48}{100}\).`],
+      ["X\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m c\u1EE7a m\u1EB7t ch\u1EB5n b\u1EB1ng 52%.", true, r5`\(0{,}52 = 52\%\).`],
+      [r5`Xác suất thực nghiệm của mặt chẵn là \(\dfrac12\).`, false, r5`Đó là xác suất lí thuyết; thực nghiệm là \(0{,}52\).`]
+    ]),
+    tf2(3, XT, "M\u1ED9t c\u1EA7u th\u1EE7 \u0111\xE1 40 qu\u1EA3 ph\u1EA1t \u0111\u1EC1n, v\xE0o l\u01B0\u1EDBi 30 qu\u1EA3.", [
+      [r5`Xác suất thực nghiệm đá vào là \(0{,}75\).`, true, r5`\(\dfrac{30}{40}\).`],
+      [r5`Xác suất thực nghiệm đá trượt là \(0{,}25\).`, true, r5`\(\dfrac{10}{40}\).`],
+      ["C\xF3 th\u1EC3 d\u1EF1 \u0111o\xE1n trong 20 qu\u1EA3 ti\u1EBFp theo v\xE0o kho\u1EA3ng 15 qu\u1EA3.", true, r5`\(20\cdot0{,}75\).`],
+      ["Ch\u1EAFc ch\u1EAFn c\u1EA7u th\u1EE7 s\u1EBD \u0111\xE1 v\xE0o \u0111\xFAng 15 trong 20 qu\u1EA3 ti\u1EBFp theo.", false, "D\u1EF1 \u0111o\xE1n ch\u1EC9 l\xE0 g\u1EA7n \u0111\xFAng."]
+    ]),
+    tf2(2, DD, r5`Một vận động viên có xác suất thực nghiệm bắn trúng mục tiêu khoảng \(0{,}6\).`, [
+      ["B\u1EAFn 50 l\u1EA7n, d\u1EF1 \u0111o\xE1n tr\xFAng kho\u1EA3ng 30 l\u1EA7n.", true, r5`\(50\cdot0{,}6\).`],
+      ["B\u1EAFn 100 l\u1EA7n, d\u1EF1 \u0111o\xE1n tr\xFAng kho\u1EA3ng 60 l\u1EA7n.", true, r5`\(100\cdot0{,}6\).`],
+      ["B\u1EAFn 10 l\u1EA7n th\xEC ch\u1EAFc ch\u1EAFn tr\xFAng \u0111\xFAng 6 l\u1EA7n.", false, "Ch\u1EC9 l\xE0 d\u1EF1 \u0111o\xE1n g\u1EA7n \u0111\xFAng."],
+      ["K\u1EBFt qu\u1EA3 d\u1EF1 \u0111o\xE1n l\xE0 s\u1ED1 g\u1EA7n \u0111\xFAng.", true, "D\u1EF1a v\xE0o x\xE1c su\u1EA5t \u01B0\u1EDBc l\u01B0\u1EE3ng."]
+    ]),
+    tf2(3, DD, "Th\u1ED1ng k\xEA 500 ng\xE0y \u1EDF m\u1ED9t \u0111\u1ECBa ph\u01B0\u01A1ng th\u1EA5y c\xF3 120 ng\xE0y c\xF3 m\u01B0a.", [
+      [r5`Xác suất thực nghiệm của biến cố "có mưa" là \(0{,}24\).`, true, r5`\(\dfrac{120}{500}\).`],
+      ["Trong 30 ng\xE0y, d\u1EF1 \u0111o\xE1n c\xF3 kho\u1EA3ng 7 ng\xE0y m\u01B0a.", true, r5`\(30\cdot0{,}24 = 7{,}2\).`],
+      ["Trong 100 ng\xE0y, d\u1EF1 \u0111o\xE1n c\xF3 kho\u1EA3ng 24 ng\xE0y m\u01B0a.", true, r5`\(100\cdot0{,}24\).`],
+      [r5`Xác suất thực nghiệm của biến cố "không mưa" là \(0{,}24\).`, false, r5`Là \(0{,}76\).`]
+    ]),
+    tf2(3, UL, "H\u1ED9p c\xF3 30 bi \u0111\u1ECF v\xE0 m\u1ED9t s\u1ED1 bi xanh. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t vi\xEAn, ghi m\xE0u r\u1ED3i tr\u1EA3 l\u1EA1i; l\xE0m 200 l\u1EA7n th\u1EA5y 60 l\u1EA7n \u0111\u01B0\u1EE3c bi \u0111\u1ECF.", [
+      [r5`Xác suất thực nghiệm lấy được bi đỏ là \(0{,}3\).`, true, r5`\(\dfrac{60}{200}\).`],
+      ["\u01AF\u1EDBc l\u01B0\u1EE3ng t\u1ED5ng s\u1ED1 bi trong h\u1ED9p l\xE0 100.", true, r5`\(30 : 0{,}3\).`],
+      ["\u01AF\u1EDBc l\u01B0\u1EE3ng s\u1ED1 bi xanh l\xE0 70.", true, r5`\(100 - 30\).`],
+      ["\u01AF\u1EDBc l\u01B0\u1EE3ng s\u1ED1 bi xanh l\xE0 140.", false, "\u0110\xF3 l\xE0 s\u1ED1 l\u1EA7n l\u1EA5y \u0111\u01B0\u1EE3c bi xanh."]
+    ]),
+    tf2(4, UL, "\u0110\xE1nh d\u1EA5u 40 con c\xE1 r\u1ED3i th\u1EA3 l\u1EA1i h\u1ED3; l\u1EA7n sau b\u1EAFt 50 con th\xEC c\xF3 5 con \u0111\u01B0\u1EE3c \u0111\xE1nh d\u1EA5u.", [
+      ["T\u1EC9 l\u1EC7 c\xE1 c\xF3 d\u1EA5u trong l\u1EA7n b\u1EAFt sau l\xE0 10%.", true, r5`\(\dfrac{5}{50}\).`],
+      ["\u01AF\u1EDBc l\u01B0\u1EE3ng s\u1ED1 c\xE1 trong h\u1ED3 kho\u1EA3ng 400 con.", true, r5`\(40 : 0{,}1\).`],
+      ["\u01AF\u1EDBc l\u01B0\u1EE3ng s\u1ED1 c\xE1 trong h\u1ED3 kho\u1EA3ng 250 con.", false, "T\xEDnh sai t\u1EC9 l\u1EC7."],
+      ["C\u1EA7n gi\u1EA3 thi\u1EBFt c\xE1 \u0111\xE1nh d\u1EA5u \u0111\xE3 h\xF2a tr\u1ED9n \u0111\u1EC1u v\u1EDBi c\xE1 trong h\u1ED3.", true, "\u0110\u1EC3 t\u1EC9 l\u1EC7 trong m\u1EABu x\u1EA5p x\u1EC9 t\u1EC9 l\u1EC7 trong h\u1ED3."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(1, XT, 'Tung m\u1ED9t \u0111\u1ED3ng xu 80 l\u1EA7n \u0111\u01B0\u1EE3c 44 l\u1EA7n ng\u1EEDa. T\xEDnh x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m c\u1EE7a bi\u1EBFn c\u1ED1 "m\u1EB7t ng\u1EEDa" (vi\u1EBFt d\u1EA1ng s\u1ED1 th\u1EADp ph\xE2n).', "0,55", r5`\(\dfrac{44}{80} = 0{,}55\).`),
+    sa2(2, DD, r5`Xác suất thực nghiệm ném trúng rổ của một bạn là \(0{,}7\). Nếu bạn đó ném 40 lần, dự đoán số lần trúng là bao nhiêu?`, "28", r5`\(40\cdot0{,}7 = 28\).`),
+    sa2(3, DD, "Ki\u1EC3m tra 1000 s\u1EA3n ph\u1EA9m th\u1EA5y 12 s\u1EA3n ph\u1EA9m l\u1ED7i. D\u1EF1 \u0111o\xE1n trong 25 000 s\u1EA3n ph\u1EA9m c\xF3 kho\u1EA3ng bao nhi\xEAu s\u1EA3n ph\u1EA9m l\u1ED7i?", "300", r5`Xác suất thực nghiệm \(0{,}012\); \(25\,000\cdot0{,}012 = 300\).`),
+    sa2(3, UL, "H\u1ED9p c\xF3 15 bi v\xE0ng v\xE0 m\u1ED9t s\u1ED1 bi kh\xE1c m\xE0u. L\u1EA5y ng\u1EABu nhi\xEAn m\u1ED9t vi\xEAn, ghi m\xE0u r\u1ED3i tr\u1EA3 l\u1EA1i; l\xE0m 120 l\u1EA7n th\u1EA5y 30 l\u1EA7n \u0111\u01B0\u1EE3c bi v\xE0ng. \u01AF\u1EDBc l\u01B0\u1EE3ng s\u1ED1 bi kh\xE1c m\xE0u trong h\u1ED9p.", "45", r5`Tỉ lệ bi vàng \(\approx 0{,}25\), tổng \(\approx 60\) bi; bi khác màu \(\approx 45\).`),
+    sa2(4, UL, "\u0110\xE1nh d\u1EA5u 80 con chim r\u1ED3i th\u1EA3. L\u1EA7n sau b\u1EAFt 100 con th\xEC c\xF3 8 con \u0111\u01B0\u1EE3c \u0111\xE1nh d\u1EA5u. \u01AF\u1EDBc l\u01B0\u1EE3ng s\u1ED1 chim trong khu v\u1EF1c.", "1000", r5`\(N \approx \dfrac{80\cdot100}{8} = 1000\).`),
+    // ---- Tự luận ----
+    es2(2, XT, 'Tung m\u1ED9t \u0111\u1ED3ng xu 60 l\u1EA7n, ghi \u0111\u01B0\u1EE3c 27 l\u1EA7n m\u1EB7t s\u1EA5p.\na) T\xEDnh x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m c\u1EE7a bi\u1EBFn c\u1ED1 "m\u1EB7t s\u1EA5p" v\xE0 "m\u1EB7t ng\u1EEDa".\nb) So s\xE1nh v\u1EDBi x\xE1c su\u1EA5t l\xED thuy\u1EBFt 0,5 v\xE0 nh\u1EADn x\xE9t.', r5`a) Sấp: \(\dfrac{27}{60} = 0{,}45\); ngửa: \(\dfrac{33}{60} = 0{,}55\).
+b) Hai xác suất thực nghiệm gần 0,5 nhưng không bằng; nếu tung nhiều lần hơn thì thường gần 0,5 hơn.`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b, nhận xét đúng mối liên hệ.`),
+    es2(3, XT, "Ba v\u1EADn \u0111\u1ED9ng vi\xEAn t\u1EADp b\u1EAFn: A b\u1EAFn 50 ph\xE1t tr\xFAng 40 ph\xE1t; B b\u1EAFn 40 ph\xE1t tr\xFAng 36 ph\xE1t; C b\u1EAFn 60 ph\xE1t tr\xFAng 45 ph\xE1t. T\xEDnh x\xE1c su\u1EA5t th\u1EF1c nghi\u1EC7m b\u1EAFn tr\xFAng c\u1EE7a m\u1ED7i ng\u01B0\u1EDDi. N\xEAn ch\u1ECDn ai \u0111i thi \u0111\u1EA5u? V\xEC sao?", r5`A: \(\dfrac{40}{50} = 0{,}8\); B: \(\dfrac{36}{40} = 0{,}9\); C: \(\dfrac{45}{60} = 0{,}75\).
+Nên chọn B vì xác suất thực nghiệm bắn trúng cao nhất.`, r5`0,5 điểm: tính đúng ba xác suất.
+0,5 điểm: lựa chọn và giải thích.`),
+    es2(3, DD, "Kh\u1EA3o s\xE1t ng\u1EABu nhi\xEAn 400 h\u1ECDc sinh m\u1ED9t tr\u01B0\u1EDDng th\u1EA5y c\xF3 120 b\u1EA1n b\u1ECB c\u1EADn th\u1ECB. Tr\u01B0\u1EDDng c\xF3 1500 h\u1ECDc sinh. H\xE3y d\u1EF1 \u0111o\xE1n s\u1ED1 h\u1ECDc sinh b\u1ECB c\u1EADn th\u1ECB c\u1EE7a tr\u01B0\u1EDDng.", r5`Xác suất thực nghiệm: \(\dfrac{120}{400} = 0{,}3\).
+Dự đoán số học sinh bị cận thị: \(1500\cdot0{,}3 = 450\) (học sinh).`, r5`0,5 điểm: tính đúng xác suất thực nghiệm.
+0,5 điểm: dự đoán đúng 450 học sinh.`),
+    es2(3, DD, "M\u1ED9t nh\xE0 m\xE1y ki\u1EC3m tra 2000 s\u1EA3n ph\u1EA9m th\u1EA5y c\xF3 50 s\u1EA3n ph\u1EA9m l\u1ED7i.\na) D\u1EF1 \u0111o\xE1n s\u1ED1 s\u1EA3n ph\u1EA9m l\u1ED7i trong l\xF4 8000 s\u1EA3n ph\u1EA9m.\nb) N\u1EBFu m\u1ED7i s\u1EA3n ph\u1EA9m l\u1ED7i t\u1ED1n 15 000 \u0111\u1ED3ng \u0111\u1EC3 s\u1EEDa, \u01B0\u1EDBc t\xEDnh chi ph\xED s\u1EEDa l\u1ED7i c\u1EE7a l\xF4 h\xE0ng.", r5`a) Xác suất thực nghiệm \(\dfrac{50}{2000} = 0{,}025\); dự đoán \(8000\cdot0{,}025 = 200\) sản phẩm lỗi.
+b) Chi phí khoảng \(200\cdot15\,000 = 3\,000\,000\) đồng.`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b.`),
+    es2(4, UL, "\u0110\u1EC3 \u01B0\u1EDBc l\u01B0\u1EE3ng s\u1ED1 c\xE1 trong m\u1ED9t h\u1ED3, ng\u01B0\u1EDDi ta b\u1EAFt 120 con, \u0111\xE1nh d\u1EA5u r\u1ED3i th\u1EA3 l\u1EA1i. M\u1ED9t tu\u1EA7n sau b\u1EAFt 150 con th\xEC c\xF3 9 con \u0111\u01B0\u1EE3c \u0111\xE1nh d\u1EA5u.\na) \u01AF\u1EDBc l\u01B0\u1EE3ng s\u1ED1 c\xE1 trong h\u1ED3.\nb) N\xEAu hai gi\u1EA3 thi\u1EBFt c\u1EA7n c\xF3 \u0111\u1EC3 \u01B0\u1EDBc l\u01B0\u1EE3ng n\xE0y h\u1EE3p l\xED.", r5`a) \(\dfrac{9}{150} \approx \dfrac{120}{N}\) nên \(N \approx \dfrac{120\cdot150}{9} = 2000\) con.
+b) Cá đánh dấu đã hòa trộn đều với cá trong hồ; số cá trong hồ không thay đổi đáng kể giữa hai lần bắt (không có cá chết, cá mới sinh nhiều).`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b, nêu đủ hai giả thiết.`)
+  ]
+};
+var BANK_CHUONG_8 = [B30, B31, B32];
+
 // src/seed/toan8-bank/index.ts
-var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3, ...BANK_CHUONG_4, ...BANK_CHUONG_5, ...BANK_CHUONG_6, ...BANK_CHUONG_7];
+var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3, ...BANK_CHUONG_4, ...BANK_CHUONG_5, ...BANK_CHUONG_6, ...BANK_CHUONG_7, ...BANK_CHUONG_8];
 
 // src/seed/question-bank.ts
 var BANK_SOURCE = "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi G\u01104 \u2013 t\u1EF1 bi\xEAn so\u1EA1n theo SGK To\xE1n 8 KNTT";
