@@ -46838,8 +46838,884 @@ b) Cá đánh dấu đã hòa trộn đều với cá trong hồ; số cá trong
 };
 var BANK_CHUONG_8 = [B30, B31, B32];
 
+// src/seed/toan8-bank/chuong-9.ts
+var CM4 = { unit: "cm" };
+var M2 = { unit: "m" };
+var DN2 = "dinh-nghia-ti-so-dong-dang";
+var TD3 = "tinh-do-dai-qua-dong-dang";
+var SS3 = "dong-dang-tu-duong-song-song";
+var CD3 = "chung-minh-dang-thuc-dong-dang";
+var TT3 = "thuc-te-tam-giac-dong-dang";
+var B33 = {
+  slug: "bai-33-hai-tam-giac-dong-dang",
+  questions: [
+    mc(1, DN2, r5`Cho \(\triangle A'B'C' \backsim \triangle ABC\). Khẳng định nào sau đây đúng?`, [r5`\(\widehat{B'} = \widehat{B}\)`, r5`\(A'B' = AB\)`, r5`\(\widehat{B'} = \widehat{C}\)`, r5`\(\dfrac{A'B'}{AB} = \dfrac{AC}{A'C'}\)`], "Hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng c\xF3 c\xE1c g\xF3c t\u01B0\u01A1ng \u1EE9ng b\u1EB1ng nhau, \u0111\u1ECDc theo th\u1EE9 t\u1EF1 \u0111\u1EC9nh trong k\xED hi\u1EC7u.", [
+      void 0,
+      "C\xE1c c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng t\u1EC9 l\u1EC7, ch\u01B0a ch\u1EAFc b\u1EB1ng nhau.",
+      r5`\(B'\) tương ứng với \(B\), không phải \(C\).`,
+      "T\u1EC9 s\u1ED1 vi\u1EBFt ng\u01B0\u1EE3c m\u1ED9t v\u1EBF."
+    ]),
+    mc(1, DN2, r5`Nếu \(\triangle DEF \backsim \triangle ABC\) theo tỉ số 2 thì \(\triangle ABC \backsim \triangle DEF\) theo tỉ số`, [r5`\(\dfrac12\)`, r5`\(2\)`, r5`\(4\)`, r5`\(1\)`], "T\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng theo chi\u1EC1u ng\u01B0\u1EE3c l\u1EA1i l\xE0 s\u1ED1 ngh\u1ECBch \u0111\u1EA3o.", [
+      void 0,
+      "Ph\u1EA3i ngh\u1ECBch \u0111\u1EA3o.",
+      "Kh\xF4ng b\xECnh ph\u01B0\u01A1ng.",
+      "Hai tam gi\xE1c kh\xF4ng b\u1EB1ng nhau."
+    ]),
+    mc(1, DN2, "Hai tam gi\xE1c b\u1EB1ng nhau th\xEC \u0111\u1ED3ng d\u1EA1ng v\u1EDBi nhau theo t\u1EC9 s\u1ED1", [r5`\(1\)`, r5`\(0\)`, r5`\(2\)`, "kh\xF4ng \u0111\u1ED3ng d\u1EA1ng"], "C\xE1c c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng b\u1EB1ng nhau n\xEAn t\u1EC9 s\u1ED1 b\u1EB1ng 1.", [
+      void 0,
+      "T\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng lu\xF4n d\u01B0\u01A1ng.",
+      "C\xE1c c\u1EA1nh b\u1EB1ng nhau.",
+      "Hai tam gi\xE1c b\u1EB1ng nhau l\xE0 tr\u01B0\u1EDDng h\u1EE3p \u0111\u1EB7c bi\u1EC7t c\u1EE7a \u0111\u1ED3ng d\u1EA1ng."
+    ]),
+    mc(2, DN2, r5`\(\triangle MNP \backsim \triangle ABC\) có \(MN = 6\) cm, \(AB = 4\) cm. Tỉ số đồng dạng là`, [r5`\(\dfrac32\)`, r5`\(\dfrac23\)`, r5`\(2\)`, r5`\(24\)`], r5`\(k = \dfrac{MN}{AB} = \dfrac64 = \dfrac32\).`, [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "\u0110\xF3 l\xE0 hi\u1EC7u hai c\u1EA1nh.",
+      "\u0110\xF3 l\xE0 t\xEDch."
+    ]),
+    mc(2, DN2, r5`\(\triangle ABC \backsim \triangle DEF\) có \(\widehat{A} = 50^\circ\), \(\widehat{B} = 70^\circ\). Số đo \(\widehat{F}\) là`, [r5`\(60^\circ\)`, r5`\(50^\circ\)`, r5`\(70^\circ\)`, r5`\(120^\circ\)`], r5`\(\widehat{F} = \widehat{C} = 180^\circ - 120^\circ = 60^\circ\).`, [
+      void 0,
+      r5`Đó là \(\widehat{D}\).`,
+      r5`Đó là \(\widehat{E}\).`,
+      r5`Đó là \(\widehat{A} + \widehat{B}\).`
+    ]),
+    mc(2, TD3, r5`\(\triangle ABC \backsim \triangle MNP\) theo tỉ số \(\dfrac34\) và \(MN = 8\) cm. Độ dài \(AB\) là`, [r5`\(6\) cm`, r5`\(\dfrac{32}{3}\) cm`, r5`\(24\) cm`, r5`\(12\) cm`], r5`\(\dfrac{AB}{MN} = \dfrac34\) nên \(AB = 6\) cm.`, [
+      void 0,
+      "Chia thay v\xEC nh\xE2n.",
+      "Ch\u1EC9 nh\xE2n v\u1EDBi 3.",
+      "T\xEDnh sai."
+    ]),
+    mc(3, TD3, r5`\(\triangle ABC \backsim \triangle DEF\) có \(AB = 4\), \(BC = 6\), \(CA = 5\) (cm) và \(DE = 6\) cm. Chu vi tam giác \(DEF\) là`, [r5`\(22{,}5\) cm`, r5`\(15\) cm`, r5`\(22\) cm`, r5`\(10\) cm`], r5`Tỉ số \(\dfrac{DE}{AB} = \dfrac32\); chu vi \(DEF = \dfrac32\cdot15 = 22{,}5\) cm.`, [
+      void 0,
+      r5`Đó là chu vi \(\triangle ABC\).`,
+      "T\xEDnh sai.",
+      "Nh\xE2n sai t\u1EC9 s\u1ED1."
+    ]),
+    mc(2, SS3, r5`Tam giác \(ABC\) có \(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)). Khẳng định nào sau đây đúng?`, [r5`\(\triangle AMN \backsim \triangle ABC\)`, r5`\(\triangle AMN \backsim \triangle ACB\)`, r5`\(\triangle AMN \backsim \triangle BAC\)`, r5`\(\triangle AMN = \triangle ABC\)`], "\u0110\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh t\u1EA1o tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng; \\(M\\) t\u01B0\u01A1ng \u1EE9ng \\(B\\), \\(N\\) t\u01B0\u01A1ng \u1EE9ng \\(C\\).", [
+      void 0,
+      "Sai th\u1EE9 t\u1EF1 \u0111\u1EC9nh.",
+      "Sai th\u1EE9 t\u1EF1 \u0111\u1EC9nh.",
+      "Ch\u1EC9 \u0111\u1ED3ng d\u1EA1ng, kh\xF4ng b\u1EB1ng nhau."
+    ]),
+    mc(2, SS3, r5`Tam giác \(ABC\) có \(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)), \(AM = 3\) cm, \(AB = 9\) cm, \(BC = 12\) cm. Độ dài \(MN\) là`, [r5`\(4\) cm`, r5`\(9\) cm`, r5`\(6\) cm`, r5`\(36\) cm`], r5`\(\dfrac{MN}{BC} = \dfrac{AM}{AB} = \dfrac13\) nên \(MN = 4\) cm.`, [
+      void 0,
+      "T\xEDnh sai t\u1EC9 s\u1ED1.",
+      "Nh\u1EA7m l\xE0 \u0111\u01B0\u1EDDng trung b\xECnh.",
+      "Nh\xE2n thay v\xEC chia."
+    ]),
+    mc(3, SS3, r5`Hình thang \(ABCD\) (\(AB \parallel CD\)) có \(AB = 3\) cm, \(CD = 6\) cm; hai đường chéo cắt nhau tại \(O\) và \(OC = 4\) cm. Độ dài \(OA\) là`, [r5`\(2\) cm`, r5`\(8\) cm`, r5`\(1{,}5\) cm`, r5`\(3\) cm`], r5`\(\triangle OAB \backsim \triangle OCD\): \(\dfrac{OA}{OC} = \dfrac{AB}{CD} = \dfrac12\), \(OA = 2\) cm.`, [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "T\xEDnh sai.",
+      r5`Nhầm \(OA = AB\).`
+    ]),
+    mc(3, SS3, r5`Tam giác \(ABC\) có \(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)) và \(\dfrac{AM}{MB} = \dfrac23\). Tỉ số \(\dfrac{MN}{BC}\) là`, [r5`\(\dfrac25\)`, r5`\(\dfrac23\)`, r5`\(\dfrac35\)`, r5`\(\dfrac32\)`], r5`\(\dfrac{AM}{AB} = \dfrac{2}{5}\) nên \(\dfrac{MN}{BC} = \dfrac25\).`, [
+      void 0,
+      r5`Đó là \(\dfrac{AM}{MB}\), không phải \(\dfrac{AM}{AB}\).`,
+      r5`Đó là \(\dfrac{MB}{AB}\).`,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c."
+    ]),
+    mc(3, CD3, r5`Tam giác \(ABC\) có \(DE \parallel BC\) (\(D \in AB\), \(E \in AC\)). Hệ thức nào sau đây đúng?`, [r5`\(\dfrac{DE}{BC} = \dfrac{AD}{AB}\)`, r5`\(\dfrac{DE}{BC} = \dfrac{AD}{DB}\)`, r5`\(\dfrac{DE}{BC} = \dfrac{DB}{AB}\)`, r5`\(DE\cdot BC = AD\cdot AB\)`], r5`\(\triangle ADE \backsim \triangle ABC\) nên \(\dfrac{DE}{BC} = \dfrac{AD}{AB}\).`, [
+      void 0,
+      "Ph\u1EA3i so v\u1EDBi c\u1EA3 c\u1EA1nh \\(AB\\).",
+      "Sai \u0111o\u1EA1n.",
+      "Kh\xF4ng c\xF3 h\u1EC7 th\u1EE9c n\xE0y."
+    ]),
+    mc(4, CD3, r5`Hình thang \(ABCD\) (\(AB \parallel CD\)) có \(O\) là giao điểm hai đường chéo. Hệ thức nào sau đây đúng?`, [r5`\(OA\cdot OD = OB\cdot OC\)`, r5`\(OA\cdot OB = OC\cdot OD\)`, r5`\(OA\cdot OC = OB\cdot OD\)`, r5`\(OA = OC\)`], r5`\(\triangle OAB \backsim \triangle OCD\): \(\dfrac{OA}{OC} = \dfrac{OB}{OD}\), suy ra \(OA\cdot OD = OB\cdot OC\).`, [
+      void 0,
+      "Nh\xE2n ch\xE9o sai.",
+      "Nh\xE2n ch\xE9o sai.",
+      "Ch\u1EC9 khi hai \u0111\xE1y b\u1EB1ng nhau."
+    ]),
+    mc(3, TT3, r5`Để đo chiều cao cây \(AB\), người ta đặt cọc \(CD\) cao 1,5 m vuông góc với mặt đất sao cho \(E\), \(D\), \(B\) thẳng hàng và \(E\), \(C\), \(A\) thẳng hàng trên mặt đất; đo được \(EC = 2\) m, \(EA = 10\) m. Chiều cao cây là`, [r5`\(7{,}5\) m`, r5`\(3\) m`, r5`\(13{,}3\) m`, r5`\(6\) m`], r5`\(CD \parallel AB\) nên \(\triangle ECD \backsim \triangle EAB\): \(AB = \dfrac{CD\cdot EA}{EC} = \dfrac{1{,}5\cdot10}{2} = 7{,}5\) m.`, [
+      void 0,
+      "L\u1EADp t\u1EC9 l\u1EC7 sai.",
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "T\xEDnh sai."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, DN2, r5`Cho \(\triangle ABC \backsim \triangle DEF\) theo tỉ số 2.`, [
+      [r5`\(\widehat{A} = \widehat{D}\).`, true, "G\xF3c t\u01B0\u01A1ng \u1EE9ng."],
+      [r5`\(AB = 2DE\).`, true, r5`\(\dfrac{AB}{DE} = 2\).`],
+      [r5`\(\triangle DEF \backsim \triangle ABC\) theo tỉ số \(\dfrac12\).`, true, "Ngh\u1ECBch \u0111\u1EA3o t\u1EC9 s\u1ED1."],
+      [r5`\(BC = DE\).`, false, "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n; \\(BC = 2EF\\)."]
+    ]),
+    tf2(2, DN2, r5`Tam giác \(ABC\) có \(AB = 3\), \(BC = 4\), \(CA = 5\); tam giác \(MNP\) có \(MN = 6\), \(NP = 8\), \(PM = 10\) và các góc tương ứng bằng nhau.`, [
+      [r5`\(\triangle MNP \backsim \triangle ABC\).`, true, "G\xF3c b\u1EB1ng nhau, c\u1EA1nh t\u1EC9 l\u1EC7."],
+      ["T\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng l\xE0 2.", true, r5`\(\dfrac{MN}{AB} = 2\).`],
+      [r5`Chu vi \(\triangle MNP\) gấp đôi chu vi \(\triangle ABC\).`, true, "24 v\xE0 12."],
+      [r5`Tỉ số đồng dạng là \(\dfrac12\).`, false, "T\u1EC9 s\u1ED1 c\u1EE7a tam gi\xE1c vi\u1EBFt tr\u01B0\u1EDBc so v\u1EDBi tam gi\xE1c vi\u1EBFt sau l\xE0 2."]
+    ]),
+    tf2(2, TD3, r5`\(\triangle ABC \backsim \triangle DEF\) theo tỉ số \(\dfrac32\); \(DE = 4\), \(EF = 6\), \(FD = 8\) (cm).`, [
+      [r5`\(AB = 6\) cm.`, true, r5`\(\dfrac32\cdot4\).`],
+      [r5`\(BC = 9\) cm.`, true, r5`\(\dfrac32\cdot6\).`],
+      [r5`\(CA = 12\) cm.`, true, r5`\(\dfrac32\cdot8\).`],
+      [r5`Chu vi \(\triangle ABC\) bằng 18 cm.`, false, "Chu vi l\xE0 27 cm."]
+    ]),
+    tf2(3, TD3, r5`\(\triangle A'B'C' \backsim \triangle ABC\); chu vi \(\triangle A'B'C'\) là 45 cm, chu vi \(\triangle ABC\) là 30 cm.`, [
+      [r5`Tỉ số đồng dạng là \(\dfrac32\).`, true, "B\u1EB1ng t\u1EC9 s\u1ED1 chu vi."],
+      [r5`Nếu \(AB = 8\) cm thì \(A'B' = 12\) cm.`, true, r5`\(\dfrac32\cdot8\).`],
+      [r5`Nếu \(B'C' = 9\) cm thì \(BC = 6\) cm.`, true, r5`\(9 : \dfrac32\).`],
+      [r5`Tỉ số đồng dạng là \(\dfrac23\).`, false, "\u0110\u1EA3o ng\u01B0\u1EE3c."]
+    ]),
+    tf2(2, SS3, r5`Tam giác \(ABC\) có \(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)), \(AM = 2\) cm, \(MB = 3\) cm.`, [
+      [r5`\(\triangle AMN \backsim \triangle ABC\).`, true, "\u0110\u01B0\u1EDDng th\u1EB3ng song song v\u1EDBi m\u1ED9t c\u1EA1nh."],
+      [r5`Tỉ số đồng dạng là \(\dfrac25\).`, true, r5`\(\dfrac{AM}{AB}\).`],
+      [r5`\(\dfrac{MN}{BC} = \dfrac23\).`, false, r5`\(\dfrac{MN}{BC} = \dfrac25\).`],
+      [r5`\(\dfrac{AN}{AC} = \dfrac25\).`, true, "T\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng."]
+    ]),
+    tf2(3, SS3, r5`Hình thang \(ABCD\) (\(AB \parallel CD\)) có \(AB = 4\) cm, \(CD = 10\) cm; \(O\) là giao điểm hai đường chéo.`, [
+      [r5`\(\triangle OAB \backsim \triangle OCD\).`, true, r5`\(AB \parallel CD\).`],
+      [r5`\(\dfrac{OA}{OC} = \dfrac25\).`, true, r5`\(\dfrac{AB}{CD}\).`],
+      [r5`Nếu \(BD = 14\) cm thì \(OB = 4\) cm.`, true, r5`\(OB = \dfrac27\cdot14\).`],
+      [r5`\(OA = OC\).`, false, "Hai \u0111\xE1y kh\xE1c nhau."]
+    ]),
+    tf2(3, CD3, r5`Tam giác \(ABC\) có \(DE \parallel BC\) (\(D \in AB\), \(E \in AC\)).`, [
+      [r5`\(\dfrac{AD}{AB} = \dfrac{AE}{AC}\).`, true, "\u0110\u1ECBnh l\xED Thal\xE8s."],
+      [r5`\(\dfrac{AD}{AB} = \dfrac{DE}{BC}\).`, true, "Tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng."],
+      [r5`\(AD\cdot AC = AE\cdot AB\).`, true, "Nh\xE2n ch\xE9o."],
+      [r5`\(\dfrac{AD}{DB} = \dfrac{DE}{BC}\).`, false, r5`Phải là \(\dfrac{AD}{AB}\).`]
+    ]),
+    tf2(4, CD3, r5`Hình thang \(ABCD\) (\(AB \parallel CD\)), \(O\) là giao điểm hai đường chéo; đường thẳng qua \(O\) song song với \(AB\) cắt \(AD\), \(BC\) tại \(M\), \(N\).`, [
+      [r5`\(\dfrac{OM}{DC} = \dfrac{AO}{AC}\).`, true, r5`\(\triangle AOM \backsim \triangle ACD\).`],
+      [r5`\(\dfrac{ON}{DC} = \dfrac{BO}{BD}\).`, true, r5`\(\triangle BON \backsim \triangle BDC\).`],
+      [r5`\(\dfrac{AO}{AC} = \dfrac{BO}{BD}\).`, true, r5`Từ \(\dfrac{OA}{OC} = \dfrac{OB}{OD}\).`],
+      [r5`\(OM = 2ON\).`, false, r5`\(OM = ON\).`]
+    ]),
+    tf2(3, TT3, r5`Để đo chiều cao cây \(AB\), người ta đặt cọc \(CD\) cao 1,2 m song song với cây; \(E\), \(D\), \(B\) thẳng hàng; \(E\), \(C\), \(A\) thẳng hàng trên mặt đất; \(EC = 1{,}5\) m, \(CA = 4{,}5\) m.`, [
+      [r5`\(\triangle ECD \backsim \triangle EAB\).`, true, r5`\(CD \parallel AB\).`],
+      [r5`\(EA = 6\) m.`, true, r5`\(1{,}5 + 4{,}5\).`],
+      [r5`Chiều cao cây là 4,8 m.`, true, r5`\(\dfrac{1{,}2\cdot6}{1{,}5}\).`],
+      [r5`Chiều cao cây là 3,6 m.`, false, r5`Dùng nhầm \(CA\) thay cho \(EA\).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, TD3, r5`\(\triangle ABC \backsim \triangle DEF\) theo tỉ số \(\dfrac23\) và \(DE = 9\) cm. Tính \(AB\).`, "6", r5`\(AB = \dfrac23\cdot9 = 6\) cm.`, CM4),
+    sa2(3, SS3, r5`Tam giác \(ABC\) có \(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)), \(AM = 4\) cm, \(MB = 2\) cm, \(BC = 9\) cm. Tính \(MN\).`, "6", r5`\(\dfrac{MN}{BC} = \dfrac{AM}{AB} = \dfrac46\), \(MN = 6\) cm.`, CM4),
+    sa2(3, CD3, r5`Hình thang \(ABCD\) (\(AB \parallel CD\)) có \(O\) là giao điểm hai đường chéo, \(OA = 2\) cm, \(OC = 5\) cm, \(OB = 3\) cm. Tính \(OD\).`, "7,5", r5`\(\dfrac{OA}{OC} = \dfrac{OB}{OD}\) nên \(OD = \dfrac{3\cdot5}{2} = 7{,}5\) cm.`, CM4),
+    sa2(3, TT3, r5`Cọc \(CD\) cao 1,6 m đặt song song với cây \(AB\); \(E\), \(D\), \(B\) thẳng hàng; \(E\), \(C\), \(A\) thẳng hàng trên mặt đất; \(EC = 1{,}2\) m, \(CA = 6\) m. Tính chiều cao cây.`, "9,6", r5`\(EA = 7{,}2\) m. \(AB = \dfrac{CD\cdot EA}{EC} = \dfrac{1{,}6\cdot7{,}2}{1{,}2} = 9{,}6\) m.`, M2),
+    // ---- Tự luận ----
+    es2(2, DN2, r5`Tam giác \(ABC\) có \(AB = 6\), \(BC = 8\), \(CA = 10\) (cm); tam giác \(DEF\) có \(DE = 9\), \(EF = 12\), \(FD = 15\) (cm) và \(\widehat{D} = \widehat{A}\), \(\widehat{E} = \widehat{B}\), \(\widehat{F} = \widehat{C}\). Chứng tỏ \(\triangle DEF \backsim \triangle ABC\) và tìm tỉ số đồng dạng.`, r5`\(\dfrac{DE}{AB} = \dfrac96 = \dfrac32\); \(\dfrac{EF}{BC} = \dfrac{12}{8} = \dfrac32\); \(\dfrac{FD}{CA} = \dfrac{15}{10} = \dfrac32\).
+Các góc tương ứng bằng nhau và các cạnh tương ứng tỉ lệ nên \(\triangle DEF \backsim \triangle ABC\), tỉ số \(\dfrac32\).`, r5`0,5 điểm: tính đúng ba tỉ số.
+0,5 điểm: kết luận đúng với tỉ số.`),
+    es2(3, SS3, r5`Cho tam giác \(ABC\) có \(BC = 15\) cm. Trên \(AB\) lấy \(M\) sao cho \(AM = 2MB\); qua \(M\) kẻ đường thẳng song song với \(BC\) cắt \(AC\) tại \(N\). Chứng minh \(\triangle AMN \backsim \triangle ABC\) và tính \(MN\).`, r5`\(MN \parallel BC\) nên \(\triangle AMN \backsim \triangle ABC\) (định lí về đường thẳng song song với một cạnh).
+\(AM = 2MB\) nên \(\dfrac{AM}{AB} = \dfrac23\). Do đó \(\dfrac{MN}{BC} = \dfrac23\), \(MN = 10\) cm.`, r5`0,5 điểm: chứng minh đồng dạng.
+0,5 điểm: tính đúng tỉ số và \(MN\).`),
+    es2(3, TD3, r5`Cho \(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số \(\dfrac25\). Tam giác \(ABC\) có chu vi 40 cm, \(AB = 12\) cm, \(BC = 15\) cm. Tính các cạnh của tam giác \(A'B'C'\).`, r5`\(CA = 40 - 12 - 15 = 13\) cm.
+\(A'B' = \dfrac25\cdot12 = 4{,}8\) cm; \(B'C' = 6\) cm; \(C'A' = 5{,}2\) cm.`, r5`0,25 điểm: tính \(CA\).
+0,75 điểm: tính đúng ba cạnh.`),
+    es2(4, CD3, r5`Cho hình thang \(ABCD\) (\(AB \parallel CD\)), hai đường chéo cắt nhau tại \(O\).
+a) Chứng minh \(\dfrac{OA}{OC} = \dfrac{AB}{CD}\). b) Tính \(AB\) biết \(OA = 3\) cm, \(OC = 7\) cm, \(CD = 14\) cm.`, r5`a) \(AB \parallel CD\) nên \(\triangle OAB \backsim \triangle OCD\) (đường thẳng \(AB\) cắt phần kéo dài hai cạnh của \(\triangle OCD\)). Suy ra \(\dfrac{OA}{OC} = \dfrac{AB}{CD}\).
+b) \(AB = \dfrac{OA}{OC}\cdot CD = \dfrac37\cdot14 = 6\) cm.`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b.`),
+    ge2(3, SS3, r5`Cho tam giác \(ABC\) có \(AB = 8\) cm, \(AC = 10\) cm, \(BC = 12\) cm. Trên cạnh \(AB\) lấy \(M\) sao cho \(AM = 2\) cm; qua \(M\) kẻ đường thẳng song song với \(BC\) cắt \(AC\) tại \(N\). Chứng minh \(\triangle AMN \backsim \triangle ABC\) và tính \(MN\), \(AN\).`, `A(4.5,6.61) B(0,0) C(12,0) M(3.38,4.96) N(6.38,4.96)
+ABCA MN`, r5`\(MN \parallel BC\) nên \(\triangle AMN \backsim \triangle ABC\) với tỉ số \(\dfrac{AM}{AB} = \dfrac28 = \dfrac14\).
+\(MN = \dfrac14BC = 3\) cm; \(AN = \dfrac14AC = 2{,}5\) cm.`, r5`0,5 điểm: chứng minh đồng dạng, nêu tỉ số.
+0,5 điểm: tính đúng \(MN\), \(AN\).`)
+  ]
+};
+var CCC = "dong-dang-ccc";
+var CGC = "dong-dang-cgc";
+var GG = "dong-dang-gg";
+var TS2 = "ti-so-doan-thang-chu-vi";
+var HT = "he-thuc-canh-goc-bang-nhau";
+var TT42 = "thuc-te-truong-hop-dong-dang";
+var B34 = {
+  slug: "bai-34-ba-truong-hop-dong-dang-cua-hai-tam-giac",
+  questions: [
+    mc(1, CCC, "Tam gi\xE1c c\xF3 ba c\u1EA1nh 2 cm, 3 cm, 4 cm \u0111\u1ED3ng d\u1EA1ng v\u1EDBi tam gi\xE1c c\xF3 ba c\u1EA1nh n\xE0o sau \u0111\xE2y?", ["4 cm, 6 cm, 8 cm", "3 cm, 4 cm, 5 cm", "2 cm, 4 cm, 6 cm", "4 cm, 6 cm, 9 cm"], r5`\(\dfrac42 = \dfrac63 = \dfrac84 = 2\): ba cặp cạnh tỉ lệ.`, [
+      void 0,
+      "C\xE1c t\u1EC9 s\u1ED1 kh\xE1c nhau.",
+      "C\xE1c t\u1EC9 s\u1ED1 kh\xE1c nhau.",
+      r5`\(\dfrac94 \ne 2\).`
+    ]),
+    mc(2, CCC, r5`Tam giác \(ABC\) có \(AB = 4\), \(BC = 5\), \(CA = 6\); tam giác \(MNP\) có \(MN = 12\), \(NP = 8\), \(PM = 10\). Khẳng định nào sau đây đúng?`, [r5`\(\triangle ABC \backsim \triangle NPM\)`, r5`\(\triangle ABC \backsim \triangle MNP\)`, r5`\(\triangle ABC \backsim \triangle PMN\)`, r5`\(\triangle ABC \backsim \triangle MPN\)`], r5`Sắp xếp tăng dần: \(AB, BC, CA\) ứng với \(NP, PM, MN\) (tỉ số 2). Đỉnh \(A\) ứng \(N\), \(B\) ứng \(P\), \(C\) ứng \(M\).`, [
+      void 0,
+      "Sai th\u1EE9 t\u1EF1 \u0111\u1EC9nh t\u01B0\u01A1ng \u1EE9ng.",
+      "Sai th\u1EE9 t\u1EF1 \u0111\u1EC9nh t\u01B0\u01A1ng \u1EE9ng.",
+      "Sai th\u1EE9 t\u1EF1 \u0111\u1EC9nh t\u01B0\u01A1ng \u1EE9ng."
+    ]),
+    mc(2, CGC, r5`Hai tam giác \(ABC\) và \(DEF\) có \(\widehat{A} = \widehat{D}\) và \(\dfrac{AB}{DE} = \dfrac{AC}{DF}\). Khi đó`, [r5`\(\triangle ABC \backsim \triangle DEF\)`, r5`\(\triangle ABC \backsim \triangle EDF\)`, r5`\(\triangle ABC = \triangle DEF\)`, "hai tam gi\xE1c kh\xF4ng \u0111\u1ED3ng d\u1EA1ng"], "Tr\u01B0\u1EDDng h\u1EE3p c\u1EA1nh \u2013 g\xF3c \u2013 c\u1EA1nh.", [
+      void 0,
+      "Sai th\u1EE9 t\u1EF1 \u0111\u1EC9nh.",
+      "Ch\u1EC9 \u0111\u1ED3ng d\u1EA1ng.",
+      "\u0110\u1EE7 \u0111i\u1EC1u ki\u1EC7n c.g.c."
+    ]),
+    mc(3, CGC, r5`Tam giác \(ABC\) có \(AB = 12\) cm, \(AC = 18\) cm. Lấy \(D \in AB\), \(E \in AC\) với \(AD = 6\) cm, \(AE = 4\) cm. Khẳng định nào sau đây đúng?`, [r5`\(\triangle ADE \backsim \triangle ACB\)`, r5`\(\triangle ADE \backsim \triangle ABC\)`, r5`\(DE \parallel BC\)`, r5`\(\triangle ADE = \triangle ACB\)`], r5`\(\dfrac{AD}{AC} = \dfrac{6}{18} = \dfrac13\), \(\dfrac{AE}{AB} = \dfrac{4}{12} = \dfrac13\), góc \(A\) chung: \(\triangle ADE \backsim \triangle ACB\) (c.g.c).`, [
+      void 0,
+      r5`\(\dfrac{AD}{AB} = \dfrac12 \ne \dfrac{AE}{AC} = \dfrac29\).`,
+      "Kh\xF4ng c\xF3 t\u1EC9 s\u1ED1 Thal\xE8s b\u1EB1ng nhau.",
+      "Ch\u1EC9 \u0111\u1ED3ng d\u1EA1ng."
+    ]),
+    mc(2, GG, "Hai tam gi\xE1c c\xF3 hai c\u1EB7p g\xF3c t\u01B0\u01A1ng \u1EE9ng b\u1EB1ng nhau th\xEC", ["\u0111\u1ED3ng d\u1EA1ng", "b\u1EB1ng nhau", "\u0111\u1EC1u l\xE0 tam gi\xE1c c\xE2n", "\u0111\u1EC1u l\xE0 tam gi\xE1c vu\xF4ng"], "Tr\u01B0\u1EDDng h\u1EE3p g\xF3c \u2013 g\xF3c.", [
+      void 0,
+      "Ch\u1EC9 \u0111\u1ED3ng d\u1EA1ng.",
+      "Kh\xF4ng c\xF3 c\u01A1 s\u1EDF.",
+      "Kh\xF4ng c\xF3 c\u01A1 s\u1EDF."
+    ]),
+    mc(2, GG, r5`Tam giác \(ABC\) có \(\widehat{A} = 60^\circ\), \(\widehat{B} = 50^\circ\); tam giác \(DEF\) có \(\widehat{D} = 60^\circ\), \(\widehat{F} = 70^\circ\). Khẳng định nào sau đây đúng?`, [r5`\(\triangle ABC \backsim \triangle DEF\)`, r5`\(\triangle ABC \backsim \triangle DFE\)`, "Hai tam gi\xE1c kh\xF4ng \u0111\u1ED3ng d\u1EA1ng", r5`\(\triangle ABC \backsim \triangle EDF\)`], r5`\(\widehat{C} = 70^\circ = \widehat{F}\), \(\widehat{A} = \widehat{D}\) nên \(\triangle ABC \backsim \triangle DEF\).`, [
+      void 0,
+      "Sai th\u1EE9 t\u1EF1 \u0111\u1EC9nh.",
+      "C\xF3 hai c\u1EB7p g\xF3c b\u1EB1ng nhau.",
+      "Sai th\u1EE9 t\u1EF1 \u0111\u1EC9nh."
+    ]),
+    mc(3, GG, r5`Tam giác \(ABC\) có \(AB = 4\) cm, \(AC = 8\) cm; điểm \(D\) trên \(AC\) sao cho \(\widehat{ABD} = \widehat{ACB}\). Độ dài \(AD\) là`, [r5`\(2\) cm`, r5`\(4\) cm`, r5`\(6\) cm`, r5`\(1\) cm`], r5`\(\triangle ABD \backsim \triangle ACB\) (g.g) nên \(AB^2 = AD\cdot AC\), \(AD = \dfrac{16}{8} = 2\) cm.`, [
+      void 0,
+      "Nh\u1EA7m \\(AD = AB\\).",
+      r5`Đó là \(DC\).`,
+      "T\xEDnh sai."
+    ]),
+    mc(2, TS2, r5`\(\triangle ABC \backsim \triangle DEF\) theo tỉ số \(\dfrac35\); chu vi tam giác \(DEF\) là 40 cm. Chu vi tam giác \(ABC\) là`, [r5`\(24\) cm`, r5`\(\dfrac{200}{3}\) cm`, r5`\(40\) cm`, r5`\(15\) cm`], r5`Tỉ số chu vi bằng tỉ số đồng dạng: \(\dfrac35\cdot40 = 24\) cm.`, [
+      void 0,
+      "Chia thay v\xEC nh\xE2n.",
+      "Hai tam gi\xE1c kh\xF4ng b\u1EB1ng nhau.",
+      "T\xEDnh sai."
+    ]),
+    mc(3, TS2, r5`\(\triangle ABC \backsim \triangle DEF\) theo tỉ số \(\dfrac23\); chu vi \(\triangle DEF\) lớn hơn chu vi \(\triangle ABC\) là 10 cm. Chu vi tam giác \(ABC\) là`, [r5`\(20\) cm`, r5`\(30\) cm`, r5`\(10\) cm`, r5`\(15\) cm`], r5`Gọi chu vi \(DEF\) là \(p\): \(p - \dfrac23p = 10 \iff p = 30\); chu vi \(ABC = 20\) cm.`, [
+      void 0,
+      r5`Đó là chu vi \(\triangle DEF\).`,
+      "\u0110\xF3 l\xE0 hi\u1EC7u chu vi.",
+      "T\xEDnh sai."
+    ]),
+    mc(3, HT, r5`Tam giác \(ABC\) nhọn có các đường cao \(BD\), \(CE\). Hệ thức nào sau đây đúng?`, [r5`\(AD\cdot AC = AE\cdot AB\)`, r5`\(AD\cdot AB = AE\cdot AC\)`, r5`\(AD = AE\)`, r5`\(BD\cdot CE = AB\cdot AC\)`], r5`\(\triangle ABD \backsim \triangle ACE\) (g.g) nên \(\dfrac{AB}{AC} = \dfrac{AD}{AE}\), suy ra \(AD\cdot AC = AE\cdot AB\).`, [
+      void 0,
+      "Nh\xE2n ch\xE9o sai.",
+      "Ch\u1EC9 \u0111\xFAng khi tam gi\xE1c c\xE2n.",
+      "Kh\xF4ng c\xF3 h\u1EC7 th\u1EE9c n\xE0y."
+    ]),
+    mc(4, HT, r5`Tam giác \(ABC\) nhọn có các đường cao \(BD\), \(CE\). Khi đó \(\triangle ADE \backsim \triangle ABC\) và`, [r5`\(\widehat{ADE} = \widehat{ABC}\)`, r5`\(\widehat{ADE} = \widehat{ACB}\)`, r5`\(\widehat{AED} = \widehat{ABC}\)`, r5`\(DE \parallel BC\)`], r5`Từ \(AD\cdot AC = AE\cdot AB\) có \(\dfrac{AD}{AB} = \dfrac{AE}{AC}\); cùng góc \(A\) chung: \(\triangle ADE \backsim \triangle ABC\), \(D\) ứng với \(B\) nên \(\widehat{ADE} = \widehat{ABC}\).`, [
+      void 0,
+      r5`\(D\) tương ứng với \(B\), không phải \(C\).`,
+      r5`\(E\) tương ứng với \(C\).`,
+      "N\xF3i chung kh\xF4ng song song."
+    ]),
+    mc(3, TT42, r5`Để đo khoảng cách \(AB\) qua sông (\(AB \perp BD\)), người ta chọn \(C\) trên bờ với \(BC = 24\) m, \(CD = 10\) m, rồi đi theo hướng vuông góc với bờ đến \(E\) sao cho \(A\), \(C\), \(E\) thẳng hàng, \(DE = 15\) m. Khoảng cách \(AB\) là`, [r5`\(36\) m`, r5`\(6{,}25\) m`, r5`\(16\) m`, r5`\(9\) m`], r5`\(\triangle ABC \backsim \triangle EDC\) (g.g: góc vuông, góc đối đỉnh) nên \(\dfrac{AB}{DE} = \dfrac{BC}{DC}\), \(AB = \dfrac{15\cdot24}{10} = 36\) m.`, [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "L\u1EADp sai t\u1EC9 l\u1EC7.",
+      "L\u1EADp sai t\u1EC9 l\u1EC7."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, CCC, r5`Tam giác \(ABC\) có ba cạnh 3, 4, 5 (cm); tam giác \(DEF\) có ba cạnh 6, 8, 10 (cm).`, [
+      ["T\u1EC9 s\u1ED1 c\xE1c c\u1EB7p c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng \u0111\u1EC1u b\u1EB1ng 2.", true, r5`\(\dfrac63 = \dfrac84 = \dfrac{10}{5}\).`],
+      [r5`\(\triangle DEF \backsim \triangle ABC\).`, true, "Tr\u01B0\u1EDDng h\u1EE3p c.c.c."],
+      [r5`Tỉ số đồng dạng của \(\triangle ABC\) so với \(\triangle DEF\) là \(\dfrac12\).`, true, "Ngh\u1ECBch \u0111\u1EA3o."],
+      ["Hai tam gi\xE1c b\u1EB1ng nhau.", false, "C\xE1c c\u1EA1nh kh\xF4ng b\u1EB1ng nhau."]
+    ]),
+    tf2(2, CCC, r5`Tam giác \(ABC\) có \(AB = 2\), \(BC = 3\), \(CA = 4\); tam giác \(A'B'C'\) có \(A'B' = 3\), \(B'C' = 4{,}5\), \(C'A' = 6\).`, [
+      [r5`\(\dfrac{A'B'}{AB} = \dfrac32\).`, true, "T\xEDnh tr\u1EF1c ti\u1EBFp."],
+      [r5`\(\triangle A'B'C' \backsim \triangle ABC\).`, true, "Ba t\u1EC9 s\u1ED1 b\u1EB1ng \\(\\dfrac32\\)."],
+      [r5`\(\widehat{B'} = \widehat{B}\).`, true, "G\xF3c t\u01B0\u01A1ng \u1EE9ng."],
+      [r5`\(\widehat{A'} = \widehat{C}\).`, false, r5`\(\widehat{A'} = \widehat{A}\).`]
+    ]),
+    tf2(2, CGC, r5`Tam giác \(ABC\) có \(\widehat{A} = 70^\circ\), \(AB = 6\), \(AC = 9\); tam giác \(DEF\) có \(\widehat{D} = 70^\circ\), \(DE = 4\), \(DF = 6\).`, [
+      [r5`\(\dfrac{AB}{DE} = \dfrac32\).`, true, "T\xEDnh tr\u1EF1c ti\u1EBFp."],
+      [r5`\(\dfrac{AC}{DF} = \dfrac32\).`, true, "T\xEDnh tr\u1EF1c ti\u1EBFp."],
+      [r5`\(\triangle ABC \backsim \triangle DEF\).`, true, "Tr\u01B0\u1EDDng h\u1EE3p c.g.c."],
+      [r5`\(BC = EF\).`, false, r5`\(BC = \dfrac32EF\).`]
+    ]),
+    tf2(3, CGC, r5`Tam giác \(ABC\) có \(AB = 8\), \(AC = 12\); lấy \(D \in AB\), \(E \in AC\) với \(AD = 3\), \(AE = 2\).`, [
+      [r5`\(\dfrac{AD}{AC} = \dfrac14\).`, true, r5`\(\dfrac{3}{12}\).`],
+      [r5`\(\dfrac{AE}{AB} = \dfrac14\).`, true, r5`\(\dfrac28\).`],
+      [r5`\(\triangle ADE \backsim \triangle ACB\).`, true, "Tr\u01B0\u1EDDng h\u1EE3p c.g.c, g\xF3c \\(A\\) chung."],
+      [r5`\(DE \parallel BC\).`, false, r5`\(\dfrac{AD}{AB} \ne \dfrac{AE}{AC}\).`]
+    ]),
+    tf2(2, GG, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c kh\u1EB3ng \u0111\u1ECBnh v\u1EC1 hai tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng theo tr\u01B0\u1EDDng h\u1EE3p g\xF3c \u2013 g\xF3c:", [
+      ["Hai tam gi\xE1c vu\xF4ng c\xF3 m\u1ED9t g\xF3c nh\u1ECDn b\u1EB1ng nhau th\xEC \u0111\u1ED3ng d\u1EA1ng.", true, "Th\xEAm g\xF3c vu\xF4ng: g.g."],
+      ["Hai tam gi\xE1c \u0111\u1EC1u lu\xF4n \u0111\u1ED3ng d\u1EA1ng.", true, r5`Các góc đều bằng \(60^\circ\).`],
+      ["Hai tam gi\xE1c c\xE2n c\xF3 g\xF3c \u1EDF \u0111\u1EC9nh b\u1EB1ng nhau th\xEC \u0111\u1ED3ng d\u1EA1ng.", true, "C\xE1c g\xF3c \u1EDF \u0111\xE1y c\u0169ng b\u1EB1ng nhau."],
+      ["Hai tam gi\xE1c c\xF3 m\u1ED9t c\u1EB7p g\xF3c b\u1EB1ng nhau th\xEC \u0111\u1ED3ng d\u1EA1ng.", false, "C\u1EA7n hai c\u1EB7p g\xF3c."]
+    ]),
+    tf2(3, GG, r5`Tam giác \(ABC\) có \(AB = 6\) cm, \(AC = 9\) cm; \(D\) thuộc \(AC\) sao cho \(\widehat{ABD} = \widehat{ACB}\).`, [
+      [r5`\(\triangle ABD \backsim \triangle ACB\).`, true, "g.g v\u1EDBi g\xF3c \\(A\\) chung."],
+      [r5`\(AB^2 = AD\cdot AC\).`, true, "T\u1EEB t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng."],
+      [r5`\(AD = 4\) cm.`, true, r5`\(\dfrac{36}{9}\).`],
+      [r5`\(DC = 4\) cm.`, false, r5`\(DC = 9 - 4 = 5\) cm.`]
+    ]),
+    tf2(3, TS2, r5`\(\triangle ABC \backsim \triangle MNP\) có \(AB = 6\) cm, \(MN = 9\) cm; chu vi \(\triangle MNP\) là 36 cm.`, [
+      [r5`Tỉ số đồng dạng là \(\dfrac23\).`, true, r5`\(\dfrac69\).`],
+      [r5`Chu vi \(\triangle ABC\) là 24 cm.`, true, r5`\(\dfrac23\cdot36\).`],
+      ["Hi\u1EC7u hai chu vi l\xE0 12 cm.", true, r5`\(36 - 24\).`],
+      [r5`Chu vi \(\triangle ABC\) là 54 cm.`, false, "Nh\xE2n v\u1EDBi ngh\u1ECBch \u0111\u1EA3o t\u1EC9 s\u1ED1."]
+    ]),
+    tf2(4, HT, r5`Tam giác \(ABC\) nhọn có \(BD \perp AC\), \(CE \perp AB\), \(H\) là giao điểm của \(BD\) và \(CE\).`, [
+      [r5`\(\triangle ABD \backsim \triangle ACE\).`, true, "G\xF3c vu\xF4ng v\xE0 g\xF3c \\(A\\) chung."],
+      [r5`\(AD\cdot AC = AE\cdot AB\).`, true, "T\u1EEB t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng."],
+      [r5`\(\triangle HBE \backsim \triangle HCD\).`, true, "G\xF3c vu\xF4ng v\xE0 g\xF3c \u0111\u1ED1i \u0111\u1EC9nh t\u1EA1i \\(H\\)."],
+      [r5`\(HB = HC\).`, false, "Ch\u1EC9 \u0111\xFAng khi tam gi\xE1c c\xE2n t\u1EA1i \\(A\\)."]
+    ]),
+    tf2(3, TT42, "C\xF9ng m\u1ED9t th\u1EDDi \u0111i\u1EC3m, b\xF3ng c\u1EE7a m\u1ED9t c\u1ED9t c\u1EDD tr\xEAn m\u1EB7t \u0111\u1EA5t d\xE0i 9 m, b\xF3ng c\u1EE7a m\u1ED9t c\xE2y s\xE0o cao 2 m d\xE0i 1,5 m.", [
+      ["Hai tam gi\xE1c vu\xF4ng t\u1EA1o b\u1EDFi v\u1EADt, b\xF3ng v\xE0 tia n\u1EAFng \u0111\u1ED3ng d\u1EA1ng.", true, "Tia n\u1EAFng song song n\xEAn c\xF3 g\xF3c nh\u1ECDn b\u1EB1ng nhau."],
+      ["C\u1ED9t c\u1EDD cao 12 m.", true, r5`\(\dfrac{2\cdot9}{1{,}5}\).`],
+      ["T\u1EC9 s\u1ED1 gi\u1EEFa chi\u1EC1u d\xE0i b\xF3ng v\xE0 chi\u1EC1u cao v\u1EADt l\xE0 nh\u01B0 nhau.", true, "Tam gi\xE1c \u0111\u1ED3ng d\u1EA1ng."],
+      ["C\u1ED9t c\u1EDD cao 6,75 m.", false, "L\u1EADp sai t\u1EC9 l\u1EC7."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, CCC, r5`Tam giác \(ABC\) có \(AB = 5\), \(BC = 7\), \(CA = 8\) (cm). Tam giác \(DEF \backsim \triangle ABC\) có \(DE = 15\) cm. Tính chu vi tam giác \(DEF\).`, "60", r5`Tỉ số \(\dfrac{15}{5} = 3\); chu vi \(DEF = 3\cdot20 = 60\) cm.`, CM4),
+    sa2(3, GG, r5`Tam giác \(ABC\) có \(AB = 10\) cm, \(AC = 25\) cm; \(D\) thuộc \(AC\) sao cho \(\widehat{ABD} = \widehat{ACB}\). Tính \(AD\).`, "4", r5`\(AB^2 = AD\cdot AC\) nên \(AD = \dfrac{100}{25} = 4\) cm.`, CM4),
+    sa2(3, TT42, r5`Để đo khoảng cách \(AB\) qua sông (\(AB \perp BD\), \(DE \perp BD\), \(A\), \(C\), \(E\) thẳng hàng, \(C\) nằm giữa \(B\) và \(D\)), đo được \(BC = 30\) m, \(CD = 12\) m, \(DE = 18\) m. Tính \(AB\).`, "45", r5`\(\triangle ABC \backsim \triangle EDC\) nên \(AB = \dfrac{DE\cdot BC}{CD} = \dfrac{18\cdot30}{12} = 45\) m.`, M2),
+    // ---- Tự luận ----
+    es2(2, CCC, r5`Tam giác thứ nhất có ba cạnh 4 cm, 6 cm, 9 cm; tam giác thứ hai có ba cạnh 6 cm, 9 cm, 13,5 cm. Hai tam giác có đồng dạng không? Nếu có, tìm tỉ số đồng dạng của tam giác thứ hai so với tam giác thứ nhất.`, r5`Sắp xếp các cạnh tăng dần và lập tỉ số: \(\dfrac64 = \dfrac96 = \dfrac{13{,}5}{9} = \dfrac32\).
+Ba cặp cạnh tỉ lệ nên hai tam giác đồng dạng (c.c.c), tỉ số \(\dfrac32\).`, r5`0,5 điểm: lập đúng ba tỉ số.
+0,5 điểm: kết luận và nêu tỉ số.`),
+    es2(3, CGC, r5`Tam giác \(ABC\) có \(AB = 9\) cm, \(AC = 12\) cm, \(BC = 15\) cm. Trên \(AB\) lấy \(D\) với \(AD = 4\) cm, trên \(AC\) lấy \(E\) với \(AE = 3\) cm. Chứng minh \(\triangle AED \backsim \triangle ABC\) và tính \(DE\).`, r5`\(\dfrac{AE}{AB} = \dfrac39 = \dfrac13\), \(\dfrac{AD}{AC} = \dfrac{4}{12} = \dfrac13\), góc \(A\) chung nên \(\triangle AED \backsim \triangle ABC\) (c.g.c).
+\(\dfrac{ED}{BC} = \dfrac13\), \(DE = 5\) cm.`, r5`0,5 điểm: chứng minh đồng dạng, ghép đúng cặp cạnh.
+0,5 điểm: tính đúng \(DE\).`),
+    es2(3, GG, r5`Cho hình thang \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{DAB} = \widehat{DBC}\). Chứng minh \(\triangle ABD \backsim \triangle BDC\) và \(BD^2 = AB\cdot DC\).`, r5`\(AB \parallel CD\) nên \(\widehat{ABD} = \widehat{BDC}\) (so le trong); lại có \(\widehat{DAB} = \widehat{DBC}\).
+Do đó \(\triangle ABD \backsim \triangle BDC\) (g.g).
+Suy ra \(\dfrac{AB}{BD} = \dfrac{BD}{DC}\), tức \(BD^2 = AB\cdot DC\).`, r5`0,5 điểm: chứng minh đồng dạng (đủ hai cặp góc).
+0,5 điểm: suy ra hệ thức.`),
+    es2(3, TS2, r5`\(\triangle ABC \backsim \triangle A'B'C'\) theo tỉ số \(\dfrac34\); tổng chu vi của hai tam giác là 70 cm. Tính chu vi mỗi tam giác.`, r5`Gọi chu vi \(A'B'C'\) là \(p\); chu vi \(ABC\) là \(\dfrac34p\).
+\(p + \dfrac34p = 70 \iff p = 40\). Chu vi \(ABC\) là 30 cm, chu vi \(A'B'C'\) là 40 cm.`, r5`0,5 điểm: lập đúng phương trình theo tỉ số chu vi.
+0,5 điểm: tính đúng hai chu vi.`),
+    es2(4, HT, r5`Tam giác \(ABC\) có \(AB = 4\) cm, \(AC = 6\) cm, \(BC = 8\) cm. Trên \(BC\) lấy \(D\) sao cho \(BD = 2\) cm. Chứng minh \(\triangle BDA \backsim \triangle BAC\), từ đó suy ra \(\widehat{BAD} = \widehat{BCA}\) và tính \(AD\).`, r5`\(\dfrac{BD}{BA} = \dfrac24 = \dfrac12\), \(\dfrac{BA}{BC} = \dfrac48 = \dfrac12\), góc \(B\) chung nên \(\triangle BDA \backsim \triangle BAC\) (c.g.c).
+Suy ra \(\widehat{BAD} = \widehat{BCA}\) (góc tương ứng) và \(\dfrac{AD}{CA} = \dfrac12\), \(AD = 3\) cm.`, r5`0,5 điểm: chứng minh đồng dạng.
+0,25 điểm: suy ra hai góc bằng nhau.
+0,25 điểm: tính đúng \(AD\).`)
+  ]
+};
+var TC2 = "tinh-canh-tam-giac-vuong";
+var TH5 = "tinh-do-dai-trong-hinh-phang";
+var NB = "nhan-biet-tam-giac-vuong";
+var UD = "ung-dung-thuc-te-pythagore";
+var B35 = {
+  slug: "bai-35-dinh-li-pythagore-va-ung-dung",
+  questions: [
+    mc(1, TC2, r5`Tam giác \(ABC\) vuông tại \(A\). Hệ thức nào sau đây đúng?`, [r5`\(BC^2 = AB^2 + AC^2\)`, r5`\(AB^2 = AC^2 + BC^2\)`, r5`\(AC^2 = AB^2 + BC^2\)`, r5`\(BC = AB + AC\)`], r5`Cạnh huyền \(BC\) đối diện góc vuông.`, [
+      void 0,
+      r5`\(AB\) không phải cạnh huyền.`,
+      r5`\(AC\) không phải cạnh huyền.`,
+      "Kh\xF4ng c\u1ED9ng \u0111\u1ED9 d\xE0i."
+    ]),
+    mc(1, TC2, "M\u1ED9t tam gi\xE1c vu\xF4ng c\xF3 hai c\u1EA1nh g\xF3c vu\xF4ng d\xE0i 5 cm v\xE0 12 cm. C\u1EA1nh huy\u1EC1n d\xE0i", [r5`\(13\) cm`, r5`\(17\) cm`, r5`\(7\) cm`, r5`\(169\) cm`], r5`\(\sqrt{25 + 144} = \sqrt{169} = 13\) cm.`, [
+      void 0,
+      "C\u1ED9ng hai c\u1EA1nh.",
+      "Tr\u1EEB hai c\u1EA1nh.",
+      "Qu\xEAn khai c\u0103n."
+    ]),
+    mc(2, TC2, "M\u1ED9t tam gi\xE1c vu\xF4ng c\xF3 c\u1EA1nh huy\u1EC1n 10 cm, m\u1ED9t c\u1EA1nh g\xF3c vu\xF4ng 6 cm. C\u1EA1nh g\xF3c vu\xF4ng c\xF2n l\u1EA1i d\xE0i", [r5`\(8\) cm`, r5`\(4\) cm`, r5`\(16\) cm`, r5`\(\sqrt{136}\) cm`], r5`\(\sqrt{100 - 36} = 8\) cm.`, [
+      void 0,
+      "Tr\u1EEB hai c\u1EA1nh.",
+      "C\u1ED9ng hai c\u1EA1nh.",
+      "C\u1ED9ng b\xECnh ph\u01B0\u01A1ng thay v\xEC tr\u1EEB."
+    ]),
+    mc(2, TC2, "Tam gi\xE1c vu\xF4ng c\xE2n c\xF3 c\u1EA1nh g\xF3c vu\xF4ng b\u1EB1ng 3 cm th\xEC c\u1EA1nh huy\u1EC1n b\u1EB1ng", [r5`\(3\sqrt2\) cm`, r5`\(6\) cm`, r5`\(9\) cm`, r5`\(18\) cm`], r5`\(\sqrt{9 + 9} = \sqrt{18} = 3\sqrt2\) cm.`, [
+      void 0,
+      "C\u1ED9ng hai c\u1EA1nh.",
+      r5`Đó là \(3^2\).`,
+      "Qu\xEAn khai c\u0103n."
+    ]),
+    mc(3, TC2, r5`Tam giác \(ABC\) vuông tại \(A\) có \(AB : AC = 5 : 12\) và \(BC = 26\) cm. Độ dài \(AB\) là`, [r5`\(10\) cm`, r5`\(24\) cm`, r5`\(5\) cm`, r5`\(13\) cm`], r5`\(AB = 5k\), \(AC = 12k\): \(169k^2 = 676 \iff k = 2\); \(AB = 10\) cm.`, [
+      void 0,
+      r5`Đó là \(AC\).`,
+      "Ch\u01B0a nh\xE2n v\u1EDBi \\(k\\).",
+      "\u0110\xF3 l\xE0 n\u1EEDa c\u1EA1nh huy\u1EC1n."
+    ]),
+    mc(2, NB, "B\u1ED9 ba \u0111\u1ED9 d\xE0i n\xE0o sau \u0111\xE2y l\xE0 \u0111\u1ED9 d\xE0i ba c\u1EA1nh c\u1EE7a m\u1ED9t tam gi\xE1c vu\xF4ng?", ["7; 24; 25", "4; 5; 6", "5; 6; 8", "6; 7; 9"], r5`\(7^2 + 24^2 = 49 + 576 = 625 = 25^2\).`, [
+      void 0,
+      r5`\(16 + 25 \ne 36\).`,
+      r5`\(25 + 36 \ne 64\).`,
+      r5`\(36 + 49 \ne 81\).`
+    ]),
+    mc(2, NB, r5`Tam giác \(ABC\) có \(AB = 9\), \(AC = 40\), \(BC = 41\). Khẳng định nào sau đây đúng?`, [r5`Tam giác vuông tại \(A\)`, r5`Tam giác vuông tại \(B\)`, r5`Tam giác vuông tại \(C\)`, "Tam gi\xE1c kh\xF4ng vu\xF4ng"], r5`\(BC^2 = 1681 = 81 + 1600 = AB^2 + AC^2\); góc vuông đối diện cạnh lớn nhất \(BC\).`, [
+      void 0,
+      r5`Góc vuông đối diện cạnh \(BC\), tức tại \(A\).`,
+      r5`Góc vuông đối diện cạnh \(BC\).`,
+      "Th\u1ECFa \u0111\u1ECBnh l\xED Pythagore \u0111\u1EA3o."
+    ]),
+    mc(2, TH5, "H\xECnh ch\u1EEF nh\u1EADt c\xF3 hai c\u1EA1nh 9 cm v\xE0 12 cm. \u0110\u1ED9 d\xE0i \u0111\u01B0\u1EDDng ch\xE9o l\xE0", [r5`\(15\) cm`, r5`\(21\) cm`, r5`\(108\) cm`, r5`\(225\) cm`], r5`\(\sqrt{81 + 144} = 15\) cm.`, [
+      void 0,
+      "C\u1ED9ng hai c\u1EA1nh.",
+      "\u0110\xF3 l\xE0 di\u1EC7n t\xEDch.",
+      "Qu\xEAn khai c\u0103n."
+    ]),
+    mc(3, TH5, "H\xECnh vu\xF4ng c\xF3 c\u1EA1nh 4 cm. \u0110\u1ED9 d\xE0i \u0111\u01B0\u1EDDng ch\xE9o l\xE0", [r5`\(4\sqrt2\) cm`, r5`\(8\) cm`, r5`\(16\) cm`, r5`\(2\sqrt2\) cm`], r5`\(\sqrt{16 + 16} = 4\sqrt2\) cm.`, [
+      void 0,
+      "C\u1ED9ng hai c\u1EA1nh.",
+      "\u0110\xF3 l\xE0 di\u1EC7n t\xEDch.",
+      "Chia \u0111\xF4i nh\u1EA7m."
+    ]),
+    mc(3, TH5, "H\xECnh thoi c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o d\xE0i 12 cm v\xE0 16 cm. \u0110\u1ED9 d\xE0i c\u1EA1nh h\xECnh thoi l\xE0", [r5`\(10\) cm`, r5`\(14\) cm`, r5`\(20\) cm`, r5`\(28\) cm`], r5`Nửa hai đường chéo là 6 cm và 8 cm, vuông góc nhau: cạnh \(\sqrt{36 + 64} = 10\) cm.`, [
+      void 0,
+      "C\u1ED9ng n\u1EEDa hai \u0111\u01B0\u1EDDng ch\xE9o.",
+      "D\xF9ng c\u1EA3 hai \u0111\u01B0\u1EDDng ch\xE9o m\xE0 kh\xF4ng chia \u0111\xF4i.",
+      "C\u1ED9ng hai \u0111\u01B0\u1EDDng ch\xE9o."
+    ]),
+    mc(4, TH5, "H\xECnh thang c\xE2n c\xF3 hai \u0111\xE1y 4 cm v\xE0 10 cm, c\u1EA1nh b\xEAn 5 cm. Chi\u1EC1u cao h\xECnh thang l\xE0", [r5`\(4\) cm`, r5`\(3\) cm`, r5`\(5\) cm`, r5`\(\sqrt{34}\) cm`], r5`Phần đáy lớn mỗi bên \((10 - 4) : 2 = 3\) cm; chiều cao \(\sqrt{25 - 9} = 4\) cm.`, [
+      void 0,
+      "\u0110\xF3 l\xE0 \u0111o\u1EA1n chi\u1EBFu c\u1EE7a c\u1EA1nh b\xEAn.",
+      "\u0110\xF3 l\xE0 c\u1EA1nh b\xEAn.",
+      "C\u1ED9ng b\xECnh ph\u01B0\u01A1ng thay v\xEC tr\u1EEB."
+    ]),
+    mc(2, UD, "M\u1ED9t chi\u1EBFc thang d\xE0i 13 m d\u1EF1a v\xE0o t\u01B0\u1EDDng th\u1EB3ng \u0111\u1EE9ng, ch\xE2n thang c\xE1ch ch\xE2n t\u01B0\u1EDDng 5 m. \u0110\u1EA7u thang \u1EDF \u0111\u1ED9 cao", [r5`\(12\) m`, r5`\(8\) m`, r5`\(18\) m`, r5`\(\sqrt{194}\) m`], r5`\(\sqrt{169 - 25} = 12\) m.`, [
+      void 0,
+      "Tr\u1EEB \u0111\u1ED9 d\xE0i.",
+      "C\u1ED9ng \u0111\u1ED9 d\xE0i.",
+      "C\u1ED9ng b\xECnh ph\u01B0\u01A1ng."
+    ]),
+    mc(3, UD, "M\u1ED9t ng\u01B0\u1EDDi \u0111i 6 km v\u1EC1 ph\xEDa B\u1EAFc r\u1ED3i \u0111i ti\u1EBFp 8 km v\u1EC1 ph\xEDa \u0110\xF4ng. Khi \u0111\xF3 ng\u01B0\u1EDDi \u0111\xF3 c\xE1ch \u0111i\u1EC3m xu\u1EA5t ph\xE1t", [r5`\(10\) km`, r5`\(14\) km`, r5`\(2\) km`, r5`\(48\) km`], r5`Hai hướng vuông góc: \(\sqrt{36 + 64} = 10\) km.`, [
+      void 0,
+      "\u0110\xF3 l\xE0 qu\xE3ng \u0111\u01B0\u1EDDng \u0111\xE3 \u0111i.",
+      "Tr\u1EEB \u0111\u1ED9 d\xE0i.",
+      "Nh\xE2n \u0111\u1ED9 d\xE0i."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, TC2, r5`Tam giác \(ABC\) vuông tại \(A\) có \(AB = 6\) cm, \(AC = 8\) cm.`, [
+      [r5`\(BC^2 = 100\).`, true, r5`\(36 + 64\).`],
+      [r5`\(BC = 10\) cm.`, true, "Khai c\u0103n."],
+      [r5`\(BC = 14\) cm.`, false, "Kh\xF4ng c\u1ED9ng \u0111\u1ED9 d\xE0i."],
+      [r5`\(BC\) là cạnh lớn nhất.`, true, "C\u1EA1nh huy\u1EC1n."]
+    ]),
+    tf2(2, TC2, r5`Tam giác \(MNP\) vuông tại \(M\) có \(NP = 17\) cm, \(MN = 8\) cm.`, [
+      [r5`\(MP^2 = 225\).`, true, r5`\(289 - 64\).`],
+      [r5`\(MP = 15\) cm.`, true, "Khai c\u0103n."],
+      ["Chu vi tam gi\xE1c l\xE0 40 cm.", true, r5`\(8 + 15 + 17\).`],
+      [r5`\(MP = 9\) cm.`, false, "Kh\xF4ng tr\u1EEB \u0111\u1ED9 d\xE0i."]
+    ]),
+    tf2(1, NB, "B\u1ED9 ba \u0111\u1ED9 d\xE0i n\xE0o l\xE0 ba c\u1EA1nh c\u1EE7a tam gi\xE1c vu\xF4ng?", [
+      ["3; 4; 5.", true, r5`\(9 + 16 = 25\).`],
+      ["6; 8; 10.", true, r5`\(36 + 64 = 100\).`],
+      ["2; 3; 4.", false, r5`\(4 + 9 \ne 16\).`],
+      ["5; 12; 13.", true, r5`\(25 + 144 = 169\).`]
+    ]),
+    tf2(2, NB, r5`Tam giác \(ABC\) có \(AB = 15\), \(BC = 20\), \(AC = 25\).`, [
+      [r5`\(AC^2 = AB^2 + BC^2\).`, true, r5`\(625 = 225 + 400\).`],
+      [r5`Tam giác vuông tại \(B\).`, true, r5`Đối diện cạnh \(AC\).`],
+      [r5`Tam giác vuông tại \(A\).`, false, r5`Góc vuông tại \(B\).`],
+      [r5`\(\widehat{A} + \widehat{C} = 90^\circ\).`, true, "Hai g\xF3c nh\u1ECDn c\u1EE7a tam gi\xE1c vu\xF4ng."]
+    ]),
+    tf2(2, TH5, r5`Hình chữ nhật \(ABCD\) có \(AB = 8\) cm, \(BC = 6\) cm, \(O\) là giao điểm hai đường chéo.`, [
+      [r5`\(AC = 10\) cm.`, true, r5`\(\sqrt{64 + 36}\).`],
+      [r5`\(BD = 10\) cm.`, true, "Hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau."],
+      [r5`\(OA = 5\) cm.`, true, "N\u1EEDa \u0111\u01B0\u1EDDng ch\xE9o."],
+      [r5`\(AC = 14\) cm.`, false, "Kh\xF4ng c\u1ED9ng hai c\u1EA1nh."]
+    ]),
+    tf2(3, TH5, "Tam gi\xE1c \u0111\u1EC1u c\u1EA1nh 4 cm.", [
+      [r5`Đường cao bằng \(2\sqrt3\) cm.`, true, r5`\(\sqrt{16 - 4}\).`],
+      [r5`Bình phương đường cao bằng 12.`, true, r5`\(16 - 4\).`],
+      [r5`Diện tích bằng \(4\sqrt3\) cm².`, true, r5`\(\dfrac12\cdot4\cdot2\sqrt3\).`],
+      ["\u0110\u01B0\u1EDDng cao b\u1EB1ng 2 cm.", false, "\u0110\xF3 l\xE0 n\u1EEDa c\u1EA1nh."]
+    ]),
+    tf2(4, TH5, r5`Hình thang cân \(ABCD\) có đáy nhỏ \(AB = 6\) cm, đáy lớn \(CD = 14\) cm, cạnh bên 5 cm; \(AH \perp CD\).`, [
+      [r5`\(DH = 4\) cm.`, true, r5`\((14 - 6) : 2\).`],
+      ["Chi\u1EC1u cao b\u1EB1ng 3 cm.", true, r5`\(\sqrt{25 - 16}\).`],
+      ["Di\u1EC7n t\xEDch b\u1EB1ng 30 cm\xB2.", true, r5`\(\dfrac{(6 + 14)\cdot3}{2}\).`],
+      [r5`Đường chéo \(AC = 13\) cm.`, false, r5`\(AC = \sqrt{3^2 + 10^2} = \sqrt{109}\) cm.`]
+    ]),
+    tf2(2, UD, "M\u1ED9t chi\u1EBFc thang d\xE0i 5 m d\u1EF1a v\xE0o t\u01B0\u1EDDng th\u1EB3ng \u0111\u1EE9ng, ch\xE2n thang c\xE1ch ch\xE2n t\u01B0\u1EDDng 3 m.", [
+      ["\u0110\u1EA7u thang \u1EDF \u0111\u1ED9 cao 4 m.", true, r5`\(\sqrt{25 - 9}\).`],
+      ["Thang, t\u01B0\u1EDDng v\xE0 m\u1EB7t \u0111\u1EA5t t\u1EA1o th\xE0nh tam gi\xE1c vu\xF4ng.", true, "T\u01B0\u1EDDng vu\xF4ng g\xF3c v\u1EDBi m\u1EB7t \u0111\u1EA5t."],
+      ["Thang l\xE0 c\u1EA1nh huy\u1EC1n.", true, "\u0110\u1ED1i di\u1EC7n g\xF3c vu\xF4ng."],
+      ["\u0110\u1EA7u thang \u1EDF \u0111\u1ED9 cao 2 m.", false, "Kh\xF4ng tr\u1EEB \u0111\u1ED9 d\xE0i."]
+    ]),
+    tf2(3, UD, "Hai thuy\u1EC1n c\xF9ng r\u1EDDi m\u1ED9t b\u1EBFn: thuy\u1EC1n th\u1EE9 nh\u1EA5t \u0111i 9 km v\u1EC1 h\u01B0\u1EDBng B\u1EAFc, thuy\u1EC1n th\u1EE9 hai \u0111i 12 km v\u1EC1 h\u01B0\u1EDBng \u0110\xF4ng.", [
+      ["Hai thuy\u1EC1n c\xE1ch nhau 15 km.", true, r5`\(\sqrt{81 + 144}\).`],
+      ["Hai h\u01B0\u1EDBng \u0111i t\u1EA1o th\xE0nh g\xF3c vu\xF4ng.", true, "B\u1EAFc v\xE0 \u0110\xF4ng vu\xF4ng g\xF3c."],
+      [r5`\(15^2 = 9^2 + 12^2\).`, true, "\u0110\u1ECBnh l\xED Pythagore."],
+      ["Hai thuy\u1EC1n c\xE1ch nhau 21 km.", false, "Kh\xF4ng c\u1ED9ng \u0111\u1ED9 d\xE0i."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, TC2, "M\u1ED9t tam gi\xE1c vu\xF4ng c\xF3 hai c\u1EA1nh g\xF3c vu\xF4ng d\xE0i 9 cm v\xE0 40 cm. T\xEDnh c\u1EA1nh huy\u1EC1n.", "41", r5`\(\sqrt{81 + 1600} = \sqrt{1681} = 41\) cm.`, CM4),
+    sa2(3, TH5, "H\xECnh thoi c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o d\xE0i 10 cm v\xE0 24 cm. T\xEDnh \u0111\u1ED9 d\xE0i c\u1EA1nh h\xECnh thoi.", "13", r5`\(\sqrt{5^2 + 12^2} = 13\) cm.`, CM4),
+    sa2(3, UD, "M\u1ED9t c\xE2y tre cao 9 m b\u1ECB gi\xF3 l\xE0m g\xE3y, ng\u1ECDn tre ch\u1EA1m \u0111\u1EA5t c\xE1ch g\u1ED1c 3 m. \u0110i\u1EC3m g\xE3y c\xE1ch g\u1ED1c bao nhi\xEAu m\xE9t?", "4", r5`Gọi khoảng cách từ gốc đến điểm gãy là \(x\): \(x^2 + 3^2 = (9 - x)^2 \iff 18x = 72 \iff x = 4\) m.`, M2),
+    // ---- Tự luận ----
+    es2(2, TC2, r5`Tam giác \(ABC\) vuông tại \(A\). Tính:
+a) \(BC\) biết \(AB = 7\) cm, \(AC = 24\) cm; b) \(AB\) biết \(BC = 17\) cm, \(AC = 15\) cm.`, r5`a) \(BC = \sqrt{49 + 576} = \sqrt{625} = 25\) cm.
+b) \(AB = \sqrt{289 - 225} = \sqrt{64} = 8\) cm.`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b.`),
+    es2(2, NB, "C\xE1c tam gi\xE1c c\xF3 \u0111\u1ED9 d\xE0i ba c\u1EA1nh sau c\xF3 ph\u1EA3i tam gi\xE1c vu\xF4ng kh\xF4ng? N\u1EBFu c\xF3, g\xF3c vu\xF4ng \u0111\u1ED1i di\u1EC7n c\u1EA1nh n\xE0o?\na) 12 cm, 16 cm, 20 cm; b) 5 cm, 7 cm, 9 cm.", r5`a) \(20^2 = 400 = 144 + 256 = 12^2 + 16^2\): tam giác vuông, góc vuông đối diện cạnh 20 cm.
+b) \(9^2 = 81 \ne 25 + 49 = 74\): không phải tam giác vuông.`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b.`),
+    es2(3, TH5, "M\u1ED9t h\xECnh ch\u1EEF nh\u1EADt c\xF3 chi\u1EC1u d\xE0i 24 cm v\xE0 \u0111\u01B0\u1EDDng ch\xE9o 25 cm. T\xEDnh chi\u1EC1u r\u1ED9ng v\xE0 di\u1EC7n t\xEDch h\xECnh ch\u1EEF nh\u1EADt.", r5`Chiều rộng \(\sqrt{625 - 576} = \sqrt{49} = 7\) cm.
+Diện tích \(24\cdot7 = 168\) cm².`, r5`0,5 điểm: tính đúng chiều rộng.
+0,5 điểm: tính đúng diện tích.`),
+    es2(3, UD, "M\xE0n h\xECnh m\u1ED9t chi\u1EBFc ti vi h\xECnh ch\u1EEF nh\u1EADt c\xF3 chi\u1EC1u r\u1ED9ng 80 cm, chi\u1EC1u cao 60 cm. T\xEDnh \u0111\u1ED9 d\xE0i \u0111\u01B0\u1EDDng ch\xE9o m\xE0n h\xECnh theo x\u0103ng-ti-m\xE9t v\xE0 theo inch (1 inch \u2248 2,54 cm, l\xE0m tr\xF2n \u0111\u1EBFn h\xE0ng \u0111\u01A1n v\u1ECB).", r5`Đường chéo \(\sqrt{80^2 + 60^2} = \sqrt{10000} = 100\) cm.
+Theo inch: \(100 : 2{,}54 \approx 39\) inch.`, r5`0,5 điểm: tính đúng 100 cm.
+0,5 điểm: đổi đúng sang inch.`),
+    es2(4, TH5, r5`Tam giác \(ABC\) vuông tại \(A\) có \(AB = 6\) cm, \(AC = 8\) cm; \(M\) là trung điểm của \(BC\). Tính \(AM\) và chu vi tam giác \(ABM\).`, r5`\(BC = \sqrt{36 + 64} = 10\) cm.
+\(AM\) là trung tuyến ứng với cạnh huyền nên \(AM = \dfrac{BC}{2} = 5\) cm; \(BM = 5\) cm.
+Chu vi \(\triangle ABM = 6 + 5 + 5 = 16\) cm.`, r5`0,5 điểm: tính \(BC\) bằng Pythagore.
+0,5 điểm: tính \(AM\), \(BM\) và chu vi.`),
+    ge2(2, TC2, r5`Cho tam giác \(ABC\) vuông tại \(A\) có \(AB = 9\) cm, \(BC = 15\) cm. Tính \(AC\) và chu vi tam giác \(ABC\).`, `A(0,0) B(0,4.5) C(6,0)
+ABCA
+vuong(B,A,C)`, r5`Theo định lí Pythagore: \(AC^2 = BC^2 - AB^2 = 225 - 81 = 144\), \(AC = 12\) cm.
+Chu vi \(9 + 12 + 15 = 36\) cm.`, r5`0,5 điểm: tính đúng \(AC\).
+0,5 điểm: tính đúng chu vi.`),
+    ge2(3, TH5, r5`Cho tam giác \(ABC\) cân tại \(A\) có \(AB = AC = 10\) cm, \(BC = 12\) cm. Kẻ đường cao \(AH\). Tính \(AH\) và diện tích tam giác \(ABC\).`, `A(0,4) B(-3,0) C(3,0) H(0,0)
+ABCA AH
+vuong(A,H,C)`, r5`Trong tam giác cân, đường cao \(AH\) cũng là trung tuyến nên \(BH = 6\) cm.
+\(AH = \sqrt{AB^2 - BH^2} = \sqrt{100 - 36} = 8\) cm.
+Diện tích \(\dfrac12\cdot12\cdot8 = 48\) cm².`, r5`0,25 điểm: chỉ ra \(BH = 6\) cm.
+0,5 điểm: tính \(AH = 8\) cm.
+0,25 điểm: tính diện tích.`)
+  ]
+};
+var CM23 = { unit: "cm\xB2" };
+var CMV = "chung-minh-tam-giac-vuong-dong-dang";
+var GTV = "giai-toan-tam-giac-vuong-dong-dang";
+var TSD = "ti-so-duong-cao-dien-tich";
+var TTV = "thuc-te-tam-giac-vuong-dong-dang";
+var B36 = {
+  slug: "bai-36-cac-truong-hop-dong-dang-cua-hai-tam-giac-vuong",
+  questions: [
+    mc(1, CMV, "Hai tam gi\xE1c vu\xF4ng \u0111\u1ED3ng d\u1EA1ng v\u1EDBi nhau n\u1EBFu", ["c\xF3 m\u1ED9t g\xF3c nh\u1ECDn b\u1EB1ng nhau", "c\xF3 m\u1ED9t c\u1EA1nh g\xF3c vu\xF4ng b\u1EB1ng nhau", "c\xF3 c\u1EA1nh huy\u1EC1n b\u1EB1ng nhau", "c\xF3 chu vi b\u1EB1ng nhau"], "Hai tam gi\xE1c vu\xF4ng c\xF3 th\xEAm m\u1ED9t c\u1EB7p g\xF3c nh\u1ECDn b\u1EB1ng nhau th\xEC \u0111\u1ED3ng d\u1EA1ng (g.g).", [
+      void 0,
+      "M\u1ED9t c\u1EB7p c\u1EA1nh b\u1EB1ng nhau ch\u01B0a \u0111\u1EE7.",
+      "C\u1EA1nh huy\u1EC1n b\u1EB1ng nhau ch\u01B0a \u0111\u1EE7.",
+      "Chu vi b\u1EB1ng nhau kh\xF4ng li\xEAn quan \u0111\u1EBFn \u0111\u1ED3ng d\u1EA1ng."
+    ]),
+    mc(1, CMV, r5`Tam giác \(ABC\) vuông tại \(A\) và tam giác \(DEF\) vuông tại \(D\) có \(\widehat{B} = \widehat{E}\). Khẳng định nào sau đây đúng?`, [r5`\(\triangle ABC \backsim \triangle DEF\)`, r5`\(\triangle ABC \backsim \triangle EDF\)`, r5`\(\triangle ABC \backsim \triangle DFE\)`, r5`\(\triangle ABC = \triangle DEF\)`], r5`Góc vuông \(A\) ứng với \(D\), \(\widehat{B} = \widehat{E}\) nên \(\triangle ABC \backsim \triangle DEF\).`, [
+      void 0,
+      r5`\(A\) phải ứng với đỉnh góc vuông \(D\).`,
+      r5`\(B\) ứng với \(E\), không phải \(F\).`,
+      "Ch\u1EC9 \u0111\u1ED3ng d\u1EA1ng, ch\u01B0a ch\u1EAFc b\u1EB1ng nhau."
+    ]),
+    mc(2, CMV, r5`Tam giác \(ABC\) vuông tại \(A\) có \(AB = 3\), \(AC = 4\); tam giác \(MNP\) vuông tại \(M\) có \(MN = 6\), \(MP = 8\). Khẳng định nào sau đây đúng?`, [r5`\(\triangle ABC \backsim \triangle MNP\)`, r5`\(\triangle ABC \backsim \triangle NMP\)`, r5`\(\triangle ABC \backsim \triangle MPN\)`, "Hai tam gi\xE1c kh\xF4ng \u0111\u1ED3ng d\u1EA1ng"], r5`\(\dfrac{MN}{AB} = \dfrac{MP}{AC} = 2\): hai cạnh góc vuông tỉ lệ nên \(\triangle ABC \backsim \triangle MNP\).`, [
+      void 0,
+      "\u0110\u1EC9nh g\xF3c vu\xF4ng ph\u1EA3i \u1EE9ng v\u1EDBi nhau.",
+      r5`\(AB\) ứng với \(MN\), nên \(B\) ứng với \(N\).`,
+      "Hai c\u1EA1nh g\xF3c vu\xF4ng t\u1EC9 l\u1EC7 n\xEAn \u0111\u1ED3ng d\u1EA1ng."
+    ]),
+    mc(2, CMV, "Tam gi\xE1c vu\xF4ng c\xF3 hai c\u1EA1nh g\xF3c vu\xF4ng 2 cm v\xE0 5 cm \u0111\u1ED3ng d\u1EA1ng v\u1EDBi tam gi\xE1c vu\xF4ng c\xF3 hai c\u1EA1nh g\xF3c vu\xF4ng l\xE0", ["4 cm v\xE0 10 cm", "4 cm v\xE0 7 cm", "3 cm v\xE0 6 cm", "2 cm v\xE0 10 cm"], r5`\(\dfrac42 = \dfrac{10}{5} = 2\): hai cạnh góc vuông tỉ lệ.`, [
+      void 0,
+      "C\u1ED9ng th\xEAm 2 cm, kh\xF4ng ph\u1EA3i nh\xE2n.",
+      "C\u1ED9ng th\xEAm 1 cm, kh\xF4ng ph\u1EA3i nh\xE2n.",
+      "Ch\u1EC9 m\u1ED9t c\u1EA1nh thay \u0111\u1ED5i."
+    ]),
+    mc(3, CMV, r5`Tam giác \(ABC\) vuông tại \(A\) có đường cao \(AH\). Khẳng định nào sau đây đúng?`, [r5`\(\triangle HBA \backsim \triangle ABC\)`, r5`\(\triangle HAB \backsim \triangle ABC\)`, r5`\(\triangle HBA \backsim \triangle ACB\)`, r5`\(\triangle HCA \backsim \triangle ABC\)`], r5`\(\widehat{BHA} = \widehat{BAC} = 90^\circ\), góc \(B\) chung nên \(\triangle HBA \backsim \triangle ABC\).`, [
+      void 0,
+      r5`\(\widehat{HAB} = \widehat{C}\), không bằng \(\widehat{B}\).`,
+      r5`\(B\) phải ứng với \(B\).`,
+      r5`\(\widehat{HCA} = \widehat{C}\), không bằng \(\widehat{B}\).`
+    ]),
+    mc(3, CMV, r5`Tam giác \(ABC\) vuông tại \(A\) và tam giác \(A'B'C'\) vuông tại \(A'\) có \(\dfrac{B'C'}{BC} = \dfrac{A'B'}{AB} = \dfrac12\). Khi đó`, [r5`\(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số \(\dfrac12\)`, r5`\(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số \(2\)`, r5`\(\triangle A'B'C' \backsim \triangle ACB\)`, r5`\(\triangle A'B'C' = \triangle ABC\)`], "C\u1EA1nh huy\u1EC1n v\xE0 m\u1ED9t c\u1EA1nh g\xF3c vu\xF4ng t\u1EC9 l\u1EC7 th\xEC hai tam gi\xE1c vu\xF4ng \u0111\u1ED3ng d\u1EA1ng, t\u1EC9 s\u1ED1 b\u1EB1ng t\u1EC9 s\u1ED1 \u0111\xF3.", [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      r5`\(B'\) ứng với \(B\).`,
+      "C\xE1c c\u1EA1nh kh\xE1c nhau."
+    ]),
+    mc(3, GTV, r5`Tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\), \(BH = 4\) cm, \(BC = 9\) cm. Độ dài \(AB\) là`, [r5`\(6\) cm`, r5`\(36\) cm`, r5`\(5\) cm`, r5`\(13\) cm`], r5`\(\triangle HBA \backsim \triangle ABC\) nên \(AB^2 = BH\cdot BC = 36\), \(AB = 6\) cm.`, [
+      void 0,
+      "Qu\xEAn khai c\u0103n.",
+      r5`Đó là \(CH\).`,
+      r5`Cộng \(BH\) và \(BC\).`
+    ]),
+    mc(3, GTV, r5`Tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\), \(HB = 4\) cm, \(HC = 9\) cm. Độ dài \(AH\) là`, [r5`\(6\) cm`, r5`\(36\) cm`, r5`\(6{,}5\) cm`, r5`\(13\) cm`], r5`\(\triangle HBA \backsim \triangle HAC\) nên \(AH^2 = HB\cdot HC = 36\), \(AH = 6\) cm.`, [
+      void 0,
+      "Qu\xEAn khai c\u0103n.",
+      "L\u1EA5y trung b\xECnh c\u1ED9ng.",
+      r5`Đó là \(BC\).`
+    ]),
+    mc(3, GTV, r5`Tam giác \(ABC\) vuông tại \(A\) có \(AB = 6\) cm, \(AC = 8\) cm, đường cao \(AH\). Độ dài \(AH\) là`, [r5`\(4{,}8\) cm`, r5`\(5\) cm`, r5`\(7\) cm`, r5`\(10\) cm`], r5`\(BC = 10\) cm; \(AH\cdot BC = AB\cdot AC\) nên \(AH = \dfrac{48}{10} = 4{,}8\) cm.`, [
+      void 0,
+      "\u0110\xF3 l\xE0 n\u1EEDa c\u1EA1nh huy\u1EC1n (trung tuy\u1EBFn).",
+      "L\u1EA5y trung b\xECnh c\u1ED9ng hai c\u1EA1nh.",
+      r5`Đó là \(BC\).`
+    ]),
+    mc(2, GTV, r5`Tam giác \(ABC\) vuông tại \(A\) và tam giác \(DEF\) vuông tại \(D\) có \(\triangle ABC \backsim \triangle DEF\), \(AB = 3\) cm, \(BC = 5\) cm, \(DE = 6\) cm. Độ dài \(EF\) là`, [r5`\(10\) cm`, r5`\(2{,}5\) cm`, r5`\(8\) cm`, r5`\(4\) cm`], r5`Tỉ số \(\dfrac{DE}{AB} = 2\) nên \(EF = 2BC = 10\) cm.`, [
+      void 0,
+      "Chia thay v\xEC nh\xE2n.",
+      r5`Đó là \(DF\).`,
+      r5`Đó là \(AC\).`
+    ]),
+    mc(3, TSD, r5`\(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số 3; \(A'H'\), \(AH\) là hai đường cao tương ứng. Tỉ số \(\dfrac{A'H'}{AH}\) bằng`, [r5`\(3\)`, r5`\(9\)`, r5`\(\dfrac13\)`, r5`\(6\)`], "T\u1EC9 s\u1ED1 hai \u0111\u01B0\u1EDDng cao t\u01B0\u01A1ng \u1EE9ng b\u1EB1ng t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng.", [
+      void 0,
+      "\u0110\xF3 l\xE0 t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch.",
+      "\u0110\u1EA3o ng\u01B0\u1EE3c.",
+      "Kh\xF4ng nh\xE2n \u0111\xF4i."
+    ]),
+    mc(3, TSD, r5`\(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số \(\dfrac23\). Tỉ số diện tích của tam giác \(A'B'C'\) và tam giác \(ABC\) là`, [r5`\(\dfrac49\)`, r5`\(\dfrac23\)`, r5`\(\dfrac94\)`, r5`\(\dfrac43\)`], "T\u1EC9 s\u1ED1 di\u1EC7n t\xEDch b\u1EB1ng b\xECnh ph\u01B0\u01A1ng t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng.", [
+      void 0,
+      "Ch\u01B0a b\xECnh ph\u01B0\u01A1ng.",
+      "\u0110\u1EA3o ng\u01B0\u1EE3c.",
+      "Nh\xE2n \u0111\xF4i thay v\xEC b\xECnh ph\u01B0\u01A1ng."
+    ]),
+    mc(4, TSD, r5`\(\triangle A'B'C' \backsim \triangle ABC\); diện tích tam giác \(A'B'C'\) là 50 cm², diện tích tam giác \(ABC\) là 32 cm². Tỉ số đồng dạng là`, [r5`\(\dfrac54\)`, r5`\(\dfrac{25}{16}\)`, r5`\(\dfrac45\)`, r5`\(\dfrac{16}{25}\)`], r5`\(k^2 = \dfrac{50}{32} = \dfrac{25}{16}\) nên \(k = \dfrac54\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch, ch\u01B0a khai c\u0103n.",
+      "\u0110\u1EA3o ng\u01B0\u1EE3c.",
+      "\u0110\u1EA3o ng\u01B0\u1EE3c v\xE0 ch\u01B0a khai c\u0103n."
+    ]),
+    mc(3, TTV, "C\xF9ng m\u1ED9t th\u1EDDi \u0111i\u1EC3m, b\xF3ng c\u1EE7a m\u1ED9t t\xF2a nh\xE0 tr\xEAn m\u1EB7t \u0111\u1EA5t d\xE0i 24 m v\xE0 b\xF3ng c\u1EE7a m\u1ED9t c\u1ED9t \u0111i\u1EC7n cao 3 m d\xE0i 4 m. Chi\u1EC1u cao t\xF2a nh\xE0 l\xE0", [r5`\(18\) m`, r5`\(32\) m`, r5`\(21\) m`, r5`\(12\) m`], r5`Hai tam giác vuông đồng dạng: \(\dfrac{h}{24} = \dfrac34\), \(h = 18\) m.`, [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "L\u1EA5y hi\u1EC7u, kh\xF4ng ph\u1EA3i t\u1EC9 l\u1EC7.",
+      "T\xEDnh sai."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, CMV, r5`Tam giác \(ABC\) vuông tại \(A\) có \(\widehat{B} = 40^\circ\); tam giác \(DEF\) vuông tại \(D\) có \(\widehat{F} = 50^\circ\).`, [
+      [r5`\(\widehat{C} = 50^\circ\).`, true, "Hai g\xF3c nh\u1ECDn ph\u1EE5 nhau."],
+      [r5`\(\widehat{E} = 40^\circ\).`, true, "Hai g\xF3c nh\u1ECDn ph\u1EE5 nhau."],
+      [r5`\(\triangle ABC \backsim \triangle DEF\).`, true, r5`Góc vuông và \(\widehat{B} = \widehat{E}\).`],
+      [r5`\(\triangle ABC \backsim \triangle DFE\).`, false, r5`\(B\) ứng với \(E\), không phải \(F\).`]
+    ]),
+    tf2(2, CMV, r5`Tam giác \(ABC\) vuông tại \(A\) có \(AB = 6\), \(AC = 9\); tam giác \(MNP\) vuông tại \(M\) có \(MN = 4\), \(MP = 6\).`, [
+      [r5`\(\dfrac{AB}{MN} = \dfrac32\).`, true, "T\xEDnh tr\u1EF1c ti\u1EBFp."],
+      [r5`\(\dfrac{AC}{MP} = \dfrac32\).`, true, "T\xEDnh tr\u1EF1c ti\u1EBFp."],
+      [r5`\(\triangle ABC \backsim \triangle MNP\).`, true, "Hai c\u1EA1nh g\xF3c vu\xF4ng t\u1EC9 l\u1EC7."],
+      [r5`\(\dfrac{BC}{NP} = \dfrac23\).`, false, r5`Bằng tỉ số đồng dạng \(\dfrac32\).`]
+    ]),
+    tf2(2, CMV, r5`Tam giác \(ABC\) vuông tại \(A\) có \(BC = 10\), \(AB = 6\); tam giác \(DEF\) vuông tại \(D\) có \(EF = 5\), \(DE = 3\).`, [
+      [r5`\(\dfrac{BC}{EF} = 2\).`, true, "T\xEDnh tr\u1EF1c ti\u1EBFp."],
+      [r5`\(\dfrac{AB}{DE} = 2\).`, true, "T\xEDnh tr\u1EF1c ti\u1EBFp."],
+      [r5`\(\triangle ABC \backsim \triangle DEF\).`, true, "C\u1EA1nh huy\u1EC1n v\xE0 c\u1EA1nh g\xF3c vu\xF4ng t\u1EC9 l\u1EC7."],
+      [r5`\(DF = 8\).`, false, r5`\(DF = \sqrt{25 - 9} = 4\).`]
+    ]),
+    tf2(3, CMV, r5`Tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\).`, [
+      [r5`\(\triangle HBA \backsim \triangle ABC\).`, true, r5`Góc vuông, góc \(B\) chung.`],
+      [r5`\(\triangle HAC \backsim \triangle ABC\).`, true, r5`Góc vuông, góc \(C\) chung.`],
+      [r5`\(\triangle HBA \backsim \triangle HAC\).`, true, r5`Cùng đồng dạng với \(\triangle ABC\).`],
+      [r5`\(\triangle HBA \backsim \triangle HCA\).`, false, r5`Sai thứ tự đỉnh: \(B\) ứng với \(A\).`]
+    ]),
+    tf2(2, GTV, r5`Tam giác \(ABC\) vuông tại \(A\) và tam giác \(DEF\) vuông tại \(D\) có \(\triangle ABC \backsim \triangle DEF\), \(AB = 5\), \(AC = 12\), \(DE = 10\).`, [
+      [r5`\(BC = 13\).`, true, r5`\(\sqrt{25 + 144}\).`],
+      [r5`Tỉ số đồng dạng của \(\triangle DEF\) so với \(\triangle ABC\) là 2.`, true, r5`\(\dfrac{10}{5}\).`],
+      [r5`\(DF = 24\).`, true, r5`\(2\cdot12\).`],
+      [r5`\(EF = 13\).`, false, r5`\(EF = 2\cdot13 = 26\).`]
+    ]),
+    tf2(3, GTV, r5`Tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\), \(BH = 9\) cm, \(CH = 16\) cm.`, [
+      [r5`\(BC = 25\) cm.`, true, r5`\(9 + 16\).`],
+      [r5`\(AH = 12\) cm.`, true, r5`\(AH^2 = 9\cdot16\).`],
+      [r5`\(AB = 15\) cm.`, true, r5`\(AB^2 = 9\cdot25\).`],
+      [r5`\(AC = 15\) cm.`, false, r5`\(AC^2 = 16\cdot25\), \(AC = 20\) cm.`]
+    ]),
+    tf2(4, GTV, r5`Tam giác \(ABC\) vuông tại \(A\) có \(AB = 15\) cm, \(AC = 20\) cm, đường cao \(AH\).`, [
+      [r5`\(BC = 25\) cm.`, true, r5`\(\sqrt{225 + 400}\).`],
+      [r5`\(AH = 12\) cm.`, true, r5`\(\dfrac{15\cdot20}{25}\).`],
+      [r5`\(BH = 9\) cm.`, true, r5`\(\dfrac{AB^2}{BC} = \dfrac{225}{25}\).`],
+      [r5`\(CH = 9\) cm.`, false, r5`\(CH = 25 - 9 = 16\) cm.`]
+    ]),
+    tf2(3, TSD, r5`\(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số \(\dfrac32\); \(A'H'\), \(AH\) là hai đường cao tương ứng.`, [
+      [r5`\(\dfrac{A'H'}{AH} = \dfrac32\).`, true, "B\u1EB1ng t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng."],
+      [r5`Tỉ số diện tích bằng \(\dfrac94\).`, true, "B\xECnh ph\u01B0\u01A1ng t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng."],
+      [r5`Nếu diện tích \(\triangle ABC\) là 20 cm² thì diện tích \(\triangle A'B'C'\) là 45 cm².`, true, r5`\(\dfrac94\cdot20\).`],
+      [r5`Tỉ số diện tích bằng \(\dfrac32\).`, false, "Ph\u1EA3i b\xECnh ph\u01B0\u01A1ng."]
+    ]),
+    tf2(4, TSD, r5`Tam giác \(ABC\) có diện tích 36 cm²; \(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)), \(AM = 2\) cm, \(MB = 4\) cm.`, [
+      [r5`\(\triangle AMN \backsim \triangle ABC\) theo tỉ số \(\dfrac13\).`, true, r5`\(\dfrac{AM}{AB} = \dfrac26\).`],
+      [r5`Diện tích \(\triangle AMN\) là 4 cm².`, true, r5`\(\dfrac19\cdot36\).`],
+      [r5`Diện tích tứ giác \(BMNC\) là 32 cm².`, true, r5`\(36 - 4\).`],
+      [r5`Diện tích \(\triangle AMN\) là 12 cm².`, false, "Ph\u1EA3i d\xF9ng b\xECnh ph\u01B0\u01A1ng t\u1EC9 s\u1ED1."]
+    ]),
+    tf2(3, TTV, "M\u1ED9t ng\u01B0\u1EDDi cao 1,6 m \u0111\u1EE9ng c\xE1ch ch\xE2n c\u1ED9t \u0111\xE8n 6 m. D\u01B0\u1EDBi \xE1nh \u0111\xE8n, b\xF3ng c\u1EE7a ng\u01B0\u1EDDi \u0111\xF3 tr\xEAn m\u1EB7t \u0111\u1EA5t d\xE0i 2 m, k\xE9o d\xE0i ra xa c\u1ED9t \u0111\xE8n.", [
+      ["Hai tam gi\xE1c vu\xF4ng t\u1EA1o b\u1EDFi ng\u01B0\u1EDDi, c\u1ED9t \u0111\xE8n v\u1EDBi tia s\xE1ng \u0111\u1ED3ng d\u1EA1ng.", true, "C\xF3 chung g\xF3c nh\u1ECDn \u1EDF \u0111\u1EA7u b\xF3ng."],
+      ["\u0110\u1EA7u b\xF3ng c\xE1ch ch\xE2n c\u1ED9t \u0111\xE8n 8 m.", true, r5`\(6 + 2\).`],
+      ["C\u1ED9t \u0111\xE8n cao 6,4 m.", true, r5`\(\dfrac{1{,}6\cdot8}{2}\).`],
+      ["C\u1ED9t \u0111\xE8n cao 4,8 m.", false, "D\xF9ng nh\u1EA7m 6 m thay cho 8 m."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(3, GTV, r5`Tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\), \(BH = 2\) cm, \(CH = 8\) cm. Tính \(AH\).`, "4", r5`\(\triangle HBA \backsim \triangle HAC\) nên \(AH^2 = HB\cdot HC = 16\), \(AH = 4\) cm.`, CM4),
+    sa2(3, GTV, r5`Tam giác \(ABC\) vuông tại \(A\) có \(AB = 9\) cm, \(AC = 12\) cm, đường cao \(AH\). Tính \(AH\).`, "7,2", r5`\(BC = 15\) cm; \(AH = \dfrac{AB\cdot AC}{BC} = \dfrac{108}{15} = 7{,}2\) cm.`, CM4),
+    sa2(4, TSD, r5`\(\triangle A'B'C' \backsim \triangle ABC\); diện tích hai tam giác lần lượt là 75 cm² và 27 cm². Biết \(AB = 6\) cm, tính \(A'B'\).`, "10", r5`\(k^2 = \dfrac{75}{27} = \dfrac{25}{9}\) nên \(k = \dfrac53\); \(A'B' = \dfrac53\cdot6 = 10\) cm.`, CM4),
+    sa2(3, TTV, "\u0110\u1EC3 \u0111o chi\u1EC1u cao m\u1ED9t c\xE2y, b\u1EA1n An \u0111\u1EB7t m\u1ED9t chi\u1EBFc g\u01B0\u01A1ng n\u1EB1m ngang tr\xEAn m\u1EB7t \u0111\u1EA5t c\xE1ch g\u1ED1c c\xE2y 8 m r\u1ED3i l\xF9i l\u1EA1i \u0111\u1EBFn khi nh\xECn th\u1EA5y ng\u1ECDn c\xE2y trong g\u01B0\u01A1ng. L\xFAc \u0111\xF3 An \u0111\u1EE9ng c\xE1ch g\u01B0\u01A1ng 1,2 m v\xE0 m\u1EAFt An c\xE1ch m\u1EB7t \u0111\u1EA5t 1,5 m. T\xEDnh chi\u1EC1u cao c\u1EE7a c\xE2y.", "10", r5`Góc tới bằng góc phản xạ nên hai tam giác vuông đồng dạng: \(\dfrac{h}{8} = \dfrac{1{,}5}{1{,}2}\), \(h = 10\) m.`, M2),
+    // ---- Tự luận ----
+    es2(3, CMV, r5`Cho tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\). Chứng minh \(\triangle HBA \backsim \triangle HAC\), từ đó suy ra \(AH^2 = HB\cdot HC\).`, r5`\(\widehat{HBA} + \widehat{HAB} = 90^\circ\) và \(\widehat{HAC} + \widehat{HAB} = 90^\circ\) nên \(\widehat{HBA} = \widehat{HAC}\).
+Hai tam giác vuông \(HBA\) và \(HAC\) có \(\widehat{HBA} = \widehat{HAC}\) nên \(\triangle HBA \backsim \triangle HAC\).
+Suy ra \(\dfrac{HB}{HA} = \dfrac{HA}{HC}\), tức \(AH^2 = HB\cdot HC\).`, r5`0,5 điểm: chứng minh hai góc nhọn bằng nhau và kết luận đồng dạng.
+0,5 điểm: suy ra đúng hệ thức.`),
+    es2(4, GTV, r5`Cho tam giác \(ABC\) vuông tại \(A\) có \(AB = 6\) cm, \(AC = 8\) cm, đường cao \(AH\). Tính \(BC\), \(AH\), \(BH\), \(CH\).`, r5`\(BC = \sqrt{36 + 64} = 10\) cm.
+\(\triangle HBA \backsim \triangle ABC\) nên \(\dfrac{AH}{AC} = \dfrac{AB}{BC}\), \(AH = \dfrac{6\cdot8}{10} = 4{,}8\) cm; \(\dfrac{BH}{AB} = \dfrac{AB}{BC}\), \(BH = \dfrac{36}{10} = 3{,}6\) cm.
+\(CH = 10 - 3{,}6 = 6{,}4\) cm.`, r5`0,25 điểm: tính \(BC\).
+0,5 điểm: lập tỉ số đồng dạng, tính \(AH\), \(BH\).
+0,25 điểm: tính \(CH\).`),
+    es2(4, TSD, r5`Cho tam giác \(ABC\) có diện tích 45 cm². Một đường thẳng song song với \(BC\) cắt \(AB\), \(AC\) lần lượt tại \(M\), \(N\) sao cho \(AM = 2MB\). Tính diện tích tam giác \(AMN\) và diện tích tứ giác \(BMNC\).`, r5`\(MN \parallel BC\) nên \(\triangle AMN \backsim \triangle ABC\) với tỉ số \(\dfrac{AM}{AB} = \dfrac23\).
+Tỉ số diện tích bằng \(\left(\dfrac23\right)^2 = \dfrac49\), nên \(S_{AMN} = \dfrac49\cdot45 = 20\) cm².
+\(S_{BMNC} = 45 - 20 = 25\) cm².`, r5`0,25 điểm: chỉ ra tỉ số đồng dạng \(\dfrac23\).
+0,5 điểm: dùng tỉ số diện tích, tính \(S_{AMN}\).
+0,25 điểm: tính diện tích tứ giác.`),
+    ge2(3, GTV, r5`Cho tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\) có \(BH = 1{,}8\) cm, \(CH = 3{,}2\) cm. Chứng minh \(\triangle HBA \backsim \triangle ABC\) rồi tính \(AB\), \(AC\), \(AH\).`, `A(1.8,2.4) B(0,0) C(5,0) H(1.8,0)
+ABCA AH
+vuong(B,A,C)
+vuong(A,H,C)`, r5`\(\triangle HBA\) và \(\triangle ABC\) có \(\widehat{BHA} = \widehat{BAC} = 90^\circ\), góc \(B\) chung nên \(\triangle HBA \backsim \triangle ABC\) (g.g).
+Suy ra \(\dfrac{BA}{BC} = \dfrac{BH}{BA}\), \(AB^2 = BH\cdot BC = 1{,}8\cdot5 = 9\), \(AB = 3\) cm.
+Tương tự \(\triangle HAC \backsim \triangle ABC\): \(AC^2 = CH\cdot BC = 3{,}2\cdot5 = 16\), \(AC = 4\) cm.
+\(AH = \dfrac{AB\cdot AC}{BC} = \dfrac{12}{5} = 2{,}4\) cm.`, r5`0,25 điểm: chứng minh đồng dạng.
+0,5 điểm: tính \(AB\), \(AC\).
+0,25 điểm: tính \(AH\).`)
+  ]
+};
+var PC2 = "hinh-dong-dang-phoi-canh";
+var NB7 = "nhan-biet-hinh-dong-dang";
+var KT2 = "kich-thuoc-hinh-dong-dang";
+var B37 = {
+  slug: "bai-37-hinh-dong-dang",
+  questions: [
+    mc(1, PC2, r5`Hình \(\mathcal H'\) là hình đồng dạng phối cảnh của hình \(\mathcal H\) với tâm \(O\), tỉ số 2. Điểm \(M\) thuộc \(\mathcal H\) có \(OM = 3\) cm. Điểm \(M'\) tương ứng thỏa mãn`, [r5`\(M'\) nằm trên tia \(OM\) và \(OM' = 6\) cm`, r5`\(M'\) nằm trên tia \(OM\) và \(OM' = 1{,}5\) cm`, r5`\(M'\) nằm trên tia đối của tia \(OM\) và \(OM' = 6\) cm`, r5`\(M'\) nằm trên tia \(OM\) và \(OM' = 5\) cm`], r5`Theo định nghĩa, \(M'\) thuộc tia \(OM\) và \(OM' = 2OM = 6\) cm.`, [
+      void 0,
+      "Chia thay v\xEC nh\xE2n.",
+      "T\u1EC9 s\u1ED1 d\u01B0\u01A1ng n\xEAn c\xF9ng tia.",
+      "C\u1ED9ng thay v\xEC nh\xE2n."
+    ]),
+    mc(1, PC2, r5`Trong hình đồng dạng phối cảnh tâm \(O\), mỗi điểm \(M\) và điểm tương ứng \(M'\) cùng với \(O\) luôn`, ["th\u1EB3ng h\xE0ng", "t\u1EA1o th\xE0nh tam gi\xE1c vu\xF4ng", "t\u1EA1o th\xE0nh tam gi\xE1c \u0111\u1EC1u", "c\xE1ch \u0111\u1EC1u nhau"], r5`\(M'\) nằm trên tia \(OM\) nên \(O\), \(M\), \(M'\) thẳng hàng.`, [
+      void 0,
+      "Ba \u0111i\u1EC3m th\u1EB3ng h\xE0ng, kh\xF4ng t\u1EA1o tam gi\xE1c.",
+      "Ba \u0111i\u1EC3m th\u1EB3ng h\xE0ng, kh\xF4ng t\u1EA1o tam gi\xE1c.",
+      "Kho\u1EA3ng c\xE1ch t\u1EC9 l\u1EC7 theo t\u1EC9 s\u1ED1, kh\xF4ng b\u1EB1ng nhau."
+    ]),
+    mc(2, PC2, r5`Tam giác \(A'B'C'\) là hình đồng dạng phối cảnh của tam giác \(ABC\) với tâm \(O\), tỉ số \(\dfrac12\). Biết \(BC = 8\) cm. Độ dài \(B'C'\) là`, [r5`\(4\) cm`, r5`\(16\) cm`, r5`\(8\) cm`, r5`\(2\) cm`], r5`Các đoạn tương ứng tỉ lệ theo tỉ số \(\dfrac12\): \(B'C' = 4\) cm.`, [
+      void 0,
+      "Nh\xE2n v\u1EDBi 2 thay v\xEC \\(\\dfrac12\\).",
+      "Hai h\xECnh kh\xF4ng b\u1EB1ng nhau.",
+      "Chia hai l\u1EA7n."
+    ]),
+    mc(2, PC2, r5`Hình \(\mathcal H'\) là hình đồng dạng phối cảnh của hình \(\mathcal H\) với tâm \(O\); điểm \(A\) thuộc \(\mathcal H\) có \(OA = 4\) cm, điểm tương ứng \(A'\) có \(OA' = 10\) cm. Tỉ số đồng dạng là`, [r5`\(\dfrac52\)`, r5`\(\dfrac25\)`, r5`\(6\)`, r5`\(14\)`], r5`\(k = \dfrac{OA'}{OA} = \dfrac{10}{4} = \dfrac52\).`, [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "\u0110\xF3 l\xE0 hi\u1EC7u.",
+      "\u0110\xF3 l\xE0 t\u1ED5ng."
+    ]),
+    mc(2, PC2, r5`Hình \(\mathcal H'\) là hình đồng dạng phối cảnh của hình \(\mathcal H\) với tâm \(O\), tỉ số 1. Khi đó`, [r5`\(\mathcal H'\) trùng với \(\mathcal H\)`, r5`\(\mathcal H'\) đối xứng với \(\mathcal H\) qua \(O\)`, r5`\(\mathcal H'\) có kích thước gấp đôi \(\mathcal H\)`, r5`\(\mathcal H'\) chỉ gồm điểm \(O\)`], r5`\(OM' = OM\) và \(M'\) trên tia \(OM\) nên \(M' \equiv M\) với mọi \(M\).`, [
+      void 0,
+      "\u0110\u1ED1i x\u1EE9ng t\xE2m c\u1EA7n tia \u0111\u1ED1i.",
+      "T\u1EC9 s\u1ED1 1 gi\u1EEF nguy\xEAn k\xEDch th\u01B0\u1EDBc.",
+      "Ch\u1EC9 khi t\u1EC9 s\u1ED1 b\u1EB1ng 0."
+    ]),
+    mc(1, NB7, "Hai h\xECnh n\xE0o sau \u0111\xE2y lu\xF4n \u0111\u1ED3ng d\u1EA1ng?", ["Hai h\xECnh tr\xF2n", "Hai h\xECnh ch\u1EEF nh\u1EADt", "Hai tam gi\xE1c c\xE2n", "Hai h\xECnh thoi"], "M\u1ECDi h\xECnh tr\xF2n \u0111\u1EC1u \u0111\u1ED3ng d\u1EA1ng v\u1EDBi nhau (t\u1EC9 s\u1ED1 b\u1EB1ng t\u1EC9 s\u1ED1 hai b\xE1n k\xEDnh).", [
+      void 0,
+      "T\u1EC9 s\u1ED1 chi\u1EC1u d\xE0i v\xE0 chi\u1EC1u r\u1ED9ng c\xF3 th\u1EC3 kh\xE1c nhau.",
+      "G\xF3c \u1EDF \u0111\u1EC9nh c\xF3 th\u1EC3 kh\xE1c nhau.",
+      "C\xE1c g\xF3c c\xF3 th\u1EC3 kh\xE1c nhau."
+    ]),
+    mc(1, NB7, "C\u1EB7p h\xECnh n\xE0o sau \u0111\xE2y kh\xF4ng ph\u1EA3i l\xFAc n\xE0o c\u0169ng \u0111\u1ED3ng d\u1EA1ng?", ["Hai h\xECnh ch\u1EEF nh\u1EADt", "Hai h\xECnh vu\xF4ng", "Hai tam gi\xE1c \u0111\u1EC1u", "Hai h\xECnh tr\xF2n"], "Hai h\xECnh ch\u1EEF nh\u1EADt c\xF3 t\u1EC9 s\u1ED1 c\xE1c c\u1EA1nh kh\xE1c nhau th\xEC kh\xF4ng \u0111\u1ED3ng d\u1EA1ng (v\xED d\u1EE5 1 \xD7 2 v\xE0 1 \xD7 3).", [
+      void 0,
+      "Hai h\xECnh vu\xF4ng lu\xF4n \u0111\u1ED3ng d\u1EA1ng.",
+      "Hai tam gi\xE1c \u0111\u1EC1u lu\xF4n \u0111\u1ED3ng d\u1EA1ng.",
+      "Hai h\xECnh tr\xF2n lu\xF4n \u0111\u1ED3ng d\u1EA1ng."
+    ]),
+    mc(2, NB7, "H\xECnh ch\u1EEF nh\u1EADt k\xEDch th\u01B0\u1EDBc 4 cm \xD7 6 cm \u0111\u1ED3ng d\u1EA1ng v\u1EDBi h\xECnh ch\u1EEF nh\u1EADt n\xE0o sau \u0111\xE2y?", ["6 cm \xD7 9 cm", "5 cm \xD7 7 cm", "4 cm \xD7 8 cm", "8 cm \xD7 10 cm"], r5`\(\dfrac64 = \dfrac96 = \dfrac32\): các kích thước tỉ lệ.`, [
+      void 0,
+      "C\u1ED9ng th\xEAm 1 cm, kh\xF4ng t\u1EC9 l\u1EC7.",
+      "Ch\u1EC9 m\u1ED9t c\u1EA1nh thay \u0111\u1ED5i.",
+      r5`\(\dfrac84 \ne \dfrac{10}{6}\).`
+    ]),
+    mc(2, NB7, "H\xECnh n\xE0o sau \u0111\xE2y \u0111\u1ED3ng d\u1EA1ng v\u1EDBi h\xECnh vu\xF4ng c\u1EA1nh 3 cm?", ["H\xECnh vu\xF4ng c\u1EA1nh 5 cm", "H\xECnh ch\u1EEF nh\u1EADt 3 cm \xD7 5 cm", r5`Hình thoi cạnh 3 cm có một góc \(60^\circ\)`, "Tam gi\xE1c \u0111\u1EC1u c\u1EA1nh 3 cm"], "Hai h\xECnh vu\xF4ng lu\xF4n \u0111\u1ED3ng d\u1EA1ng.", [
+      void 0,
+      "C\xE1c c\u1EA1nh kh\xF4ng t\u1EC9 l\u1EC7 v\u1EDBi h\xECnh vu\xF4ng.",
+      "C\xE1c g\xF3c kh\xE1c g\xF3c vu\xF4ng.",
+      "Kh\xE1c lo\u1EA1i h\xECnh."
+    ]),
+    mc(2, KT2, "Hai h\xECnh vu\xF4ng c\xF3 c\u1EA1nh 4 cm v\xE0 6 cm. T\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng c\u1EE7a h\xECnh vu\xF4ng nh\u1ECF so v\u1EDBi h\xECnh vu\xF4ng l\u1EDBn l\xE0", [r5`\(\dfrac23\)`, r5`\(\dfrac32\)`, r5`\(\dfrac49\)`, r5`\(2\)`], r5`\(k = \dfrac46 = \dfrac23\).`, [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c.",
+      "\u0110\xF3 l\xE0 t\u1EC9 s\u1ED1 di\u1EC7n t\xEDch.",
+      "\u0110\xF3 l\xE0 hi\u1EC7u hai c\u1EA1nh."
+    ]),
+    mc(2, KT2, "M\u1ED9t b\u1EE9c \u1EA3nh k\xEDch th\u01B0\u1EDBc 10 cm \xD7 15 cm \u0111\u01B0\u1EE3c ph\xF3ng to th\xE0nh \u1EA3nh \u0111\u1ED3ng d\u1EA1ng c\xF3 chi\u1EC1u r\u1ED9ng 20 cm. Chi\u1EC1u d\xE0i c\u1EE7a \u1EA3nh m\u1EDBi l\xE0", [r5`\(30\) cm`, r5`\(25\) cm`, r5`\(20\) cm`, r5`\(45\) cm`], "T\u1EC9 s\u1ED1 ph\xF3ng to l\xE0 2 n\xEAn chi\u1EC1u d\xE0i m\u1EDBi l\xE0 30 cm.", [
+      void 0,
+      "C\u1ED9ng th\xEAm 10 cm, kh\xF4ng t\u1EC9 l\u1EC7.",
+      "H\xECnh m\u1EDBi kh\xF4ng ph\u1EA3i h\xECnh vu\xF4ng.",
+      "Nh\xE2n v\u1EDBi 3."
+    ]),
+    mc(3, KT2, "Hai h\xECnh ch\u1EEF nh\u1EADt \u0111\u1ED3ng d\u1EA1ng v\u1EDBi t\u1EC9 s\u1ED1 3 (h\xECnh l\u1EDBn so v\u1EDBi h\xECnh nh\u1ECF); h\xECnh nh\u1ECF c\xF3 di\u1EC7n t\xEDch 8 cm\xB2. Di\u1EC7n t\xEDch h\xECnh l\u1EDBn l\xE0", [r5`\(72\) cm²`, r5`\(24\) cm²`, r5`\(11\) cm²`, r5`\(64\) cm²`], r5`Các kích thước gấp 3 lần nên diện tích gấp \(3^2 = 9\) lần: \(72\) cm².`, [
+      void 0,
+      "Di\u1EC7n t\xEDch g\u1EA5p \\(k^2\\), kh\xF4ng ph\u1EA3i \\(k\\) l\u1EA7n.",
+      "C\u1ED9ng 3.",
+      r5`Đó là \(8^2\).`
+    ]),
+    mc(3, KT2, "Tr\xEAn b\u1EA3n \u0111\u1ED3 t\u1EC9 l\u1EC7 1 : 50 000, kho\u1EA3ng c\xE1ch gi\u1EEFa hai \u0111\u1ECBa \u0111i\u1EC3m l\xE0 4 cm. Kho\u1EA3ng c\xE1ch th\u1EF1c t\u1EBF l\xE0", [r5`\(2\) km`, r5`\(20\) km`, r5`\(200\) m`, r5`\(2\) m`], r5`\(4\cdot50\,000 = 200\,000\) cm \(= 2\) km.`, [
+      void 0,
+      "\u0110\u1ED5i \u0111\u01A1n v\u1ECB sai.",
+      "\u0110\u1ED5i \u0111\u01A1n v\u1ECB sai.",
+      "\u0110\u1ED5i \u0111\u01A1n v\u1ECB sai."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, PC2, r5`Hình \(\mathcal H'\) là hình đồng dạng phối cảnh của hình \(\mathcal H\) với tâm \(O\), tỉ số 3; \(A\) thuộc \(\mathcal H\) và \(A'\) là điểm tương ứng.`, [
+      [r5`\(O\), \(A\), \(A'\) thẳng hàng.`, true, r5`\(A'\) nằm trên tia \(OA\).`],
+      [r5`\(OA' = 3OA\).`, true, "Theo \u0111\u1ECBnh ngh\u0129a."],
+      [r5`\(A'\) nằm trên tia \(OA\).`, true, "T\u1EC9 s\u1ED1 d\u01B0\u01A1ng."],
+      [r5`\(OA = 3OA'\).`, false, "Vi\u1EBFt ng\u01B0\u1EE3c."]
+    ]),
+    tf2(2, PC2, r5`Tam giác \(A'B'C'\) là hình đồng dạng phối cảnh của tam giác \(ABC\) với tâm \(O\) (không thuộc các đường thẳng \(AB\), \(BC\), \(CA\)), tỉ số 2.`, [
+      [r5`\(A'B' = 2AB\).`, true, "C\xE1c \u0111o\u1EA1n t\u01B0\u01A1ng \u1EE9ng t\u1EC9 l\u1EC7."],
+      [r5`\(A'B' \parallel AB\).`, true, r5`Định lí Thalès đảo trong \(\triangle OA'B'\).`],
+      [r5`\(\triangle A'B'C' \backsim \triangle ABC\).`, true, "C\xE1c c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng t\u1EC9 l\u1EC7."],
+      [r5`Chu vi \(\triangle A'B'C'\) bằng chu vi \(\triangle ABC\).`, false, "Chu vi g\u1EA5p 2 l\u1EA7n."]
+    ]),
+    tf2(1, NB7, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c kh\u1EB3ng \u0111\u1ECBnh v\u1EC1 hai h\xECnh c\xF9ng lo\u1EA1i b\u1EA5t k\xEC:", [
+      ["Hai h\xECnh tr\xF2n b\u1EA5t k\xEC \u0111\u1ED3ng d\u1EA1ng.", true, "T\u1EC9 s\u1ED1 b\u1EB1ng t\u1EC9 s\u1ED1 b\xE1n k\xEDnh."],
+      ["Hai h\xECnh vu\xF4ng b\u1EA5t k\xEC \u0111\u1ED3ng d\u1EA1ng.", true, "C\xE1c c\u1EA1nh t\u1EC9 l\u1EC7, c\xE1c g\xF3c vu\xF4ng."],
+      ["Hai tam gi\xE1c \u0111\u1EC1u b\u1EA5t k\xEC \u0111\u1ED3ng d\u1EA1ng.", true, r5`Các góc đều \(60^\circ\).`],
+      ["Hai h\xECnh ch\u1EEF nh\u1EADt b\u1EA5t k\xEC \u0111\u1ED3ng d\u1EA1ng.", false, "T\u1EC9 s\u1ED1 hai k\xEDch th\u01B0\u1EDBc c\xF3 th\u1EC3 kh\xE1c nhau."]
+    ]),
+    tf2(2, NB7, r5`Hình chữ nhật \(ABCD\) có kích thước 2 cm × 3 cm, hình chữ nhật \(MNPQ\) có kích thước 4 cm × 6 cm, hình chữ nhật \(EFGH\) có kích thước 3 cm × 4 cm.`, [
+      [r5`\(ABCD\) đồng dạng với \(MNPQ\).`, true, r5`\(\dfrac42 = \dfrac63\).`],
+      [r5`\(ABCD\) đồng dạng với \(EFGH\).`, false, r5`\(\dfrac32 \ne \dfrac43\).`],
+      [r5`Tỉ số đồng dạng của \(MNPQ\) so với \(ABCD\) là 2.`, true, r5`\(\dfrac42\).`],
+      [r5`\(MNPQ\) đồng dạng với \(EFGH\).`, false, r5`\(\dfrac43 \ne \dfrac64\).`]
+    ]),
+    tf2(2, NB7, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c kh\u1EB3ng \u0111\u1ECBnh v\u1EC1 h\xECnh thoi, l\u1EE5c gi\xE1c \u0111\u1EC1u v\xE0 tam gi\xE1c vu\xF4ng c\xE2n:", [
+      ["Hai h\xECnh thoi c\xF3 m\u1ED9t g\xF3c b\u1EB1ng nhau th\xEC \u0111\u1ED3ng d\u1EA1ng.", true, "C\xE1c g\xF3c b\u1EB1ng nhau, c\xE1c c\u1EA1nh t\u1EC9 l\u1EC7."],
+      ["Hai h\xECnh thoi b\u1EA5t k\xEC th\xEC \u0111\u1ED3ng d\u1EA1ng.", false, "C\xE1c g\xF3c c\xF3 th\u1EC3 kh\xE1c nhau."],
+      ["Hai l\u1EE5c gi\xE1c \u0111\u1EC1u b\u1EA5t k\xEC th\xEC \u0111\u1ED3ng d\u1EA1ng.", true, r5`Các góc đều \(120^\circ\), các cạnh tỉ lệ.`],
+      ["Hai tam gi\xE1c vu\xF4ng c\xE2n b\u1EA5t k\xEC th\xEC \u0111\u1ED3ng d\u1EA1ng.", true, r5`Các góc \(90^\circ\), \(45^\circ\), \(45^\circ\).`]
+    ]),
+    tf2(2, KT2, "Hai h\xECnh vu\xF4ng c\xF3 c\u1EA1nh l\u1EA7n l\u01B0\u1EE3t 3 cm v\xE0 5 cm.", [
+      [r5`Tỉ số đồng dạng của hình lớn so với hình nhỏ là \(\dfrac53\).`, true, "T\u1EC9 s\u1ED1 hai c\u1EA1nh."],
+      [r5`Tỉ số chu vi bằng \(\dfrac53\).`, true, "B\u1EB1ng t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng."],
+      [r5`Tỉ số diện tích bằng \(\dfrac53\).`, false, r5`Bằng \(\dfrac{25}{9}\).`],
+      ["Di\u1EC7n t\xEDch h\xECnh l\u1EDBn l\xE0 25 cm\xB2.", true, r5`\(5^2\).`]
+    ]),
+    tf2(3, KT2, "M\u1ED9t m\xF4 h\xECnh \xF4 t\xF4 t\u1EC9 l\u1EC7 1 : 18 \u0111\u1ED3ng d\u1EA1ng v\u1EDBi chi\u1EBFc xe th\u1EADt; m\xF4 h\xECnh d\xE0i 25 cm.", [
+      ["Xe th\u1EADt d\xE0i 4,5 m.", true, r5`\(25\cdot18 = 450\) cm.`],
+      ["N\u1EBFu xe th\u1EADt cao 1,44 m th\xEC m\xF4 h\xECnh cao 8 cm.", true, r5`\(144 : 18\).`],
+      ["T\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng c\u1EE7a xe th\u1EADt so v\u1EDBi m\xF4 h\xECnh l\xE0 18.", true, "Theo t\u1EC9 l\u1EC7 m\xF4 h\xECnh."],
+      ["Xe th\u1EADt d\xE0i 450 m.", false, "\u0110\u1ED5i \u0111\u01A1n v\u1ECB sai: 450 cm."]
+    ]),
+    tf2(3, KT2, "M\u1ED9t b\u1EE9c \u1EA3nh h\xECnh ch\u1EEF nh\u1EADt 6 cm \xD7 9 cm \u0111\u01B0\u1EE3c ph\xF3ng to th\xE0nh \u1EA3nh \u0111\u1ED3ng d\u1EA1ng c\xF3 chi\u1EC1u d\xE0i 27 cm.", [
+      ["T\u1EC9 s\u1ED1 ph\xF3ng to l\xE0 3.", true, r5`\(\dfrac{27}{9}\).`],
+      ["Chi\u1EC1u r\u1ED9ng \u1EA3nh m\u1EDBi l\xE0 18 cm.", true, r5`\(3\cdot6\).`],
+      ["Di\u1EC7n t\xEDch \u1EA3nh m\u1EDBi g\u1EA5p 3 l\u1EA7n di\u1EC7n t\xEDch \u1EA3nh c\u0169.", false, r5`Gấp \(3^2 = 9\) lần.`],
+      ["Chu vi \u1EA3nh m\u1EDBi l\xE0 90 cm.", true, r5`\(2(18 + 27)\).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(1, PC2, r5`Hình \(\mathcal H'\) là hình đồng dạng phối cảnh của hình \(\mathcal H\) với tâm \(O\), tỉ số 2,5. Điểm \(M\) thuộc \(\mathcal H\) có \(OM = 4\) cm. Tính \(OM'\) với \(M'\) là điểm tương ứng.`, "10", r5`\(OM' = 2{,}5\cdot4 = 10\) cm.`, CM4),
+    sa2(2, PC2, r5`Tam giác \(A'B'C'\) là hình đồng dạng phối cảnh của tam giác \(ABC\) với tâm \(O\); \(OA = 3\) cm, \(OA' = 7{,}5\) cm. Tìm tỉ số đồng dạng.`, ["2,5", "5/2"], r5`\(k = \dfrac{OA'}{OA} = \dfrac{7{,}5}{3} = 2{,}5\).`),
+    sa2(2, PC2, r5`Tam giác \(A'B'C'\) là hình đồng dạng phối cảnh của tam giác \(ABC\) với tâm \(O\), tỉ số \(\dfrac13\); \(AB = 12\) cm. Tính \(A'B'\).`, "4", r5`\(A'B' = \dfrac13\cdot12 = 4\) cm.`, CM4),
+    sa2(2, NB7, "Trong c\xE1c lo\u1EA1i h\xECnh: h\xECnh tr\xF2n, h\xECnh vu\xF4ng, h\xECnh ch\u1EEF nh\u1EADt, tam gi\xE1c \u0111\u1EC1u, h\xECnh thoi, l\u1EE5c gi\xE1c \u0111\u1EC1u, c\xF3 bao nhi\xEAu lo\u1EA1i m\xE0 hai h\xECnh b\u1EA5t k\xEC c\xF9ng lo\u1EA1i lu\xF4n \u0111\u1ED3ng d\u1EA1ng?", "4", "H\xECnh tr\xF2n, h\xECnh vu\xF4ng, tam gi\xE1c \u0111\u1EC1u, l\u1EE5c gi\xE1c \u0111\u1EC1u: 4 lo\u1EA1i. H\xECnh ch\u1EEF nh\u1EADt v\xE0 h\xECnh thoi kh\xF4ng lu\xF4n \u0111\u1ED3ng d\u1EA1ng."),
+    sa2(2, KT2, "H\xECnh ch\u1EEF nh\u1EADt k\xEDch th\u01B0\u1EDBc 5 cm \xD7 8 cm \u0111\u1ED3ng d\u1EA1ng v\u1EDBi m\u1ED9t h\xECnh ch\u1EEF nh\u1EADt c\xF3 chi\u1EC1u r\u1ED9ng 15 cm. T\xEDnh chi\u1EC1u d\xE0i h\xECnh ch\u1EEF nh\u1EADt \u0111\xF3.", "24", "T\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng l\xE0 3 n\xEAn chi\u1EC1u d\xE0i l\xE0 \\(3\\cdot8 = 24\\) cm.", CM4),
+    sa2(3, KT2, r5`Hai hình vuông đồng dạng với tỉ số \(\dfrac32\) (hình lớn so với hình nhỏ); hình nhỏ có diện tích 16 cm². Tính diện tích hình lớn.`, "36", r5`Diện tích gấp \(\left(\dfrac32\right)^2 = \dfrac94\) lần: \(\dfrac94\cdot16 = 36\) cm².`, CM23),
+    sa2(3, KT2, "Hai th\xE0nh ph\u1ED1 c\xE1ch nhau 15 km. Tr\xEAn b\u1EA3n \u0111\u1ED3 t\u1EC9 l\u1EC7 1 : 200 000, kho\u1EA3ng c\xE1ch gi\u1EEFa hai th\xE0nh ph\u1ED1 l\xE0 bao nhi\xEAu x\u0103ng-ti-m\xE9t?", "7,5", r5`15 km \(= 1\,500\,000\) cm; \(1\,500\,000 : 200\,000 = 7{,}5\) cm.`, CM4),
+    sa2(3, KT2, "M\xF4 h\xECnh m\u1ED9t ng\u1ECDn th\xE1p \u0111\u01B0\u1EE3c l\xE0m theo t\u1EC9 l\u1EC7 1 : 300 v\xE0 cao 18 cm. Ng\u1ECDn th\xE1p th\u1EADt cao bao nhi\xEAu m\xE9t?", "54", r5`\(18\cdot300 = 5400\) cm \(= 54\) m.`, M2),
+    // ---- Tự luận ----
+    es2(2, PC2, r5`Cho tam giác \(ABC\) và điểm \(O\) nằm ngoài tam giác. Nêu cách vẽ tam giác \(A'B'C'\) là hình đồng dạng phối cảnh của tam giác \(ABC\) với tâm \(O\), tỉ số 2 và cho biết quan hệ giữa các cạnh của hai tam giác.`, r5`Trên các tia \(OA\), \(OB\), \(OC\) lấy \(A'\), \(B'\), \(C'\) sao cho \(OA' = 2OA\), \(OB' = 2OB\), \(OC' = 2OC\).
+Trong \(\triangle OA'B'\) có \(\dfrac{OA}{OA'} = \dfrac{OB}{OB'} = \dfrac12\) nên \(AB \parallel A'B'\) và \(A'B' = 2AB\); tương tự \(B'C' = 2BC\), \(C'A' = 2CA\).
+Vậy \(\triangle A'B'C' \backsim \triangle ABC\) theo tỉ số 2.`, r5`0,5 điểm: nêu đúng cách vẽ.
+0,5 điểm: chỉ ra các cạnh tương ứng gấp 2 lần.`),
+    es2(2, NB7, "Cho ba h\xECnh ch\u1EEF nh\u1EADt: h\xECnh th\u1EE9 nh\u1EA5t 6 cm \xD7 10 cm, h\xECnh th\u1EE9 hai 9 cm \xD7 15 cm, h\xECnh th\u1EE9 ba 8 cm \xD7 12 cm. Nh\u1EEFng c\u1EB7p h\xECnh n\xE0o \u0111\u1ED3ng d\u1EA1ng v\u1EDBi nhau? Gi\u1EA3i th\xEDch.", r5`Tỉ số chiều rộng : chiều dài lần lượt là \(\dfrac{6}{10} = \dfrac35\), \(\dfrac{9}{15} = \dfrac35\), \(\dfrac{8}{12} = \dfrac23\).
+Chỉ hình thứ nhất và hình thứ hai đồng dạng (tỉ số đồng dạng \(\dfrac32\)); hình thứ ba không đồng dạng với hai hình còn lại.`, r5`0,5 điểm: lập đúng các tỉ số.
+0,5 điểm: kết luận đúng cặp đồng dạng.`),
+    es2(2, NB7, "Gi\u1EA3i th\xEDch v\xEC sao hai h\xECnh vu\xF4ng b\u1EA5t k\xEC lu\xF4n \u0111\u1ED3ng d\u1EA1ng nh\u01B0ng hai h\xECnh ch\u1EEF nh\u1EADt th\xEC kh\xF4ng nh\u1EA5t thi\u1EBFt \u0111\u1ED3ng d\u1EA1ng. Cho v\xED d\u1EE5 minh h\u1ECDa.", r5`Hai hình vuông cạnh \(a\) và \(b\) có các góc đều vuông và mọi cạnh tương ứng có cùng tỉ số \(\dfrac ba\) nên luôn đồng dạng.
+Hai hình chữ nhật có các góc vuông nhưng tỉ số hai kích thước có thể khác nhau, ví dụ 1 cm × 2 cm và 1 cm × 3 cm: \(\dfrac11 \ne \dfrac32\) nên không đồng dạng.`, r5`0,5 điểm: giải thích đúng cho hình vuông.
+0,5 điểm: giải thích và nêu đúng ví dụ cho hình chữ nhật.`),
+    es2(3, KT2, "M\u1ED9t b\u1EE9c tranh k\xEDch th\u01B0\u1EDBc 40 cm \xD7 60 cm \u0111\u01B0\u1EE3c in thu nh\u1ECF th\xE0nh b\u1EA3n in \u0111\u1ED3ng d\u1EA1ng c\xF3 chi\u1EC1u d\xE0i 15 cm. T\xEDnh t\u1EC9 s\u1ED1 \u0111\u1ED3ng d\u1EA1ng, chi\u1EC1u r\u1ED9ng c\u1EE7a b\u1EA3n in v\xE0 cho bi\u1EBFt di\u1EC7n t\xEDch b\u1EA3n in b\u1EB1ng bao nhi\xEAu ph\u1EA7n di\u1EC7n t\xEDch b\u1EE9c tranh.", r5`Tỉ số đồng dạng \(k = \dfrac{15}{60} = \dfrac14\).
+Chiều rộng bản in \(\dfrac14\cdot40 = 10\) cm.
+Diện tích bản in \(10\cdot15 = 150\) cm², bức tranh \(2400\) cm²: bằng \(\dfrac{1}{16} = k^2\) diện tích bức tranh.`, r5`0,25 điểm: tính đúng tỉ số.
+0,25 điểm: tính đúng chiều rộng.
+0,5 điểm: so sánh đúng diện tích.`),
+    es2(3, KT2, "Tr\xEAn b\u1EA3n v\u1EBD t\u1EC9 l\u1EC7 1 : 100, m\u1ED9t c\u0103n ph\xF2ng h\xECnh ch\u1EEF nh\u1EADt c\xF3 k\xEDch th\u01B0\u1EDBc 5 cm \xD7 4 cm. T\xEDnh k\xEDch th\u01B0\u1EDBc th\u1EADt, chu vi v\xE0 di\u1EC7n t\xEDch th\u1EADt c\u1EE7a c\u0103n ph\xF2ng.", r5`Kích thước thật: \(5\cdot100 = 500\) cm \(= 5\) m và \(4\cdot100 = 400\) cm \(= 4\) m.
+Chu vi \(2(5 + 4) = 18\) m; diện tích \(5\cdot4 = 20\) m².`, r5`0,5 điểm: tính đúng kích thước thật.
+0,5 điểm: tính đúng chu vi và diện tích.`),
+    ge2(2, PC2, r5`Trong hình vẽ, tam giác \(A'B'C'\) là hình đồng dạng phối cảnh của tam giác \(ABC\) với tâm \(O\), tỉ số 2. Biết \(AB = 3\) cm, \(BC = 4\) cm, \(CA = 5\) cm. Tính độ dài các cạnh và chu vi tam giác \(A'B'C'\).`, `O(0,0) A(1.4,2.2) B(2.2,0.6) C(3.2,1.8) A'(2.8,4.4) B'(4.4,1.2) C'(6.4,3.6)
+ABCA A'B'C'A'
+OA':dash OB':dash OC':dash`, r5`Các đoạn tương ứng gấp 2 lần: \(A'B' = 6\) cm, \(B'C' = 8\) cm, \(C'A' = 10\) cm.
+Chu vi \(\triangle A'B'C' = 6 + 8 + 10 = 24\) cm (gấp 2 lần chu vi \(\triangle ABC\)).`, r5`0,5 điểm: tính đúng ba cạnh.
+0,5 điểm: tính đúng chu vi.`),
+    ge2(2, KT2, r5`Hình chữ nhật \(ABCD\) có \(AB = 6\) cm, \(BC = 4\) cm; hình chữ nhật \(MNPQ\) đồng dạng với \(ABCD\) và có \(MN = 9\) cm (\(MN\) ứng với \(AB\)). Tính \(NP\), chu vi và diện tích hình chữ nhật \(MNPQ\).`, `A(0,0) B(3,0) C(3,2) D(0,2) M(4.5,0) N(9,0) P(9,3) Q(4.5,3)
+ABCDA MNPQM`, r5`Tỉ số đồng dạng \(k = \dfrac{MN}{AB} = \dfrac96 = \dfrac32\).
+\(NP = \dfrac32\cdot4 = 6\) cm; chu vi \(2(9 + 6) = 30\) cm; diện tích \(9\cdot6 = 54\) cm².`, r5`0,25 điểm: tính tỉ số đồng dạng.
+0,25 điểm: tính \(NP\).
+0,5 điểm: tính chu vi và diện tích.`),
+    ge2(3, KT2, r5`Hình vuông \(ABCD\) cạnh 2 cm có tâm \(O\). Hình vuông \(A'B'C'D'\) là hình đồng dạng phối cảnh của \(ABCD\) với tâm \(O\), tỉ số 2. Tính cạnh, diện tích hình vuông \(A'B'C'D'\) và diện tích phần nằm giữa hai hình vuông.`, `O(0,0) A(-1,-1) B(1,-1) C(1,1) D(-1,1) A'(-2,-2) B'(2,-2) C'(2,2) D'(-2,2)
+ABCDA A'B'C'D'A'
+OA':dash OC':dash`, r5`Cạnh \(A'B' = 2AB = 4\) cm; diện tích \(A'B'C'D'\) là \(16\) cm².
+Diện tích \(ABCD\) là \(4\) cm², nên phần nằm giữa hai hình vuông có diện tích \(16 - 4 = 12\) cm².`, r5`0,25 điểm: tính đúng cạnh.
+0,25 điểm: tính đúng diện tích hình lớn.
+0,5 điểm: tính đúng diện tích phần giữa.`)
+  ]
+};
+var BANK_CHUONG_9 = [B33, B34, B35, B36, B37];
+
 // src/seed/toan8-bank/index.ts
-var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3, ...BANK_CHUONG_4, ...BANK_CHUONG_5, ...BANK_CHUONG_6, ...BANK_CHUONG_7, ...BANK_CHUONG_8];
+var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3, ...BANK_CHUONG_4, ...BANK_CHUONG_5, ...BANK_CHUONG_6, ...BANK_CHUONG_7, ...BANK_CHUONG_8, ...BANK_CHUONG_9];
 
 // src/seed/question-bank.ts
 var BANK_SOURCE = "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi G\u01104 \u2013 t\u1EF1 bi\xEAn so\u1EA1n theo SGK To\xE1n 8 KNTT";
