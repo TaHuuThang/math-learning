@@ -41358,6 +41358,16 @@ var sa2 = (level, dang, stem, accepted, solution, opt = {}) => ({
   ...opt
 });
 var es2 = (level, dang, stem, solution, rubric, points = 1) => ({ type: "essay", level, dang, stem, solution, rubric, points });
+var ge2 = (level, dang, stem, figure, solution, rubric, points = 1) => ({
+  type: "geometry_essay",
+  level,
+  dang,
+  stem,
+  figure,
+  solution,
+  rubric,
+  points
+});
 
 // src/seed/toan8-bank/chuong-1.ts
 var B1 = {
@@ -42766,8 +42776,921 @@ b) Thêm bớt \(16x^2\): \(x^4 + 16x^2 + 64 - 16x^2 = (x^2 + 8)^2 - (4x)^2 = (x
 };
 var BANK_CHUONG_2 = [B6, B7, B8, B9];
 
+// src/seed/toan8-bank/chuong-3.ts
+var DEG = { unit: "\xB0" };
+var CM = { unit: "cm" };
+var CM2 = { unit: "cm\xB2" };
+var TSG = "tinh-so-do-goc-tu-giac";
+var CGD = "canh-goc-duong-cheo-tu-giac";
+var B10 = {
+  slug: "bai-10-tu-giac",
+  questions: [
+    mc(1, TSG, "T\u1ED5ng c\xE1c g\xF3c c\u1EE7a m\u1ED9t t\u1EE9 gi\xE1c b\u1EB1ng", [r5`\(360^\circ\)`, r5`\(180^\circ\)`, r5`\(270^\circ\)`, r5`\(540^\circ\)`], r5`Đường chéo chia tứ giác thành hai tam giác nên tổng các góc là \(2\cdot180^\circ = 360^\circ\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 t\u1ED5ng ba g\xF3c c\u1EE7a m\u1ED9t tam gi\xE1c.",
+      "T\u1ED5ng c\xE1c g\xF3c c\u1EE7a t\u1EE9 gi\xE1c b\u1EB1ng t\u1ED5ng c\xE1c g\xF3c c\u1EE7a hai tam gi\xE1c.",
+      "\u0110\xF3 l\xE0 t\u1ED5ng c\xE1c g\xF3c c\u1EE7a ng\u0169 gi\xE1c."
+    ]),
+    mc(1, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{A} = 70^\circ\), \(\widehat{B} = 80^\circ\), \(\widehat{C} = 110^\circ\). Số đo \(\widehat{D}\) là`, [r5`\(100^\circ\)`, r5`\(80^\circ\)`, r5`\(120^\circ\)`, r5`\(260^\circ\)`], r5`\(\widehat{D} = 360^\circ - (70^\circ + 80^\circ + 110^\circ) = 360^\circ - 260^\circ = 100^\circ\).`, [
+      void 0,
+      r5`Đó là góc ngoài tại \(D\).`,
+      "C\u1ED9ng sai t\u1ED5ng ba g\xF3c \u0111\xE3 bi\u1EBFt.",
+      "\u0110\xF3 l\xE0 t\u1ED5ng ba g\xF3c \u0111\xE3 bi\u1EBFt, ch\u01B0a l\u1EA5y \\(360^\\circ\\) tr\u1EEB \u0111i."
+    ]),
+    mc(1, TSG, "M\u1ED9t t\u1EE9 gi\xE1c c\xF3 ba g\xF3c vu\xF4ng. G\xF3c c\xF2n l\u1EA1i c\xF3 s\u1ED1 \u0111o l\xE0", [r5`\(90^\circ\)`, r5`\(180^\circ\)`, r5`\(270^\circ\)`, r5`\(60^\circ\)`], r5`Góc còn lại bằng \(360^\circ - 3\cdot90^\circ = 90^\circ\).`, [
+      void 0,
+      r5`\(360^\circ - 270^\circ = 90^\circ\).`,
+      "\u0110\xF3 l\xE0 t\u1ED5ng ba g\xF3c vu\xF4ng.",
+      "Nh\u1EA7m t\u1ED5ng c\xE1c g\xF3c c\u1EE7a t\u1EE9 gi\xE1c."
+    ]),
+    mc(2, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{A} = \widehat{B} = 90^\circ\) và \(\widehat{C} = 2\widehat{D}\). Số đo \(\widehat{D}\) là`, [r5`\(60^\circ\)`, r5`\(120^\circ\)`, r5`\(90^\circ\)`, r5`\(45^\circ\)`], r5`\(\widehat{C} + \widehat{D} = 360^\circ - 180^\circ = 180^\circ\) và \(\widehat{C} = 2\widehat{D}\) nên \(3\widehat{D} = 180^\circ\), \(\widehat{D} = 60^\circ\).`, [
+      void 0,
+      r5`Đó là số đo \(\widehat{C}\).`,
+      r5`Nếu \(\widehat{D} = 90^\circ\) thì \(\widehat{C} = 180^\circ\), tổng vượt \(360^\circ\).`,
+      r5`Chia nhầm \(180^\circ\) cho 4.`
+    ]),
+    mc(2, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{A} = 65^\circ\). Góc ngoài tại đỉnh \(A\) có số đo là`, [r5`\(115^\circ\)`, r5`\(65^\circ\)`, r5`\(295^\circ\)`, r5`\(25^\circ\)`], r5`Góc ngoài kề bù với góc trong: \(180^\circ - 65^\circ = 115^\circ\).`, [
+      void 0,
+      "G\xF3c ngo\xE0i k\u1EC1 b\xF9 ch\u1EE9 kh\xF4ng b\u1EB1ng g\xF3c trong.",
+      r5`Đã lấy \(360^\circ - 65^\circ\).`,
+      r5`Đã lấy \(90^\circ - 65^\circ\).`
+    ]),
+    mc(2, TSG, r5`Các góc của một tứ giác tỉ lệ với \(2 : 3 : 3 : 4\). Góc lớn nhất của tứ giác có số đo là`, [r5`\(120^\circ\)`, r5`\(90^\circ\)`, r5`\(144^\circ\)`, r5`\(60^\circ\)`], r5`Mỗi phần bằng \(360^\circ : 12 = 30^\circ\). Các góc là \(60^\circ, 90^\circ, 90^\circ, 120^\circ\); góc lớn nhất là \(120^\circ\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 g\xF3c \u1EE9ng v\u1EDBi 3 ph\u1EA7n.",
+      "C\u1ED9ng sai t\u1ED5ng c\xE1c t\u1EC9 s\u1ED1 th\xE0nh 10 ph\u1EA7n.",
+      "\u0110\xF3 l\xE0 g\xF3c nh\u1ECF nh\u1EA5t."
+    ]),
+    mc(2, TSG, "M\u1ED9t t\u1EE9 gi\xE1c c\xF3 nhi\u1EC1u nh\u1EA5t bao nhi\xEAu g\xF3c nh\u1ECDn?", [r5`\(3\)`, r5`\(4\)`, r5`\(2\)`, r5`\(1\)`], r5`Nếu cả 4 góc nhọn thì tổng nhỏ hơn \(360^\circ\), vô lí. Có tứ giác có 3 góc nhọn, ví dụ các góc \(80^\circ, 80^\circ, 80^\circ, 120^\circ\).`, [
+      void 0,
+      r5`Bốn góc nhọn có tổng nhỏ hơn \(4\cdot90^\circ = 360^\circ\).`,
+      r5`Vẫn có tứ giác có 3 góc nhọn (\(80^\circ, 80^\circ, 80^\circ, 120^\circ\)).`,
+      "T\u1EE9 gi\xE1c c\xF3 th\u1EC3 c\xF3 nhi\u1EC1u h\u01A1n m\u1ED9t g\xF3c nh\u1ECDn."
+    ]),
+    mc(2, TSG, "M\u1ED9t t\u1EE9 gi\xE1c c\xF3 nhi\u1EC1u nh\u1EA5t bao nhi\xEAu g\xF3c t\xF9?", [r5`\(3\)`, r5`\(4\)`, r5`\(2\)`, r5`\(1\)`], r5`Bốn góc tù có tổng lớn hơn \(360^\circ\), vô lí. Có tứ giác có 3 góc tù, ví dụ \(100^\circ, 100^\circ, 100^\circ, 60^\circ\).`, [
+      void 0,
+      r5`Bốn góc tù có tổng lớn hơn \(360^\circ\).`,
+      r5`Vẫn có tứ giác có 3 góc tù (\(100^\circ, 100^\circ, 100^\circ, 60^\circ\)).`,
+      "T\u1EE9 gi\xE1c c\xF3 th\u1EC3 c\xF3 nhi\u1EC1u h\u01A1n m\u1ED9t g\xF3c t\xF9."
+    ]),
+    mc(2, TSG, "T\u1ED5ng c\xE1c g\xF3c ngo\xE0i c\u1EE7a m\u1ED9t t\u1EE9 gi\xE1c (m\u1ED7i \u0111\u1EC9nh l\u1EA5y m\u1ED9t g\xF3c ngo\xE0i) b\u1EB1ng", [r5`\(360^\circ\)`, r5`\(180^\circ\)`, r5`\(720^\circ\)`, r5`\(540^\circ\)`], r5`Tổng góc trong và góc ngoài tại 4 đỉnh là \(4\cdot180^\circ = 720^\circ\); trừ tổng góc trong \(360^\circ\) còn \(360^\circ\).`, [
+      void 0,
+      r5`Tính lại: \(720^\circ - 360^\circ = 360^\circ\).`,
+      "\u0110\xF3 l\xE0 t\u1ED5ng c\u1EA3 g\xF3c trong v\xE0 g\xF3c ngo\xE0i.",
+      "T\u1ED5ng sai."
+    ]),
+    mc(3, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{C} = 60^\circ\), \(\widehat{D} = 80^\circ\). Các tia phân giác của góc \(A\) và góc \(B\) cắt nhau tại \(I\). Số đo \(\widehat{AIB}\) là`, [r5`\(70^\circ\)`, r5`\(140^\circ\)`, r5`\(110^\circ\)`, r5`\(35^\circ\)`], r5`\(\widehat{A} + \widehat{B} = 360^\circ - 140^\circ = 220^\circ\). Trong tam giác \(AIB\): \(\widehat{AIB} = 180^\circ - \dfrac{220^\circ}{2} = 70^\circ\).`, [
+      void 0,
+      r5`Đó là \(\widehat{C} + \widehat{D}\), chưa chia đôi.`,
+      r5`Đó là \(\dfrac{\widehat{A} + \widehat{B}}{2}\), chưa lấy \(180^\circ\) trừ đi.`,
+      r5`Chia đôi hai lần.`
+    ]),
+    mc(3, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{C} = \widehat{D} = 90^\circ\) và \(\widehat{A} - \widehat{B} = 20^\circ\). Số đo \(\widehat{A}\) là`, [r5`\(100^\circ\)`, r5`\(80^\circ\)`, r5`\(110^\circ\)`, r5`\(90^\circ\)`], r5`\(\widehat{A} + \widehat{B} = 180^\circ\) và \(\widehat{A} - \widehat{B} = 20^\circ\) nên \(\widehat{A} = (180^\circ + 20^\circ) : 2 = 100^\circ\).`, [
+      void 0,
+      r5`Đó là số đo \(\widehat{B}\).`,
+      r5`Cộng nhầm \(90^\circ + 20^\circ\).`,
+      r5`Khi đó \(\widehat{A} - \widehat{B} = 0\).`
+    ]),
+    mc(3, CGD, r5`Tứ giác \(ABCD\) có \(AB = AD\) và \(CB = CD\). Khẳng định nào sau đây đúng?`, [r5`\(AC\) là đường trung trực của \(BD\)`, r5`\(BD\) là đường trung trực của \(AC\)`, r5`\(AC = BD\)`, r5`\(AB = BC\)`], r5`\(A\) và \(C\) cùng cách đều \(B\) và \(D\) nên cùng nằm trên đường trung trực của \(BD\); do đó \(AC\) là đường trung trực của \(BD\).`, [
+      void 0,
+      r5`Chưa có \(B\), \(D\) cách đều \(A\) và \(C\).`,
+      "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n v\u1EC1 \u0111\u1ED9 d\xE0i hai \u0111\u01B0\u1EDDng ch\xE9o.",
+      "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n so s\xE1nh hai c\u1EA1nh k\u1EC1 n\xE0y."
+    ]),
+    mc(3, CGD, r5`Tứ giác \(ABCD\) có \(AB = 3\) cm, \(BC = 4\) cm, \(CD = 5\) cm, \(DA = 6\) cm. Độ dài đường chéo \(AC\) có thể là`, [r5`\(6\) cm`, r5`\(7\) cm`, r5`\(8\) cm`, r5`\(11\) cm`], r5`Trong tam giác \(ABC\): \(AC < AB + BC = 7\) cm; trong tam giác \(ACD\): \(AC > DA - CD = 1\) cm. Chỉ có \(6\) cm thỏa mãn.`, [
+      void 0,
+      r5`Bất đẳng thức tam giác là \(AC < 7\), không được bằng 7.`,
+      r5`\(AC\) phải nhỏ hơn \(AB + BC = 7\).`,
+      r5`\(11 = CD + DA\), nhưng \(AC\) còn phải nhỏ hơn \(AB + BC\).`
+    ]),
+    mc(4, CGD, "M\u1ED9t t\u1EE9 gi\xE1c l\u1ED3i c\xF3 chu vi 20 cm. T\u1ED5ng \u0111\u1ED9 d\xE0i hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a n\xF3 c\xF3 th\u1EC3 b\u1EB1ng", [r5`\(15\) cm`, r5`\(10\) cm`, r5`\(20\) cm`, r5`\(8\) cm`], r5`Trong tứ giác lồi, tổng hai đường chéo lớn hơn nửa chu vi và nhỏ hơn chu vi: \(10 < AC + BD < 20\). Chỉ có \(15\) cm thỏa mãn.`, [
+      void 0,
+      "T\u1ED5ng hai \u0111\u01B0\u1EDDng ch\xE9o l\u1EDBn h\u01A1n n\u1EEDa chu vi, kh\xF4ng b\u1EB1ng.",
+      "T\u1ED5ng hai \u0111\u01B0\u1EDDng ch\xE9o nh\u1ECF h\u01A1n chu vi, kh\xF4ng b\u1EB1ng.",
+      "Ph\u1EA3i l\u1EDBn h\u01A1n n\u1EEDa chu vi (10 cm)."
+    ]),
+    mc(4, CGD, r5`Với mọi tứ giác lồi \(ABCD\), khẳng định nào sau đây luôn đúng?`, [r5`\(AC + BD > AB + CD\)`, r5`\(AC + BD < AB + CD\)`, r5`\(AC + BD = AB + CD\)`, r5`\(AC > AB + BC\)`], r5`Gọi \(O\) là giao điểm hai đường chéo: \(OA + OB > AB\), \(OC + OD > CD\). Cộng vế: \(AC + BD > AB + CD\).`, [
+      void 0,
+      "Ng\u01B0\u1EE3c d\u1EA5u b\u1EA5t \u0111\u1EB3ng th\u1EE9c.",
+      "Hai t\u1ED5ng n\xF3i chung kh\xF4ng b\u1EB1ng nhau.",
+      r5`Trái với bất đẳng thức tam giác trong tam giác \(ABC\).`
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, TSG, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c kh\u1EB3ng \u0111\u1ECBnh:", [
+      [r5`Tổng các góc của một tứ giác bằng \(360^\circ\).`, true, "\u0110\u1ECBnh l\xED t\u1ED5ng c\xE1c g\xF3c c\u1EE7a t\u1EE9 gi\xE1c."],
+      ["C\xF3 t\u1EE9 gi\xE1c c\xF3 c\u1EA3 b\u1ED1n g\xF3c nh\u1ECDn.", false, r5`Tổng bốn góc nhọn nhỏ hơn \(360^\circ\).`],
+      ["C\xF3 t\u1EE9 gi\xE1c c\xF3 c\u1EA3 b\u1ED1n g\xF3c vu\xF4ng.", true, "V\xED d\u1EE5 h\xECnh ch\u1EEF nh\u1EADt."],
+      ["C\xF3 t\u1EE9 gi\xE1c c\xF3 c\u1EA3 b\u1ED1n g\xF3c t\xF9.", false, r5`Tổng bốn góc tù lớn hơn \(360^\circ\).`]
+    ]),
+    tf2(1, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{A} = 80^\circ\), \(\widehat{B} = 90^\circ\), \(\widehat{C} = 100^\circ\).`, [
+      [r5`\(\widehat{D} = 90^\circ\).`, true, r5`\(360^\circ - 270^\circ\).`],
+      [r5`\(\widehat{A} + \widehat{C} = 180^\circ\).`, true, r5`\(80^\circ + 100^\circ\).`],
+      [r5`\(\widehat{D}\) là góc nhọn.`, false, r5`\(\widehat{D} = 90^\circ\) là góc vuông.`],
+      [r5`Góc ngoài tại đỉnh \(B\) bằng \(90^\circ\).`, true, r5`\(180^\circ - 90^\circ\).`]
+    ]),
+    tf2(2, TSG, r5`Tứ giác \(MNPQ\) có \(\widehat{M} = x\), \(\widehat{N} = 2x\), \(\widehat{P} = 3x\), \(\widehat{Q} = 4x\).`, [
+      [r5`\(10x = 360^\circ\).`, true, "T\u1ED5ng b\u1ED1n g\xF3c c\u1EE7a t\u1EE9 gi\xE1c."],
+      [r5`\(x = 36^\circ\).`, true, r5`\(360^\circ : 10\).`],
+      [r5`\(\widehat{Q} = 144^\circ\).`, true, r5`\(4\cdot36^\circ\).`],
+      [r5`\(\widehat{N} = 60^\circ\).`, false, r5`\(\widehat{N} = 72^\circ\).`]
+    ]),
+    tf2(2, TSG, r5`Tứ giác \(ABCD\) có góc ngoài tại các đỉnh \(A\), \(B\), \(C\) lần lượt bằng \(110^\circ\), \(70^\circ\), \(100^\circ\).`, [
+      [r5`\(\widehat{A} = 70^\circ\).`, true, r5`\(180^\circ - 110^\circ\).`],
+      [r5`\(\widehat{B} = 110^\circ\).`, true, r5`\(180^\circ - 70^\circ\).`],
+      [r5`\(\widehat{D} = 100^\circ\).`, true, r5`\(\widehat{C} = 80^\circ\); \(\widehat{D} = 360^\circ - 70^\circ - 110^\circ - 80^\circ\).`],
+      [r5`Góc ngoài tại \(D\) bằng \(100^\circ\).`, false, r5`Góc ngoài tại \(D\) là \(80^\circ\).`]
+    ]),
+    tf2(3, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{A} = 110^\circ\), \(\widehat{B} = 70^\circ\), \(\widehat{C} = 120^\circ\).`, [
+      [r5`\(\widehat{D} = 60^\circ\).`, true, r5`\(360^\circ - 300^\circ\).`],
+      [r5`\(AD \parallel BC\).`, true, r5`\(\widehat{A} + \widehat{B} = 180^\circ\): hai góc trong cùng phía bù nhau.`],
+      [r5`\(AB \parallel CD\).`, false, r5`\(\widehat{B} + \widehat{C} = 190^\circ \ne 180^\circ\).`],
+      [r5`\(\widehat{A} + \widehat{B} = \widehat{C} + \widehat{D}\).`, true, r5`Cả hai tổng đều bằng \(180^\circ\).`]
+    ]),
+    tf2(3, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{A} = 100^\circ\), \(\widehat{B} = 80^\circ\). Các tia phân giác của góc \(C\) và góc \(D\) cắt nhau tại \(K\).`, [
+      [r5`\(\widehat{C} + \widehat{D} = 180^\circ\).`, true, r5`\(360^\circ - 180^\circ\).`],
+      [r5`\(\widehat{KCD} + \widehat{KDC} = 90^\circ\).`, true, "B\u1EB1ng n\u1EEDa t\u1ED5ng \\(\\widehat{C} + \\widehat{D}\\)."],
+      [r5`\(\widehat{CKD} = 90^\circ\).`, true, r5`\(180^\circ - 90^\circ\).`],
+      [r5`\(\widehat{CKD} = 100^\circ\).`, false, r5`\(\widehat{CKD} = 90^\circ\).`]
+    ]),
+    tf2(2, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{A} = \widehat{B} = \widehat{C} = 80^\circ\).`, [
+      [r5`\(\widehat{D} = 120^\circ\).`, true, r5`\(360^\circ - 240^\circ\).`],
+      [r5`\(\widehat{D}\) là góc tù.`, true, r5`\(120^\circ > 90^\circ\).`],
+      ["T\u1EE9 gi\xE1c c\xF3 ba g\xF3c nh\u1ECDn.", true, r5`Ba góc \(80^\circ\).`],
+      [r5`\(\widehat{A} + \widehat{B} + \widehat{C} = 270^\circ\).`, false, r5`Tổng là \(240^\circ\).`]
+    ]),
+    tf2(3, CGD, r5`Tứ giác \(ABCD\) có \(AB = AD\) và \(CB = CD\).`, [
+      [r5`\(A\) thuộc đường trung trực của \(BD\).`, true, r5`\(A\) cách đều \(B\) và \(D\).`],
+      [r5`\(AC \perp BD\).`, true, r5`\(AC\) là đường trung trực của \(BD\).`],
+      [r5`\(\triangle ABC = \triangle ADC\).`, true, "Tr\u01B0\u1EDDng h\u1EE3p c\u1EA1nh \u2013 c\u1EA1nh \u2013 c\u1EA1nh."],
+      [r5`\(AB = CB\).`, false, "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n; n\xF3i chung hai c\u1EA1nh k\u1EC1 n\xE0y kh\xE1c nhau."]
+    ]),
+    tf2(4, CGD, r5`Cho tứ giác lồi \(ABCD\), \(O\) là giao điểm hai đường chéo.`, [
+      [r5`\(OA + OB > AB\).`, true, r5`Bất đẳng thức tam giác trong \(\triangle OAB\).`],
+      [r5`\(AC + BD > AB + CD\).`, true, r5`Cộng \(OA + OB > AB\) và \(OC + OD > CD\).`],
+      [r5`\(AC < AB + BC\).`, true, r5`Bất đẳng thức tam giác trong \(\triangle ABC\).`],
+      [r5`\(AC + BD\) lớn hơn chu vi tứ giác.`, false, "T\u1ED5ng hai \u0111\u01B0\u1EDDng ch\xE9o nh\u1ECF h\u01A1n chu vi."]
+    ]),
+    tf2(3, CGD, r5`Tứ giác \(ABCD\) có \(AB = 2\), \(BC = 3\), \(CD = 4\), \(DA = 5\) (cm).`, [
+      [r5`\(AC < 5\) cm.`, true, r5`\(AC < AB + BC = 5\).`],
+      [r5`\(AC > 1\) cm.`, true, r5`\(AC > DA - CD = 1\).`],
+      [r5`\(BD < 7\) cm.`, true, r5`\(BD < AB + AD = 7\).`],
+      [r5`\(BD\) có thể bằng 8 cm.`, false, r5`\(BD < 7\) cm.`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(1, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{A} = 75^\circ\), \(\widehat{B} = 95^\circ\), \(\widehat{C} = 105^\circ\). Tính số đo \(\widehat{D}\) (độ).`, "85", r5`\(\widehat{D} = 360^\circ - 275^\circ = 85^\circ\).`, DEG),
+    sa2(2, TSG, r5`Các góc của một tứ giác tỉ lệ với \(3 : 4 : 5 : 6\). Tính số đo góc lớn nhất (độ).`, "120", r5`Mỗi phần \(360^\circ : 18 = 20^\circ\); góc lớn nhất \(6\cdot20^\circ = 120^\circ\).`, DEG),
+    sa2(2, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{C} = \widehat{D} = 75^\circ\) và \(\widehat{A} = \widehat{B} + 30^\circ\). Tính số đo \(\widehat{A}\) (độ).`, "120", r5`\(\widehat{A} + \widehat{B} = 210^\circ\) và \(\widehat{A} - \widehat{B} = 30^\circ\) nên \(\widehat{A} = 120^\circ\).`, DEG),
+    sa2(3, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{C} = 100^\circ\), \(\widehat{D} = 70^\circ\). Các tia phân giác của góc \(A\) và góc \(B\) cắt nhau tại \(I\). Tính \(\widehat{AIB}\) (độ).`, "85", r5`\(\widehat{AIB} = 180^\circ - \dfrac{\widehat{A} + \widehat{B}}{2} = \dfrac{\widehat{C} + \widehat{D}}{2} = 85^\circ\).`, DEG),
+    sa2(3, TSG, r5`Tứ giác \(ABCD\) có góc ngoài tại các đỉnh \(A\), \(B\), \(C\) lần lượt bằng \(100^\circ\), \(95^\circ\), \(85^\circ\). Tính số đo góc trong \(\widehat{D}\) (độ).`, "100", r5`Tổng bốn góc ngoài bằng \(360^\circ\) nên góc ngoài tại \(D\) là \(80^\circ\); góc trong \(\widehat{D} = 100^\circ\).`, DEG),
+    sa2(3, CGD, r5`Tứ giác \(ABCD\) có \(AB = 4\), \(BC = 7\), \(CD = 6\), \(DA = 3\) (cm). Biết độ dài đường chéo \(AC\) là một số nguyên (cm). Tìm giá trị lớn nhất có thể của \(AC\).`, "8", r5`\(AC < AB + BC = 11\) và \(AC < AD + DC = 9\) nên \(AC \le 8\). Khi \(AC = 8\) cả hai tam giác \(ABC\), \(ACD\) đều tồn tại (\(8 > 7 - 4\), \(8 > 6 - 3\)).`, CM),
+    sa2(4, CGD, r5`Một tứ giác lồi có chu vi 18 cm. Biết tổng độ dài hai đường chéo là một số nguyên (cm). Tổng đó nhỏ nhất có thể bằng bao nhiêu?`, "10", r5`Tổng hai đường chéo lớn hơn nửa chu vi (9 cm) nên nhỏ nhất là 10 cm.`, CM),
+    // ---- Tự luận ----
+    es2(2, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{A} = 65^\circ\), \(\widehat{B} = 117^\circ\), \(\widehat{C} = 71^\circ\).
+a) Tính \(\widehat{D}\). b) Tính số đo góc ngoài tại đỉnh \(D\).`, r5`a) \(\widehat{D} = 360^\circ - (65^\circ + 117^\circ + 71^\circ) = 360^\circ - 253^\circ = 107^\circ\).
+b) Góc ngoài tại \(D\): \(180^\circ - 107^\circ = 73^\circ\).`, r5`0,5 điểm: tính đúng \(\widehat{D} = 107^\circ\).
+0,5 điểm: tính đúng góc ngoài \(73^\circ\).`),
+    es2(3, TSG, r5`Tứ giác \(ABCD\) có các góc tỉ lệ \(\widehat{A} : \widehat{B} : \widehat{C} : \widehat{D} = 2 : 3 : 3 : 2\).
+a) Tính các góc của tứ giác. b) Chứng minh \(AD \parallel BC\).`, r5`a) Mỗi phần \(360^\circ : 10 = 36^\circ\): \(\widehat{A} = 72^\circ\), \(\widehat{B} = 108^\circ\), \(\widehat{C} = 108^\circ\), \(\widehat{D} = 72^\circ\).
+b) \(\widehat{A} + \widehat{B} = 180^\circ\); đây là hai góc trong cùng phía tạo bởi cát tuyến \(AB\) với hai đường thẳng \(AD\), \(BC\) nên \(AD \parallel BC\).`, r5`0,5 điểm: tính đúng bốn góc.
+0,5 điểm: chỉ ra hai góc trong cùng phía bù nhau và kết luận song song.`),
+    es2(4, CGD, r5`Chứng minh rằng trong một tứ giác lồi, tổng hai đường chéo lớn hơn tổng hai cạnh đối bất kì.`, r5`Xét tứ giác lồi \(ABCD\), \(O\) là giao điểm hai đường chéo.
+Trong \(\triangle OAB\): \(OA + OB > AB\); trong \(\triangle OCD\): \(OC + OD > CD\).
+Cộng vế: \((OA + OC) + (OB + OD) > AB + CD\), tức \(AC + BD > AB + CD\).
+Tương tự với hai tam giác \(OAD\), \(OBC\): \(AC + BD > AD + BC\).`, r5`0,5 điểm: viết đúng hai bất đẳng thức tam giác có đỉnh \(O\).
+0,5 điểm: cộng vế, kết luận và nêu tương tự cho cặp cạnh đối còn lại.`),
+    ge2(3, TSG, r5`Tứ giác \(ABCD\) có \(\widehat{C} = 80^\circ\), \(\widehat{D} = 70^\circ\). Các tia phân giác của các góc ngoài tại đỉnh \(A\) và đỉnh \(B\) cắt nhau tại \(K\). Tính \(\widehat{AKB}\).`, `A(0,0) B(6,0) C(5.5,4) D(1,3.5) K(2.6,-2.4)
+ABCDA AK BK
+goc(A,K,B)`, r5`\(\widehat{A} + \widehat{B} = 360^\circ - 80^\circ - 70^\circ = 210^\circ\).
+Góc ngoài tại \(A\) bằng \(180^\circ - \widehat{A}\), tại \(B\) bằng \(180^\circ - \widehat{B}\).
+\(\widehat{KAB} + \widehat{KBA} = \dfrac{360^\circ - (\widehat{A} + \widehat{B})}{2} = \dfrac{150^\circ}{2} = 75^\circ\).
+Trong \(\triangle AKB\): \(\widehat{AKB} = 180^\circ - 75^\circ = 105^\circ\).`, r5`0,25 điểm: tính được \(\widehat{A} + \widehat{B} = 210^\circ\).
+0,5 điểm: tính được \(\widehat{KAB} + \widehat{KBA} = 75^\circ\) từ tính chất tia phân giác góc ngoài.
+0,25 điểm: kết luận \(\widehat{AKB} = 105^\circ\).`)
+  ]
+};
+var TG11 = "tinh-goc-canh-hinh-thang";
+var CB11 = "chung-minh-doan-thang-goc-bang-nhau-hinh-thang-can";
+var CT11 = "chung-minh-hinh-thang-can";
+var B11 = {
+  slug: "bai-11-hinh-thang-can",
+  questions: [
+    mc(1, TG11, "H\xECnh thang l\xE0 t\u1EE9 gi\xE1c c\xF3", ["hai c\u1EA1nh \u0111\u1ED1i song song", "hai c\u1EA1nh k\u1EC1 b\u1EB1ng nhau", "b\u1ED1n c\u1EA1nh b\u1EB1ng nhau", "hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau"], "Theo \u0111\u1ECBnh ngh\u0129a, h\xECnh thang l\xE0 t\u1EE9 gi\xE1c c\xF3 hai c\u1EA1nh \u0111\u1ED1i song song.", [
+      void 0,
+      "\u0110\xF3 kh\xF4ng ph\u1EA3i d\u1EA5u hi\u1EC7u c\u1EE7a h\xECnh thang.",
+      "\u0110\xF3 l\xE0 h\xECnh thoi.",
+      "Hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau kh\xF4ng \u0111\u1EE7 \u0111\u1EC3 c\xF3 c\u1EA1nh song song."
+    ]),
+    mc(1, TG11, r5`Hình thang \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{A} = 120^\circ\). Số đo \(\widehat{D}\) là`, [r5`\(60^\circ\)`, r5`\(120^\circ\)`, r5`\(30^\circ\)`, r5`\(240^\circ\)`], r5`Hai góc kề cạnh bên \(AD\) bù nhau: \(\widehat{D} = 180^\circ - 120^\circ = 60^\circ\).`, [
+      void 0,
+      "Hai g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh b\xEAn b\xF9 nhau ch\u1EE9 kh\xF4ng b\u1EB1ng nhau.",
+      r5`Đã lấy \(90^\circ\) trừ.`,
+      r5`Đã lấy \(360^\circ\) trừ.`
+    ]),
+    mc(1, TG11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{C} = 70^\circ\). Số đo \(\widehat{D}\) là`, [r5`\(70^\circ\)`, r5`\(110^\circ\)`, r5`\(20^\circ\)`, r5`\(140^\circ\)`], r5`Trong hình thang cân, hai góc kề một đáy bằng nhau: \(\widehat{D} = \widehat{C} = 70^\circ\).`, [
+      void 0,
+      r5`\(110^\circ\) là số đo \(\widehat{A}\), \(\widehat{B}\).`,
+      "Kh\xF4ng c\xF3 l\xED do \u0111\u1EC3 l\u1EA5y g\xF3c ph\u1EE5.",
+      "Nh\xE2n \u0111\xF4i kh\xF4ng \u0111\xFAng."
+    ]),
+    mc(1, TG11, "Kh\u1EB3ng \u0111\u1ECBnh n\xE0o sau \u0111\xE2y l\xE0 SAI?", ["Trong h\xECnh thang c\xE2n, hai \u0111\xE1y lu\xF4n b\u1EB1ng nhau.", "Trong h\xECnh thang c\xE2n, hai c\u1EA1nh b\xEAn b\u1EB1ng nhau.", "Trong h\xECnh thang c\xE2n, hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau.", "Trong h\xECnh thang c\xE2n, hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y b\u1EB1ng nhau."], "Hai \u0111\xE1y c\u1EE7a h\xECnh thang c\xE2n n\xF3i chung kh\xE1c nhau; ba kh\u1EB3ng \u0111\u1ECBnh c\xF2n l\u1EA1i l\xE0 t\xEDnh ch\u1EA5t c\u1EE7a h\xECnh thang c\xE2n.", [
+      "Kh\u1EB3ng \u0111\u1ECBnh sai: hai \u0111\xE1y n\xF3i chung kh\xF4ng b\u1EB1ng nhau.",
+      "\u0110\xE2y l\xE0 t\xEDnh ch\u1EA5t \u0111\xFAng.",
+      "\u0110\xE2y l\xE0 t\xEDnh ch\u1EA5t \u0111\xFAng.",
+      "\u0110\xE2y l\xE0 \u0111\u1ECBnh ngh\u0129a h\xECnh thang c\xE2n."
+    ]),
+    mc(2, TG11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{A} = 3\widehat{D}\). Số đo \(\widehat{D}\) là`, [r5`\(45^\circ\)`, r5`\(60^\circ\)`, r5`\(135^\circ\)`, r5`\(30^\circ\)`], r5`\(\widehat{A} + \widehat{D} = 180^\circ\), \(\widehat{A} = 3\widehat{D}\) nên \(4\widehat{D} = 180^\circ\), \(\widehat{D} = 45^\circ\).`, [
+      void 0,
+      r5`Chia nhầm \(180^\circ\) cho 3.`,
+      r5`Đó là số đo \(\widehat{A}\).`,
+      r5`Chia nhầm \(180^\circ\) cho 6.`
+    ]),
+    mc(2, TG11, r5`Hình thang vuông \(ABCD\) có \(\widehat{A} = \widehat{D} = 90^\circ\), \(AB \parallel CD\) và \(\widehat{B} = 2\widehat{C}\). Số đo \(\widehat{C}\) là`, [r5`\(60^\circ\)`, r5`\(120^\circ\)`, r5`\(90^\circ\)`, r5`\(45^\circ\)`], r5`\(\widehat{B} + \widehat{C} = 180^\circ\) (kề cạnh bên \(BC\)) và \(\widehat{B} = 2\widehat{C}\) nên \(\widehat{C} = 60^\circ\).`, [
+      void 0,
+      r5`Đó là số đo \(\widehat{B}\).`,
+      r5`Khi đó \(\widehat{B} = 180^\circ\), vô lí.`,
+      r5`Chia nhầm cho 4.`
+    ]),
+    mc(2, TG11, "Di\u1EC7n t\xEDch h\xECnh thang c\xF3 hai \u0111\xE1y 6 cm v\xE0 10 cm, chi\u1EC1u cao 4 cm l\xE0", [r5`\(32\) cm²`, r5`\(64\) cm²`, r5`\(240\) cm²`, r5`\(16\) cm²`], r5`\(S = \dfrac{(6 + 10)\cdot4}{2} = 32\) (cm²).`, [
+      void 0,
+      "Qu\xEAn chia 2.",
+      "\u0110\xE3 nh\xE2n c\u1EA3 ba s\u1ED1.",
+      "M\u1EDBi t\xEDnh t\u1ED5ng hai \u0111\xE1y."
+    ]),
+    mc(3, TG11, r5`Hình thang cân có đáy nhỏ 4 cm, đáy lớn 10 cm, góc kề đáy lớn bằng \(45^\circ\). Chiều cao của hình thang là`, [r5`\(3\) cm`, r5`\(6\) cm`, r5`\(4\) cm`, r5`\(7\) cm`], r5`Hạ hai đường cao từ hai đỉnh đáy nhỏ: phần đáy lớn mỗi bên là \((10 - 4) : 2 = 3\) cm. Tam giác vuông có góc \(45^\circ\) là tam giác vuông cân nên chiều cao bằng 3 cm.`, [
+      void 0,
+      "Ch\u01B0a chia \u0111\xF4i hi\u1EC7u hai \u0111\xE1y.",
+      "Nh\u1EA7m chi\u1EC1u cao v\u1EDBi \u0111\xE1y nh\u1ECF.",
+      "\u0110\xF3 l\xE0 trung b\xECnh c\u1ED9ng hai \u0111\xE1y."
+    ]),
+    mc(2, TG11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có \(AC = 8\) cm. Độ dài \(BD\) là`, [r5`\(8\) cm`, r5`\(4\) cm`, r5`\(16\) cm`, "Kh\xF4ng x\xE1c \u0111\u1ECBnh \u0111\u01B0\u1EE3c"], r5`Hai đường chéo của hình thang cân bằng nhau nên \(BD = AC = 8\) cm.`, [
+      void 0,
+      "Hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau, kh\xF4ng chia \u0111\xF4i.",
+      "Hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau, kh\xF4ng nh\xE2n \u0111\xF4i.",
+      "T\xEDnh ch\u1EA5t h\xECnh thang c\xE2n cho bi\u1EBFt hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau."
+    ]),
+    mc(2, CT11, "D\u1EA5u hi\u1EC7u n\xE0o sau \u0111\xE2y kh\u1EB3ng \u0111\u1ECBnh m\u1ED9t t\u1EE9 gi\xE1c l\xE0 h\xECnh thang c\xE2n?", ["H\xECnh thang c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau", "H\xECnh thang c\xF3 hai c\u1EA1nh b\xEAn b\u1EB1ng nhau", "T\u1EE9 gi\xE1c c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau", "T\u1EE9 gi\xE1c c\xF3 hai g\xF3c b\u1EB1ng nhau"], "H\xECnh thang c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau l\xE0 h\xECnh thang c\xE2n.", [
+      void 0,
+      "H\xECnh b\xECnh h\xE0nh c\u0169ng c\xF3 hai c\u1EA1nh b\xEAn b\u1EB1ng nhau nh\u01B0ng kh\xF4ng ph\u1EA3i h\xECnh thang c\xE2n.",
+      "T\u1EE9 gi\xE1c c\u1EA7n l\xE0 h\xECnh thang tr\u01B0\u1EDBc.",
+      "Hai g\xF3c b\u1EB1ng nhau ph\u1EA3i l\xE0 hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y c\u1EE7a m\u1ED9t h\xECnh thang."
+    ]),
+    mc(2, CT11, r5`Tam giác \(ABC\) cân tại \(A\). Trên \(AB\), \(AC\) lấy \(D\), \(E\) sao cho \(AD = AE\). Tứ giác \(BDEC\) là`, ["h\xECnh thang c\xE2n", "h\xECnh b\xECnh h\xE0nh", "h\xECnh thang vu\xF4ng", "h\xECnh ch\u1EEF nh\u1EADt"], r5`\(\triangle ADE\) cân tại \(A\) nên \(\widehat{ADE} = \widehat{ABC}\), suy ra \(DE \parallel BC\). Hình thang \(BDEC\) có \(\widehat{B} = \widehat{C}\) nên là hình thang cân.`, [
+      void 0,
+      r5`\(DE < BC\) nên không phải hình bình hành.`,
+      "Kh\xF4ng c\xF3 g\xF3c vu\xF4ng.",
+      "Kh\xF4ng c\xF3 g\xF3c vu\xF4ng."
+    ]),
+    mc(3, CT11, r5`Tứ giác \(ABCD\) có \(AB \parallel CD\) và \(\widehat{C} = \widehat{D}\). Khẳng định nào sau đây đúng?`, [r5`\(ABCD\) là hình thang cân`, r5`\(ABCD\) là hình bình hành`, r5`\(ABCD\) là hình thang vuông`, r5`\(ABCD\) không phải hình thang`], r5`\(AB \parallel CD\) nên \(ABCD\) là hình thang; hai góc kề đáy \(CD\) bằng nhau nên là hình thang cân.`, [
+      void 0,
+      "Kh\xF4ng c\xF3 hai c\u1EB7p c\u1EA1nh \u0111\u1ED1i song song.",
+      "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n g\xF3c vu\xF4ng.",
+      r5`Có \(AB \parallel CD\) nên là hình thang.`
+    ]),
+    mc(3, CB11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có hai đường chéo cắt nhau tại \(O\). Khẳng định nào sau đây đúng?`, [r5`\(OA = OB\)`, r5`\(OA = OC\)`, r5`\(OA = AB\)`, r5`\(OC = CD\)`], r5`\(\triangle ADC = \triangle BCD\) (c.g.c) nên \(\widehat{ACD} = \widehat{BDC}\), suy ra \(OC = OD\); kết hợp \(AC = BD\) được \(OA = OB\).`, [
+      void 0,
+      r5`\(O\) chia đường chéo theo tỉ số hai đáy, nói chung không là trung điểm.`,
+      "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n.",
+      "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n."
+    ]),
+    mc(3, CB11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\), \(AB < CD\)) có hai cạnh bên kéo dài cắt nhau tại \(E\). Tam giác \(EAB\) là`, [r5`tam giác cân tại \(E\)`, "tam gi\xE1c \u0111\u1EC1u", "tam gi\xE1c vu\xF4ng", r5`tam giác cân tại \(A\)`], r5`\(\widehat{EAB} = \widehat{EDC}\), \(\widehat{EBA} = \widehat{ECD}\) (đồng vị) và \(\widehat{EDC} = \widehat{ECD}\) nên \(\widehat{EAB} = \widehat{EBA}\): tam giác cân tại \(E\).`, [
+      void 0,
+      "Ch\u01B0a c\xF3 g\xF3c n\xE0o b\u1EB1ng \\(60^\\circ\\).",
+      "Kh\xF4ng c\xF3 g\xF3c vu\xF4ng.",
+      "Hai g\xF3c b\u1EB1ng nhau l\xE0 hai g\xF3c t\u1EA1i \\(A\\) v\xE0 \\(B\\)."
+    ]),
+    mc(4, CB11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có hai đường chéo vuông góc với nhau tại \(O\). Tam giác \(OAB\) là`, ["tam gi\xE1c vu\xF4ng c\xE2n", "tam gi\xE1c \u0111\u1EC1u", "tam gi\xE1c vu\xF4ng kh\xF4ng c\xE2n", "tam gi\xE1c t\xF9"], r5`Trong hình thang cân \(OA = OB\); lại có \(\widehat{AOB} = 90^\circ\) nên tam giác \(OAB\) vuông cân tại \(O\).`, [
+      void 0,
+      r5`Góc ở đỉnh \(O\) là \(90^\circ\).`,
+      r5`\(OA = OB\) nên tam giác cân.`,
+      r5`Góc lớn nhất là \(90^\circ\).`
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, TG11, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      ["H\xECnh thang c\xF3 hai c\u1EA1nh b\xEAn song song th\xEC hai \u0111\xE1y b\u1EB1ng nhau.", true, "Khi \u0111\xF3 h\xECnh thang l\xE0 h\xECnh b\xECnh h\xE0nh."],
+      ["H\xECnh thang vu\xF4ng c\xF3 hai g\xF3c vu\xF4ng.", true, "M\u1ED9t g\xF3c vu\xF4ng k\xE9o theo g\xF3c k\u1EC1 c\xF9ng c\u1EA1nh b\xEAn c\u0169ng vu\xF4ng."],
+      ["H\xECnh thang c\xE2n c\xF3 hai c\u1EA1nh b\xEAn b\u1EB1ng nhau.", true, "T\xEDnh ch\u1EA5t c\u1EE7a h\xECnh thang c\xE2n."],
+      ["H\xECnh thang c\xF3 hai c\u1EA1nh b\xEAn b\u1EB1ng nhau l\xE0 h\xECnh thang c\xE2n.", false, "H\xECnh b\xECnh h\xE0nh c\xF3 hai c\u1EA1nh b\xEAn b\u1EB1ng nhau nh\u01B0ng kh\xF4ng ph\u1EA3i h\xECnh thang c\xE2n."]
+    ]),
+    tf2(1, TG11, r5`Hình thang \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{A} = 105^\circ\), \(\widehat{B} = 125^\circ\).`, [
+      [r5`\(\widehat{D} = 75^\circ\).`, true, r5`\(180^\circ - 105^\circ\).`],
+      [r5`\(\widehat{C} = 55^\circ\).`, true, r5`\(180^\circ - 125^\circ\).`],
+      [r5`\(\widehat{A} + \widehat{C} = 180^\circ\).`, false, r5`\(105^\circ + 55^\circ = 160^\circ\).`],
+      [r5`\(ABCD\) là hình thang cân.`, false, r5`\(\widehat{C} \ne \widehat{D}\).`]
+    ]),
+    tf2(2, TG11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{D} = 65^\circ\).`, [
+      [r5`\(\widehat{C} = 65^\circ\).`, true, "Hai g\xF3c k\u1EC1 \u0111\xE1y \\(CD\\) b\u1EB1ng nhau."],
+      [r5`\(\widehat{A} = 115^\circ\).`, true, r5`\(180^\circ - 65^\circ\).`],
+      [r5`\(\widehat{B} = 65^\circ\).`, false, r5`\(\widehat{B} = \widehat{A} = 115^\circ\).`],
+      [r5`\(\widehat{A} + \widehat{C} = 180^\circ\).`, true, r5`\(115^\circ + 65^\circ\).`]
+    ]),
+    tf2(2, TG11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có \(AB = 6\) cm, \(CD = 12\) cm, \(AD = 5\) cm.`, [
+      [r5`\(BC = 5\) cm.`, true, "Hai c\u1EA1nh b\xEAn b\u1EB1ng nhau."],
+      ["Chu vi h\xECnh thang l\xE0 28 cm.", true, r5`\(6 + 12 + 5 + 5\).`],
+      [r5`\(AC = BD\).`, true, "Hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau."],
+      [r5`\(AC = 5\) cm.`, false, "\u0110\u01B0\u1EDDng ch\xE9o kh\xE1c c\u1EA1nh b\xEAn."]
+    ]),
+    tf2(3, TG11, r5`Hình thang cân \(ABCD\) có đáy nhỏ \(AB = 4\) cm, đáy lớn \(CD = 12\) cm, chiều cao 3 cm. Kẻ \(AH \perp CD\), \(BK \perp CD\).`, [
+      [r5`\(DH = 4\) cm.`, true, r5`\((12 - 4) : 2\).`],
+      ["Di\u1EC7n t\xEDch h\xECnh thang l\xE0 24 cm\xB2.", true, r5`\(\dfrac{(4 + 12)\cdot3}{2}\).`],
+      [r5`\(HK = 4\) cm.`, true, r5`\(HK = AB\).`],
+      ["Di\u1EC7n t\xEDch h\xECnh thang l\xE0 48 cm\xB2.", false, "Qu\xEAn chia 2."]
+    ]),
+    tf2(2, CT11, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c d\u1EA5u hi\u1EC7u:", [
+      ["H\xECnh thang c\xF3 hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y b\u1EB1ng nhau l\xE0 h\xECnh thang c\xE2n.", true, "\u0110\u1ECBnh ngh\u0129a h\xECnh thang c\xE2n."],
+      ["H\xECnh thang c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau l\xE0 h\xECnh thang c\xE2n.", true, "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt."],
+      ["T\u1EE9 gi\xE1c c\xF3 hai g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh b\u1EB1ng nhau l\xE0 h\xECnh thang c\xE2n.", false, "T\u1EE9 gi\xE1c c\u1EA7n l\xE0 h\xECnh thang tr\u01B0\u1EDBc."],
+      ["H\xECnh thang c\xF3 hai c\u1EA1nh b\xEAn b\u1EB1ng nhau l\xE0 h\xECnh thang c\xE2n.", false, "H\xECnh b\xECnh h\xE0nh l\xE0 ph\u1EA3n v\xED d\u1EE5."]
+    ]),
+    tf2(3, CT11, r5`Tam giác \(ABC\) cân tại \(A\). Một đường thẳng song song với \(BC\) cắt \(AB\), \(AC\) lần lượt tại \(M\), \(N\).`, [
+      [r5`\(BMNC\) là hình thang.`, true, r5`\(MN \parallel BC\).`],
+      [r5`\(\widehat{AMN} = \widehat{ABC}\).`, true, "Hai g\xF3c \u0111\u1ED3ng v\u1ECB."],
+      [r5`\(BMNC\) là hình thang cân.`, true, r5`\(\widehat{B} = \widehat{C}\).`],
+      [r5`\(MN = BC\).`, false, r5`\(MN < BC\).`]
+    ]),
+    tf2(3, CB11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\)), \(O\) là giao điểm hai đường chéo.`, [
+      [r5`\(\triangle ADC = \triangle BCD\).`, true, r5`c.g.c: \(AD = BC\), \(\widehat{ADC} = \widehat{BCD}\), \(DC\) chung.`],
+      [r5`\(\widehat{ACD} = \widehat{BDC}\).`, true, "Hai g\xF3c t\u01B0\u01A1ng \u1EE9ng."],
+      [r5`\(\triangle OCD\) cân tại \(O\).`, true, "C\xF3 hai g\xF3c \u1EDF \u0111\xE1y b\u1EB1ng nhau."],
+      [r5`\(OA = OC\).`, false, r5`Nói chung \(O\) không là trung điểm của \(AC\).`]
+    ]),
+    tf2(4, CB11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\), \(AB < CD\)), \(E\) là giao điểm của \(AD\) và \(BC\), \(O\) là giao điểm hai đường chéo.`, [
+      [r5`\(EA = EB\).`, true, r5`\(\triangle EAB\) cân tại \(E\).`],
+      [r5`\(ED = EC\).`, true, r5`\(\triangle EDC\) cân tại \(E\).`],
+      [r5`\(EO\) là đường trung trực của \(AB\).`, true, r5`\(E\) và \(O\) cùng cách đều \(A\), \(B\).`],
+      [r5`\(E\), \(O\) và trung điểm của \(AD\) thẳng hàng.`, false, r5`\(EO\) đi qua trung điểm của \(AB\), \(CD\), không qua trung điểm của \(AD\).`]
+    ]),
+    tf2(2, TG11, r5`Hình thang vuông \(ABCD\) có \(\widehat{A} = \widehat{D} = 90^\circ\) và \(\widehat{B} = 120^\circ\).`, [
+      [r5`\(AB \parallel CD\).`, true, r5`\(\widehat{A} + \widehat{D} = 180^\circ\).`],
+      [r5`\(\widehat{C} = 60^\circ\).`, true, r5`\(360^\circ - 300^\circ\).`],
+      [r5`\(\widehat{C} = 120^\circ\).`, false, r5`\(\widehat{C} = 60^\circ\).`],
+      [r5`Tổng bốn góc bằng \(360^\circ\).`, true, "T\u1ED5ng c\xE1c g\xF3c c\u1EE7a t\u1EE9 gi\xE1c."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(1, TG11, r5`Hình thang \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{A} = 130^\circ\). Tính \(\widehat{D}\) (độ).`, "50", r5`\(\widehat{D} = 180^\circ - 130^\circ = 50^\circ\).`, DEG),
+    sa2(2, TG11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{A} - \widehat{D} = 40^\circ\). Tính \(\widehat{A}\) (độ).`, "110", r5`\(\widehat{A} + \widehat{D} = 180^\circ\), \(\widehat{A} - \widehat{D} = 40^\circ\) nên \(\widehat{A} = 110^\circ\).`, DEG),
+    sa2(2, TG11, "T\xEDnh di\u1EC7n t\xEDch h\xECnh thang c\xF3 hai \u0111\xE1y 7 cm v\xE0 13 cm, chi\u1EC1u cao 6 cm.", "60", r5`\(S = \dfrac{(7 + 13)\cdot6}{2} = 60\) (cm²).`, CM2),
+    sa2(2, TG11, "H\xECnh thang c\xE2n c\xF3 hai \u0111\xE1y 8 cm v\xE0 14 cm, c\u1EA1nh b\xEAn 5 cm. T\xEDnh chu vi h\xECnh thang.", "32", r5`Hai cạnh bên bằng nhau: chu vi \(8 + 14 + 5 + 5 = 32\) (cm).`, CM),
+    sa2(3, TG11, r5`Hình thang cân \(ABCD\) có đáy nhỏ \(AB = 5\) cm, đáy lớn \(CD = 11\) cm, \(\widehat{D} = 45^\circ\). Tính chiều cao của hình thang.`, "3", r5`Hạ đường cao \(AH\): \(DH = (11 - 5) : 2 = 3\) cm. Tam giác \(ADH\) vuông cân tại \(H\) nên \(AH = 3\) cm.`, CM),
+    sa2(3, TG11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có hai cạnh bên kéo dài cắt nhau tại \(E\) và \(\widehat{AEB} = 40^\circ\). Tính \(\widehat{D}\) (độ).`, "70", r5`Tam giác \(EDC\) cân tại \(E\) nên \(\widehat{D} = (180^\circ - 40^\circ) : 2 = 70^\circ\).`, DEG),
+    sa2(3, CB11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có \(AC = 10\) cm, \(O\) là giao điểm hai đường chéo và \(OA = 3\) cm. Tính \(OD\).`, "7", r5`\(OC = 10 - 3 = 7\) cm và trong hình thang cân \(OD = OC = 7\) cm.`, CM),
+    // ---- Tự luận ----
+    es2(2, TG11, r5`Hình thang cân \(ABCD\) (\(AB \parallel CD\)) có \(\widehat{A} = 125^\circ\). Tính các góc còn lại của hình thang.`, r5`\(\widehat{B} = \widehat{A} = 125^\circ\) (hai góc kề đáy \(AB\)).
+\(\widehat{D} = 180^\circ - 125^\circ = 55^\circ\) (kề cạnh bên \(AD\)); \(\widehat{C} = \widehat{D} = 55^\circ\).`, r5`0,5 điểm: tính đúng \(\widehat{B}\) và \(\widehat{D}\).
+0,5 điểm: tính đúng \(\widehat{C}\), nêu đủ lí do.`),
+    es2(3, CT11, r5`Cho tam giác \(ABC\) cân tại \(A\). Trên các cạnh \(AB\), \(AC\) lấy các điểm \(D\), \(E\) sao cho \(BD = CE\). Chứng minh \(BDEC\) là hình thang cân.`, r5`\(AD = AB - BD = AC - CE = AE\) nên \(\triangle ADE\) cân tại \(A\): \(\widehat{ADE} = \dfrac{180^\circ - \widehat{A}}{2} = \widehat{ABC}\).
+Hai góc ở vị trí đồng vị bằng nhau nên \(DE \parallel BC\): \(BDEC\) là hình thang.
+Hình thang có \(\widehat{B} = \widehat{C}\) (tam giác \(ABC\) cân) nên là hình thang cân.`, r5`0,25 điểm: chứng minh \(AD = AE\).
+0,5 điểm: chứng minh \(DE \parallel BC\).
+0,25 điểm: kết luận hình thang cân.`),
+    es2(4, CB11, r5`Cho hình thang cân \(ABCD\) (\(AB \parallel CD\), \(AB < CD\)). Kẻ \(AH \perp CD\), \(BK \perp CD\) (\(H, K \in CD\)). Chứng minh \(DH = CK\) và \(DK = \dfrac{AB + CD}{2}\).`, r5`Hai tam giác vuông \(ADH\), \(BCK\) có \(AD = BC\), \(\widehat{D} = \widehat{C}\) nên bằng nhau (cạnh huyền – góc nhọn), suy ra \(DH = CK\).
+\(ABKH\) có \(AB \parallel HK\), \(AH \parallel BK\) và hai góc vuông nên \(HK = AB\).
+\(DH = CK = \dfrac{CD - AB}{2}\), do đó \(DK = DH + HK = \dfrac{CD - AB}{2} + AB = \dfrac{AB + CD}{2}\).`, r5`0,5 điểm: chứng minh \(DH = CK\).
+0,5 điểm: chỉ ra \(HK = AB\) và tính được \(DK\).`)
+  ]
+};
+var TG12 = "tinh-goc-canh-hinh-binh-hanh";
+var DT12 = "dung-tinh-chat-hinh-binh-hanh";
+var CH12 = "chung-minh-hinh-binh-hanh";
+var TH12 = "thang-hang-dong-quy-hinh-binh-hanh";
+var B12 = {
+  slug: "bai-12-hinh-binh-hanh",
+  questions: [
+    mc(1, TG12, "H\xECnh b\xECnh h\xE0nh l\xE0 t\u1EE9 gi\xE1c c\xF3", ["c\xE1c c\u1EA1nh \u0111\u1ED1i song song", "hai c\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau", "hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau", "b\u1ED1n g\xF3c b\u1EB1ng nhau"], "Theo \u0111\u1ECBnh ngh\u0129a, h\xECnh b\xECnh h\xE0nh l\xE0 t\u1EE9 gi\xE1c c\xF3 c\xE1c c\u1EA1nh \u0111\u1ED1i song song.", [
+      void 0,
+      "Ch\u1EC9 m\u1ED9t c\u1EB7p c\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau ch\u01B0a \u0111\u1EE7.",
+      "\u0110\xF3 l\xE0 t\xEDnh ch\u1EA5t c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt.",
+      "\u0110\xF3 l\xE0 h\xECnh ch\u1EEF nh\u1EADt."
+    ]),
+    mc(1, TG12, r5`Hình bình hành \(ABCD\) có \(\widehat{A} = 70^\circ\). Số đo \(\widehat{C}\) là`, [r5`\(70^\circ\)`, r5`\(110^\circ\)`, r5`\(20^\circ\)`, r5`\(140^\circ\)`], r5`Các góc đối của hình bình hành bằng nhau: \(\widehat{C} = \widehat{A} = 70^\circ\).`, [
+      void 0,
+      r5`\(110^\circ\) là số đo \(\widehat{B}\), \(\widehat{D}\).`,
+      "Kh\xF4ng c\xF3 l\xED do l\u1EA5y g\xF3c ph\u1EE5.",
+      "G\xF3c \u0111\u1ED1i b\u1EB1ng nhau, kh\xF4ng g\u1EA5p \u0111\xF4i."
+    ]),
+    mc(1, TG12, r5`Hình bình hành \(ABCD\) có \(\widehat{A} = 70^\circ\). Số đo \(\widehat{B}\) là`, [r5`\(110^\circ\)`, r5`\(70^\circ\)`, r5`\(20^\circ\)`, r5`\(290^\circ\)`], r5`Hai góc kề một cạnh bù nhau: \(\widehat{B} = 180^\circ - 70^\circ = 110^\circ\).`, [
+      void 0,
+      r5`\(\widehat{B}\) kề \(\widehat{A}\), không đối diện.`,
+      "Kh\xF4ng c\xF3 l\xED do l\u1EA5y g\xF3c ph\u1EE5.",
+      r5`Đã lấy \(360^\circ\) trừ.`
+    ]),
+    mc(2, TG12, r5`Hình bình hành \(ABCD\) có \(\widehat{A} - \widehat{B} = 40^\circ\). Số đo \(\widehat{A}\) là`, [r5`\(110^\circ\)`, r5`\(70^\circ\)`, r5`\(140^\circ\)`, r5`\(40^\circ\)`], r5`\(\widehat{A} + \widehat{B} = 180^\circ\), \(\widehat{A} - \widehat{B} = 40^\circ\) nên \(\widehat{A} = 110^\circ\).`, [
+      void 0,
+      r5`Đó là \(\widehat{B}\).`,
+      r5`Cộng nhầm \(100^\circ + 40^\circ\).`,
+      "\u0110\xF3 l\xE0 hi\u1EC7u hai g\xF3c."
+    ]),
+    mc(2, TG12, "H\xECnh b\xECnh h\xE0nh c\xF3 hai c\u1EA1nh k\u1EC1 d\xE0i 5 cm v\xE0 7 cm. Chu vi h\xECnh b\xECnh h\xE0nh l\xE0", [r5`\(24\) cm`, r5`\(12\) cm`, r5`\(35\) cm`, r5`\(20\) cm`], r5`Các cạnh đối bằng nhau: chu vi \(= 2(5 + 7) = 24\) cm.`, [
+      void 0,
+      "Qu\xEAn nh\xE2n 2.",
+      "\u0110\xF3 l\xE0 t\xEDch hai c\u1EA1nh.",
+      r5`Tính nhầm \(4\cdot5\).`
+    ]),
+    mc(2, DT12, r5`Hình bình hành \(ABCD\) có hai đường chéo cắt nhau tại \(O\), \(AC = 10\) cm, \(BD = 6\) cm. Tổng \(OA + OB\) bằng`, [r5`\(8\) cm`, r5`\(16\) cm`, r5`\(5\) cm`, r5`\(3\) cm`], r5`\(O\) là trung điểm mỗi đường chéo: \(OA = 5\), \(OB = 3\), tổng 8 cm.`, [
+      void 0,
+      "Ch\u01B0a chia \u0111\xF4i c\xE1c \u0111\u01B0\u1EDDng ch\xE9o.",
+      r5`Đó chỉ là \(OA\).`,
+      r5`Đó chỉ là \(OB\).`
+    ]),
+    mc(2, DT12, r5`Hình bình hành \(ABCD\) có hai đường chéo cắt nhau tại \(O\). Khẳng định nào sau đây luôn đúng?`, [r5`\(OA = OC\)`, r5`\(OA = OB\)`, r5`\(AC = BD\)`, r5`\(AC \perp BD\)`], r5`Hai đường chéo của hình bình hành cắt nhau tại trung điểm mỗi đường nên \(OA = OC\).`, [
+      void 0,
+      "Ch\u1EC9 \u0111\xFAng khi h\xECnh b\xECnh h\xE0nh l\xE0 h\xECnh ch\u1EEF nh\u1EADt.",
+      "Ch\u1EC9 \u0111\xFAng khi l\xE0 h\xECnh ch\u1EEF nh\u1EADt.",
+      "Ch\u1EC9 \u0111\xFAng khi l\xE0 h\xECnh thoi."
+    ]),
+    mc(2, CH12, "T\u1EE9 gi\xE1c c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m c\u1EE7a m\u1ED7i \u0111\u01B0\u1EDDng l\xE0", ["h\xECnh b\xECnh h\xE0nh", "h\xECnh thang c\xE2n", "h\xECnh thang vu\xF4ng", "t\u1EE9 gi\xE1c kh\xF4ng \u0111\u1EB7c bi\u1EC7t"], "\u0110\xE2y l\xE0 m\u1ED9t d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh.", [
+      void 0,
+      "Hai \u0111\u01B0\u1EDDng ch\xE9o h\xECnh thang c\xE2n n\xF3i chung kh\xF4ng c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m.",
+      "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n g\xF3c vu\xF4ng.",
+      "C\xF3 d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh."
+    ]),
+    mc(2, CH12, "T\u1EE9 gi\xE1c n\xE0o sau \u0111\xE2y ch\u1EAFc ch\u1EAFn l\xE0 h\xECnh b\xECnh h\xE0nh?", ["T\u1EE9 gi\xE1c c\xF3 m\u1ED9t c\u1EB7p c\u1EA1nh \u0111\u1ED1i v\u1EEBa song song v\u1EEBa b\u1EB1ng nhau", "T\u1EE9 gi\xE1c c\xF3 hai c\u1EA1nh \u0111\u1ED1i song song, hai c\u1EA1nh \u0111\u1ED1i kia b\u1EB1ng nhau", "T\u1EE9 gi\xE1c c\xF3 m\u1ED9t c\u1EB7p g\xF3c \u0111\u1ED1i b\u1EB1ng nhau", "T\u1EE9 gi\xE1c c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau"], "T\u1EE9 gi\xE1c c\xF3 hai c\u1EA1nh \u0111\u1ED1i song song v\xE0 b\u1EB1ng nhau l\xE0 h\xECnh b\xECnh h\xE0nh.", [
+      void 0,
+      "H\xECnh thang c\xE2n c\u0169ng c\xF3 t\xEDnh ch\u1EA5t n\xE0y.",
+      "C\u1EA7n c\u1EA3 hai c\u1EB7p g\xF3c \u0111\u1ED1i b\u1EB1ng nhau.",
+      "H\xECnh thang c\xE2n c\u0169ng c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau."
+    ]),
+    mc(3, CH12, r5`Tứ giác \(ABCD\) có \(\widehat{A} = \widehat{C} = 110^\circ\) và \(\widehat{B} = \widehat{D} = 70^\circ\). Tứ giác \(ABCD\) là`, ["h\xECnh b\xECnh h\xE0nh", "h\xECnh thang c\xE2n", "h\xECnh ch\u1EEF nh\u1EADt", "t\u1EE9 gi\xE1c kh\xF4ng c\xF3 c\u1EA1nh n\xE0o song song"], "T\u1EE9 gi\xE1c c\xF3 c\xE1c g\xF3c \u0111\u1ED1i b\u1EB1ng nhau l\xE0 h\xECnh b\xECnh h\xE0nh.", [
+      void 0,
+      "Hai g\xF3c b\u1EB1ng nhau \u1EDF \u0111\xE2y l\xE0 hai g\xF3c \u0111\u1ED1i, kh\xF4ng ph\u1EA3i hai g\xF3c k\u1EC1 m\u1ED9t \u0111\xE1y.",
+      "Kh\xF4ng c\xF3 g\xF3c vu\xF4ng.",
+      r5`\(\widehat{A} + \widehat{B} = 180^\circ\) nên \(AD \parallel BC\).`
+    ]),
+    mc(3, DT12, r5`Hình bình hành \(ABCD\) có \(E\), \(F\) lần lượt là trung điểm của \(AB\), \(CD\). Tứ giác \(AECF\) là`, ["h\xECnh b\xECnh h\xE0nh", "h\xECnh thang c\xE2n", "h\xECnh ch\u1EEF nh\u1EADt", "t\u1EE9 gi\xE1c kh\xF4ng c\xF3 c\u1EA1nh n\xE0o song song"], r5`\(AE = \dfrac{AB}{2} = \dfrac{CD}{2} = CF\) và \(AE \parallel CF\) nên \(AECF\) là hình bình hành.`, [
+      void 0,
+      "C\xF3 hai c\u1EA1nh \u0111\u1ED1i song song v\xE0 b\u1EB1ng nhau.",
+      "Kh\xF4ng c\xF3 g\xF3c vu\xF4ng.",
+      r5`\(AE \parallel CF\).`
+    ]),
+    mc(3, TH12, r5`Hình bình hành \(ABCD\) có tâm \(O\). Một đường thẳng qua \(O\) cắt \(AB\), \(CD\) lần lượt tại \(M\), \(N\). Khẳng định nào sau đây đúng?`, [r5`\(O\) là trung điểm của \(MN\)`, r5`\(MN = AD\)`, r5`\(MN \perp AB\)`, r5`\(M\) là trung điểm của \(AB\)`], r5`\(\triangle OAM = \triangle OCN\) (g.c.g: \(OA = OC\), góc so le trong, góc đối đỉnh) nên \(OM = ON\).`, [
+      void 0,
+      r5`Chỉ đúng khi \(MN \parallel AD\).`,
+      "\u0110\u01B0\u1EDDng th\u1EB3ng qua \\(O\\) b\u1EA5t k\xEC.",
+      "\u0110\u01B0\u1EDDng th\u1EB3ng qua \\(O\\) b\u1EA5t k\xEC."
+    ]),
+    mc(4, TH12, r5`Hình bình hành \(ABCD\) có \(M\) là trung điểm của \(BC\); \(AM\) cắt \(BD\) tại \(G\). Khẳng định nào sau đây đúng?`, [r5`\(G\) là trọng tâm tam giác \(ABC\)`, r5`\(G\) là trung điểm của \(BD\)`, r5`\(G\) là trung điểm của \(AM\)`, r5`\(G\) là trọng tâm tam giác \(ABD\)`], r5`Gọi \(O\) là giao điểm hai đường chéo, \(O\) là trung điểm \(AC\). Trong \(\triangle ABC\), \(AM\) và \(BO\) là hai đường trung tuyến, cắt nhau tại \(G\) nên \(G\) là trọng tâm.`, [
+      void 0,
+      r5`Trung điểm của \(BD\) là \(O\), nằm trên \(AC\).`,
+      r5`\(G\) chia \(AM\) theo tỉ số \(2 : 1\).`,
+      r5`\(AM\) không phải trung tuyến của \(\triangle ABD\).`
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, TG12, r5`Cho hình bình hành \(ABCD\).`, [
+      [r5`\(AB = CD\).`, true, "C\xE1c c\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau."],
+      [r5`\(AB \parallel CD\).`, true, "\u0110\u1ECBnh ngh\u0129a h\xECnh b\xECnh h\xE0nh."],
+      [r5`\(\widehat{A} = \widehat{B}\).`, false, "Hai g\xF3c k\u1EC1 m\u1ED9t c\u1EA1nh b\xF9 nhau, n\xF3i chung kh\xF4ng b\u1EB1ng nhau."],
+      [r5`\(\widehat{A} + \widehat{B} = 180^\circ\).`, true, "Hai g\xF3c trong c\xF9ng ph\xEDa."]
+    ]),
+    tf2(2, TG12, r5`Hình bình hành \(ABCD\) có chu vi 30 cm và \(AB = 9\) cm.`, [
+      [r5`\(AD = 6\) cm.`, true, r5`\(AB + AD = 15\).`],
+      [r5`\(CD = 9\) cm.`, true, r5`\(CD = AB\).`],
+      [r5`\(BC = 9\) cm.`, false, r5`\(BC = AD = 6\) cm.`],
+      [r5`\(AB + AD = 15\) cm.`, true, "B\u1EB1ng n\u1EEDa chu vi."]
+    ]),
+    tf2(2, TG12, r5`Hình bình hành \(ABCD\) có \(\widehat{A} = 3\widehat{B}\).`, [
+      [r5`\(\widehat{B} = 45^\circ\).`, true, r5`\(4\widehat{B} = 180^\circ\).`],
+      [r5`\(\widehat{A} = 135^\circ\).`, true, r5`\(3\cdot45^\circ\).`],
+      [r5`\(\widehat{C} = 45^\circ\).`, false, r5`\(\widehat{C} = \widehat{A} = 135^\circ\).`],
+      [r5`\(\widehat{D} = 45^\circ\).`, true, r5`\(\widehat{D} = \widehat{B}\).`]
+    ]),
+    tf2(2, DT12, r5`Hình bình hành \(ABCD\) có hai đường chéo \(AC = 12\) cm, \(BD = 8\) cm cắt nhau tại \(O\).`, [
+      [r5`\(OA = 6\) cm.`, true, "N\u1EEDa \u0111\u01B0\u1EDDng ch\xE9o \\(AC\\)."],
+      [r5`\(OB = 4\) cm.`, true, "N\u1EEDa \u0111\u01B0\u1EDDng ch\xE9o \\(BD\\)."],
+      [r5`\(OA = OB\).`, false, r5`\(6 \ne 4\).`],
+      [r5`\(OC + OD = 10\) cm.`, true, r5`\(6 + 4\).`]
+    ]),
+    tf2(2, CH12, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh b\xECnh h\xE0nh:", [
+      ["T\u1EE9 gi\xE1c c\xF3 c\xE1c c\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau l\xE0 h\xECnh b\xECnh h\xE0nh.", true, "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt."],
+      ["T\u1EE9 gi\xE1c c\xF3 c\xE1c g\xF3c \u0111\u1ED1i b\u1EB1ng nhau l\xE0 h\xECnh b\xECnh h\xE0nh.", true, "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt."],
+      ["T\u1EE9 gi\xE1c c\xF3 hai c\u1EA1nh \u0111\u1ED1i song song l\xE0 h\xECnh b\xECnh h\xE0nh.", false, "\u0110\xF3 m\u1EDBi l\xE0 h\xECnh thang."],
+      ["T\u1EE9 gi\xE1c c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m c\u1EE7a m\u1ED7i \u0111\u01B0\u1EDDng l\xE0 h\xECnh b\xECnh h\xE0nh.", true, "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt."]
+    ]),
+    tf2(3, CH12, r5`Cho tam giác \(ABC\), \(M\) là trung điểm của \(BC\). Lấy \(D\) sao cho \(M\) là trung điểm của \(AD\).`, [
+      [r5`\(MA = MD\) và \(MB = MC\).`, true, "Theo c\xE1ch l\u1EA5y \u0111i\u1EC3m."],
+      [r5`\(ABDC\) là hình bình hành.`, true, "Hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m m\u1ED7i \u0111\u01B0\u1EDDng."],
+      [r5`\(AB \parallel CD\).`, true, "C\u1EA1nh \u0111\u1ED1i c\u1EE7a h\xECnh b\xECnh h\xE0nh."],
+      [r5`\(AB = AD\).`, false, "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n; n\xF3i chung kh\xE1c nhau."]
+    ]),
+    tf2(3, DT12, r5`Hình bình hành \(ABCD\); kẻ \(AH \perp BD\), \(CK \perp BD\) (\(H, K \in BD\)).`, [
+      [r5`\(\triangle ABH = \triangle CDK\).`, true, "C\u1EA1nh huy\u1EC1n \\(AB = CD\\), g\xF3c nh\u1ECDn so le trong b\u1EB1ng nhau."],
+      [r5`\(AH = CK\).`, true, "Hai c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng."],
+      [r5`\(AH \parallel CK\).`, true, r5`Cùng vuông góc với \(BD\).`],
+      [r5`\(AHCK\) là hình thang cân.`, false, r5`\(AHCK\) có cặp cạnh \(AH\), \(CK\) song song và bằng nhau nên là hình bình hành.`]
+    ]),
+    tf2(3, DT12, r5`Hình bình hành \(ABCD\); lấy \(E \in AB\), \(F \in CD\) sao cho \(AE = CF\).`, [
+      [r5`\(EB = FD\).`, true, r5`\(AB - AE = CD - CF\).`],
+      [r5`\(EBFD\) là hình bình hành.`, true, r5`\(EB \parallel FD\) và \(EB = FD\).`],
+      [r5`\(DE \parallel BF\).`, true, "C\u1EA1nh \u0111\u1ED1i c\u1EE7a h\xECnh b\xECnh h\xE0nh \\(EBFD\\)."],
+      [r5`\(DE = AD\).`, false, "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n."]
+    ]),
+    tf2(3, TH12, r5`Hình bình hành \(ABCD\) tâm \(O\); \(M\), \(N\) là trung điểm của \(AD\), \(BC\).`, [
+      [r5`\(AMCN\) là hình bình hành.`, true, r5`\(AM \parallel NC\), \(AM = NC\).`],
+      [r5`\(MN\) đi qua \(O\).`, true, r5`Hai đường chéo \(AC\), \(MN\) của \(AMCN\) cắt nhau tại trung điểm \(O\) của \(AC\).`],
+      [r5`\(M\), \(O\), \(N\) thẳng hàng.`, true, r5`\(O\) thuộc \(MN\).`],
+      [r5`\(MN = AC\).`, false, r5`\(MN = AB\), nói chung khác \(AC\).`]
+    ]),
+    tf2(4, TH12, r5`Hình bình hành \(ABCD\) tâm \(O\); lấy \(E \in AB\), \(F \in CD\) sao cho \(AE = CF\).`, [
+      [r5`\(AECF\) là hình bình hành.`, true, r5`\(AE \parallel CF\), \(AE = CF\).`],
+      [r5`\(EF\) đi qua \(O\).`, true, r5`\(EF\), \(AC\) là hai đường chéo của \(AECF\).`],
+      [r5`Ba đường thẳng \(AC\), \(EF\), \(BD\) đồng quy.`, true, r5`Cùng đi qua \(O\).`],
+      [r5`\(EF \parallel AD\).`, false, r5`Chỉ đúng khi \(AE = DF\), nói chung không có.`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(1, TG12, r5`Hình bình hành \(ABCD\) có \(\widehat{B} = 125^\circ\). Tính \(\widehat{D}\) (độ).`, "125", r5`Hai góc đối bằng nhau: \(\widehat{D} = \widehat{B} = 125^\circ\).`, DEG),
+    sa2(1, TG12, r5`Hình bình hành \(ABCD\) có \(\widehat{A} = 58^\circ\). Tính \(\widehat{B}\) (độ).`, "122", r5`\(\widehat{B} = 180^\circ - 58^\circ = 122^\circ\).`, DEG),
+    sa2(2, TG12, r5`Hình bình hành \(ABCD\) có chu vi 44 cm và \(AB = AD + 4\) (cm). Tính \(AB\).`, "13", r5`\(AB + AD = 22\), \(AB - AD = 4\) nên \(AB = 13\) cm.`, CM),
+    sa2(2, TG12, r5`Hình bình hành \(ABCD\) có \(\widehat{A} : \widehat{B} = 2 : 7\). Tính \(\widehat{A}\) (độ).`, "40", r5`\(\widehat{A} + \widehat{B} = 180^\circ\); mỗi phần \(20^\circ\); \(\widehat{A} = 40^\circ\).`, DEG),
+    sa2(2, DT12, r5`Hình bình hành \(ABCD\) có tâm \(O\) và \(OA = 4{,}5\) cm. Tính \(AC\).`, "9", r5`\(O\) là trung điểm của \(AC\) nên \(AC = 2\cdot4{,}5 = 9\) cm.`, CM),
+    sa2(3, DT12, r5`Hình bình hành \(ABCD\) có \(AB = 8\) cm, \(AD = 5\) cm. Tia phân giác của góc \(A\) cắt cạnh \(CD\) tại \(E\). Tính \(CE\).`, "3", r5`\(\widehat{DEA} = \widehat{EAB}\) (so le trong) \(= \widehat{DAE}\) nên \(\triangle ADE\) cân tại \(D\): \(DE = AD = 5\) cm. \(CE = 8 - 5 = 3\) cm.`, CM),
+    sa2(3, TH12, r5`Hình bình hành \(ABCD\) tâm \(O\). Một đường thẳng qua \(O\) cắt \(AB\) tại \(M\) và cắt \(CD\) tại \(N\). Biết \(AM = 3\) cm, tính \(CN\).`, "3", r5`\(\triangle OAM = \triangle OCN\) (g.c.g) nên \(CN = AM = 3\) cm.`, CM),
+    sa2(4, TH12, r5`Hình bình hành \(ABCD\) có \(BD = 18\) cm, \(M\) là trung điểm của \(BC\), \(AM\) cắt \(BD\) tại \(G\). Tính \(BG\).`, "6", r5`\(G\) là trọng tâm tam giác \(ABC\) (giao của hai trung tuyến \(AM\), \(BO\)) nên \(BG = \dfrac23BO = \dfrac23\cdot9 = 6\) cm.`, CM),
+    // ---- Tự luận ----
+    es2(2, TG12, r5`Hình bình hành \(ABCD\) có \(\widehat{A} = 2\widehat{B}\), chu vi 26 cm và \(AB - AD = 3\) cm. Tính các góc và các cạnh của hình bình hành.`, r5`\(\widehat{A} + \widehat{B} = 180^\circ\), \(\widehat{A} = 2\widehat{B}\) nên \(\widehat{B} = 60^\circ\), \(\widehat{A} = 120^\circ\); \(\widehat{C} = 120^\circ\), \(\widehat{D} = 60^\circ\).
+\(AB + AD = 13\), \(AB - AD = 3\) nên \(AB = CD = 8\) cm, \(AD = BC = 5\) cm.`, r5`0,5 điểm: tính đúng bốn góc.
+0,5 điểm: tính đúng bốn cạnh.`),
+    es2(3, CH12, r5`Cho hình bình hành \(ABCD\). Trên các cạnh \(AD\), \(BC\) lấy các điểm \(M\), \(N\) sao cho \(AM = CN\). Chứng minh tứ giác \(BMDN\) là hình bình hành.`, r5`\(MD = AD - AM\), \(BN = BC - CN\); mà \(AD = BC\), \(AM = CN\) nên \(MD = BN\).
+\(MD \parallel BN\) (vì \(AD \parallel BC\)).
+Tứ giác \(BMDN\) có hai cạnh đối \(MD\), \(BN\) song song và bằng nhau nên là hình bình hành.`, r5`0,5 điểm: chứng minh \(MD = BN\).
+0,5 điểm: nêu \(MD \parallel BN\) và kết luận.`),
+    ge2(3, DT12, r5`Cho hình bình hành \(ABCD\). Tia phân giác của góc \(A\) cắt \(CD\) tại \(E\), tia phân giác của góc \(C\) cắt \(AB\) tại \(F\). Chứng minh \(AECF\) là hình bình hành.`, `A(0,0) B(8,0) C(10,4) D(2,4) E(6.47,4) F(3.53,0)
+ABCDA AE CF
+goc(D,A,E) goc(B,C,F)`, r5`\(\widehat{BAE} = \dfrac{\widehat{A}}{2}\), \(\widehat{DCF} = \dfrac{\widehat{C}}{2}\) và \(\widehat{A} = \widehat{C}\).
+\(AB \parallel CD\) nên \(\widehat{BFC} = \widehat{DCF}\) (so le trong) \(= \dfrac{\widehat{C}}{2} = \widehat{BAE}\).
+Hai góc đồng vị \(\widehat{BFC} = \widehat{BAE}\) nên \(AE \parallel FC\).
+Tứ giác \(AECF\) có \(AF \parallel EC\) và \(AE \parallel FC\) nên là hình bình hành.`, r5`0,25 điểm: nêu \(\widehat{A} = \widehat{C}\) và tính chất tia phân giác.
+0,5 điểm: chứng minh \(AE \parallel FC\).
+0,25 điểm: kết luận hình bình hành.`),
+    ge2(4, TH12, r5`Cho hình bình hành \(ABCD\) có tâm \(O\). Gọi \(E\), \(F\) lần lượt là trung điểm của \(AB\), \(CD\). Chứng minh ba điểm \(E\), \(O\), \(F\) thẳng hàng và \(O\) là trung điểm của \(EF\).`, `A(0,0) B(8,0) C(10,4) D(2,4) O(5,2) E(4,0) F(6,4)
+ABCDA AC BD EF:dash`, r5`\(AE = \dfrac{AB}{2} = \dfrac{CD}{2} = CF\) và \(AE \parallel CF\) nên \(AECF\) là hình bình hành.
+Hai đường chéo \(AC\), \(EF\) của hình bình hành \(AECF\) cắt nhau tại trung điểm mỗi đường.
+Trung điểm của \(AC\) là \(O\), nên \(EF\) đi qua \(O\) và \(O\) là trung điểm của \(EF\). Vậy \(E\), \(O\), \(F\) thẳng hàng.`, r5`0,5 điểm: chứng minh \(AECF\) là hình bình hành.
+0,5 điểm: suy ra \(O\) là trung điểm của \(EF\), kết luận thẳng hàng.`)
+  ]
+};
+var CN13 = "chung-minh-hinh-chu-nhat";
+var DT13 = "dung-tinh-chat-hinh-chu-nhat";
+var TT13 = "trung-tuyen-ung-voi-canh-huyen";
+var B13 = {
+  slug: "bai-13-hinh-chu-nhat",
+  questions: [
+    mc(2, CN13, "H\xECnh ch\u1EEF nh\u1EADt l\xE0 t\u1EE9 gi\xE1c c\xF3", ["b\u1ED1n g\xF3c vu\xF4ng", "b\u1ED1n c\u1EA1nh b\u1EB1ng nhau", "hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c", "m\u1ED9t c\u1EB7p c\u1EA1nh \u0111\u1ED1i song song"], "Theo \u0111\u1ECBnh ngh\u0129a, h\xECnh ch\u1EEF nh\u1EADt l\xE0 t\u1EE9 gi\xE1c c\xF3 b\u1ED1n g\xF3c vu\xF4ng.", [
+      void 0,
+      "\u0110\xF3 l\xE0 h\xECnh thoi.",
+      "\u0110\xF3 l\xE0 t\xEDnh ch\u1EA5t c\u1EE7a h\xECnh thoi.",
+      "\u0110\xF3 m\u1EDBi l\xE0 h\xECnh thang."
+    ]),
+    mc(2, CN13, "D\u1EA5u hi\u1EC7u n\xE0o sau \u0111\xE2y kh\u1EB3ng \u0111\u1ECBnh t\u1EE9 gi\xE1c l\xE0 h\xECnh ch\u1EEF nh\u1EADt?", ["H\xECnh b\xECnh h\xE0nh c\xF3 m\u1ED9t g\xF3c vu\xF4ng", "H\xECnh b\xECnh h\xE0nh c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c", "H\xECnh thang c\xF3 m\u1ED9t g\xF3c vu\xF4ng", "T\u1EE9 gi\xE1c c\xF3 hai g\xF3c vu\xF4ng"], "H\xECnh b\xECnh h\xE0nh c\xF3 m\u1ED9t g\xF3c vu\xF4ng l\xE0 h\xECnh ch\u1EEF nh\u1EADt.", [
+      void 0,
+      "\u0110\xF3 l\xE0 h\xECnh thoi.",
+      "\u0110\xF3 l\xE0 h\xECnh thang vu\xF4ng.",
+      "C\u1EA7n \xEDt nh\u1EA5t ba g\xF3c vu\xF4ng."
+    ]),
+    mc(2, CN13, r5`Hình bình hành \(ABCD\) có \(AC = BD\). Khi đó \(ABCD\) là`, ["h\xECnh ch\u1EEF nh\u1EADt", "h\xECnh thoi", "h\xECnh vu\xF4ng", "t\u1EE9 gi\xE1c c\xF3 b\u1ED1n c\u1EA1nh b\u1EB1ng nhau"], "H\xECnh b\xECnh h\xE0nh c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau l\xE0 h\xECnh ch\u1EEF nh\u1EADt.", [
+      void 0,
+      "H\xECnh thoi c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c.",
+      "Ch\u01B0a c\xF3 hai c\u1EA1nh k\u1EC1 b\u1EB1ng nhau.",
+      "Ch\u01B0a c\xF3 d\u1EEF ki\u1EC7n v\u1EC1 c\u1EA1nh."
+    ]),
+    mc(2, DT13, r5`Hình chữ nhật \(ABCD\) có \(AC = 10\) cm. Độ dài \(BD\) là`, [r5`\(10\) cm`, r5`\(5\) cm`, r5`\(20\) cm`, r5`\(100\) cm`], r5`Hai đường chéo của hình chữ nhật bằng nhau: \(BD = AC = 10\) cm.`, [
+      void 0,
+      "Kh\xF4ng chia \u0111\xF4i.",
+      "Kh\xF4ng nh\xE2n \u0111\xF4i.",
+      "Kh\xF4ng b\xECnh ph\u01B0\u01A1ng."
+    ]),
+    mc(2, DT13, r5`Hình chữ nhật \(ABCD\) có tâm \(O\) và \(AC = 12\) cm. Độ dài \(OB\) là`, [r5`\(6\) cm`, r5`\(12\) cm`, r5`\(3\) cm`, r5`\(24\) cm`], r5`\(OB = \dfrac{BD}{2} = \dfrac{AC}{2} = 6\) cm.`, [
+      void 0,
+      "Ch\u01B0a chia \u0111\xF4i.",
+      "Chia \u0111\xF4i hai l\u1EA7n.",
+      "Nh\xE2n \u0111\xF4i nh\u1EA7m."
+    ]),
+    mc(2, DT13, "H\xECnh ch\u1EEF nh\u1EADt c\xF3 chi\u1EC1u d\xE0i 8 cm, chi\u1EC1u r\u1ED9ng 5 cm. Di\u1EC7n t\xEDch h\xECnh ch\u1EEF nh\u1EADt l\xE0", [r5`\(40\) cm²`, r5`\(26\) cm²`, r5`\(13\) cm²`, r5`\(80\) cm²`], r5`\(S = 8\cdot5 = 40\) cm².`, [
+      void 0,
+      "\u0110\xF3 l\xE0 chu vi (\u0111\u01A1n v\u1ECB cm).",
+      "\u0110\xF3 l\xE0 n\u1EEDa chu vi.",
+      "Nh\xE2n \u0111\xF4i nh\u1EA7m."
+    ]),
+    mc(2, TT13, r5`Tam giác \(ABC\) vuông tại \(A\) có \(BC = 10\) cm, \(AM\) là đường trung tuyến. Độ dài \(AM\) là`, [r5`\(5\) cm`, r5`\(10\) cm`, r5`\(20\) cm`, r5`\(2{,}5\) cm`], r5`Trung tuyến ứng với cạnh huyền bằng nửa cạnh huyền: \(AM = 5\) cm.`, [
+      void 0,
+      "B\u1EB1ng n\u1EEDa c\u1EA1nh huy\u1EC1n.",
+      "Kh\xF4ng nh\xE2n \u0111\xF4i.",
+      "Chia \u0111\xF4i hai l\u1EA7n."
+    ]),
+    mc(3, TT13, r5`Tam giác \(ABC\) có đường trung tuyến \(AM = \dfrac{BC}{2}\). Khẳng định nào sau đây đúng?`, [r5`Tam giác \(ABC\) vuông tại \(A\)`, r5`Tam giác \(ABC\) vuông tại \(B\)`, r5`Tam giác \(ABC\) cân tại \(A\)`, r5`Tam giác \(ABC\) đều`], "N\u1EBFu trung tuy\u1EBFn \u1EE9ng v\u1EDBi m\u1ED9t c\u1EA1nh b\u1EB1ng n\u1EEDa c\u1EA1nh \u1EA5y th\xEC tam gi\xE1c vu\xF4ng t\u1EA1i \u0111\u1EC9nh xu\u1EA5t ph\xE1t trung tuy\u1EBFn.", [
+      void 0,
+      r5`Góc vuông đối diện cạnh \(BC\), tức là tại \(A\).`,
+      "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n v\u1EC1 hai c\u1EA1nh b\xEAn.",
+      "Tam gi\xE1c \u0111\u1EC1u c\xF3 trung tuy\u1EBFn l\u1EDBn h\u01A1n n\u1EEDa c\u1EA1nh."
+    ]),
+    mc(3, DT13, r5`Hình chữ nhật \(ABCD\) có tâm \(O\) và \(\widehat{AOB} = 120^\circ\). Số đo \(\widehat{OAB}\) là`, [r5`\(30^\circ\)`, r5`\(60^\circ\)`, r5`\(120^\circ\)`, r5`\(15^\circ\)`], r5`\(OA = OB\) nên \(\triangle OAB\) cân tại \(O\): \(\widehat{OAB} = (180^\circ - 120^\circ) : 2 = 30^\circ\).`, [
+      void 0,
+      "Ch\u01B0a chia \u0111\xF4i.",
+      r5`Đó là \(\widehat{AOB}\).`,
+      "Chia \u0111\xF4i hai l\u1EA7n."
+    ]),
+    mc(3, CN13, r5`Tam giác \(ABC\) vuông tại \(A\), \(M\) là một điểm trên cạnh \(BC\). Kẻ \(MD \perp AB\), \(ME \perp AC\) (\(D \in AB\), \(E \in AC\)). Tứ giác \(ADME\) là`, ["h\xECnh ch\u1EEF nh\u1EADt", "h\xECnh thoi", "h\xECnh vu\xF4ng", "h\xECnh thang vu\xF4ng c\xF3 hai \u0111\xE1y kh\xE1c nhau"], r5`Tứ giác \(ADME\) có ba góc vuông tại \(A\), \(D\), \(E\) nên là hình chữ nhật.`, [
+      void 0,
+      "Ch\u01B0a c\xF3 b\u1ED1n c\u1EA1nh b\u1EB1ng nhau.",
+      r5`Chỉ đúng khi \(M\) thuộc tia phân giác góc \(A\).`,
+      "C\xF3 ba g\xF3c vu\xF4ng n\xEAn hai \u0111\xE1y b\u1EB1ng nhau."
+    ]),
+    mc(3, TT13, r5`Tam giác \(ABC\) vuông tại \(A\) có \(\widehat{B} = 60^\circ\) và \(BC = 8\) cm. Độ dài \(AB\) là`, [r5`\(4\) cm`, r5`\(8\) cm`, r5`\(2\) cm`, r5`\(6\) cm`], r5`Gọi \(M\) là trung điểm \(BC\): \(MA = MB = 4\) cm, tam giác \(MAB\) cân có góc \(60^\circ\) nên đều; \(AB = 4\) cm.`, [
+      void 0,
+      "\u0110\xF3 l\xE0 c\u1EA1nh huy\u1EC1n.",
+      "Chia \u0111\xF4i hai l\u1EA7n.",
+      "Kh\xF4ng c\xF3 c\u01A1 s\u1EDF."
+    ]),
+    mc(3, DT13, "M\u1ED9t h\xECnh ch\u1EEF nh\u1EADt c\xF3 chu vi 28 cm, chi\u1EC1u d\xE0i h\u01A1n chi\u1EC1u r\u1ED9ng 4 cm. Di\u1EC7n t\xEDch h\xECnh ch\u1EEF nh\u1EADt l\xE0", [r5`\(45\) cm²`, r5`\(28\) cm²`, r5`\(32\) cm²`, r5`\(49\) cm²`], r5`Nửa chu vi 14 cm; chiều dài 9 cm, chiều rộng 5 cm; diện tích 45 cm².`, [
+      void 0,
+      "Nh\u1EA7m chu vi v\u1EDBi di\u1EC7n t\xEDch.",
+      r5`Tính nhầm chiều dài 8, chiều rộng 4.`,
+      "\u0110\xF3 l\xE0 di\u1EC7n t\xEDch h\xECnh vu\xF4ng c\xF3 c\xF9ng chu vi."
+    ]),
+    mc(4, TT13, r5`Tam giác \(ABC\) nhọn có các đường cao \(BD\), \(CE\); \(M\) là trung điểm của \(BC\). Tam giác \(MDE\) là`, [r5`tam giác cân tại \(M\)`, "tam gi\xE1c \u0111\u1EC1u", r5`tam giác vuông tại \(M\)`, r5`tam giác cân tại \(D\)`], r5`\(MD\), \(ME\) là trung tuyến ứng với cạnh huyền chung \(BC\) của hai tam giác vuông \(BDC\), \(BEC\) nên \(MD = ME = \dfrac{BC}{2}\).`, [
+      void 0,
+      r5`Chỉ đều khi \(\widehat{A} = 60^\circ\).`,
+      r5`Chỉ vuông khi \(\widehat{A} = 45^\circ\).`,
+      r5`Hai cạnh bằng nhau là \(MD\), \(ME\).`
+    ]),
+    mc(4, TT13, r5`Tam giác \(ABC\) vuông tại \(A\) có \(\widehat{B} = 70^\circ\), đường cao \(AH\), đường trung tuyến \(AM\). Số đo \(\widehat{HAM}\) là`, [r5`\(50^\circ\)`, r5`\(20^\circ\)`, r5`\(70^\circ\)`, r5`\(40^\circ\)`], r5`\(\widehat{C} = 20^\circ\). \(MA = MC\) nên \(\widehat{MAC} = 20^\circ\); \(\widehat{HAC} = 90^\circ - 20^\circ = 70^\circ\). \(\widehat{HAM} = 70^\circ - 20^\circ = 50^\circ\).`, [
+      void 0,
+      r5`Đó là \(\widehat{MAC}\).`,
+      r5`Đó là \(\widehat{HAC}\).`,
+      "T\xEDnh sai hi\u1EC7u."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(2, CN13, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh ch\u1EEF nh\u1EADt:", [
+      ["H\xECnh b\xECnh h\xE0nh c\xF3 m\u1ED9t g\xF3c vu\xF4ng l\xE0 h\xECnh ch\u1EEF nh\u1EADt.", true, "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt."],
+      ["H\xECnh thang c\xE2n c\xF3 m\u1ED9t g\xF3c vu\xF4ng l\xE0 h\xECnh ch\u1EEF nh\u1EADt.", true, "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt."],
+      ["T\u1EE9 gi\xE1c c\xF3 ba g\xF3c vu\xF4ng l\xE0 h\xECnh ch\u1EEF nh\u1EADt.", true, "G\xF3c th\u1EE9 t\u01B0 c\u0169ng vu\xF4ng."],
+      ["H\xECnh b\xECnh h\xE0nh c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c l\xE0 h\xECnh ch\u1EEF nh\u1EADt.", false, "\u0110\xF3 l\xE0 h\xECnh thoi."]
+    ]),
+    tf2(2, DT13, r5`Hình chữ nhật \(ABCD\) có tâm \(O\) và \(AC = 14\) cm.`, [
+      [r5`\(BD = 14\) cm.`, true, "Hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau."],
+      [r5`\(OA = 7\) cm.`, true, "N\u1EEDa \u0111\u01B0\u1EDDng ch\xE9o."],
+      [r5`\(OA = OB\).`, true, r5`Cùng bằng 7 cm.`],
+      [r5`\(AC \perp BD\).`, false, "Ch\u1EC9 \u0111\xFAng khi l\xE0 h\xECnh vu\xF4ng."]
+    ]),
+    tf2(2, TT13, r5`Tam giác \(ABC\) vuông tại \(A\), \(BC = 12\) cm, \(M\) là trung điểm của \(BC\).`, [
+      [r5`\(AM = 6\) cm.`, true, "N\u1EEDa c\u1EA1nh huy\u1EC1n."],
+      [r5`\(MA = MB = MC\).`, true, "C\xF9ng b\u1EB1ng 6 cm."],
+      [r5`\(\triangle MAB\) cân tại \(M\).`, true, r5`\(MA = MB\).`],
+      [r5`\(AM = BC\).`, false, r5`\(AM = \dfrac{BC}{2}\).`]
+    ]),
+    tf2(3, TT13, r5`Tam giác \(ABC\) có đường trung tuyến \(AM\) với \(AM = BM = CM\).`, [
+      [r5`Tam giác \(ABC\) vuông tại \(A\).`, true, "Trung tuy\u1EBFn b\u1EB1ng n\u1EEDa c\u1EA1nh t\u01B0\u01A1ng \u1EE9ng."],
+      [r5`\(\widehat{A} = \widehat{B} + \widehat{C}\).`, true, r5`\(\widehat{A} = 90^\circ\).`],
+      [r5`Tam giác \(ABC\) vuông tại \(M\).`, false, r5`\(M\) nằm trên cạnh \(BC\), không phải đỉnh.`],
+      [r5`\(\triangle AMB\) cân tại \(M\).`, true, r5`\(MA = MB\).`]
+    ]),
+    tf2(3, CN13, r5`Tam giác \(ABC\) cân tại \(A\), đường cao \(AH\); \(I\) là trung điểm của \(AC\), \(K\) đối xứng với \(H\) qua \(I\).`, [
+      [r5`\(AHCK\) là hình bình hành.`, true, "Hai \u0111\u01B0\u1EDDng ch\xE9o \\(AC\\), \\(HK\\) c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m m\u1ED7i \u0111\u01B0\u1EDDng."],
+      [r5`\(\widehat{AHC} = 90^\circ\).`, true, r5`\(AH \perp BC\).`],
+      [r5`\(AHCK\) là hình chữ nhật.`, true, "H\xECnh b\xECnh h\xE0nh c\xF3 m\u1ED9t g\xF3c vu\xF4ng."],
+      [r5`\(AK = BC\).`, false, r5`\(AK = HC = \dfrac{BC}{2}\).`]
+    ]),
+    tf2(3, DT13, r5`Hình chữ nhật \(ABCD\) có tâm \(O\) và \(\widehat{ACB} = 30^\circ\).`, [
+      [r5`\(\triangle OBC\) cân tại \(O\).`, true, r5`\(OB = OC\).`],
+      [r5`\(\widehat{OBC} = 30^\circ\).`, true, "Hai g\xF3c \u1EDF \u0111\xE1y tam gi\xE1c c\xE2n."],
+      [r5`\(\widehat{AOB} = 60^\circ\).`, true, "G\xF3c ngo\xE0i c\u1EE7a tam gi\xE1c \\(OBC\\)."],
+      [r5`\(AB = BC\).`, false, r5`Khi đó \(\widehat{ACB} = 45^\circ\).`]
+    ]),
+    tf2(3, TT13, r5`Tam giác \(ABC\) vuông tại \(A\) có \(\widehat{C} = 30^\circ\), \(BC = 10\) cm và \(M\) là trung điểm của \(BC\).`, [
+      [r5`\(AB = 5\) cm.`, true, "C\u1EA1nh \u0111\u1ED1i di\u1EC7n g\xF3c \\(30^\\circ\\) b\u1EB1ng n\u1EEDa c\u1EA1nh huy\u1EC1n."],
+      [r5`\(\triangle ABM\) là tam giác đều.`, true, r5`\(AM = BM = AB = 5\) cm.`],
+      [r5`\(AM = 10\) cm.`, false, r5`\(AM = 5\) cm.`],
+      [r5`\(\widehat{MAC} = 30^\circ\).`, true, r5`\(MA = MC\).`]
+    ]),
+    tf2(3, CN13, r5`Tứ giác \(ABCD\) có hai đường chéo \(AC = BD\).`, [
+      [r5`\(ABCD\) chắc chắn là hình chữ nhật.`, false, "H\xECnh thang c\xE2n c\u0169ng c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau."],
+      [r5`Nếu thêm \(AC\), \(BD\) cắt nhau tại trung điểm mỗi đường thì \(ABCD\) là hình chữ nhật.`, true, "H\xECnh b\xECnh h\xE0nh c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau."],
+      [r5`Nếu \(ABCD\) là hình bình hành thì nó là hình chữ nhật.`, true, "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt."],
+      [r5`Nếu \(ABCD\) là hình thang thì nó là hình thang cân.`, true, "H\xECnh thang c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau l\xE0 h\xECnh thang c\xE2n."]
+    ]),
+    tf2(4, TT13, r5`Tam giác \(ABC\) nhọn có các đường cao \(BD\), \(CE\); \(M\) là trung điểm của \(BC\), \(N\) là trung điểm của \(DE\).`, [
+      [r5`\(MD = \dfrac{BC}{2}\).`, true, r5`Trung tuyến ứng với cạnh huyền trong \(\triangle BDC\).`],
+      [r5`\(ME = MD\).`, true, r5`Cùng bằng \(\dfrac{BC}{2}\).`],
+      [r5`\(MN \perp DE\).`, true, "Trung tuy\u1EBFn c\u1EE7a tam gi\xE1c c\xE2n \\(MDE\\) c\u0169ng l\xE0 \u0111\u01B0\u1EDDng cao."],
+      [r5`\(MN = DE\).`, false, "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n; n\xF3i chung kh\xE1c nhau."]
+    ]),
+    tf2(2, DT13, r5`Hình chữ nhật \(ABCD\) có \(AB = 9\) cm, \(BC = 4\) cm.`, [
+      ["Chu vi l\xE0 26 cm.", true, r5`\(2(9 + 4)\).`],
+      ["Di\u1EC7n t\xEDch l\xE0 36 cm\xB2.", true, r5`\(9\cdot4\).`],
+      [r5`\(CD = 4\) cm.`, false, r5`\(CD = AB = 9\) cm.`],
+      [r5`\(AD = 4\) cm.`, true, r5`\(AD = BC\).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, TT13, r5`Tam giác \(ABC\) vuông tại \(A\) có đường trung tuyến \(AM = 7{,}5\) cm. Tính \(BC\).`, "15", r5`\(BC = 2AM = 15\) cm.`, CM),
+    sa2(2, DT13, r5`Hình chữ nhật \(ABCD\) có tâm \(O\) và \(BD = 18\) cm. Tính \(OC\).`, "9", r5`\(OC = \dfrac{AC}{2} = \dfrac{BD}{2} = 9\) cm.`, CM),
+    sa2(2, DT13, "H\xECnh ch\u1EEF nh\u1EADt c\xF3 chu vi 34 cm v\xE0 chi\u1EC1u d\xE0i 12 cm. T\xEDnh di\u1EC7n t\xEDch h\xECnh ch\u1EEF nh\u1EADt.", "60", r5`Chiều rộng \(17 - 12 = 5\) cm; diện tích \(12\cdot5 = 60\) cm².`, CM2),
+    sa2(3, DT13, r5`Hình chữ nhật \(ABCD\) có tâm \(O\) và \(\widehat{AOD} = 50^\circ\). Tính \(\widehat{OAD}\) (độ).`, "65", r5`\(OA = OD\) nên \(\widehat{OAD} = (180^\circ - 50^\circ) : 2 = 65^\circ\).`, DEG),
+    sa2(3, TT13, r5`Tam giác \(ABC\) vuông tại \(A\) có \(\widehat{B} = 35^\circ\), \(AM\) là đường trung tuyến. Tính \(\widehat{AMC}\) (độ).`, "70", r5`\(MA = MB\) nên \(\widehat{MAB} = 35^\circ\); \(\widehat{AMC}\) là góc ngoài của \(\triangle AMB\): \(35^\circ + 35^\circ = 70^\circ\).`, DEG),
+    sa2(3, TT13, r5`Tam giác \(ABC\) vuông tại \(A\) có \(BC = 20\) cm và \(\widehat{C} = 30^\circ\). Tính \(AB\).`, "10", r5`Cạnh góc vuông đối diện góc \(30^\circ\) bằng nửa cạnh huyền: \(AB = 10\) cm.`, CM),
+    sa2(4, TT13, r5`Tam giác \(ABC\) vuông tại \(A\) có \(\widehat{B} = 65^\circ\), đường cao \(AH\), đường trung tuyến \(AM\). Tính \(\widehat{HAM}\) (độ).`, "40", r5`\(\widehat{C} = 25^\circ\); \(\widehat{MAC} = 25^\circ\) (vì \(MA = MC\)); \(\widehat{HAC} = 65^\circ\). \(\widehat{HAM} = 65^\circ - 25^\circ = 40^\circ\).`, DEG),
+    // ---- Tự luận ----
+    es2(2, DT13, r5`Hình chữ nhật \(ABCD\) có tâm \(O\), \(AC = 16\) cm và \(\widehat{AOB} = 60^\circ\).
+a) Tính \(OA\), \(OB\). b) Chứng minh tam giác \(OAB\) đều và tính \(AB\).`, r5`a) \(OA = OB = \dfrac{AC}{2} = 8\) cm (hai đường chéo bằng nhau và cắt nhau tại trung điểm mỗi đường).
+b) Tam giác \(OAB\) cân tại \(O\) có \(\widehat{AOB} = 60^\circ\) nên là tam giác đều; \(AB = OA = 8\) cm.`, r5`0,5 điểm: tính đúng \(OA\), \(OB\) có lí do.
+0,5 điểm: chứng minh tam giác đều và tính \(AB\).`),
+    es2(3, CN13, r5`Cho tam giác \(ABC\), đường trung tuyến \(AM\). Trên tia đối của tia \(MA\) lấy điểm \(D\) sao cho \(MD = MA\).
+a) Chứng minh \(ABDC\) là hình bình hành.
+b) Chứng minh nếu \(\widehat{BAC} = 90^\circ\) thì \(ABDC\) là hình chữ nhật.`, r5`a) \(M\) là trung điểm của \(BC\) và \(AD\): hai đường chéo cắt nhau tại trung điểm mỗi đường nên \(ABDC\) là hình bình hành.
+b) Hình bình hành \(ABDC\) có \(\widehat{BAC} = 90^\circ\) nên là hình chữ nhật.`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b.`),
+    es2(3, TT13, r5`Cho tam giác \(ABC\) vuông tại \(A\), \(M\) là trung điểm của \(BC\). Dựa vào hình chữ nhật, chứng minh \(AM = \dfrac{BC}{2}\).`, r5`Lấy \(D\) đối xứng với \(A\) qua \(M\). Tứ giác \(ABDC\) có hai đường chéo cắt nhau tại trung điểm \(M\) của mỗi đường nên là hình bình hành; lại có \(\widehat{A} = 90^\circ\) nên là hình chữ nhật.
+Hai đường chéo hình chữ nhật bằng nhau: \(AD = BC\), suy ra \(AM = \dfrac{AD}{2} = \dfrac{BC}{2}\).`, r5`0,5 điểm: dựng điểm \(D\) và chứng minh \(ABDC\) là hình chữ nhật.
+0,5 điểm: dùng hai đường chéo bằng nhau để kết luận.`),
+    ge2(3, CN13, r5`Cho tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\). Gọi \(D\), \(E\) lần lượt là chân các đường vuông góc kẻ từ \(H\) xuống \(AB\), \(AC\).
+a) Chứng minh \(ADHE\) là hình chữ nhật. b) Chứng minh \(AH = DE\).`, `A(0,0) B(0,4) C(6,0) H(1.85,2.77) D(0,2.77) E(1.85,0)
+ABCA AH HD HE DE:dash
+vuong(B,A,C) vuong(A,H,C) vuong(A,D,H) vuong(A,E,H)`, r5`a) Tứ giác \(ADHE\) có \(\widehat{DAE} = 90^\circ\), \(\widehat{ADH} = 90^\circ\), \(\widehat{AEH} = 90^\circ\) nên là hình chữ nhật.
+b) \(AH\) và \(DE\) là hai đường chéo của hình chữ nhật \(ADHE\) nên \(AH = DE\).`, r5`0,5 điểm: câu a, chỉ đủ ba góc vuông.
+0,5 điểm: câu b, nêu tính chất hai đường chéo.`),
+    ge2(4, TT13, r5`Cho tam giác \(ABC\) vuông tại \(A\) (\(AB < AC\)), đường cao \(AH\), đường trung tuyến \(AM\). Chứng minh \(\widehat{HAM} = \widehat{B} - \widehat{C}\).`, `A(0,0) B(0,4) C(6,0) H(1.85,2.77) M(3,2)
+ABCA AH AM
+vuong(B,A,C) vuong(A,H,C)`, r5`\(AM\) là trung tuyến ứng với cạnh huyền nên \(MA = MC\), \(\triangle MAC\) cân: \(\widehat{MAC} = \widehat{C}\).
+Trong tam giác vuông \(AHC\): \(\widehat{HAC} = 90^\circ - \widehat{C} = \widehat{B}\).
+Vì \(AB < AC\) nên \(\widehat{B} > \widehat{C}\), tia \(AM\) nằm giữa hai tia \(AH\), \(AC\): \(\widehat{HAM} = \widehat{HAC} - \widehat{MAC} = \widehat{B} - \widehat{C}\).`, r5`0,25 điểm: chứng minh \(\widehat{MAC} = \widehat{C}\).
+0,5 điểm: chứng minh \(\widehat{HAC} = \widehat{B}\).
+0,25 điểm: lập luận vị trí tia và kết luận.`)
+  ]
+};
+var TG14 = "tinh-goc-canh-hinh-thoi";
+var DT14 = "dung-tinh-chat-hinh-thoi-hinh-vuong";
+var CM14 = "chung-minh-hinh-thoi-hinh-vuong";
+var DK14 = "dieu-kien-hinh-thoi-hinh-vuong";
+var B14 = {
+  slug: "bai-14-hinh-thoi-va-hinh-vuong",
+  questions: [
+    mc(1, TG14, "H\xECnh thoi l\xE0 t\u1EE9 gi\xE1c c\xF3", ["b\u1ED1n c\u1EA1nh b\u1EB1ng nhau", "b\u1ED1n g\xF3c b\u1EB1ng nhau", "hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau", "m\u1ED9t c\u1EB7p c\u1EA1nh \u0111\u1ED1i song song"], "Theo \u0111\u1ECBnh ngh\u0129a, h\xECnh thoi l\xE0 t\u1EE9 gi\xE1c c\xF3 b\u1ED1n c\u1EA1nh b\u1EB1ng nhau.", [
+      void 0,
+      "\u0110\xF3 l\xE0 h\xECnh ch\u1EEF nh\u1EADt.",
+      "\u0110\xF3 l\xE0 t\xEDnh ch\u1EA5t h\xECnh ch\u1EEF nh\u1EADt.",
+      "\u0110\xF3 m\u1EDBi l\xE0 h\xECnh thang."
+    ]),
+    mc(1, TG14, "H\xECnh thoi c\xF3 c\u1EA1nh 7 cm. Chu vi h\xECnh thoi l\xE0", [r5`\(28\) cm`, r5`\(14\) cm`, r5`\(49\) cm`, r5`\(21\) cm`], r5`Bốn cạnh bằng nhau: chu vi \(4\cdot7 = 28\) cm.`, [
+      void 0,
+      "M\u1EDBi l\u1EA5y hai c\u1EA1nh.",
+      "\u0110\xF3 l\xE0 b\xECnh ph\u01B0\u01A1ng c\u1EA1nh.",
+      "M\u1EDBi l\u1EA5y ba c\u1EA1nh."
+    ]),
+    mc(2, TG14, r5`Hình thoi \(ABCD\) có \(\widehat{A} = 60^\circ\). Số đo \(\widehat{B}\) là`, [r5`\(120^\circ\)`, r5`\(60^\circ\)`, r5`\(30^\circ\)`, r5`\(90^\circ\)`], r5`Hình thoi là hình bình hành nên hai góc kề một cạnh bù nhau: \(\widehat{B} = 120^\circ\).`, [
+      void 0,
+      r5`Đó là số đo \(\widehat{C}\).`,
+      "Nh\u1EA7m v\u1EDBi g\xF3c t\u1EA1o b\u1EDFi c\u1EA1nh v\xE0 \u0111\u01B0\u1EDDng ch\xE9o.",
+      "H\xECnh thoi n\xE0y kh\xF4ng c\xF3 g\xF3c vu\xF4ng."
+    ]),
+    mc(2, TG14, "H\xECnh thoi c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o d\xE0i 6 cm v\xE0 8 cm. Di\u1EC7n t\xEDch h\xECnh thoi l\xE0", [r5`\(24\) cm²`, r5`\(48\) cm²`, r5`\(14\) cm²`, r5`\(12\) cm²`], r5`\(S = \dfrac{6\cdot8}{2} = 24\) cm².`, [
+      void 0,
+      "Qu\xEAn chia 2.",
+      "\u0110\xF3 l\xE0 t\u1ED5ng hai \u0111\u01B0\u1EDDng ch\xE9o.",
+      "Chia 4 nh\u1EA7m."
+    ]),
+    mc(2, TG14, "H\xECnh vu\xF4ng c\xF3 c\u1EA1nh 5 cm. Di\u1EC7n t\xEDch h\xECnh vu\xF4ng l\xE0", [r5`\(25\) cm²`, r5`\(20\) cm²`, r5`\(10\) cm²`, r5`\(50\) cm²`], r5`\(S = 5^2 = 25\) cm².`, [
+      void 0,
+      "\u0110\xF3 l\xE0 chu vi (\u0111\u01A1n v\u1ECB cm).",
+      r5`Tính nhầm \(5\cdot2\).`,
+      "Nh\xE2n \u0111\xF4i nh\u1EA7m."
+    ]),
+    mc(2, DT14, "Trong h\xECnh thoi, hai \u0111\u01B0\u1EDDng ch\xE9o", ["vu\xF4ng g\xF3c v\u1EDBi nhau", "b\u1EB1ng nhau", "song song v\u1EDBi nhau", "lu\xF4n b\u1EB1ng c\u1EA1nh"], "Hai \u0111\u01B0\u1EDDng ch\xE9o c\u1EE7a h\xECnh thoi vu\xF4ng g\xF3c v\u1EDBi nhau v\xE0 c\u1EAFt nhau t\u1EA1i trung \u0111i\u1EC3m m\u1ED7i \u0111\u01B0\u1EDDng.", [
+      void 0,
+      "Ch\u1EC9 \u0111\xFAng khi h\xECnh thoi l\xE0 h\xECnh vu\xF4ng.",
+      "Hai \u0111\u01B0\u1EDDng ch\xE9o lu\xF4n c\u1EAFt nhau.",
+      "Kh\xF4ng \u0111\xFAng n\xF3i chung."
+    ]),
+    mc(3, DT14, r5`Hình thoi \(ABCD\) có \(\widehat{ABD} = 35^\circ\). Số đo \(\widehat{BAD}\) là`, [r5`\(110^\circ\)`, r5`\(70^\circ\)`, r5`\(35^\circ\)`, r5`\(145^\circ\)`], r5`\(BD\) là phân giác góc \(B\) nên \(\widehat{ABC} = 70^\circ\); \(\widehat{BAD} = 180^\circ - 70^\circ = 110^\circ\).`, [
+      void 0,
+      r5`Đó là \(\widehat{ABC}\).`,
+      r5`Đó là \(\widehat{ABD}\).`,
+      r5`Tính nhầm \(180^\circ - 35^\circ\).`
+    ]),
+    mc(2, CM14, "H\xECnh b\xECnh h\xE0nh c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c l\xE0", ["h\xECnh thoi", "h\xECnh ch\u1EEF nh\u1EADt", "h\xECnh vu\xF4ng", "h\xECnh thang c\xE2n kh\xF4ng ph\u1EA3i h\xECnh b\xECnh h\xE0nh"], "\u0110\xE2y l\xE0 m\u1ED9t d\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt h\xECnh thoi.", [
+      void 0,
+      "H\xECnh ch\u1EEF nh\u1EADt c\u1EA7n hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau.",
+      "Ch\u01B0a c\xF3 g\xF3c vu\xF4ng ho\u1EB7c hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau.",
+      "\u0110\xE3 l\xE0 h\xECnh b\xECnh h\xE0nh."
+    ]),
+    mc(2, CM14, "H\xECnh ch\u1EEF nh\u1EADt c\xF3 hai c\u1EA1nh k\u1EC1 b\u1EB1ng nhau l\xE0", ["h\xECnh vu\xF4ng", "h\xECnh b\xECnh h\xE0nh kh\xF4ng c\xF3 g\xF3c vu\xF4ng", "h\xECnh thang c\xE2n c\xF3 hai \u0111\xE1y kh\xE1c nhau", "t\u1EE9 gi\xE1c c\xF3 \u0111\xFAng m\u1ED9t g\xF3c vu\xF4ng"], "H\xECnh ch\u1EEF nh\u1EADt c\xF3 hai c\u1EA1nh k\u1EC1 b\u1EB1ng nhau l\xE0 h\xECnh vu\xF4ng.", [
+      void 0,
+      "H\xECnh ch\u1EEF nh\u1EADt c\xF3 b\u1ED1n g\xF3c vu\xF4ng.",
+      "Hai \u0111\xE1y c\u1EE7a h\xECnh ch\u1EEF nh\u1EADt b\u1EB1ng nhau.",
+      "H\xECnh ch\u1EEF nh\u1EADt c\xF3 b\u1ED1n g\xF3c vu\xF4ng."
+    ]),
+    mc(3, CM14, r5`Tứ giác \(ABCD\) có bốn cạnh bằng nhau và \(\widehat{A} = 90^\circ\). Khi đó \(ABCD\) là`, ["h\xECnh vu\xF4ng", "h\xECnh thoi kh\xF4ng c\xF3 g\xF3c vu\xF4ng", "h\xECnh ch\u1EEF nh\u1EADt c\xF3 hai c\u1EA1nh k\u1EC1 kh\xE1c nhau", "h\xECnh thang c\xE2n kh\xF4ng ph\u1EA3i h\xECnh ch\u1EEF nh\u1EADt"], "T\u1EE9 gi\xE1c c\xF3 b\u1ED1n c\u1EA1nh b\u1EB1ng nhau l\xE0 h\xECnh thoi; h\xECnh thoi c\xF3 m\u1ED9t g\xF3c vu\xF4ng l\xE0 h\xECnh vu\xF4ng.", [
+      void 0,
+      r5`Có \(\widehat{A} = 90^\circ\).`,
+      "B\u1ED1n c\u1EA1nh b\u1EB1ng nhau.",
+      "\u0110\xE3 l\xE0 h\xECnh thoi c\xF3 g\xF3c vu\xF4ng."
+    ]),
+    mc(3, DK14, r5`Hình chữ nhật \(ABCD\) là hình vuông khi`, [r5`\(AC \perp BD\)`, r5`\(AC = BD\)`, r5`\(AB \parallel CD\)`, r5`\(\widehat{A} = 90^\circ\)`], "H\xECnh ch\u1EEF nh\u1EADt c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c l\xE0 h\xECnh vu\xF4ng.", [
+      void 0,
+      "M\u1ECDi h\xECnh ch\u1EEF nh\u1EADt \u0111\u1EC1u c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau.",
+      "M\u1ECDi h\xECnh ch\u1EEF nh\u1EADt \u0111\u1EC1u c\xF3 t\xEDnh ch\u1EA5t n\xE0y.",
+      "M\u1ECDi h\xECnh ch\u1EEF nh\u1EADt \u0111\u1EC1u c\xF3 g\xF3c vu\xF4ng."
+    ]),
+    mc(4, DK14, r5`Tam giác \(ABC\) vuông tại \(A\), \(AD\) là đường phân giác (\(D \in BC\)). Kẻ \(DE \perp AB\), \(DF \perp AC\) (\(E \in AB\), \(F \in AC\)). Tứ giác \(AEDF\) là`, ["h\xECnh vu\xF4ng", "h\xECnh thoi kh\xF4ng c\xF3 g\xF3c vu\xF4ng", "h\xECnh ch\u1EEF nh\u1EADt c\xF3 hai c\u1EA1nh k\u1EC1 kh\xE1c nhau", "h\xECnh thang c\xE2n kh\xF4ng ph\u1EA3i h\xECnh ch\u1EEF nh\u1EADt"], r5`\(AEDF\) có ba góc vuông nên là hình chữ nhật; đường chéo \(AD\) là phân giác góc \(A\) nên là hình vuông.`, [
+      void 0,
+      "C\xF3 g\xF3c vu\xF4ng t\u1EA1i \\(A\\).",
+      r5`\(DE = DF\) vì \(D\) nằm trên tia phân giác.`,
+      "\u0110\xE3 l\xE0 h\xECnh ch\u1EEF nh\u1EADt c\xF3 \u0111\u01B0\u1EDDng ch\xE9o l\xE0 ph\xE2n gi\xE1c."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, TG14, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      ["H\xECnh thoi c\xF3 b\u1ED1n c\u1EA1nh b\u1EB1ng nhau.", true, "\u0110\u1ECBnh ngh\u0129a."],
+      ["H\xECnh vu\xF4ng v\u1EEBa l\xE0 h\xECnh ch\u1EEF nh\u1EADt v\u1EEBa l\xE0 h\xECnh thoi.", true, "B\u1ED1n g\xF3c vu\xF4ng v\xE0 b\u1ED1n c\u1EA1nh b\u1EB1ng nhau."],
+      ["H\xECnh thoi c\xF3 b\u1ED1n g\xF3c b\u1EB1ng nhau.", false, "Ch\u1EC9 khi l\xE0 h\xECnh vu\xF4ng."],
+      ["H\xECnh thoi c\u0169ng l\xE0 h\xECnh b\xECnh h\xE0nh.", true, "C\xE1c c\u1EA1nh \u0111\u1ED1i b\u1EB1ng nhau."]
+    ]),
+    tf2(2, TG14, r5`Hình thoi \(ABCD\) có tâm \(O\), \(AC = 10\) cm, \(BD = 24\) cm.`, [
+      ["Di\u1EC7n t\xEDch h\xECnh thoi l\xE0 120 cm\xB2.", true, r5`\(\dfrac{10\cdot24}{2}\).`],
+      [r5`\(OA = 5\) cm.`, true, "N\u1EEDa \u0111\u01B0\u1EDDng ch\xE9o."],
+      ["Di\u1EC7n t\xEDch h\xECnh thoi l\xE0 240 cm\xB2.", false, "Qu\xEAn chia 2."],
+      [r5`\(AC \perp BD\).`, true, "T\xEDnh ch\u1EA5t h\xECnh thoi."]
+    ]),
+    tf2(2, TG14, r5`Hình thoi \(ABCD\) có \(\widehat{A} = 50^\circ\).`, [
+      [r5`\(\widehat{C} = 50^\circ\).`, true, "G\xF3c \u0111\u1ED1i b\u1EB1ng nhau."],
+      [r5`\(\widehat{B} = 130^\circ\).`, true, r5`\(180^\circ - 50^\circ\).`],
+      [r5`\(\widehat{BAC} = 25^\circ\).`, true, r5`\(AC\) là phân giác góc \(A\).`],
+      [r5`\(\widehat{ABD} = 50^\circ\).`, false, r5`\(\widehat{ABD} = 130^\circ : 2 = 65^\circ\).`]
+    ]),
+    tf2(2, DT14, r5`Hình vuông \(ABCD\) có tâm \(O\).`, [
+      [r5`\(AC = BD\).`, true, "H\xECnh vu\xF4ng l\xE0 h\xECnh ch\u1EEF nh\u1EADt."],
+      [r5`\(AC \perp BD\).`, true, "H\xECnh vu\xF4ng l\xE0 h\xECnh thoi."],
+      [r5`\(\triangle OAB\) vuông cân tại \(O\).`, true, r5`\(OA = OB\), \(\widehat{AOB} = 90^\circ\).`],
+      [r5`\(OA = AB\).`, false, r5`\(OA\) là cạnh góc vuông, \(AB\) là cạnh huyền của \(\triangle OAB\).`]
+    ]),
+    tf2(3, DT14, r5`Hình thoi \(ABCD\) có tâm \(O\).`, [
+      [r5`\(AC\) là tia phân giác của góc \(A\).`, true, "T\xEDnh ch\u1EA5t h\xECnh thoi."],
+      [r5`\(\triangle ABD\) cân tại \(A\).`, true, r5`\(AB = AD\).`],
+      [r5`\(\triangle AOB\) vuông tại \(O\).`, true, r5`\(AC \perp BD\).`],
+      [r5`\(\triangle ABC\) là tam giác đều.`, false, r5`Chỉ đúng khi \(\widehat{B} = 60^\circ\).`]
+    ]),
+    tf2(2, CM14, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c d\u1EA5u hi\u1EC7u:", [
+      ["H\xECnh b\xECnh h\xE0nh c\xF3 hai c\u1EA1nh k\u1EC1 b\u1EB1ng nhau l\xE0 h\xECnh thoi.", true, "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt."],
+      ["H\xECnh b\xECnh h\xE0nh c\xF3 m\u1ED9t \u0111\u01B0\u1EDDng ch\xE9o l\xE0 ph\xE2n gi\xE1c c\u1EE7a m\u1ED9t g\xF3c l\xE0 h\xECnh thoi.", true, "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt."],
+      ["T\u1EE9 gi\xE1c c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c l\xE0 h\xECnh thoi.", false, "C\u1EA7n l\xE0 h\xECnh b\xECnh h\xE0nh tr\u01B0\u1EDBc."],
+      ["H\xECnh thoi c\xF3 m\u1ED9t g\xF3c vu\xF4ng l\xE0 h\xECnh vu\xF4ng.", true, "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt."]
+    ]),
+    tf2(3, CM14, r5`Hình chữ nhật \(ABCD\) có \(AB = 2AD\); \(M\), \(N\) lần lượt là trung điểm của \(AB\), \(CD\).`, [
+      [r5`\(AMND\) là hình chữ nhật.`, true, r5`Hình bình hành \(AMND\) có \(\widehat{A} = 90^\circ\).`],
+      [r5`\(AM = AD\).`, true, r5`\(AM = \dfrac{AB}{2} = AD\).`],
+      [r5`\(AMND\) là hình vuông.`, true, "H\xECnh ch\u1EEF nh\u1EADt c\xF3 hai c\u1EA1nh k\u1EC1 b\u1EB1ng nhau."],
+      [r5`\(MBCN\) là hình thoi không có góc vuông.`, false, r5`\(MBCN\) cũng là hình vuông.`]
+    ]),
+    tf2(3, DK14, r5`Cho hình bình hành \(ABCD\).`, [
+      [r5`Nếu \(AC \perp BD\) thì \(ABCD\) là hình thoi.`, true, "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt."],
+      [r5`Nếu \(AC = BD\) thì \(ABCD\) là hình chữ nhật.`, true, "D\u1EA5u hi\u1EC7u nh\u1EADn bi\u1EBFt."],
+      [r5`Nếu \(AC = BD\) và \(AC \perp BD\) thì \(ABCD\) là hình vuông.`, true, "V\u1EEBa l\xE0 h\xECnh ch\u1EEF nh\u1EADt v\u1EEBa l\xE0 h\xECnh thoi."],
+      [r5`Nếu \(AB = BC\) thì \(ABCD\) là hình vuông.`, false, "M\u1EDBi l\xE0 h\xECnh thoi."]
+    ]),
+    tf2(4, DK14, r5`Cho tam giác \(ABC\), \(D\) là điểm trên cạnh \(BC\). Kẻ \(DE \parallel AC\) (\(E \in AB\)), \(DF \parallel AB\) (\(F \in AC\)).`, [
+      [r5`\(AEDF\) là hình bình hành.`, true, "C\xE1c c\u1EA1nh \u0111\u1ED1i song song."],
+      [r5`\(AEDF\) là hình thoi khi \(AD\) là tia phân giác của góc \(A\).`, true, "H\xECnh b\xECnh h\xE0nh c\xF3 \u0111\u01B0\u1EDDng ch\xE9o l\xE0 ph\xE2n gi\xE1c."],
+      [r5`\(AEDF\) là hình chữ nhật khi \(\widehat{A} = 90^\circ\).`, true, "H\xECnh b\xECnh h\xE0nh c\xF3 m\u1ED9t g\xF3c vu\xF4ng."],
+      [r5`\(AEDF\) là hình vuông khi \(\widehat{A} = 90^\circ\).`, false, r5`Cần thêm \(AD\) là phân giác góc \(A\).`]
+    ]),
+    tf2(2, TG14, r5`Hình vuông \(ABCD\) có cạnh 6 cm.`, [
+      ["Chu vi l\xE0 24 cm.", true, r5`\(4\cdot6\).`],
+      ["Di\u1EC7n t\xEDch l\xE0 36 cm\xB2.", true, r5`\(6^2\).`],
+      [r5`\(\widehat{CAB} = 45^\circ\).`, true, "\u0110\u01B0\u1EDDng ch\xE9o l\xE0 ph\xE2n gi\xE1c g\xF3c vu\xF4ng."],
+      ["Di\u1EC7n t\xEDch l\xE0 24 cm\xB2.", false, "Nh\u1EA7m v\u1EDBi chu vi."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(1, TG14, "H\xECnh thoi c\xF3 chu vi 36 cm. T\xEDnh \u0111\u1ED9 d\xE0i c\u1EA1nh h\xECnh thoi.", "9", r5`Cạnh \(= 36 : 4 = 9\) cm.`, CM),
+    sa2(2, TG14, "H\xECnh thoi c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o d\xE0i 12 cm v\xE0 9 cm. T\xEDnh di\u1EC7n t\xEDch h\xECnh thoi.", "54", r5`\(S = \dfrac{12\cdot9}{2} = 54\) cm².`, CM2),
+    sa2(2, TG14, r5`Hình thoi \(ABCD\) có \(\widehat{A} = 72^\circ\). Tính \(\widehat{ABD}\) (độ).`, "54", r5`\(\widehat{ABC} = 108^\circ\); \(BD\) là phân giác nên \(\widehat{ABD} = 54^\circ\).`, DEG),
+    sa2(2, TG14, "H\xECnh vu\xF4ng c\xF3 chu vi 28 cm. T\xEDnh di\u1EC7n t\xEDch h\xECnh vu\xF4ng.", "49", r5`Cạnh 7 cm; diện tích \(7^2 = 49\) cm².`, CM2),
+    sa2(3, DT14, r5`Hình thoi \(ABCD\) có \(\widehat{BAC} = 25^\circ\). Tính \(\widehat{ABC}\) (độ).`, "130", r5`\(\widehat{BAD} = 50^\circ\) (đường chéo là phân giác); \(\widehat{ABC} = 180^\circ - 50^\circ = 130^\circ\).`, DEG),
+    sa2(3, DT14, "H\xECnh thoi c\xF3 di\u1EC7n t\xEDch 96 cm\xB2 v\xE0 m\u1ED9t \u0111\u01B0\u1EDDng ch\xE9o d\xE0i 16 cm. T\xEDnh \u0111\u1ED9 d\xE0i \u0111\u01B0\u1EDDng ch\xE9o c\xF2n l\u1EA1i.", "12", r5`\(\dfrac{16\cdot d}{2} = 96 \Rightarrow d = 12\) cm.`, CM),
+    sa2(3, DT14, r5`Cho hình vuông \(ABCD\) và điểm \(E\) nằm trong hình vuông sao cho tam giác \(EAB\) đều. Tính \(\widehat{ADE}\) (độ).`, "75", r5`\(\widehat{DAE} = 90^\circ - 60^\circ = 30^\circ\); \(AD = AB = AE\) nên \(\triangle ADE\) cân tại \(A\): \(\widehat{ADE} = (180^\circ - 30^\circ) : 2 = 75^\circ\).`, DEG),
+    sa2(3, DK14, r5`Hình thoi \(ABCD\) có hai đường chéo \(AC = 2x + 4\) và \(BD = 3x - 2\) (cm). Tìm \(x\) để \(ABCD\) là hình vuông.`, "6", r5`Hình thoi là hình vuông khi hai đường chéo bằng nhau: \(2x + 4 = 3x - 2 \iff x = 6\).`),
+    // ---- Tự luận ----
+    es2(2, TG14, r5`Hình thoi \(ABCD\) có tâm \(O\) và \(\widehat{A} = 40^\circ\). Tính các góc của hình thoi và các góc của tam giác \(AOB\).`, r5`\(\widehat{C} = 40^\circ\), \(\widehat{B} = \widehat{D} = 140^\circ\).
+\(\widehat{OAB} = 20^\circ\), \(\widehat{OBA} = 70^\circ\) (đường chéo là phân giác), \(\widehat{AOB} = 90^\circ\) (hai đường chéo vuông góc).`, r5`0,5 điểm: tính đúng bốn góc hình thoi.
+0,5 điểm: tính đúng ba góc tam giác \(AOB\), có lí do.`),
+    es2(3, CM14, r5`Cho tam giác \(ABC\), \(D\) là một điểm trên cạnh \(BC\). Kẻ \(DE \parallel AC\) (\(E \in AB\)), \(DF \parallel AB\) (\(F \in AC\)).
+a) Chứng minh \(AEDF\) là hình bình hành.
+b) Chứng minh nếu \(AD\) là tia phân giác của góc \(BAC\) thì \(AEDF\) là hình thoi.`, r5`a) \(AE \parallel DF\), \(AF \parallel DE\) nên \(AEDF\) là hình bình hành.
+b) Hình bình hành \(AEDF\) có đường chéo \(AD\) là tia phân giác của góc \(EAF\) nên là hình thoi.`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b, nêu đúng dấu hiệu.`),
+    es2(3, DT14, r5`Cho hình vuông \(ABCD\). Trên các cạnh \(AB\), \(AD\) lấy các điểm \(E\), \(F\) sao cho \(AE = AF\). Chứng minh \(CE = CF\).`, r5`\(BE = AB - AE = AD - AF = DF\).
+Hai tam giác vuông \(CBE\), \(CDF\) có \(CB = CD\), \(\widehat{B} = \widehat{D} = 90^\circ\), \(BE = DF\) nên bằng nhau (c.g.c).
+Suy ra \(CE = CF\).`, r5`0,5 điểm: chứng minh \(BE = DF\).
+0,5 điểm: chứng minh hai tam giác bằng nhau và kết luận.`),
+    es2(4, DK14, r5`Cho tam giác \(ABC\), \(D\) là điểm trên cạnh \(BC\); \(DE \parallel AC\) (\(E \in AB\)), \(DF \parallel AB\) (\(F \in AC\)). Tam giác \(ABC\) và điểm \(D\) cần thỏa mãn điều kiện gì để \(AEDF\) là hình vuông?`, r5`\(AEDF\) là hình bình hành.
+\(AEDF\) là hình chữ nhật \(\iff \widehat{A} = 90^\circ\).
+\(AEDF\) là hình thoi \(\iff AD\) là tia phân giác của góc \(A\).
+Vậy \(AEDF\) là hình vuông khi tam giác \(ABC\) vuông tại \(A\) và \(D\) là giao điểm của tia phân giác góc \(A\) với \(BC\).`, r5`0,5 điểm: nêu đúng điều kiện để là hình chữ nhật và hình thoi.
+0,5 điểm: kết hợp và kết luận đúng điều kiện hình vuông.`),
+    ge2(3, DT14, r5`Cho hình thoi \(ABCD\) có \(\widehat{A} = 60^\circ\). Kẻ \(BH \perp AD\) (\(H \in AD\)). Chứng minh \(H\) là trung điểm của \(AD\).`, `A(0,0) B(2,3.46) C(6,3.46) D(4,0) H(2,0)
+ABCDA BD BH:dash
+vuong(B,H,D) goc(D,A,B)`, r5`Tam giác \(ABD\) có \(AB = AD\) (cạnh hình thoi) và \(\widehat{A} = 60^\circ\) nên là tam giác đều.
+Trong tam giác đều, đường cao \(BH\) cũng là đường trung tuyến, nên \(H\) là trung điểm của \(AD\).`, r5`0,5 điểm: chứng minh tam giác \(ABD\) đều.
+0,5 điểm: dùng tính chất đường cao – trung tuyến và kết luận.`)
+  ]
+};
+var BANK_CHUONG_3 = [B10, B11, B12, B13, B14];
+
 // src/seed/toan8-bank/index.ts
-var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2];
+var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3];
 
 // src/seed/question-bank.ts
 var BANK_SOURCE = "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi G\u01104 \u2013 t\u1EF1 bi\xEAn so\u1EA1n theo SGK To\xE1n 8 KNTT";
