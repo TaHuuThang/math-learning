@@ -44262,8 +44262,583 @@ Cạnh hình thoi bằng 4 cm.`, r5`0,5 điểm: chứng minh \(AEDF\) là hình
 };
 var BANK_CHUONG_4 = [B15, B16, B17];
 
+// src/seed/toan8-bank/chuong-5.ts
+var PCT = { unit: "%" };
+var DEG2 = { unit: "\xB0" };
+var TR = { unit: "tri\u1EC7u \u0111\u1ED3ng" };
+var PP = "phuong-phap-thu-thap-du-lieu";
+var HL = "tinh-hop-li-dai-dien-du-lieu";
+var PL = "phan-loai-du-lieu";
+var B18 = {
+  slug: "bai-18-thu-thap-va-phan-loai-du-lieu",
+  questions: [
+    mc(1, PP, "\u0110\u1EC3 bi\u1EBFt nhi\u1EC7t \u0111\u1ED9 cao nh\u1EA5t m\u1ED7i ng\xE0y \u1EDF H\xE0 N\u1ED9i trong th\xE1ng tr\u01B0\u1EDBc, c\xE1ch thu th\u1EADp d\u1EEF li\u1EC7u ph\xF9 h\u1EE3p l\xE0", ["tra c\u1EE9u s\u1ED1 li\u1EC7u c\u1EE7a c\u01A1 quan kh\xED t\u01B0\u1EE3ng", "ph\u1ECFng v\u1EA5n c\xE1c b\u1EA1n trong l\u1EDBp", "l\xE0m th\xED nghi\u1EC7m trong ph\xF2ng h\u1ECDc", "quan s\xE1t chi\u1EC1u cao c\xE2y trong s\xE2n tr\u01B0\u1EDDng"], "D\u1EEF li\u1EC7u \u0111\xE3 \u0111\u01B0\u1EE3c c\u01A1 quan kh\xED t\u01B0\u1EE3ng \u0111o v\xE0 c\xF4ng b\u1ED1, n\xEAn thu th\u1EADp gi\xE1n ti\u1EBFp b\u1EB1ng c\xE1ch tra c\u1EE9u.", [
+      void 0,
+      "C\xE1c b\u1EA1n kh\xF4ng c\xF3 s\u1ED1 li\u1EC7u \u0111o ch\xEDnh x\xE1c.",
+      "Kh\xF4ng th\u1EC3 l\xE0m th\xED nghi\u1EC7m \u0111\u1EC3 bi\u1EBFt nhi\u1EC7t \u0111\u1ED9 ng\xE0y \u0111\xE3 qua.",
+      "Kh\xF4ng li\xEAn quan \u0111\u1EBFn nhi\u1EC7t \u0111\u1ED9."
+    ]),
+    mc(1, PP, "C\xE1ch thu th\u1EADp d\u1EEF li\u1EC7u n\xE0o sau \u0111\xE2y l\xE0 thu th\u1EADp tr\u1EF1c ti\u1EBFp?", ["\u0110\u1EBFm s\u1ED1 b\u1EA1n \u0111i xe \u0111\u1EA1p \u0111\u1EBFn l\u1EDBp", "L\u1EA5y s\u1ED1 li\u1EC7u d\xE2n s\u1ED1 t\u1EEB ni\xEAn gi\xE1m th\u1ED1ng k\xEA", "Tra c\u1EE9u \u0111i\u1EC3m chu\u1EA9n tr\xEAn trang web c\u1EE7a S\u1EDF Gi\xE1o d\u1EE5c", "\u0110\u1ECDc s\u1ED1 li\u1EC7u trong m\u1ED9t b\xE0i b\xE1o"], "T\u1EF1 \u0111\u1EBFm (quan s\xE1t) l\xE0 thu th\u1EADp tr\u1EF1c ti\u1EBFp; ba c\xE1ch c\xF2n l\u1EA1i l\u1EA5y d\u1EEF li\u1EC7u c\xF3 s\u1EB5n n\xEAn l\xE0 gi\xE1n ti\u1EBFp.", [
+      void 0,
+      "L\u1EA5y d\u1EEF li\u1EC7u c\xF3 s\u1EB5n l\xE0 gi\xE1n ti\u1EBFp.",
+      "L\u1EA5y d\u1EEF li\u1EC7u c\xF3 s\u1EB5n l\xE0 gi\xE1n ti\u1EBFp.",
+      "L\u1EA5y d\u1EEF li\u1EC7u c\xF3 s\u1EB5n l\xE0 gi\xE1n ti\u1EBFp."
+    ]),
+    mc(2, PP, "B\u1EA1n H\xE0 mu\u1ED1n bi\u1EBFt th\u1EDDi gian ng\u1EE7 m\u1ED7i \u0111\xEAm c\u1EE7a c\xE1c b\u1EA1n l\u1EDBp 8A. C\xE1ch l\xE0m ph\xF9 h\u1EE3p nh\u1EA5t l\xE0", ["ph\xE1t phi\u1EBFu h\u1ECFi cho t\u1EA5t c\u1EA3 c\xE1c b\u1EA1n trong l\u1EDBp", "h\u1ECFi 3 b\u1EA1n ng\u1ED3i c\u1EA1nh m\xECnh", "tra c\u1EE9u tr\xEAn Internet", "h\u1ECFi gi\xE1o vi\xEAn ch\u1EE7 nhi\u1EC7m"], "\u0110\u1ED1i t\u01B0\u1EE3ng l\xE0 c\xE1c b\u1EA1n trong l\u1EDBp, c\xF3 th\u1EC3 h\u1ECFi tr\u1EF1c ti\u1EBFp t\u1EA5t c\u1EA3 \u0111\u1EC3 c\xF3 d\u1EEF li\u1EC7u \u0111\u1EA7y \u0111\u1EE7, ch\xEDnh x\xE1c.", [
+      void 0,
+      "Ba b\u1EA1n kh\xF4ng \u0111\u1EA1i di\u1EC7n cho c\u1EA3 l\u1EDBp.",
+      "Internet kh\xF4ng c\xF3 d\u1EEF li\u1EC7u ri\xEAng c\u1EE7a l\u1EDBp 8A.",
+      "Gi\xE1o vi\xEAn kh\xF4ng bi\u1EBFt th\u1EDDi gian ng\u1EE7 c\u1EE7a t\u1EEBng b\u1EA1n."
+    ]),
+    mc(1, PL, "D\u1EEF li\u1EC7u n\xE0o sau \u0111\xE2y l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng?", ["C\xE2n n\u1EB7ng c\u1EE7a h\u1ECDc sinh", "M\xE0u \xE1o y\xEAu th\xEDch", "T\xEAn c\xE1c m\xF4n h\u1ECDc", "N\u01A1i sinh"], "C\xE2n n\u1EB7ng \u0111\u01B0\u1EE3c bi\u1EC3u di\u1EC5n b\u1EB1ng s\u1ED1 n\xEAn l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng.", [
+      void 0,
+      "Kh\xF4ng ph\u1EA3i s\u1ED1 n\xEAn l\xE0 \u0111\u1ECBnh t\xEDnh.",
+      "Kh\xF4ng ph\u1EA3i s\u1ED1 n\xEAn l\xE0 \u0111\u1ECBnh t\xEDnh.",
+      "Kh\xF4ng ph\u1EA3i s\u1ED1 n\xEAn l\xE0 \u0111\u1ECBnh t\xEDnh."
+    ]),
+    mc(1, PL, "D\u1EEF li\u1EC7u n\xE0o sau \u0111\xE2y l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh?", ["Ph\u01B0\u01A1ng ti\u1EC7n \u0111\u1EBFn tr\u01B0\u1EDDng", "S\u1ED1 anh ch\u1ECB em", "Chi\u1EC1u cao", "\u0110i\u1EC3m ki\u1EC3m tra"], "Ph\u01B0\u01A1ng ti\u1EC7n (\u0111i b\u1ED9, xe \u0111\u1EA1p\u2026) kh\xF4ng ph\u1EA3i l\xE0 s\u1ED1 n\xEAn l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh.", [
+      void 0,
+      "L\xE0 s\u1ED1 \u0111\u1EBFm \u0111\u01B0\u1EE3c n\xEAn \u0111\u1ECBnh l\u01B0\u1EE3ng.",
+      "L\xE0 s\u1ED1 \u0111o \u0111\u01B0\u1EE3c n\xEAn \u0111\u1ECBnh l\u01B0\u1EE3ng.",
+      "L\xE0 s\u1ED1 n\xEAn \u0111\u1ECBnh l\u01B0\u1EE3ng."
+    ]),
+    mc(2, PL, "D\u1EEF li\u1EC7u n\xE0o sau \u0111\xE2y l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng r\u1EDDi r\u1EA1c?", ["S\u1ED1 h\u1ECDc sinh v\u1EAFng m\u1EB7t m\u1ED7i ng\xE0y", "Chi\u1EC1u cao c\u1EE7a h\u1ECDc sinh (cm)", "Th\u1EDDi gian ch\u1EA1y 100 m", "M\u1EE9c \u0111\u1ED9 h\xE0i l\xF2ng"], "S\u1ED1 h\u1ECDc sinh v\u1EAFng l\xE0 s\u1ED1 \u0111\u1EBFm \u0111\u01B0\u1EE3c n\xEAn l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng r\u1EDDi r\u1EA1c.", [
+      void 0,
+      "\u0110o \u0111\u01B0\u1EE3c n\xEAn l\xE0 \u0111\u1ECBnh l\u01B0\u1EE3ng li\xEAn t\u1EE5c.",
+      "\u0110o \u0111\u01B0\u1EE3c n\xEAn l\xE0 \u0111\u1ECBnh l\u01B0\u1EE3ng li\xEAn t\u1EE5c.",
+      "Kh\xF4ng ph\u1EA3i s\u1ED1 n\xEAn l\xE0 \u0111\u1ECBnh t\xEDnh."
+    ]),
+    mc(2, PL, "D\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh n\xE0o sau \u0111\xE2y c\xF3 th\u1EC3 s\u1EAFp x\u1EBFp theo th\u1EE9 t\u1EF1?", ["X\u1EBFp lo\u1EA1i h\u1ECDc t\u1EADp: T\u1ED1t, Kh\xE1, \u0110\u1EA1t, Ch\u01B0a \u0111\u1EA1t", "M\xE0u s\u1EAFc y\xEAu th\xEDch", "M\xF4n th\u1EC3 thao y\xEAu th\xEDch", "Qu\xEA qu\xE1n"], "C\xE1c m\u1EE9c x\u1EBFp lo\u1EA1i h\u1ECDc t\u1EADp c\xF3 th\u1EE9 t\u1EF1 t\u1EEB cao \u0111\u1EBFn th\u1EA5p.", [
+      void 0,
+      "C\xE1c m\xE0u kh\xF4ng c\xF3 th\u1EE9 t\u1EF1.",
+      "C\xE1c m\xF4n th\u1EC3 thao kh\xF4ng c\xF3 th\u1EE9 t\u1EF1.",
+      "C\xE1c t\u1EC9nh, th\xE0nh kh\xF4ng c\xF3 th\u1EE9 t\u1EF1."
+    ]),
+    mc(2, HL, r5`Bạn Nam ghi chiều cao (cm) của 5 bạn lớp 8: \(152\); \(148\); \(1{,}55\); \(160\); \(157\). Giá trị không hợp lí là`, [r5`\(1{,}55\)`, r5`\(152\)`, r5`\(160\)`, r5`\(148\)`], r5`Học sinh lớp 8 không thể cao \(1{,}55\) cm; có lẽ ghi theo mét, sai đơn vị.`, [
+      void 0,
+      "Gi\xE1 tr\u1ECB h\u1EE3p l\xED.",
+      "Gi\xE1 tr\u1ECB h\u1EE3p l\xED.",
+      "Gi\xE1 tr\u1ECB h\u1EE3p l\xED."
+    ]),
+    mc(2, HL, r5`Số học sinh các lớp khối 8 được ghi: 8A: 40; 8B: 38; 8C: \(-2\); 8D: 41. Giá trị không hợp lí là`, [r5`\(-2\)`, r5`\(40\)`, r5`\(38\)`, r5`\(41\)`], "S\u1ED1 h\u1ECDc sinh kh\xF4ng th\u1EC3 l\xE0 s\u1ED1 \xE2m.", [
+      void 0,
+      "Gi\xE1 tr\u1ECB h\u1EE3p l\xED.",
+      "Gi\xE1 tr\u1ECB h\u1EE3p l\xED.",
+      "Gi\xE1 tr\u1ECB h\u1EE3p l\xED."
+    ]),
+    mc(3, HL, "\u0110\u1EC3 t\xECm hi\u1EC3u m\xF4n th\u1EC3 thao \u0111\u01B0\u1EE3c y\xEAu th\xEDch nh\u1EA5t c\u1EE7a h\u1ECDc sinh to\xE0n tr\u01B0\u1EDDng, c\xE1ch ch\u1ECDn m\u1EABu n\xE0o \u0111\u1EA1i di\u1EC7n nh\u1EA5t?", ["Ch\u1ECDn ng\u1EABu nhi\xEAn m\u1ED7i l\u1EDBp 5 h\u1ECDc sinh", "Ch\u1ECDn 30 b\u1EA1n trong \u0111\u1ED9i b\xF3ng \u0111\xE1", "Ch\u1ECDn t\u1EA5t c\u1EA3 h\u1ECDc sinh l\u1EDBp 6A", "Ch\u1ECDn c\xE1c b\u1EA1n \u0111\u1EBFn th\u01B0 vi\u1EC7n s\xE1ng th\u1EE9 Hai"], "M\u1EABu \u0111\u1EA1i di\u1EC7n c\u1EA7n c\xF3 m\u1EB7t h\u1ECDc sinh \u1EDF m\u1ECDi l\u1EDBp, m\u1ECDi kh\u1ED1i v\xE0 \u0111\u01B0\u1EE3c ch\u1ECDn ng\u1EABu nhi\xEAn.", [
+      void 0,
+      "C\xE1c b\u1EA1n \u0111\u1ED9i b\xF3ng \u0111\u1EC1u th\xEDch b\xF3ng \u0111\xE1: m\u1EABu b\u1ECB l\u1EC7ch.",
+      "Ch\u1EC9 c\xF3 m\u1ED9t l\u1EDBp, m\u1ED9t kh\u1ED1i.",
+      "Ch\u1EC9 c\xF3 nh\xF3m b\u1EA1n th\xEDch \u0111\u1ECDc s\xE1ch."
+    ]),
+    mc(3, HL, 'M\u1ED9t kh\u1EA3o s\xE1t tr\u1EF1c tuy\u1EBFn v\u1EC1 th\u1EDDi gian d\xF9ng m\u1EA1ng x\xE3 h\u1ED9i cho k\u1EBFt qu\u1EA3 "trung b\xECnh 9 gi\u1EDD m\u1ED7i ng\xE0y", nh\u01B0ng phi\u1EBFu ch\u1EC9 \u0111\u01B0\u1EE3c g\u1EEDi trong m\u1ED9t nh\xF3m ng\u01B0\u1EDDi d\xF9ng m\u1EA1ng r\u1EA5t nhi\u1EC1u. Nh\u1EADn x\xE9t n\xE0o \u0111\xFAng?', ["M\u1EABu kh\xF4ng \u0111\u1EA1i di\u1EC7n n\xEAn k\u1EBFt qu\u1EA3 kh\xF4ng ph\u1EA3n \xE1nh \u0111\xFAng m\u1ECDi ng\u01B0\u1EDDi", "K\u1EBFt qu\u1EA3 ch\xEDnh x\xE1c v\xEC c\xF3 nhi\u1EC1u ng\u01B0\u1EDDi tr\u1EA3 l\u1EDDi", "M\u1ECDi ng\u01B0\u1EDDi \u0111\u1EC1u d\xF9ng m\u1EA1ng x\xE3 h\u1ED9i 9 gi\u1EDD m\u1ED7i ng\xE0y", "D\u1EEF li\u1EC7u thu \u0111\u01B0\u1EE3c l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh"], "Ng\u01B0\u1EDDi tr\u1EA3 l\u1EDDi ch\u1EC9 thu\u1ED9c nh\xF3m d\xF9ng m\u1EA1ng nhi\u1EC1u n\xEAn m\u1EABu b\u1ECB l\u1EC7ch, kh\xF4ng \u0111\u1EA1i di\u1EC7n.", [
+      void 0,
+      "Nhi\u1EC1u ng\u01B0\u1EDDi nh\u01B0ng c\xF9ng m\u1ED9t nh\xF3m v\u1EABn kh\xF4ng \u0111\u1EA1i di\u1EC7n.",
+      "Kh\xF4ng th\u1EC3 suy ra cho m\u1ECDi ng\u01B0\u1EDDi t\u1EEB m\u1EABu l\u1EC7ch.",
+      "Th\u1EDDi gian l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, PP, "X\xE9t t\xEDnh \u0111\xFAng sai v\u1EC1 ph\u01B0\u01A1ng ph\xE1p thu th\u1EADp d\u1EEF li\u1EC7u:", [
+      ["Ph\u1ECFng v\u1EA5n l\xE0 c\xE1ch thu th\u1EADp tr\u1EF1c ti\u1EBFp.", true, "Ng\u01B0\u1EDDi thu th\u1EADp t\u1EF1 h\u1ECFi \u0111\u1EC3 c\xF3 d\u1EEF li\u1EC7u."],
+      ["L\u1EA5y s\u1ED1 li\u1EC7u t\u1EEB trang web c\u1EE7a T\u1ED5ng c\u1EE5c Th\u1ED1ng k\xEA l\xE0 thu th\u1EADp gi\xE1n ti\u1EBFp.", true, "D\u1EEF li\u1EC7u c\xF3 s\u1EB5n."],
+      ["L\xE0m th\xED nghi\u1EC7m l\xE0 thu th\u1EADp gi\xE1n ti\u1EBFp.", false, "T\u1EF1 l\xE0m \u0111\u1EC3 c\xF3 d\u1EEF li\u1EC7u n\xEAn l\xE0 tr\u1EF1c ti\u1EBFp."],
+      ["Quan s\xE1t l\xE0 c\xE1ch thu th\u1EADp tr\u1EF1c ti\u1EBFp.", true, "Ng\u01B0\u1EDDi thu th\u1EADp t\u1EF1 quan s\xE1t."]
+    ]),
+    tf2(2, PP, "B\u1EA1n An mu\u1ED1n bi\u1EBFt s\u1ED1 xe m\xE1y \u0111i qua c\u1ED5ng tr\u01B0\u1EDDng trong 30 ph\xFAt gi\u1EDD tan h\u1ECDc.", [
+      ["C\xF3 th\u1EC3 \u0111\u1EE9ng \u1EDF c\u1ED5ng tr\u01B0\u1EDDng \u0111\u1EC3 \u0111\u1EBFm tr\u1EF1c ti\u1EBFp.", true, "Quan s\xE1t, \u0111\u1EBFm l\xE0 tr\u1EF1c ti\u1EBFp."],
+      ["\u0110\xE2y l\xE0 c\xE1ch thu th\u1EADp gi\xE1n ti\u1EBFp.", false, "T\u1EF1 \u0111\u1EBFm l\xE0 tr\u1EF1c ti\u1EBFp."],
+      ["N\xEAn ghi k\u1EBFt qu\u1EA3 v\xE0o b\u1EA3ng ki\u1EC3m \u0111\u1EBFm.", true, "Gi\xFAp \u0111\u1EBFm ch\xEDnh x\xE1c."],
+      ["Ch\u1EC9 c\u1EA7n h\u1ECFi m\u1ED9t ng\u01B0\u1EDDi b\u1EA1n l\xE0 c\xF3 s\u1ED1 li\u1EC7u ch\xEDnh x\xE1c.", false, "M\u1ED9t ng\u01B0\u1EDDi b\u1EA1n kh\xF4ng c\xF3 s\u1ED1 li\u1EC7u \u0111\u1EBFm."]
+    ]),
+    tf2(1, PL, "X\xE9t t\xEDnh \u0111\xFAng sai v\u1EC1 c\xE1c lo\u1EA1i d\u1EEF li\u1EC7u:", [
+      ["C\xE2n n\u1EB7ng l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng.", true, "L\xE0 s\u1ED1 \u0111o."],
+      ["Qu\xEA qu\xE1n l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh.", true, "Kh\xF4ng ph\u1EA3i s\u1ED1."],
+      ["\u0110i\u1EC3m ki\u1EC3m tra l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh.", false, "\u0110i\u1EC3m l\xE0 s\u1ED1 n\xEAn \u0111\u1ECBnh l\u01B0\u1EE3ng."],
+      ["M\u1EE9c \u0111\u1ED9 y\xEAu th\xEDch (r\u1EA5t th\xEDch, th\xEDch, kh\xF4ng th\xEDch) l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh.", true, "Kh\xF4ng ph\u1EA3i s\u1ED1, nh\u01B0ng c\xF3 th\u1EE9 t\u1EF1."]
+    ]),
+    tf2(2, PL, "M\u1ED9t phi\u1EBFu th\xF4ng tin h\u1ECDc sinh g\u1ED3m c\xE1c m\u1EE5c sau. X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      ['"S\u1ED1 gi\u1EDD t\u1EF1 h\u1ECDc m\u1ED7i ng\xE0y" l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng li\xEAn t\u1EE5c.', true, "Th\u1EDDi gian \u0111o \u0111\u01B0\u1EE3c."],
+      ['"S\u1ED1 b\u1EA1n th\xE2n" l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng r\u1EDDi r\u1EA1c.', true, "\u0110\u1EBFm \u0111\u01B0\u1EE3c."],
+      ['"M\xF4n h\u1ECDc y\xEAu th\xEDch" l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng.', false, "Kh\xF4ng ph\u1EA3i s\u1ED1."],
+      ['"X\u1EBFp lo\u1EA1i r\xE8n luy\u1EC7n" l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh c\xF3 th\u1EC3 s\u1EAFp th\u1EE9 t\u1EF1.', true, "C\xE1c m\u1EE9c c\xF3 th\u1EE9 t\u1EF1."]
+    ]),
+    tf2(2, HL, r5`Lớp 8B có 40 học sinh. Số học sinh vắng trong 6 ngày được ghi: \(1\); \(0\); \(2\); \(45\); \(1\); \(3\).`, [
+      [r5`Giá trị \(45\) không hợp lí.`, true, "L\u1EDBn h\u01A1n s\u0129 s\u1ED1 l\u1EDBp."],
+      ["C\xE1c gi\xE1 tr\u1ECB c\xF2n l\u1EA1i h\u1EE3p l\xED.", true, "\u0110\u1EC1u t\u1EEB 0 \u0111\u1EBFn 40."],
+      [r5`Giá trị \(0\) không hợp lí.`, false, "C\xF3 th\u1EC3 kh\xF4ng c\xF3 b\u1EA1n n\xE0o v\u1EAFng."],
+      [r5`Cần kiểm tra lại giá trị \(45\).`, true, "C\xF3 th\u1EC3 ghi nh\u1EA7m."]
+    ]),
+    tf2(3, HL, "\u0110\u1EC3 bi\u1EBFt t\u1EC9 l\u1EC7 h\u1ECDc sinh to\xE0n tr\u01B0\u1EDDng b\u1ECB c\u1EADn th\u1ECB, b\u1EA1n Minh ch\u1EC9 h\u1ECFi c\xE1c b\u1EA1n trong c\xE2u l\u1EA1c b\u1ED9 c\u1EDD vua.", [
+      ["M\u1EABu c\xF3 th\u1EC3 kh\xF4ng \u0111\u1EA1i di\u1EC7n cho to\xE0n tr\u01B0\u1EDDng.", true, "Ch\u1EC9 m\u1ED9t nh\xF3m nh\u1ECF, c\xF9ng s\u1EDF th\xEDch."],
+      ["K\u1EBFt lu\u1EADn cho to\xE0n tr\u01B0\u1EDDng c\xF3 th\u1EC3 sai l\u1EC7ch.", true, "Do m\u1EABu b\u1ECB l\u1EC7ch."],
+      ["M\u1EABu t\u1ED1t h\u01A1n l\xE0 ch\u1ECDn ng\u1EABu nhi\xEAn h\u1ECDc sinh \u1EDF m\u1ECDi l\u1EDBp.", true, "C\xF3 \u0111\u1EE7 c\xE1c nh\xF3m."],
+      ["Ch\u1EC9 c\u1EA7n h\u1ECFi th\u1EADt nhi\u1EC1u b\u1EA1n trong c\xE2u l\u1EA1c b\u1ED9 c\u1EDD vua l\xE0 \u0111\u1EE7 \u0111\u1EA1i di\u1EC7n.", false, "V\u1EABn ch\u1EC9 l\xE0 m\u1ED9t nh\xF3m."]
+    ]),
+    tf2(3, HL, "M\u1ED9t b\u1EA3ng ghi t\u1EC9 l\u1EC7 ph\u01B0\u01A1ng ti\u1EC7n \u0111\u1EBFn tr\u01B0\u1EDDng c\u1EE7a h\u1ECDc sinh (m\u1ED7i b\u1EA1n ch\u1ECDn \u0111\xFAng m\u1ED9t ph\u01B0\u01A1ng ti\u1EC7n): \u0111i b\u1ED9 25%, xe \u0111\u1EA1p 40%, xe bu\xFDt 15%, b\u1ED1 m\u1EB9 \u0111\u01B0a 30%.", [
+      ["T\u1ED5ng c\xE1c t\u1EC9 l\u1EC7 b\u1EB1ng 110%.", true, r5`\(25 + 40 + 15 + 30\).`],
+      ["D\u1EEF li\u1EC7u trong b\u1EA3ng kh\xF4ng h\u1EE3p l\xED.", true, "T\u1ED5ng ph\u1EA3i b\u1EB1ng 100%."],
+      ["D\u1EEF li\u1EC7u h\u1EE3p l\xED v\xEC m\u1ED7i t\u1EC9 l\u1EC7 \u0111\u1EC1u nh\u1ECF h\u01A1n 100%.", false, "C\xF2n ph\u1EA3i ki\u1EC3m tra t\u1ED5ng."],
+      ["C\u1EA7n ki\u1EC3m tra l\u1EA1i s\u1ED1 li\u1EC7u.", true, "C\xF3 s\u1ED1 li\u1EC7u ghi sai."]
+    ]),
+    tf2(2, PL, r5`Dãy dữ liệu "Nhiệt độ trung bình các tháng (°C): \(17\); \(18\); \(20\); \(24\)".`, [
+      ["\u0110\xE2y l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng.", true, "L\xE0 s\u1ED1."],
+      ["\u0110\xE2y l\xE0 d\u1EEF li\u1EC7u li\xEAn t\u1EE5c.", true, "Nhi\u1EC7t \u0111\u1ED9 \u0111o \u0111\u01B0\u1EE3c."],
+      ["\u0110\xE2y l\xE0 d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh.", false, "L\xE0 s\u1ED1."],
+      ["C\xF3 th\u1EC3 t\xEDnh nhi\u1EC7t \u0111\u1ED9 trung b\xECnh c\u1EE7a b\u1ED1n th\xE1ng.", true, "D\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng t\xEDnh \u0111\u01B0\u1EE3c trung b\xECnh."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(1, PL, "Trong c\xE1c d\u1EEF li\u1EC7u sau c\xF3 bao nhi\xEAu d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng: chi\u1EC1u cao; m\xE0u m\u1EAFt; s\u1ED1 anh ch\u1ECB em; c\xE2n n\u1EB7ng; n\u01A1i sinh; m\xF4n h\u1ECDc y\xEAu th\xEDch?", "3", "D\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng: chi\u1EC1u cao, s\u1ED1 anh ch\u1ECB em, c\xE2n n\u1EB7ng."),
+    sa2(2, PL, "Trong c\xE1c d\u1EEF li\u1EC7u sau c\xF3 bao nhi\xEAu d\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh: \u0111i\u1EC3m ki\u1EC3m tra; lo\u1EA1i s\xE1ch y\xEAu th\xEDch; s\u1ED1 b\u1EA1n nam; x\u1EBFp lo\u1EA1i h\u1ECDc t\u1EADp; nhi\u1EC7t \u0111\u1ED9; t\xEAn c\xE1c t\u1EC9nh?", "3", "D\u1EEF li\u1EC7u \u0111\u1ECBnh t\xEDnh: lo\u1EA1i s\xE1ch y\xEAu th\xEDch, x\u1EBFp lo\u1EA1i h\u1ECDc t\u1EADp, t\xEAn c\xE1c t\u1EC9nh."),
+    sa2(2, PL, "Trong c\xE1c d\u1EEF li\u1EC7u sau c\xF3 bao nhi\xEAu d\u1EEF li\u1EC7u \u0111\u1ECBnh l\u01B0\u1EE3ng r\u1EDDi r\u1EA1c: s\u1ED1 h\u1ECDc sinh m\u1ED7i l\u1EDBp; chi\u1EC1u cao; s\u1ED1 \xF4 t\xF4 qua tr\u1EA1m m\u1ED7i gi\u1EDD; c\xE2n n\u1EB7ng; s\u1ED1 trang s\xE1ch?", "3", "\u0110\u1EBFm \u0111\u01B0\u1EE3c: s\u1ED1 h\u1ECDc sinh, s\u1ED1 \xF4 t\xF4, s\u1ED1 trang s\xE1ch. Chi\u1EC1u cao, c\xE2n n\u1EB7ng l\xE0 li\xEAn t\u1EE5c."),
+    sa2(1, PL, "M\u1ED9t phi\u1EBFu h\u1ECFi g\u1ED3m 5 m\u1EE5c: h\u1ECD v\xE0 t\xEAn; n\u0103m sinh; c\xE2n n\u1EB7ng (kg); m\xE0u y\xEAu th\xEDch; s\u1ED1 gi\u1EDD ng\u1EE7 m\u1ED7i \u0111\xEAm. C\xF3 bao nhi\xEAu m\u1EE5c thu \u0111\u01B0\u1EE3c d\u1EEF li\u1EC7u l\xE0 s\u1ED1?", "3", "N\u0103m sinh, c\xE2n n\u1EB7ng, s\u1ED1 gi\u1EDD ng\u1EE7 l\xE0 d\u1EEF li\u1EC7u s\u1ED1."),
+    sa2(1, PP, "Trong c\xE1c c\xE1ch sau c\xF3 bao nhi\xEAu c\xE1ch thu th\u1EADp d\u1EEF li\u1EC7u tr\u1EF1c ti\u1EBFp: ph\u1ECFng v\u1EA5n; quan s\xE1t; l\xE0m th\xED nghi\u1EC7m; tra c\u1EE9u Internet; l\u1EADp phi\u1EBFu h\u1ECFi; \u0111\u1ECDc b\xE1o?", "4", "Tr\u1EF1c ti\u1EBFp: ph\u1ECFng v\u1EA5n, quan s\xE1t, l\xE0m th\xED nghi\u1EC7m, l\u1EADp phi\u1EBFu h\u1ECFi. Tra c\u1EE9u Internet, \u0111\u1ECDc b\xE1o l\xE0 gi\xE1n ti\u1EBFp."),
+    sa2(2, PP, "B\u1EA1n Lan ph\xE1t phi\u1EBFu kh\u1EA3o s\xE1t cho 45 b\u1EA1n v\xE0 thu v\u1EC1 36 phi\u1EBFu. T\u1EC9 l\u1EC7 phi\u1EBFu thu v\u1EC1 l\xE0 bao nhi\xEAu ph\u1EA7n tr\u0103m?", "80", r5`\(\dfrac{36}{45}\cdot100\% = 80\%\).`, PCT),
+    sa2(2, HL, r5`Điểm kiểm tra (thang điểm 10) của tổ 1 được ghi: \(8\); \(7\); \(9{,}5\); \(11\); \(6\); \(10\); \(-1\); \(7{,}5\). Có bao nhiêu giá trị không hợp lí?`, "2", r5`Điểm phải từ 0 đến 10; \(11\) và \(-1\) không hợp lí.`),
+    sa2(2, HL, r5`Thời gian chạy 100 m (giây) của 6 bạn: \(15{,}2\); \(14{,}8\); \(1{,}6\); \(16{,}0\); \(150\); \(15{,}5\). Có bao nhiêu giá trị không hợp lí?`, "2", r5`\(1{,}6\) giây quá nhanh và \(150\) giây quá chậm so với thực tế; hai giá trị này không hợp lí.`),
+    sa2(3, HL, "L\u1EDBp 8A c\xF3 40 h\u1ECDc sinh, m\u1ED7i b\u1EA1n ch\u1ECDn \u0111\xFAng m\u1ED9t m\xF4n th\u1EC3 thao y\xEAu th\xEDch. B\u1EA3ng th\u1ED1ng k\xEA: b\xF3ng \u0111\xE1 18 b\u1EA1n, c\u1EA7u l\xF4ng 12 b\u1EA1n, b\u01A1i 8 b\u1EA1n v\xE0 m\xF4n kh\xE1c (b\u1ECB ghi thi\u1EBFu). S\u1ED1 b\u1EA1n ch\u1ECDn m\xF4n kh\xE1c l\xE0 bao nhi\xEAu \u0111\u1EC3 d\u1EEF li\u1EC7u h\u1EE3p l\xED?", "2", r5`\(40 - (18 + 12 + 8) = 2\).`),
+    sa2(3, HL, "B\u1EA3ng t\u1EC9 l\u1EC7 h\u1ECDc sinh ch\u1ECDn c\xE2u l\u1EA1c b\u1ED9 (m\u1ED7i b\u1EA1n ch\u1ECDn \u0111\xFAng m\u1ED9t c\xE2u l\u1EA1c b\u1ED9): To\xE1n 35%, Ti\u1EBFng Anh 28%, Th\u1EC3 thao 22%, M\u0129 thu\u1EADt x%. T\xECm x \u0111\u1EC3 d\u1EEF li\u1EC7u h\u1EE3p l\xED.", "15", r5`Tổng phải bằng 100%: \(x = 100 - 85 = 15\).`, PCT),
+    // ---- Tự luận ----
+    es2(2, PP, "B\u1EA1n Mai mu\u1ED1n t\xECm hi\u1EC3u s\u1ED1 trang s\xE1ch m\u1ED7i b\u1EA1n l\u1EDBp 8C \u0111\u1ECDc trong m\u1ED9t tu\u1EA7n. H\xE3y n\xEAu ph\u01B0\u01A1ng ph\xE1p thu th\u1EADp d\u1EEF li\u1EC7u ph\xF9 h\u1EE3p v\xE0 vi\u1EBFt hai c\xE2u h\u1ECFi cho phi\u1EBFu kh\u1EA3o s\xE1t.", r5`Thu thập trực tiếp bằng phiếu hỏi (hoặc phỏng vấn) tất cả học sinh lớp 8C.
+Ví dụ câu hỏi:
+- "Trong tuần qua, em đọc được khoảng bao nhiêu trang sách (không kể sách giáo khoa)?"
+- "Em thường đọc sách vào thời gian nào: buổi sáng, buổi chiều, buổi tối?"`, r5`0,5 điểm: nêu đúng phương pháp trực tiếp, đối tượng là cả lớp.
+0,5 điểm: viết được hai câu hỏi rõ ràng, phù hợp mục đích.`),
+    es2(2, PL, "Phi\u1EBFu \u0111\u0103ng k\xED c\xE2u l\u1EA1c b\u1ED9 g\u1ED3m c\xE1c m\u1EE5c: t\xEAn c\xE2u l\u1EA1c b\u1ED9; s\u1ED1 bu\u1ED5i tham gia m\u1ED7i tu\u1EA7n; qu\xE3ng \u0111\u01B0\u1EDDng t\u1EEB nh\xE0 \u0111\u1EBFn tr\u01B0\u1EDDng (km); m\u1EE9c \u0111\u1ED9 h\u1EE9ng th\xFA (cao, trung b\xECnh, th\u1EA5p). Ph\xE2n lo\u1EA1i d\u1EEF li\u1EC7u c\u1EE7a t\u1EEBng m\u1EE5c.", r5`- Tên câu lạc bộ: định tính, không có thứ tự.
+- Số buổi tham gia mỗi tuần: định lượng rời rạc.
+- Quãng đường từ nhà đến trường: định lượng liên tục.
+- Mức độ hứng thú: định tính, có thứ tự.`, r5`0,5 điểm: phân loại đúng hai mục định lượng (rời rạc, liên tục).
+0,5 điểm: phân loại đúng hai mục định tính (có/không có thứ tự).`),
+    es2(2, PP, "N\xEAn thu th\u1EADp d\u1EEF li\u1EC7u tr\u1EF1c ti\u1EBFp hay gi\xE1n ti\u1EBFp trong m\u1ED7i tr\u01B0\u1EDDng h\u1EE3p? Gi\u1EA3i th\xEDch.\na) L\u01B0\u1EE3ng m\u01B0a trung b\xECnh m\u1ED7i n\u0103m c\u1EE7a \u0110\xE0 N\u1EB5ng trong 10 n\u0103m qua.\nb) M\xF3n \u0103n s\xE1ng y\xEAu th\xEDch c\u1EE7a c\xE1c b\u1EA1n trong l\u1EDBp.", r5`a) Gián tiếp: tra cứu số liệu của cơ quan khí tượng vì không thể tự đo lượng mưa của 10 năm đã qua.
+b) Trực tiếp: hỏi hoặc phát phiếu cho các bạn trong lớp.`, r5`0,5 điểm: câu a đúng và có giải thích.
+0,5 điểm: câu b đúng và có giải thích.`),
+    es2(3, HL, r5`Bạn Hùng ghi cân nặng (kg) của 8 bạn trong tổ: \(42\); \(45\); \(4{,}8\); \(50\); \(39\); \(450\); \(47\); \(44\).
+a) Chỉ ra các giá trị không hợp lí và giải thích.
+b) Nên xử lí các giá trị đó như thế nào trước khi tính cân nặng trung bình?`, r5`a) \(4{,}8\) kg và \(450\) kg không hợp lí vì học sinh lớp 8 thường nặng khoảng 30 – 70 kg (có thể ghi nhầm dấu phẩy hoặc thừa chữ số).
+b) Hỏi lại hoặc cân lại hai bạn đó để sửa số liệu; nếu không sửa được thì loại hai giá trị này khi tính trung bình.`, r5`0,5 điểm: chỉ đúng hai giá trị và giải thích.
+0,5 điểm: đề xuất cách xử lí hợp lí.`),
+    es2(3, HL, '\u0110\u1EC3 bi\u1EBFt \xFD ki\u1EBFn ph\u1EE5 huynh to\xE0n tr\u01B0\u1EDDng v\u1EC1 vi\u1EC7c thay \u0111\u1ED5i gi\u1EDD v\xE0o h\u1ECDc, nh\xE0 tr\u01B0\u1EDDng ch\u1EC9 h\u1ECFi ph\u1EE5 huynh c\u1EE7a l\u1EDBp 9A v\xE0 k\u1EBFt lu\u1EADn "\u0111a s\u1ED1 ph\u1EE5 huynh \u0111\u1ED3ng \xFD". K\u1EBFt lu\u1EADn n\xE0y c\xF3 \u0111\xE1ng tin kh\xF4ng? H\xE3y \u0111\u1EC1 xu\u1EA5t c\xE1ch ch\u1ECDn m\u1EABu t\u1ED1t h\u01A1n.', r5`Không đáng tin: phụ huynh lớp 9A chỉ là một nhóm nhỏ của một khối, nhu cầu có thể khác các khối khác, nên mẫu không đại diện cho toàn trường.
+Cách tốt hơn: chọn ngẫu nhiên phụ huynh ở tất cả các lớp của các khối 6, 7, 8, 9 (ví dụ mỗi lớp 8 – 10 phụ huynh), hoặc gửi phiếu cho toàn bộ phụ huynh.`, r5`0,5 điểm: nhận xét mẫu không đại diện và giải thích.
+0,5 điểm: đề xuất được cách chọn mẫu đại diện.`)
+  ]
+};
+var CD = "chon-dang-bieu-do";
+var VB = "ve-bieu-do";
+var CQ = "chuyen-du-lieu-sang-bieu-do-quat";
+var B19 = {
+  slug: "bai-19-bieu-dien-du-lieu-bang-bang-bieu-do",
+  questions: [
+    mc(1, CD, "\u0110\u1EC3 bi\u1EC3u di\u1EC5n s\u1EF1 thay \u0111\u1ED5i nhi\u1EC7t \u0111\u1ED9 theo c\xE1c gi\u1EDD trong m\u1ED9t ng\xE0y, n\xEAn d\xF9ng", ["bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng", "bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n", "bi\u1EC3u \u0111\u1ED3 tranh", "bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p"], "Bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng th\u1EC3 hi\u1EC7n r\xF5 s\u1EF1 thay \u0111\u1ED5i theo th\u1EDDi gian.", [
+      void 0,
+      "Bi\u1EC3u \u0111\u1ED3 qu\u1EA1t d\xF9ng cho t\u1EC9 l\u1EC7 c\xE1c ph\u1EA7n c\u1EE7a t\u1ED5ng th\u1EC3.",
+      "Bi\u1EC3u \u0111\u1ED3 tranh d\xF9ng cho s\u1ED1 l\u01B0\u1EE3ng nh\u1ECF, \u0111\u01A1n gi\u1EA3n.",
+      "C\u1ED9t k\xE9p d\xF9ng so s\xE1nh hai b\u1ED9 d\u1EEF li\u1EC7u."
+    ]),
+    mc(1, CD, "\u0110\u1EC3 bi\u1EC3u di\u1EC5n t\u1EC9 l\u1EC7 c\xE1c lo\u1EA1i s\xE1ch trong th\u01B0 vi\u1EC7n, n\xEAn d\xF9ng", ["bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n", "bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng", "bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p", "bi\u1EC3u \u0111\u1ED3 tranh"], "Bi\u1EC3u \u0111\u1ED3 qu\u1EA1t tr\xF2n bi\u1EC3u di\u1EC5n t\u1EC9 l\u1EC7 c\xE1c ph\u1EA7n trong m\u1ED9t t\u1ED5ng th\u1EC3.", [
+      void 0,
+      "Kh\xF4ng ph\u1EA3i d\u1EEF li\u1EC7u theo th\u1EDDi gian.",
+      "Kh\xF4ng c\xF3 hai b\u1ED9 d\u1EEF li\u1EC7u c\u1EA7n so s\xE1nh.",
+      "Kh\xF3 th\u1EC3 hi\u1EC7n t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m."
+    ]),
+    mc(1, CD, "\u0110\u1EC3 so s\xE1nh s\u1ED1 h\u1ECDc sinh nam v\xE0 s\u1ED1 h\u1ECDc sinh n\u1EEF c\u1EE7a c\xE1c l\u1EDBp kh\u1ED1i 8, n\xEAn d\xF9ng", ["bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p", "bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n", "bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng", "bi\u1EC3u \u0111\u1ED3 tranh v\u1EDBi m\u1ED9t lo\u1EA1i bi\u1EC3u t\u01B0\u1EE3ng"], "C\xF3 hai b\u1ED9 d\u1EEF li\u1EC7u c\xF9ng lo\u1EA1i (nam, n\u1EEF) tr\xEAn c\xE1c l\u1EDBp: d\xF9ng c\u1ED9t k\xE9p.", [
+      void 0,
+      "Qu\u1EA1t tr\xF2n ch\u1EC9 cho m\u1ED9t t\u1ED5ng th\u1EC3.",
+      "Kh\xF4ng ph\u1EA3i d\u1EEF li\u1EC7u theo th\u1EDDi gian.",
+      "M\u1ED9t lo\u1EA1i bi\u1EC3u t\u01B0\u1EE3ng kh\xF4ng ph\xE2n bi\u1EC7t \u0111\u01B0\u1EE3c nam, n\u1EEF."
+    ]),
+    mc(2, CD, "\u0110\u1EC3 bi\u1EC3u di\u1EC5n \u0111i\u1EC3m s\u1ED1 m\xF4n To\xE1n c\u1EE7a b\u1EA1n An qua b\u1ED1n l\u1EA7n ki\u1EC3m tra trong n\u0103m v\xE0 nh\u1EADn x\xE9t s\u1EF1 ti\u1EBFn b\u1ED9, n\xEAn d\xF9ng", ["bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng", "bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n", "bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p", "b\u1EA3ng ch\u1EC9 c\xF3 m\u1ED9t d\xF2ng"], "D\u1EEF li\u1EC7u theo th\u1EDDi gian, c\u1EA7n th\u1EA5y xu h\u01B0\u1EDBng t\u0103ng gi\u1EA3m: bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng.", [
+      void 0,
+      "B\u1ED1n \u0111i\u1EC3m s\u1ED1 kh\xF4ng ph\u1EA3i c\xE1c ph\u1EA7n c\u1EE7a m\u1ED9t t\u1ED5ng th\u1EC3.",
+      "Ch\u1EC9 c\xF3 m\u1ED9t b\u1ED9 d\u1EEF li\u1EC7u.",
+      "B\u1EA3ng kh\xF4ng th\u1EC3 hi\u1EC7n tr\u1EF1c quan xu h\u01B0\u1EDBng."
+    ]),
+    mc(2, CD, "Bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n KH\xD4NG ph\xF9 h\u1EE3p \u0111\u1EC3 bi\u1EC3u di\u1EC5n d\u1EEF li\u1EC7u n\xE0o sau \u0111\xE2y?", ["L\u01B0\u1EE3ng m\u01B0a c\xE1c th\xE1ng trong n\u0103m", "T\u1EC9 l\u1EC7 h\u1ECDc sinh theo x\u1EBFp lo\u1EA1i h\u1ECDc t\u1EADp", "T\u1EC9 l\u1EC7 c\xE1c lo\u1EA1i r\xE1c th\u1EA3i", "T\u1EC9 l\u1EC7 c\xE1c kho\u1EA3n chi ti\xEAu c\u1EE7a gia \u0111\xECnh"], "L\u01B0\u1EE3ng m\u01B0a c\xE1c th\xE1ng kh\xF4ng ph\u1EA3i l\xE0 c\xE1c ph\u1EA7n c\u1EE7a m\u1ED9t t\u1ED5ng th\u1EC3 c\u1EA7n so s\xE1nh t\u1EC9 l\u1EC7, m\xE0 l\xE0 d\u1EEF li\u1EC7u theo th\u1EDDi gian.", [
+      "\u0110\xE2y l\xE0 d\u1EEF li\u1EC7u theo th\u1EDDi gian, n\xEAn d\xF9ng bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng ho\u1EB7c c\u1ED9t.",
+      "Ph\xF9 h\u1EE3p v\xEC l\xE0 t\u1EC9 l\u1EC7 c\xE1c ph\u1EA7n.",
+      "Ph\xF9 h\u1EE3p v\xEC l\xE0 t\u1EC9 l\u1EC7 c\xE1c ph\u1EA7n.",
+      "Ph\xF9 h\u1EE3p v\xEC l\xE0 t\u1EC9 l\u1EC7 c\xE1c ph\u1EA7n."
+    ]),
+    mc(2, VB, "Khi v\u1EBD bi\u1EC3u \u0111\u1ED3 c\u1ED9t, tr\u1EE5c \u0111\u1EE9ng (tr\u1EE5c s\u1ED1 li\u1EC7u) n\xEAn", ["b\u1EAFt \u0111\u1EA7u t\u1EEB 0 v\xE0 chia \u0111\u1EC1u", "b\u1EAFt \u0111\u1EA7u t\u1EEB gi\xE1 tr\u1ECB nh\u1ECF nh\u1EA5t c\u1EE7a d\u1EEF li\u1EC7u", "chia kh\xF4ng \u0111\u1EC1u cho \u0111\u1EB9p", "kh\xF4ng c\u1EA7n ghi \u0111\u01A1n v\u1ECB"], "Tr\u1EE5c b\u1EAFt \u0111\u1EA7u t\u1EEB 0, chia \u0111\u1EC1u th\xEC chi\u1EC1u cao c\xE1c c\u1ED9t t\u1EC9 l\u1EC7 \u0111\xFAng v\u1EDBi s\u1ED1 li\u1EC7u.", [
+      void 0,
+      "L\xE0m ch\xEAnh l\u1EC7ch gi\u1EEFa c\xE1c c\u1ED9t tr\xF4ng l\u1EDBn h\u01A1n th\u1EF1c t\u1EBF.",
+      "L\xE0m sai l\u1EC7ch so s\xE1nh.",
+      "C\u1EA7n ghi \u0111\u01A1n v\u1ECB \u0111\u1EC3 \u0111\u1ECDc \u0111\xFAng."
+    ]),
+    mc(2, VB, 'Tr\xEAn m\u1ED9t bi\u1EC3u \u0111\u1ED3 c\u1ED9t, m\u1ED7i v\u1EA1ch chia tr\xEAn tr\u1EE5c \u0111\u1EE9ng \u1EE9ng v\u1EDBi 2 h\u1ECDc sinh. C\u1ED9t "C\u1EDD vua" cao \u0111\xFAng 15 v\u1EA1ch. S\u1ED1 h\u1ECDc sinh ch\u1ECDn c\u1EDD vua l\xE0', [r5`\(30\)`, r5`\(15\)`, r5`\(17\)`, r5`\(7{,}5\)`], r5`\(15\cdot2 = 30\) học sinh.`, [
+      void 0,
+      "Ch\u01B0a nh\xE2n v\u1EDBi gi\xE1 tr\u1ECB m\u1ED7i v\u1EA1ch.",
+      "C\u1ED9ng thay v\xEC nh\xE2n.",
+      "Chia thay v\xEC nh\xE2n."
+    ]),
+    mc(2, CQ, "L\u1EDBp c\xF3 40 h\u1ECDc sinh, trong \u0111\xF3 10 b\u1EA1n \u0111i b\u1ED9 \u0111\u1EBFn tr\u01B0\u1EDDng. H\xECnh qu\u1EA1t bi\u1EC3u di\u1EC5n nh\xF3m \u0111i b\u1ED9 chi\u1EBFm", [r5`\(25\%\)`, r5`\(10\%\)`, r5`\(40\%\)`, r5`\(4\%\)`], r5`\(\dfrac{10}{40}\cdot100\% = 25\%\).`, [
+      void 0,
+      "Nh\u1EA7m s\u1ED1 h\u1ECDc sinh v\u1EDBi t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m.",
+      "Nh\u1EA7m s\u0129 s\u1ED1 v\u1EDBi t\u1EC9 l\u1EC7.",
+      r5`Tính nhầm \(\dfrac{40}{10}\).`
+    ]),
+    mc(2, CQ, r5`Trong biểu đồ hình quạt tròn, phần chiếm \(25\%\) ứng với hình quạt có góc ở tâm bằng`, [r5`\(90^\circ\)`, r5`\(25^\circ\)`, r5`\(45^\circ\)`, r5`\(100^\circ\)`], r5`\(25\%\cdot360^\circ = 90^\circ\).`, [
+      void 0,
+      r5`Chưa nhân với \(360^\circ\).`,
+      r5`Nhân nhầm với \(180^\circ\).`,
+      "T\xEDnh sai."
+    ]),
+    mc(3, CQ, 'M\u1ED9t x\u01B0\u1EDFng s\u1EA3n xu\u1EA5t 200 s\u1EA3n ph\u1EA9m, trong \u0111\xF3 c\xF3 30 s\u1EA3n ph\u1EA9m lo\u1EA1i C. Tr\xEAn bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n, g\xF3c \u1EDF t\xE2m c\u1EE7a h\xECnh qu\u1EA1t "lo\u1EA1i C" l\xE0', [r5`\(54^\circ\)`, r5`\(15^\circ\)`, r5`\(30^\circ\)`, r5`\(60^\circ\)`], r5`Tỉ lệ \(\dfrac{30}{200} = 15\%\); góc ở tâm \(15\%\cdot360^\circ = 54^\circ\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m, ch\u01B0a \u0111\u1ED5i ra g\xF3c.",
+      "Nh\u1EA7m s\u1ED1 s\u1EA3n ph\u1EA9m v\u1EDBi s\u1ED1 \u0111o g\xF3c.",
+      "T\xEDnh sai."
+    ]),
+    mc(3, CQ, "M\u1ED9t bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n g\u1ED3m b\u1ED1n ph\u1EA7n, ba ph\u1EA7n chi\u1EBFm 35%, 25% v\xE0 20%. Ph\u1EA7n c\xF2n l\u1EA1i chi\u1EBFm", [r5`\(20\%\)`, r5`\(80\%\)`, r5`\(30\%\)`, r5`\(25\%\)`], r5`\(100\% - (35\% + 25\% + 20\%) = 20\%\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 t\u1ED5ng ba ph\u1EA7n \u0111\xE3 bi\u1EBFt.",
+      "T\xEDnh sai.",
+      "T\xEDnh sai."
+    ]),
+    mc(3, VB, "Doanh thu (t\u1EC9 \u0111\u1ED3ng) c\u1EE7a m\u1ED9t c\xF4ng ty: n\u0103m 2020 l\xE0 120; n\u0103m 2021 l\xE0 135; n\u0103m 2022 l\xE0 150; n\u0103m 2023 l\xE0 140. Tr\xEAn bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng, \u0111o\u1EA1n n\u1ED1i \u0111i\u1EC3m n\u0103m 2022 v\u1EDBi n\u0103m 2023", ["\u0111i xu\u1ED1ng", "\u0111i l\xEAn", "n\u1EB1m ngang", "kh\xF4ng v\u1EBD \u0111\u01B0\u1EE3c"], "Doanh thu gi\u1EA3m t\u1EEB 150 xu\u1ED1ng 140 n\xEAn \u0111o\u1EA1n th\u1EB3ng \u0111i xu\u1ED1ng.", [
+      void 0,
+      "Doanh thu gi\u1EA3m.",
+      "Hai gi\xE1 tr\u1ECB kh\xE1c nhau.",
+      "V\u1EBD \u0111\u01B0\u1EE3c b\xECnh th\u01B0\u1EDDng."
+    ]),
+    mc(3, CQ, 'L\u1EDBp c\xF3 60 h\u1ECDc sinh: 24 b\u1EA1n th\xEDch b\xF3ng \u0111\xE1, 18 b\u1EA1n th\xEDch c\u1EA7u l\xF4ng, 12 b\u1EA1n th\xEDch b\u01A1i, 6 b\u1EA1n th\xEDch m\xF4n kh\xE1c. G\xF3c \u1EDF t\xE2m c\u1EE7a h\xECnh qu\u1EA1t "c\u1EA7u l\xF4ng" l\xE0', [r5`\(108^\circ\)`, r5`\(18^\circ\)`, r5`\(30^\circ\)`, r5`\(120^\circ\)`], r5`Tỉ lệ \(\dfrac{18}{60} = 30\%\); góc \(30\%\cdot360^\circ = 108^\circ\).`, [
+      void 0,
+      "Nh\u1EA7m s\u1ED1 h\u1ECDc sinh v\u1EDBi s\u1ED1 \u0111o g\xF3c.",
+      "\u0110\xF3 l\xE0 t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m.",
+      "T\xEDnh sai."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, CD, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      ["Bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng ph\xF9 h\u1EE3p bi\u1EC3u di\u1EC5n s\u1EF1 thay \u0111\u1ED5i theo th\u1EDDi gian.", true, "Th\u1EA5y r\xF5 xu h\u01B0\u1EDBng."],
+      ["Bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n bi\u1EC3u di\u1EC5n t\u1EC9 l\u1EC7 c\xE1c ph\u1EA7n trong m\u1ED9t t\u1ED5ng th\u1EC3.", true, "C\u1EA3 h\xECnh tr\xF2n l\xE0 100%."],
+      ["Bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p d\xF9ng \u0111\u1EC3 so s\xE1nh hai b\u1ED9 d\u1EEF li\u1EC7u c\xF9ng lo\u1EA1i.", true, "M\u1ED7i \u0111\u1ED1i t\u01B0\u1EE3ng c\xF3 hai c\u1ED9t."],
+      ["Bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n l\xE0 l\u1EF1a ch\u1ECDn t\u1ED1t nh\u1EA5t \u0111\u1EC3 bi\u1EC3u di\u1EC5n nhi\u1EC7t \u0111\u1ED9 c\xE1c ng\xE0y trong tu\u1EA7n.", false, "N\xEAn d\xF9ng bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng."]
+    ]),
+    tf2(2, CD, "Chi ti\xEAu h\u1EB1ng th\xE1ng c\u1EE7a m\u1ED9t gia \u0111\xECnh: \u0103n u\u1ED1ng 40%, h\u1ECDc t\u1EADp 20%, \u0111i l\u1EA1i 15%, kh\xE1c 25%.", [
+      ["D\u1EEF li\u1EC7u ph\xF9 h\u1EE3p bi\u1EC3u di\u1EC5n b\u1EB1ng bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n.", true, "L\xE0 t\u1EC9 l\u1EC7 c\xE1c ph\u1EA7n c\u1EE7a t\u1ED5ng chi ti\xEAu."],
+      ["T\u1ED5ng c\xE1c t\u1EC9 l\u1EC7 b\u1EB1ng 100%.", true, r5`\(40 + 20 + 15 + 25 = 100\).`],
+      ["D\u1EEF li\u1EC7u ph\xF9 h\u1EE3p nh\u1EA5t v\u1EDBi bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng.", false, "Kh\xF4ng ph\u1EA3i d\u1EEF li\u1EC7u theo th\u1EDDi gian."],
+      ["C\xF3 th\u1EC3 d\xF9ng bi\u1EC3u \u0111\u1ED3 c\u1ED9t \u0111\u1EC3 so s\xE1nh c\xE1c kho\u1EA3n chi.", true, "Bi\u1EC3u \u0111\u1ED3 c\u1ED9t c\u0169ng so s\xE1nh \u0111\u01B0\u1EE3c."]
+    ]),
+    tf2(2, VB, "V\u1EBD bi\u1EC3u \u0111\u1ED3 c\u1ED9t cho s\u1ED1 s\xE1ch b\u1ED1n t\u1ED5 \u0111\u1ECDc \u0111\u01B0\u1EE3c: T\u1ED5 1: 12; T\u1ED5 2: 18; T\u1ED5 3: 15; T\u1ED5 4: 9.", [
+      ["Tr\u1EE5c ngang ghi t\xEAn c\xE1c t\u1ED5.", true, "Tr\u1EE5c ngang ghi \u0111\u1ED1i t\u01B0\u1EE3ng."],
+      ["C\u1ED9t cao nh\u1EA5t l\xE0 c\u1EE7a T\u1ED5 2.", true, "18 l\xE0 gi\xE1 tr\u1ECB l\u1EDBn nh\u1EA5t."],
+      ["C\xF3 th\u1EC3 cho tr\u1EE5c \u0111\u1EE9ng b\u1EAFt \u0111\u1EA7u t\u1EEB 9 cho \u0111\u1EB9p.", false, "Tr\u1EE5c s\u1ED1 li\u1EC7u n\xEAn b\u1EAFt \u0111\u1EA7u t\u1EEB 0."],
+      ["C\xE1c c\u1ED9t c\xF3 chi\u1EC1u r\u1ED9ng b\u1EB1ng nhau.", true, "Quy \u01B0\u1EDBc v\u1EBD bi\u1EC3u \u0111\u1ED3 c\u1ED9t."]
+    ]),
+    tf2(3, VB, "Chuy\u1EC3n b\u1EA3ng nhi\u1EC7t \u0111\u1ED9 trung b\xECnh c\xE1c th\xE1ng sang bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng.", [
+      ["M\u1ED7i th\xE1ng \u1EE9ng v\u1EDBi m\u1ED9t \u0111i\u1EC3m tr\xEAn bi\u1EC3u \u0111\u1ED3.", true, "\u0110i\u1EC3m c\xF3 t\u1ECDa \u0111\u1ED9 (th\xE1ng; nhi\u1EC7t \u0111\u1ED9)."],
+      ["N\u1ED1i c\xE1c \u0111i\u1EC3m li\xEAn ti\u1EBFp b\u1EB1ng c\xE1c \u0111o\u1EA1n th\u1EB3ng.", true, "C\xE1ch v\u1EBD bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng."],
+      ["\u0110o\u1EA1n th\u1EB3ng c\xE0ng d\u1ED1c th\xEC nhi\u1EC7t \u0111\u1ED9 thay \u0111\u1ED5i c\xE0ng nhanh.", true, "\u0110\u1ED9 d\u1ED1c th\u1EC3 hi\u1EC7n m\u1EE9c thay \u0111\u1ED5i."],
+      ["C\xF3 th\u1EC3 s\u1EAFp x\u1EBFp l\u1EA1i c\xE1c th\xE1ng theo nhi\u1EC7t \u0111\u1ED9 t\u0103ng d\u1EA7n.", false, "Ph\u1EA3i gi\u1EEF \u0111\xFAng th\u1EE9 t\u1EF1 th\u1EDDi gian."]
+    ]),
+    tf2(2, CQ, "Kh\u1EA3o s\xE1t 50 h\u1ECDc sinh v\u1EC1 m\xF4n h\u1ECDc y\xEAu th\xEDch: To\xE1n 20 b\u1EA1n, Ng\u1EEF v\u0103n 15 b\u1EA1n, Ti\u1EBFng Anh 10 b\u1EA1n, m\xF4n kh\xE1c 5 b\u1EA1n.", [
+      ["To\xE1n chi\u1EBFm 40%.", true, r5`\(\dfrac{20}{50}\).`],
+      ["Ng\u1EEF v\u0103n chi\u1EBFm 30%.", true, r5`\(\dfrac{15}{50}\).`],
+      [r5`Góc ở tâm của hình quạt "Tiếng Anh" là \(72^\circ\).`, true, r5`\(20\%\cdot360^\circ\).`],
+      [r5`Góc ở tâm của hình quạt "môn khác" là \(5^\circ\).`, false, r5`\(10\%\cdot360^\circ = 36^\circ\).`]
+    ]),
+    tf2(3, CQ, "X\xE9t t\xEDnh \u0111\xFAng sai v\u1EC1 g\xF3c \u1EDF t\xE2m c\u1EE7a bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n:", [
+      [r5`Phần chiếm 50% ứng với góc \(180^\circ\).`, true, r5`\(0{,}5\cdot360^\circ\).`],
+      [r5`Phần chiếm 10% ứng với góc \(36^\circ\).`, true, r5`\(0{,}1\cdot360^\circ\).`],
+      [r5`Tổng các góc ở tâm bằng \(360^\circ\).`, true, "C\u1EA3 h\xECnh tr\xF2n."],
+      [r5`Phần chiếm 30% ứng với góc \(30^\circ\).`, false, r5`\(0{,}3\cdot360^\circ = 108^\circ\).`]
+    ]),
+    tf2(2, CD, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      ["Bi\u1EC3u \u0111\u1ED3 tranh d\xF9ng c\xE1c bi\u1EC3u t\u01B0\u1EE3ng \u0111\u1EC3 bi\u1EC3u di\u1EC5n s\u1ED1 l\u01B0\u1EE3ng.", true, "\u0110\u1EB7c \u0111i\u1EC3m c\u1EE7a bi\u1EC3u \u0111\u1ED3 tranh."],
+      ["M\u1ED7i bi\u1EC3u t\u01B0\u1EE3ng c\xF3 th\u1EC3 bi\u1EC3u di\u1EC5n nhi\u1EC1u \u0111\u01A1n v\u1ECB.", true, "C\u1EA7n ghi ch\xFA gi\xE1 tr\u1ECB bi\u1EC3u t\u01B0\u1EE3ng."],
+      ["B\u1EA3ng th\u1ED1ng k\xEA kh\xF4ng th\u1EC3 chuy\u1EC3n sang bi\u1EC3u \u0111\u1ED3.", false, "C\xF3 th\u1EC3 chuy\u1EC3n qua l\u1EA1i."],
+      ["C\xF9ng m\u1ED9t d\u1EEF li\u1EC7u c\xF3 th\u1EC3 bi\u1EC3u di\u1EC5n b\u1EB1ng nhi\u1EC1u lo\u1EA1i bi\u1EC3u \u0111\u1ED3.", true, "T\xF9y m\u1EE5c \u0111\xEDch ch\u1ECDn lo\u1EA1i ph\xF9 h\u1EE3p."]
+    ]),
+    tf2(3, VB, "V\u1EBD bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p bi\u1EC3u di\u1EC5n s\u1ED1 h\u1ECDc sinh nam v\xE0 n\u1EEF c\u1EE7a ba l\u1EDBp 8A, 8B, 8C.", [
+      ["C\u1EA7n ch\xFA gi\u1EA3i m\xE0u cho hai b\u1ED9 d\u1EEF li\u1EC7u.", true, "\u0110\u1EC3 ph\xE2n bi\u1EC7t nam, n\u1EEF."],
+      ["M\u1ED7i l\u1EDBp c\xF3 hai c\u1ED9t \u0111\u1EB7t c\u1EA1nh nhau.", true, "\u0110\u1EB7c \u0111i\u1EC3m c\u1EE7a bi\u1EC3u \u0111\u1ED3 c\u1ED9t k\xE9p."],
+      ["Ch\u1EC9 c\u1EA7n m\u1ED9t c\u1ED9t cho m\u1ED7i l\u1EDBp.", false, "M\u1ED9t c\u1ED9t kh\xF4ng th\u1EC3 hi\u1EC7n \u0111\u01B0\u1EE3c hai b\u1ED9 d\u1EEF li\u1EC7u."],
+      ["Tr\u1EE5c \u0111\u1EE9ng chia \u0111\u1EC1u, b\u1EAFt \u0111\u1EA7u t\u1EEB 0.", true, "Quy \u01B0\u1EDBc v\u1EBD bi\u1EC3u \u0111\u1ED3 c\u1ED9t."]
+    ]),
+    tf2(3, CQ, r5`Biểu đồ sau cho biết thời gian trong một ngày (24 giờ) của bạn Nam.
+[bieudo]
+loai: quat
+tieude: Thời gian trong ngày của bạn Nam
+nhan: Ngủ; Học; Vui chơi; Việc khác
+so lieu: 35; 30; 15; 20
+[/bieudo]`, [
+      ["T\u1ED5ng c\xE1c t\u1EC9 l\u1EC7 b\u1EB1ng 100%.", true, r5`\(35 + 30 + 15 + 20\).`],
+      [r5`Hình quạt "Ngủ" có góc ở tâm \(126^\circ\).`, true, r5`\(0{,}35\cdot360^\circ\).`],
+      ["Th\u1EDDi gian h\u1ECDc l\xE0 7,2 gi\u1EDD.", true, r5`\(30\%\cdot24\).`],
+      ["Th\u1EDDi gian l\xE0m vi\u1EC7c kh\xE1c l\xE0 20 gi\u1EDD.", false, r5`\(20\%\cdot24 = 4{,}8\) giờ.`]
+    ]),
+    tf2(2, VB, "V\u1EBD bi\u1EC3u \u0111\u1ED3 tranh, m\u1ED7i bi\u1EC3u t\u01B0\u1EE3ng \u1EE9ng v\u1EDBi 5 cu\u1ED1n s\xE1ch.", [
+      ["20 cu\u1ED1n \u0111\u01B0\u1EE3c v\u1EBD b\u1EB1ng 4 bi\u1EC3u t\u01B0\u1EE3ng.", true, r5`\(20 : 5\).`],
+      ["12 cu\u1ED1n \u0111\u01B0\u1EE3c v\u1EBD b\u1EB1ng 2 bi\u1EC3u t\u01B0\u1EE3ng v\xE0 m\u1ED9t ph\u1EA7n bi\u1EC3u t\u01B0\u1EE3ng.", true, r5`\(12 : 5 = 2{,}4\).`],
+      ["30 cu\u1ED1n \u0111\u01B0\u1EE3c v\u1EBD b\u1EB1ng 30 bi\u1EC3u t\u01B0\u1EE3ng.", false, "Ch\u1EC9 c\u1EA7n 6 bi\u1EC3u t\u01B0\u1EE3ng."],
+      ["C\u1EA7n ghi ch\xFA m\u1ED7i bi\u1EC3u t\u01B0\u1EE3ng \u1EE9ng v\u1EDBi 5 cu\u1ED1n.", true, "\u0110\u1EC3 ng\u01B0\u1EDDi \u0111\u1ECDc hi\u1EC3u \u0111\xFAng."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, CQ, "L\u1EDBp c\xF3 80 h\u1ECDc sinh, trong \u0111\xF3 28 b\u1EA1n th\xEDch \u0111\u1ECDc truy\u1EC7n. H\xECnh qu\u1EA1t bi\u1EC3u di\u1EC5n nh\xF3m n\xE0y chi\u1EBFm bao nhi\xEAu ph\u1EA7n tr\u0103m?", "35", r5`\(\dfrac{28}{80}\cdot100\% = 35\%\).`, PCT),
+    sa2(2, CQ, "M\u1ED9t ph\u1EA7n chi\u1EBFm 15% t\u1ED5ng th\u1EC3. G\xF3c \u1EDF t\xE2m c\u1EE7a h\xECnh qu\u1EA1t bi\u1EC3u di\u1EC5n ph\u1EA7n \u0111\xF3 l\xE0 bao nhi\xEAu \u0111\u1ED9?", "54", r5`\(15\%\cdot360^\circ = 54^\circ\).`, DEG2),
+    sa2(3, CQ, 'M\u1ED9t v\u01B0\u1EDDn c\xF3 120 c\xE2y, trong \u0111\xF3 42 c\xE2y cam. T\xEDnh g\xF3c \u1EDF t\xE2m c\u1EE7a h\xECnh qu\u1EA1t "cam" tr\xEAn bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n.', "126", r5`\(\dfrac{42}{120}\cdot360^\circ = 126^\circ\).`, DEG2),
+    sa2(3, CQ, r5`Một biểu đồ hình quạt tròn có bốn phần; ba hình quạt có góc ở tâm \(90^\circ\), \(120^\circ\), \(60^\circ\). Phần còn lại chiếm bao nhiêu phần trăm?`, "25", r5`Góc còn lại \(360^\circ - 270^\circ = 90^\circ\), chiếm \(\dfrac{90}{360} = 25\%\).`, PCT),
+    sa2(3, CQ, r5`Hình quạt có góc ở tâm \(72^\circ\) biểu diễn bao nhiêu phần trăm của tổng thể?`, "20", r5`\(\dfrac{72}{360} = 0{,}2 = 20\%\).`, PCT),
+    sa2(2, CQ, "B\u1ED1n ph\u1EA7n c\u1EE7a m\u1ED9t bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n chi\u1EBFm 32%, 28%, x% v\xE0 15%. T\xECm x.", "25", r5`\(x = 100 - (32 + 28 + 15) = 25\).`, PCT),
+    sa2(2, VB, "Tr\xEAn m\u1ED9t bi\u1EC3u \u0111\u1ED3 c\u1ED9t, m\u1ED7i v\u1EA1ch chia tr\xEAn tr\u1EE5c \u0111\u1EE9ng \u1EE9ng v\u1EDBi 5 \u0111\u01A1n v\u1ECB. M\u1ED9t c\u1ED9t cao \u0111\xFAng 7 v\u1EA1ch bi\u1EC3u di\u1EC5n gi\xE1 tr\u1ECB bao nhi\xEAu?", "35", r5`Giá trị bằng số vạch nhân với giá trị mỗi vạch: \(7\cdot5 = 35\).`),
+    sa2(3, VB, "Tr\xEAn m\u1ED9t bi\u1EC3u \u0111\u1ED3 tranh, m\u1ED7i bi\u1EC3u t\u01B0\u1EE3ng \u1EE9ng v\u1EDBi 10 h\u1ECDc sinh. L\u1EDBp 8A \u0111\u01B0\u1EE3c v\u1EBD b\u1EB1ng 4 bi\u1EC3u t\u01B0\u1EE3ng v\xE0 n\u1EEDa bi\u1EC3u t\u01B0\u1EE3ng. L\u1EDBp 8A c\xF3 bao nhi\xEAu h\u1ECDc sinh?", "45", r5`\(4{,}5\cdot10 = 45\) học sinh.`),
+    // ---- Tự luận ----
+    es2(2, CD, "N\xEAn d\xF9ng lo\u1EA1i bi\u1EC3u \u0111\u1ED3 n\xE0o cho m\u1ED7i tr\u01B0\u1EDDng h\u1EE3p? Gi\u1EA3i th\xEDch.\na) S\u1ED1 ca m\u1EAFc c\xFAm m\u1ED7i tu\u1EA7n trong 10 tu\u1EA7n.\nb) So s\xE1nh s\u1ED1 h\u1ECDc sinh gi\u1ECFi h\u1ECDc k\xEC I v\xE0 h\u1ECDc k\xEC II c\u1EE7a b\u1ED1n l\u1EDBp.\nc) T\u1EC9 l\u1EC7 c\xE1c nh\xF3m m\xE1u c\u1EE7a h\u1ECDc sinh trong tr\u01B0\u1EDDng.", r5`a) Biểu đồ đoạn thẳng: dữ liệu theo thời gian, cần thấy xu hướng.
+b) Biểu đồ cột kép: hai bộ dữ liệu cùng loại trên bốn lớp.
+c) Biểu đồ hình quạt tròn: tỉ lệ các phần của một tổng thể.`, r5`0,25 điểm mỗi câu a, b, c chọn đúng.
+0,25 điểm: giải thích hợp lí.`),
+    es2(3, VB, "S\u1ED1 h\u1ECDc sinh gi\u1ECFi c\u1EE7a c\xE1c kh\u1ED1i: kh\u1ED1i 6 c\xF3 25 b\u1EA1n, kh\u1ED1i 7 c\xF3 30 b\u1EA1n, kh\u1ED1i 8 c\xF3 28 b\u1EA1n, kh\u1ED1i 9 c\xF3 35 b\u1EA1n. N\xEAu c\xE1ch v\u1EBD bi\u1EC3u \u0111\u1ED3 c\u1ED9t bi\u1EC3u di\u1EC5n d\u1EEF li\u1EC7u v\xE0 nh\u1EADn x\xE9t.", r5`Trục ngang ghi các khối 6, 7, 8, 9; trục đứng ghi số học sinh, chia đều từ 0 đến 40 (mỗi vạch 5 bạn). Vẽ bốn cột rộng bằng nhau, cao lần lượt 25; 30; 28; 35; ghi tên biểu đồ và đơn vị.
+[bieudo]
+loai: cot
+tieude: Số học sinh giỏi các khối
+nhan: Khối 6; Khối 7; Khối 8; Khối 9
+so lieu: 25; 30; 28; 35
+donvi: học sinh
+[/bieudo]
+Nhận xét: khối 9 nhiều học sinh giỏi nhất, khối 6 ít nhất; tổng cộng 118 bạn.`, r5`0,5 điểm: nêu đúng cách vẽ (trục, chia vạch từ 0, chiều cao cột, tên, đơn vị).
+0,5 điểm: nhận xét đúng.`),
+    es2(3, CQ, "Kh\u1EA3o s\xE1t 120 h\u1ECDc sinh v\u1EC1 ph\u01B0\u01A1ng ti\u1EC7n \u0111\u1EBFn tr\u01B0\u1EDDng: \u0111i b\u1ED9 30 b\u1EA1n, xe \u0111\u1EA1p 54 b\u1EA1n, xe bu\xFDt 24 b\u1EA1n, b\u1ED1 m\u1EB9 \u0111\u01B0a 12 b\u1EA1n. T\xEDnh t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m v\xE0 g\xF3c \u1EDF t\xE2m c\u1EE7a m\u1ED7i ph\u1EA7n \u0111\u1EC3 v\u1EBD bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n.", r5`Đi bộ: 25% (\(90^\circ\)); xe đạp: 45% (\(162^\circ\)); xe buýt: 20% (\(72^\circ\)); bố mẹ đưa: 10% (\(36^\circ\)). Kiểm tra: tổng 100%, tổng các góc \(360^\circ\).
+[bieudo]
+loai: quat
+tieude: Phương tiện đến trường của 120 học sinh
+nhan: Đi bộ; Xe đạp; Xe buýt; Bố mẹ đưa
+so lieu: 25; 45; 20; 10
+[/bieudo]`, r5`0,5 điểm: tính đúng bốn tỉ lệ phần trăm.
+0,5 điểm: tính đúng bốn góc ở tâm.`)
+  ]
+};
+var SACH2 = `[bieudo]
+loai: cot
+tieude: S\u1ED1 s\xE1ch quy\xEAn g\xF3p c\u1EE7a c\xE1c l\u1EDBp kh\u1ED1i 8
+nhan: 8A; 8B; 8C; 8D
+so lieu: 45; 60; 40; 55
+donvi: cu\u1ED1n
+[/bieudo]`;
+var GIO = `[bieudo]
+loai: cotkep
+tieude: S\u1ED1 gi\u1EDD t\u1EF1 h\u1ECDc m\u1ED7i tu\u1EA7n
+nhan: An; B\xECnh; Chi; D\u0169ng
+so lieu: 6; 5; 9; 4
+so lieu 2: 8; 7; 10; 8
+ten: Th\xE1ng 9; Th\xE1ng 10
+donvi: gi\u1EDD
+[/bieudo]`;
+var DOANH = `[bieudo]
+loai: doanthang
+tieude: Doanh thu c\u1EE7a m\u1ED9t c\u1EEDa h\xE0ng 6 th\xE1ng \u0111\u1EA7u n\u0103m
+nhan: T1; T2; T3; T4; T5; T6
+so lieu: 120; 95; 110; 125; 150; 145
+donvi: tri\u1EC7u \u0111\u1ED3ng
+[/bieudo]`;
+var CHI = `[bieudo]
+loai: quat
+tieude: C\u01A1 c\u1EA5u chi ti\xEAu h\u1EB1ng th\xE1ng c\u1EE7a m\u1ED9t gia \u0111\xECnh
+nhan: \u0102n u\u1ED1ng; H\u1ECDc t\u1EADp; \u0110i l\u1EA1i; Ti\u1EBFt ki\u1EC7m; Kh\xE1c
+so lieu: 40; 20; 15; 10; 15
+[/bieudo]`;
+var PC = "phan-tich-bieu-do-cot";
+var PD = "phan-tich-bieu-do-doan-thang";
+var PQ = "phan-tich-bieu-do-quat-tron";
+var GH = "bieu-do-gay-hieu-lam";
+var B20 = {
+  slug: "bai-20-phan-tich-so-lieu-thong-ke-dua-vao-bieu-do",
+  questions: [
+    mc(1, PC, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. L\u1EDBp n\xE0o quy\xEAn g\xF3p \u0111\u01B0\u1EE3c nhi\u1EC1u s\xE1ch nh\u1EA5t?
+${SACH2}`, ["8B", "8A", "8C", "8D"], "C\u1ED9t c\u1EE7a l\u1EDBp 8B cao nh\u1EA5t (60 cu\u1ED1n).", [
+      void 0,
+      "8A c\xF3 45 cu\u1ED1n.",
+      "8C c\xF3 40 cu\u1ED1n, \xEDt nh\u1EA5t.",
+      "8D c\xF3 55 cu\u1ED1n."
+    ]),
+    mc(2, PC, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. T\u1ED5ng s\u1ED1 s\xE1ch c\u1EA3 kh\u1ED1i 8 quy\xEAn g\xF3p \u0111\u01B0\u1EE3c l\xE0
+${SACH2}`, [r5`\(200\) cuốn`, r5`\(190\) cuốn`, r5`\(160\) cuốn`, r5`\(60\) cuốn`], r5`\(45 + 60 + 40 + 55 = 200\) cuốn.`, [
+      void 0,
+      "C\u1ED9ng sai.",
+      "B\u1ECF s\xF3t m\u1ED9t l\u1EDBp.",
+      "\u0110\xF3 l\xE0 s\u1ED1 s\xE1ch c\u1EE7a l\u1EDBp nhi\u1EC1u nh\u1EA5t."
+    ]),
+    mc(3, PC, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. S\u1ED1 s\xE1ch c\u1EE7a l\u1EDBp 8B chi\u1EBFm bao nhi\xEAu ph\u1EA7n tr\u0103m t\u1ED5ng s\u1ED1 s\xE1ch?
+${SACH2}`, [r5`\(30\%\)`, r5`\(60\%\)`, r5`\(25\%\)`, r5`\(20\%\)`], r5`\(\dfrac{60}{200}\cdot100\% = 30\%\).`, [
+      void 0,
+      "Nh\u1EA7m s\u1ED1 s\xE1ch v\u1EDBi t\u1EC9 l\u1EC7.",
+      "\u0110\xF3 l\xE0 t\u1EC9 l\u1EC7 n\u1EBFu b\u1ED1n l\u1EDBp b\u1EB1ng nhau.",
+      "\u0110\xF3 l\xE0 t\u1EC9 l\u1EC7 c\u1EE7a l\u1EDBp 8C."
+    ]),
+    mc(2, PC, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. B\u1EA1n n\xE0o c\xF3 s\u1ED1 gi\u1EDD t\u1EF1 h\u1ECDc t\u0103ng nhi\u1EC1u nh\u1EA5t t\u1EEB th\xE1ng 9 sang th\xE1ng 10?
+${GIO}`, ["D\u0169ng", "An", "B\xECnh", "Chi"], "M\u1EE9c t\u0103ng: An 2 gi\u1EDD, B\xECnh 2 gi\u1EDD, Chi 1 gi\u1EDD, D\u0169ng 4 gi\u1EDD.", [
+      void 0,
+      "An ch\u1EC9 t\u0103ng 2 gi\u1EDD.",
+      "B\xECnh ch\u1EC9 t\u0103ng 2 gi\u1EDD.",
+      "Chi c\xF3 nhi\u1EC1u gi\u1EDD nh\u1EA5t nh\u01B0ng ch\u1EC9 t\u0103ng 1 gi\u1EDD."
+    ]),
+    mc(3, PC, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. T\u1ED5ng s\u1ED1 gi\u1EDD t\u1EF1 h\u1ECDc c\u1EE7a b\u1ED1n b\u1EA1n trong th\xE1ng 10 t\u0103ng bao nhi\xEAu ph\u1EA7n tr\u0103m so v\u1EDBi th\xE1ng 9?
+${GIO}`, [r5`\(37{,}5\%\)`, r5`\(9\%\)`, r5`\(27{,}3\%\)`, r5`\(137{,}5\%\)`], r5`Tháng 9: 24 giờ; tháng 10: 33 giờ. Tỉ lệ tăng \(\dfrac{33 - 24}{24}\cdot100\% = 37{,}5\%\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 s\u1ED1 gi\u1EDD t\u0103ng, ch\u01B0a \u0111\u1ED5i ra ph\u1EA7n tr\u0103m.",
+      "Chia nh\u1EA7m cho s\u1ED1 gi\u1EDD th\xE1ng 10.",
+      "\u0110\xF3 l\xE0 t\u1EC9 s\u1ED1 gi\u1EEFa th\xE1ng 10 v\xE0 th\xE1ng 9, ch\u01B0a tr\u1EEB \u0111i 100%."
+    ]),
+    mc(1, PD, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. Th\xE1ng n\xE0o c\u1EEDa h\xE0ng c\xF3 doanh thu th\u1EA5p nh\u1EA5t?
+${DOANH}`, ["Th\xE1ng 2", "Th\xE1ng 1", "Th\xE1ng 5", "Th\xE1ng 6"], "\u0110i\u1EC3m th\u1EA5p nh\u1EA5t tr\xEAn \u0111\u01B0\u1EDDng g\u1EA5p kh\xFAc \u1EE9ng v\u1EDBi th\xE1ng 2 (95 tri\u1EC7u \u0111\u1ED3ng).", [
+      void 0,
+      "Th\xE1ng 1 l\xE0 120 tri\u1EC7u \u0111\u1ED3ng.",
+      "Th\xE1ng 5 cao nh\u1EA5t.",
+      "Th\xE1ng 6 l\xE0 145 tri\u1EC7u \u0111\u1ED3ng."
+    ]),
+    mc(2, PD, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. Doanh thu t\u0103ng li\xEAn t\u1EE5c trong giai \u0111o\u1EA1n n\xE0o?
+${DOANH}`, ["T\u1EEB th\xE1ng 2 \u0111\u1EBFn th\xE1ng 5", "T\u1EEB th\xE1ng 1 \u0111\u1EBFn th\xE1ng 3", "T\u1EEB th\xE1ng 4 \u0111\u1EBFn th\xE1ng 6", "T\u1EEB th\xE1ng 1 \u0111\u1EBFn th\xE1ng 6"], "T\u1EEB th\xE1ng 2 \u0111\u1EBFn th\xE1ng 5 \u0111\u01B0\u1EDDng g\u1EA5p kh\xFAc lu\xF4n \u0111i l\xEAn: 95; 110; 125; 150.", [
+      void 0,
+      "Th\xE1ng 1 sang th\xE1ng 2 gi\u1EA3m.",
+      "Th\xE1ng 5 sang th\xE1ng 6 gi\u1EA3m.",
+      "C\xF3 l\xFAc gi\u1EA3m."
+    ]),
+    mc(3, PD, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. Doanh thu th\xE1ng 5 t\u0103ng bao nhi\xEAu ph\u1EA7n tr\u0103m so v\u1EDBi th\xE1ng 4?
+${DOANH}`, [r5`\(20\%\)`, r5`\(25\%\)`, r5`\(16{,}7\%\)`, r5`\(125\%\)`], r5`\(\dfrac{150 - 125}{125}\cdot100\% = 20\%\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 s\u1ED1 ti\u1EC1n t\u0103ng (tri\u1EC7u \u0111\u1ED3ng).",
+      "Chia nh\u1EA7m cho doanh thu th\xE1ng 5.",
+      "Nh\u1EA7m t\u1EC9 l\u1EC7."
+    ]),
+    mc(1, PQ, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. Kho\u1EA3n chi n\xE0o chi\u1EBFm t\u1EC9 l\u1EC7 l\u1EDBn nh\u1EA5t?
+${CHI}`, ["\u0102n u\u1ED1ng", "H\u1ECDc t\u1EADp", "Ti\u1EBFt ki\u1EC7m", "Kh\xE1c"], "\u0102n u\u1ED1ng chi\u1EBFm 40%, l\u1EDBn nh\u1EA5t.", [
+      void 0,
+      "H\u1ECDc t\u1EADp chi\u1EBFm 20%.",
+      "Ti\u1EBFt ki\u1EC7m chi\u1EBFm 10%, nh\u1ECF nh\u1EA5t.",
+      "Kh\xE1c chi\u1EBFm 15%."
+    ]),
+    mc(2, PQ, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. N\u1EBFu thu nh\u1EADp h\u1EB1ng th\xE1ng c\u1EE7a gia \u0111\xECnh l\xE0 20 tri\u1EC7u \u0111\u1ED3ng th\xEC s\u1ED1 ti\u1EC1n chi cho h\u1ECDc t\u1EADp l\xE0
+${CHI}`, ["4 tri\u1EC7u \u0111\u1ED3ng", "2 tri\u1EC7u \u0111\u1ED3ng", "8 tri\u1EC7u \u0111\u1ED3ng", "20 tri\u1EC7u \u0111\u1ED3ng"], r5`\(20\cdot20\% = 4\) triệu đồng.`, [
+      void 0,
+      "\u0110\xF3 l\xE0 ti\u1EC1n ti\u1EBFt ki\u1EC7m (10%).",
+      "\u0110\xF3 l\xE0 ti\u1EC1n \u0103n u\u1ED1ng (40%).",
+      "\u0110\xF3 l\xE0 t\u1ED5ng thu nh\u1EADp."
+    ]),
+    mc(3, PQ, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. N\u1EBFu thu nh\u1EADp h\u1EB1ng th\xE1ng l\xE0 25 tri\u1EC7u \u0111\u1ED3ng th\xEC trong m\u1ED9t n\u0103m (12 th\xE1ng) gia \u0111\xECnh ti\u1EBFt ki\u1EC7m \u0111\u01B0\u1EE3c
+${CHI}`, ["30 tri\u1EC7u \u0111\u1ED3ng", "2,5 tri\u1EC7u \u0111\u1ED3ng", "300 tri\u1EC7u \u0111\u1ED3ng", "25 tri\u1EC7u \u0111\u1ED3ng"], r5`Mỗi tháng tiết kiệm \(25\cdot10\% = 2{,}5\) triệu đồng; một năm \(2{,}5\cdot12 = 30\) triệu đồng.`, [
+      void 0,
+      "\u0110\xF3 l\xE0 ti\u1EC1n ti\u1EBFt ki\u1EC7m c\u1EE7a m\u1ED9t th\xE1ng.",
+      "Nh\u1EA7m thu nh\u1EADp c\u1EA3 n\u0103m v\u1EDBi ti\u1EC1n ti\u1EBFt ki\u1EC7m.",
+      "\u0110\xF3 l\xE0 thu nh\u1EADp m\u1ED9t th\xE1ng."
+    ]),
+    mc(3, GH, "M\u1ED9t bi\u1EC3u \u0111\u1ED3 c\u1ED9t so s\xE1nh s\u1ED1 kh\xE1ch c\u1EE7a hai c\u1EEDa h\xE0ng: c\u1EEDa h\xE0ng A c\xF3 980 kh\xE1ch, c\u1EEDa h\xE0ng B c\xF3 1000 kh\xE1ch, nh\u01B0ng tr\u1EE5c s\u1ED1 li\u1EC7u b\u1EAFt \u0111\u1EA7u t\u1EEB 950 n\xEAn c\u1ED9t B tr\xF4ng cao g\u1EA7n g\u1EA5p \u0111\xF4i c\u1ED9t A. Nh\u1EADn \u0111\u1ECBnh n\xE0o \u0111\xFAng?", ["Bi\u1EC3u \u0111\u1ED3 g\xE2y hi\u1EC3u l\u1EA7m v\xEC tr\u1EE5c s\u1ED1 li\u1EC7u kh\xF4ng b\u1EAFt \u0111\u1EA7u t\u1EEB 0", "C\u1EEDa h\xE0ng B c\xF3 s\u1ED1 kh\xE1ch g\u1EA5p \u0111\xF4i c\u1EEDa h\xE0ng A", "C\u1EEDa h\xE0ng A c\xF3 nhi\u1EC1u kh\xE1ch h\u01A1n", "Bi\u1EC3u \u0111\u1ED3 bi\u1EC3u di\u1EC5n ho\xE0n to\xE0n ch\xEDnh x\xE1c"], r5`Thực tế B chỉ hơn A khoảng \(\dfrac{20}{980} \approx 2\%\); trục bắt đầu từ 950 làm chênh lệch trông lớn hơn nhiều.`, [
+      void 0,
+      r5`\(1000\) không gấp đôi \(980\).`,
+      "A \xEDt kh\xE1ch h\u01A1n B.",
+      "Tr\u1EE5c kh\xF4ng b\u1EAFt \u0111\u1EA7u t\u1EEB 0 g\xE2y hi\u1EC3u l\u1EA7m."
+    ]),
+    mc(4, GH, "M\u1ED9t bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t tr\xF2n v\u1EC1 lo\u1EA1i tr\xE1i c\xE2y y\xEAu th\xEDch ghi: Xo\xE0i 40%, Cam 35%, Chu\u1ED1i 25%, T\xE1o 10%. Nh\u1EADn \u0111\u1ECBnh n\xE0o \u0111\xFAng?", ["Bi\u1EC3u \u0111\u1ED3 sai v\xEC t\u1ED5ng c\xE1c t\u1EC9 l\u1EC7 b\u1EB1ng 110%", "Bi\u1EC3u \u0111\u1ED3 sai v\xEC c\xF3 b\u1ED1n ph\u1EA7n", "Bi\u1EC3u \u0111\u1ED3 \u0111\xFAng", "Bi\u1EC3u \u0111\u1ED3 sai v\xEC Xo\xE0i chi\u1EBFm t\u1EC9 l\u1EC7 l\u1EDBn nh\u1EA5t"], r5`\(40 + 35 + 25 + 10 = 110 \ne 100\); tổng các phần của biểu đồ quạt phải bằng 100%.`, [
+      void 0,
+      "S\u1ED1 ph\u1EA7n kh\xF4ng quan tr\u1ECDng.",
+      "T\u1ED5ng kh\xE1c 100% n\xEAn sai.",
+      "Kh\xF4ng c\xF3 l\xED do."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, PC, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3 v\xE0 x\xE9t t\xEDnh \u0111\xFAng sai:
+${SACH2}`, [
+      ["L\u1EDBp 8B quy\xEAn g\xF3p \u0111\u01B0\u1EE3c 60 cu\u1ED1n.", true, "\u0110\u1ECDc tr\xEAn bi\u1EC3u \u0111\u1ED3."],
+      ["L\u1EDBp 8C quy\xEAn g\xF3p \xEDt nh\u1EA5t.", true, "40 cu\u1ED1n."],
+      ["L\u1EDBp 8A quy\xEAn g\xF3p nhi\u1EC1u h\u01A1n l\u1EDBp 8D.", false, r5`\(45 < 55\).`],
+      ["C\u1EA3 kh\u1ED1i quy\xEAn g\xF3p \u0111\u01B0\u1EE3c 200 cu\u1ED1n.", true, r5`\(45 + 60 + 40 + 55\).`]
+    ]),
+    tf2(2, PC, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3 v\xE0 x\xE9t t\xEDnh \u0111\xFAng sai:
+${GIO}`, [
+      ["Trong th\xE1ng 9, Chi c\xF3 s\u1ED1 gi\u1EDD t\u1EF1 h\u1ECDc nhi\u1EC1u nh\u1EA5t.", true, "9 gi\u1EDD."],
+      ["S\u1ED1 gi\u1EDD t\u1EF1 h\u1ECDc c\u1EE7a D\u0169ng t\u0103ng g\u1EA5p \u0111\xF4i.", true, r5`Từ 4 lên 8 giờ.`],
+      ["C\u1EA3 b\u1ED1n b\u1EA1n \u0111\u1EC1u t\u0103ng s\u1ED1 gi\u1EDD t\u1EF1 h\u1ECDc.", true, "M\u1ED7i b\u1EA1n \u0111\u1EC1u t\u0103ng \xEDt nh\u1EA5t 1 gi\u1EDD."],
+      ["B\xECnh t\u0103ng 3 gi\u1EDD.", false, r5`Từ 5 lên 7 giờ, tăng 2 giờ.`]
+    ]),
+    tf2(1, PD, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3 v\xE0 x\xE9t t\xEDnh \u0111\xFAng sai:
+${DOANH}`, [
+      ["Doanh thu cao nh\u1EA5t v\xE0o th\xE1ng 5.", true, "150 tri\u1EC7u \u0111\u1ED3ng."],
+      ["T\u1EEB th\xE1ng 1 sang th\xE1ng 2 doanh thu gi\u1EA3m.", true, "T\u1EEB 120 xu\u1ED1ng 95."],
+      ["Doanh thu th\xE1ng 6 cao h\u01A1n th\xE1ng 5.", false, r5`\(145 < 150\).`],
+      ["Doanh thu th\xE1ng 3 l\xE0 110 tri\u1EC7u \u0111\u1ED3ng.", true, "\u0110\u1ECDc tr\xEAn bi\u1EC3u \u0111\u1ED3."]
+    ]),
+    tf2(3, PD, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3 v\xE0 x\xE9t t\xEDnh \u0111\xFAng sai:
+${DOANH}`, [
+      ["T\u1ED5ng doanh thu 6 th\xE1ng l\xE0 745 tri\u1EC7u \u0111\u1ED3ng.", true, r5`\(120 + 95 + 110 + 125 + 150 + 145\).`],
+      ["Doanh thu trung b\xECnh m\u1ED7i th\xE1ng kho\u1EA3ng 124,2 tri\u1EC7u \u0111\u1ED3ng.", true, r5`\(745 : 6 \approx 124{,}2\).`],
+      ["T\u1EEB th\xE1ng 2 \u0111\u1EBFn th\xE1ng 5 doanh thu t\u0103ng th\xEAm 55 tri\u1EC7u \u0111\u1ED3ng.", true, r5`\(150 - 95\).`],
+      ["Doanh thu th\xE1ng 6 gi\u1EA3m 10% so v\u1EDBi th\xE1ng 5.", false, r5`Giảm \(\dfrac{5}{150} \approx 3{,}3\%\).`]
+    ]),
+    tf2(2, PQ, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3 v\xE0 x\xE9t t\xEDnh \u0111\xFAng sai:
+${CHI}`, [
+      ["\u0102n u\u1ED1ng chi\u1EBFm 40%.", true, "\u0110\u1ECDc tr\xEAn bi\u1EC3u \u0111\u1ED3."],
+      ['Kho\u1EA3n "\u0110i l\u1EA1i" v\xE0 kho\u1EA3n "Kh\xE1c" b\u1EB1ng nhau.', true, "C\xF9ng 15%."],
+      ["Kho\u1EA3n h\u1ECDc t\u1EADp g\u1EA5p \u0111\xF4i kho\u1EA3n ti\u1EBFt ki\u1EC7m.", true, "20% v\xE0 10%."],
+      ["Ti\u1EBFt ki\u1EC7m l\xE0 kho\u1EA3n l\u1EDBn th\u1EE9 hai.", false, "Ti\u1EBFt ki\u1EC7m l\xE0 kho\u1EA3n nh\u1ECF nh\u1EA5t."]
+    ]),
+    tf2(3, PQ, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. Thu nh\u1EADp h\u1EB1ng th\xE1ng c\u1EE7a gia \u0111\xECnh l\xE0 18 tri\u1EC7u \u0111\u1ED3ng.
+${CHI}`, [
+      ["Ti\u1EC1n \u0103n u\u1ED1ng l\xE0 7,2 tri\u1EC7u \u0111\u1ED3ng.", true, r5`\(18\cdot40\%\).`],
+      ["Ti\u1EC1n \u0111i l\u1EA1i l\xE0 2,7 tri\u1EC7u \u0111\u1ED3ng.", true, r5`\(18\cdot15\%\).`],
+      ["Ti\u1EC1n ti\u1EBFt ki\u1EC7m l\xE0 1,8 tri\u1EC7u \u0111\u1ED3ng.", true, r5`\(18\cdot10\%\).`],
+      ["Ti\u1EC1n h\u1ECDc t\u1EADp l\xE0 2 tri\u1EC7u \u0111\u1ED3ng.", false, r5`\(18\cdot20\% = 3{,}6\) triệu đồng.`]
+    ]),
+    tf2(3, GH, "X\xE9t t\xEDnh \u0111\xFAng sai v\u1EC1 c\xE1c bi\u1EC3u \u0111\u1ED3 g\xE2y hi\u1EC3u l\u1EA7m:", [
+      ["Bi\u1EC3u \u0111\u1ED3 c\u1ED9t c\xF3 tr\u1EE5c s\u1ED1 li\u1EC7u kh\xF4ng b\u1EAFt \u0111\u1EA7u t\u1EEB 0 c\xF3 th\u1EC3 g\xE2y hi\u1EC3u l\u1EA7m.", true, "Ch\xEAnh l\u1EC7ch tr\xF4ng l\u1EDBn h\u01A1n th\u1EF1c t\u1EBF."],
+      ["Bi\u1EC3u \u0111\u1ED3 h\xECnh qu\u1EA1t c\xF3 t\u1ED5ng t\u1EC9 l\u1EC7 kh\xE1c 100% l\xE0 bi\u1EC3u \u0111\u1ED3 sai.", true, "C\u1EA3 h\xECnh tr\xF2n \u1EE9ng v\u1EDBi 100%."],
+      ["Tr\u1EE5c s\u1ED1 li\u1EC7u chia kh\xF4ng \u0111\u1EC1u c\xF3 th\u1EC3 l\xE0m sai l\u1EC7ch xu h\u01B0\u1EDBng.", true, "Kho\u1EA3ng c\xE1ch kh\xF4ng t\u1EC9 l\u1EC7 v\u1EDBi gi\xE1 tr\u1ECB."],
+      ["Bi\u1EC3u \u0111\u1ED3 c\xF3 m\xE0u s\u1EAFc \u0111\u1EB9p th\xEC lu\xF4n ch\xEDnh x\xE1c.", false, "M\xE0u s\u1EAFc kh\xF4ng quy\u1EBFt \u0111\u1ECBnh \u0111\u1ED9 ch\xEDnh x\xE1c."]
+    ]),
+    tf2(4, GH, "M\u1ED9t bi\u1EC3u \u0111\u1ED3 \u0111o\u1EA1n th\u1EB3ng v\u1EC1 doanh s\u1ED1 c\xF3 tr\u1EE5c ngang ghi c\xE1c n\u0103m 2019, 2020, 2022, 2023 (thi\u1EBFu n\u0103m 2021) v\xE0 c\xE1c m\u1ED1c \u0111\u01B0\u1EE3c \u0111\u1EB7t c\xE1ch \u0111\u1EC1u nhau.", [
+      ["Bi\u1EC3u \u0111\u1ED3 c\xF3 th\u1EC3 g\xE2y hi\u1EC3u l\u1EA7m v\u1EC1 t\u1ED1c \u0111\u1ED9 thay \u0111\u1ED5i.", true, "Kho\u1EA3ng 2020 \u2013 2022 l\xE0 hai n\u0103m nh\u01B0ng v\u1EBD nh\u01B0 m\u1ED9t n\u0103m."],
+      ["Kho\u1EA3ng c\xE1ch c\xE1c m\u1ED1c tr\xEAn tr\u1EE5c ngang n\xEAn t\u01B0\u01A1ng \u1EE9ng v\u1EDBi th\u1EDDi gian th\u1EF1c.", true, "\u0110\u1EC3 \u0111\u1ED9 d\u1ED1c ph\u1EA3n \xE1nh \u0111\xFAng."],
+      ["Bi\u1EC3u \u0111\u1ED3 v\u1EABn ho\xE0n to\xE0n ch\xEDnh x\xE1c.", false, "Thi\u1EBFu m\u1ED9t n\u0103m v\xE0 v\u1EBD sai kho\u1EA3ng c\xE1ch."],
+      ["N\xEAn b\u1ED5 sung s\u1ED1 li\u1EC7u n\u0103m 2021 ho\u1EB7c ghi ch\xFA r\xF5.", true, "C\xE1ch s\u1EEDa h\u1EE3p l\xED."]
+    ]),
+    tf2(2, PC, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3 v\xE0 x\xE9t t\xEDnh \u0111\xFAng sai:
+${GIO}`, [
+      ["T\u1ED5ng s\u1ED1 gi\u1EDD t\u1EF1 h\u1ECDc c\u1EE7a b\u1ED1n b\u1EA1n trong th\xE1ng 10 l\xE0 33 gi\u1EDD.", true, r5`\(8 + 7 + 10 + 8\).`],
+      ["T\u1ED5ng s\u1ED1 gi\u1EDD t\u1EF1 h\u1ECDc c\u1EE7a b\u1ED1n b\u1EA1n trong th\xE1ng 9 l\xE0 24 gi\u1EDD.", true, r5`\(6 + 5 + 9 + 4\).`],
+      ["Trong th\xE1ng 10, An t\u1EF1 h\u1ECDc nhi\u1EC1u h\u01A1n Chi.", false, "An 8 gi\u1EDD, Chi 10 gi\u1EDD."],
+      ["Trong th\xE1ng 10, B\xECnh t\u1EF1 h\u1ECDc \xEDt gi\u1EDD nh\u1EA5t.", true, "7 gi\u1EDD."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, PC, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. L\u1EDBp 8D quy\xEAn g\xF3p nhi\u1EC1u h\u01A1n l\u1EDBp 8A bao nhi\xEAu cu\u1ED1n s\xE1ch?
+${SACH2}`, "10", r5`\(55 - 45 = 10\) cuốn.`, { unit: "cu\u1ED1n" }),
+    sa2(3, PD, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. T\xEDnh t\u1ED5ng doanh thu qu\xFD II (th\xE1ng 4, 5, 6).
+${DOANH}`, "420", r5`\(125 + 150 + 145 = 420\) triệu đồng.`, TR),
+    sa2(3, PQ, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3. Thu nh\u1EADp h\u1EB1ng th\xE1ng c\u1EE7a gia \u0111\xECnh l\xE0 30 tri\u1EC7u \u0111\u1ED3ng. T\xEDnh s\u1ED1 ti\u1EC1n chi cho \u0103n u\u1ED1ng.
+${CHI}`, "12", r5`\(30\cdot40\% = 12\) triệu đồng.`, TR),
+    sa2(4, GH, "M\u1ED9t bi\u1EC3u \u0111\u1ED3 c\u1ED9t so s\xE1nh hai s\u1EA3n ph\u1EA9m A (b\xE1n \u0111\u01B0\u1EE3c 480 chi\u1EBFc) v\xE0 B (b\xE1n \u0111\u01B0\u1EE3c 500 chi\u1EBFc), tr\u1EE5c s\u1ED1 li\u1EC7u b\u1EAFt \u0111\u1EA7u t\u1EEB 470. Tr\xEAn bi\u1EC3u \u0111\u1ED3, c\u1ED9t B cao g\u1EA5p bao nhi\xEAu l\u1EA7n c\u1ED9t A?", "3", r5`Chiều cao cột trên hình: A ứng với \(480 - 470 = 10\), B ứng với \(500 - 470 = 30\); cột B cao gấp 3 lần, trong khi thực tế B chỉ hơn A khoảng 4%.`),
+    // ---- Tự luận ----
+    es2(2, PC, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3.
+${SACH2}
+a) S\u1EAFp x\u1EBFp c\xE1c l\u1EDBp theo th\u1EE9 t\u1EF1 s\u1ED1 s\xE1ch quy\xEAn g\xF3p gi\u1EA3m d\u1EA7n.
+b) T\xEDnh t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m s\u1ED1 s\xE1ch c\u1EE7a m\u1ED7i l\u1EDBp so v\u1EDBi t\u1ED5ng s\u1ED1 s\xE1ch.`, r5`a) 8B (60), 8D (55), 8A (45), 8C (40).
+b) Tổng 200 cuốn: 8A 22,5%; 8B 30%; 8C 20%; 8D 27,5%.`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b, tính đúng bốn tỉ lệ.`),
+    es2(3, PD, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3.
+${DOANH}
+a) Nh\u1EADn x\xE9t xu h\u01B0\u1EDBng doanh thu trong 6 th\xE1ng.
+b) T\xEDnh t\u1EC9 l\u1EC7 ph\u1EA7n tr\u0103m doanh thu th\xE1ng 6 gi\u1EA3m so v\u1EDBi th\xE1ng 5 (l\xE0m tr\xF2n \u0111\u1EBFn h\xE0ng ph\u1EA7n m\u01B0\u1EDDi).`, r5`a) Doanh thu giảm từ tháng 1 sang tháng 2, sau đó tăng liên tục từ tháng 2 đến tháng 5 (cao nhất 150 triệu đồng), rồi giảm nhẹ ở tháng 6.
+b) \(\dfrac{150 - 145}{150}\cdot100\% \approx 3{,}3\%\).`, r5`0,5 điểm: nhận xét đúng các giai đoạn tăng, giảm.
+0,5 điểm: tính đúng tỉ lệ giảm.`),
+    es2(3, PQ, `Quan s\xE1t bi\u1EC3u \u0111\u1ED3.
+${CHI}
+Thu nh\u1EADp h\u1EB1ng th\xE1ng c\u1EE7a gia \u0111\xECnh l\xE0 24 tri\u1EC7u \u0111\u1ED3ng.
+a) T\xEDnh s\u1ED1 ti\u1EC1n c\u1EE7a t\u1EEBng kho\u1EA3n chi.
+b) Gia \u0111\xECnh mu\u1ED1n t\u0103ng ti\u1EBFt ki\u1EC7m l\xEAn 15% b\u1EB1ng c\xE1ch gi\u1EA3m kho\u1EA3n "Kh\xE1c". Khi \u0111\xF3 kho\u1EA3n "Kh\xE1c" c\xF2n bao nhi\xEAu ph\u1EA7n tr\u0103m v\xE0 bao nhi\xEAu ti\u1EC1n?`, r5`a) Ăn uống 9,6 triệu; học tập 4,8 triệu; đi lại 3,6 triệu; tiết kiệm 2,4 triệu; khác 3,6 triệu đồng.
+b) Tiết kiệm tăng 5% nên khoản "Khác" giảm còn \(15\% - 5\% = 10\%\), tức \(2{,}4\) triệu đồng.`, r5`0,5 điểm: câu a, tính đúng năm khoản.
+0,5 điểm: câu b, lập luận và tính đúng.`),
+    es2(4, GH, 'M\u1ED9t qu\u1EA3ng c\xE1o vi\u1EBFt "Doanh s\u1ED1 t\u0103ng v\u1ECDt!" k\xE8m bi\u1EC3u \u0111\u1ED3 c\u1ED9t: n\u0103m 2024 doanh s\u1ED1 200 t\u1EC9 \u0111\u1ED3ng, n\u0103m 2025 doanh s\u1ED1 210 t\u1EC9 \u0111\u1ED3ng, tr\u1EE5c s\u1ED1 li\u1EC7u b\u1EAFt \u0111\u1EA7u t\u1EEB 195.\na) Tr\xEAn bi\u1EC3u \u0111\u1ED3, c\u1ED9t n\u0103m 2025 cao g\u1EA5p m\u1EA5y l\u1EA7n c\u1ED9t n\u0103m 2024?\nb) Doanh s\u1ED1 th\u1EF1c t\u1EBF t\u0103ng bao nhi\xEAu ph\u1EA7n tr\u0103m? Bi\u1EC3u \u0111\u1ED3 c\xF3 g\xE2y hi\u1EC3u l\u1EA7m kh\xF4ng? N\xEAn s\u1EEDa th\u1EBF n\xE0o?', r5`a) Chiều cao trên hình ứng với \(200 - 195 = 5\) và \(210 - 195 = 15\): cột năm 2025 cao gấp 3 lần.
+b) Thực tế tăng \(\dfrac{10}{200}\cdot100\% = 5\%\). Biểu đồ gây hiểu lầm vì trục không bắt đầu từ 0; cần vẽ lại với trục số liệu bắt đầu từ 0.
+[bieudo]
+loai: cot
+tieude: Doanh số hai năm
+nhan: 2024; 2025
+so lieu: 200; 210
+donvi: tỉ đồng
+[/bieudo]`, r5`0,25 điểm: câu a.
+0,5 điểm: tính đúng tỉ lệ tăng thực tế và chỉ ra nguyên nhân gây hiểu lầm.
+0,25 điểm: đề xuất cách vẽ lại.`)
+  ]
+};
+var BANK_CHUONG_5 = [B18, B19, B20];
+
 // src/seed/toan8-bank/index.ts
-var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3, ...BANK_CHUONG_4];
+var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3, ...BANK_CHUONG_4, ...BANK_CHUONG_5];
 
 // src/seed/question-bank.ts
 var BANK_SOURCE = "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi G\u01104 \u2013 t\u1EF1 bi\xEAn so\u1EA1n theo SGK To\xE1n 8 KNTT";
