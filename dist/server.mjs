@@ -43689,8 +43689,581 @@ Trong tam giác đều, đường cao \(BH\) cũng là đường trung tuyến, 
 };
 var BANK_CHUONG_3 = [B10, B11, B12, B13, B14];
 
+// src/seed/toan8-bank/chuong-4.ts
+var CM3 = { unit: "cm" };
+var CM22 = { unit: "cm\xB2" };
+var M = { unit: "m" };
+var TL = "doan-thang-ti-le";
+var TD = "tinh-do-dai-dinh-li-thales";
+var CS = "chung-minh-song-song-he-thuc-thales";
+var DT = "do-dac-thuc-te-dinh-li-thales";
+var B15 = {
+  slug: "bai-15-dinh-li-thales-trong-tam-giac",
+  questions: [
+    mc(1, TL, r5`Cho \(AB = 4\) cm, \(CD = 6\) cm. Tỉ số \(\dfrac{AB}{CD}\) bằng`, [r5`\(\dfrac23\)`, r5`\(\dfrac32\)`, r5`\(2\)`, r5`\(24\)`], r5`\(\dfrac{AB}{CD} = \dfrac46 = \dfrac23\).`, [
+      void 0,
+      r5`Đó là \(\dfrac{CD}{AB}\).`,
+      "\u0110\xF3 l\xE0 hi\u1EC7u hai \u0111\u1ED9 d\xE0i.",
+      "\u0110\xF3 l\xE0 t\xEDch hai \u0111\u1ED9 d\xE0i."
+    ]),
+    mc(1, TL, r5`Cho \(AB = 30\) cm, \(CD = 2\) m. Tỉ số \(\dfrac{AB}{CD}\) bằng`, [r5`\(\dfrac{3}{20}\)`, r5`\(15\)`, r5`\(\dfrac32\)`, r5`\(\dfrac{20}{3}\)`], r5`Đổi \(CD = 200\) cm: \(\dfrac{AB}{CD} = \dfrac{30}{200} = \dfrac{3}{20}\).`, [
+      void 0,
+      "Ch\u01B0a \u0111\u1ED5i v\u1EC1 c\xF9ng \u0111\u01A1n v\u1ECB.",
+      "\u0110\u1ED5i sai \u0111\u01A1n v\u1ECB (2 m = 200 cm).",
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1."
+    ]),
+    mc(2, TL, r5`Biết \(\dfrac{AB}{CD} = \dfrac35\) và \(CD = 15\) cm. Độ dài \(AB\) là`, [r5`\(9\) cm`, r5`\(25\) cm`, r5`\(5\) cm`, r5`\(45\) cm`], r5`\(AB = \dfrac35\cdot15 = 9\) cm.`, [
+      void 0,
+      r5`Đã tính \(\dfrac53\cdot15\).`,
+      r5`Đã tính \(15 : 3\).`,
+      r5`Đã tính \(3\cdot15\).`
+    ]),
+    mc(2, TL, r5`Cho \(AB = 2\) cm, \(CD = 3\) cm. Hai đoạn thẳng \(AB\), \(CD\) tỉ lệ với hai đoạn thẳng \(MN\), \(PQ\) khi`, [r5`\(MN = 4\) cm, \(PQ = 6\) cm`, r5`\(MN = 3\) cm, \(PQ = 2\) cm`, r5`\(MN = 4\) cm, \(PQ = 5\) cm`, r5`\(MN = 6\) cm, \(PQ = 4\) cm`], r5`Cần \(\dfrac{MN}{PQ} = \dfrac{AB}{CD} = \dfrac23\); chỉ có \(\dfrac46 = \dfrac23\).`, [
+      void 0,
+      r5`\(\dfrac32 \ne \dfrac23\).`,
+      r5`\(\dfrac45 \ne \dfrac23\).`,
+      r5`\(\dfrac64 = \dfrac32 \ne \dfrac23\).`
+    ]),
+    mc(2, TD, r5`Tam giác \(ABC\) có \(DE \parallel BC\) (\(D \in AB\), \(E \in AC\)), \(AD = 2\) cm, \(DB = 3\) cm, \(AE = 4\) cm. Độ dài \(EC\) là`, [r5`\(6\) cm`, r5`\(\dfrac83\) cm`, r5`\(5\) cm`, r5`\(10\) cm`], r5`Định lí Thalès: \(\dfrac{AD}{DB} = \dfrac{AE}{EC}\), tức \(\dfrac23 = \dfrac{4}{EC}\), \(EC = 6\) cm.`, [
+      void 0,
+      "L\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c b\u1ECB \u0111\u1EA3o m\u1ED9t v\u1EBF.",
+      "C\u1ED9ng th\xEAm 1 kh\xF4ng c\xF3 c\u01A1 s\u1EDF.",
+      r5`Đó là \(AC\).`
+    ]),
+    mc(2, TD, r5`Tam giác \(ABC\) có \(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)), \(AM = 3\) cm, \(AB = 9\) cm, \(AC = 12\) cm. Độ dài \(AN\) là`, [r5`\(4\) cm`, r5`\(9\) cm`, r5`\(8\) cm`, r5`\(36\) cm`], r5`\(\dfrac{AN}{AC} = \dfrac{AM}{AB} = \dfrac13\) nên \(AN = 4\) cm.`, [
+      void 0,
+      "Nh\u1EA7m t\u1EC9 s\u1ED1.",
+      r5`Đó là \(NC\).`,
+      "Nh\xE2n thay v\xEC chia."
+    ]),
+    mc(3, TD, r5`Tam giác \(ABC\) có \(DE \parallel BC\) (\(D \in AB\), \(E \in AC\)), \(AD = 4\) cm, \(DB = 2\) cm, \(AC = 9\) cm. Độ dài \(AE\) là`, [r5`\(6\) cm`, r5`\(3\) cm`, r5`\(4{,}5\) cm`, r5`\(13{,}5\) cm`], r5`\(\dfrac{AE}{AC} = \dfrac{AD}{AB} = \dfrac46 = \dfrac23\) nên \(AE = 6\) cm.`, [
+      void 0,
+      r5`Đó là \(EC\).`,
+      "Chia \u0111\xF4i \\(AC\\) kh\xF4ng c\xF3 c\u01A1 s\u1EDF.",
+      r5`Đã tính \(\dfrac{AB}{AD}\cdot AC\).`
+    ]),
+    mc(3, TD, r5`Hình thang \(ABCD\) (\(AB \parallel CD\)) có hai cạnh bên \(AD\), \(BC\) kéo dài cắt nhau tại \(E\); \(EA = 3\) cm, \(AD = 6\) cm, \(EB = 4\) cm. Độ dài \(BC\) là`, [r5`\(8\) cm`, r5`\(2\) cm`, r5`\(4{,}5\) cm`, r5`\(12\) cm`], r5`Trong tam giác \(EDC\), \(AB \parallel DC\): \(\dfrac{EA}{AD} = \dfrac{EB}{BC}\), tức \(\dfrac36 = \dfrac{4}{BC}\), \(BC = 8\) cm.`, [
+      void 0,
+      "L\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c b\u1ECB \u0111\u1EA3o.",
+      "L\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c sai c\u1EB7p \u0111o\u1EA1n.",
+      r5`Đó là \(EC\).`
+    ]),
+    mc(3, CS, r5`Tam giác \(ABC\), lấy \(D \in AB\), \(E \in AC\) sao cho \(\dfrac{AD}{DB} = \dfrac{AE}{EC}\). Khẳng định nào sau đây đúng?`, [r5`\(DE \parallel BC\)`, r5`\(DE \perp BC\)`, r5`\(DE = BC\)`, r5`\(DE = \dfrac{BC}{2}\)`], "Theo \u0111\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o, \\(DE \\parallel BC\\).", [
+      void 0,
+      "Thal\xE8s \u0111\u1EA3o cho quan h\u1EC7 song song.",
+      r5`\(DE < BC\).`,
+      "Ch\u1EC9 \u0111\xFAng khi \\(D\\), \\(E\\) l\xE0 trung \u0111i\u1EC3m."
+    ]),
+    mc(3, CS, r5`Tam giác \(ABC\) có \(AB = 6\) cm, \(AC = 9\) cm; \(D \in AB\) với \(AD = 2\) cm. Điểm \(E\) trên \(AC\) sao cho \(DE \parallel BC\) thì \(AE\) bằng`, [r5`\(3\) cm`, r5`\(6\) cm`, r5`\(4{,}5\) cm`, r5`\(2\) cm`], r5`\(\dfrac{AE}{AC} = \dfrac{AD}{AB} = \dfrac13\) nên \(AE = 3\) cm.`, [
+      void 0,
+      r5`Đó là \(EC\).`,
+      "Chia \u0111\xF4i \\(AC\\) kh\xF4ng c\xF3 c\u01A1 s\u1EDF.",
+      r5`\(AE\) không bằng \(AD\).`
+    ]),
+    mc(3, CS, r5`Tam giác \(ABC\) có \(DE \parallel BC\) (\(D \in AB\), \(E \in AC\)). Hệ thức nào sau đây đúng?`, [r5`\(AD\cdot EC = AE\cdot DB\)`, r5`\(AD\cdot AE = DB\cdot EC\)`, r5`\(AD\cdot DB = AE\cdot EC\)`, r5`\(AD\cdot AC = AE\cdot DB\)`], r5`\(\dfrac{AD}{DB} = \dfrac{AE}{EC}\) nên \(AD\cdot EC = AE\cdot DB\).`, [
+      void 0,
+      "Nh\xE2n ch\xE9o sai.",
+      "Nh\xE2n ch\xE9o sai.",
+      r5`Đúng phải là \(AD\cdot AC = AE\cdot AB\).`
+    ]),
+    mc(4, CS, r5`Hình thang \(ABCD\) (\(AB \parallel CD\)) có \(O\) là giao điểm hai đường chéo. Đường thẳng qua \(O\) song song với \(AB\) cắt \(AD\), \(BC\) lần lượt tại \(M\), \(N\). Khẳng định nào sau đây đúng?`, [r5`\(OM = ON\)`, r5`\(OM = AB\)`, r5`\(MN = CD\)`, r5`\(OM = OA\)`], r5`Dùng Thalès trong các tam giác \(ACD\), \(BDC\) và \(\dfrac{AO}{AC} = \dfrac{BO}{BD}\) suy ra \(\dfrac{OM}{DC} = \dfrac{ON}{DC}\), tức \(OM = ON\).`, [
+      void 0,
+      "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n.",
+      r5`\(MN < CD\).`,
+      "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n."
+    ]),
+    mc(3, DT, r5`Để đo khoảng cách \(AB\) qua một con kênh, người ta chọn điểm \(O\) sao cho \(O\), \(A\), \(B\) thẳng hàng và hai điểm \(C\), \(D\) sao cho \(O\), \(C\), \(D\) thẳng hàng, \(AC \parallel BD\). Đo được \(OA = 6\) m, \(OC = 9\) m, \(CD = 12\) m. Khoảng cách \(AB\) là`, [r5`\(8\) m`, r5`\(18\) m`, r5`\(4{,}5\) m`, r5`\(12\) m`], r5`Trong tam giác \(OBD\), \(AC \parallel BD\): \(\dfrac{OA}{AB} = \dfrac{OC}{CD}\), \(AB = \dfrac{6\cdot12}{9} = 8\) m.`, [
+      void 0,
+      "L\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c b\u1ECB \u0111\u1EA3o.",
+      "L\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c sai c\u1EB7p \u0111o\u1EA1n.",
+      r5`Đó là \(CD\).`
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, TL, r5`Cho \(AB = 3\) cm, \(CD = 5\) cm, \(EF = 6\) cm, \(GH = 10\) cm.`, [
+      [r5`\(\dfrac{AB}{CD} = \dfrac35\).`, true, "T\xEDnh tr\u1EF1c ti\u1EBFp."],
+      [r5`\(\dfrac{EF}{GH} = \dfrac35\).`, true, r5`\(\dfrac{6}{10} = \dfrac35\).`],
+      [r5`\(AB\), \(CD\) tỉ lệ với \(EF\), \(GH\).`, true, "Hai t\u1EC9 s\u1ED1 b\u1EB1ng nhau."],
+      [r5`\(AB\), \(CD\) tỉ lệ với \(GH\), \(EF\).`, false, r5`\(\dfrac{GH}{EF} = \dfrac53 \ne \dfrac35\).`]
+    ]),
+    tf2(2, TL, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      ["T\u1EC9 s\u1ED1 c\u1EE7a hai \u0111o\u1EA1n th\u1EB3ng kh\xF4ng ph\u1EE5 thu\u1ED9c v\xE0o \u0111\u01A1n v\u1ECB \u0111o.", true, "Hai \u0111o\u1EA1n \u0111\u01B0\u1EE3c \u0111o c\xF9ng m\u1ED9t \u0111\u01A1n v\u1ECB."],
+      [r5`Nếu \(AB = 1{,}2\) m, \(CD = 40\) cm thì \(\dfrac{AB}{CD} = 3\).`, true, r5`\(\dfrac{120}{40} = 3\).`],
+      [r5`Nếu \(\dfrac{AB}{CD} = \dfrac23\) và \(CD = 12\) cm thì \(AB = 18\) cm.`, false, r5`\(AB = 8\) cm.`],
+      [r5`Luôn có \(\dfrac{AB}{CD} = \dfrac{CD}{AB}\).`, false, "Ch\u1EC9 \u0111\xFAng khi \\(AB = CD\\)."]
+    ]),
+    tf2(2, TD, r5`Tam giác \(ABC\) có \(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)), \(AM = 2\) cm, \(MB = 4\) cm, \(AN = 3\) cm.`, [
+      [r5`\(\dfrac{AM}{MB} = \dfrac{AN}{NC}\).`, true, "\u0110\u1ECBnh l\xED Thal\xE8s."],
+      [r5`\(NC = 6\) cm.`, true, r5`\(\dfrac24 = \dfrac{3}{NC}\).`],
+      [r5`\(AC = 9\) cm.`, true, r5`\(3 + 6\).`],
+      [r5`\(\dfrac{AN}{AC} = \dfrac12\).`, false, r5`\(\dfrac{AN}{AC} = \dfrac39 = \dfrac13\).`]
+    ]),
+    tf2(3, TD, r5`Tam giác \(ABC\) có \(DE \parallel BC\) (\(D \in AB\), \(E \in AC\)), \(AD = 5\) cm, \(AB = 15\) cm, \(EC = 8\) cm.`, [
+      [r5`\(\dfrac{AD}{AB} = \dfrac13\).`, true, r5`\(\dfrac{5}{15}\).`],
+      [r5`\(\dfrac{AE}{AC} = \dfrac13\).`, true, "\u0110\u1ECBnh l\xED Thal\xE8s."],
+      [r5`\(\dfrac{EC}{AC} = \dfrac23\).`, true, r5`\(1 - \dfrac13\).`],
+      [r5`\(AE = 6\) cm.`, false, r5`\(AC = 12\) cm nên \(AE = 4\) cm.`]
+    ]),
+    tf2(3, CS, r5`Tam giác \(ABC\) có \(AB = 12\) cm, \(AC = 15\) cm. Lấy \(D \in AB\), \(E \in AC\) với \(AD = 4\) cm, \(AE = 5\) cm.`, [
+      [r5`\(\dfrac{AD}{AB} = \dfrac13\).`, true, "T\xEDnh tr\u1EF1c ti\u1EBFp."],
+      [r5`\(\dfrac{AE}{AC} = \dfrac13\).`, true, "T\xEDnh tr\u1EF1c ti\u1EBFp."],
+      [r5`\(DE \parallel BC\).`, true, "\u0110\u1ECBnh l\xED Thal\xE8s \u0111\u1EA3o."],
+      [r5`\(DE \parallel BC\) chỉ xảy ra khi \(AB = AC\).`, false, "Thal\xE8s \u0111\u1EA3o kh\xF4ng c\u1EA7n tam gi\xE1c c\xE2n."]
+    ]),
+    tf2(3, CS, r5`Tam giác \(ABC\), lấy \(D \in AB\), \(E \in AC\) với \(AD = 3\), \(DB = 4\), \(AE = 4\), \(EC = 5\) (cm).`, [
+      [r5`\(\dfrac{AD}{DB} = \dfrac34\).`, true, "T\xEDnh tr\u1EF1c ti\u1EBFp."],
+      [r5`\(\dfrac{AE}{EC} = \dfrac45\).`, true, "T\xEDnh tr\u1EF1c ti\u1EBFp."],
+      [r5`\(DE \parallel BC\).`, false, "Hai t\u1EC9 s\u1ED1 kh\xE1c nhau."],
+      [r5`\(DE\) không song song với \(BC\).`, true, "N\u1EBFu song song th\xEC hai t\u1EC9 s\u1ED1 ph\u1EA3i b\u1EB1ng nhau (Thal\xE8s)."]
+    ]),
+    tf2(4, CS, r5`Tứ giác \(ABCD\) có \(O\) là giao điểm hai đường chéo; \(OE \parallel BC\) (\(E \in AB\)), \(OF \parallel CD\) (\(F \in AD\)).`, [
+      [r5`\(\dfrac{AE}{EB} = \dfrac{AO}{OC}\).`, true, r5`Thalès trong \(\triangle ABC\).`],
+      [r5`\(\dfrac{AF}{FD} = \dfrac{AO}{OC}\).`, true, r5`Thalès trong \(\triangle ACD\).`],
+      [r5`\(EF \parallel BD\).`, true, r5`Thalès đảo trong \(\triangle ABD\).`],
+      [r5`\(EF \parallel AC\).`, false, r5`\(EF \parallel BD\) mà \(BD\) cắt \(AC\) nên \(EF\) không song song với \(AC\).`]
+    ]),
+    tf2(3, TD, r5`Hình thang \(ABCD\) (\(AB \parallel CD\)) có hai cạnh bên kéo dài cắt nhau tại \(E\); \(EA = 2\) cm, \(AD = 4\) cm, \(EB = 3\) cm.`, [
+      [r5`\(\dfrac{EA}{AD} = \dfrac{EB}{BC}\).`, true, r5`Thalès trong \(\triangle EDC\).`],
+      [r5`\(BC = 6\) cm.`, true, r5`\(\dfrac24 = \dfrac{3}{BC}\).`],
+      [r5`\(\dfrac{EA}{ED} = \dfrac13\).`, true, r5`\(ED = 6\) cm.`],
+      [r5`\(EC = 6\) cm.`, false, r5`\(EC = 3 + 6 = 9\) cm.`]
+    ]),
+    tf2(3, DT, r5`Đo khoảng cách \(AB\) qua một hồ: \(O\), \(A\), \(B\) thẳng hàng; \(O\), \(C\), \(D\) thẳng hàng; \(AC \parallel BD\); \(OA = 10\) m, \(OC = 8\) m, \(CD = 12\) m.`, [
+      [r5`\(\dfrac{OA}{AB} = \dfrac{OC}{CD}\).`, true, r5`Thalès trong \(\triangle OBD\).`],
+      [r5`\(AB = 15\) m.`, true, r5`\(\dfrac{10\cdot12}{8}\).`],
+      [r5`\(OB = 25\) m.`, true, r5`\(10 + 15\).`],
+      [r5`\(AB = 9{,}6\) m.`, false, "L\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c b\u1ECB \u0111\u1EA3o."]
+    ]),
+    tf2(2, TL, r5`Cho \(AB = 6\), \(CD = 9\), \(A'B' = 4\), \(C'D' = 6\) (cm).`, [
+      [r5`\(\dfrac{AB}{CD} = \dfrac23\).`, true, "R\xFAt g\u1ECDn \\(\\dfrac69\\)."],
+      [r5`\(\dfrac{A'B'}{C'D'} = \dfrac23\).`, true, "R\xFAt g\u1ECDn \\(\\dfrac46\\)."],
+      [r5`\(AB\), \(CD\) tỉ lệ với \(A'B'\), \(C'D'\).`, true, "Hai t\u1EC9 s\u1ED1 b\u1EB1ng nhau."],
+      [r5`\(\dfrac{AB}{A'B'} = \dfrac23\).`, false, r5`\(\dfrac64 = \dfrac32\).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(1, TL, r5`Cho \(AB = 15\) cm, \(CD = 2\) dm. Tính tỉ số \(\dfrac{AB}{CD}\).`, "3/4", r5`\(CD = 20\) cm, \(\dfrac{AB}{CD} = \dfrac{15}{20} = \dfrac34\).`),
+    sa2(2, TD, r5`Tam giác \(ABC\) có \(DE \parallel BC\) (\(D \in AB\), \(E \in AC\)), \(AD = 6\) cm, \(DB = 4\) cm, \(AE = 9\) cm. Tính \(EC\).`, "6", r5`\(\dfrac64 = \dfrac{9}{EC}\) nên \(EC = 6\) cm.`, CM3),
+    sa2(3, TD, r5`Tam giác \(ABC\) có \(MN \parallel BC\) (\(M \in AB\), \(N \in AC\)), \(AM = 4\) cm, \(MB = 6\) cm, \(AC = 15\) cm. Tính \(AN\).`, "6", r5`\(\dfrac{AN}{AC} = \dfrac{AM}{AB} = \dfrac{4}{10}\) nên \(AN = 6\) cm.`, CM3),
+    sa2(3, TD, r5`Hình thang \(ABCD\) (\(AB \parallel CD\)) có hai cạnh bên kéo dài cắt nhau tại \(E\); \(EA = 4\) cm, \(AD = 5\) cm, \(EC = 18\) cm. Tính \(EB\).`, "8", r5`\(\dfrac{EB}{EC} = \dfrac{EA}{ED} = \dfrac49\) nên \(EB = 8\) cm.`, CM3),
+    sa2(3, CS, r5`Tam giác \(ABC\) có \(AB = 10\) cm, \(AC = 15\) cm; \(D \in AB\) với \(AD = 4\) cm. Tìm độ dài \(AE\) (\(E \in AC\)) để \(DE \parallel BC\).`, "6", r5`\(DE \parallel BC \iff \dfrac{AE}{AC} = \dfrac{AD}{AB} = \dfrac25\), \(AE = 6\) cm.`, CM3),
+    sa2(3, DT, r5`Đo khoảng cách \(AB\) qua sông: \(O\), \(A\), \(B\) thẳng hàng; \(O\), \(C\), \(D\) thẳng hàng; \(AC \parallel BD\); \(OA = 12\) m, \(OC = 9\) m, \(CD = 6\) m. Tính \(AB\).`, "8", r5`\(\dfrac{OA}{AB} = \dfrac{OC}{CD}\) nên \(AB = \dfrac{12\cdot6}{9} = 8\) m.`, M),
+    // ---- Tự luận ----
+    es2(2, TL, r5`a) Tính tỉ số \(\dfrac{AB}{CD}\) biết \(AB = 45\) cm, \(CD = 0{,}6\) m.
+b) Tìm \(AB\), \(CD\) biết \(\dfrac{AB}{CD} = \dfrac53\) và \(AB - CD = 8\) cm.`, r5`a) \(CD = 60\) cm, \(\dfrac{AB}{CD} = \dfrac{45}{60} = \dfrac34\).
+b) \(\dfrac{AB}{5} = \dfrac{CD}{3} = \dfrac{AB - CD}{2} = 4\), nên \(AB = 20\) cm, \(CD = 12\) cm.`, r5`0,5 điểm: câu a, đổi đơn vị và rút gọn đúng.
+0,5 điểm: câu b, dùng dãy tỉ số bằng nhau đúng.`),
+    es2(3, TD, r5`Tam giác \(ABC\) có \(DE \parallel BC\) (\(D \in AB\), \(E \in AC\)), \(AD = 3\) cm, \(DB = 5\) cm, \(AC = 12\) cm. Tính \(AE\) và \(EC\).`, r5`\(DE \parallel BC\) nên \(\dfrac{AE}{AC} = \dfrac{AD}{AB} = \dfrac38\).
+\(AE = \dfrac38\cdot12 = 4{,}5\) cm; \(EC = 12 - 4{,}5 = 7{,}5\) cm.`, r5`0,5 điểm: viết đúng tỉ lệ thức Thalès.
+0,5 điểm: tính đúng \(AE\), \(EC\).`),
+    es2(4, CS, r5`Cho tam giác \(ABC\). Lấy \(D \in AB\), \(E \in AC\) sao cho \(\dfrac{AD}{AB} = \dfrac{AE}{AC} = \dfrac13\) và lấy \(F \in BC\) sao cho \(BF = \dfrac{BC}{3}\). Chứng minh \(DE \parallel BC\), \(EF \parallel AB\) và \(BDEF\) là hình bình hành.`, r5`\(\dfrac{AD}{AB} = \dfrac{AE}{AC}\) nên \(DE \parallel BC\) (Thalès đảo).
+\(\dfrac{CE}{CA} = \dfrac23\) và \(\dfrac{CF}{CB} = \dfrac23\) nên \(EF \parallel AB\) (Thalès đảo trong \(\triangle CAB\)).
+Tứ giác \(BDEF\) có \(BD \parallel EF\), \(DE \parallel BF\) nên là hình bình hành.`, r5`0,25 điểm: chứng minh \(DE \parallel BC\).
+0,5 điểm: tính đúng hai tỉ số và chứng minh \(EF \parallel AB\).
+0,25 điểm: kết luận hình bình hành.`),
+    es2(3, DT, r5`Để đo khoảng cách giữa hai điểm \(A\), \(B\) ở hai bờ một con sông, người ta chọn điểm \(O\) sao cho \(O\), \(A\), \(B\) thẳng hàng, rồi chọn \(C\), \(D\) sao cho \(O\), \(C\), \(D\) thẳng hàng và \(AC \parallel BD\). Đo được \(OA = 15\) m, \(OC = 12\) m, \(CD = 20\) m. Tính khoảng cách \(AB\).`, r5`Trong tam giác \(OBD\) có \(A \in OB\), \(C \in OD\), \(AC \parallel BD\).
+Theo định lí Thalès: \(\dfrac{OA}{AB} = \dfrac{OC}{CD}\), tức \(\dfrac{15}{AB} = \dfrac{12}{20}\).
+\(AB = \dfrac{15\cdot20}{12} = 25\) (m).`, r5`0,5 điểm: chỉ ra tam giác và đường song song, viết đúng tỉ lệ thức.
+0,5 điểm: tính đúng \(AB = 25\) m.`),
+    ge2(3, TD, r5`Cho tam giác \(ABC\) có \(AB = 9\) cm, \(AC = 12\) cm. Trên cạnh \(AB\) lấy điểm \(D\) sao cho \(AD = 3\) cm. Qua \(D\) kẻ đường thẳng song song với \(BC\) cắt \(AC\) tại \(E\). Tính \(AE\) và \(EC\).`, `A(2,6) B(0,0) C(9,0) D(1.33,4) E(4.33,4)
+ABCA DE`, r5`\(DE \parallel BC\) nên theo định lí Thalès: \(\dfrac{AE}{AC} = \dfrac{AD}{AB} = \dfrac39 = \dfrac13\).
+\(AE = \dfrac13\cdot12 = 4\) cm; \(EC = 12 - 4 = 8\) cm.`, r5`0,5 điểm: viết đúng tỉ lệ thức Thalès.
+0,5 điểm: tính đúng \(AE = 4\) cm, \(EC = 8\) cm.`),
+    ge2(4, CS, r5`Cho hình thang \(ABCD\) (\(AB \parallel CD\)). Một đường thẳng song song với hai đáy cắt \(AD\), \(BC\) lần lượt tại \(M\), \(N\). Chứng minh \(\dfrac{AM}{MD} = \dfrac{BN}{NC}\).`, `A(2,4) B(6,4) C(9,0) D(0,0) M(1.2,2.4) N(7.2,2.4) O(4.8,2.4)
+ABCDA MN AC:dash`, r5`Gọi \(O\) là giao điểm của \(MN\) với đường chéo \(AC\).
+Trong \(\triangle ACD\), \(MO \parallel DC\): \(\dfrac{AM}{MD} = \dfrac{AO}{OC}\).
+Trong \(\triangle CAB\), \(ON \parallel AB\): \(\dfrac{BN}{NC} = \dfrac{AO}{OC}\).
+Do đó \(\dfrac{AM}{MD} = \dfrac{BN}{NC}\).`, r5`0,25 điểm: kẻ thêm đường chéo, xác định giao điểm \(O\).
+0,5 điểm: viết đúng hai tỉ lệ thức Thalès.
+0,25 điểm: kết luận.`)
+  ]
+};
+var TB2 = "tinh-do-dai-duong-trung-binh";
+var SS2 = "song-song-thang-hang-duong-trung-binh";
+var TG = "tu-giac-tao-boi-trung-diem";
+var B16 = {
+  slug: "bai-16-duong-trung-binh-cua-tam-giac",
+  questions: [
+    mc(1, TB2, "\u0110\u01B0\u1EDDng trung b\xECnh c\u1EE7a tam gi\xE1c l\xE0 \u0111o\u1EA1n th\u1EB3ng n\u1ED1i", ["trung \u0111i\u1EC3m hai c\u1EA1nh c\u1EE7a tam gi\xE1c", "m\u1ED9t \u0111\u1EC9nh v\u1EDBi trung \u0111i\u1EC3m c\u1EA1nh \u0111\u1ED1i di\u1EC7n", "hai \u0111\u1EC9nh c\u1EE7a tam gi\xE1c", "ch\xE2n hai \u0111\u01B0\u1EDDng cao"], "Theo \u0111\u1ECBnh ngh\u0129a, \u0111\u01B0\u1EDDng trung b\xECnh n\u1ED1i trung \u0111i\u1EC3m hai c\u1EA1nh c\u1EE7a tam gi\xE1c.", [
+      void 0,
+      "\u0110\xF3 l\xE0 \u0111\u01B0\u1EDDng trung tuy\u1EBFn.",
+      "\u0110\xF3 l\xE0 m\u1ED9t c\u1EA1nh.",
+      "Kh\xF4ng ph\u1EA3i \u0111\u1ECBnh ngh\u0129a."
+    ]),
+    mc(1, TB2, r5`Tam giác \(ABC\) có \(BC = 12\) cm; \(M\), \(N\) là trung điểm của \(AB\), \(AC\). Độ dài \(MN\) là`, [r5`\(6\) cm`, r5`\(12\) cm`, r5`\(24\) cm`, r5`\(3\) cm`], r5`\(MN = \dfrac{BC}{2} = 6\) cm.`, [
+      void 0,
+      "\u0110\u01B0\u1EDDng trung b\xECnh b\u1EB1ng n\u1EEDa c\u1EA1nh th\u1EE9 ba.",
+      "Kh\xF4ng nh\xE2n \u0111\xF4i.",
+      "Chia \u0111\xF4i hai l\u1EA7n."
+    ]),
+    mc(1, TB2, "M\u1ED7i tam gi\xE1c c\xF3 bao nhi\xEAu \u0111\u01B0\u1EDDng trung b\xECnh?", [r5`\(3\)`, r5`\(1\)`, r5`\(2\)`, r5`\(6\)`], "M\u1ED7i c\u1EB7p c\u1EA1nh cho m\u1ED9t \u0111\u01B0\u1EDDng trung b\xECnh; tam gi\xE1c c\xF3 3 c\u1EB7p c\u1EA1nh.", [
+      void 0,
+      "C\xF3 3 c\u1EB7p c\u1EA1nh.",
+      "C\xF3 3 c\u1EB7p c\u1EA1nh.",
+      "\u0110\u1EBFm tr\xF9ng."
+    ]),
+    mc(2, TB2, r5`Tam giác \(ABC\) có \(M\), \(N\) là trung điểm của \(AB\), \(AC\) và \(MN = 7\) cm. Độ dài \(BC\) là`, [r5`\(14\) cm`, r5`\(3{,}5\) cm`, r5`\(7\) cm`, r5`\(21\) cm`], r5`\(BC = 2MN = 14\) cm.`, [
+      void 0,
+      "Chia thay v\xEC nh\xE2n.",
+      r5`\(BC = 2MN\).`,
+      "Nh\xE2n 3 nh\u1EA7m."
+    ]),
+    mc(2, TB2, r5`Tam giác \(ABC\) có \(AB = 6\), \(AC = 8\), \(BC = 10\) (cm). Chu vi tam giác có ba đỉnh là trung điểm ba cạnh là`, [r5`\(12\) cm`, r5`\(24\) cm`, r5`\(48\) cm`, r5`\(6\) cm`], r5`Ba cạnh của tam giác đó là 3, 4, 5 cm; chu vi 12 cm (bằng nửa chu vi tam giác \(ABC\)).`, [
+      void 0,
+      r5`Đó là chu vi \(\triangle ABC\).`,
+      "Nh\xE2n \u0111\xF4i nh\u1EA7m.",
+      "Chia 4 nh\u1EA7m."
+    ]),
+    mc(2, TB2, r5`Tam giác \(ABC\) có \(M\), \(N\) là trung điểm của \(AB\), \(AC\). Khẳng định nào sau đây đúng?`, [r5`\(MN \parallel BC\)`, r5`\(MN \perp BC\)`, r5`\(MN = BC\)`, r5`\(MN \parallel AB\)`], "\u0110\u01B0\u1EDDng trung b\xECnh song song v\u1EDBi c\u1EA1nh th\u1EE9 ba.", [
+      void 0,
+      "Song song ch\u1EE9 kh\xF4ng vu\xF4ng g\xF3c.",
+      r5`\(MN = \dfrac{BC}{2}\).`,
+      r5`\(M\) nằm trên \(AB\).`
+    ]),
+    mc(3, TB2, r5`Tam giác \(ABC\) có \(M\) là trung điểm \(AB\); đường thẳng qua \(M\) song song với \(BC\) cắt \(AC\) tại \(N\). Biết \(AC = 10\) cm, độ dài \(AN\) là`, [r5`\(5\) cm`, r5`\(10\) cm`, r5`\(2{,}5\) cm`, r5`\(20\) cm`], r5`Đường thẳng qua trung điểm một cạnh, song song cạnh thứ hai thì đi qua trung điểm cạnh thứ ba: \(AN = 5\) cm.`, [
+      void 0,
+      r5`\(N\) là trung điểm \(AC\).`,
+      "Chia \u0111\xF4i hai l\u1EA7n.",
+      "Nh\xE2n \u0111\xF4i nh\u1EA7m."
+    ]),
+    mc(3, TB2, r5`Tam giác \(ABC\) đều cạnh 8 cm; \(M\), \(N\) là trung điểm \(AB\), \(AC\). Chu vi tứ giác \(BMNC\) là`, [r5`\(20\) cm`, r5`\(16\) cm`, r5`\(24\) cm`, r5`\(12\) cm`], r5`\(BM = 4\), \(MN = 4\), \(NC = 4\), \(CB = 8\): chu vi 20 cm.`, [
+      void 0,
+      r5`Quên cạnh \(MN\).`,
+      r5`Đó là chu vi \(\triangle ABC\).`,
+      "T\xEDnh thi\u1EBFu c\u1EA1nh."
+    ]),
+    mc(3, SS2, r5`Tam giác \(ABC\) có \(M\), \(N\), \(P\) lần lượt là trung điểm của \(AB\), \(AC\), \(BC\). Tứ giác \(BMNP\) là`, ["h\xECnh b\xECnh h\xE0nh", "h\xECnh thang c\xE2n kh\xF4ng ph\u1EA3i h\xECnh b\xECnh h\xE0nh", "h\xECnh ch\u1EEF nh\u1EADt", "h\xECnh thoi"], r5`\(MN \parallel BP\) và \(MN = \dfrac{BC}{2} = BP\) nên \(BMNP\) là hình bình hành.`, [
+      void 0,
+      "C\xF3 m\u1ED9t c\u1EB7p c\u1EA1nh song song v\xE0 b\u1EB1ng nhau.",
+      "Kh\xF4ng c\xF3 g\xF3c vu\xF4ng n\xF3i chung.",
+      "C\xE1c c\u1EA1nh k\u1EC1 n\xF3i chung kh\xF4ng b\u1EB1ng nhau."
+    ]),
+    mc(3, SS2, r5`Tam giác \(ABC\) có đường trung tuyến \(AM\), \(I\) là trung điểm của \(AM\), \(BI\) cắt \(AC\) tại \(D\). Tỉ số \(\dfrac{AD}{DC}\) bằng`, [r5`\(\dfrac12\)`, r5`\(1\)`, r5`\(2\)`, r5`\(\dfrac13\)`], r5`Gọi \(E\) là trung điểm \(DC\): \(ME \parallel BD\) nên \(D\) là trung điểm \(AE\). Do đó \(AD = DE = EC\), \(\dfrac{AD}{DC} = \dfrac12\).`, [
+      void 0,
+      r5`\(D\) không là trung điểm \(AC\).`,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      r5`Đó là \(\dfrac{AD}{AC}\).`
+    ]),
+    mc(3, TG, r5`Tứ giác \(ABCD\) có \(E\), \(F\), \(G\), \(H\) lần lượt là trung điểm của \(AB\), \(BC\), \(CD\), \(DA\). Tứ giác \(EFGH\) luôn là`, ["h\xECnh b\xECnh h\xE0nh", "h\xECnh ch\u1EEF nh\u1EADt", "h\xECnh thoi", "h\xECnh vu\xF4ng"], r5`\(EF\) và \(HG\) cùng song song và bằng nửa \(AC\) nên \(EFGH\) là hình bình hành.`, [
+      void 0,
+      "Ch\u1EC9 khi hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c.",
+      "Ch\u1EC9 khi hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau.",
+      "Ch\u1EC9 khi hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau v\xE0 vu\xF4ng g\xF3c."
+    ]),
+    mc(4, TG, r5`Tứ giác \(ABCD\) có \(AC \perp BD\); \(E\), \(F\), \(G\), \(H\) là trung điểm các cạnh \(AB\), \(BC\), \(CD\), \(DA\). Tứ giác \(EFGH\) là`, ["h\xECnh ch\u1EEF nh\u1EADt", "h\xECnh thoi kh\xF4ng c\xF3 g\xF3c vu\xF4ng", "h\xECnh vu\xF4ng", "h\xECnh thang c\xE2n kh\xF4ng ph\u1EA3i h\xECnh b\xECnh h\xE0nh"], r5`\(EFGH\) là hình bình hành có \(EF \parallel AC\), \(FG \parallel BD\) mà \(AC \perp BD\) nên \(EF \perp FG\): hình chữ nhật.`, [
+      void 0,
+      "C\xF3 g\xF3c vu\xF4ng.",
+      "C\u1EA7n th\xEAm \\(AC = BD\\).",
+      "\u0110\xE3 l\xE0 h\xECnh b\xECnh h\xE0nh."
+    ]),
+    mc(4, TG, r5`Tứ giác \(ABCD\) có \(AC = BD = 10\) cm; \(E\), \(F\), \(G\), \(H\) là trung điểm các cạnh. Tứ giác \(EFGH\) là`, ["h\xECnh thoi c\u1EA1nh 5 cm", "h\xECnh thoi c\u1EA1nh 10 cm", "h\xECnh ch\u1EEF nh\u1EADt c\xF3 hai c\u1EA1nh 5 cm v\xE0 10 cm", "h\xECnh vu\xF4ng c\u1EA1nh 5 cm"], r5`\(EF = \dfrac{AC}{2} = 5\), \(FG = \dfrac{BD}{2} = 5\): hình bình hành có hai cạnh kề bằng nhau là hình thoi cạnh 5 cm.`, [
+      void 0,
+      "C\u1EA1nh b\u1EB1ng n\u1EEDa \u0111\u01B0\u1EDDng ch\xE9o.",
+      "Hai c\u1EA1nh k\u1EC1 b\u1EB1ng nhau (c\xF9ng 5 cm).",
+      "Ch\u01B0a bi\u1EBFt hai \u0111\u01B0\u1EDDng ch\xE9o c\xF3 vu\xF4ng g\xF3c kh\xF4ng."
+    ]),
+    mc(4, SS2, r5`Tam giác \(ABC\) có \(D\), \(E\), \(M\) lần lượt là trung điểm của \(AB\), \(AC\), \(BC\). Khẳng định nào sau đây đúng?`, [r5`\(AM\) và \(DE\) cắt nhau tại trung điểm của mỗi đoạn`, r5`\(AM \perp DE\)`, r5`\(AM = DE\)`, r5`\(DE\) đi qua trọng tâm tam giác \(ABC\)`], r5`\(ME \parallel AD\), \(ME = AD\) nên \(ADME\) là hình bình hành; hai đường chéo \(AM\), \(DE\) cắt nhau tại trung điểm mỗi đường.`, [
+      void 0,
+      "Ch\u1EC9 \u0111\xFAng khi tam gi\xE1c c\xE2n t\u1EA1i \\(A\\).",
+      "Kh\xF4ng c\xF3 d\u1EEF ki\u1EC7n.",
+      r5`\(DE\) cắt \(AM\) tại trung điểm, trọng tâm nằm ở \(\dfrac23\) đoạn \(AM\) kể từ \(A\).`
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, TB2, r5`Tam giác \(ABC\) có \(M\), \(N\) là trung điểm của \(AB\), \(AC\) và \(BC = 16\) cm.`, [
+      [r5`\(MN\) là đường trung bình của tam giác \(ABC\).`, true, "N\u1ED1i trung \u0111i\u1EC3m hai c\u1EA1nh."],
+      [r5`\(MN \parallel BC\).`, true, "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh."],
+      [r5`\(MN = 8\) cm.`, true, "N\u1EEDa c\u1EA1nh \\(BC\\)."],
+      [r5`\(MN = 16\) cm.`, false, r5`\(MN = \dfrac{BC}{2}\).`]
+    ]),
+    tf2(2, TB2, r5`Tam giác \(ABC\) có \(AB = 8\), \(AC = 10\), \(BC = 12\) (cm); \(M\), \(N\), \(P\) là trung điểm của \(AB\), \(AC\), \(BC\).`, [
+      [r5`\(MN = 6\) cm.`, true, r5`\(\dfrac{BC}{2}\).`],
+      [r5`\(NP = 4\) cm.`, true, r5`\(\dfrac{AB}{2}\).`],
+      [r5`\(MP = 5\) cm.`, true, r5`\(\dfrac{AC}{2}\).`],
+      [r5`Chu vi tam giác \(MNP\) bằng 30 cm.`, false, "Chu vi l\xE0 15 cm."]
+    ]),
+    tf2(2, TB2, r5`Tam giác \(ABC\) đều cạnh 6 cm; \(D\), \(E\), \(F\) là trung điểm của \(AB\), \(AC\), \(BC\).`, [
+      [r5`\(DE = 3\) cm.`, true, "N\u1EEDa c\u1EA1nh \\(BC\\)."],
+      [r5`Tam giác \(DEF\) đều.`, true, "Ba c\u1EA1nh c\xF9ng b\u1EB1ng 3 cm."],
+      [r5`Chu vi tam giác \(DEF\) bằng 9 cm.`, true, r5`\(3\cdot3\).`],
+      [r5`\(DE \parallel AB\).`, false, r5`\(DE \parallel BC\).`]
+    ]),
+    tf2(3, TB2, r5`Để đo khoảng cách hai điểm \(B\), \(C\) ở hai đầu một hồ, người ta chọn điểm \(A\) và trung điểm \(M\), \(N\) của \(AB\), \(AC\); đo được \(MN = 35\) m.`, [
+      [r5`\(MN\) là đường trung bình của tam giác \(ABC\).`, true, "N\u1ED1i trung \u0111i\u1EC3m hai c\u1EA1nh."],
+      [r5`\(BC = 70\) m.`, true, r5`\(2MN\).`],
+      [r5`\(MN \parallel BC\).`, true, "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh."],
+      [r5`\(BC = 17{,}5\) m.`, false, "Chia thay v\xEC nh\xE2n."]
+    ]),
+    tf2(3, SS2, r5`Tam giác \(ABC\) có \(M\) là trung điểm \(AB\); qua \(M\) kẻ đường thẳng song song với \(BC\) cắt \(AC\) tại \(N\).`, [
+      [r5`\(N\) là trung điểm của \(AC\).`, true, "\u0110\u1ECBnh l\xED \u0111\u01B0\u1EDDng th\u1EB3ng \u0111i qua trung \u0111i\u1EC3m m\u1ED9t c\u1EA1nh."],
+      [r5`\(MN = \dfrac{BC}{2}\).`, true, "\u0110\u01B0\u1EDDng trung b\xECnh."],
+      [r5`\(MN\) là đường trung bình của tam giác \(ABC\).`, true, "N\u1ED1i hai trung \u0111i\u1EC3m."],
+      [r5`\(AN = \dfrac{BC}{2}\).`, false, r5`\(AN = \dfrac{AC}{2}\).`]
+    ]),
+    tf2(3, SS2, r5`Tam giác \(ABC\) có \(D\), \(E\), \(F\) lần lượt là trung điểm của \(AB\), \(AC\), \(BC\).`, [
+      [r5`\(DE \parallel BF\) và \(DE = BF\).`, true, r5`\(DE = \dfrac{BC}{2} = BF\).`],
+      [r5`\(DEFB\) là hình bình hành.`, true, "M\u1ED9t c\u1EB7p c\u1EA1nh song song v\xE0 b\u1EB1ng nhau."],
+      [r5`\(ADFE\) là hình bình hành.`, true, r5`\(EF \parallel AD\), \(EF = AD\).`],
+      [r5`\(DEFB\) là hình thoi.`, false, r5`Cần \(BD = BF\), tức \(AB = BC\).`]
+    ]),
+    tf2(4, SS2, r5`Tam giác \(ABC\) có trung tuyến \(AM\), \(I\) là trung điểm \(AM\), \(BI\) cắt \(AC\) tại \(D\); \(E\) là trung điểm \(DC\).`, [
+      [r5`\(ME \parallel BD\).`, true, r5`Đường trung bình của \(\triangle BCD\).`],
+      [r5`\(D\) là trung điểm của \(AE\).`, true, r5`Trong \(\triangle AME\): qua trung điểm \(I\), \(ID \parallel ME\).`],
+      [r5`\(AD = DE = EC\).`, true, "K\u1EBFt h\u1EE3p hai \xFD tr\xEAn."],
+      [r5`\(BI = ID\).`, false, r5`\(ID = \dfrac{ME}{2} = \dfrac{BD}{4}\) nên \(BI = 3ID\).`]
+    ]),
+    tf2(3, TG, r5`Tứ giác \(ABCD\) có \(E\), \(F\), \(G\), \(H\) là trung điểm của \(AB\), \(BC\), \(CD\), \(DA\).`, [
+      [r5`\(EF \parallel AC\) và \(EF = \dfrac{AC}{2}\).`, true, r5`Đường trung bình của \(\triangle ABC\).`],
+      [r5`\(HG \parallel AC\).`, true, r5`Đường trung bình của \(\triangle ADC\).`],
+      [r5`\(EFGH\) là hình bình hành.`, true, "M\u1ED9t c\u1EB7p c\u1EA1nh song song v\xE0 b\u1EB1ng nhau."],
+      [r5`\(EFGH\) luôn là hình chữ nhật.`, false, "Ch\u1EC9 khi hai \u0111\u01B0\u1EDDng ch\xE9o vu\xF4ng g\xF3c."]
+    ]),
+    tf2(4, TG, r5`Tứ giác \(ABCD\) có \(E\), \(F\), \(G\), \(H\) là trung điểm của \(AB\), \(BC\), \(CD\), \(DA\).`, [
+      [r5`Nếu \(AC \perp BD\) thì \(EFGH\) là hình chữ nhật.`, true, "Hai c\u1EA1nh k\u1EC1 song song v\u1EDBi hai \u0111\u01B0\u1EDDng ch\xE9o."],
+      [r5`Nếu \(AC = BD\) thì \(EFGH\) là hình thoi.`, true, "Hai c\u1EA1nh k\u1EC1 b\u1EB1ng n\u1EEDa hai \u0111\u01B0\u1EDDng ch\xE9o."],
+      [r5`Chu vi \(EFGH\) bằng \(AC + BD\).`, true, r5`\(2\left(\dfrac{AC}{2} + \dfrac{BD}{2}\right)\).`],
+      [r5`Nếu \(ABCD\) là hình chữ nhật thì \(EFGH\) là hình chữ nhật.`, false, "H\xECnh ch\u1EEF nh\u1EADt c\xF3 hai \u0111\u01B0\u1EDDng ch\xE9o b\u1EB1ng nhau n\xEAn \\(EFGH\\) l\xE0 h\xECnh thoi."]
+    ]),
+    tf2(2, TB2, r5`Tam giác \(ABC\) có \(M\), \(N\) là trung điểm của \(AB\), \(AC\) và \(MN = 5{,}5\) cm.`, [
+      [r5`\(BC = 11\) cm.`, true, r5`\(2MN\).`],
+      [r5`\(MN \parallel BC\).`, true, "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng trung b\xECnh."],
+      [r5`\(AM = MB\).`, true, r5`\(M\) là trung điểm.`],
+      [r5`\(AN = 5{,}5\) cm.`, false, r5`\(AN = \dfrac{AC}{2}\); không có dữ kiện về \(AC\).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(1, TB2, r5`Tam giác \(ABC\) có \(BC = 18\) cm; \(M\), \(N\) là trung điểm của \(AB\), \(AC\). Tính \(MN\).`, "9", r5`\(MN = \dfrac{18}{2} = 9\) cm.`, CM3),
+    sa2(2, TB2, r5`Tam giác \(ABC\) có \(M\), \(N\) là trung điểm của \(AB\), \(AC\) và \(MN = 6{,}5\) cm. Tính \(BC\).`, "13", r5`\(BC = 2MN = 13\) cm.`, CM3),
+    sa2(2, TB2, "M\u1ED9t tam gi\xE1c c\xF3 chu vi 36 cm. T\xEDnh chu vi tam gi\xE1c c\xF3 ba \u0111\u1EC9nh l\xE0 trung \u0111i\u1EC3m ba c\u1EA1nh c\u1EE7a tam gi\xE1c \u0111\xF3.", "18", "M\u1ED7i c\u1EA1nh c\u1EE7a tam gi\xE1c m\u1EDBi b\u1EB1ng n\u1EEDa m\u1ED9t c\u1EA1nh c\u1EE7a tam gi\xE1c ban \u0111\u1EA7u n\xEAn chu vi b\u1EB1ng \\(36 : 2 = 18\\) cm.", CM3),
+    sa2(3, TB2, r5`Tam giác \(ABC\) có \(AB = 6\), \(AC = 7\), \(BC = 8\) (cm); \(D\), \(E\) là trung điểm của \(AB\), \(AC\). Tính chu vi tứ giác \(BDEC\).`, "18,5", r5`\(BD = 3\), \(DE = 4\), \(EC = 3{,}5\), \(CB = 8\); chu vi \(18{,}5\) cm.`, CM3),
+    sa2(3, SS2, r5`Tam giác \(ABC\) có trung tuyến \(AM\), \(I\) là trung điểm \(AM\), \(BI\) cắt \(AC\) tại \(D\). Biết \(AC = 12\) cm, tính \(AD\).`, "4", r5`Lấy \(E\) là trung điểm \(DC\) thì \(AD = DE = EC = \dfrac{AC}{3} = 4\) cm.`, CM3),
+    sa2(4, TG, r5`Tứ giác \(ABCD\) có \(AC = 10\) cm, \(BD = 14\) cm. Tính chu vi tứ giác có bốn đỉnh là trung điểm bốn cạnh của \(ABCD\).`, "24", r5`Chu vi bằng \(AC + BD = 24\) cm.`, CM3),
+    sa2(4, TG, r5`Tứ giác \(ABCD\) có \(AC \perp BD\), \(AC = 8\) cm, \(BD = 6\) cm. Tính diện tích tứ giác có bốn đỉnh là trung điểm bốn cạnh của \(ABCD\).`, "12", r5`Tứ giác đó là hình chữ nhật có hai cạnh \(\dfrac{AC}{2} = 4\) cm và \(\dfrac{BD}{2} = 3\) cm; diện tích 12 cm².`, CM22),
+    // ---- Tự luận ----
+    es2(2, TB2, r5`Tam giác \(ABC\) có \(AB = 10\), \(AC = 12\), \(BC = 14\) (cm); \(M\), \(N\), \(P\) lần lượt là trung điểm của \(AB\), \(AC\), \(BC\).
+a) Tính chu vi tam giác \(MNP\). b) Chứng minh \(MN \parallel BC\).`, r5`a) \(MN = 7\), \(NP = 5\), \(MP = 6\) (đường trung bình); chu vi \(MNP\) là 18 cm.
+b) \(MN\) nối trung điểm hai cạnh \(AB\), \(AC\) nên là đường trung bình, do đó \(MN \parallel BC\).`, r5`0,5 điểm: tính đúng ba cạnh và chu vi.
+0,5 điểm: chứng minh \(MN \parallel BC\).`),
+    es2(4, SS2, r5`Cho tam giác \(ABC\), điểm \(D\) thuộc cạnh \(AC\) sao cho \(AD = \dfrac13AC\). Gọi \(M\) là trung điểm của \(BC\), \(I\) là giao điểm của \(BD\) và \(AM\). Chứng minh \(I\) là trung điểm của \(AM\).`, r5`Gọi \(E\) là trung điểm của \(DC\); khi đó \(AD = DE = EC\).
+\(ME\) là đường trung bình của \(\triangle BCD\) nên \(ME \parallel BD\), tức \(ME \parallel DI\).
+Trong \(\triangle AME\): \(D\) là trung điểm của \(AE\) và \(DI \parallel ME\) nên \(I\) là trung điểm của \(AM\).`, r5`0,25 điểm: lấy trung điểm \(E\) và chỉ ra \(AD = DE = EC\).
+0,5 điểm: chứng minh \(ME \parallel BD\).
+0,25 điểm: kết luận \(I\) là trung điểm \(AM\).`),
+    ge2(2, TB2, r5`Để đo khoảng cách giữa hai điểm \(B\), \(C\) bị ngăn bởi một hồ nước, người ta chọn điểm \(A\) ở ngoài hồ, xác định trung điểm \(M\) của \(AB\), trung điểm \(N\) của \(AC\) rồi đo được \(MN = 42\) m. Tính khoảng cách \(BC\) và giải thích.`, `A(3,7) B(0,0) C(10,0) M(1.5,3.5) N(6.5,3.5)
+AB AC MN BC:dash`, r5`\(M\), \(N\) là trung điểm của \(AB\), \(AC\) nên \(MN\) là đường trung bình của tam giác \(ABC\).
+Do đó \(MN = \dfrac{BC}{2}\), suy ra \(BC = 2\cdot42 = 84\) (m).`, r5`0,5 điểm: chỉ ra \(MN\) là đường trung bình.
+0,5 điểm: tính đúng \(BC = 84\) m.`),
+    ge2(3, TG, r5`Cho tứ giác \(ABCD\) có hai đường chéo \(AC = BD\). Gọi \(E\), \(F\), \(G\), \(H\) lần lượt là trung điểm của \(AB\), \(BC\), \(CD\), \(DA\). Chứng minh \(EFGH\) là hình thoi.`, `A(0,0) B(6,-3) C(8,0) D(2,3.93) E(3,-1.5) F(7,-1.5) G(5,1.96) H(1,1.96)
+ABCDA AC:dash BD:dash EFGHE`, r5`\(EF\) là đường trung bình của \(\triangle ABC\): \(EF \parallel AC\), \(EF = \dfrac{AC}{2}\). Tương tự \(HG \parallel AC\), \(HG = \dfrac{AC}{2}\).
+Do đó \(EFGH\) là hình bình hành.
+\(FG\) là đường trung bình của \(\triangle BCD\): \(FG = \dfrac{BD}{2}\). Vì \(AC = BD\) nên \(EF = FG\).
+Hình bình hành có hai cạnh kề bằng nhau là hình thoi.`, r5`0,5 điểm: chứng minh \(EFGH\) là hình bình hành.
+0,25 điểm: chứng minh \(EF = FG\).
+0,25 điểm: kết luận hình thoi.`),
+    ge2(4, TG, r5`Cho tam giác \(ABC\) có \(AB < AC\), đường cao \(AH\). Gọi \(M\), \(N\), \(P\) lần lượt là trung điểm của \(AB\), \(AC\), \(BC\). Chứng minh \(MNPH\) là hình thang cân.`, `A(2,5) B(0,0) C(9,0) H(2,0) M(1,2.5) N(5.5,2.5) P(4.5,0)
+ABCA AH:dash MN NP HM MP:dash HN:dash
+vuong(A,H,C)`, r5`\(MN\) là đường trung bình của \(\triangle ABC\) nên \(MN \parallel BC\), tức \(MN \parallel HP\): \(MNPH\) là hình thang.
+\(MP\) là đường trung bình của \(\triangle ABC\) nên \(MP = \dfrac{AC}{2}\).
+\(HN\) là trung tuyến ứng với cạnh huyền của tam giác vuông \(AHC\) nên \(HN = \dfrac{AC}{2}\).
+Hình thang \(MNPH\) có hai đường chéo \(MP = HN\) nên là hình thang cân.`, r5`0,25 điểm: chứng minh \(MNPH\) là hình thang.
+0,5 điểm: chứng minh \(MP = HN = \dfrac{AC}{2}\).
+0,25 điểm: kết luận hình thang cân.`)
+  ]
+};
+var PG = "tinh-do-dai-canh-duong-phan-giac";
+var DS = "ti-so-dien-tich-duong-phan-giac";
+var KT = "phan-giac-ket-hop-thales";
+var B17 = {
+  slug: "bai-17-tinh-chat-duong-phan-giac-cua-tam-giac",
+  questions: [
+    mc(1, PG, r5`Tam giác \(ABC\) có \(AD\) là đường phân giác (\(D \in BC\)). Khẳng định nào sau đây đúng?`, [r5`\(\dfrac{DB}{DC} = \dfrac{AB}{AC}\)`, r5`\(\dfrac{DB}{DC} = \dfrac{AC}{AB}\)`, r5`\(\dfrac{DB}{AB} = \dfrac{AC}{DC}\)`, r5`\(DB = DC\)`], "\u0110\u01B0\u1EDDng ph\xE2n gi\xE1c chia c\u1EA1nh \u0111\u1ED1i di\u1EC7n th\xE0nh hai \u0111o\u1EA1n t\u1EC9 l\u1EC7 v\u1EDBi hai c\u1EA1nh k\u1EC1 hai \u0111o\u1EA1n \u1EA5y.", [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "Gh\xE9p sai c\u1EB7p \u0111o\u1EA1n.",
+      "Ch\u1EC9 \u0111\xFAng khi tam gi\xE1c c\xE2n t\u1EA1i \\(A\\)."
+    ]),
+    mc(1, PG, r5`Tam giác \(ABC\) có \(AB = 4\) cm, \(AC = 6\) cm, \(AD\) là đường phân giác. Tỉ số \(\dfrac{DB}{DC}\) bằng`, [r5`\(\dfrac23\)`, r5`\(\dfrac32\)`, r5`\(1\)`, r5`\(\dfrac25\)`], r5`\(\dfrac{DB}{DC} = \dfrac{AB}{AC} = \dfrac46 = \dfrac23\).`, [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "Tam gi\xE1c kh\xF4ng c\xE2n.",
+      r5`Đó là \(\dfrac{DB}{BC}\).`
+    ]),
+    mc(2, PG, r5`Tam giác \(ABC\) có \(AB = 6\) cm, \(AC = 8\) cm, \(AD\) là đường phân giác và \(DB = 3\) cm. Độ dài \(DC\) là`, [r5`\(4\) cm`, r5`\(\dfrac94\) cm`, r5`\(5\) cm`, r5`\(6\) cm`], r5`\(\dfrac{3}{DC} = \dfrac68\) nên \(DC = 4\) cm.`, [
+      void 0,
+      "L\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c b\u1ECB \u0111\u1EA3o.",
+      "C\u1ED9ng th\xEAm 2 kh\xF4ng c\xF3 c\u01A1 s\u1EDF.",
+      r5`Nhầm \(DC\) với \(AB\).`
+    ]),
+    mc(2, PG, r5`Tam giác \(ABC\) có \(AB = 5\), \(AC = 7\), \(BC = 6\) (cm), đường phân giác \(AD\). Độ dài \(DB\) là`, [r5`\(2{,}5\) cm`, r5`\(3{,}5\) cm`, r5`\(3\) cm`, r5`\(\dfrac57\) cm`], r5`\(\dfrac{DB}{5} = \dfrac{DC}{7} = \dfrac{6}{12}\) nên \(DB = 2{,}5\) cm.`, [
+      void 0,
+      r5`Đó là \(DC\).`,
+      r5`\(D\) không là trung điểm vì \(AB \ne AC\).`,
+      "\u0110\xF3 ch\u1EC9 l\xE0 t\u1EC9 s\u1ED1 hai c\u1EA1nh."
+    ]),
+    mc(2, PG, r5`Tam giác \(ABC\) cân tại \(A\) có đường phân giác \(AD\). Khẳng định nào sau đây đúng?`, [r5`\(D\) là trung điểm của \(BC\)`, r5`\(DB = 2DC\)`, r5`\(D\) trùng với \(B\)`, r5`\(\dfrac{DB}{DC} = \dfrac{AB}{BC}\)`], r5`\(\dfrac{DB}{DC} = \dfrac{AB}{AC} = 1\) nên \(D\) là trung điểm \(BC\).`, [
+      void 0,
+      "T\u1EC9 s\u1ED1 b\u1EB1ng 1.",
+      r5`\(D\) nằm giữa \(B\) và \(C\).`,
+      r5`Tỉ số đúng là \(\dfrac{AB}{AC}\).`
+    ]),
+    mc(2, PG, r5`Tam giác \(ABC\) có \(AB = 8\), \(AC = 12\), \(BC = 15\) (cm), đường phân giác \(AD\). Độ dài \(DC\) là`, [r5`\(9\) cm`, r5`\(6\) cm`, r5`\(7{,}5\) cm`, r5`\(10\) cm`], r5`\(\dfrac{DB}{8} = \dfrac{DC}{12} = \dfrac{15}{20}\) nên \(DC = 9\) cm.`, [
+      void 0,
+      r5`Đó là \(DB\).`,
+      r5`\(D\) không là trung điểm.`,
+      "T\xEDnh sai t\u1EC9 s\u1ED1."
+    ]),
+    mc(2, DS, r5`Tam giác \(ABC\) có \(AB = 3\) cm, \(AC = 5\) cm, đường phân giác \(AD\). Tỉ số \(\dfrac{S_{ABD}}{S_{ACD}}\) bằng`, [r5`\(\dfrac35\)`, r5`\(\dfrac53\)`, r5`\(\dfrac{9}{25}\)`, r5`\(\dfrac38\)`], r5`Hai tam giác chung đường cao kẻ từ \(A\) nên tỉ số diện tích bằng \(\dfrac{DB}{DC} = \dfrac{AB}{AC} = \dfrac35\).`, [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      "Kh\xF4ng b\xECnh ph\u01B0\u01A1ng: hai tam gi\xE1c kh\xF4ng \u0111\u1ED3ng d\u1EA1ng.",
+      r5`Đó là \(\dfrac{S_{ABD}}{S_{ABC}}\).`
+    ]),
+    mc(3, DS, r5`Tam giác \(ABC\) có diện tích 40 cm², \(AB = 6\) cm, \(AC = 10\) cm, đường phân giác \(AD\). Diện tích tam giác \(ABD\) là`, [r5`\(15\) cm²`, r5`\(25\) cm²`, r5`\(24\) cm²`, r5`\(20\) cm²`], r5`\(\dfrac{S_{ABD}}{S_{ABC}} = \dfrac{DB}{BC} = \dfrac{6}{16}\) nên \(S_{ABD} = 15\) cm².`, [
+      void 0,
+      r5`Đó là \(S_{ACD}\).`,
+      r5`Tính nhầm \(\dfrac{6}{10}\cdot40\).`,
+      r5`\(D\) không là trung điểm.`
+    ]),
+    mc(3, DS, r5`Tam giác \(ABC\) có \(AB : AC = 2 : 3\), đường phân giác \(AD\) và \(S_{ACD} = 30\) cm². Diện tích tam giác \(ABD\) là`, [r5`\(20\) cm²`, r5`\(45\) cm²`, r5`\(12\) cm²`, r5`\(50\) cm²`], r5`\(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac23\) nên \(S_{ABD} = 20\) cm².`, [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1.",
+      r5`Tính nhầm \(\dfrac25\cdot30\).`,
+      r5`Đó là \(S_{ABC}\).`
+    ]),
+    mc(2, PG, r5`Tam giác \(ABC\) vuông tại \(A\) có \(AB = 6\), \(AC = 8\), \(BC = 10\) (cm), đường phân giác \(AD\). Độ dài \(BD\) là`, [r5`\(\dfrac{30}{7}\) cm`, r5`\(\dfrac{40}{7}\) cm`, r5`\(5\) cm`, r5`\(3\) cm`], r5`\(\dfrac{BD}{6} = \dfrac{DC}{8} = \dfrac{10}{14}\) nên \(BD = \dfrac{30}{7}\) cm.`, [
+      void 0,
+      r5`Đó là \(DC\).`,
+      r5`\(D\) không là trung điểm.`,
+      "T\xEDnh sai."
+    ]),
+    mc(3, KT, r5`Tam giác \(ABC\) có \(AB = 6\), \(AC = 9\), \(BC = 10\) (cm), đường phân giác \(AD\); qua \(D\) kẻ \(DE \parallel AB\) (\(E \in AC\)). Độ dài \(AE\) là`, [r5`\(3{,}6\) cm`, r5`\(5{,}4\) cm`, r5`\(4{,}5\) cm`, r5`\(3\) cm`], r5`\(\dfrac{DB}{DC} = \dfrac23\) nên \(\dfrac{CD}{CB} = \dfrac35\). Thalès trong \(\triangle CAB\): \(\dfrac{CE}{CA} = \dfrac35\), \(CE = 5{,}4\) cm, \(AE = 3{,}6\) cm.`, [
+      void 0,
+      r5`Đó là \(CE\).`,
+      r5`\(E\) không là trung điểm.`,
+      "T\xEDnh sai t\u1EC9 s\u1ED1."
+    ]),
+    mc(3, KT, r5`Tam giác \(ABC\) có \(AB = 8\), \(AC = 12\) (cm), đường phân giác \(AD\); qua \(D\) kẻ \(DE \parallel AC\) (\(E \in AB\)). Độ dài \(AE\) là`, [r5`\(4{,}8\) cm`, r5`\(3{,}2\) cm`, r5`\(4\) cm`, r5`\(6\) cm`], r5`\(\dfrac{BD}{BC} = \dfrac{8}{20} = \dfrac25\); Thalès: \(\dfrac{BE}{BA} = \dfrac25\), \(BE = 3{,}2\) cm, \(AE = 4{,}8\) cm.`, [
+      void 0,
+      r5`Đó là \(BE\).`,
+      r5`\(E\) không là trung điểm.`,
+      "T\xEDnh sai."
+    ]),
+    mc(4, KT, r5`Tam giác \(ABC\) có trung tuyến \(AM\). Tia phân giác của góc \(AMB\) cắt \(AB\) tại \(D\), tia phân giác của góc \(AMC\) cắt \(AC\) tại \(E\). Khẳng định nào sau đây đúng?`, [r5`\(DE \parallel BC\)`, r5`\(DE \perp BC\)`, r5`\(DE = BC\)`, r5`\(DE \parallel AM\)`], r5`\(\dfrac{DA}{DB} = \dfrac{MA}{MB} = \dfrac{MA}{MC} = \dfrac{EA}{EC}\) nên \(DE \parallel BC\) (Thalès đảo).`, [
+      void 0,
+      "Thal\xE8s \u0111\u1EA3o cho quan h\u1EC7 song song.",
+      r5`\(DE < BC\).`,
+      r5`\(D\), \(E\) nằm hai bên \(AM\).`
+    ]),
+    mc(4, KT, r5`Tam giác \(ABC\) có \(AB = 4\), \(AC = 6\), \(BC = 5\) (cm). Tia phân giác góc ngoài tại \(A\) cắt đường thẳng \(BC\) tại \(E\). Độ dài \(EB\) là`, [r5`\(10\) cm`, r5`\(2\) cm`, r5`\(15\) cm`, r5`\(4\) cm`], r5`\(\dfrac{EB}{EC} = \dfrac{AB}{AC} = \dfrac23\); \(E\) nằm ngoài đoạn \(BC\), phía \(B\): \(EC - EB = 5\). Suy ra \(EB = 10\) cm.`, [
+      void 0,
+      r5`Đó là \(DB\) của phân giác trong.`,
+      r5`Đó là \(EC\).`,
+      "T\xEDnh sai."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, PG, r5`Tam giác \(ABC\) có \(AD\) là đường phân giác (\(D \in BC\)).`, [
+      [r5`\(\dfrac{DB}{DC} = \dfrac{AB}{AC}\).`, true, "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c."],
+      [r5`\(\dfrac{DB}{AB} = \dfrac{DC}{AC}\).`, true, "Ho\xE1n v\u1ECB trung t\u1EC9."],
+      [r5`Luôn có \(DB = DC\).`, false, r5`Chỉ khi \(AB = AC\).`],
+      [r5`Nếu \(AB = AC\) thì \(DB = DC\).`, true, "T\u1EC9 s\u1ED1 b\u1EB1ng 1."]
+    ]),
+    tf2(2, PG, r5`Tam giác \(ABC\) có \(AB = 6\), \(AC = 9\), \(BC = 10\) (cm), đường phân giác \(AD\).`, [
+      [r5`\(\dfrac{DB}{DC} = \dfrac23\).`, true, r5`\(\dfrac69\).`],
+      [r5`\(DB = 4\) cm.`, true, r5`\(\dfrac25\cdot10\).`],
+      [r5`\(DC = 6\) cm.`, true, r5`\(\dfrac35\cdot10\).`],
+      [r5`\(DB = 5\) cm.`, false, r5`\(D\) không là trung điểm.`]
+    ]),
+    tf2(2, PG, r5`Tam giác \(ABC\) có \(AB = 12\) cm, \(AC = 18\) cm, đường phân giác \(AD\) và \(DC = 9\) cm.`, [
+      [r5`\(DB = 6\) cm.`, true, r5`\(\dfrac{DB}{9} = \dfrac{12}{18}\).`],
+      [r5`\(BC = 15\) cm.`, true, r5`\(6 + 9\).`],
+      [r5`\(\dfrac{DB}{DC} = \dfrac23\).`, true, "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c."],
+      [r5`\(DB = 13{,}5\) cm.`, false, "L\u1EADp t\u1EC9 l\u1EC7 th\u1EE9c b\u1ECB \u0111\u1EA3o."]
+    ]),
+    tf2(2, DS, r5`Tam giác \(ABC\) có \(AB = 4\) cm, \(AC = 7\) cm, đường phân giác \(AD\).`, [
+      [r5`\(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac47\).`, true, "Chung \u0111\u01B0\u1EDDng cao t\u1EEB \\(A\\)."],
+      [r5`\(\dfrac{BD}{DC} = \dfrac47\).`, true, "T\xEDnh ch\u1EA5t \u0111\u01B0\u1EDDng ph\xE2n gi\xE1c."],
+      [r5`\(\dfrac{S_{ABD}}{S_{ABC}} = \dfrac{4}{11}\).`, true, r5`\(\dfrac{BD}{BC} = \dfrac{4}{11}\).`],
+      [r5`\(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac{16}{49}\).`, false, "Kh\xF4ng b\xECnh ph\u01B0\u01A1ng t\u1EC9 s\u1ED1."]
+    ]),
+    tf2(3, DS, r5`Tam giác \(ABC\) có diện tích 60 cm², \(AB = 5\) cm, \(AC = 7\) cm, đường phân giác \(AD\).`, [
+      [r5`\(S_{ABD} = 25\) cm².`, true, r5`\(\dfrac{5}{12}\cdot60\).`],
+      [r5`\(S_{ACD} = 35\) cm².`, true, r5`\(\dfrac{7}{12}\cdot60\).`],
+      [r5`\(S_{ACD} - S_{ABD} = 10\) cm².`, true, r5`\(35 - 25\).`],
+      [r5`\(S_{ABD} = 30\) cm².`, false, r5`\(D\) không là trung điểm.`]
+    ]),
+    tf2(2, PG, r5`Tam giác \(ABC\) vuông tại \(A\) có \(AB = 9\), \(AC = 12\), \(BC = 15\) (cm), đường phân giác \(AD\).`, [
+      [r5`\(\dfrac{BD}{DC} = \dfrac34\).`, true, r5`\(\dfrac{9}{12}\).`],
+      [r5`\(BD = \dfrac{45}{7}\) cm.`, true, r5`\(\dfrac37\cdot15\).`],
+      [r5`\(DC = \dfrac{60}{7}\) cm.`, true, r5`\(\dfrac47\cdot15\).`],
+      [r5`\(BD = 7{,}5\) cm.`, false, r5`\(D\) không là trung điểm.`]
+    ]),
+    tf2(3, KT, r5`Tam giác \(ABC\) có \(AB = 6\), \(AC = 9\), \(BC = 10\) (cm), đường phân giác \(AD\); qua \(D\) kẻ \(DE \parallel AB\) (\(E \in AC\)).`, [
+      [r5`\(DC = 6\) cm.`, true, r5`\(\dfrac35\cdot10\).`],
+      [r5`\(\dfrac{CE}{CA} = \dfrac35\).`, true, r5`Thalès: \(\dfrac{CE}{CA} = \dfrac{CD}{CB}\).`],
+      [r5`\(AE = 3{,}6\) cm.`, true, r5`\(9 - 5{,}4\).`],
+      [r5`\(CE = 6\) cm.`, false, r5`\(CE = 5{,}4\) cm.`]
+    ]),
+    tf2(4, KT, r5`Tam giác \(ABC\) có trung tuyến \(AM\); \(MD\), \(ME\) lần lượt là tia phân giác của các góc \(AMB\), \(AMC\) (\(D \in AB\), \(E \in AC\)).`, [
+      [r5`\(\dfrac{DA}{DB} = \dfrac{MA}{MB}\).`, true, r5`Tính chất phân giác trong \(\triangle AMB\).`],
+      [r5`\(\dfrac{EA}{EC} = \dfrac{MA}{MC}\).`, true, r5`Tính chất phân giác trong \(\triangle AMC\).`],
+      [r5`\(DE \parallel BC\).`, true, r5`\(MB = MC\) nên hai tỉ số bằng nhau; Thalès đảo.`],
+      [r5`\(DE = \dfrac{BC}{2}\).`, false, r5`Chỉ khi \(D\), \(E\) là trung điểm, tức \(MA = MB\).`]
+    ]),
+    tf2(4, KT, r5`Tam giác \(ABC\) có \(AB \ne AC\); \(AD\), \(AE\) lần lượt là tia phân giác trong và tia phân giác góc ngoài tại \(A\) (\(D\), \(E\) thuộc đường thẳng \(BC\)).`, [
+      [r5`\(AD \perp AE\).`, true, "Ph\xE2n gi\xE1c c\u1EE7a hai g\xF3c k\u1EC1 b\xF9 vu\xF4ng g\xF3c v\u1EDBi nhau."],
+      [r5`\(\dfrac{DB}{DC} = \dfrac{AB}{AC}\).`, true, "T\xEDnh ch\u1EA5t ph\xE2n gi\xE1c trong."],
+      [r5`\(\dfrac{EB}{EC} = \dfrac{AB}{AC}\).`, true, "T\xEDnh ch\u1EA5t ph\xE2n gi\xE1c ngo\xE0i."],
+      [r5`\(D\) là trung điểm của \(BC\).`, false, r5`Vì \(AB \ne AC\).`]
+    ]),
+    tf2(3, DS, r5`Tam giác \(ABC\) có \(AB = 4\) cm, \(BC = 6\) cm, \(BE\) là đường phân giác (\(E \in AC\)).`, [
+      [r5`\(\dfrac{AE}{EC} = \dfrac23\).`, true, r5`\(\dfrac{AB}{BC} = \dfrac46\).`],
+      [r5`\(\dfrac{S_{ABE}}{S_{CBE}} = \dfrac23\).`, true, "Chung \u0111\u01B0\u1EDDng cao t\u1EEB \\(B\\)."],
+      [r5`\(AE = \dfrac25AC\).`, true, r5`\(\dfrac{AE}{AC} = \dfrac{2}{5}\).`],
+      [r5`\(\dfrac{AE}{EC} = \dfrac32\).`, false, "\u0110\u1EA3o ng\u01B0\u1EE3c t\u1EC9 s\u1ED1."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(1, PG, r5`Tam giác \(ABC\) có \(AB = 8\) cm, \(AC = 12\) cm, đường phân giác \(AD\) và \(DB = 4\) cm. Tính \(DC\).`, "6", r5`\(\dfrac{4}{DC} = \dfrac{8}{12}\) nên \(DC = 6\) cm.`, CM3),
+    sa2(2, PG, r5`Tam giác \(ABC\) có \(AB = 3\), \(AC = 5\), \(BC = 6{,}4\) (cm), đường phân giác \(AD\). Tính \(DB\).`, "2,4", r5`\(\dfrac{DB}{3} = \dfrac{DC}{5} = \dfrac{6{,}4}{8} = 0{,}8\) nên \(DB = 2{,}4\) cm.`, CM3),
+    sa2(2, DS, r5`Tam giác \(ABC\) có \(AB = 6\) cm, \(AC = 9\) cm, đường phân giác \(AD\). Tính tỉ số \(\dfrac{S_{ABD}}{S_{ACD}}\).`, "2/3", r5`\(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac{DB}{DC} = \dfrac{AB}{AC} = \dfrac23\).`),
+    sa2(3, DS, r5`Tam giác \(ABC\) có diện tích 72 cm², \(AB = 7\) cm, \(AC = 11\) cm, đường phân giác \(AD\). Tính diện tích tam giác \(ABD\).`, "28", r5`\(S_{ABD} = \dfrac{7}{18}\cdot72 = 28\) cm².`, CM22),
+    sa2(3, KT, r5`Tam giác \(ABC\) có \(AB = 10\), \(AC = 15\), \(BC = 20\) (cm), đường phân giác \(AD\); qua \(D\) kẻ \(DE \parallel AC\) (\(E \in AB\)). Tính \(AE\).`, "6", r5`\(\dfrac{BD}{BC} = \dfrac{10}{25} = \dfrac25\); Thalès: \(BE = \dfrac25\cdot10 = 4\) cm; \(AE = 6\) cm.`, CM3),
+    sa2(4, KT, r5`Tam giác \(ABC\) có \(AB = 3\), \(AC = 5\), \(BC = 4\) (cm). Tia phân giác góc ngoài tại \(A\) cắt đường thẳng \(BC\) tại \(E\). Tính \(EB\).`, "6", r5`\(\dfrac{EB}{EC} = \dfrac35\), \(E\) nằm ngoài đoạn \(BC\) về phía \(B\): \(EC = EB + 4\). Giải được \(EB = 6\) cm.`, CM3),
+    // ---- Tự luận ----
+    es2(2, PG, r5`Tam giác \(ABC\) có \(AB = 12\) cm, \(AC = 18\) cm, \(BC = 20\) cm, đường phân giác \(AD\). Tính \(DB\), \(DC\).`, r5`\(\dfrac{DB}{DC} = \dfrac{AB}{AC} = \dfrac23\), nên \(\dfrac{DB}{2} = \dfrac{DC}{3} = \dfrac{20}{5} = 4\).
+\(DB = 8\) cm, \(DC = 12\) cm.`, r5`0,5 điểm: viết đúng tính chất đường phân giác.
+0,5 điểm: tính đúng \(DB\), \(DC\).`),
+    es2(3, DS, r5`Tam giác \(ABC\) có \(AB = 6\) cm, \(AC = 10\) cm, diện tích 48 cm², đường phân giác \(AD\).
+a) Tính tỉ số diện tích hai tam giác \(ABD\) và \(ACD\). b) Tính diện tích mỗi tam giác.`, r5`a) Hai tam giác chung đường cao kẻ từ \(A\): \(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac{DB}{DC} = \dfrac{AB}{AC} = \dfrac35\).
+b) \(S_{ABD} = \dfrac38\cdot48 = 18\) cm², \(S_{ACD} = 30\) cm².`, r5`0,5 điểm: câu a, giải thích vì sao tỉ số diện tích bằng \(\dfrac{DB}{DC}\).
+0,5 điểm: câu b, tính đúng hai diện tích.`),
+    es2(3, KT, r5`Tam giác \(ABC\) có \(AB = 10\) cm, \(AC = 15\) cm, \(BC = 20\) cm, đường phân giác \(AD\). Qua \(D\) kẻ \(DE \parallel AB\) (\(E \in AC\)). Tính \(DB\), \(DC\), \(AE\), \(EC\).`, r5`\(\dfrac{DB}{DC} = \dfrac{10}{15}\) nên \(DB = 8\) cm, \(DC = 12\) cm.
+Thalès trong \(\triangle CAB\): \(\dfrac{CE}{CA} = \dfrac{CD}{CB} = \dfrac{12}{20} = \dfrac35\), nên \(CE = 9\) cm, \(AE = 6\) cm.`, r5`0,5 điểm: tính đúng \(DB\), \(DC\).
+0,5 điểm: dùng Thalès tính đúng \(CE\), \(AE\).`),
+    es2(4, KT, r5`Cho tam giác \(ABC\), đường phân giác \(AD\). Kẻ \(DH \perp AB\), \(DK \perp AC\). Dùng diện tích, chứng minh \(\dfrac{DB}{DC} = \dfrac{AB}{AC}\).`, r5`\(D\) nằm trên tia phân giác góc \(A\) nên \(DH = DK\).
+\(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac{\frac12AB\cdot DH}{\frac12AC\cdot DK} = \dfrac{AB}{AC}\).
+Mặt khác hai tam giác chung đường cao kẻ từ \(A\) nên \(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac{DB}{DC}\).
+Do đó \(\dfrac{DB}{DC} = \dfrac{AB}{AC}\).`, r5`0,25 điểm: nêu \(DH = DK\).
+0,25 điểm: tính tỉ số diện tích theo \(AB\), \(AC\).
+0,5 điểm: tính tỉ số diện tích theo \(DB\), \(DC\) và kết luận.`),
+    ge2(2, PG, r5`Tam giác \(ABC\) có \(AB = 4\) cm, \(AC = 6\) cm, \(BC = 7{,}5\) cm, đường phân giác \(AD\). Tính \(DB\) và \(DC\).`, `A(2.42,3.19) B(0,0) C(7.5,0) D(3,0)
+ABCA AD
+goc(B,A,D) goc(D,A,C)`, r5`\(\dfrac{DB}{DC} = \dfrac{AB}{AC} = \dfrac46 = \dfrac23\).
+\(\dfrac{DB}{2} = \dfrac{DC}{3} = \dfrac{7{,}5}{5} = 1{,}5\), nên \(DB = 3\) cm, \(DC = 4{,}5\) cm.`, r5`0,5 điểm: viết đúng tính chất đường phân giác.
+0,5 điểm: tính đúng \(DB\), \(DC\).`),
+    ge2(3, DS, r5`Tam giác \(ABC\) có \(AB = 5\) cm, \(AC = 8\) cm, đường phân giác \(AD\), đường cao \(AH\). Biết diện tích tam giác \(ABC\) là 39 cm². Chứng minh \(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac58\) và tính diện tích tam giác \(ABD\).`, `A(2.33,4.42) B(0,0) C(9,0) D(3.46,0) H(2.33,0)
+ABCA AD AH:dash
+vuong(A,H,C)`, r5`\(S_{ABD} = \dfrac12AH\cdot DB\), \(S_{ACD} = \dfrac12AH\cdot DC\) nên \(\dfrac{S_{ABD}}{S_{ACD}} = \dfrac{DB}{DC} = \dfrac{AB}{AC} = \dfrac58\).
+\(S_{ABD} = \dfrac{5}{13}S_{ABC} = \dfrac{5}{13}\cdot39 = 15\) cm².`, r5`0,5 điểm: chứng minh tỉ số diện tích.
+0,5 điểm: tính đúng \(S_{ABD} = 15\) cm².`),
+    ge2(4, KT, r5`Tam giác \(ABC\) có \(AB = 6\) cm, \(AC = 12\) cm, đường phân giác \(AD\). Qua \(D\) kẻ \(DE \parallel AC\) (\(E \in AB\)) và \(DF \parallel AB\) (\(F \in AC\)). Chứng minh \(AEDF\) là hình thoi và tính độ dài cạnh của hình thoi.`, `A(3.9,4.56) B(0,0) C(15,0) D(5,0) E(1.3,1.52) F(7.6,3.04)
+ABCA AD DE DF`, r5`\(AEDF\) có các cạnh đối song song nên là hình bình hành; đường chéo \(AD\) là tia phân giác góc \(A\) nên \(AEDF\) là hình thoi.
+\(\dfrac{BD}{BC} = \dfrac{AB}{AB + AC} = \dfrac{6}{18} = \dfrac13\).
+Thalès trong \(\triangle BAC\) (\(DE \parallel AC\)): \(\dfrac{BE}{BA} = \dfrac{BD}{BC} = \dfrac13\), nên \(BE = 2\) cm, \(AE = 4\) cm.
+Cạnh hình thoi bằng 4 cm.`, r5`0,5 điểm: chứng minh \(AEDF\) là hình thoi.
+0,25 điểm: tính \(\dfrac{BD}{BC} = \dfrac13\).
+0,25 điểm: dùng Thalès tính cạnh 4 cm.`)
+  ]
+};
+var BANK_CHUONG_4 = [B15, B16, B17];
+
 // src/seed/toan8-bank/index.ts
-var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3];
+var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3, ...BANK_CHUONG_4];
 
 // src/seed/question-bank.ts
 var BANK_SOURCE = "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi G\u01104 \u2013 t\u1EF1 bi\xEAn so\u1EA1n theo SGK To\xE1n 8 KNTT";
