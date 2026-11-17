@@ -8463,7 +8463,7 @@ var init_katex = __esm({
     };
     gatherEnvironments = /* @__PURE__ */ new Set(["gather", "gather*"]);
     htmlBuilder$6 = function htmlBuilder(group, options) {
-      var r5;
+      var r6;
       var c;
       var nr = group.body.length;
       var hLinesBeforeRow = group.hLinesBeforeRow;
@@ -8502,8 +8502,8 @@ var init_katex = __esm({
         }
       }
       setHLinePos(hLinesBeforeRow[0]);
-      for (r5 = 0; r5 < group.body.length; ++r5) {
-        var inrow = group.body[r5];
+      for (r6 = 0; r6 < group.body.length; ++r6) {
+        var inrow = group.body[r6];
         var height = arstrutHeight;
         var depth = arstrutDepth;
         if (nc < inrow.length) {
@@ -8525,7 +8525,7 @@ var init_katex = __esm({
           }
           outrow.cells[c] = elt;
         }
-        var rowGap = group.rowGaps[r5];
+        var rowGap = group.rowGaps[r6];
         var gap = 0;
         if (rowGap) {
           gap = calculateSize(rowGap, options);
@@ -8537,7 +8537,7 @@ var init_katex = __esm({
             gap = 0;
           }
         }
-        if (group.addJot && r5 < group.body.length - 1) {
+        if (group.addJot && r6 < group.body.length - 1) {
           depth += jot;
         }
         outrow.height = height;
@@ -8545,8 +8545,8 @@ var init_katex = __esm({
         totalHeight += height;
         outrow.pos = totalHeight;
         totalHeight += depth + gap;
-        body[r5] = outrow;
-        setHLinePos(hLinesBeforeRow[r5 + 1]);
+        body[r6] = outrow;
+        setHLinePos(hLinesBeforeRow[r6 + 1]);
       }
       var offset = totalHeight / 2 + options.fontMetrics().axisHeight;
       var colDescriptions = group.cols || [];
@@ -8555,10 +8555,10 @@ var init_katex = __esm({
       var colDescrNum;
       var tagSpans = [];
       if (group.tags && group.tags.some((tag2) => tag2)) {
-        for (r5 = 0; r5 < nr; ++r5) {
-          var rw = body[r5];
+        for (r6 = 0; r6 < nr; ++r6) {
+          var rw = body[r6];
           var shift = rw.pos - offset;
-          var tag = group.tags[r5];
+          var tag = group.tags[r6];
           var tagSpan = void 0;
           if (tag === true) {
             tagSpan = makeSpan(["eqn-num"], [], options);
@@ -8626,8 +8626,8 @@ var init_katex = __esm({
           }
         }
         var colElems = [];
-        for (r5 = 0; r5 < nr; ++r5) {
-          var row = body[r5];
+        for (r6 = 0; r6 < nr; ++r6) {
+          var row = body[r6];
           var elem = row.cells[c];
           if (!elem) {
             continue;
@@ -14573,12 +14573,12 @@ function parseFigure(src) {
             const item = { a: parts[0], v: parts[1], b: parts[2] };
             (cmd === "vuong" ? fig.rightAngles : fig.angles).push(item);
           } else if (cmd === "tron") {
-            const r5 = Number(parts[1]);
-            if (parts.length !== 2 || !byName.has(parts[0]) || !(r5 > 0)) {
+            const r6 = Number(parts[1]);
+            if (parts.length !== 2 || !byName.has(parts[0]) || !(r6 > 0)) {
               fig.errors.push(`D\xF2ng ${lineNo}: tron(O, r) c\u1EA7n t\xE2m \u0111\xE3 khai b\xE1o v\xE0 b\xE1n k\xEDnh d\u01B0\u01A1ng.`);
               return;
             }
-            fig.circles.push({ center: parts[0], r: r5 });
+            fig.circles.push({ center: parts[0], r: r6 });
           } else {
             fig.errors.push(`D\xF2ng ${lineNo}: kh\xF4ng hi\u1EC3u l\u1EC7nh "${name}(...)".`);
           }
@@ -14663,8 +14663,8 @@ function renderFigureSvg(fig, opts = {}) {
     const len = Math.hypot(dx, dy) || 1;
     return [dx / len, dy / len];
   };
-  for (const r5 of fig.rightAngles) {
-    const v = byName.get(r5.v), a = byName.get(r5.a), b = byName.get(r5.b);
+  for (const r6 of fig.rightAngles) {
+    const v = byName.get(r6.v), a = byName.get(r6.a), b = byName.get(r6.b);
     const [ux, uy] = unit(v, a), [wx, wy] = unit(v, b);
     const s = 11, vx = X(v.x), vy = Y(v.y);
     parts.push(
@@ -14674,10 +14674,10 @@ function renderFigureSvg(fig, opts = {}) {
   for (const g of fig.angles) {
     const v = byName.get(g.v), a = byName.get(g.a), b = byName.get(g.b);
     const [ux, uy] = unit(v, a), [wx, wy] = unit(v, b);
-    const r5 = 20, vx = X(v.x), vy = Y(v.y);
+    const r6 = 20, vx = X(v.x), vy = Y(v.y);
     const cross = ux * wy - uy * wx;
     parts.push(
-      `<path d="M${fmt(vx + ux * r5)} ${fmt(vy + uy * r5)} A${r5} ${r5} 0 0 ${cross > 0 ? 1 : 0} ${fmt(vx + wx * r5)} ${fmt(vy + wy * r5)}" fill="none" stroke="var(--fig-accent, currentColor)" stroke-width="1.5"/>`
+      `<path d="M${fmt(vx + ux * r6)} ${fmt(vy + uy * r6)} A${r6} ${r6} 0 0 ${cross > 0 ? 1 : 0} ${fmt(vx + wx * r6)} ${fmt(vy + wy * r6)}" fill="none" stroke="var(--fig-accent, currentColor)" stroke-width="1.5"/>`
     );
   }
   for (const p of fig.points) {
@@ -15077,9 +15077,9 @@ function parseDiagram(src) {
     if (!line) return;
     const node = /^([A-Za-z][A-Za-z0-9]*)\s*\(\s*(-?[\d.,]+)\s*[,;]\s*(-?[\d.,]+)\s*\)\s*(\*{0,3})\s*(.+)$/.exec(line);
     if (node) {
-      const [, name, c, r5, stars, label] = node;
+      const [, name, c, r6, stars, label] = node;
       const col = Number(c.replace(",", "."));
-      const row = Number(r5.replace(",", "."));
+      const row = Number(r6.replace(",", "."));
       if (!Number.isFinite(col) || !Number.isFinite(row)) errors.push(`D\xF2ng ${i2 + 1}: v\u1ECB tr\xED c\u1EE7a n\xFAt ${name} kh\xF4ng h\u1EE3p l\u1EC7.`);
       else if (byName.has(name)) errors.push(`D\xF2ng ${i2 + 1}: n\xFAt ${name} khai b\xE1o hai l\u1EA7n.`);
       else {
@@ -15331,11 +15331,11 @@ function renderRich(src) {
     if (!table.length) return;
     const cells = (row) => row.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map((c) => c.trim());
     const isSep = (row) => /^\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?$/.test(row.trim());
-    const rows = table.filter((r5) => !isSep(r5));
+    const rows = table.filter((r6) => !isSep(r6));
     const header = table.length > 1 && isSep(table[1]);
-    const html = rows.map((r5, i2) => {
+    const html = rows.map((r6, i2) => {
       const tag = header && i2 === 0 ? "th" : "td";
-      return `<tr>${cells(r5).map((c) => `<${tag}>${formatInline(c, math2)}</${tag}>`).join("")}</tr>`;
+      return `<tr>${cells(r6).map((c) => `<${tag}>${formatInline(c, math2)}</${tag}>`).join("")}</tr>`;
     }).join("");
     out.push(`<div class="rich-table-wrap"><table class="rich-table">${header ? `<thead>${html.split("</tr>")[0]}</tr></thead><tbody>${html.slice(html.indexOf("</tr>") + 5)}</tbody>` : `<tbody>${html}</tbody>`}</table></div>`);
     table = [];
@@ -20558,17 +20558,17 @@ var require_react_dom_server_legacy_node_production = __commonJS({
           return hoistableState = segment.id, segment.lastPushedText = false, segment.textEmbedded = false, request = request.renderState, destination.push('<template id="'), destination.push(request.placeholderPrefix), request = hoistableState.toString(16), destination.push(request), destination.push('"></template>');
         case 1:
           segment.status = 2;
-          var r5 = true, chunks = segment.chunks, chunkIdx = 0;
+          var r6 = true, chunks = segment.chunks, chunkIdx = 0;
           segment = segment.children;
           for (var childIdx = 0; childIdx < segment.length; childIdx++) {
-            for (r5 = segment[childIdx]; chunkIdx < r5.index; chunkIdx++)
+            for (r6 = segment[childIdx]; chunkIdx < r6.index; chunkIdx++)
               destination.push(chunks[chunkIdx]);
-            r5 = flushSegment(request, destination, r5, hoistableState);
+            r6 = flushSegment(request, destination, r6, hoistableState);
           }
           for (; chunkIdx < chunks.length - 1; chunkIdx++)
             destination.push(chunks[chunkIdx]);
-          chunkIdx < chunks.length && (r5 = destination.push(chunks[chunkIdx]));
-          return r5;
+          chunkIdx < chunks.length && (r6 = destination.push(chunks[chunkIdx]));
+          return r6;
         case 3:
           return true;
         default:
@@ -25884,17 +25884,17 @@ var require_react_dom_server_node_production = __commonJS({
           return hoistableState = segment.id, segment.lastPushedText = false, segment.textEmbedded = false, request = request.renderState, writeChunk(destination, placeholder1), writeChunk(destination, request.placeholderPrefix), request = hoistableState.toString(16), writeChunk(destination, request), writeChunkAndReturn(destination, placeholder2);
         case 1:
           segment.status = 2;
-          var r5 = true, chunks = segment.chunks, chunkIdx = 0;
+          var r6 = true, chunks = segment.chunks, chunkIdx = 0;
           segment = segment.children;
           for (var childIdx = 0; childIdx < segment.length; childIdx++) {
-            for (r5 = segment[childIdx]; chunkIdx < r5.index; chunkIdx++)
+            for (r6 = segment[childIdx]; chunkIdx < r6.index; chunkIdx++)
               writeChunk(destination, chunks[chunkIdx]);
-            r5 = flushSegment(request, destination, r5, hoistableState);
+            r6 = flushSegment(request, destination, r6, hoistableState);
           }
           for (; chunkIdx < chunks.length - 1; chunkIdx++)
             writeChunk(destination, chunks[chunkIdx]);
-          chunkIdx < chunks.length && (r5 = writeChunkAndReturn(destination, chunks[chunkIdx]));
-          return r5;
+          chunkIdx < chunks.length && (r6 = writeChunkAndReturn(destination, chunks[chunkIdx]));
+          return r6;
         case 3:
           return true;
         default:
@@ -28449,7 +28449,7 @@ async function migrate(db, log = console.log) {
       await conn.simpleQuery(
         "create table if not exists schema_migrations (version text primary key, applied_at timestamptz not null default now())"
       );
-      const done = new Set((await conn.query("select version from schema_migrations")).rows.map((r5) => r5.version));
+      const done = new Set((await conn.query("select version from schema_migrations")).rows.map((r6) => r6.version));
       for (const m of MIGRATIONS) {
         if (done.has(m.version)) continue;
         log(`\xC1p d\u1EE5ng migration ${m.version}\u2026`);
@@ -34676,10 +34676,10 @@ async function hasSameQuestion(t, lessonId, ex2) {
     select q.id, et.code as type from questions q join exercise_types et on et.id = q.exercise_type_id
     where q.lesson_id = ${lessonId} and q.stem = ${ex2.stem}`);
   const mine = [...ex2.options ?? [], ...(ex2.statements ?? []).map(([s]) => s)].sort().join("\n");
-  for (const r5 of rows) {
-    if (r5.type !== ex2.type) continue;
-    if (r5.type !== "mcq" && r5.type !== "true_false") return true;
-    const ans = await t.many(sql`select content from answers where question_id = ${r5.id}`);
+  for (const r6 of rows) {
+    if (r6.type !== ex2.type) continue;
+    if (r6.type !== "mcq" && r6.type !== "true_false") return true;
+    const ans = await t.many(sql`select content from answers where question_id = ${r6.id}`);
     if (ans.map((a) => a.content).sort().join("\n") === mine) return true;
   }
   return false;
@@ -40813,25 +40813,25 @@ function normalizeText(s) {
 }
 function normalizeResponse(type, raw) {
   if (!raw || typeof raw !== "object") return null;
-  const r5 = raw;
+  const r6 = raw;
   switch (type) {
     case "mcq":
-      return typeof r5.choice === "string" && /^[A-D]$/.test(r5.choice) ? { kind: "mcq", choice: r5.choice } : null;
+      return typeof r6.choice === "string" && /^[A-D]$/.test(r6.choice) ? { kind: "mcq", choice: r6.choice } : null;
     case "true_false": {
-      if (!r5.values || typeof r5.values !== "object") return null;
+      if (!r6.values || typeof r6.values !== "object") return null;
       const values = {};
-      for (const [k, v] of Object.entries(r5.values)) {
+      for (const [k, v] of Object.entries(r6.values)) {
         if (/^[a-d]$/.test(k) && typeof v === "boolean") values[k] = v;
       }
       return { kind: "true_false", values };
     }
     case "short_answer":
-      return typeof r5.text === "string" && r5.text.length <= 100 ? { kind: "short_answer", text: r5.text.trim() } : null;
+      return typeof r6.text === "string" && r6.text.length <= 100 ? { kind: "short_answer", text: r6.text.trim() } : null;
     case "essay":
     case "geometry_essay": {
-      if (typeof r5.text !== "string" || r5.text.length > 1e4) return null;
-      const images = Array.isArray(r5.images) ? r5.images.filter((x) => Number.isInteger(x) && x > 0).slice(0, 4) : [];
-      return images.length ? { kind: "essay", text: r5.text.trim(), images } : { kind: "essay", text: r5.text.trim() };
+      if (typeof r6.text !== "string" || r6.text.length > 1e4) return null;
+      const images = Array.isArray(r6.images) ? r6.images.filter((x) => Number.isInteger(x) && x > 0).slice(0, 4) : [];
+      return images.length ? { kind: "essay", text: r6.text.trim(), images } : { kind: "essay", text: r6.text.trim() };
     }
   }
 }
@@ -41006,16 +41006,16 @@ async function getQuestions(q, ids) {
     select qi.question_id, i.id, i.kind, i.figure_source, i.alt
     from question_images qi join images i on i.id = qi.image_id where qi.question_id = any(${ids}::int[]) order by qi.sort_order`);
   const byId = new Map(
-    rows.map((r5) => [
-      r5.id,
+    rows.map((r6) => [
+      r6.id,
       {
-        ...r5,
-        points: Number(r5.points),
-        answers: answers.filter((a) => a.questionId === r5.id),
-        solution: sols.find((s) => s.questionId === r5.id && s.kind === "full")?.content ?? null,
-        hint: sols.find((s) => s.questionId === r5.id && s.kind === "hint")?.content ?? null,
-        rubric: sols.find((s) => s.questionId === r5.id && s.kind === "rubric")?.content ?? null,
-        images: imgs.filter((i2) => i2.questionId === r5.id)
+        ...r6,
+        points: Number(r6.points),
+        answers: answers.filter((a) => a.questionId === r6.id),
+        solution: sols.find((s) => s.questionId === r6.id && s.kind === "full")?.content ?? null,
+        hint: sols.find((s) => s.questionId === r6.id && s.kind === "hint")?.content ?? null,
+        rubric: sols.find((s) => s.questionId === r6.id && s.kind === "rubric")?.content ?? null,
+        images: imgs.filter((i2) => i2.questionId === r6.id)
       }
     ])
   );
@@ -41098,7 +41098,7 @@ async function listQuestions(q, f, limit, offset) {
     limit ${limit} offset ${offset}`);
   const total = await q.one(sql`
     select count(*)::int as n from questions qq join exercise_types et on et.id = qq.exercise_type_id ${where}`);
-  return { rows: rows.map((r5) => ({ ...r5, points: Number(r5.points) })), total: total?.n ?? 0 };
+  return { rows: rows.map((r6) => ({ ...r6, points: Number(r6.points) })), total: total?.n ?? 0 };
 }
 async function latestQuestions(q, textbookId, limit) {
   return q.many(sql`
@@ -41329,8 +41329,1445 @@ function canEditQuestion(q, user) {
   return user.role === "admin" || q.createdBy === null || q.createdBy === user.id;
 }
 
+// src/seed/toan8-bank/types.ts
+var r5 = String.raw;
+var mc = (level, dang, stem, options, solution, notes) => ({
+  type: "mcq",
+  level,
+  dang,
+  stem,
+  options,
+  solution,
+  ...notes ? { notes } : {}
+});
+var tf2 = (level, dang, stem, statements, solution) => ({
+  type: "true_false",
+  level,
+  dang,
+  stem,
+  statements,
+  solution: solution ?? statements.map(([, v, n2], i2) => `- ${"abcd"[i2]}) ${v ? "\u0110\xFAng" : "Sai"}. ${n2}`).join("\n")
+});
+var sa2 = (level, dang, stem, accepted, solution, opt = {}) => ({
+  type: "short_answer",
+  level,
+  dang,
+  stem,
+  accepted: Array.isArray(accepted) ? accepted : [accepted],
+  solution,
+  ...opt
+});
+var es2 = (level, dang, stem, solution, rubric, points = 1) => ({ type: "essay", level, dang, stem, solution, rubric, points });
+
+// src/seed/toan8-bank/chuong-1.ts
+var B1 = {
+  slug: "bai-1-don-thuc",
+  questions: [
+    // ---- Trắc nghiệm ----
+    mc(1, "nhan-dien-don-thuc", "Trong c\xE1c bi\u1EC3u th\u1EE9c sau, bi\u1EC3u th\u1EE9c n\xE0o l\xE0 \u0111\u01A1n th\u1EE9c?", [r5`\(\dfrac{1}{2}x^3y\)`, r5`\(x^2 - y\)`, r5`\(\dfrac{3}{x}y\)`, r5`\(2(x + 1)\)`], r5`Đơn thức là một số, một biến hoặc tích giữa các số và các biến. \(\dfrac{1}{2}x^3y\) là tích của số \(\dfrac12\) với các biến \(x\), \(y\).`, [
+      r5`Tích của số \(\dfrac12\) với các biến.`,
+      "C\xF3 ph\xE9p tr\u1EEB n\xEAn l\xE0 \u0111a th\u1EE9c.",
+      r5`Biến \(x\) nằm ở mẫu.`,
+      r5`\(2(x + 1) = 2x + 2\) có phép cộng.`
+    ]),
+    mc(1, "nhan-dien-don-thuc", "Bi\u1EC3u th\u1EE9c n\xE0o sau \u0111\xE2y KH\xD4NG ph\u1EA3i l\xE0 \u0111\u01A1n th\u1EE9c?", [r5`\(x + 5\)`, r5`\(-7\)`, r5`\(\dfrac{2}{5}xy^2\)`, r5`\(x^3\)`], r5`\(x + 5\) có phép cộng giữa biến và số nên là đa thức có hai hạng tử, không phải đơn thức.`, [
+      "C\xF3 ph\xE9p c\u1ED9ng.",
+      "M\u1ED9t s\u1ED1 c\u0169ng l\xE0 \u0111\u01A1n th\u1EE9c.",
+      "T\xEDch c\u1EE7a s\u1ED1 v\u1EDBi c\xE1c bi\u1EBFn.",
+      "M\u1ED9t l\u0169y th\u1EEBa c\u1EE7a bi\u1EBFn l\xE0 \u0111\u01A1n th\u1EE9c."
+    ]),
+    mc(1, "thu-gon-don-thuc", "\u0110\u01A1n th\u1EE9c n\xE0o sau \u0111\xE2y l\xE0 \u0111\u01A1n th\u1EE9c thu g\u1ECDn?", [r5`\(-4x^2y^3\)`, r5`\(2x\cdot 3y\)`, r5`\(5xyx\)`, r5`\(x^2\cdot(-2)y\)`], r5`Đơn thức thu gọn chỉ gồm một hệ số đứng trước và mỗi biến xuất hiện một lần dưới dạng lũy thừa: \(-4x^2y^3\).`, [
+      "M\u1ED9t h\u1EC7 s\u1ED1, m\u1ED7i bi\u1EBFn vi\u1EBFt m\u1ED9t l\u1EA7n.",
+      "C\xF2n hai h\u1EC7 s\u1ED1 2 v\xE0 3 ch\u01B0a nh\xE2n.",
+      r5`Biến \(x\) xuất hiện hai lần.`,
+      "H\u1EC7 s\u1ED1 ch\u01B0a \u0111\u1EE9ng \u1EDF \u0111\u1EA7u, ch\u01B0a nh\xE2n g\u1ECDn."
+    ]),
+    mc(2, "thu-gon-don-thuc", r5`Thu gọn đơn thức \(3x^2y\cdot(-2xy^3)\) được`, [r5`\(-6x^3y^4\)`, r5`\(-6x^2y^3\)`, r5`\(6x^3y^4\)`, r5`\(x^3y^4\)`], r5`Nhân hệ số: \(3\cdot(-2) = -6\); nhân phần biến: \(x^2\cdot x = x^3\), \(y\cdot y^3 = y^4\). Vậy được \(-6x^3y^4\).`, [
+      "Nh\xE2n h\u1EC7 s\u1ED1, c\u1ED9ng s\u1ED1 m\u0169 c\u1EE7a c\xF9ng m\u1ED9t bi\u1EBFn.",
+      "Qu\xEAn c\u1ED9ng s\u1ED1 m\u0169 khi nh\xE2n l\u0169y th\u1EEBa c\xF9ng c\u01A1 s\u1ED1.",
+      "Sai d\u1EA5u: t\xEDch m\u1ED9t s\u1ED1 d\u01B0\u01A1ng v\xE0 m\u1ED9t s\u1ED1 \xE2m l\xE0 s\u1ED1 \xE2m.",
+      "C\u1ED9ng hai h\u1EC7 s\u1ED1 thay v\xEC nh\xE2n."
+    ]),
+    mc(1, "tim-bac-cua-don-thuc", r5`Bậc của đơn thức \(5x^3y^2z\) là`, [r5`\(6\)`, r5`\(5\)`, r5`\(3\)`, r5`\(2\)`], r5`Bậc của đơn thức thu gọn (có hệ số khác 0) là tổng số mũ của các biến: \(3 + 2 + 1 = 6\).`, [
+      "T\u1ED5ng s\u1ED1 m\u0169 (3 + 2 + 1).",
+      "Nh\u1EA7m h\u1EC7 s\u1ED1 5 l\xE0 b\u1EADc.",
+      "Ch\u1EC9 l\u1EA5y s\u1ED1 m\u0169 l\u1EDBn nh\u1EA5t.",
+      r5`Chỉ lấy số mũ của \(y\).`
+    ]),
+    mc(2, "tim-bac-cua-don-thuc", r5`Thu gọn rồi tìm bậc của đơn thức \(-\dfrac{2}{3}x^2y\cdot 3xy^2\). Bậc của đơn thức là`, [r5`\(6\)`, r5`\(5\)`, r5`\(3\)`, r5`\(4\)`], r5`\(-\dfrac{2}{3}x^2y\cdot3xy^2 = -2x^3y^3\), có bậc \(3 + 3 = 6\).`, [
+      "B\u1EADc c\u1EE7a (-2x^3y^3).",
+      "C\u1ED9ng s\u1ED1 m\u0169 ch\u01B0a \u0111\u1EE7 (qu\xEAn m\u1ED9t th\u1EEBa s\u1ED1).",
+      "Ch\u1EC9 t\xEDnh s\u1ED1 m\u0169 c\u1EE7a m\u1ED9t bi\u1EBFn.",
+      "L\u1EA5y b\u1EADc c\u1EE7a t\u1EEBng th\u1EEBa s\u1ED1 r\u1ED3i ch\u1ECDn l\u1EDBn h\u01A1n."
+    ]),
+    mc(2, "tinh-gia-tri-cua-don-thuc", r5`Giá trị của đơn thức \(-2x^2y\) tại \(x = -1\), \(y = 3\) là`, [r5`\(-6\)`, r5`\(6\)`, r5`\(12\)`, r5`\(-3\)`], r5`Thay số: \(-2\cdot(-1)^2\cdot3 = -2\cdot1\cdot3 = -6\).`, [
+      r5`\((-1)^2 = 1\), nhân với \(-2\) và 3.`,
+      r5`Tính nhầm \((-1)^2 = -1\).`,
+      r5`Hiểu nhầm \(x^2\) là \(2x\).`,
+      "Qu\xEAn nh\xE2n h\u1EC7 s\u1ED1 2."
+    ]),
+    mc(3, "cong-tru-don-thuc-dong-dang", r5`Tổng của ba đơn thức \(2x^2y\), \(-5x^2y\) và \(\dfrac{1}{2}x^2y\) là`, [r5`\(-\dfrac{5}{2}x^2y\)`, r5`\(\dfrac{5}{2}x^2y\)`, r5`\(-\dfrac{5}{2}x^6y^3\)`, r5`\(-\dfrac{7}{2}x^2y\)`], r5`Ba đơn thức đồng dạng nên cộng hệ số, giữ phần biến: \(\left(2 - 5 + \dfrac12\right)x^2y = -\dfrac{5}{2}x^2y\).`, [
+      "C\u1ED9ng c\xE1c h\u1EC7 s\u1ED1, gi\u1EEF nguy\xEAn ph\u1EA7n bi\u1EBFn.",
+      "Sai d\u1EA5u khi c\u1ED9ng c\xE1c h\u1EC7 s\u1ED1.",
+      "Kh\xF4ng \u0111\u01B0\u1EE3c c\u1ED9ng s\u1ED1 m\u0169 khi c\u1ED9ng c\xE1c \u0111\u01A1n th\u1EE9c \u0111\u1ED3ng d\u1EA1ng.",
+      r5`Trừ nhầm \(\dfrac12\) thay vì cộng.`
+    ]),
+    mc(1, "cong-tru-don-thuc-dong-dang", r5`Đơn thức nào đồng dạng với đơn thức \(-4xy^3\)?`, [r5`\(\dfrac{1}{3}xy^3\)`, r5`\(-4x^3y\)`, r5`\(-4xy^2\)`, r5`\(xy^3z\)`], r5`Hai đơn thức đồng dạng có hệ số khác 0 và cùng phần biến. \(\dfrac13xy^3\) có cùng phần biến \(xy^3\).`, [
+      r5`Cùng phần biến \(xy^3\).`,
+      "C\xF9ng h\u1EC7 s\u1ED1 nh\u01B0ng ph\u1EA7n bi\u1EBFn kh\xE1c.",
+      r5`Số mũ của \(y\) khác.`,
+      r5`Có thêm biến \(z\).`
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, "nhan-dien-don-thuc", "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c kh\u1EB3ng \u0111\u1ECBnh v\u1EC1 \u0111\u01A1n th\u1EE9c:", [
+      [r5`\(0\) là một đơn thức.`, true, "S\u1ED1 0 \u0111\u01B0\u1EE3c g\u1ECDi l\xE0 \u0111\u01A1n th\u1EE9c kh\xF4ng."],
+      [r5`\(\dfrac{x}{3}\) là đơn thức.`, true, r5`\(\dfrac{x}{3} = \dfrac13x\) là tích của một số với biến.`],
+      [r5`\(\dfrac{3}{x}\) là đơn thức.`, false, "Bi\u1EBFn n\u1EB1m \u1EDF m\u1EABu n\xEAn kh\xF4ng ph\u1EA3i \u0111\u01A1n th\u1EE9c."],
+      [r5`\(x^2y - 1\) là đơn thức.`, false, "C\xF3 ph\xE9p tr\u1EEB n\xEAn \u0111\xE2y l\xE0 \u0111a th\u1EE9c c\xF3 hai h\u1EA1ng t\u1EED."]
+    ]),
+    tf2(2, "thu-gon-don-thuc", r5`Cho đơn thức \(A = -\dfrac{1}{2}x^2y\cdot 4xy^3\).`, [
+      [r5`Thu gọn được \(A = -2x^3y^4\).`, true, r5`\(-\dfrac12\cdot4 = -2\); \(x^2\cdot x = x^3\); \(y\cdot y^3 = y^4\).`],
+      [r5`Hệ số của \(A\) là \(-\dfrac{1}{2}\).`, false, r5`Hệ số của đơn thức thu gọn là \(-2\).`],
+      [r5`Phần biến của \(A\) là \(x^3y^4\).`, true, "Ph\u1EA7n bi\u1EBFn l\xE0 ph\u1EA7n c\xF2n l\u1EA1i sau h\u1EC7 s\u1ED1."],
+      [r5`Bậc của \(A\) là 4.`, false, r5`Bậc là \(3 + 4 = 7\).`]
+    ]),
+    tf2(2, "tim-bac-cua-don-thuc", "X\xE9t b\u1EADc c\u1EE7a c\xE1c \u0111\u01A1n th\u1EE9c sau:", [
+      [r5`Đơn thức \(7\) có bậc 0.`, true, "S\u1ED1 kh\xE1c 0 l\xE0 \u0111\u01A1n th\u1EE9c b\u1EADc 0."],
+      [r5`Đơn thức \(-x^4\) có bậc 4.`, true, r5`Số mũ của \(x\) là 4.`],
+      [r5`Đơn thức \(2^3x^2y\) có bậc 6.`, false, r5`\(2^3\) là hệ số; bậc là \(2 + 1 = 3\).`],
+      [r5`Đơn thức \(xyz\) có bậc 1.`, false, r5`Bậc là \(1 + 1 + 1 = 3\).`]
+    ]),
+    tf2(2, "tinh-gia-tri-cua-don-thuc", r5`Cho đơn thức \(B = 3x^2y^3\).`, [
+      [r5`Tại \(x = 1\), \(y = -1\) thì \(B = -3\).`, true, r5`\(3\cdot1\cdot(-1)^3 = -3\).`],
+      [r5`Tại \(x = -2\), \(y = 1\) thì \(B = -12\).`, false, r5`\((-2)^2 = 4\) nên \(B = 3\cdot4\cdot1 = 12\).`],
+      [r5`Tại \(x = 0\) thì \(B = 0\) với mọi \(y\).`, true, r5`Có thừa số \(x^2 = 0\).`],
+      [r5`\(B\) luôn nhận giá trị không âm.`, false, r5`Khi \(x \ne 0\) và \(y < 0\) thì \(y^3 < 0\) nên \(B < 0\).`]
+    ]),
+    tf2(3, "tinh-gia-tri-cua-don-thuc", r5`Một hình chữ nhật có chiều dài \(2x\) (cm), chiều rộng \(xy\) (cm). Gọi \(S\) là diện tích hình chữ nhật.`, [
+      [r5`\(S = 2x^2y\) (cm²).`, true, r5`\(S = 2x\cdot xy = 2x^2y\).`],
+      [r5`Khi \(x = 3\), \(y = 2\) thì \(S = 36\) cm².`, true, r5`\(2\cdot9\cdot2 = 36\).`],
+      [r5`\(S\) là đơn thức bậc 2.`, false, r5`Bậc của \(2x^2y\) là \(2 + 1 = 3\).`],
+      [r5`Nếu \(x\) tăng gấp đôi, \(y\) giữ nguyên thì \(S\) tăng gấp đôi.`, false, r5`\(x^2\) tăng gấp 4 nên \(S\) tăng gấp 4.`]
+    ]),
+    tf2(2, "cong-tru-don-thuc-dong-dang", r5`Cho các đơn thức \(A = 5x^2y\), \(B = -2x^2y\), \(C = 3xy^2\).`, [
+      [r5`\(A\) và \(B\) đồng dạng.`, true, r5`Cùng phần biến \(x^2y\).`],
+      [r5`\(A + B = 3x^2y\).`, true, r5`\((5 - 2)x^2y = 3x^2y\).`],
+      [r5`\(A + C = 8x^2y\).`, false, r5`\(A\) và \(C\) không đồng dạng nên không cộng hệ số được.`],
+      [r5`\(A - B = 3x^2y\).`, false, r5`\(A - B = (5 + 2)x^2y = 7x^2y\).`]
+    ]),
+    tf2(3, "cong-tru-don-thuc-dong-dang", r5`Một mảnh vườn hình chữ nhật có chiều dài \(5x\) (m), chiều rộng \(2x\) (m). Người ta xây một bể nước hình vuông cạnh \(x\) (m) trong vườn.`, [
+      [r5`Diện tích mảnh vườn là \(10x^2\) m².`, true, r5`\(5x\cdot2x = 10x^2\).`],
+      [r5`Diện tích bể nước là \(2x^2\) m².`, false, r5`Hình vuông cạnh \(x\) có diện tích \(x^2\).`],
+      [r5`Diện tích phần còn lại là \(9x^2\) m².`, true, r5`\(10x^2 - x^2 = 9x^2\).`],
+      [r5`Với \(x = 4\), diện tích phần còn lại là 36 m².`, false, r5`\(9\cdot16 = 144\) m².`]
+    ]),
+    tf2(1, "thu-gon-don-thuc", r5`Cho đơn thức \(M = 0{,}5x^3y\).`, [
+      [r5`\(M\) là đơn thức thu gọn.`, true, "G\u1ED3m m\u1ED9t h\u1EC7 s\u1ED1 v\xE0 m\u1ED7i bi\u1EBFn vi\u1EBFt m\u1ED9t l\u1EA7n d\u01B0\u1EDBi d\u1EA1ng l\u0169y th\u1EEBa."],
+      [r5`Hệ số của \(M\) là \(0{,}5\).`, true, "H\u1EC7 s\u1ED1 l\xE0 ph\u1EA7n s\u1ED1 \u0111\u1EE9ng tr\u01B0\u1EDBc."],
+      [r5`Phần biến của \(M\) là \(x^3\).`, false, r5`Phần biến là \(x^3y\).`],
+      [r5`\(M\) và \(\dfrac{1}{2}x^3y\) là cùng một đơn thức.`, true, r5`\(0{,}5 = \dfrac12\).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(1, "tim-bac-cua-don-thuc", r5`Bậc của đơn thức \(-9x^5y^2\) là bao nhiêu?`, "7", r5`Bậc là tổng số mũ của các biến: \(5 + 2 = 7\).`),
+    sa2(2, "thu-gon-don-thuc", r5`Thu gọn đơn thức \((-2x^2y)\cdot(-3xy)^2\).`, "-18x^4y^3", r5`\((-3xy)^2 = 9x^2y^2\); \((-2x^2y)\cdot9x^2y^2 = -18x^4y^3\).`),
+    sa2(2, "tinh-gia-tri-cua-don-thuc", r5`Tính giá trị của đơn thức \(\dfrac{3}{4}x^2y\) tại \(x = 2\), \(y = -\dfrac{1}{3}\).`, "-1", r5`\(\dfrac34\cdot2^2\cdot\left(-\dfrac13\right) = \dfrac34\cdot4\cdot\left(-\dfrac13\right) = -1\).`),
+    sa2(3, "cong-tru-don-thuc-dong-dang", r5`Thu gọn \(3xy^2 - \dfrac{1}{2}xy^2 + 2xy^2\) rồi tính giá trị tại \(x = 2\), \(y = -1\).`, "9", r5`Thu gọn: \(\left(3 - \dfrac12 + 2\right)xy^2 = \dfrac92xy^2\). Tại \(x = 2\), \(y = -1\): \(\dfrac92\cdot2\cdot1 = 9\).`),
+    // ---- Tự luận ----
+    es2(2, "thu-gon-don-thuc", r5`Thu gọn các đơn thức sau rồi chỉ ra hệ số, phần biến và bậc của mỗi đơn thức:
+a) \(A = 2x^2y\cdot(-5)xy^2\); b) \(B = -\dfrac{1}{3}x^3\cdot 6xy^2z\).`, r5`a) \(A = -10x^3y^3\): hệ số \(-10\), phần biến \(x^3y^3\), bậc 6.
+b) \(B = -2x^4y^2z\): hệ số \(-2\), phần biến \(x^4y^2z\), bậc \(4 + 2 + 1 = 7\).`, r5`0,5 điểm: thu gọn đúng \(A\) và nêu đủ hệ số, phần biến, bậc.
+0,5 điểm: thu gọn đúng \(B\) và nêu đủ hệ số, phần biến, bậc.`),
+    es2(3, "tinh-gia-tri-cua-don-thuc", r5`Một khối hộp chữ nhật có các kích thước \(x\), \(2x\) và \(3y\) (cm).
+a) Viết đơn thức biểu thị thể tích \(V\) của khối hộp.
+b) Tính \(V\) khi \(x = 2\), \(y = 5\).`, r5`a) \(V = x\cdot2x\cdot3y = 6x^2y\) (cm³).
+b) Khi \(x = 2\), \(y = 5\): \(V = 6\cdot4\cdot5 = 120\) (cm³).`, r5`0,5 điểm: viết đúng \(V = 6x^2y\).
+0,5 điểm: thay số và tính đúng \(V = 120\) cm³.`),
+    es2(3, "cong-tru-don-thuc-dong-dang", r5`Cho \(A = 4x^3y^2\), \(B = -\dfrac{3}{2}x^3y^2\), \(C = \dfrac{1}{2}x^3y^2\). Tính \(A + B - C\) và \(A - 2B\).`, r5`Ba đơn thức đồng dạng.
+\(A + B - C = \left(4 - \dfrac32 - \dfrac12\right)x^3y^2 = 2x^3y^2\).
+\(A - 2B = \left(4 + 3\right)x^3y^2 = 7x^3y^2\).`, r5`0,5 điểm: tính đúng \(A + B - C = 2x^3y^2\).
+0,5 điểm: tính đúng \(A - 2B = 7x^3y^2\).`),
+    es2(3, "cong-tru-don-thuc-dong-dang", r5`Tìm đơn thức \(M\) biết:
+a) \(M + 2xy^3 = 7xy^3\); b) \(\dfrac{1}{2}x^2y - M = -\dfrac{3}{2}x^2y\).`, r5`a) \(M = 7xy^3 - 2xy^3 = 5xy^3\).
+b) \(M = \dfrac12x^2y - \left(-\dfrac32x^2y\right) = 2x^2y\).`, r5`0,5 điểm: tìm đúng \(M = 5xy^3\).
+0,5 điểm: tìm đúng \(M = 2x^2y\).`),
+    es2(3, "tinh-gia-tri-cua-don-thuc", r5`Cho đơn thức \(P = -2x^2y^4\). Chứng tỏ \(P \le 0\) với mọi giá trị của \(x\), \(y\). Khi nào \(P = 0\)?`, r5`Với mọi \(x\), \(y\): \(x^2 \ge 0\), \(y^4 \ge 0\) nên \(x^2y^4 \ge 0\), suy ra \(P = -2x^2y^4 \le 0\).
+\(P = 0\) khi \(x^2y^4 = 0\), tức \(x = 0\) hoặc \(y = 0\).`, r5`0,5 điểm: lập luận \(x^2 \ge 0\), \(y^4 \ge 0\) nên \(P \le 0\).
+0,5 điểm: chỉ ra \(P = 0\) khi \(x = 0\) hoặc \(y = 0\).`)
+  ]
+};
+var B2 = {
+  slug: "bai-2-da-thuc",
+  questions: [
+    mc(1, "nhan-dien-da-thuc", "Bi\u1EC3u th\u1EE9c n\xE0o sau \u0111\xE2y l\xE0 \u0111a th\u1EE9c?", [r5`\(x^2 - 3xy + 1\)`, r5`\(\dfrac{1}{x} + y\)`, r5`\(\dfrac{x + 1}{y}\)`, r5`\(\sqrt{x} + 2\)`], r5`Đa thức là tổng của những đơn thức. \(x^2 - 3xy + 1\) là tổng của ba đơn thức \(x^2\), \(-3xy\), \(1\).`, [
+      "T\u1ED5ng c\u1EE7a ba \u0111\u01A1n th\u1EE9c.",
+      r5`\(\dfrac1x\) không phải đơn thức.`,
+      "C\xF3 bi\u1EBFn \u1EDF m\u1EABu.",
+      r5`Biến nằm dưới dấu căn.`
+    ]),
+    mc(1, "nhan-dien-da-thuc", r5`Đa thức \(3x^2y - 2xy + 5\) có bao nhiêu hạng tử?`, [r5`\(3\)`, r5`\(2\)`, r5`\(4\)`, r5`\(6\)`], r5`Các hạng tử là \(3x^2y\), \(-2xy\) và \(5\): có 3 hạng tử.`, [
+      "M\u1ED7i \u0111\u01A1n th\u1EE9c trong t\u1ED5ng l\xE0 m\u1ED9t h\u1EA1ng t\u1EED.",
+      "Qu\xEAn h\u1EA1ng t\u1EED kh\xF4ng ch\u1EE9a bi\u1EBFn.",
+      "\u0110\u1EBFm th\u1EEBa.",
+      "C\u1ED9ng nh\u1EA7m c\xE1c h\u1EC7 s\u1ED1."
+    ]),
+    mc(1, "nhan-dien-da-thuc", "Kh\u1EB3ng \u0111\u1ECBnh n\xE0o sau \u0111\xE2y l\xE0 \u0111\xFAng?", ["M\u1ED7i \u0111\u01A1n th\u1EE9c c\u0169ng l\xE0 m\u1ED9t \u0111a th\u1EE9c.", "M\u1ED7i \u0111a th\u1EE9c c\u0169ng l\xE0 m\u1ED9t \u0111\u01A1n th\u1EE9c.", "\u0110a th\u1EE9c ph\u1EA3i c\xF3 \xEDt nh\u1EA5t hai h\u1EA1ng t\u1EED.", "S\u1ED1 0 kh\xF4ng ph\u1EA3i l\xE0 \u0111a th\u1EE9c."], "\u0110\u01A1n th\u1EE9c \u0111\u01B0\u1EE3c coi l\xE0 \u0111a th\u1EE9c ch\u1EC9 g\u1ED3m m\u1ED9t h\u1EA1ng t\u1EED; \u0111i\u1EC1u ng\u01B0\u1EE3c l\u1EA1i kh\xF4ng \u0111\xFAng.", [
+      "\u0110\u01A1n th\u1EE9c l\xE0 \u0111a th\u1EE9c m\u1ED9t h\u1EA1ng t\u1EED.",
+      "\u0110a th\u1EE9c nhi\u1EC1u h\u1EA1ng t\u1EED kh\xF4ng ph\u1EA3i \u0111\u01A1n th\u1EE9c.",
+      "\u0110a th\u1EE9c c\xF3 th\u1EC3 ch\u1EC9 c\xF3 m\u1ED9t h\u1EA1ng t\u1EED.",
+      "S\u1ED1 0 l\xE0 \u0111a th\u1EE9c kh\xF4ng."
+    ]),
+    mc(1, "thu-gon-da-thuc", r5`Trong đa thức \(5x^2y - 3xy^2 + 2x^2y + xy^2\), hạng tử đồng dạng với \(5x^2y\) là`, [r5`\(2x^2y\)`, r5`\(-3xy^2\)`, r5`\(xy^2\)`, r5`\(-3xy^2\) và \(xy^2\)`], r5`Hạng tử đồng dạng có cùng phần biến \(x^2y\): đó là \(2x^2y\).`, [
+      r5`Cùng phần biến \(x^2y\).`,
+      r5`Phần biến \(xy^2\) khác \(x^2y\).`,
+      r5`Phần biến \(xy^2\) khác \(x^2y\).`,
+      r5`Hai hạng tử này đồng dạng với nhau, không đồng dạng với \(5x^2y\).`
+    ]),
+    mc(2, "thu-gon-da-thuc", r5`Thu gọn đa thức \(4x^2 - 3xy + 2x^2 + 5xy - x^2\) được`, [r5`\(5x^2 + 2xy\)`, r5`\(7x^2 + 2xy\)`, r5`\(5x^2 + 8xy\)`, r5`\(5x^2 - 2xy\)`], r5`\((4 + 2 - 1)x^2 + (-3 + 5)xy = 5x^2 + 2xy\).`, [
+      "C\u1ED9ng \u0111\xFAng h\u1EC7 s\u1ED1 c\xE1c h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng.",
+      r5`Bỏ quên dấu trừ trước \(x^2\).`,
+      r5`Bỏ quên dấu trừ trước \(3xy\).`,
+      r5`Sai dấu khi tính \(-3 + 5\).`
+    ]),
+    mc(2, "thu-gon-da-thuc", r5`Thu gọn đa thức \(P = x^3 - 2x^2y + 3x^2y - x^3 + xy\) được`, [r5`\(x^2y + xy\)`, r5`\(2x^3 + x^2y + xy\)`, r5`\(x^2y\)`, r5`\(-x^2y + xy\)`], r5`\(x^3 - x^3 = 0\); \(-2x^2y + 3x^2y = x^2y\); còn \(xy\). Vậy \(P = x^2y + xy\).`, [
+      "C\xE1c h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng \u0111\xE3 \u0111\u01B0\u1EE3c c\u1ED9ng \u0111\xFAng.",
+      r5`\(x^3\) và \(-x^3\) đối nhau, tổng bằng 0.`,
+      r5`Bỏ sót hạng tử \(xy\).`,
+      r5`Sai dấu: \(-2 + 3 = 1\).`
+    ]),
+    mc(1, "tim-bac-cua-da-thuc", r5`Bậc của đa thức \(x^4 - 3x^2y^3 + 2xy\) là`, [r5`\(5\)`, r5`\(4\)`, r5`\(2\)`, r5`\(11\)`], r5`Các hạng tử có bậc lần lượt 4; 5; 2. Bậc của đa thức là bậc cao nhất: 5.`, [
+      r5`Bậc của hạng tử \(-3x^2y^3\).`,
+      "Ch\u1EC9 nh\xECn h\u1EA1ng t\u1EED \u0111\u1EA7u ti\xEAn.",
+      "L\u1EA5y b\u1EADc nh\u1ECF nh\u1EA5t.",
+      "C\u1ED9ng b\u1EADc c\u1EE7a t\u1EA5t c\u1EA3 h\u1EA1ng t\u1EED."
+    ]),
+    mc(2, "tim-bac-cua-da-thuc", r5`Bậc của đa thức \(2x^3y + 5 - x^3y + xy^2 - x^3y\) là`, [r5`\(3\)`, r5`\(4\)`, r5`\(0\)`, r5`\(1\)`], r5`Thu gọn: \((2 - 1 - 1)x^3y + xy^2 + 5 = xy^2 + 5\). Bậc của đa thức là bậc của \(xy^2\), bằng 3.`, [
+      "Ph\u1EA3i thu g\u1ECDn tr\u01B0\u1EDBc khi t\xECm b\u1EADc.",
+      r5`Chưa thu gọn: các hạng tử \(x^3y\) đã triệt tiêu.`,
+      "B\u1EADc c\u1EE7a h\u1EA1ng t\u1EED t\u1EF1 do, kh\xF4ng ph\u1EA3i c\u1EE7a \u0111a th\u1EE9c.",
+      r5`Nhầm bậc của \(xy^2\).`
+    ]),
+    mc(2, "tinh-gia-tri-cua-da-thuc", r5`Giá trị của đa thức \(x^2 - 2xy + y^2\) tại \(x = 3\), \(y = -1\) là`, [r5`\(16\)`, r5`\(4\)`, r5`\(10\)`, r5`\(2\)`], r5`\(3^2 - 2\cdot3\cdot(-1) + (-1)^2 = 9 + 6 + 1 = 16\).`, [
+      "Thay \u0111\xFAng v\xE0 ch\xFA \xFD d\u1EA5u.",
+      r5`Sai dấu: \(-2\cdot3\cdot(-1) = +6\).`,
+      r5`Bỏ sót hạng tử \(-2xy\).`,
+      r5`Vừa sai dấu \(-2xy\), vừa tính \((-1)^2 = -1\).`
+    ]),
+    mc(3, "tinh-gia-tri-cua-da-thuc", r5`Giá trị của đa thức \(2x^2 + 3xy - y^2\) tại \(x = -1\), \(y = 2\) là`, [r5`\(-8\)`, r5`\(0\)`, r5`\(4\)`, r5`\(-6\)`], r5`\(2\cdot1 + 3\cdot(-1)\cdot2 - 2^2 = 2 - 6 - 4 = -8\).`, [
+      "T\xEDnh \u0111\xFAng t\u1EEBng h\u1EA1ng t\u1EED.",
+      r5`Tính nhầm \(-y^2 = +4\).`,
+      r5`Tính nhầm \(3xy = +6\).`,
+      r5`Tính nhầm \(2x^2 = (2x)^2 = 4\).`
+    ]),
+    mc(3, "tinh-gia-tri-cua-da-thuc", r5`Biết \(x - y = 3\). Giá trị của đa thức \(N = 2x - 2y + 5\) là`, [r5`\(11\)`, r5`\(8\)`, r5`\(6\)`, r5`\(1\)`], r5`\(N = 2(x - y) + 5 = 2\cdot3 + 5 = 11\).`, [
+      r5`Viết \(2x - 2y = 2(x - y)\).`,
+      "Qu\xEAn nh\xE2n 2.",
+      "Qu\xEAn c\u1ED9ng 5.",
+      r5`Trừ 5 thay vì cộng.`
+    ]),
+    mc(2, "thu-gon-da-thuc", r5`Hệ số của hạng tử \(xy\) trong đa thức thu gọn của \(3xy - 2x + 5xy - x^2 - 7xy\) là`, [r5`\(1\)`, r5`\(15\)`, r5`\(8\)`, r5`\(-1\)`], r5`\(3 + 5 - 7 = 1\), nên hạng tử là \(xy\) với hệ số 1.`, [
+      r5`\(3 + 5 - 7 = 1\).`,
+      "C\u1ED9ng c\u1EA3 h\u1EC7 s\u1ED1 mang d\u1EA5u tr\u1EEB.",
+      r5`Quên hạng tử \(-7xy\).`,
+      "Sai d\u1EA5u."
+    ]),
+    tf2(1, "nhan-dien-da-thuc", r5`Cho biểu thức \(P = 2x^2 - \dfrac{1}{3}xy + y^3 - 4\).`, [
+      [r5`\(P\) là một đa thức.`, true, "L\xE0 t\u1ED5ng c\u1EE7a c\xE1c \u0111\u01A1n th\u1EE9c."],
+      [r5`\(P\) có 4 hạng tử.`, true, r5`\(2x^2\); \(-\dfrac13xy\); \(y^3\); \(-4\).`],
+      [r5`Hạng tử không chứa biến của \(P\) là \(4\).`, false, r5`Hạng tử mang theo dấu đứng trước nên là \(-4\).`],
+      [r5`\(-\dfrac{1}{3}xy\) là một hạng tử của \(P\).`, true, "H\u1EA1ng t\u1EED mang theo d\u1EA5u \u0111\u1EE9ng tr\u01B0\u1EDBc n\xF3."]
+    ]),
+    tf2(2, "thu-gon-da-thuc", r5`Cho đa thức \(A = 3x^2y - xy + 2x^2y - 5 + 4xy\).`, [
+      [r5`Dạng thu gọn của \(A\) là \(5x^2y + 3xy - 5\).`, true, r5`\((3 + 2)x^2y + (-1 + 4)xy - 5\).`],
+      [r5`Sau khi thu gọn, \(A\) có 5 hạng tử.`, false, "Sau khi thu g\u1ECDn c\xF2n 3 h\u1EA1ng t\u1EED."],
+      [r5`Bậc của \(A\) là 3.`, true, r5`Hạng tử bậc cao nhất \(5x^2y\) có bậc 3.`],
+      [r5`Giá trị của \(A\) tại \(x = 1\), \(y = 1\) là 8.`, false, r5`\(5 + 3 - 5 = 3\).`]
+    ]),
+    tf2(2, "tim-bac-cua-da-thuc", "X\xE9t b\u1EADc c\u1EE7a c\xE1c \u0111a th\u1EE9c sau:", [
+      [r5`Đa thức \(x^5 - x^5 + 2x^2\) có bậc 5.`, false, r5`Thu gọn được \(2x^2\), có bậc 2.`],
+      [r5`Đa thức \(xy + 3\) có bậc 2.`, true, r5`\(xy\) có bậc 2.`],
+      [r5`Đa thức \(7\) có bậc 0.`, true, "S\u1ED1 kh\xE1c 0 c\xF3 b\u1EADc 0."],
+      [r5`Đa thức \(x^3y - 2x^4\) có bậc 4.`, true, r5`\(x^3y\) và \(2x^4\) đều có bậc 4.`]
+    ]),
+    tf2(2, "tinh-gia-tri-cua-da-thuc", r5`Cho đa thức \(B = x^2 - 3x + 2\).`, [
+      [r5`Tại \(x = 1\) thì \(B = 0\).`, true, r5`\(1 - 3 + 2 = 0\).`],
+      [r5`Tại \(x = 2\) thì \(B = 0\).`, true, r5`\(4 - 6 + 2 = 0\).`],
+      [r5`Tại \(x = -1\) thì \(B = 0\).`, false, r5`\(1 + 3 + 2 = 6\).`],
+      [r5`Tại \(x = 0\) thì \(B = -2\).`, false, r5`Tại \(x = 0\), \(B = 2\).`]
+    ]),
+    tf2(3, "tinh-gia-tri-cua-da-thuc", r5`Một cửa hàng bán \(x\) quyển vở giá 8 nghìn đồng/quyển và \(y\) cái bút giá 5 nghìn đồng/cái. Gọi \(T\) là số tiền (nghìn đồng) thu được.`, [
+      [r5`\(T = 8x + 5y\).`, true, r5`Tiền vở \(8x\), tiền bút \(5y\).`],
+      [r5`\(T\) là đa thức bậc 2.`, false, r5`Các hạng tử \(8x\), \(5y\) đều bậc 1 nên \(T\) bậc 1.`],
+      [r5`Bán 10 quyển vở và 6 cái bút thì \(T = 110\).`, true, r5`\(80 + 30 = 110\).`],
+      [r5`Nếu \(x = y\) thì \(T = 13x\).`, true, r5`\(8x + 5x = 13x\).`]
+    ]),
+    tf2(1, "nhan-dien-da-thuc", "X\xE9t c\xE1c kh\u1EB3ng \u0111\u1ECBnh v\u1EC1 \u0111\u01A1n th\u1EE9c v\xE0 \u0111a th\u1EE9c:", [
+      [r5`\(x\) vừa là đơn thức vừa là đa thức.`, true, "M\u1ED7i \u0111\u01A1n th\u1EE9c l\xE0 m\u1ED9t \u0111a th\u1EE9c."],
+      [r5`\(x^2 + \dfrac{1}{x}\) là đa thức.`, false, r5`\(\dfrac1x\) không phải đơn thức.`],
+      [r5`\(\dfrac{x^2 - y}{3}\) là đa thức.`, true, r5`Bằng \(\dfrac13x^2 - \dfrac13y\).`],
+      [r5`Đa thức \(0\) có bậc 0.`, false, "\u0110a th\u1EE9c kh\xF4ng kh\xF4ng c\xF3 b\u1EADc."]
+    ]),
+    tf2(2, "thu-gon-da-thuc", r5`Cho \(P = x^2y - 2xy^2 + 3 - 4x^2y + xy^2\).`, [
+      [r5`Hai hạng tử \(x^2y\) và \(-4x^2y\) đồng dạng.`, true, r5`Cùng phần biến \(x^2y\).`],
+      [r5`Thu gọn \(P\) được \(-3x^2y - xy^2 + 3\).`, true, r5`\((1 - 4)x^2y + (-2 + 1)xy^2 + 3\).`],
+      [r5`\(P\) có bậc 6.`, false, r5`Các hạng tử \(x^2y\), \(xy^2\) đều có bậc 3 nên \(P\) bậc 3.`],
+      [r5`Hạng tử không chứa biến của \(P\) là \(3\).`, true, "H\u1EA1ng t\u1EED t\u1EF1 do l\xE0 3."]
+    ]),
+    tf2(3, "tinh-gia-tri-cua-da-thuc", r5`Cho đa thức \(C = 2x^2 + y^2\).`, [
+      [r5`\(C \ge 0\) với mọi \(x\), \(y\).`, true, "T\u1ED5ng c\u1EE7a hai s\u1ED1 kh\xF4ng \xE2m."],
+      [r5`\(C = 0\) chỉ khi \(x = 0\) và \(y = 0\).`, true, "M\u1ED7i s\u1ED1 h\u1EA1ng kh\xF4ng \xE2m n\xEAn t\u1ED5ng b\u1EB1ng 0 khi c\u1EA3 hai b\u1EB1ng 0."],
+      [r5`Tại \(x = -1\), \(y = 2\) thì \(C = 2\).`, false, r5`\(2 + 4 = 6\).`],
+      [r5`Giá trị của \(C\) tại \(x = 1\), \(y = 3\) và tại \(x = -1\), \(y = -3\) bằng nhau.`, true, "C\xE1c l\u0169y th\u1EEBa b\u1EADc ch\u1EB5n n\xEAn \u0111\u1ED5i d\u1EA5u kh\xF4ng l\xE0m thay \u0111\u1ED5i gi\xE1 tr\u1ECB: c\xF9ng b\u1EB1ng 11."]
+    ]),
+    tf2(1, "tim-bac-cua-da-thuc", r5`Cho đa thức \(Q = 4x^3 - x^2y^2 + 7\).`, [
+      [r5`Hạng tử \(4x^3\) có bậc 3.`, true, r5`Số mũ của \(x\) là 3.`],
+      [r5`Hạng tử \(-x^2y^2\) có bậc 4.`, true, r5`\(2 + 2 = 4\).`],
+      [r5`Bậc của \(Q\) là 7.`, false, "B\u1EADc c\u1EE7a \u0111a th\u1EE9c l\xE0 b\u1EADc cao nh\u1EA5t c\u1EE7a c\xE1c h\u1EA1ng t\u1EED: 4."],
+      [r5`Hạng tử \(7\) có bậc 1.`, false, "S\u1ED1 kh\xE1c 0 c\xF3 b\u1EADc 0."]
+    ]),
+    sa2(1, "tim-bac-cua-da-thuc", r5`Tìm bậc của đa thức \(3x^2y^4 - x^5 + 2xy - 1\).`, "6", r5`Các hạng tử có bậc 6; 5; 2; 0. Bậc của đa thức là 6.`),
+    sa2(2, "thu-gon-da-thuc", r5`Thu gọn đa thức \(2a^2 - 3ab + 4b^2 - a^2 + 3ab\).`, "a^2 + 4b^2", r5`\((2 - 1)a^2 + (-3 + 3)ab + 4b^2 = a^2 + 4b^2\).`),
+    sa2(2, "tinh-gia-tri-cua-da-thuc", r5`Tính giá trị của đa thức \(x^3 - 2x^2 + x - 5\) tại \(x = -2\).`, "-23", r5`\((-2)^3 - 2\cdot(-2)^2 + (-2) - 5 = -8 - 8 - 2 - 5 = -23\).`),
+    sa2(3, "tinh-gia-tri-cua-da-thuc", r5`Cho \(A = 3x^2 - 2xy + y^2\). Tính giá trị của \(A\) tại \(x = \dfrac{1}{2}\), \(y = -1\).`, ["11/4", "2,75"], r5`\(3\cdot\dfrac14 - 2\cdot\dfrac12\cdot(-1) + 1 = \dfrac34 + 1 + 1 = \dfrac{11}{4}\).`),
+    es2(2, "thu-gon-da-thuc", r5`Thu gọn các đa thức sau và tìm bậc của chúng:
+a) \(M = 5x^2y - 3xy + x^2y - 2xy + 7\); b) \(N = x^4 - 2x^2y^2 + 3x^4 + 2x^2y^2 - 4x^4\).`, r5`a) \(M = 6x^2y - 5xy + 7\), bậc 3.
+b) \(N = (1 + 3 - 4)x^4 + (-2 + 2)x^2y^2 = 0\): \(N\) là đa thức không, không có bậc.`, r5`0,5 điểm: thu gọn đúng \(M\) và nêu bậc 3.
+0,5 điểm: thu gọn \(N = 0\) và kết luận đa thức không không có bậc.`),
+    es2(3, "tinh-gia-tri-cua-da-thuc", r5`Cho đa thức \(P = x^2y + 2xy - 3\). Tính giá trị của \(P\) tại:
+a) \(x = 1\), \(y = 2\); b) \(x = -2\), \(y = \dfrac{1}{2}\).`, r5`a) \(P = 1\cdot2 + 2\cdot1\cdot2 - 3 = 2 + 4 - 3 = 3\).
+b) \(P = 4\cdot\dfrac12 + 2\cdot(-2)\cdot\dfrac12 - 3 = 2 - 2 - 3 = -3\).`, r5`0,5 điểm: tính đúng câu a.
+0,5 điểm: tính đúng câu b.`),
+    es2(3, "tinh-gia-tri-cua-da-thuc", r5`Bác Ba có mảnh vườn hình chữ nhật dài \(x\) (m), rộng \(y\) (m). Bác trồng rau trên toàn bộ vườn trừ một lối đi rộng 1 m chạy dọc theo chiều dài vườn.
+a) Viết đa thức biểu thị diện tích trồng rau.
+b) Tính diện tích đó khi \(x = 20\), \(y = 8\).`, r5`a) Lối đi là hình chữ nhật dài \(x\), rộng 1 nên có diện tích \(x\) (m²). Diện tích trồng rau: \(xy - x\) (m²).
+b) Khi \(x = 20\), \(y = 8\): \(160 - 20 = 140\) (m²).`, r5`0,5 điểm: viết đúng đa thức \(xy - x\).
+0,5 điểm: tính đúng 140 m².`),
+    es2(2, "tim-bac-cua-da-thuc", r5`Cho đa thức \(Q = ax^2y + 3x^2y - 2xy\), trong đó \(a\) là hằng số. Tìm \(a\) để đa thức thu gọn của \(Q\) có bậc 2.`, r5`Thu gọn: \(Q = (a + 3)x^2y - 2xy\).
+Nếu \(a + 3 \ne 0\) thì \(Q\) có bậc 3. \(Q\) có bậc 2 khi hạng tử bậc 3 mất đi: \(a + 3 = 0\), tức \(a = -3\); khi đó \(Q = -2xy\) có bậc 2.`, r5`0,5 điểm: thu gọn đúng \(Q = (a + 3)x^2y - 2xy\).
+0,5 điểm: lập luận và tìm đúng \(a = -3\).`),
+    es2(3, "tinh-gia-tri-cua-da-thuc", r5`Chứng tỏ đa thức \(A = x^2 + 4y^2 + 1\) luôn nhận giá trị dương với mọi \(x\), \(y\).`, r5`Với mọi \(x\), \(y\): \(x^2 \ge 0\) và \(4y^2 \ge 0\). Do đó \(A = x^2 + 4y^2 + 1 \ge 1 > 0\).`, r5`0,5 điểm: nêu \(x^2 \ge 0\), \(4y^2 \ge 0\).
+0,5 điểm: kết luận \(A \ge 1 > 0\).`)
+  ]
+};
+var B3 = {
+  slug: "bai-3-phep-cong-va-phep-tru-da-thuc",
+  questions: [
+    mc(1, "cong-tru-da-thuc", r5`Tổng của hai đa thức \(A = 2x + 3\) và \(B = x - 5\) là`, [r5`\(3x - 2\)`, r5`\(3x + 8\)`, r5`\(x + 8\)`, r5`\(3x - 8\)`], r5`\(A + B = 2x + 3 + x - 5 = 3x - 2\).`, [
+      r5`\(2x + x = 3x\); \(3 - 5 = -2\).`,
+      r5`Sai dấu: \(3 + (-5) = -2\).`,
+      "Tr\u1EEB hai \u0111a th\u1EE9c thay v\xEC c\u1ED9ng.",
+      "C\u1ED9ng c\xE1c h\u1EB1ng s\u1ED1 sai."
+    ]),
+    mc(1, "cong-tru-da-thuc", r5`Cho \(A = 4x^2 - x\), \(B = x^2 + 3x\). Hiệu \(A - B\) là`, [r5`\(3x^2 - 4x\)`, r5`\(3x^2 + 2x\)`, r5`\(5x^2 + 2x\)`, r5`\(3x^2 - 2x\)`], r5`\(A - B = 4x^2 - x - x^2 - 3x = 3x^2 - 4x\).`, [
+      "\u0110\u1ED5i d\u1EA5u m\u1ECDi h\u1EA1ng t\u1EED c\u1EE7a \u0111a th\u1EE9c tr\u1EEB.",
+      r5`Quên đổi dấu \(3x\).`,
+      "C\u1ED9ng hai \u0111a th\u1EE9c thay v\xEC tr\u1EEB.",
+      r5`Tính sai \(-x - 3x\).`
+    ]),
+    mc(2, "cong-tru-da-thuc", r5`Cho \(P = x^2 - 2xy + y^2\) và \(Q = 2xy - y^2\). Khi đó \(P + Q\) bằng`, [r5`\(x^2\)`, r5`\(x^2 - 4xy + 2y^2\)`, r5`\(x^2 + 2y^2\)`, r5`\(x^2 + 4xy\)`], r5`\(P + Q = x^2 + (-2xy + 2xy) + (y^2 - y^2) = x^2\).`, [
+      "C\xE1c h\u1EA1ng t\u1EED \u0111\u1ED3ng d\u1EA1ng \u0111\u1ED1i nhau tri\u1EC7t ti\xEAu.",
+      r5`Đó là \(P - Q\).`,
+      r5`Sai dấu khi cộng \(y^2\) và \(-y^2\).`,
+      r5`Sai dấu khi cộng \(-2xy\) và \(2xy\).`
+    ]),
+    mc(2, "cong-tru-da-thuc", r5`Kết quả của phép tính \((3a - 2b) - (a - 5b)\) là`, [r5`\(2a + 3b\)`, r5`\(2a - 7b\)`, r5`\(4a - 7b\)`, r5`\(2a + 7b\)`], r5`\(3a - 2b - a + 5b = 2a + 3b\).`, [
+      "B\u1ECF ngo\u1EB7c c\xF3 d\u1EA5u tr\u1EEB ph\u1EA3i \u0111\u1ED5i d\u1EA5u c\u1EA3 hai h\u1EA1ng t\u1EED.",
+      r5`Quên đổi dấu \(-5b\).`,
+      "C\u1ED9ng thay v\xEC tr\u1EEB v\xE0 sai d\u1EA5u.",
+      r5`Tính sai \(-2b + 5b\).`
+    ]),
+    mc(2, "cong-tru-da-thuc", r5`Cho \(A = x^3 - 2x + 1\) và \(B = -x^3 + x^2 + 2x\). Đa thức \(A + B\) có bậc là`, [r5`\(2\)`, r5`\(3\)`, r5`\(0\)`, r5`\(6\)`], r5`\(A + B = x^2 + 1\), có bậc 2.`, [
+      r5`\(x^3\) và \(-x^3\) triệt tiêu, còn \(x^2 + 1\).`,
+      "Ch\u01B0a c\u1ED9ng \u0111\xE3 k\u1EBFt lu\u1EADn theo b\u1EADc c\u1EE7a t\u1EEBng \u0111a th\u1EE9c.",
+      "B\u1EADc c\u1EE7a h\u1EA1ng t\u1EED t\u1EF1 do.",
+      "C\u1ED9ng b\u1EADc c\u1EE7a hai \u0111a th\u1EE9c."
+    ]),
+    mc(2, "cong-tru-da-thuc", r5`Rút gọn \((x^2 + 2xy) + (3xy - x^2) - (5xy - y^2)\) được`, [r5`\(y^2\)`, r5`\(10xy + y^2\)`, r5`\(2x^2 + y^2\)`, r5`\(-y^2\)`], r5`\(x^2 + 2xy + 3xy - x^2 - 5xy + y^2 = y^2\).`, [
+      "M\u1ECDi h\u1EA1ng t\u1EED ch\u1EE9a (x) \u0111\u1EC1u tri\u1EC7t ti\xEAu.",
+      r5`Quên đổi dấu \(5xy\).`,
+      r5`Quên dấu trừ trước \(x^2\).`,
+      r5`Quên đổi dấu \(-y^2\).`
+    ]),
+    mc(2, "bai-toan-thuc-te-cong-tru-da-thuc", r5`Một hình chữ nhật có chiều dài \(3x + 2\) (cm), chiều rộng \(x + 1\) (cm). Chu vi hình chữ nhật là`, [r5`\(8x + 6\) (cm)`, r5`\(4x + 3\) (cm)`, r5`\(8x + 3\) (cm)`, r5`\(6x + 4\) (cm)`], r5`Chu vi \(= 2\left[(3x + 2) + (x + 1)\right] = 2(4x + 3) = 8x + 6\) (cm).`, [
+      "Chu vi b\u1EB1ng hai l\u1EA7n t\u1ED5ng chi\u1EC1u d\xE0i v\xE0 chi\u1EC1u r\u1ED9ng.",
+      "\u0110\xF3 l\xE0 n\u1EEDa chu vi.",
+      "Ch\u1EC9 nh\xE2n \u0111\xF4i ph\u1EA7n ch\u1EE9a bi\u1EBFn.",
+      "Nh\xE2n \u0111\xF4i chi\u1EC1u d\xE0i, qu\xEAn chi\u1EC1u r\u1ED9ng."
+    ]),
+    mc(3, "bai-toan-thuc-te-cong-tru-da-thuc", r5`Bạn An có \(2x + 50\) nghìn đồng. Bạn Bình có ít hơn bạn An \(x - 10\) nghìn đồng. Số tiền của bạn Bình là`, [r5`\(x + 60\) (nghìn đồng)`, r5`\(x + 40\) (nghìn đồng)`, r5`\(3x + 40\) (nghìn đồng)`, r5`\(3x + 60\) (nghìn đồng)`], r5`\((2x + 50) - (x - 10) = 2x + 50 - x + 10 = x + 60\).`, [
+      "Tr\u1EEB \u0111a th\u1EE9c, \u0111\u1ED5i d\u1EA5u c\u1EA3 (-10).",
+      r5`Quên đổi dấu \(-10\).`,
+      "C\u1ED9ng thay v\xEC tr\u1EEB.",
+      "C\u1ED9ng thay v\xEC tr\u1EEB."
+    ]),
+    mc(2, "tim-da-thuc-chua-biet", r5`Tìm đa thức \(M\) biết \(M + (x^2 - 2y) = 3x^2 + y\).`, [r5`\(M = 2x^2 + 3y\)`, r5`\(M = 4x^2 - y\)`, r5`\(M = 2x^2 - y\)`, r5`\(M = 2x^2 - 3y\)`], r5`\(M = (3x^2 + y) - (x^2 - 2y) = 2x^2 + 3y\).`, [
+      "S\u1ED1 h\u1EA1ng ch\u01B0a bi\u1EBFt b\u1EB1ng t\u1ED5ng tr\u1EEB s\u1ED1 h\u1EA1ng \u0111\xE3 bi\u1EBFt.",
+      "C\u1ED9ng thay v\xEC tr\u1EEB.",
+      r5`Quên đổi dấu \(-2y\).`,
+      r5`Sai dấu khi tính \(y + 2y\).`
+    ]),
+    mc(3, "tim-da-thuc-chua-biet", r5`Tìm đa thức \(N\) biết \((5xy - 3x^2) - N = 2xy + x^2\).`, [r5`\(N = 3xy - 4x^2\)`, r5`\(N = 7xy - 2x^2\)`, r5`\(N = 3xy - 2x^2\)`, r5`\(N = -3xy + 4x^2\)`], r5`Số trừ bằng số bị trừ trừ hiệu: \(N = (5xy - 3x^2) - (2xy + x^2) = 3xy - 4x^2\).`, [
+      "S\u1ED1 tr\u1EEB = s\u1ED1 b\u1ECB tr\u1EEB \u2212 hi\u1EC7u.",
+      "C\u1ED9ng thay v\xEC tr\u1EEB.",
+      r5`Quên đổi dấu \(x^2\).`,
+      "L\u1EA5y hi\u1EC7u tr\u1EEB s\u1ED1 b\u1ECB tr\u1EEB (ng\u01B0\u1EE3c d\u1EA5u)."
+    ]),
+    mc(3, "bai-toan-thuc-te-cong-tru-da-thuc", r5`Ba cạnh của một tam giác có độ dài \(x + 2\), \(2x - 1\) và \(3x\) (cm). Chu vi tam giác là`, [r5`\(6x + 1\) (cm)`, r5`\(6x + 3\) (cm)`, r5`\(5x + 1\) (cm)`, r5`\(6x - 1\) (cm)`], r5`\((x + 2) + (2x - 1) + 3x = 6x + 1\) (cm).`, [
+      "C\u1ED9ng ba c\u1EA1nh.",
+      r5`Quên dấu trừ của \(-1\).`,
+      r5`Quên một hạng tử \(x\).`,
+      "Sai d\u1EA5u khi c\u1ED9ng h\u1EB1ng s\u1ED1."
+    ]),
+    mc(1, "cong-tru-da-thuc", r5`Để tính hiệu \(A - B\) của hai đa thức, ta`, [r5`đổi dấu tất cả các hạng tử của \(B\) rồi cộng với \(A\)`, r5`đổi dấu hạng tử đầu tiên của \(B\) rồi cộng với \(A\)`, r5`đổi dấu tất cả các hạng tử của \(A\) rồi cộng với \(B\)`, r5`giữ nguyên dấu các hạng tử của \(B\) rồi cộng với \(A\)`], r5`Bỏ dấu ngoặc có dấu trừ đằng trước thì đổi dấu mọi hạng tử trong ngoặc: \(A - B = A + (-B)\).`, [
+      "\u0110\xFAng quy t\u1EAFc tr\u1EEB \u0111a th\u1EE9c.",
+      "Ph\u1EA3i \u0111\u1ED5i d\u1EA5u t\u1EA5t c\u1EA3 h\u1EA1ng t\u1EED.",
+      "\u0110\u1ED5i nh\u1EA7m \u0111a th\u1EE9c.",
+      "\u0110\xF3 l\xE0 ph\xE9p c\u1ED9ng."
+    ]),
+    tf2(1, "cong-tru-da-thuc", r5`Cho \(A = 2x^2 - 3x + 1\) và \(B = x^2 + 3x - 4\).`, [
+      [r5`\(A + B = 3x^2 - 3\).`, true, r5`\((2 + 1)x^2 + (-3 + 3)x + (1 - 4)\).`],
+      [r5`\(A - B = x^2 - 6x + 5\).`, true, r5`\((2 - 1)x^2 + (-3 - 3)x + (1 + 4)\).`],
+      [r5`\(B - A = x^2 - 6x + 5\).`, false, r5`\(B - A\) là đa thức đối của \(A - B\): \(-x^2 + 6x - 5\).`],
+      [r5`\(A + B\) có bậc 4.`, false, r5`\(3x^2 - 3\) có bậc 2.`]
+    ]),
+    tf2(2, "cong-tru-da-thuc", r5`Cho \(P = 3xy - 2x^2 + y^2\) và \(Q = x^2 - 3xy + 2y^2\).`, [
+      [r5`\(P + Q = -x^2 + 3y^2\).`, true, r5`\(3xy - 3xy = 0\); \(-2x^2 + x^2 = -x^2\); \(y^2 + 2y^2 = 3y^2\).`],
+      [r5`\(P - Q = 6xy - 3x^2 - y^2\).`, true, r5`\(3xy + 3xy\); \(-2x^2 - x^2\); \(y^2 - 2y^2\).`],
+      [r5`\(P + Q\) chứa hạng tử \(xy\).`, false, r5`\(3xy\) và \(-3xy\) triệt tiêu.`],
+      [r5`Tại \(x = 1\), \(y = 1\), giá trị của \(P + Q\) là 4.`, false, r5`\(-1 + 3 = 2\).`]
+    ]),
+    tf2(2, "cong-tru-da-thuc", "X\xE9t c\xE1c ph\xE9p t\xEDnh v\u1EDBi \u0111a th\u1EE9c:", [
+      [r5`\((x + 1) + (x - 1) = 2x\).`, true, r5`\(1 - 1 = 0\).`],
+      [r5`\((x + 1) - (x - 1) = 0\).`, false, r5`\(x + 1 - x + 1 = 2\).`],
+      [r5`\((a^2 - b^2) - (a^2 + b^2) = -2b^2\).`, true, r5`\(a^2 - a^2 - b^2 - b^2\).`],
+      [r5`\((2x - y) - (y - 2x) = 0\).`, false, r5`\(2x - y - y + 2x = 4x - 2y\).`]
+    ]),
+    tf2(3, "bai-toan-thuc-te-cong-tru-da-thuc", r5`Một mảnh đất hình chữ nhật dài \(2x + 5\) (m), rộng \(x + 3\) (m).`, [
+      [r5`Nửa chu vi mảnh đất là \(3x + 8\) (m).`, true, r5`\((2x + 5) + (x + 3)\).`],
+      [r5`Chu vi mảnh đất là \(6x + 8\) (m).`, false, r5`Chu vi \(= 2(3x + 8) = 6x + 16\).`],
+      [r5`Chiều dài hơn chiều rộng \(x + 2\) (m).`, true, r5`\((2x + 5) - (x + 3) = x + 2\).`],
+      [r5`Khi \(x = 10\), chu vi là 76 m.`, true, r5`\(60 + 16 = 76\).`]
+    ]),
+    tf2(3, "tim-da-thuc-chua-biet", r5`Cho \(A = x^2 - 2x + 3\). Tìm đa thức \(B\) trong mỗi trường hợp:`, [
+      [r5`Nếu \(A + B = 0\) thì \(B = -x^2 + 2x - 3\).`, true, r5`\(B = -A\).`],
+      [r5`Nếu \(A + B = 2x^2\) thì \(B = x^2 + 2x - 3\).`, true, r5`\(B = 2x^2 - A\).`],
+      [r5`Nếu \(A - B = 1\) thì \(B = x^2 - 2x + 4\).`, false, r5`\(B = A - 1 = x^2 - 2x + 2\).`],
+      [r5`Nếu \(B - A = x\) thì \(B = x^2 - x + 3\).`, true, r5`\(B = A + x\).`]
+    ]),
+    tf2(2, "tim-da-thuc-chua-biet", r5`Cho \(M + (3x - y) = 5x + 2y\).`, [
+      [r5`\(M = 5x + 2y - (3x - y)\).`, true, "S\u1ED1 h\u1EA1ng ch\u01B0a bi\u1EBFt b\u1EB1ng t\u1ED5ng tr\u1EEB s\u1ED1 h\u1EA1ng \u0111\xE3 bi\u1EBFt."],
+      [r5`\(M = 2x + 3y\).`, true, r5`\(5x - 3x + 2y + y\).`],
+      [r5`\(M = 2x + y\).`, false, r5`Quên đổi dấu \(-y\) khi bỏ ngoặc.`],
+      [r5`\(M\) là đa thức bậc 2.`, false, r5`\(2x + 3y\) có bậc 1.`]
+    ]),
+    tf2(1, "cong-tru-da-thuc", "X\xE9t c\xE1c kh\u1EB3ng \u0111\u1ECBnh v\u1EC1 quy t\u1EAFc c\u1ED9ng, tr\u1EEB \u0111a th\u1EE9c:", [
+      ["\u0110\u1EC3 c\u1ED9ng hai \u0111a th\u1EE9c, ta vi\u1EBFt li\xEAn ti\u1EBFp c\xE1c h\u1EA1ng t\u1EED c\u1EE7a ch\xFAng r\u1ED3i thu g\u1ECDn.", true, "\u0110\xF3 l\xE0 quy t\u1EAFc c\u1ED9ng \u0111a th\u1EE9c."],
+      ["Khi b\u1ECF d\u1EA5u ngo\u1EB7c c\xF3 d\u1EA5u tr\u1EEB \u0111\u1EB1ng tr\u01B0\u1EDBc, ta gi\u1EEF nguy\xEAn d\u1EA5u c\xE1c h\u1EA1ng t\u1EED trong ngo\u1EB7c.", false, "Ph\u1EA3i \u0111\u1ED5i d\u1EA5u t\u1EA5t c\u1EA3 c\xE1c h\u1EA1ng t\u1EED trong ngo\u1EB7c."],
+      [r5`Phép cộng đa thức có tính chất giao hoán: \(A + B = B + A\).`, true, "Nh\u01B0 ph\xE9p c\u1ED9ng c\xE1c s\u1ED1."],
+      [r5`\(A - B = B - A\) với mọi đa thức \(A\), \(B\).`, false, r5`\(A - B\) và \(B - A\) là hai đa thức đối nhau.`]
+    ]),
+    tf2(3, "bai-toan-thuc-te-cong-tru-da-thuc", r5`Lớp 8A có \(x\) học sinh nam và \(x + 4\) học sinh nữ. Lớp 8B có số học sinh nam nhiều hơn lớp 8A 2 em và số học sinh nữ ít hơn lớp 8A 3 em.`, [
+      [r5`Lớp 8A có \(2x + 4\) học sinh.`, true, r5`\(x + (x + 4)\).`],
+      [r5`Lớp 8B có \(2x + 3\) học sinh.`, true, r5`\((x + 2) + (x + 1)\).`],
+      [r5`Hai lớp có tất cả \(4x + 6\) học sinh.`, false, r5`\((2x + 4) + (2x + 3) = 4x + 7\).`],
+      ["L\u1EDBp 8A nhi\u1EC1u h\u01A1n l\u1EDBp 8B 1 h\u1ECDc sinh.", true, r5`\((2x + 4) - (2x + 3) = 1\).`]
+    ]),
+    tf2(3, "tim-da-thuc-chua-biet", r5`Cho \(A = 4x^2y - 3xy + 1\). Đa thức \(B\) thỏa mãn \(A - B = 2x^2y + xy\).`, [
+      [r5`\(B = A - (2x^2y + xy)\).`, true, "S\u1ED1 tr\u1EEB b\u1EB1ng s\u1ED1 b\u1ECB tr\u1EEB tr\u1EEB hi\u1EC7u."],
+      [r5`\(B = 2x^2y - 4xy + 1\).`, true, r5`\(4x^2y - 2x^2y\); \(-3xy - xy\); \(1\).`],
+      [r5`\(B\) có bậc 2.`, false, r5`\(2x^2y\) có bậc 3.`],
+      [r5`Tại \(x = 1\), \(y = 1\) thì \(B = -1\).`, true, r5`\(2 - 4 + 1 = -1\).`]
+    ]),
+    tf2(2, "cong-tru-da-thuc", r5`Cho \(A = x^3 - x + 2\), \(B = 2x^3 + x - 1\) và \(C = x^3 - 4\).`, [
+      [r5`\(A + B = 3x^3 + 1\).`, true, r5`\(-x + x = 0\); \(2 - 1 = 1\).`],
+      [r5`\(A + B - C = 2x^3 + 5\).`, true, r5`\(3x^3 + 1 - x^3 + 4\).`],
+      [r5`\(B - A = x^3 + 2x - 3\).`, true, r5`\(2x^3 - x^3\); \(x + x\); \(-1 - 2\).`],
+      [r5`\(A + C = 2x^3 - x - 6\).`, false, r5`\(2 + (-4) = -2\) nên \(A + C = 2x^3 - x - 2\).`]
+    ]),
+    sa2(1, "cong-tru-da-thuc", r5`Cho \(A = 5x - 3\) và \(B = 2x + 7\). Thu gọn \(A - B\).`, "3x - 10", r5`\(A - B = 5x - 3 - 2x - 7 = 3x - 10\).`),
+    sa2(2, "cong-tru-da-thuc", r5`Tính \((x^2 - 3x + 2) + (2x^2 + 3x - 5)\).`, "3x^2 - 3", r5`\((1 + 2)x^2 + (-3 + 3)x + (2 - 5) = 3x^2 - 3\).`),
+    sa2(2, "bai-toan-thuc-te-cong-tru-da-thuc", r5`Quãng đường AB dài \(3x + 15\) (km). Một xe đã đi được \(x + 7\) (km). Quãng đường còn lại dài bao nhiêu ki-lô-mét khi \(x = 20\)?`, "48", r5`Quãng đường còn lại: \((3x + 15) - (x + 7) = 2x + 8\) (km). Khi \(x = 20\): \(48\) km.`, { unit: "km" }),
+    sa2(2, "tim-da-thuc-chua-biet", r5`Tìm đa thức \(M\) biết \(M - (2x^2 - xy) = x^2 + 3xy\).`, "3x^2 + 2xy", r5`\(M = (x^2 + 3xy) + (2x^2 - xy) = 3x^2 + 2xy\).`),
+    sa2(3, "tim-da-thuc-chua-biet", r5`Cho \(A = x^2 + 3x - 1\). Tìm đa thức \(B\) sao cho \(A + B = 0\).`, "-x^2 - 3x + 1", r5`\(B = -A = -x^2 - 3x + 1\).`),
+    sa2(3, "bai-toan-thuc-te-cong-tru-da-thuc", r5`Giá một chiếc bút là \(x\) nghìn đồng, giá một quyển vở đắt hơn bút 3 nghìn đồng. Mua 2 chiếc bút và 5 quyển vở hết bao nhiêu nghìn đồng khi \(x = 4\)?`, "43", r5`Số tiền: \(2x + 5(x + 3) = 7x + 15\) (nghìn đồng). Khi \(x = 4\): \(28 + 15 = 43\) (nghìn đồng).`, { unit: "ngh\xECn \u0111\u1ED3ng" }),
+    es2(2, "cong-tru-da-thuc", r5`Cho hai đa thức \(A = 3x^2y - 2xy^2 + xy - 1\) và \(B = -x^2y + 2xy^2 + 3xy + 4\). Tính \(A + B\) và \(A - B\).`, r5`\(A + B = (3 - 1)x^2y + (-2 + 2)xy^2 + (1 + 3)xy + (-1 + 4) = 2x^2y + 4xy + 3\).
+\(A - B = (3 + 1)x^2y + (-2 - 2)xy^2 + (1 - 3)xy + (-1 - 4) = 4x^2y - 4xy^2 - 2xy - 5\).`, r5`0,5 điểm: tính đúng \(A + B\).
+0,5 điểm: tính đúng \(A - B\) (đổi dấu đúng các hạng tử của \(B\)).`),
+    es2(3, "tim-da-thuc-chua-biet", r5`Tìm các đa thức \(M\), \(N\) biết:
+a) \(M + (5x^2 - 2xy) = 6x^2 + 9xy - y^2\); b) \(N - (x^2 - 3y^2) = 2x^2 + y^2 - xy\).`, r5`a) \(M = (6x^2 + 9xy - y^2) - (5x^2 - 2xy) = x^2 + 11xy - y^2\).
+b) \(N = (2x^2 + y^2 - xy) + (x^2 - 3y^2) = 3x^2 - 2y^2 - xy\).`, r5`0,5 điểm: tìm đúng \(M\).
+0,5 điểm: tìm đúng \(N\).`),
+    es2(3, "bai-toan-thuc-te-cong-tru-da-thuc", r5`Một hình chữ nhật có chiều dài \(4x + 3\) (cm), chiều rộng ngắn hơn chiều dài \(2x - 1\) (cm).
+a) Viết đa thức biểu thị chiều rộng.
+b) Viết đa thức biểu thị chu vi và tính chu vi khi \(x = 2\).`, r5`a) Chiều rộng: \((4x + 3) - (2x - 1) = 2x + 4\) (cm).
+b) Chu vi: \(2\left[(4x + 3) + (2x + 4)\right] = 12x + 14\) (cm). Khi \(x = 2\): \(38\) cm.`, r5`0,5 điểm: tìm đúng chiều rộng \(2x + 4\).
+0,5 điểm: viết đúng chu vi \(12x + 14\) và tính đúng 38 cm.`),
+    es2(3, "tim-da-thuc-chua-biet", r5`Cho \(A = x^2 - 2y + xy + 1\) và \(B = x^2 + y - x^2y^2 - 1\). Tìm đa thức \(C\) sao cho \(C + A = B\), rồi tính giá trị của \(C\) tại \(x = 1\), \(y = -1\).`, r5`\(C = B - A = x^2 + y - x^2y^2 - 1 - x^2 + 2y - xy - 1 = 3y - x^2y^2 - xy - 2\).
+Tại \(x = 1\), \(y = -1\): \(C = -3 - 1 + 1 - 2 = -5\).`, r5`0,5 điểm: tìm đúng \(C = 3y - x^2y^2 - xy - 2\).
+0,5 điểm: tính đúng giá trị \(-5\).`)
+  ]
+};
+var B4 = {
+  slug: "bai-4-phep-nhan-da-thuc",
+  questions: [
+    mc(1, "nhan-hai-don-thuc", r5`Tích \(3x^2\cdot4x^3\) bằng`, [r5`\(12x^5\)`, r5`\(12x^6\)`, r5`\(7x^5\)`, r5`\(7x^6\)`], r5`Nhân hệ số \(3\cdot4 = 12\); cộng số mũ \(x^2\cdot x^3 = x^5\).`, [
+      "Nh\xE2n h\u1EC7 s\u1ED1, c\u1ED9ng s\u1ED1 m\u0169.",
+      "Nh\xE2n s\u1ED1 m\u0169 thay v\xEC c\u1ED9ng.",
+      "C\u1ED9ng h\u1EC7 s\u1ED1 thay v\xEC nh\xE2n.",
+      "C\u1ED9ng h\u1EC7 s\u1ED1 v\xE0 nh\xE2n s\u1ED1 m\u0169."
+    ]),
+    mc(2, "nhan-hai-don-thuc", r5`Tích \((-2xy^2)\cdot(5x^2y)\) bằng`, [r5`\(-10x^3y^3\)`, r5`\(10x^3y^3\)`, r5`\(-10x^2y^2\)`, r5`\(3x^3y^3\)`], r5`\((-2)\cdot5 = -10\); \(x\cdot x^2 = x^3\); \(y^2\cdot y = y^3\).`, [
+      "\u0110\xFAng d\u1EA5u, \u0111\xFAng s\u1ED1 m\u0169.",
+      "Sai d\u1EA5u.",
+      "Nh\xE2n s\u1ED1 m\u0169 sai (ph\u1EA3i c\u1ED9ng).",
+      "C\u1ED9ng h\u1EC7 s\u1ED1 thay v\xEC nh\xE2n."
+    ]),
+    mc(1, "nhan-don-thuc-voi-da-thuc", r5`Kết quả của phép nhân \(2x(x - 3)\) là`, [r5`\(2x^2 - 6x\)`, r5`\(2x^2 - 3\)`, r5`\(2x^2 - 6\)`, r5`\(x^2 - 6x\)`], r5`\(2x\cdot x - 2x\cdot3 = 2x^2 - 6x\).`, [
+      r5`Nhân \(2x\) với từng hạng tử.`,
+      r5`Quên nhân \(2x\) với \(-3\).`,
+      r5`Nhân \(-3\) với 2 nhưng quên \(x\).`,
+      "Qu\xEAn h\u1EC7 s\u1ED1 2 \u1EDF h\u1EA1ng t\u1EED \u0111\u1EA7u."
+    ]),
+    mc(2, "nhan-don-thuc-voi-da-thuc", r5`Kết quả của phép nhân \(-3xy(x^2 - 2y + 1)\) là`, [r5`\(-3x^3y + 6xy^2 - 3xy\)`, r5`\(-3x^3y - 6xy^2 - 3xy\)`, r5`\(-3x^3y + 6xy^2 + 1\)`, r5`\(-3x^2y + 6xy^2 - 3xy\)`], r5`\(-3xy\cdot x^2 = -3x^3y\); \(-3xy\cdot(-2y) = 6xy^2\); \(-3xy\cdot1 = -3xy\).`, [
+      "Nh\xE2n v\u1EDBi t\u1EEBng h\u1EA1ng t\u1EED, ch\xFA \xFD d\u1EA5u.",
+      r5`Sai dấu: \((-3xy)\cdot(-2y) = +6xy^2\).`,
+      r5`Quên nhân \(-3xy\) với 1.`,
+      r5`Sai số mũ: \(x\cdot x^2 = x^3\).`
+    ]),
+    mc(2, "nhan-da-thuc-voi-da-thuc", r5`Kết quả của phép nhân \((x + 2)(x - 5)\) là`, [r5`\(x^2 - 3x - 10\)`, r5`\(x^2 - 10\)`, r5`\(x^2 + 3x - 10\)`, r5`\(x^2 - 7x - 10\)`], r5`\(x^2 - 5x + 2x - 10 = x^2 - 3x - 10\).`, [
+      "Nh\xE2n m\u1ED7i h\u1EA1ng t\u1EED v\u1EDBi m\u1ED7i h\u1EA1ng t\u1EED r\u1ED3i thu g\u1ECDn.",
+      "Ch\u1EC9 nh\xE2n c\xE1c h\u1EA1ng t\u1EED t\u01B0\u01A1ng \u1EE9ng.",
+      r5`Sai dấu: \(-5x + 2x = -3x\).`,
+      "C\u1ED9ng sai h\u1EC7 s\u1ED1."
+    ]),
+    mc(2, "nhan-da-thuc-voi-da-thuc", r5`Kết quả của phép nhân \((2x - 1)(3x + 4)\) là`, [r5`\(6x^2 + 5x - 4\)`, r5`\(6x^2 - 4\)`, r5`\(6x^2 + 11x - 4\)`, r5`\(6x^2 + 5x + 4\)`], r5`\(6x^2 + 8x - 3x - 4 = 6x^2 + 5x - 4\).`, [
+      "Nh\xE2n \u0111\u1EE7 b\u1ED1n t\xEDch r\u1ED3i thu g\u1ECDn.",
+      "Thi\u1EBFu hai t\xEDch (8x) v\xE0 (-3x).",
+      r5`Sai dấu tích \((-1)\cdot3x\).`,
+      r5`Sai dấu tích \((-1)\cdot4\).`
+    ]),
+    mc(3, "nhan-don-thuc-voi-da-thuc", r5`Giá trị của biểu thức \(x(x - y) + y(x - y)\) tại \(x = 3\), \(y = 1\) là`, [r5`\(8\)`, r5`\(10\)`, r5`\(4\)`, r5`\(6\)`], r5`Rút gọn: \(x^2 - xy + xy - y^2 = x^2 - y^2\). Tại \(x = 3\), \(y = 1\): \(9 - 1 = 8\).`, [
+      r5`\(x^2 - y^2\) tại \(x = 3\), \(y = 1\).`,
+      r5`Nhầm \(-y^2\) thành \(+y^2\).`,
+      r5`Tính nhầm thành \((x - y)^2\).`,
+      r5`Quên hạng tử \(y(x - y)\).`
+    ]),
+    mc(3, "nhan-da-thuc-voi-da-thuc", r5`Diện tích hình chữ nhật có chiều dài \(x + 3\) và chiều rộng \(x - 1\) là`, [r5`\(x^2 + 2x - 3\)`, r5`\(x^2 - 3\)`, r5`\(2x + 2\)`, r5`\(x^2 + 4x - 3\)`], r5`\(S = (x + 3)(x - 1) = x^2 - x + 3x - 3 = x^2 + 2x - 3\).`, [
+      "Di\u1EC7n t\xEDch = d\xE0i \xD7 r\u1ED9ng.",
+      "Ch\u1EC9 nh\xE2n c\xE1c h\u1EA1ng t\u1EED t\u01B0\u01A1ng \u1EE9ng.",
+      "\u0110\xF3 l\xE0 n\u1EEDa chu vi.",
+      r5`Sai dấu khi tính \(-x + 3x\).`
+    ]),
+    mc(3, "bieu-thuc-khong-phu-thuoc-bien", r5`Biểu thức \(x(x + 2) - x^2 - 2x + 7\) có giá trị bằng`, [r5`\(7\)`, r5`\(2x + 7\)`, r5`\(4x + 7\)`, r5`\(-7\)`], r5`\(x^2 + 2x - x^2 - 2x + 7 = 7\) với mọi \(x\).`, [
+      "M\u1ECDi h\u1EA1ng t\u1EED ch\u1EE9a bi\u1EBFn tri\u1EC7t ti\xEAu.",
+      r5`Quên trừ \(2x\).`,
+      r5`Cộng nhầm \(2x + 2x\).`,
+      "Sai d\u1EA5u h\u1EB1ng s\u1ED1."
+    ]),
+    mc(4, "bieu-thuc-khong-phu-thuoc-bien", r5`Biểu thức \((x - 1)(x + 1) - x(x - 2) - 2x\) bằng`, [r5`\(-1\)`, r5`\(1\)`, r5`\(4x - 1\)`, r5`\(-4x - 1\)`], r5`\(x^2 - 1 - x^2 + 2x - 2x = -1\) với mọi \(x\).`, [
+      "Gi\xE1 tr\u1ECB kh\xF4ng ph\u1EE5 thu\u1ED9c v\xE0o bi\u1EBFn.",
+      r5`Sai dấu khi khai triển \((x - 1)(x + 1)\).`,
+      r5`Sai dấu khi bỏ ngoặc \(-x(x - 2)\) và quên trừ \(2x\).`,
+      r5`Quên đổi dấu \(-2x\) trong ngoặc.`
+    ]),
+    mc(3, "chung-minh-dang-thuc-phep-nhan", "\u0110\u1EB3ng th\u1EE9c n\xE0o sau \u0111\xE2y \u0111\xFAng v\u1EDBi m\u1ECDi \\(x\\)?", [r5`\((x - 2)(x + 3) = x^2 + x - 6\)`, r5`\((x - 2)(x + 3) = x^2 - x - 6\)`, r5`\((x + 1)(x - 1) = x^2 + 1\)`, r5`\(x(x - 3) = x^2 - 3\)`], r5`\((x - 2)(x + 3) = x^2 + 3x - 2x - 6 = x^2 + x - 6\).`, [
+      "Khai tri\u1EC3n v\u1EBF tr\xE1i \u0111\u01B0\u1EE3c \u0111\xFAng v\u1EBF ph\u1EA3i.",
+      r5`Sai dấu hạng tử \(x\).`,
+      r5`\((x + 1)(x - 1) = x^2 - 1\).`,
+      r5`\(x(x - 3) = x^2 - 3x\).`
+    ]),
+    tf2(1, "nhan-hai-don-thuc", "X\xE9t c\xE1c ph\xE9p nh\xE2n \u0111\u01A1n th\u1EE9c:", [
+      [r5`\(x^2\cdot x^3 = x^5\).`, true, r5`Cộng số mũ: \(2 + 3 = 5\).`],
+      [r5`\(2x\cdot3x = 6x\).`, false, r5`\(2x\cdot3x = 6x^2\).`],
+      [r5`\((-x)\cdot(-x^2) = x^3\).`, true, "T\xEDch c\u1EE7a hai bi\u1EC3u th\u1EE9c mang d\u1EA5u tr\u1EEB l\xE0 d\u01B0\u01A1ng."],
+      [r5`\(4xy\cdot\dfrac{1}{4}y = xy\).`, false, r5`\(4xy\cdot\dfrac14y = xy^2\).`]
+    ]),
+    tf2(2, "nhan-don-thuc-voi-da-thuc", r5`Cho \(A = 2x(3x - y) - 3y(x - 2y)\).`, [
+      [r5`\(2x(3x - y) = 6x^2 - 2xy\).`, true, r5`Nhân \(2x\) với từng hạng tử.`],
+      [r5`\(-3y(x - 2y) = -3xy - 6y^2\).`, false, r5`\((-3y)\cdot(-2y) = 6y^2\) nên \(= -3xy + 6y^2\).`],
+      [r5`\(A = 6x^2 - 5xy + 6y^2\).`, true, r5`\(-2xy - 3xy = -5xy\).`],
+      [r5`Tại \(x = 1\), \(y = 1\) thì \(A = 7\).`, true, r5`\(6 - 5 + 6 = 7\).`]
+    ]),
+    tf2(2, "nhan-da-thuc-voi-da-thuc", r5`Cho \(P = (x + 3)(x^2 - 3x + 9)\).`, [
+      [r5`\(P = x^3 + 27\).`, true, r5`\(x^3 - 3x^2 + 9x + 3x^2 - 9x + 27 = x^3 + 27\).`],
+      [r5`\(P\) có bậc 3.`, true, r5`Hạng tử bậc cao nhất là \(x^3\).`],
+      [r5`Tại \(x = -3\) thì \(P = 54\).`, false, r5`\(P = -27 + 27 = 0\).`],
+      [r5`\(P\) có hạng tử \(9x\).`, false, r5`\(9x - 9x = 0\) nên \(P\) không có hạng tử bậc nhất.`]
+    ]),
+    tf2(3, "nhan-da-thuc-voi-da-thuc", r5`Một hình hộp chữ nhật có các kích thước \(x\), \(x + 1\) và \(x + 2\) (cm).`, [
+      [r5`Diện tích mặt có hai kích thước \(x\), \(x + 1\) là \(x^2 + x\) (cm²).`, true, r5`\(x(x + 1) = x^2 + x\).`],
+      [r5`Thể tích là \(x^3 + 3x^2 + 2x\) (cm³).`, true, r5`\((x^2 + x)(x + 2) = x^3 + 2x^2 + x^2 + 2x\).`],
+      [r5`Khi \(x = 2\), thể tích là 20 cm³.`, false, r5`\(2\cdot3\cdot4 = 24\) cm³.`],
+      ["Th\u1EC3 t\xEDch \u0111\u01B0\u1EE3c bi\u1EC3u th\u1ECB b\u1EDFi m\u1ED9t \u0111a th\u1EE9c b\u1EADc 3.", true, r5`Hạng tử bậc cao nhất là \(x^3\).`]
+    ]),
+    tf2(3, "bieu-thuc-khong-phu-thuoc-bien", r5`Cho \(B = x(2x + 1) - x^2(x + 2) + x^3 - x + 3\).`, [
+      [r5`\(x(2x + 1) = 2x^2 + x\).`, true, "Nh\xE2n \u0111\u01A1n th\u1EE9c v\u1EDBi \u0111a th\u1EE9c."],
+      [r5`\(-x^2(x + 2) = -x^3 + 2x^2\).`, false, r5`\(-x^2(x + 2) = -x^3 - 2x^2\).`],
+      [r5`\(B = 3\) với mọi \(x\).`, true, r5`\(2x^2 + x - x^3 - 2x^2 + x^3 - x + 3 = 3\).`],
+      [r5`Giá trị của \(B\) phụ thuộc vào \(x\).`, false, r5`\(B\) luôn bằng 3.`]
+    ]),
+    tf2(3, "chung-minh-dang-thuc-phep-nhan", r5`Xét đẳng thức \((a + b)(a - b) = a^2 - b^2\) và các hệ quả của nó.`, [
+      [r5`Đẳng thức đúng với mọi \(a\), \(b\).`, true, r5`\(a^2 - ab + ab - b^2 = a^2 - b^2\).`],
+      [r5`\(101\cdot99 = 10\,001\).`, false, r5`\((100 + 1)(100 - 1) = 10\,000 - 1 = 9\,999\).`],
+      [r5`\((x + 3)(x - 3) = x^2 - 9\).`, true, r5`Áp dụng với \(a = x\), \(b = 3\).`],
+      [r5`\((2x + 1)(2x - 1) = 2x^2 - 1\).`, false, r5`\(= (2x)^2 - 1 = 4x^2 - 1\).`]
+    ]),
+    tf2(2, "nhan-hai-don-thuc", r5`Cho \(M = (-3x^2y)\cdot(2xy^3)\).`, [
+      [r5`\(M = -6x^3y^4\).`, true, r5`\((-3)\cdot2 = -6\); cộng số mũ.`],
+      [r5`Bậc của \(M\) là 7.`, true, r5`\(3 + 4 = 7\).`],
+      [r5`Hệ số của \(M\) là \(-1\).`, false, r5`Hệ số là \(-6\).`],
+      [r5`Tại \(x = -1\), \(y = 1\) thì \(M = -6\).`, false, r5`\(-6\cdot(-1)^3\cdot1 = 6\).`]
+    ]),
+    tf2(3, "nhan-don-thuc-voi-da-thuc", r5`Tìm \(x\) biết \(3x(x - 2) - 3x^2 = 12\).`, [
+      [r5`Vế trái thu gọn được \(-6x\).`, true, r5`\(3x^2 - 6x - 3x^2 = -6x\).`],
+      [r5`\(x = 2\).`, false, r5`\(-6x = 12\) nên \(x = -2\).`],
+      [r5`\(x = -2\).`, true, r5`\(-6\cdot(-2) = 12\).`],
+      [r5`Có vô số giá trị \(x\) thỏa mãn.`, false, r5`Chỉ có một giá trị \(x = -2\).`]
+    ]),
+    tf2(4, "bieu-thuc-khong-phu-thuoc-bien", r5`Cho \(Q = (x - 2)(x + 5) - (x + 1)(x + 2) - ax\), với \(a\) là hằng số.`, [
+      [r5`\((x - 2)(x + 5) = x^2 + 3x - 10\).`, true, r5`\(5x - 2x = 3x\).`],
+      [r5`\((x + 1)(x + 2) = x^2 + 3x + 2\).`, true, "Nh\xE2n \u0111a th\u1EE9c v\u1EDBi \u0111a th\u1EE9c."],
+      [r5`Khi \(a = 0\), \(Q = -12\) với mọi \(x\).`, true, r5`\(Q = -12 - ax\).`],
+      [r5`Khi \(a = 1\), giá trị của \(Q\) không phụ thuộc vào \(x\).`, false, r5`\(Q = -12 - x\) còn phụ thuộc \(x\).`]
+    ]),
+    sa2(1, "nhan-hai-don-thuc", r5`Thu gọn tích \(\dfrac{1}{2}x^3y\cdot8xy^2\).`, "4x^4y^3", r5`\(\dfrac12\cdot8 = 4\); \(x^3\cdot x = x^4\); \(y\cdot y^2 = y^3\).`),
+    sa2(2, "nhan-don-thuc-voi-da-thuc", r5`Thực hiện phép nhân \(x^2(2x - 3)\) (viết kết quả thu gọn).`, "2x^3 - 3x^2", r5`\(x^2\cdot2x - x^2\cdot3 = 2x^3 - 3x^2\).`),
+    sa2(2, "nhan-da-thuc-voi-da-thuc", r5`Hệ số của \(x\) trong kết quả của phép nhân \((3x - 2)(x + 4)\) là bao nhiêu?`, "10", r5`\((3x - 2)(x + 4) = 3x^2 + 12x - 2x - 8 = 3x^2 + 10x - 8\).`),
+    sa2(3, "nhan-da-thuc-voi-da-thuc", r5`Tìm \(x\) biết \((x + 1)(x + 2) - x(x + 4) = 6\).`, "-4", r5`\(x^2 + 3x + 2 - x^2 - 4x = -x + 2 = 6\), suy ra \(x = -4\).`),
+    sa2(3, "bieu-thuc-khong-phu-thuoc-bien", r5`Biểu thức \(2x(x - 3) - (2x^2 - 6x - 5)\) luôn nhận giá trị bằng bao nhiêu?`, "5", r5`\(2x^2 - 6x - 2x^2 + 6x + 5 = 5\).`),
+    es2(3, "nhan-da-thuc-voi-da-thuc", r5`Thực hiện phép nhân:
+a) \((x - 2y)(x^2 + 2xy + 4y^2)\); b) \((2x + 1)(x^2 - x + 3)\).`, r5`a) \(x^3 + 2x^2y + 4xy^2 - 2x^2y - 4xy^2 - 8y^3 = x^3 - 8y^3\).
+b) \(2x^3 - 2x^2 + 6x + x^2 - x + 3 = 2x^3 - x^2 + 5x + 3\).`, r5`0,5 điểm: tính đúng câu a.
+0,5 điểm: tính đúng câu b.`),
+    es2(4, "chung-minh-dang-thuc-phep-nhan", r5`Chứng minh rằng với mọi số nguyên \(n\), biểu thức \((n + 2)(n + 7) - (n - 1)(n + 4)\) chia hết cho 6.`, r5`\((n + 2)(n + 7) = n^2 + 9n + 14\); \((n - 1)(n + 4) = n^2 + 3n - 4\).
+Hiệu: \(n^2 + 9n + 14 - n^2 - 3n + 4 = 6n + 18 = 6(n + 3)\).
+Vì \(n\) nguyên nên \(n + 3\) nguyên, do đó biểu thức chia hết cho 6.`, r5`0,5 điểm: khai triển hai tích và rút gọn đúng được \(6n + 18\).
+0,5 điểm: viết \(6(n + 3)\) và kết luận chia hết cho 6.`)
+  ]
+};
+var B5 = {
+  slug: "bai-5-phep-chia-da-thuc-cho-don-thuc",
+  questions: [
+    mc(1, "chia-don-thuc-cho-don-thuc", r5`Kết quả của phép chia \(12x^5 : 3x^2\) là`, [r5`\(4x^3\)`, r5`\(9x^3\)`, r5`\(4x^7\)`, r5`\(4x^{10}\)`], r5`Chia hệ số \(12 : 3 = 4\); trừ số mũ \(x^5 : x^2 = x^3\).`, [
+      "Chia h\u1EC7 s\u1ED1, tr\u1EEB s\u1ED1 m\u0169.",
+      "Tr\u1EEB h\u1EC7 s\u1ED1 thay v\xEC chia.",
+      "C\u1ED9ng s\u1ED1 m\u0169 thay v\xEC tr\u1EEB.",
+      "Nh\xE2n s\u1ED1 m\u0169 thay v\xEC tr\u1EEB."
+    ]),
+    mc(1, "chia-don-thuc-cho-don-thuc", r5`Đơn thức \(A\) chia hết cho đơn thức \(B\) (\(B \ne 0\)) khi`, [r5`mỗi biến của \(B\) đều là biến của \(A\) với số mũ không lớn hơn số mũ của nó trong \(A\)`, r5`hệ số của \(A\) chia hết cho hệ số của \(B\)`, r5`bậc của \(A\) lớn hơn bậc của \(B\)`, r5`\(A\) và \(B\) có cùng phần biến`], "\u0110i\u1EC1u ki\u1EC7n chia h\u1EBFt li\xEAn quan \u0111\u1EBFn c\xE1c bi\u1EBFn v\xE0 s\u1ED1 m\u0169, kh\xF4ng ph\u1EE5 thu\u1ED9c h\u1EC7 s\u1ED1.", [
+      "\u0110\xFAng \u0111i\u1EC1u ki\u1EC7n chia h\u1EBFt.",
+      "H\u1EC7 s\u1ED1 lu\xF4n chia \u0111\u01B0\u1EE3c (kh\xE1c 0).",
+      "B\u1EADc l\u1EDBn h\u01A1n ch\u01B0a \u0111\u1EE7, c\xE1c bi\u1EBFn ph\u1EA3i ph\xF9 h\u1EE3p.",
+      "Ch\u1EC9 l\xE0 m\u1ED9t tr\u01B0\u1EDDng h\u1EE3p ri\xEAng."
+    ]),
+    mc(2, "chia-don-thuc-cho-don-thuc", r5`Kết quả của phép chia \((-15x^4y^3) : (5x^2y)\) là`, [r5`\(-3x^2y^2\)`, r5`\(3x^2y^2\)`, r5`\(-3x^2y^3\)`, r5`\(-10x^2y^2\)`], r5`\(-15 : 5 = -3\); \(x^4 : x^2 = x^2\); \(y^3 : y = y^2\).`, [
+      "Chia h\u1EC7 s\u1ED1, tr\u1EEB s\u1ED1 m\u0169 t\u1EEBng bi\u1EBFn.",
+      "Sai d\u1EA5u.",
+      r5`Quên chia \(y^3\) cho \(y\).`,
+      "Tr\u1EEB h\u1EC7 s\u1ED1 thay v\xEC chia."
+    ]),
+    mc(2, "chia-don-thuc-cho-don-thuc", "Ph\xE9p chia n\xE0o sau \u0111\xE2y KH\xD4NG chia h\u1EBFt (th\u01B0\u01A1ng kh\xF4ng ph\u1EA3i l\xE0 \u0111\u01A1n th\u1EE9c)?", [r5`\(6x^2y : 2xy^2\)`, r5`\(6x^2y : 2xy\)`, r5`\(6x^2y : 3x^2\)`, r5`\(6x^2y : (-y)\)`], r5`Trong \(6x^2y : 2xy^2\), biến \(y\) của đơn thức chia có số mũ 2 lớn hơn số mũ 1 trong đơn thức bị chia nên không chia hết.`, [
+      r5`Số mũ của \(y\) ở đơn thức chia lớn hơn.`,
+      r5`Chia hết, thương là \(3x\).`,
+      r5`Chia hết, thương là \(2y\).`,
+      r5`Chia hết, thương là \(-6x^2\).`
+    ]),
+    mc(1, "chia-da-thuc-cho-don-thuc", r5`Kết quả của phép chia \((6x^3 - 4x^2) : 2x\) là`, [r5`\(3x^2 - 2x\)`, r5`\(3x^3 - 2x^2\)`, r5`\(3x^2 - 4x\)`, r5`\(4x^2 - 2x\)`], r5`Chia từng hạng tử: \(6x^3 : 2x = 3x^2\); \(-4x^2 : 2x = -2x\).`, [
+      "Chia t\u1EEBng h\u1EA1ng t\u1EED cho \u0111\u01A1n th\u1EE9c.",
+      "Qu\xEAn tr\u1EEB s\u1ED1 m\u0169.",
+      "Qu\xEAn chia h\u1EC7 s\u1ED1 c\u1EE7a h\u1EA1ng t\u1EED th\u1EE9 hai.",
+      "Tr\u1EEB h\u1EC7 s\u1ED1 thay v\xEC chia."
+    ]),
+    mc(2, "chia-da-thuc-cho-don-thuc", r5`Kết quả của phép chia \((9x^2y^3 - 6x^3y^2 + 3xy) : 3xy\) là`, [r5`\(3xy^2 - 2x^2y + 1\)`, r5`\(3xy^2 - 2x^2y\)`, r5`\(3xy^2 + 2x^2y + 1\)`, r5`\(3xy^2 - 2x^2y + 3xy\)`], r5`\(9x^2y^3 : 3xy = 3xy^2\); \(-6x^3y^2 : 3xy = -2x^2y\); \(3xy : 3xy = 1\).`, [
+      "Chia \u0111\u1EE7 ba h\u1EA1ng t\u1EED.",
+      r5`Quên thương \(3xy : 3xy = 1\).`,
+      "Sai d\u1EA5u h\u1EA1ng t\u1EED th\u1EE9 hai.",
+      "Ch\u01B0a chia h\u1EA1ng t\u1EED cu\u1ED1i."
+    ]),
+    mc(2, "chia-da-thuc-cho-don-thuc", r5`Đa thức nào sau đây chia hết cho đơn thức \(2x^2\)?`, [r5`\(4x^3 - 6x^2\)`, r5`\(4x^3 - 6x\)`, r5`\(x^2 + 1\)`, r5`\(8x^4 + 2x\)`], r5`Đa thức chia hết cho \(2x^2\) khi mọi hạng tử đều chia hết cho \(2x^2\): \(4x^3\) và \(-6x^2\) đều chia hết.`, [
+      "M\u1ECDi h\u1EA1ng t\u1EED chia h\u1EBFt.",
+      r5`\(-6x\) không chia hết cho \(2x^2\).`,
+      r5`Hạng tử 1 không chia hết.`,
+      r5`\(2x\) không chia hết cho \(2x^2\).`
+    ]),
+    mc(3, "chia-da-thuc-cho-don-thuc", r5`Giá trị của biểu thức \((10x^3 - 5x^2) : 5x^2\) tại \(x = 3\) là`, [r5`\(5\)`, r5`\(6\)`, r5`\(25\)`, r5`\(1\)`], r5`\((10x^3 - 5x^2) : 5x^2 = 2x - 1\). Tại \(x = 3\): \(6 - 1 = 5\).`, [
+      "R\xFAt g\u1ECDn r\u1ED3i thay s\u1ED1.",
+      r5`Quên hạng tử \(-1\).`,
+      "Thay s\u1ED1 tr\u01B0\u1EDBc nh\u01B0ng chia sai.",
+      "Qu\xEAn nh\xE2n 2 v\u1EDBi (x)."
+    ]),
+    mc(2, "tim-da-thuc-khi-biet-tich-hoac-thuong", r5`Đa thức \(M\) thỏa mãn \(M\cdot3x = 6x^3 - 9x^2\) là`, [r5`\(2x^2 - 3x\)`, r5`\(18x^4 - 27x^3\)`, r5`\(2x^3 - 3x^2\)`, r5`\(3x^2 - 6x\)`], r5`\(M = (6x^3 - 9x^2) : 3x = 2x^2 - 3x\).`, [
+      "Th\u1EEBa s\u1ED1 ch\u01B0a bi\u1EBFt = t\xEDch : th\u1EEBa s\u1ED1 \u0111\xE3 bi\u1EBFt.",
+      "Nh\xE2n thay v\xEC chia.",
+      "Qu\xEAn tr\u1EEB s\u1ED1 m\u0169.",
+      "Tr\u1EEB h\u1EC7 s\u1ED1 thay v\xEC chia."
+    ]),
+    mc(3, "tim-da-thuc-khi-biet-tich-hoac-thuong", r5`Đa thức \(N\) thỏa mãn \(N : (-2xy) = x - 3y\) là`, [r5`\(-2x^2y + 6xy^2\)`, r5`\(-2x^2y - 6xy^2\)`, r5`\(2x^2y - 6xy^2\)`, r5`\(-\dfrac{1}{2}x + \dfrac{3}{2}y\)`], r5`\(N = -2xy(x - 3y) = -2x^2y + 6xy^2\).`, [
+      "S\u1ED1 b\u1ECB chia = th\u01B0\u01A1ng \xD7 s\u1ED1 chia.",
+      r5`Sai dấu: \((-2xy)\cdot(-3y) = 6xy^2\).`,
+      "Sai d\u1EA5u c\u1EA3 hai h\u1EA1ng t\u1EED.",
+      "Chia thay v\xEC nh\xE2n."
+    ]),
+    mc(3, "chia-da-thuc-cho-don-thuc", r5`Thương của phép chia \((4x^4 - 8x^3 + 12x^2) : 4x^2\) có hệ số của \(x\) bằng`, [r5`\(-2\)`, r5`\(2\)`, r5`\(-8\)`, r5`\(3\)`], r5`Thương là \(x^2 - 2x + 3\); hệ số của \(x\) là \(-2\).`, [
+      r5`Hạng tử \(-2x\).`,
+      "Qu\xEAn d\u1EA5u tr\u1EEB.",
+      "Ch\u01B0a chia h\u1EC7 s\u1ED1 cho 4.",
+      "\u0110\xF3 l\xE0 h\u1EA1ng t\u1EED t\u1EF1 do."
+    ]),
+    mc(3, "tim-da-thuc-khi-biet-tich-hoac-thuong", r5`Một hình chữ nhật có diện tích \(6x^2 + 4xy\) (cm²) và chiều rộng \(2x\) (cm). Chiều dài hình chữ nhật là`, [r5`\(3x + 2y\) (cm)`, r5`\(3x + 4xy\) (cm)`, r5`\(12x^3 + 8x^2y\) (cm)`, r5`\(3x^2 + 2xy\) (cm)`], r5`Chiều dài \(= (6x^2 + 4xy) : 2x = 3x + 2y\) (cm).`, [
+      "Chi\u1EC1u d\xE0i = di\u1EC7n t\xEDch : chi\u1EC1u r\u1ED9ng.",
+      "Ch\u1EC9 chia h\u1EA1ng t\u1EED \u0111\u1EA7u.",
+      "Nh\xE2n thay v\xEC chia.",
+      "Chia h\u1EC7 s\u1ED1 nh\u01B0ng qu\xEAn tr\u1EEB s\u1ED1 m\u0169."
+    ]),
+    tf2(1, "chia-don-thuc-cho-don-thuc", "X\xE9t c\xE1c ph\xE9p chia \u0111\u01A1n th\u1EE9c sau:", [
+      [r5`\(x^7 : x^3 = x^4\).`, true, r5`Trừ số mũ: \(7 - 3 = 4\).`],
+      [r5`\(10x^4 : 5x^4 = 2x\).`, false, r5`\(x^4 : x^4 = 1\) nên thương là \(2\).`],
+      [r5`\(-8x^3y : 4xy = -2x^2\).`, true, r5`\(-8 : 4 = -2\); \(x^3 : x = x^2\); \(y : y = 1\).`],
+      [r5`\(x^2 : x^5 = x^3\).`, false, "S\u1ED1 m\u0169 c\u1EE7a \u0111\u01A1n th\u1EE9c chia l\u1EDBn h\u01A1n n\xEAn kh\xF4ng chia h\u1EBFt."]
+    ]),
+    tf2(2, "chia-don-thuc-cho-don-thuc", r5`Cho \(A = 18x^4y^3z\) và \(B = -6x^2y^3\).`, [
+      [r5`\(A\) chia hết cho \(B\).`, true, r5`Mọi biến của \(B\) đều có trong \(A\) với số mũ không nhỏ hơn.`],
+      [r5`\(A : B = -3x^2z\).`, true, r5`\(18 : (-6) = -3\); \(x^4 : x^2 = x^2\); \(y^3 : y^3 = 1\); còn \(z\).`],
+      [r5`Thương \(A : B\) có bậc 2.`, false, r5`\(-3x^2z\) có bậc 3.`],
+      [r5`\(B\) chia hết cho \(A\).`, false, r5`\(B\) không có biến \(z\) và số mũ của \(x\) nhỏ hơn.`]
+    ]),
+    tf2(2, "chia-da-thuc-cho-don-thuc", r5`Cho \(P = 12x^3y^2 - 8x^2y^3 + 4xy^2\) và \(Q = 4xy^2\).`, [
+      [r5`\(P\) chia hết cho \(Q\).`, true, r5`Mỗi hạng tử của \(P\) đều chia hết cho \(Q\).`],
+      [r5`\(P : Q = 3x^2 - 2xy + 1\).`, true, "Chia t\u1EEBng h\u1EA1ng t\u1EED."],
+      [r5`Thương \(P : Q\) có 2 hạng tử.`, false, r5`Có 3 hạng tử vì \(4xy^2 : 4xy^2 = 1\).`],
+      [r5`Tại \(x = 1\), \(y = 1\), thương \(P : Q\) bằng 2.`, true, r5`\(3 - 2 + 1 = 2\).`]
+    ]),
+    tf2(1, "chia-da-thuc-cho-don-thuc", r5`Xét quy tắc chia đa thức \(A\) cho đơn thức \(B\).`, [
+      [r5`Ta chia từng hạng tử của \(A\) cho \(B\) rồi cộng các kết quả.`, true, "\u0110\xF3 l\xE0 quy t\u1EAFc chia \u0111a th\u1EE9c cho \u0111\u01A1n th\u1EE9c."],
+      [r5`\(A\) chia hết cho \(B\) khi mọi hạng tử của \(A\) chia hết cho \(B\).`, true, "\u0110i\u1EC1u ki\u1EC7n chia h\u1EBFt c\u1EE7a \u0111a th\u1EE9c cho \u0111\u01A1n th\u1EE9c."],
+      [r5`Chỉ cần hạng tử bậc cao nhất của \(A\) chia hết cho \(B\).`, false, "M\u1ECDi h\u1EA1ng t\u1EED \u0111\u1EC1u ph\u1EA3i chia h\u1EBFt."],
+      [r5`\((x^2 + x) : x = x\).`, false, r5`\((x^2 + x) : x = x + 1\).`]
+    ]),
+    tf2(3, "chia-da-thuc-cho-don-thuc", r5`Cho \(A = (6x^3 - 3x^2 + 9x) : 3x\).`, [
+      [r5`\(A = 2x^2 - x + 3\).`, true, r5`Chia từng hạng tử cho \(3x\).`],
+      [r5`Tại \(x = -1\) thì \(A = 6\).`, true, r5`\(2 + 1 + 3 = 6\).`],
+      [r5`Tại \(x = 2\) thì \(A = 7\).`, false, r5`\(8 - 2 + 3 = 9\).`],
+      [r5`Phép chia chỉ thực hiện được khi \(x \ne 0\).`, true, r5`Đơn thức chia \(3x\) phải khác 0.`]
+    ]),
+    tf2(2, "tim-da-thuc-khi-biet-tich-hoac-thuong", r5`Cho \(M\cdot2x^2 = 4x^4 - 6x^3 + 2x^2\).`, [
+      [r5`\(M = (4x^4 - 6x^3 + 2x^2) : 2x^2\).`, true, "Th\u1EEBa s\u1ED1 ch\u01B0a bi\u1EBFt b\u1EB1ng t\xEDch chia th\u1EEBa s\u1ED1 \u0111\xE3 bi\u1EBFt."],
+      [r5`\(M = 2x^2 - 3x + 1\).`, true, "Chia t\u1EEBng h\u1EA1ng t\u1EED."],
+      [r5`\(M = 2x^2 - 3x\).`, false, r5`\(2x^2 : 2x^2 = 1\), không được bỏ.`],
+      [r5`\(M\) có bậc 4.`, false, r5`\(M\) có bậc 2.`]
+    ]),
+    tf2(3, "tim-da-thuc-khi-biet-tich-hoac-thuong", r5`Một hình hộp chữ nhật có thể tích \(12x^3 + 6x^2\) (cm³), đáy là hình vuông cạnh \(x\) (cm).`, [
+      [r5`Diện tích đáy là \(x^2\) (cm²).`, true, r5`Hình vuông cạnh \(x\).`],
+      [r5`Chiều cao bằng \((12x^3 + 6x^2) : x^2\).`, true, "Chi\u1EC1u cao = th\u1EC3 t\xEDch : di\u1EC7n t\xEDch \u0111\xE1y."],
+      [r5`Chiều cao là \(12x + 6\) (cm).`, true, r5`Chia từng hạng tử cho \(x^2\).`],
+      [r5`Khi \(x = 2\), chiều cao là 24 cm.`, false, r5`\(24 + 6 = 30\) cm.`]
+    ]),
+    tf2(2, "chia-don-thuc-cho-don-thuc", r5`Cho \(A = 20x^5y^4\).`, [
+      [r5`\(A : 4x^2y = 5x^3y^3\).`, true, r5`\(20 : 4\); \(x^5 : x^2\); \(y^4 : y\).`],
+      [r5`\(A : (-5x^5y^4) = -4\).`, true, "Ph\u1EA7n bi\u1EBFn gi\u1ED1ng nhau n\xEAn th\u01B0\u01A1ng l\xE0 m\u1ED9t s\u1ED1."],
+      [r5`\(A\) chia hết cho \(2x^6y\).`, false, r5`Số mũ của \(x\) ở đơn thức chia lớn hơn nên không chia hết.`],
+      [r5`\(A : xy^4 = 20x^4\).`, true, r5`\(x^5 : x = x^4\); \(y^4 : y^4 = 1\).`]
+    ]),
+    tf2(3, "chia-da-thuc-cho-don-thuc", r5`Cho \(B = (x^3y^2 - 2x^2y^3) : x^2y^2\), với \(x \ne 0\), \(y \ne 0\).`, [
+      [r5`\(B = x - 2y\).`, true, "Chia t\u1EEBng h\u1EA1ng t\u1EED."],
+      [r5`Khi \(x = 2y\) thì \(B = 0\).`, true, r5`\(2y - 2y = 0\).`],
+      [r5`Tại \(x = 3\), \(y = -1\) thì \(B = 1\).`, false, r5`\(3 + 2 = 5\).`],
+      [r5`\(B\) là một đơn thức.`, false, r5`\(x - 2y\) là đa thức có hai hạng tử.`]
+    ]),
+    tf2(3, "tim-da-thuc-khi-biet-tich-hoac-thuong", r5`Cho \(N : 3xy = 2x - y + 1\).`, [
+      [r5`\(N = 3xy(2x - y + 1)\).`, true, "S\u1ED1 b\u1ECB chia b\u1EB1ng th\u01B0\u01A1ng nh\xE2n s\u1ED1 chia."],
+      [r5`\(N = 6x^2y - 3xy^2 + 3xy\).`, true, r5`Nhân \(3xy\) với từng hạng tử.`],
+      [r5`\(N = 6x^2y - 3xy^2 + 1\).`, false, r5`\(3xy\cdot1 = 3xy\).`],
+      [r5`\(N\) có bậc 3.`, true, r5`\(6x^2y\) và \(3xy^2\) có bậc 3.`]
+    ]),
+    sa2(1, "chia-don-thuc-cho-don-thuc", r5`Thực hiện phép chia \(21x^4y^5 : 7x^4y^2\).`, "3y^3", r5`\(21 : 7 = 3\); \(x^4 : x^4 = 1\); \(y^5 : y^2 = y^3\).`),
+    sa2(2, "chia-don-thuc-cho-don-thuc", r5`Tính giá trị của \((-24x^5y^3) : (8x^3y^2)\) tại \(x = -1\), \(y = 2\).`, "-6", r5`Thương là \(-3x^2y\). Tại \(x = -1\), \(y = 2\): \(-3\cdot1\cdot2 = -6\).`),
+    sa2(2, "chia-da-thuc-cho-don-thuc", r5`Thực hiện phép chia \((15x^3 - 10x^2 + 5x) : 5x\).`, "3x^2 - 2x + 1", r5`Chia từng hạng tử cho \(5x\): \(3x^2 - 2x + 1\).`),
+    sa2(3, "chia-da-thuc-cho-don-thuc", r5`Tính giá trị của \((8x^4y - 4x^3y^2) : 4x^3y\) tại \(x = 5\), \(y = 3\).`, "7", r5`Thương là \(2x - y\). Tại \(x = 5\), \(y = 3\): \(10 - 3 = 7\).`),
+    sa2(3, "tim-da-thuc-khi-biet-tich-hoac-thuong", r5`Tìm đa thức \(M\) biết \(M : (-x^2) = 3x - 2\).`, "-3x^3 + 2x^2", r5`\(M = (3x - 2)\cdot(-x^2) = -3x^3 + 2x^2\).`),
+    es2(2, "chia-don-thuc-cho-don-thuc", r5`Thực hiện các phép chia:
+a) \(-27x^3y^4z : 9xy^2\); b) \(\dfrac{3}{4}x^5y^2 : \left(-\dfrac{1}{2}x^2y\right)\).`, r5`a) \(-27 : 9 = -3\); \(x^3 : x = x^2\); \(y^4 : y^2 = y^2\); còn \(z\). Kết quả \(-3x^2y^2z\).
+b) \(\dfrac34 : \left(-\dfrac12\right) = -\dfrac32\); \(x^5 : x^2 = x^3\); \(y^2 : y = y\). Kết quả \(-\dfrac32x^3y\).`, r5`0,5 điểm: tính đúng câu a.
+0,5 điểm: tính đúng câu b (chia phân số đúng dấu).`),
+    es2(2, "chia-da-thuc-cho-don-thuc", r5`Thực hiện phép chia:
+a) \((7x^4 - 14x^3 + 21x^2) : 7x^2\); b) \((6x^3y^2 - 9x^2y^3 + 3x^2y^2) : 3x^2y^2\).`, r5`a) \(x^2 - 2x + 3\).
+b) \(2x - 3y + 1\).`, r5`0,5 điểm: câu a, chia đúng cả ba hạng tử.
+0,5 điểm: câu b, chia đúng cả ba hạng tử.`),
+    es2(3, "chia-da-thuc-cho-don-thuc", r5`Cho \(A = (12x^4y^2 - 18x^3y^3 + 6x^2y^2) : 6x^2y^2\). Rút gọn \(A\) rồi tính giá trị của \(A\) tại \(x = -1\), \(y = 2\).`, r5`\(A = 2x^2 - 3xy + 1\).
+Tại \(x = -1\), \(y = 2\): \(A = 2 - 3\cdot(-1)\cdot2 + 1 = 2 + 6 + 1 = 9\).`, r5`0,5 điểm: rút gọn đúng \(A = 2x^2 - 3xy + 1\).
+0,5 điểm: thay số và tính đúng \(A = 9\).`),
+    es2(3, "tim-da-thuc-khi-biet-tich-hoac-thuong", r5`Một mảnh vườn hình chữ nhật có diện tích \(8x^3 + 12x^2y\) (m²) và chiều rộng \(4x^2\) (m).
+a) Tính chiều dài mảnh vườn.
+b) Tính chu vi mảnh vườn khi \(x = 1\), \(y = 2\).`, r5`a) Chiều dài: \((8x^3 + 12x^2y) : 4x^2 = 2x + 3y\) (m).
+b) Khi \(x = 1\), \(y = 2\): chiều dài 8 m, chiều rộng 4 m, chu vi \(2(8 + 4) = 24\) (m).`, r5`0,5 điểm: tìm đúng chiều dài \(2x + 3y\).
+0,5 điểm: tính đúng chu vi 24 m.`),
+    es2(3, "tim-da-thuc-khi-biet-tich-hoac-thuong", r5`Tìm đa thức \(M\) biết:
+a) \(M\cdot5xy = 10x^2y - 15xy^2 + 5xy\); b) \(M : \dfrac{1}{2}x = 4x - 6\).`, r5`a) \(M = (10x^2y - 15xy^2 + 5xy) : 5xy = 2x - 3y + 1\).
+b) \(M = \dfrac12x(4x - 6) = 2x^2 - 3x\).`, r5`0,5 điểm: tìm đúng \(M\) ở câu a.
+0,5 điểm: tìm đúng \(M\) ở câu b.`)
+  ]
+};
+var BANK_CHUONG_1 = [B1, B2, B3, B4, B5];
+
+// src/seed/toan8-bank/chuong-2.ts
+var HT6 = "hoan-thanh-hang-dang-thuc-binh-phuong";
+var TG6 = "tinh-gia-tri-rut-gon-bieu-thuc-binh-phuong";
+var TX6 = "tim-x-hang-dang-thuc-binh-phuong";
+var CM6 = "chung-minh-voi-hang-dang-thuc-binh-phuong";
+var GT6 = "tim-gia-tri-nho-nhat-lon-nhat";
+var B6 = {
+  slug: "bai-6-hieu-hai-binh-phuong-binh-phuong-cua-mot-tong-hay-mot-hieu",
+  questions: [
+    mc(1, HT6, r5`Khai triển \((x + 3)^2\) được`, [r5`\(x^2 + 6x + 9\)`, r5`\(x^2 + 9\)`, r5`\(x^2 + 3x + 9\)`, r5`\(x^2 + 6x + 6\)`], r5`\((x + 3)^2 = x^2 + 2\cdot x\cdot3 + 3^2 = x^2 + 6x + 9\).`, [
+      "B\xECnh ph\u01B0\u01A1ng s\u1ED1 th\u1EE9 nh\u1EA5t, c\u1ED9ng hai l\u1EA7n t\xEDch, c\u1ED9ng b\xECnh ph\u01B0\u01A1ng s\u1ED1 th\u1EE9 hai.",
+      'Thi\u1EBFu h\u1EA1ng t\u1EED "hai l\u1EA7n t\xEDch" \\(6x\\).',
+      "Qu\xEAn nh\xE2n 2 \u1EDF h\u1EA1ng t\u1EED gi\u1EEFa.",
+      r5`Viết \(3^2 = 6\) là sai.`
+    ]),
+    mc(1, HT6, r5`Đa thức \(x^2 - 16\) viết dưới dạng tích là`, [r5`\((x - 4)(x + 4)\)`, r5`\((x - 4)^2\)`, r5`\((x - 16)(x + 16)\)`, r5`\((x - 8)(x + 8)\)`], r5`\(x^2 - 16 = x^2 - 4^2 = (x - 4)(x + 4)\) (hiệu hai bình phương).`, [
+      "Hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng.",
+      r5`\((x - 4)^2 = x^2 - 8x + 16\), khác \(x^2 - 16\).`,
+      r5`16 là bình phương của 4, không phải của 16.`,
+      r5`16 là \(4^2\), không phải \(8^2\).`
+    ]),
+    mc(1, HT6, r5`Điền vào chỗ trống: \(x^2 + \ldots + 25 = (x + 5)^2\).`, [r5`\(10x\)`, r5`\(5x\)`, r5`\(25x\)`, r5`\(2x\)`], r5`Hạng tử giữa là hai lần tích: \(2\cdot x\cdot5 = 10x\).`, [
+      r5`\(2\cdot x\cdot5\).`,
+      "Qu\xEAn nh\xE2n 2.",
+      r5`Nhầm 25 là hệ số của hạng tử giữa.`,
+      r5`Chỉ lấy hệ số 2, quên nhân với 5.`
+    ]),
+    mc(2, HT6, r5`Khai triển \(\left(2x - \dfrac12\right)^2\) được`, [r5`\(4x^2 - 2x + \dfrac14\)`, r5`\(4x^2 - x + \dfrac14\)`, r5`\(4x^2 - 2x - \dfrac14\)`, r5`\(2x^2 - 2x + \dfrac14\)`], r5`\(\left(2x - \dfrac12\right)^2 = (2x)^2 - 2\cdot2x\cdot\dfrac12 + \left(\dfrac12\right)^2 = 4x^2 - 2x + \dfrac14\).`, [
+      void 0,
+      "Qu\xEAn nh\xE2n 2 \u1EDF hai l\u1EA7n t\xEDch.",
+      r5`Bình phương của \(\dfrac12\) là số dương \(\dfrac14\).`,
+      r5`\((2x)^2 = 4x^2\), không phải \(2x^2\).`
+    ]),
+    mc(2, HT6, r5`Biểu thức \(9x^2 - 12xy + 4y^2\) viết dưới dạng bình phương của một hiệu là`, [r5`\((3x - 2y)^2\)`, r5`\((3x + 2y)^2\)`, r5`\((9x - 4y)^2\)`, r5`\((3x - 4y)^2\)`], r5`\(9x^2 = (3x)^2\), \(4y^2 = (2y)^2\), \(12xy = 2\cdot3x\cdot2y\). Vậy \(9x^2 - 12xy + 4y^2 = (3x - 2y)^2\).`, [
+      void 0,
+      "H\u1EA1ng t\u1EED gi\u1EEFa mang d\u1EA5u tr\u1EEB n\xEAn l\xE0 b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u.",
+      r5`\(9x^2\) là bình phương của \(3x\), không phải của \(9x\).`,
+      r5`\(4y^2 = (2y)^2\).`
+    ]),
+    mc(2, TG6, r5`Tính nhanh \(99^2\).`, [r5`\(9801\)`, r5`\(9901\)`, r5`\(9999\)`, r5`\(9799\)`], r5`\(99^2 = (100 - 1)^2 = 10000 - 200 + 1 = 9801\).`, [
+      void 0,
+      r5`Hai lần tích là \(2\cdot100\cdot1 = 200\), không phải 100.`,
+      "Thi\u1EBFu h\u1EA1ng t\u1EED hai l\u1EA7n t\xEDch, ch\u1EC9 l\u1EA5y \\(100^2 - 1\\).",
+      r5`\(1^2 = 1\) được cộng chứ không trừ.`
+    ]),
+    mc(2, TG6, r5`Tính nhanh \(53\cdot47\).`, [r5`\(2491\)`, r5`\(2509\)`, r5`\(2391\)`, r5`\(2500\)`], r5`\(53\cdot47 = (50 + 3)(50 - 3) = 50^2 - 3^2 = 2500 - 9 = 2491\).`, [
+      void 0,
+      r5`Hiệu hai bình phương: phải trừ \(3^2\).`,
+      r5`Tính sai \(50^2 = 2400\).`,
+      r5`Quên trừ \(3^2 = 9\).`
+    ]),
+    mc(3, TG6, r5`Rút gọn biểu thức \((x + 2)^2 - (x - 2)^2\) được`, [r5`\(8x\)`, r5`\(0\)`, r5`\(8\)`, r5`\(2x^2 + 8\)`], r5`\((x^2 + 4x + 4) - (x^2 - 4x + 4) = 8x\). Có thể dùng hiệu hai bình phương: \((x + 2 - x + 2)(x + 2 + x - 2) = 4\cdot2x = 8x\).`, [
+      void 0,
+      "Hai b\xECnh ph\u01B0\u01A1ng kh\xF4ng b\u1EB1ng nhau v\xEC h\u1EA1ng t\u1EED gi\u1EEFa tr\xE1i d\u1EA5u.",
+      r5`Bỏ ngoặc sai dấu ở hạng tử \(4\).`,
+      "\u0110\xE3 c\u1ED9ng hai b\xECnh ph\u01B0\u01A1ng thay v\xEC tr\u1EEB."
+    ]),
+    mc(3, TG6, r5`Giá trị của biểu thức \(x^2 - 6x + 9\) tại \(x = 103\) là`, [r5`\(10000\)`, r5`\(100\)`, r5`\(10609\)`, r5`\(9409\)`], r5`\(x^2 - 6x + 9 = (x - 3)^2\). Tại \(x = 103\): \(100^2 = 10000\).`, [
+      void 0,
+      "Qu\xEAn b\xECnh ph\u01B0\u01A1ng.",
+      r5`Đó là \(103^2\), chưa trừ \(6x\) và cộng 9.`,
+      r5`Tính nhầm \((103 - 6)^2\).`
+    ]),
+    mc(2, TX6, r5`Các giá trị của \(x\) thỏa mãn \(x^2 - 25 = 0\) là`, [r5`\(x = 5\) hoặc \(x = -5\)`, r5`\(x = 5\)`, r5`\(x = 25\)`, r5`\(x = 25\) hoặc \(x = -25\)`], r5`\(x^2 - 25 = (x - 5)(x + 5) = 0\) nên \(x = 5\) hoặc \(x = -5\).`, [
+      void 0,
+      "B\u1ECF s\xF3t nghi\u1EC7m \xE2m.",
+      r5`\(x^2 = 25\) chứ không phải \(x = 25\).`,
+      "Ch\u01B0a l\u1EA5y c\u0103n b\u1EADc hai."
+    ]),
+    mc(3, TX6, r5`Giá trị của \(x\) thỏa mãn \((x + 1)^2 - (x - 1)^2 = 12\) là`, [r5`\(x = 3\)`, r5`\(x = 6\)`, r5`\(x = -3\)`, r5`\(x = 12\)`], r5`\((x + 1)^2 - (x - 1)^2 = 4x\). Vậy \(4x = 12\), \(x = 3\).`, [
+      void 0,
+      r5`Rút gọn sai thành \(2x\).`,
+      "Sai d\u1EA5u khi chuy\u1EC3n v\u1EBF.",
+      "Ch\u01B0a r\xFAt g\u1ECDn v\u1EBF tr\xE1i."
+    ]),
+    mc(3, CM6, r5`Với mọi giá trị của \(x\), biểu thức \(x^2 - 4x + 5\) luôn`, [r5`lớn hơn hoặc bằng \(1\)`, r5`lớn hơn hoặc bằng \(5\)`, r5`bằng 0 khi \(x = 2\)`, r5`có thể nhận giá trị âm`], r5`\(x^2 - 4x + 5 = (x - 2)^2 + 1 \ge 1\) với mọi \(x\); dấu bằng khi \(x = 2\).`, [
+      void 0,
+      r5`Tại \(x = 2\) biểu thức bằng 1 < 5.`,
+      r5`Tại \(x = 2\) biểu thức bằng 1.`,
+      r5`\((x - 2)^2 + 1 \ge 1 > 0\).`
+    ]),
+    mc(3, GT6, r5`Giá trị nhỏ nhất của biểu thức \(A = x^2 + 2x + 4\) là`, [r5`\(3\)`, r5`\(4\)`, r5`\(1\)`, r5`\(-1\)`], r5`\(A = (x + 1)^2 + 3 \ge 3\); dấu bằng khi \(x = -1\). Vậy giá trị nhỏ nhất của \(A\) là 3.`, [
+      void 0,
+      r5`Đó là giá trị tại \(x = 0\), chưa phải nhỏ nhất.`,
+      r5`Tách sai: \(x^2 + 2x + 4 \ne (x + 1)^2 + 1\).`,
+      r5`\(-1\) là giá trị của \(x\), không phải giá trị nhỏ nhất của \(A\).`
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, HT6, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c \u0111\u1EB3ng th\u1EE9c sau (v\u1EDBi m\u1ECDi \\(a\\), \\(b\\)):", [
+      [r5`\((a - b)^2 = a^2 - 2ab + b^2\).`, true, "\u0110\xE2y l\xE0 h\u1EB1ng \u0111\u1EB3ng th\u1EE9c b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u."],
+      [r5`\((a + b)^2 = a^2 + b^2\).`, false, r5`Thiếu hạng tử \(2ab\).`],
+      [r5`\(a^2 - b^2 = (a - b)(a + b)\).`, true, "H\u1EB1ng \u0111\u1EB3ng th\u1EE9c hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng."],
+      [r5`\((a - b)^2 = (b - a)^2\).`, true, r5`Hai số đối nhau có bình phương bằng nhau.`]
+    ]),
+    tf2(2, HT6, r5`Cho biểu thức \(P = 4x^2 + 4x + 1\).`, [
+      [r5`\(P = (2x + 1)^2\).`, true, r5`\((2x)^2 + 2\cdot2x\cdot1 + 1^2\).`],
+      [r5`\(P = (4x + 1)^2\).`, false, r5`\((4x + 1)^2 = 16x^2 + 8x + 1\).`],
+      [r5`\(P = 0\) khi \(x = -\dfrac12\).`, true, r5`\(2\cdot\left(-\dfrac12\right) + 1 = 0\).`],
+      [r5`\(P\) nhận giá trị âm khi \(x = -1\).`, false, r5`\(P(-1) = (-1)^2 = 1 > 0\); thực ra \(P \ge 0\) với mọi \(x\).`]
+    ]),
+    tf2(2, TG6, "D\xF9ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c \u0111\u1EC3 t\xEDnh nhanh:", [
+      [r5`\(101^2 = 10201\).`, true, r5`\((100 + 1)^2 = 10000 + 200 + 1\).`],
+      [r5`\(49\cdot51 = 2499\).`, true, r5`\((50 - 1)(50 + 1) = 2500 - 1\).`],
+      [r5`\(98^2 = 9604\).`, true, r5`\((100 - 2)^2 = 10000 - 400 + 4\).`],
+      [r5`\(31^2 - 29^2 = 4\).`, false, r5`\((31 - 29)(31 + 29) = 2\cdot60 = 120\).`]
+    ]),
+    tf2(3, TG6, r5`Cho \(A = (x + 3)^2 - (x - 3)(x + 3)\).`, [
+      [r5`Rút gọn được \(A = 6x + 18\).`, true, r5`\(x^2 + 6x + 9 - (x^2 - 9) = 6x + 18\).`],
+      [r5`Tại \(x = -3\) thì \(A = 0\).`, true, r5`\(6\cdot(-3) + 18 = 0\).`],
+      [r5`\(A = 18\) với mọi \(x\).`, false, r5`\(A\) còn hạng tử \(6x\).`],
+      [r5`Với mọi số nguyên \(x\), \(A\) chia hết cho 6.`, true, r5`\(A = 6(x + 3)\).`]
+    ]),
+    tf2(2, TX6, r5`Xét phương trình \((x - 2)^2 = 9\).`, [
+      [r5`\(x = 5\) thỏa mãn.`, true, r5`\((5 - 2)^2 = 9\).`],
+      [r5`\(x = -1\) thỏa mãn.`, true, r5`\((-1 - 2)^2 = 9\).`],
+      [r5`\(x = 11\) thỏa mãn.`, false, r5`\((11 - 2)^2 = 81\).`],
+      [r5`Có đúng hai giá trị của \(x\) thỏa mãn.`, true, r5`\(x - 2 = 3\) hoặc \(x - 2 = -3\).`]
+    ]),
+    tf2(3, TX6, r5`Xét đẳng thức \(4x^2 - 4x + 1 = 0\).`, [
+      [r5`Vế trái bằng \((2x - 1)^2\).`, true, r5`\((2x)^2 - 2\cdot2x\cdot1 + 1\).`],
+      [r5`\(x = \dfrac12\) thỏa mãn.`, true, r5`\(2x - 1 = 0\).`],
+      [r5`\(x = -\dfrac12\) thỏa mãn.`, false, r5`Khi đó \((2x - 1)^2 = 4\).`],
+      [r5`Có hai giá trị khác nhau của \(x\) thỏa mãn.`, false, r5`Chỉ có \(x = \dfrac12\).`]
+    ]),
+    tf2(3, CM6, "X\xE9t t\xEDnh \u0111\xFAng sai (v\u1EDBi m\u1ECDi gi\xE1 tr\u1ECB c\u1EE7a bi\u1EBFn):", [
+      [r5`\(x^2 + 6x + 10 > 0\).`, true, r5`\(x^2 + 6x + 10 = (x + 3)^2 + 1 \ge 1\).`],
+      [r5`\((a + b)^2 - (a - b)^2 = 4ab\).`, true, r5`\((a^2 + 2ab + b^2) - (a^2 - 2ab + b^2) = 4ab\).`],
+      [r5`\(x^2 - x + 1\) có thể bằng 0.`, false, r5`\(x^2 - x + 1 = \left(x - \dfrac12\right)^2 + \dfrac34 \ge \dfrac34\).`],
+      [r5`\(-x^2 + 2x - 2 < 0\).`, true, r5`\(-x^2 + 2x - 2 = -(x - 1)^2 - 1 \le -1\).`]
+    ]),
+    tf2(4, CM6, r5`Cho hai số \(a\), \(b\) thỏa mãn \(a + b = 5\) và \(ab = 6\).`, [
+      [r5`\(a^2 + b^2 = 13\).`, true, r5`\(a^2 + b^2 = (a + b)^2 - 2ab = 25 - 12\).`],
+      [r5`\((a - b)^2 = 1\).`, true, r5`\((a - b)^2 = (a + b)^2 - 4ab = 25 - 24\).`],
+      [r5`\(a^2 + b^2 = 25\).`, false, r5`Quên trừ \(2ab\).`],
+      [r5`\((a + b)^2 - 4ab = (a - b)^2\) với mọi \(a\), \(b\).`, true, r5`Khai triển hai vế đều được \(a^2 - 2ab + b^2\).`]
+    ]),
+    tf2(3, GT6, r5`Cho \(P = x^2 - 8x + 20\).`, [
+      [r5`\(P = (x - 4)^2 + 4\).`, true, r5`\(x^2 - 8x + 16 + 4\).`],
+      [r5`Giá trị nhỏ nhất của \(P\) là 4, đạt khi \(x = 4\).`, true, r5`\((x - 4)^2 \ge 0\).`],
+      [r5`Giá trị nhỏ nhất của \(P\) là 20, đạt khi \(x = 0\).`, false, r5`\(P(4) = 4 < 20\).`],
+      [r5`\(P\) có giá trị lớn nhất.`, false, r5`\(P\) lớn tùy ý khi \(x\) lớn.`]
+    ]),
+    tf2(4, GT6, r5`Cho \(Q = -x^2 + 6x - 5\).`, [
+      [r5`\(Q = 4 - (x - 3)^2\).`, true, r5`\(-(x^2 - 6x + 9) + 4\).`],
+      [r5`Giá trị lớn nhất của \(Q\) là 4, đạt khi \(x = 3\).`, true, r5`\(-(x - 3)^2 \le 0\).`],
+      [r5`\(Q \le -5\) với mọi \(x\).`, false, r5`\(Q(3) = 4 > -5\).`],
+      [r5`\(Q\) có giá trị nhỏ nhất là \(-5\).`, false, r5`\(Q\) nhỏ tùy ý khi \(x\) lớn (ví dụ \(Q(10) = -45\)).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, TG6, r5`Tính nhanh giá trị của \(102^2 - 4\cdot102 + 4\).`, "10000", r5`\(102^2 - 2\cdot102\cdot2 + 2^2 = (102 - 2)^2 = 100^2 = 10000\).`),
+    sa2(3, TX6, r5`Tìm \(x\) biết \((x + 5)^2 - x^2 = 45\).`, "2", r5`\(x^2 + 10x + 25 - x^2 = 45 \iff 10x = 20 \iff x = 2\).`),
+    sa2(3, GT6, r5`Tìm giá trị nhỏ nhất của biểu thức \(x^2 - 10x + 30\).`, "5", r5`\(x^2 - 10x + 30 = (x - 5)^2 + 5 \ge 5\); dấu bằng khi \(x = 5\).`),
+    // ---- Tự luận ----
+    es2(3, CM6, r5`Cho \(A = (2x + 1)^2 - 4x(x + 1)\). Chứng minh rằng giá trị của \(A\) không phụ thuộc vào giá trị của biến \(x\).`, r5`\(A = 4x^2 + 4x + 1 - 4x^2 - 4x = 1\).
+Vậy \(A = 1\) với mọi \(x\), không phụ thuộc vào \(x\).`, r5`0,5 điểm: khai triển đúng \((2x + 1)^2\) và \(4x(x + 1)\).
+0,5 điểm: rút gọn được \(A = 1\) và kết luận.`),
+    es2(3, TX6, r5`Tìm \(x\), biết:
+a) \((x - 3)^2 - (x + 2)^2 = 15\); b) \(9x^2 - 6x + 1 = 0\).`, r5`a) \(x^2 - 6x + 9 - x^2 - 4x - 4 = 15 \iff -10x + 5 = 15 \iff x = -1\).
+b) \((3x - 1)^2 = 0 \iff 3x - 1 = 0 \iff x = \dfrac13\).`, r5`0,5 điểm: câu a, rút gọn đúng và tìm được \(x = -1\).
+0,5 điểm: câu b, nhận ra \((3x - 1)^2\) và tìm được \(x = \dfrac13\).`),
+    es2(4, GT6, r5`a) Tìm giá trị nhỏ nhất của \(A = x^2 - 3x + 5\).
+b) Tìm giá trị lớn nhất của \(B = 4x - x^2 + 1\).`, r5`a) \(A = \left(x - \dfrac32\right)^2 + 5 - \dfrac94 = \left(x - \dfrac32\right)^2 + \dfrac{11}{4} \ge \dfrac{11}{4}\). Giá trị nhỏ nhất của \(A\) là \(\dfrac{11}{4}\) khi \(x = \dfrac32\).
+b) \(B = -(x^2 - 4x + 4) + 5 = 5 - (x - 2)^2 \le 5\). Giá trị lớn nhất của \(B\) là 5 khi \(x = 2\).`, r5`0,5 điểm: câu a, đưa về \(\left(x - \dfrac32\right)^2 + \dfrac{11}{4}\), kết luận đúng giá trị và \(x\).
+0,5 điểm: câu b, đưa về \(5 - (x - 2)^2\), kết luận đúng giá trị và \(x\).`)
+  ]
+};
+var HT7 = "hoan-thanh-hang-dang-thuc-lap-phuong";
+var TG7 = "tinh-gia-tri-rut-gon-bieu-thuc-lap-phuong";
+var TX7 = "tim-x-hang-dang-thuc-lap-phuong";
+var CM7 = "chung-minh-hang-dang-thuc-lap-phuong";
+var B7 = {
+  slug: "bai-7-lap-phuong-cua-mot-tong-lap-phuong-cua-mot-hieu",
+  questions: [
+    mc(1, HT7, r5`Hằng đẳng thức lập phương của một tổng là \((a + b)^3 = \ldots\)`, [r5`\(a^3 + 3a^2b + 3ab^2 + b^3\)`, r5`\(a^3 + b^3\)`, r5`\(a^3 + 3ab + b^3\)`, r5`\(a^3 + a^2b + ab^2 + b^3\)`], r5`\((a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3\).`, [
+      void 0,
+      "Thi\u1EBFu hai h\u1EA1ng t\u1EED \u1EDF gi\u1EEFa.",
+      "Sai c\xE1c h\u1EA1ng t\u1EED \u1EDF gi\u1EEFa.",
+      "H\u1EC7 s\u1ED1 c\u1EE7a hai h\u1EA1ng t\u1EED gi\u1EEFa l\xE0 3."
+    ]),
+    mc(1, HT7, r5`Khai triển \((x - 1)^3\) được`, [r5`\(x^3 - 3x^2 + 3x - 1\)`, r5`\(x^3 - 1\)`, r5`\(x^3 - 3x^2 - 3x - 1\)`, r5`\(x^3 + 3x^2 - 3x - 1\)`], r5`\((x - 1)^3 = x^3 - 3x^2\cdot1 + 3x\cdot1^2 - 1^3 = x^3 - 3x^2 + 3x - 1\).`, [
+      "D\u1EA5u xen k\u1EBD: c\u1ED9ng, tr\u1EEB, c\u1ED9ng, tr\u1EEB.",
+      "Thi\u1EBFu hai h\u1EA1ng t\u1EED \u1EDF gi\u1EEFa.",
+      r5`Hạng tử \(3x\) mang dấu cộng.`,
+      r5`Hạng tử \(3x^2\) mang dấu trừ.`
+    ]),
+    mc(1, HT7, r5`Biểu thức \(x^3 - 3x^2 + 3x - 1\) viết gọn là`, [r5`\((x - 1)^3\)`, r5`\((x + 1)^3\)`, r5`\((1 - x)^3\)`, r5`\((x - 3)^3\)`], r5`Đây là khai triển của lập phương một hiệu \((x - 1)^3\).`, [
+      void 0,
+      "C\xE1c d\u1EA5u xen k\u1EBD n\xEAn l\xE0 l\u1EADp ph\u01B0\u01A1ng m\u1ED9t hi\u1EC7u.",
+      r5`\((1 - x)^3 = 1 - 3x + 3x^2 - x^3\), là số đối của biểu thức đã cho.`,
+      r5`Số hạng cuối \(-1 = -1^3\) nên số thứ hai là 1.`
+    ]),
+    mc(2, HT7, r5`Khai triển \((x + 2)^3\) được`, [r5`\(x^3 + 6x^2 + 12x + 8\)`, r5`\(x^3 + 8\)`, r5`\(x^3 + 6x^2 + 6x + 8\)`, r5`\(x^3 + 3x^2 + 3x + 8\)`], r5`\((x + 2)^3 = x^3 + 3\cdot x^2\cdot2 + 3\cdot x\cdot2^2 + 2^3 = x^3 + 6x^2 + 12x + 8\).`, [
+      void 0,
+      "Thi\u1EBFu hai h\u1EA1ng t\u1EED gi\u1EEFa.",
+      r5`\(3\cdot x\cdot2^2 = 12x\), không phải \(6x\).`,
+      "Qu\xEAn nh\xE2n v\u1EDBi 2 v\xE0 \\(2^2\\) \u1EDF hai h\u1EA1ng t\u1EED gi\u1EEFa."
+    ]),
+    mc(2, HT7, r5`Khai triển \((2x - y)^3\) được`, [r5`\(8x^3 - 12x^2y + 6xy^2 - y^3\)`, r5`\(8x^3 - y^3\)`, r5`\(8x^3 - 6x^2y + 6xy^2 - y^3\)`, r5`\(2x^3 - 6x^2y + 6xy^2 - y^3\)`], r5`\((2x)^3 - 3(2x)^2y + 3\cdot2x\cdot y^2 - y^3 = 8x^3 - 12x^2y + 6xy^2 - y^3\).`, [
+      void 0,
+      "Thi\u1EBFu hai h\u1EA1ng t\u1EED gi\u1EEFa.",
+      r5`\(3\cdot(2x)^2\cdot y = 12x^2y\).`,
+      r5`\((2x)^3 = 8x^3\).`
+    ]),
+    mc(2, HT7, r5`Biểu thức \(x^3 + 9x^2 + 27x + 27\) bằng`, [r5`\((x + 3)^3\)`, r5`\((x + 9)^3\)`, r5`\((x - 3)^3\)`, r5`\((3x + 3)^3\)`], r5`\(27 = 3^3\), \(9x^2 = 3\cdot x^2\cdot3\), \(27x = 3\cdot x\cdot3^2\). Vậy biểu thức bằng \((x + 3)^3\).`, [
+      void 0,
+      r5`\((x + 9)^3\) có số hạng cuối \(729\).`,
+      "M\u1ECDi h\u1EA1ng t\u1EED \u0111\u1EC1u d\u01B0\u01A1ng n\xEAn l\xE0 l\u1EADp ph\u01B0\u01A1ng m\u1ED9t t\u1ED5ng.",
+      r5`Hạng tử đầu là \(x^3\), không phải \(27x^3\).`
+    ]),
+    mc(2, TG7, r5`Tính \(101^3\) bằng hằng đẳng thức.`, [r5`\(1\,030\,301\)`, r5`\(1\,000\,001\)`, r5`\(1\,010\,101\)`, r5`\(1\,003\,001\)`], r5`\((100 + 1)^3 = 1\,000\,000 + 3\cdot10\,000 + 3\cdot100 + 1 = 1\,030\,301\).`, [
+      void 0,
+      "Thi\u1EBFu hai h\u1EA1ng t\u1EED gi\u1EEFa.",
+      "Qu\xEAn h\u1EC7 s\u1ED1 3 \u1EDF hai h\u1EA1ng t\u1EED gi\u1EEFa.",
+      "T\xEDnh sai hai h\u1EA1ng t\u1EED gi\u1EEFa."
+    ]),
+    mc(2, TG7, r5`Giá trị của \(x^3 + 3x^2 + 3x + 1\) tại \(x = 99\) là`, [r5`\(1\,000\,000\)`, r5`\(10\,000\)`, r5`\(970\,299\)`, r5`\(100\)`], r5`\(x^3 + 3x^2 + 3x + 1 = (x + 1)^3\). Tại \(x = 99\): \(100^3 = 1\,000\,000\).`, [
+      void 0,
+      r5`Đó là \(100^2\), còn biểu thức là lập phương.`,
+      r5`Đó là \(99^3\), chưa cộng các hạng tử còn lại.`,
+      "Ch\u01B0a l\u1EADp ph\u01B0\u01A1ng."
+    ]),
+    mc(3, TG7, r5`Rút gọn \((x + 1)^3 - (x - 1)^3\) được`, [r5`\(6x^2 + 2\)`, r5`\(2\)`, r5`\(6x + 2\)`, r5`\(2x^3 + 6x\)`], r5`\((x^3 + 3x^2 + 3x + 1) - (x^3 - 3x^2 + 3x - 1) = 6x^2 + 2\).`, [
+      void 0,
+      r5`Hai hạng tử \(3x^2\) trái dấu nên không triệt tiêu.`,
+      r5`Rút gọn sai hạng tử \(6x^2\).`,
+      "\u0110\xE3 c\u1ED9ng hai l\u1EADp ph\u01B0\u01A1ng thay v\xEC tr\u1EEB."
+    ]),
+    mc(3, TG7, r5`Rút gọn \((x + 2)^3 - x^3 - 8\) được`, [r5`\(6x^2 + 12x\)`, r5`\(0\)`, r5`\(6x^2 + 12x + 16\)`, r5`\(3x^2 + 6x\)`], r5`\((x + 2)^3 = x^3 + 6x^2 + 12x + 8\); trừ \(x^3\) và \(8\) còn \(6x^2 + 12x\).`, [
+      void 0,
+      r5`\((x + 2)^3 \ne x^3 + 8\).`,
+      r5`Trừ 8 chứ không cộng.`,
+      r5`Quên nhân 2 và \(2^2\).`
+    ]),
+    mc(2, TX7, r5`Giá trị của \(x\) thỏa mãn \((x - 1)^3 = 8\) là`, [r5`\(x = 3\)`, r5`\(x = 9\)`, r5`\(x = 2\)`, r5`\(x = -1\)`], r5`\(8 = 2^3\) nên \(x - 1 = 2\), suy ra \(x = 3\).`, [
+      void 0,
+      r5`\(x - 1 = 8\) là sai, phải lấy số có lập phương bằng 8.`,
+      r5`Chưa cộng thêm 1.`,
+      r5`Lập phương của \(-2\) là \(-8\), không phải 8.`
+    ]),
+    mc(3, TX7, r5`Giá trị của \(x\) thỏa mãn \(x^3 + 3x^2 + 3x + 1 = 27\) là`, [r5`\(x = 2\)`, r5`\(x = 3\)`, r5`\(x = 26\)`, r5`\(x = 8\)`], r5`Vế trái là \((x + 1)^3\). \((x + 1)^3 = 27 = 3^3\) nên \(x + 1 = 3\), \(x = 2\).`, [
+      void 0,
+      r5`Quên trừ 1: \(x + 1 = 3\).`,
+      "Chuy\u1EC3n v\u1EBF m\xE0 ch\u01B0a vi\u1EBFt g\u1ECDn l\u1EADp ph\u01B0\u01A1ng.",
+      r5`Thử lại: \(9^3 \ne 27\).`
+    ]),
+    mc(3, CM7, r5`Cho \(x + y = 3\) và \(xy = 2\). Giá trị của \(x^3 + y^3\) là`, [r5`\(9\)`, r5`\(27\)`, r5`\(45\)`, r5`\(21\)`], r5`\(x^3 + y^3 = (x + y)^3 - 3xy(x + y) = 27 - 3\cdot2\cdot3 = 9\).`, [
+      void 0,
+      r5`Đó là \((x + y)^3\), chưa trừ \(3xy(x + y)\).`,
+      r5`Phải trừ \(3xy(x + y)\), không cộng.`,
+      r5`Chỉ trừ \(3xy = 6\), quên nhân với \(x + y\).`
+    ]),
+    mc(3, CM7, r5`Rút gọn \((a + b)^3 - (a - b)^3\) được`, [r5`\(6a^2b + 2b^3\)`, r5`\(2b^3\)`, r5`\(2a^3 + 6ab^2\)`, r5`\(0\)`], r5`\((a^3 + 3a^2b + 3ab^2 + b^3) - (a^3 - 3a^2b + 3ab^2 - b^3) = 6a^2b + 2b^3\).`, [
+      void 0,
+      r5`Quên hai hạng tử \(3a^2b\) không triệt tiêu.`,
+      "\u0110\xF3 l\xE0 t\u1ED5ng c\u1EE7a hai l\u1EADp ph\u01B0\u01A1ng.",
+      "Hai l\u1EADp ph\u01B0\u01A1ng kh\xF4ng b\u1EB1ng nhau."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, HT7, "X\xE9t t\xEDnh \u0111\xFAng sai (v\u1EDBi m\u1ECDi \\(a\\), \\(b\\)):", [
+      [r5`\((a - b)^3 = a^3 - 3a^2b + 3ab^2 - b^3\).`, true, "H\u1EB1ng \u0111\u1EB3ng th\u1EE9c l\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u."],
+      [r5`\((a + b)^3 = a^3 + b^3\).`, false, r5`Thiếu \(3a^2b + 3ab^2\).`],
+      [r5`\((-a - b)^3 = -(a + b)^3\).`, true, r5`\(-a - b = -(a + b)\) và lập phương của số đối là số đối của lập phương.`],
+      [r5`\((a - b)^3 = (b - a)^3\).`, false, r5`\((b - a)^3 = -(a - b)^3\).`]
+    ]),
+    tf2(2, HT7, r5`Cho biểu thức \(M = 8x^3 + 12x^2 + 6x + 1\).`, [
+      [r5`\(M = (2x + 1)^3\).`, true, r5`\((2x)^3 + 3(2x)^2\cdot1 + 3\cdot2x\cdot1 + 1\).`],
+      [r5`\(M = (8x + 1)^3\).`, false, r5`\((8x)^3 = 512x^3\).`],
+      [r5`Tại \(x = 0\) thì \(M = 1\).`, true, r5`Chỉ còn hạng tử tự do 1.`],
+      [r5`Tại \(x = -\dfrac12\) thì \(M = 0\).`, true, r5`\(2\cdot\left(-\dfrac12\right) + 1 = 0\).`]
+    ]),
+    tf2(2, HT7, r5`Khai triển \((3 - x)^3\).`, [
+      [r5`\((3 - x)^3 = 27 - 27x + 9x^2 - x^3\).`, true, r5`\(3^3 - 3\cdot9x + 3\cdot3x^2 - x^3\).`],
+      [r5`Hệ số của \(x^2\) là 9.`, true, r5`\(3\cdot3\cdot x^2 = 9x^2\).`],
+      [r5`Hạng tử tự do là 9.`, false, r5`Hạng tử tự do là \(3^3 = 27\).`],
+      [r5`\((3 - x)^3 = -(x - 3)^3\).`, true, r5`\(3 - x = -(x - 3)\).`]
+    ]),
+    tf2(2, TG7, "D\xF9ng h\u1EB1ng \u0111\u1EB3ng th\u1EE9c, ki\u1EC3m tra c\xE1c k\u1EBFt qu\u1EA3:", [
+      [r5`\(21^3 = 9261\).`, true, r5`\((20 + 1)^3 = 8000 + 1200 + 60 + 1\).`],
+      [r5`\(99^3 = 970\,299\).`, true, r5`\((100 - 1)^3 = 1\,000\,000 - 30\,000 + 300 - 1\).`],
+      [r5`\(19^3 = 6859\).`, true, r5`\((20 - 1)^3 = 8000 - 1200 + 60 - 1\).`],
+      [r5`\(11^3 = 1111\).`, false, r5`\((10 + 1)^3 = 1000 + 300 + 30 + 1 = 1331\).`]
+    ]),
+    tf2(3, TG7, r5`Cho \(A = (x + 1)^3 - x(x^2 + 3x + 3)\).`, [
+      [r5`\(A = 1\).`, true, r5`\(x^3 + 3x^2 + 3x + 1 - x^3 - 3x^2 - 3x = 1\).`],
+      [r5`Giá trị của \(A\) phụ thuộc vào \(x\).`, false, r5`\(A = 1\) với mọi \(x\).`],
+      [r5`Tại \(x = 100\) thì \(A = 1\).`, true, r5`\(A\) luôn bằng 1.`],
+      [r5`\(A = 2x + 1\).`, false, "R\xFAt g\u1ECDn \u0111\xFAng \u0111\u01B0\u1EE3c \\(A = 1\\)."]
+    ]),
+    tf2(2, TX7, r5`Xét đẳng thức \((x + 2)^3 = -8\).`, [
+      [r5`Suy ra \(x + 2 = -2\).`, true, r5`\((-2)^3 = -8\).`],
+      [r5`\(x = -4\) thỏa mãn.`, true, r5`\((-4 + 2)^3 = -8\).`],
+      [r5`\(x = 0\) thỏa mãn.`, false, r5`\((0 + 2)^3 = 8\).`],
+      [r5`Có hai giá trị của \(x\) thỏa mãn.`, false, r5`Chỉ có một số có lập phương bằng \(-8\) nên chỉ có \(x = -4\).`]
+    ]),
+    tf2(3, TX7, r5`Xét đẳng thức \(x^3 - 6x^2 + 12x - 8 = 0\).`, [
+      [r5`Vế trái bằng \((x - 2)^3\).`, true, r5`\(x^3 - 3x^2\cdot2 + 3x\cdot2^2 - 2^3\).`],
+      [r5`\(x = 2\) thỏa mãn.`, true, r5`\((2 - 2)^3 = 0\).`],
+      [r5`\(x = -2\) thỏa mãn.`, false, r5`\((-4)^3 = -64\).`],
+      [r5`\(x = 8\) thỏa mãn.`, false, r5`\((8 - 2)^3 = 216\).`]
+    ]),
+    tf2(3, CM7, r5`Cho \(a + b = 4\) và \(ab = 3\).`, [
+      [r5`\(a^3 + b^3 = 28\).`, true, r5`\((a + b)^3 - 3ab(a + b) = 64 - 36\).`],
+      [r5`\(a^2 + b^2 = 10\).`, true, r5`\((a + b)^2 - 2ab = 16 - 6\).`],
+      [r5`\((a + b)^3 = 64\).`, true, r5`\(4^3 = 64\).`],
+      [r5`\(a^3 + b^3 = 64\).`, false, r5`\(a^3 + b^3 \ne (a + b)^3\).`]
+    ]),
+    tf2(4, CM7, "X\xE9t t\xEDnh \u0111\xFAng sai (v\u1EDBi m\u1ECDi \\(a\\), \\(b\\)):", [
+      [r5`\((a + b)^3 = a^3 + b^3 + 3ab(a + b)\).`, true, r5`\(3a^2b + 3ab^2 = 3ab(a + b)\).`],
+      [r5`\((a - b)^3 = a^3 - b^3 - 3ab(a - b)\).`, true, r5`\(-3a^2b + 3ab^2 = -3ab(a - b)\).`],
+      [r5`\((a + b)^3 + (a - b)^3 = 2a^3 + 6ab^2\).`, true, r5`Các hạng tử \(\pm3a^2b\) và \(\pm b^3\) triệt tiêu.`],
+      [r5`\((a + b)^3 - (a - b)^3 = 2b^3\).`, false, r5`Kết quả đúng là \(6a^2b + 2b^3\).`]
+    ]),
+    tf2(3, TG7, r5`Cho \(B = (x - 1)^3 - (x + 1)^3\).`, [
+      [r5`\(B = -6x^2 - 2\).`, true, r5`\((x^3 - 3x^2 + 3x - 1) - (x^3 + 3x^2 + 3x + 1)\).`],
+      [r5`\(B < 0\) với mọi \(x\).`, true, r5`\(-6x^2 - 2 \le -2\).`],
+      [r5`Tại \(x = 0\) thì \(B = 0\).`, false, r5`\(B(0) = -2\).`],
+      [r5`\(B = 2\) với mọi \(x\).`, false, r5`\(B\) phụ thuộc vào \(x\).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, TG7, r5`Tính giá trị của \(x^3 - 3x^2 + 3x - 1\) tại \(x = 11\).`, "1000", r5`\(x^3 - 3x^2 + 3x - 1 = (x - 1)^3\). Tại \(x = 11\): \(10^3 = 1000\).`),
+    sa2(3, TX7, r5`Tìm \(x\) biết \((x - 1)^3 - x^3 + 3x^2 = 5\).`, "2", r5`\(x^3 - 3x^2 + 3x - 1 - x^3 + 3x^2 = 3x - 1\). Vậy \(3x - 1 = 5\), \(x = 2\).`),
+    sa2(3, CM7, r5`Cho \(x - y = 2\) và \(xy = 15\). Tính \(x^3 - y^3\).`, "98", r5`\(x^3 - y^3 = (x - y)^3 + 3xy(x - y) = 8 + 3\cdot15\cdot2 = 98\).`),
+    // ---- Tự luận ----
+    es2(2, HT7, r5`Khai triển: a) \(\left(x + \dfrac12\right)^3\); b) \((2x - 3y)^3\).`, r5`a) \(x^3 + 3x^2\cdot\dfrac12 + 3x\cdot\dfrac14 + \dfrac18 = x^3 + \dfrac32x^2 + \dfrac34x + \dfrac18\).
+b) \((2x)^3 - 3(2x)^2\cdot3y + 3\cdot2x\cdot(3y)^2 - (3y)^3 = 8x^3 - 36x^2y + 54xy^2 - 27y^3\).`, r5`0,5 điểm: câu a, đủ 4 hạng tử, đúng hệ số.
+0,5 điểm: câu b, đúng dấu và hệ số của 4 hạng tử.`),
+    es2(3, TG7, r5`Rút gọn biểu thức \(A = (x + 3)^3 - (x + 9)(x^2 + 27)\) rồi tính giá trị của \(A\) tại \(x = 2026\).`, r5`\((x + 3)^3 = x^3 + 9x^2 + 27x + 27\).
+\((x + 9)(x^2 + 27) = x^3 + 27x + 9x^2 + 243\).
+\(A = 27 - 243 = -216\) với mọi \(x\), nên tại \(x = 2026\) thì \(A = -216\).`, r5`0,5 điểm: khai triển đúng hai biểu thức.
+0,5 điểm: rút gọn được \(A = -216\) và kết luận giá trị.`),
+    es2(3, TX7, r5`Tìm \(x\), biết:
+a) \((x + 1)^3 - (x - 1)^3 = 26\); b) \(x^3 + 9x^2 + 27x + 27 = -64\).`, r5`a) Vế trái bằng \(6x^2 + 2\). \(6x^2 + 2 = 26 \iff x^2 = 4 \iff x = 2\) hoặc \(x = -2\).
+b) \((x + 3)^3 = -64 = (-4)^3 \iff x + 3 = -4 \iff x = -7\).`, r5`0,5 điểm: câu a, rút gọn đúng và tìm đủ hai giá trị.
+0,5 điểm: câu b, viết được \((x + 3)^3\) và tìm \(x = -7\).`),
+    es2(4, CM7, r5`Cho \(a + b = 1\). Chứng minh rằng \(a^3 + b^3 + 3ab = 1\).`, r5`\(a^3 + b^3 = (a + b)^3 - 3ab(a + b) = 1 - 3ab\) (vì \(a + b = 1\)).
+Do đó \(a^3 + b^3 + 3ab = 1 - 3ab + 3ab = 1\).`, r5`0,5 điểm: viết được \(a^3 + b^3 = (a + b)^3 - 3ab(a + b)\).
+0,5 điểm: thay \(a + b = 1\) và kết luận.`)
+  ]
+};
+var HT8 = "hoan-thanh-hang-dang-thuc-tong-hieu-lap-phuong";
+var TG8 = "tinh-gia-tri-bieu-thuc-tong-hieu-lap-phuong";
+var RG8 = "rut-gon-chung-minh-bay-hang-dang-thuc";
+var B8 = {
+  slug: "bai-8-tong-va-hieu-hai-lap-phuong",
+  questions: [
+    mc(1, HT8, r5`Hằng đẳng thức tổng hai lập phương là \(a^3 + b^3 = \ldots\)`, [r5`\((a + b)(a^2 - ab + b^2)\)`, r5`\((a + b)(a^2 + ab + b^2)\)`, r5`\((a + b)^3\)`, r5`\((a + b)(a^2 + b^2)\)`], r5`\(a^3 + b^3 = (a + b)(a^2 - ab + b^2)\).`, [
+      void 0,
+      "Th\u1EEBa s\u1ED1 th\u1EE9 hai c\xF3 h\u1EA1ng t\u1EED \\(-ab\\).",
+      r5`\((a + b)^3\) còn thêm \(3a^2b + 3ab^2\).`,
+      r5`Thiếu hạng tử \(-ab\).`
+    ]),
+    mc(1, HT8, r5`Hằng đẳng thức hiệu hai lập phương là \(a^3 - b^3 = \ldots\)`, [r5`\((a - b)(a^2 + ab + b^2)\)`, r5`\((a - b)(a^2 - ab + b^2)\)`, r5`\((a - b)^3\)`, r5`\((a - b)(a^2 + 2ab + b^2)\)`], r5`\(a^3 - b^3 = (a - b)(a^2 + ab + b^2)\).`, [
+      void 0,
+      r5`Hạng tử \(ab\) mang dấu cộng.`,
+      r5`\((a - b)^3\) còn thêm \(-3a^2b + 3ab^2\).`,
+      r5`Hạng tử giữa là \(ab\), không phải \(2ab\).`
+    ]),
+    mc(1, HT8, r5`Đa thức \(x^3 + 8\) bằng`, [r5`\((x + 2)(x^2 - 2x + 4)\)`, r5`\((x + 2)(x^2 + 2x + 4)\)`, r5`\((x + 2)(x^2 - 4x + 4)\)`, r5`\((x + 8)(x^2 - 8x + 64)\)`], r5`\(x^3 + 8 = x^3 + 2^3 = (x + 2)(x^2 - 2x + 4)\).`, [
+      void 0,
+      r5`Hạng tử giữa của thừa số thứ hai mang dấu trừ.`,
+      r5`Hạng tử giữa là \(x\cdot2 = 2x\).`,
+      r5`\(8 = 2^3\), số thứ hai là 2.`
+    ]),
+    mc(1, HT8, r5`Đa thức \(x^3 - 64\) bằng`, [r5`\((x - 4)(x^2 + 4x + 16)\)`, r5`\((x - 4)(x^2 - 4x + 16)\)`, r5`\((x - 8)(x^2 + 8x + 64)\)`, r5`\((x - 4)^3\)`], r5`\(64 = 4^3\) nên \(x^3 - 64 = (x - 4)(x^2 + 4x + 16)\).`, [
+      void 0,
+      r5`Với hiệu hai lập phương, hạng tử \(4x\) mang dấu cộng.`,
+      r5`\(64 = 4^3\), không phải \(8^3\).`,
+      r5`\((x - 4)^3 \ne x^3 - 64\).`
+    ]),
+    mc(2, HT8, r5`Viết \(27x^3 - 1\) dưới dạng tích.`, [r5`\((3x - 1)(9x^2 + 3x + 1)\)`, r5`\((3x - 1)(9x^2 - 3x + 1)\)`, r5`\((3x - 1)(9x^2 + 6x + 1)\)`, r5`\((3x - 1)(3x^2 + 3x + 1)\)`], r5`\(27x^3 - 1 = (3x)^3 - 1^3 = (3x - 1)(9x^2 + 3x + 1)\).`, [
+      void 0,
+      "H\u1EA1ng t\u1EED gi\u1EEFa mang d\u1EA5u c\u1ED9ng.",
+      r5`Hạng tử giữa là \(3x\cdot1 = 3x\), không phải \(6x\).`,
+      r5`\((3x)^2 = 9x^2\).`
+    ]),
+    mc(2, HT8, r5`Kết quả của phép nhân \((x - 3)(x^2 + 3x + 9)\) là`, [r5`\(x^3 - 27\)`, r5`\(x^3 + 27\)`, r5`\((x - 3)^3\)`, r5`\(x^3 - 9\)`], r5`Đây là hằng đẳng thức hiệu hai lập phương: \(x^3 - 3^3 = x^3 - 27\).`, [
+      void 0,
+      "Th\u1EEBa s\u1ED1 \u0111\u1EA7u l\xE0 \\(x - 3\\) n\xEAn \u0111\u01B0\u1EE3c hi\u1EC7u.",
+      "\u0110\xE2y kh\xF4ng ph\u1EA3i l\u1EADp ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u.",
+      r5`\(3^3 = 27\).`
+    ]),
+    mc(2, HT8, r5`Kết quả của phép nhân \((2x + y)(4x^2 - 2xy + y^2)\) là`, [r5`\(8x^3 + y^3\)`, r5`\(2x^3 + y^3\)`, r5`\((2x + y)^3\)`, r5`\(8x^3 - y^3\)`], r5`\((2x + y)\left((2x)^2 - 2x\cdot y + y^2\right) = (2x)^3 + y^3 = 8x^3 + y^3\).`, [
+      void 0,
+      r5`\((2x)^3 = 8x^3\).`,
+      "\u0110\xE2y l\xE0 t\u1ED5ng hai l\u1EADp ph\u01B0\u01A1ng, kh\xF4ng ph\u1EA3i l\u1EADp ph\u01B0\u01A1ng m\u1ED9t t\u1ED5ng.",
+      "Th\u1EEBa s\u1ED1 \u0111\u1EA7u l\xE0 t\u1ED5ng n\xEAn k\u1EBFt qu\u1EA3 l\xE0 t\u1ED5ng."
+    ]),
+    mc(2, TG8, r5`Giá trị của biểu thức \((x + 1)(x^2 - x + 1)\) tại \(x = 3\) là`, [r5`\(28\)`, r5`\(26\)`, r5`\(64\)`, r5`\(10\)`], r5`\((x + 1)(x^2 - x + 1) = x^3 + 1\). Tại \(x = 3\): \(27 + 1 = 28\).`, [
+      void 0,
+      r5`Đó là \(x^3 - 1\).`,
+      r5`Đó là \((x + 1)^3\).`,
+      r5`Chỉ tính \(x^2 + 1\).`
+    ]),
+    mc(3, TG8, r5`Cho \(x - y = 1\) và \(xy = 6\). Giá trị của \(x^3 - y^3\) là`, [r5`\(19\)`, r5`\(7\)`, r5`\(1\)`, r5`\(-17\)`], r5`\(x^2 + y^2 = (x - y)^2 + 2xy = 13\). \(x^3 - y^3 = (x - y)(x^2 + xy + y^2) = 1\cdot(13 + 6) = 19\).`, [
+      void 0,
+      r5`Dùng nhầm \(x^2 - xy + y^2\).`,
+      r5`Đó là \((x - y)^3\).`,
+      r5`\(x^3 - y^3 = (x - y)^3 + 3xy(x - y)\): cộng chứ không trừ.`
+    ]),
+    mc(3, TG8, r5`Tính nhanh \(\dfrac{37^3 + 13^3}{37^2 - 37\cdot13 + 13^2}\).`, [r5`\(50\)`, r5`\(24\)`, r5`\(481\)`, r5`\(2500\)`], r5`Tử bằng \((37 + 13)(37^2 - 37\cdot13 + 13^2)\) nên phân số bằng \(37 + 13 = 50\).`, [
+      void 0,
+      "D\xF9ng nh\u1EA7m hi\u1EC7u \\(37 - 13\\).",
+      "\u0110\xF3 l\xE0 t\xEDch \\(37\\cdot13\\).",
+      r5`Đó là \(50^2\).`
+    ]),
+    mc(3, RG8, r5`Rút gọn \((x + 2)(x^2 - 2x + 4) - (x - 2)(x^2 + 2x + 4)\) được`, [r5`\(16\)`, r5`\(0\)`, r5`\(2x^3\)`, r5`\(2x^3 + 16\)`], r5`\((x^3 + 8) - (x^3 - 8) = 16\).`, [
+      void 0,
+      r5`Hai tích không bằng nhau: \(x^3 + 8\) và \(x^3 - 8\).`,
+      "\u0110\xE3 c\u1ED9ng hai t\xEDch v\xE0 b\u1ECF s\xF3t h\u1EB1ng s\u1ED1.",
+      "\u0110\xF3 l\xE0 t\u1ED5ng hai t\xEDch."
+    ]),
+    mc(3, RG8, r5`Rút gọn \((x - 1)^3 - (x - 1)(x^2 + x + 1)\) được`, [r5`\(-3x^2 + 3x\)`, r5`\(0\)`, r5`\(-3x^2 + 3x - 2\)`, r5`\(3x^2 - 3x\)`], r5`\((x^3 - 3x^2 + 3x - 1) - (x^3 - 1) = -3x^2 + 3x\).`, [
+      void 0,
+      r5`\((x - 1)^3 \ne x^3 - 1\).`,
+      r5`\(-1 - (-1) = 0\): hằng số triệt tiêu.`,
+      "Sai d\u1EA5u khi b\u1ECF ngo\u1EB7c."
+    ]),
+    mc(4, RG8, r5`Cho \(a + b = 3\) và \(a^2 + b^2 = 5\). Giá trị của \(a^3 + b^3\) là`, [r5`\(9\)`, r5`\(15\)`, r5`\(27\)`, r5`\(21\)`], r5`\(2ab = (a + b)^2 - (a^2 + b^2) = 9 - 5 = 4\) nên \(ab = 2\). \(a^3 + b^3 = (a + b)(a^2 - ab + b^2) = 3\cdot(5 - 2) = 9\).`, [
+      void 0,
+      r5`Quên trừ \(ab\) trong thừa số thứ hai.`,
+      r5`Đó là \((a + b)^3\).`,
+      r5`Thừa số thứ hai là \(a^2 - ab + b^2\), không phải \(a^2 + ab + b^2\).`
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, HT8, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      [r5`\(x^3 + 1 = (x + 1)(x^2 - x + 1)\).`, true, "T\u1ED5ng hai l\u1EADp ph\u01B0\u01A1ng."],
+      [r5`\(x^3 - 1 = (x - 1)(x^2 - x + 1)\).`, false, r5`Đúng phải là \((x - 1)(x^2 + x + 1)\).`],
+      [r5`\(a^3 + b^3 = (a + b)^3\).`, false, r5`\((a + b)^3 = a^3 + b^3 + 3ab(a + b)\).`],
+      [r5`\(8 - y^3 = (2 - y)(4 + 2y + y^2)\).`, true, r5`Hiệu hai lập phương \(2^3 - y^3\).`]
+    ]),
+    tf2(2, HT8, r5`Cho \(P = (x - 2)(x^2 + 2x + 4)\).`, [
+      [r5`\(P = x^3 - 8\).`, true, "Hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng."],
+      [r5`Tại \(x = 2\) thì \(P = 0\).`, true, r5`\(8 - 8 = 0\).`],
+      [r5`Tại \(x = 0\) thì \(P = 8\).`, false, r5`\(P(0) = -8\).`],
+      [r5`\(P = (x - 2)^3\).`, false, r5`\((x - 2)^3 = x^3 - 6x^2 + 12x - 8\).`]
+    ]),
+    tf2(2, HT8, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      [r5`\((x + 2)(x^2 - 2x + 4) = x^3 + 8\).`, true, "T\u1ED5ng hai l\u1EADp ph\u01B0\u01A1ng."],
+      [r5`\(x^2 - 2x + 4 = (x - 2)^2\).`, false, r5`\((x - 2)^2 = x^2 - 4x + 4\).`],
+      [r5`\(x^2 - 2x + 4 > 0\) với mọi \(x\).`, true, r5`\(x^2 - 2x + 4 = (x - 1)^2 + 3 \ge 3\).`],
+      [r5`\(125 + x^3 = (5 + x)(25 - 5x + x^2)\).`, true, r5`Tổng hai lập phương \(5^3 + x^3\).`]
+    ]),
+    tf2(2, TG8, "Ki\u1EC3m tra c\xE1c k\u1EBFt qu\u1EA3 t\xEDnh nhanh:", [
+      [r5`\((10 + 1)(100 - 10 + 1) = 1001\).`, true, r5`\(10^3 + 1^3\).`],
+      [r5`\((20 - 1)(400 + 20 + 1) = 7999\).`, true, r5`\(20^3 - 1^3 = 8000 - 1\).`],
+      [r5`\(99^3 + 1 = 100\cdot(99^2 - 99 + 1)\).`, true, r5`\(99^3 + 1^3 = (99 + 1)(99^2 - 99 + 1)\).`],
+      [r5`\(6^3 + 4^3 = 10^3\).`, false, r5`\(216 + 64 = 280 \ne 1000\).`]
+    ]),
+    tf2(3, TG8, r5`Cho \(x + y = 5\) và \(xy = 4\).`, [
+      [r5`\(x^2 + y^2 = 17\).`, true, r5`\(25 - 2\cdot4\).`],
+      [r5`\(x^3 + y^3 = 65\).`, true, r5`\((x + y)^3 - 3xy(x + y) = 125 - 60\).`],
+      [r5`\(x^3 + y^3 = 125\).`, false, r5`Đó là \((x + y)^3\).`],
+      [r5`\(x^2 - xy + y^2 = 13\).`, true, r5`\(17 - 4 = 13\).`]
+    ]),
+    tf2(3, RG8, r5`Cho \(A = (x + 3)(x^2 - 3x + 9) - x^3\).`, [
+      [r5`\(A = 27\).`, true, r5`\(x^3 + 27 - x^3\).`],
+      [r5`Giá trị của \(A\) phụ thuộc vào \(x\).`, false, r5`\(A = 27\) với mọi \(x\).`],
+      [r5`\(A = (x + 3)^3 - x^3\).`, false, r5`\((x + 3)(x^2 - 3x + 9) = x^3 + 27 \ne (x + 3)^3\).`],
+      [r5`\(A > 0\) với mọi \(x\).`, true, r5`\(A = 27 > 0\).`]
+    ]),
+    tf2(4, RG8, "X\xE9t t\xEDnh \u0111\xFAng sai (v\u1EDBi m\u1ECDi \\(a\\), \\(b\\)):", [
+      [r5`\((a + b)^3 - 3ab(a + b) = a^3 + b^3\).`, true, r5`Khai triển \((a + b)^3\) rồi rút gọn.`],
+      [r5`\(a^3 - b^3 = (a - b)^3 + 3ab(a - b)\).`, true, r5`\((a - b)^3 = a^3 - b^3 - 3ab(a - b)\).`],
+      [r5`Nếu \(a + b = 0\) thì \(a^3 + b^3 = 0\).`, true, r5`\(a^3 + b^3 = (a + b)(a^2 - ab + b^2) = 0\).`],
+      [r5`Nếu \(a = b\) thì \(a^3 - b^3 = 2a^3\).`, false, r5`Khi \(a = b\) thì \(a^3 - b^3 = 0\).`]
+    ]),
+    tf2(3, RG8, r5`Cho \(B = (2x - 1)(4x^2 + 2x + 1) - 8x^3 + 5\).`, [
+      [r5`\(B = 4\).`, true, r5`\(8x^3 - 1 - 8x^3 + 5\).`],
+      [r5`Giá trị của \(B\) không phụ thuộc vào \(x\).`, true, r5`\(B = 4\) với mọi \(x\).`],
+      [r5`Tại \(x = 1\) thì \(B = 5\).`, false, r5`\(B(1) = 4\).`],
+      [r5`\(B = -1\).`, false, r5`\((2x - 1)(4x^2 + 2x + 1) = 8x^3 - 1\); cộng thêm 5 được 4.`]
+    ]),
+    tf2(2, TG8, r5`Cho \(Q = (x - 1)(x^2 + x + 1)\).`, [
+      [r5`Tại \(x = 1\) thì \(Q = 0\).`, true, r5`\(Q = x^3 - 1\).`],
+      [r5`Tại \(x = 2\) thì \(Q = 7\).`, true, r5`\(8 - 1 = 7\).`],
+      [r5`Tại \(x = -1\) thì \(Q = 0\).`, false, r5`\((-1)^3 - 1 = -2\).`],
+      [r5`Tại \(x = 10\) thì \(Q = 999\).`, true, r5`\(1000 - 1 = 999\).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, TG8, r5`Tính giá trị của \((x + 4)(x^2 - 4x + 16)\) tại \(x = -2\).`, "56", r5`Biểu thức bằng \(x^3 + 64\). Tại \(x = -2\): \(-8 + 64 = 56\).`),
+    sa2(2, TG8, r5`Tính \(15^3 + 5^3\) bằng cách dùng hằng đẳng thức tổng hai lập phương.`, "3500", r5`\(15^3 + 5^3 = (15 + 5)(15^2 - 15\cdot5 + 5^2) = 20\cdot(225 - 75 + 25) = 20\cdot175 = 3500\).`),
+    sa2(3, TG8, r5`Cho \(x + y = 6\) và \(xy = 8\). Tính \(x^3 + y^3\).`, "72", r5`\(x^3 + y^3 = (x + y)^3 - 3xy(x + y) = 216 - 144 = 72\).`),
+    sa2(3, TG8, r5`Cho \(x - y = 3\) và \(xy = 10\). Tính \(x^3 - y^3\).`, "117", r5`\(x^3 - y^3 = (x - y)^3 + 3xy(x - y) = 27 + 90 = 117\).`),
+    sa2(3, RG8, r5`Rút gọn biểu thức \((x + 1)(x^2 - x + 1) - (x - 1)(x^2 + x + 1)\).`, "2", r5`\((x^3 + 1) - (x^3 - 1) = 2\).`),
+    sa2(3, RG8, r5`Tìm \(x\) biết \((x + 2)(x^2 - 2x + 4) - x(x^2 - 3) = 20\).`, "4", r5`\(x^3 + 8 - x^3 + 3x = 20 \iff 3x = 12 \iff x = 4\).`),
+    sa2(4, RG8, r5`Cho \(a + b = 2\) và \(ab = -3\). Tính \(a^3 + b^3\).`, "26", r5`\(a^3 + b^3 = (a + b)^3 - 3ab(a + b) = 8 - 3\cdot(-3)\cdot2 = 8 + 18 = 26\).`),
+    // ---- Tự luận ----
+    es2(2, HT8, r5`Viết các đa thức sau dưới dạng tích: a) \(8x^3 + 27\); b) \(1 - 64y^3\).`, r5`a) \(8x^3 + 27 = (2x)^3 + 3^3 = (2x + 3)(4x^2 - 6x + 9)\).
+b) \(1 - 64y^3 = 1^3 - (4y)^3 = (1 - 4y)(1 + 4y + 16y^2)\).`, r5`0,5 điểm: câu a, xác định đúng \(2x\), 3 và viết đúng tích.
+0,5 điểm: câu b, xác định đúng \(1\), \(4y\) và viết đúng tích.`),
+    es2(3, RG8, r5`Rút gọn biểu thức \(A = (x - 2)^3 - (x - 2)(x^2 + 2x + 4) + 6x^2\) rồi tính giá trị của \(A\) tại \(x = -\dfrac13\).`, r5`\((x - 2)^3 = x^3 - 6x^2 + 12x - 8\); \((x - 2)(x^2 + 2x + 4) = x^3 - 8\).
+\(A = x^3 - 6x^2 + 12x - 8 - x^3 + 8 + 6x^2 = 12x\).
+Tại \(x = -\dfrac13\): \(A = -4\).`, r5`0,5 điểm: dùng đúng hai hằng đẳng thức và rút gọn được \(A = 12x\).
+0,5 điểm: thay số đúng, \(A = -4\).`),
+    es2(4, RG8, r5`Cho ba số \(a\), \(b\), \(c\) thỏa mãn \(a + b + c = 0\). Chứng minh rằng \(a^3 + b^3 + c^3 = 3abc\).`, r5`Từ \(a + b + c = 0\) suy ra \(a + b = -c\).
+\(a^3 + b^3 = (a + b)^3 - 3ab(a + b) = -c^3 + 3abc\).
+Do đó \(a^3 + b^3 + c^3 = -c^3 + 3abc + c^3 = 3abc\).`, r5`0,5 điểm: viết được \(a^3 + b^3 = (a + b)^3 - 3ab(a + b)\) và thay \(a + b = -c\).
+0,5 điểm: rút gọn và kết luận \(a^3 + b^3 + c^3 = 3abc\).`)
+  ]
+};
+var DN = "dat-nhan-tu-chung";
+var HD = "su-dung-hang-dang-thuc";
+var NH = "nhom-hang-tu";
+var TB = "tach-hang-tu-them-bot-hang-tu";
+var TX9 = "tim-x-phan-tich-nhan-tu";
+var TG9 = "tinh-gia-tri-phan-tich-nhan-tu";
+var B9 = {
+  slug: "bai-9-phan-tich-da-thuc-thanh-nhan-tu",
+  questions: [
+    mc(1, DN, r5`Phân tích \(6x^2 - 9x\) thành nhân tử được`, [r5`\(3x(2x - 3)\)`, r5`\(3x(2x - 9)\)`, r5`\(3x(2x + 3)\)`, r5`\(6x(x - 9)\)`], r5`Nhân tử chung là \(3x\): \(6x^2 - 9x = 3x\cdot2x - 3x\cdot3 = 3x(2x - 3)\).`, [
+      void 0,
+      r5`\(9x : 3x = 3\), không phải 9.`,
+      "Sai d\u1EA5u trong ngo\u1EB7c.",
+      r5`\(6x\) không phải nhân tử chung của \(9x\).`
+    ]),
+    mc(1, DN, r5`Nhân tử chung lớn nhất (có hệ số dương) của \(5x^2y - 10xy^2\) là`, [r5`\(5xy\)`, r5`\(5x\)`, r5`\(10xy\)`, r5`\(xy\)`], r5`ƯCLN của 5 và 10 là 5; biến chung \(x\), \(y\) lấy số mũ nhỏ nhất. Nhân tử chung là \(5xy\) và \(5x^2y - 10xy^2 = 5xy(x - 2y)\).`, [
+      void 0,
+      r5`Còn biến \(y\) chung.`,
+      r5`10 không phải ước của 5.`,
+      "C\xF2n thi\u1EBFu h\u1EC7 s\u1ED1 chung 5."
+    ]),
+    mc(2, DN, r5`Phân tích \(x(x - 2) + 3(x - 2)\) thành nhân tử được`, [r5`\((x - 2)(x + 3)\)`, r5`\((x - 2)(x - 3)\)`, r5`\((x + 2)(x + 3)\)`, r5`\(3x(x - 2)\)`], r5`Nhân tử chung \(x - 2\): \(x(x - 2) + 3(x - 2) = (x - 2)(x + 3)\).`, [
+      void 0,
+      r5`Sai dấu của 3.`,
+      r5`Nhân tử chung là \(x - 2\).`,
+      "\u0110\xE3 nh\xE2n \\(x\\) v\u1EDBi 3 thay v\xEC c\u1ED9ng."
+    ]),
+    mc(2, DN, r5`Phân tích \(2x(x - 5) - (5 - x)\) thành nhân tử được`, [r5`\((x - 5)(2x + 1)\)`, r5`\((x - 5)(2x - 1)\)`, r5`\((5 - x)(2x - 1)\)`, r5`\((x + 5)(2x + 1)\)`], r5`\(-(5 - x) = x - 5\) nên \(2x(x - 5) + (x - 5) = (x - 5)(2x + 1)\).`, [
+      void 0,
+      r5`Chưa đổi dấu \(-(5 - x) = +(x - 5)\).`,
+      "Sai d\u1EA5u c\u1EA3 hai th\u1EEBa s\u1ED1.",
+      r5`Nhân tử chung là \(x - 5\).`
+    ]),
+    mc(2, HD, r5`Phân tích \(x^2 - 10x + 25\) thành nhân tử được`, [r5`\((x - 5)^2\)`, r5`\((x + 5)^2\)`, r5`\((x - 5)(x + 5)\)`, r5`\((x - 25)^2\)`], r5`\(x^2 - 2\cdot x\cdot5 + 5^2 = (x - 5)^2\).`, [
+      void 0,
+      "H\u1EA1ng t\u1EED gi\u1EEFa mang d\u1EA5u tr\u1EEB.",
+      r5`\((x - 5)(x + 5) = x^2 - 25\).`,
+      r5`\(25 = 5^2\).`
+    ]),
+    mc(2, HD, r5`Phân tích \(4x^2 - 9y^2\) thành nhân tử được`, [r5`\((2x - 3y)(2x + 3y)\)`, r5`\((2x - 3y)^2\)`, r5`\((4x - 9y)(4x + 9y)\)`, r5`\((2x - 9y)(2x + 9y)\)`], r5`\(4x^2 - 9y^2 = (2x)^2 - (3y)^2 = (2x - 3y)(2x + 3y)\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 b\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u.",
+      r5`\(4x^2 = (2x)^2\), không phải \((4x)^2\).`,
+      r5`\(9y^2 = (3y)^2\).`
+    ]),
+    mc(3, HD, r5`Phân tích \((x + 1)^2 - 16\) thành nhân tử được`, [r5`\((x - 3)(x + 5)\)`, r5`\((x + 3)(x - 5)\)`, r5`\((x - 15)(x + 17)\)`, r5`\((x - 4)(x + 4)\)`], r5`\((x + 1)^2 - 4^2 = (x + 1 - 4)(x + 1 + 4) = (x - 3)(x + 5)\).`, [
+      void 0,
+      "Sai d\u1EA5u trong hai th\u1EEBa s\u1ED1.",
+      r5`\(16 = 4^2\), không dùng 16.`,
+      r5`Bỏ sót \(+1\) trong \(x + 1\).`
+    ]),
+    mc(2, NH, r5`Phân tích \(x^2 - xy + x - y\) thành nhân tử được`, [r5`\((x - y)(x + 1)\)`, r5`\((x + y)(x - 1)\)`, r5`\((x - y)(x - 1)\)`, r5`\((x + y)(x + 1)\)`], r5`\((x^2 - xy) + (x - y) = x(x - y) + (x - y) = (x - y)(x + 1)\).`, [
+      void 0,
+      "Sai d\u1EA5u c\u1EA3 hai th\u1EEBa s\u1ED1.",
+      r5`Nhóm \((x - y)\) thứ hai có hệ số \(+1\).`,
+      r5`Nhân tử chung là \(x - y\).`
+    ]),
+    mc(3, NH, r5`Phân tích \(x^2 - 2x + 1 - y^2\) thành nhân tử được`, [r5`\((x - 1 - y)(x - 1 + y)\)`, r5`\((x + 1 - y)(x + 1 + y)\)`, r5`\((x - 1 - y)^2\)`, r5`\((x - y)(x + y) - 1\)`], r5`Nhóm \((x^2 - 2x + 1) - y^2 = (x - 1)^2 - y^2 = (x - 1 - y)(x - 1 + y)\).`, [
+      void 0,
+      r5`\(x^2 - 2x + 1 = (x - 1)^2\), không phải \((x + 1)^2\).`,
+      "Hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng cho t\xEDch c\u1EE7a hai th\u1EEBa s\u1ED1 kh\xE1c nhau.",
+      "Bi\u1EC3u th\u1EE9c n\xE0y ch\u01B0a ph\u1EA3i d\u1EA1ng t\xEDch v\xE0 kh\xE1c \u0111a th\u1EE9c \u0111\xE3 cho."
+    ]),
+    mc(4, TB, r5`Phân tích \(x^2 - 5x + 6\) thành nhân tử được`, [r5`\((x - 2)(x - 3)\)`, r5`\((x + 2)(x + 3)\)`, r5`\((x - 1)(x - 6)\)`, r5`\((x + 1)(x - 6)\)`], r5`Tách \(-5x = -2x - 3x\): \(x^2 - 2x - 3x + 6 = x(x - 2) - 3(x - 2) = (x - 2)(x - 3)\).`, [
+      void 0,
+      r5`Tích này bằng \(x^2 + 5x + 6\).`,
+      r5`Tích này bằng \(x^2 - 7x + 6\).`,
+      r5`Tích này bằng \(x^2 - 5x - 6\).`
+    ]),
+    mc(3, TX9, r5`Các giá trị của \(x\) thỏa mãn \(x^2 - 4x = 0\) là`, [r5`\(x = 0\) hoặc \(x = 4\)`, r5`\(x = 4\)`, r5`\(x = 0\) hoặc \(x = -4\)`, r5`\(x = 2\) hoặc \(x = -2\)`], r5`\(x^2 - 4x = x(x - 4) = 0\) nên \(x = 0\) hoặc \(x = 4\).`, [
+      void 0,
+      r5`Không được chia hai vế cho \(x\) (làm mất nghiệm \(x = 0\)).`,
+      "Sai d\u1EA5u nghi\u1EC7m th\u1EE9 hai.",
+      r5`Nhầm với \(x^2 - 4 = 0\).`
+    ]),
+    mc(2, TG9, r5`Tính nhanh \(37\cdot64 + 37\cdot36\).`, [r5`\(3700\)`, r5`\(370\)`, r5`\(37\,000\)`, r5`\(2368\)`], r5`\(37\cdot64 + 37\cdot36 = 37\cdot(64 + 36) = 37\cdot100 = 3700\).`, [
+      void 0,
+      r5`\(64 + 36 = 100\), không phải 10.`,
+      r5`\(37\cdot100 = 3700\).`,
+      r5`Mới tính \(37\cdot64\).`
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, DN, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c ph\xE2n t\xEDch sau:", [
+      [r5`\(3x + 6 = 3(x + 2)\).`, true, "Nh\xE2n t\u1EED chung 3."],
+      [r5`\(x^2 + x = x(x + 1)\).`, true, r5`Nhân tử chung \(x\).`],
+      [r5`\(4x^2 - 2x = 2x(2x - 2)\).`, false, r5`Đúng phải là \(2x(2x - 1)\).`],
+      [r5`\(5x^3 - 10x^2 = 5x^2(x - 2)\).`, true, r5`Nhân tử chung \(5x^2\).`]
+    ]),
+    tf2(2, DN, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c ph\xE2n t\xEDch sau:", [
+      [r5`\(a(x - y) - b(y - x) = (x - y)(a + b)\).`, true, r5`\(-b(y - x) = b(x - y)\).`],
+      [r5`\(x(x - 1) - (x - 1) = (x - 1)^2\).`, true, r5`\((x - 1)(x - 1)\).`],
+      [r5`\(2(x + 3) + x(x + 3) = (x + 3)(x + 2)\).`, true, r5`Nhân tử chung \(x + 3\).`],
+      [r5`\(3x(x - 2) - 6(2 - x) = 3(x - 2)^2\).`, false, r5`\(3x(x - 2) + 6(x - 2) = 3(x - 2)(x + 2)\).`]
+    ]),
+    tf2(2, HD, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c ph\xE2n t\xEDch sau:", [
+      [r5`\(x^2 - 1 = (x - 1)(x + 1)\).`, true, "Hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng."],
+      [r5`\(x^2 + 4 = (x + 2)^2\).`, false, r5`\((x + 2)^2 = x^2 + 4x + 4\).`],
+      [r5`\(x^3 - 1 = (x - 1)(x^2 + x + 1)\).`, true, "Hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng."],
+      [r5`\(9 - 6x + x^2 = (3 - x)^2\).`, true, "B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u."]
+    ]),
+    tf2(3, HD, r5`Phân tích \(16x^2 - (x - 3)^2\) thành nhân tử.`, [
+      [r5`\(16x^2 - (x - 3)^2 = (4x - x + 3)(4x + x - 3)\).`, true, r5`\((4x)^2 - (x - 3)^2\); chú ý đổi dấu khi bỏ ngoặc.`],
+      [r5`Kết quả bằng \((3x + 3)(5x - 3)\).`, true, r5`\(4x - x + 3 = 3x + 3\); \(4x + x - 3 = 5x - 3\).`],
+      [r5`Kết quả bằng \(3(x + 1)(5x - 3)\).`, true, r5`\(3x + 3 = 3(x + 1)\).`],
+      [r5`Kết quả bằng \((3x - 3)(5x + 3)\).`, false, r5`Sai dấu khi bỏ ngoặc \(-(x - 3)\).`]
+    ]),
+    tf2(2, NH, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c ph\xE2n t\xEDch sau:", [
+      [r5`\(xy + x + y + 1 = (x + 1)(y + 1)\).`, true, r5`\(x(y + 1) + (y + 1)\).`],
+      [r5`\(ax - ay + bx - by = (a + b)(x - y)\).`, true, r5`\(a(x - y) + b(x - y)\).`],
+      [r5`\(x^2 - 3x + xy - 3y = (x - 3)(x + y)\).`, true, r5`\(x(x - 3) + y(x - 3)\).`],
+      [r5`\(x^2 + 2x + 1 - y^2 = (x + 1 - y)^2\).`, false, r5`Đúng là \((x + 1 - y)(x + 1 + y)\).`]
+    ]),
+    tf2(3, NH, r5`Cho \(A = x^3 - x^2 - 4x + 4\).`, [
+      [r5`\(A = (x - 1)(x^2 - 4)\).`, true, r5`\(x^2(x - 1) - 4(x - 1)\).`],
+      [r5`\(A = (x - 1)(x - 2)(x + 2)\).`, true, r5`\(x^2 - 4 = (x - 2)(x + 2)\).`],
+      [r5`\(A = 0\) tại \(x = -2\).`, true, r5`Thừa số \(x + 2 = 0\).`],
+      [r5`\(A = 0\) tại \(x = 4\).`, false, r5`\(A(4) = 3\cdot2\cdot6 = 36\).`]
+    ]),
+    tf2(3, TX9, r5`Xét đẳng thức \(x^3 - 9x = 0\).`, [
+      [r5`Vế trái bằng \(x(x - 3)(x + 3)\).`, true, r5`\(x(x^2 - 9)\).`],
+      [r5`\(x = 3\) thỏa mãn.`, true, r5`\(27 - 27 = 0\).`],
+      [r5`Có đúng hai giá trị của \(x\) thỏa mãn.`, false, r5`Có ba giá trị: \(0\); \(3\); \(-3\).`],
+      [r5`\(x = 9\) thỏa mãn.`, false, r5`\(729 - 81 \ne 0\).`]
+    ]),
+    tf2(3, TG9, r5`Cho \(B = x^2 - 2xy + y^2\) với \(x = 57\), \(y = 7\).`, [
+      [r5`\(B = (x - y)^2\).`, true, "B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t hi\u1EC7u."],
+      [r5`\(B = 2500\).`, true, r5`\((57 - 7)^2 = 50^2\).`],
+      [r5`\(B = 3250\).`, false, r5`Tính đúng là 2500.`],
+      [r5`\(B = 50\).`, false, "Qu\xEAn b\xECnh ph\u01B0\u01A1ng."]
+    ]),
+    tf2(4, TB, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c ph\xE2n t\xEDch (t\xE1ch ho\u1EB7c th\xEAm b\u1EDBt h\u1EA1ng t\u1EED):", [
+      [r5`\(x^2 + 3x + 2 = (x + 1)(x + 2)\).`, true, r5`Tách \(3x = x + 2x\).`],
+      [r5`\(x^2 - x - 6 = (x - 3)(x + 2)\).`, true, r5`Tách \(-x = -3x + 2x\).`],
+      [r5`\(x^4 + 4 = (x^2 + 2)^2 - 4x^2\).`, true, r5`Thêm bớt \(4x^2\).`],
+      [r5`\(x^4 + 4 = (x^2 + 2)^2\).`, false, r5`\((x^2 + 2)^2 = x^4 + 4x^2 + 4\).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(3, TG9, r5`Tính nhanh giá trị của \(x^2 - y^2\) tại \(x = 87{,}5\) và \(y = 12{,}5\).`, "7500", r5`\(x^2 - y^2 = (x - y)(x + y) = 75\cdot100 = 7500\).`),
+    sa2(3, TX9, r5`Tìm tất cả các giá trị của \(x\) thỏa mãn \(2x(x - 3) - (3 - x) = 0\). (Viết các giá trị cách nhau bởi dấu ";")`, "x = 3; x = -1/2", r5`\(2x(x - 3) + (x - 3) = (x - 3)(2x + 1) = 0\) nên \(x = 3\) hoặc \(x = -\dfrac12\).`),
+    // ---- Tự luận ----
+    es2(2, DN, r5`Phân tích các đa thức sau thành nhân tử:
+a) \(12x^3y - 18x^2y^2\); b) \(3x(x - 2y) + 6y(2y - x)\).`, r5`a) \(12x^3y - 18x^2y^2 = 6x^2y(2x - 3y)\).
+b) \(3x(x - 2y) - 6y(x - 2y) = 3(x - 2y)(x - 2y) = 3(x - 2y)^2\).`, r5`0,5 điểm: câu a, tìm đúng nhân tử chung \(6x^2y\).
+0,5 điểm: câu b, đổi dấu đúng và viết được \(3(x - 2y)^2\).`),
+    es2(3, NH, r5`Phân tích các đa thức sau thành nhân tử:
+a) \(x^2 - 2xy + y^2 - 9\); b) \(x^3 + 2x^2 + x - xy^2\).`, r5`a) \((x - y)^2 - 3^2 = (x - y - 3)(x - y + 3)\).
+b) \(x(x^2 + 2x + 1 - y^2) = x\left[(x + 1)^2 - y^2\right] = x(x + 1 - y)(x + 1 + y)\).`, r5`0,5 điểm: câu a, nhóm đúng và dùng hiệu hai bình phương.
+0,5 điểm: câu b, đặt nhân tử chung \(x\) rồi phân tích hết.`),
+    es2(3, TX9, r5`Tìm \(x\), biết: a) \(5x(x - 1) = x - 1\); b) \(x^3 - 4x = 0\).`, r5`a) \(5x(x - 1) - (x - 1) = 0 \iff (x - 1)(5x - 1) = 0 \iff x = 1\) hoặc \(x = \dfrac15\).
+b) \(x(x - 2)(x + 2) = 0 \iff x = 0\); \(x = 2\) hoặc \(x = -2\).`, r5`0,5 điểm: câu a, chuyển vế, phân tích và tìm đủ hai giá trị (không chia hai vế cho \(x - 1\)).
+0,5 điểm: câu b, phân tích đúng và tìm đủ ba giá trị.`),
+    es2(4, TB, r5`Phân tích các đa thức sau thành nhân tử: a) \(x^2 - 7x + 12\); b) \(x^4 + 64\).`, r5`a) Tách \(-7x = -3x - 4x\): \(x^2 - 3x - 4x + 12 = x(x - 3) - 4(x - 3) = (x - 3)(x - 4)\).
+b) Thêm bớt \(16x^2\): \(x^4 + 16x^2 + 64 - 16x^2 = (x^2 + 8)^2 - (4x)^2 = (x^2 - 4x + 8)(x^2 + 4x + 8)\).`, r5`0,5 điểm: câu a, tách đúng hạng tử và phân tích đúng.
+0,5 điểm: câu b, thêm bớt \(16x^2\) và dùng hiệu hai bình phương.`)
+  ]
+};
+var BANK_CHUONG_2 = [B6, B7, B8, B9];
+
 // src/seed/toan8-bank/index.ts
-var TOAN8_BANK = [];
+var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2];
 
 // src/seed/question-bank.ts
 var BANK_SOURCE = "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi G\u01104 \u2013 t\u1EF1 bi\xEAn so\u1EA1n theo SGK To\xE1n 8 KNTT";
@@ -41405,7 +42842,7 @@ async function applyQuestionBank(db, log = console.log) {
         update answers set content = ${String.raw`\(\dfrac{-2}{x + 1}\)`}
         where content = ${String.raw`\(\dfrac{-2}{x - 1}\)`} and not is_correct
           and question_id in (select id from questions where stem = ${String.raw`\(\dfrac{-2}{1 - x}\) bằng`})`);
-      const ids = (await t.many(sql`select id from questions where textbook_id = ${book.id} and quality_issues = '[]'::jsonb`)).map((r5) => r5.id);
+      const ids = (await t.many(sql`select id from questions where textbook_id = ${book.id} and quality_issues = '[]'::jsonb`)).map((r6) => r6.id);
       const levels = new Map((await t.many(sql`select id, levels from topics`)).map((x) => [x.id, (x.levels ?? []).map(Number)]));
       for (const q of await getQuestions(t, ids)) {
         const w = qualityOf(questionToInput(q), q.topicId ? levels.get(q.topicId) : void 0).warnings;
@@ -41585,13 +43022,13 @@ var N = 16384;
 var R2 = 8;
 var P2 = 1;
 var KEYLEN = 64;
-function scrypt(password, salt, n2, r5, p) {
+function scrypt(password, salt, n2, r6, p) {
   return new Promise((resolve, reject) => {
     crypto2.scrypt(
       password.normalize("NFKC"),
       salt,
       KEYLEN,
-      { N: n2, r: r5, p, maxmem: 128 * n2 * r5 * 2 },
+      { N: n2, r: r6, p, maxmem: 128 * n2 * r6 * 2 },
       (err, key) => err ? reject(err) : resolve(key)
     );
   });
@@ -41604,9 +43041,9 @@ async function hashPassword(password) {
 async function verifyPassword(password, stored) {
   const parts = stored.split("$");
   if (parts.length !== 6 || parts[0] !== "scrypt") return false;
-  const [, n2, r5, p, saltB64, keyB64] = parts;
+  const [, n2, r6, p, saltB64, keyB64] = parts;
   const expected = Buffer.from(keyB64, "base64");
-  const key = await scrypt(password, Buffer.from(saltB64, "base64"), Number(n2), Number(r5), Number(p));
+  const key = await scrypt(password, Buffer.from(saltB64, "base64"), Number(n2), Number(r6), Number(p));
   return key.length === expected.length && crypto2.timingSafeEqual(key, expected);
 }
 function passwordProblem(password) {
@@ -41851,19 +43288,19 @@ var IconContext = import_react2.default.createContext && /* @__PURE__ */ import_
 var _excluded = ["attr", "size", "title"];
 function _objectWithoutProperties(e, t) {
   if (null == e) return {};
-  var o, r5, i2 = _objectWithoutPropertiesLoose(e, t);
+  var o, r6, i2 = _objectWithoutPropertiesLoose(e, t);
   if (Object.getOwnPropertySymbols) {
     var n2 = Object.getOwnPropertySymbols(e);
-    for (r5 = 0; r5 < n2.length; r5++) o = n2[r5], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i2[o] = e[o]);
+    for (r6 = 0; r6 < n2.length; r6++) o = n2[r6], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i2[o] = e[o]);
   }
   return i2;
 }
-function _objectWithoutPropertiesLoose(r5, e) {
-  if (null == r5) return {};
+function _objectWithoutPropertiesLoose(r6, e) {
+  if (null == r6) return {};
   var t = {};
-  for (var n2 in r5) if ({}.hasOwnProperty.call(r5, n2)) {
+  for (var n2 in r6) if ({}.hasOwnProperty.call(r6, n2)) {
     if (-1 !== e.indexOf(n2)) continue;
-    t[n2] = r5[n2];
+    t[n2] = r6[n2];
   }
   return t;
 }
@@ -41871,48 +43308,48 @@ function _extends() {
   return _extends = Object.assign ? Object.assign.bind() : function(n2) {
     for (var e = 1; e < arguments.length; e++) {
       var t = arguments[e];
-      for (var r5 in t) ({}).hasOwnProperty.call(t, r5) && (n2[r5] = t[r5]);
+      for (var r6 in t) ({}).hasOwnProperty.call(t, r6) && (n2[r6] = t[r6]);
     }
     return n2;
   }, _extends.apply(null, arguments);
 }
-function ownKeys(e, r5) {
+function ownKeys(e, r6) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var o = Object.getOwnPropertySymbols(e);
-    r5 && (o = o.filter(function(r6) {
-      return Object.getOwnPropertyDescriptor(e, r6).enumerable;
+    r6 && (o = o.filter(function(r7) {
+      return Object.getOwnPropertyDescriptor(e, r7).enumerable;
     })), t.push.apply(t, o);
   }
   return t;
 }
 function _objectSpread(e) {
-  for (var r5 = 1; r5 < arguments.length; r5++) {
-    var t = null != arguments[r5] ? arguments[r5] : {};
-    r5 % 2 ? ownKeys(Object(t), true).forEach(function(r6) {
-      _defineProperty(e, r6, t[r6]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function(r6) {
-      Object.defineProperty(e, r6, Object.getOwnPropertyDescriptor(t, r6));
+  for (var r6 = 1; r6 < arguments.length; r6++) {
+    var t = null != arguments[r6] ? arguments[r6] : {};
+    r6 % 2 ? ownKeys(Object(t), true).forEach(function(r7) {
+      _defineProperty(e, r7, t[r7]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function(r7) {
+      Object.defineProperty(e, r7, Object.getOwnPropertyDescriptor(t, r7));
     });
   }
   return e;
 }
-function _defineProperty(e, r5, t) {
-  return (r5 = _toPropertyKey(r5)) in e ? Object.defineProperty(e, r5, { value: t, enumerable: true, configurable: true, writable: true }) : e[r5] = t, e;
+function _defineProperty(e, r6, t) {
+  return (r6 = _toPropertyKey(r6)) in e ? Object.defineProperty(e, r6, { value: t, enumerable: true, configurable: true, writable: true }) : e[r6] = t, e;
 }
 function _toPropertyKey(t) {
   var i2 = _toPrimitive(t, "string");
   return "symbol" == typeof i2 ? i2 : i2 + "";
 }
-function _toPrimitive(t, r5) {
+function _toPrimitive(t, r6) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
-    var i2 = e.call(t, r5 || "default");
+    var i2 = e.call(t, r6 || "default");
     if ("object" != typeof i2) return i2;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
-  return ("string" === r5 ? String : Number)(t);
+  return ("string" === r6 ? String : Number)(t);
 }
 function Tree2Element(tree) {
   return tree && tree.map((node, i2) => /* @__PURE__ */ import_react3.default.createElement(node.tag, _objectSpread({
@@ -42136,9 +43573,9 @@ function monogramSvg() {
   return p.join("");
 }
 var n = (v) => Number(v.toFixed(2));
-function bubble(cx2, cy, r5, color, sym) {
-  const s = r5 * 0.5;
-  const w = n(Math.max(1.6, r5 * 0.24));
+function bubble(cx2, cy, r6, color, sym) {
+  const s = r6 * 0.5;
+  const w = n(Math.max(1.6, r6 * 0.24));
   const line = (d, width = w) => `<path d="${d}" stroke="#fff" stroke-width="${n(width)}" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`;
   let g = "";
   if (sym === "+") g = line(`M${n(cx2 - s)} ${cy}h${n(2 * s)}M${cx2} ${n(cy - s)}v${n(2 * s)}`);
@@ -42148,10 +43585,10 @@ function bubble(cx2, cy, r5, color, sym) {
     g = line(`M${n(cx2 - s)} ${cy}h${n(2 * s)}`) + `<circle cx="${cx2}" cy="${n(cy - s * 0.62)}" r="${n(w * 0.62)}" fill="#fff"/><circle cx="${cx2}" cy="${n(cy + s * 0.62)}" r="${n(w * 0.62)}" fill="#fff"/>`;
   if (sym === "pi") g = line(`M${n(cx2 - s)} ${n(cy - s * 0.55)}h${n(2 * s)}M${n(cx2 - s * 0.45)} ${n(cy - s * 0.55)}v${n(1.45 * s)}M${n(cx2 + s * 0.45)} ${n(cy - s * 0.55)}v${n(1.15 * s)}q0 ${n(0.3 * s)} ${n(0.35 * s)} ${n(0.3 * s)}`, w * 0.9);
   if (sym === "sigma") g = line(`M${n(cx2 + s * 0.7)} ${n(cy - s * 0.8)}h${n(-1.4 * s)}l${n(0.85 * s)} ${n(0.8 * s)}l${n(-0.85 * s)} ${n(0.8 * s)}h${n(1.4 * s)}`, w * 0.85);
-  return `<circle cx="${cx2}" cy="${cy}" r="${r5}" fill="${color}"/>${g}`;
+  return `<circle cx="${cx2}" cy="${cy}" r="${r6}" fill="${color}"/>${g}`;
 }
 var plus = (cx2, cy, s, color) => `<path d="M${cx2 - s} ${cy}h${2 * s}M${cx2} ${cy - s}v${2 * s}" stroke="${color}" stroke-width="3.2" stroke-linecap="round"/>`;
-var dot = (cx2, cy, r5, color, opacity = 1) => `<circle cx="${cx2}" cy="${cy}" r="${r5}" fill="${color}"${opacity < 1 ? ` opacity="${opacity}"` : ""}/>`;
+var dot = (cx2, cy, r6, color, opacity = 1) => `<circle cx="${cx2}" cy="${cy}" r="${r6}" fill="${color}"${opacity < 1 ? ` opacity="${opacity}"` : ""}/>`;
 function bubblesSvg() {
   return [
     bubble(68, -9, 7, C.cam, "+"),
@@ -43168,25 +44605,25 @@ var Router = class {
   }
   match(method, path7) {
     let pathMatched = false;
-    for (const r5 of this.routes) {
-      const m = r5.regex.exec(path7);
+    for (const r6 of this.routes) {
+      const m = r6.regex.exec(path7);
       if (!m) continue;
       pathMatched = true;
-      if (r5.method !== method && !(method === "HEAD" && r5.method === "GET")) continue;
+      if (r6.method !== method && !(method === "HEAD" && r6.method === "GET")) continue;
       const params = {};
-      r5.keys.forEach((k, i2) => {
+      r6.keys.forEach((k, i2) => {
         try {
           params[k] = decodeURIComponent(m[i2 + 1]);
         } catch {
           params[k] = m[i2 + 1];
         }
       });
-      return { handler: r5.handler, params };
+      return { handler: r6.handler, params };
     }
     return pathMatched ? "method-not-allowed" : null;
   }
   list() {
-    return this.routes.map((r5) => `${r5.method} ${r5.pattern}`);
+    return this.routes.map((r6) => `${r6.method} ${r6.pattern}`);
   }
 };
 
@@ -43272,7 +44709,7 @@ async function getLessonQuestionCounts(q, lessonId) {
   const rows = await q.many(sql`
     select et.code, count(*)::int as n from questions qq join exercise_types et on et.id = qq.exercise_type_id
     where qq.lesson_id = ${lessonId} and qq.status = 'published' group by et.code`);
-  return Object.fromEntries(rows.map((r5) => [r5.code, r5.n]));
+  return Object.fromEntries(rows.map((r6) => [r6.code, r6.n]));
 }
 async function getTeachingPlan(q, textbookId) {
   const plan = await q.one(sql`
@@ -43309,8 +44746,8 @@ async function awardXp(q, userId, amount, reason, ref) {
   return n2 > 0 ? amount : 0;
 }
 async function totalXp(q, userId) {
-  const r5 = await q.one(sql`select coalesce(sum(amount), 0)::int as xp from xp_events where user_id = ${userId}`);
-  return r5?.xp ?? 0;
+  const r6 = await q.one(sql`select coalesce(sum(amount), 0)::int as xp from xp_events where user_id = ${userId}`);
+  return r6?.xp ?? 0;
 }
 async function practiceStreak(q, userId) {
   const rows = await q.many(sql`
@@ -43318,7 +44755,7 @@ async function practiceStreak(q, userId) {
     from question_responses where user_id = ${userId} and created_at > now() - interval '120 days'
     order by d desc`);
   if (!rows.length) return 0;
-  const days = rows.map((r5) => r5.d);
+  const days = rows.map((r6) => r6.d);
   const fmt4 = (t) => new Date(t).toLocaleDateString("en-CA", { timeZone: TIME_ZONE });
   const today = fmt4(Date.now());
   const yesterday = fmt4(Date.now() - 864e5);
@@ -43408,13 +44845,13 @@ async function leaderboard(q, opts) {
     limit ${opts.limit}`);
 }
 async function userRank(q, userId) {
-  const r5 = await q.one(sql`
+  const r6 = await q.one(sql`
     select rank from (
       select e.user_id, rank() over (order by sum(e.amount) desc)::int as rank
       from xp_events e join users u on u.id = e.user_id join roles r on r.id = u.role_id
       where r.code = 'student' group by e.user_id
     ) x where user_id = ${userId}`);
-  return r5?.rank ?? null;
+  return r6?.rank ?? null;
 }
 
 // src/domain/progress.ts
@@ -43445,7 +44882,7 @@ async function continueLesson(q, userId) {
     order by (p.status = 'in_progress') desc, p.last_viewed_at desc limit 1`);
 }
 async function userStats(q, userId, textbookId) {
-  const r5 = await q.one(sql`
+  const r6 = await q.one(sql`
     select
       (select count(*)::int from learning_progress p join lessons l on l.id = p.lesson_id
         where p.user_id = ${userId} and p.status = 'completed' and (${textbookId}::int is null or l.textbook_id = ${textbookId})) as lessons_completed,
@@ -43459,8 +44896,8 @@ async function userStats(q, userId, textbookId) {
   const xp = await totalXp(q, userId);
   const lv = levelFromXp(xp);
   return {
-    ...r5,
-    accuracy: r5.graded ? Math.round(r5.correct / r5.graded * 100) : 0,
+    ...r6,
+    accuracy: r6.graded ? Math.round(r6.correct / r6.graded * 100) : 0,
     xp,
     level: lv.level,
     levelCurrent: lv.current,
@@ -43765,14 +45202,14 @@ async function homePage(ctx) {
               /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("h2", { id: "xep-hang", className: "text-xl font-extrabold tracking-tight", children: "B\u1EA3ng x\u1EBFp h\u1EA1ng" }),
               /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("a", { href: "/thanh-tich#xep-hang", className: "text-[14px] font-semibold text-tim-700 hover:underline", children: "Xem th\xEAm" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Panel, { className: "mt-4 p-2", children: leaders.length ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("ol", { children: leaders.map((r5) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("li", { className: cx("flex items-center gap-3 rounded-xl px-3 py-2.5", r5.userId === user?.id && "bg-hl-soft"), children: [
-              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: cx("flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold", r5.rank === 1 ? "bg-hl text-ink" : "bg-mist text-ink-2"), children: r5.rank === 1 ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LuCrown, { "aria-label": "H\u1EA1ng 1" }) : r5.rank }),
-              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "min-w-0 flex-1 truncate font-medium", children: r5.fullName }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Panel, { className: "mt-4 p-2", children: leaders.length ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("ol", { children: leaders.map((r6) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("li", { className: cx("flex items-center gap-3 rounded-xl px-3 py-2.5", r6.userId === user?.id && "bg-hl-soft"), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: cx("flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold", r6.rank === 1 ? "bg-hl text-ink" : "bg-mist text-ink-2"), children: r6.rank === 1 ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LuCrown, { "aria-label": "H\u1EA1ng 1" }) : r6.rank }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "min-w-0 flex-1 truncate font-medium", children: r6.fullName }),
               /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { className: "text-[14px] font-bold tabular-nums text-tim-700", children: [
-                r5.xp,
+                r6.xp,
                 " XP"
               ] })
-            ] }, r5.userId)) }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { className: "px-3 py-4 text-[15px] text-ink-2", children: [
+            ] }, r6.userId)) }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { className: "px-3 py-4 text-[15px] text-ink-2", children: [
               /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LuTrophy, { className: "mr-1 inline text-tim-500", "aria-hidden": "true" }),
               "B\u1EA3ng x\u1EBFp h\u1EA1ng s\u1EBD xu\u1EA5t hi\u1EC7n khi h\u1ECDc sinh b\u1EAFt \u0111\u1EA7u h\u1ECDc v\xE0 luy\u1EC7n t\u1EADp."
             ] }) })
@@ -43865,8 +45302,8 @@ async function audit(q, actorId, action, target, detail) {
   await q.exec(sql`insert into audit_logs (actor_id, action, target, detail) values (${actorId}, ${action}, ${target}, ${detail ?? null})`);
 }
 async function countAdmins(q) {
-  const r5 = await q.one(sql`select count(*)::int as n from users u join roles r on r.id = u.role_id where r.code = 'admin'`);
-  return r5?.n ?? 0;
+  const r6 = await q.one(sql`select count(*)::int as n from users u join roles r on r.id = u.role_id where r.code = 'admin'`);
+  return r6?.n ?? 0;
 }
 async function listUsers(q, opts) {
   const role = opts.role && ["admin", "teacher", "student"].includes(opts.role) ? opts.role : null;
@@ -43981,9 +45418,9 @@ async function studentClasses(q, studentId) {
 }
 async function teacherCanManageStudent(q, user, studentId) {
   if (user.role === "admin") return true;
-  const r5 = await q.one(sql`
+  const r6 = await q.one(sql`
     select 1 from class_members m join classes c on c.id = m.class_id where m.student_id = ${studentId} and c.teacher_id = ${user.id}`);
-  return !!r5;
+  return !!r6;
 }
 async function teacherStudents(q, user, search) {
   const all = user.role === "admin";
@@ -44042,8 +45479,8 @@ async function loginSubmit(ctx) {
   const username = normalizeUsername(form.str("username", 60));
   const password = form.str("password", 200);
   const fail = (msg, status2 = 401) => {
-    const r5 = page(ctx, { title: "\u0110\u0103ng nh\u1EADp", layout: "auth", status: status2 }, /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(LoginForm, { next, username, errors: [msg] }));
-    return r5;
+    const r6 = page(ctx, { title: "\u0110\u0103ng nh\u1EADp", layout: "auth", status: status2 }, /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(LoginForm, { next, username, errors: [msg] }));
+    return r6;
   };
   if (!username || !password) return fail("Nh\u1EADp t\xEAn \u0111\u0103ng nh\u1EADp v\xE0 m\u1EADt kh\u1EA9u.", 422);
   if (await loginBlocked(ctx.db, username, ctx.ip)) {
@@ -44253,8 +45690,8 @@ function requireRole(ctx, ...roles) {
 }
 var requireTeacher = (ctx) => requireRole(ctx, "teacher", "admin");
 var requireAdmin = (ctx) => requireRole(ctx, "admin");
-function roleName(r5) {
-  return r5 === "admin" ? "qu\u1EA3n tr\u1ECB vi\xEAn" : r5 === "teacher" ? "gi\xE1o vi\xEAn" : "h\u1ECDc sinh";
+function roleName(r6) {
+  return r6 === "admin" ? "qu\u1EA3n tr\u1ECB vi\xEAn" : r6 === "teacher" ? "gi\xE1o vi\xEAn" : "h\u1ECDc sinh";
 }
 function isStaff(user) {
   return !!user && (user.role === "teacher" || user.role === "admin");
@@ -44270,7 +45707,7 @@ async function getThemesByLesson(q, textbookId, includeDrafts = false) {
     order by th.lesson_id, th.sort_order, th.id`);
   const hiddenThemes = includeDrafts ? /* @__PURE__ */ new Set() : new Set(
     (await q.many(sql`
-          select th.id from themes th join lessons l on l.id = th.lesson_id where l.textbook_id = ${textbookId} and th.status <> 'published'`)).map((r5) => r5.id)
+          select th.id from themes th join lessons l on l.id = th.lesson_id where l.textbook_id = ${textbookId} and th.status <> 'published'`)).map((r6) => r6.id)
   );
   const topics = await q.many(sql`
     select t.id, t.lesson_id, t.theme_id, t.code, t.slug, t.title, t.levels, t.status, t.method, t.sort_order,
@@ -44363,11 +45800,11 @@ async function getTopicQuestionCounts(q, topicId) {
     where qq.topic_id = ${topicId} and qq.status = 'published' group by et.code, qq.level`);
   const byType = {};
   const byLevel = {};
-  for (const r5 of rows) {
-    byType[r5.code] = (byType[r5.code] ?? 0) + r5.n;
-    byLevel[r5.level] = (byLevel[r5.level] ?? 0) + r5.n;
+  for (const r6 of rows) {
+    byType[r6.code] = (byType[r6.code] ?? 0) + r6.n;
+    byLevel[r6.level] = (byLevel[r6.level] ?? 0) + r6.n;
   }
-  return { byType, byLevel, total: rows.reduce((n2, r5) => n2 + r5.n, 0) };
+  return { byType, byLevel, total: rows.reduce((n2, r6) => n2 + r6.n, 0) };
 }
 var LEVEL_LABELS2 = { 1: "Nh\u1EADn bi\u1EBFt", 2: "Th\xF4ng hi\u1EC3u", 3: "V\u1EADn d\u1EE5ng", 4: "V\u1EADn d\u1EE5ng cao" };
 var LEVEL_SHORT2 = { 1: "NB", 2: "TH", 3: "VD", 4: "VDC" };
@@ -44433,19 +45870,19 @@ async function getBookFormulas(q, bookId) {
     from formulas f join lessons l on l.id = f.lesson_id join chapters c on c.id = l.chapter_id join semesters s on s.id = c.semester_id
     where l.textbook_id = ${bookId} and f.status = 'published' and l.status = 'published' and c.status = 'published'
     order by s.number, c.sort_order, l.sort_order, f.sort_order, f.id`);
-  return rows.map((r5) => ({
-    ...r5,
-    lessonLabel: lessonLabel({ kind: r5.lessonKind, number: r5.lessonNumber, title: r5.lessonTitle }),
-    chapterLabel: chapterLabel({ kind: r5.chapterKind, code: r5.chapterCode, title: r5.chapterTitle })
+  return rows.map((r6) => ({
+    ...r6,
+    lessonLabel: lessonLabel({ kind: r6.lessonKind, number: r6.lessonNumber, title: r6.lessonTitle }),
+    chapterLabel: chapterLabel({ kind: r6.chapterKind, code: r6.chapterCode, title: r6.chapterTitle })
   }));
 }
-function fixExample(r5) {
-  if (r5) {
-    r5.level = Number(r5.level);
-    if (typeof r5.steps === "string") r5.steps = JSON.parse(r5.steps);
-    r5.steps = (r5.steps ?? []).map(String);
+function fixExample(r6) {
+  if (r6) {
+    r6.level = Number(r6.level);
+    if (typeof r6.steps === "string") r6.steps = JSON.parse(r6.steps);
+    r6.steps = (r6.steps ?? []).map(String);
   }
-  return r5;
+  return r6;
 }
 var EXAMPLE_COLS = sql`e.id, e.topic_id, e.level, e.problem, e.analysis, e.knowledge, e.given, e.to_prove, e.figure, e.steps, e.answer, e.tip, e.status, e.sort_order`;
 async function getTopicExamples(q, topicId, onlyPublished = false) {
@@ -44460,9 +45897,9 @@ async function getLessonExamples(q, lessonId, onlyPublished = false) {
     where t.lesson_id = ${lessonId} ${pub(onlyPublished, "e.status")} ${onlyPublished ? sql`and t.status = 'published'` : sql.empty}
     order by t.sort_order, t.id, e.level, e.sort_order, e.id`);
   const out = /* @__PURE__ */ new Map();
-  for (const r5 of rows.map(fixExample)) {
-    if (!out.has(r5.topicId)) out.set(r5.topicId, []);
-    out.get(r5.topicId).push(r5);
+  for (const r6 of rows.map(fixExample)) {
+    if (!out.has(r6.topicId)) out.set(r6.topicId, []);
+    out.get(r6.topicId).push(r6);
   }
   return out;
 }
@@ -44483,20 +45920,20 @@ async function toggleFormulaFavorite(q, userId, formulaId) {
 }
 async function getFavoriteFormulaIds(q, userId) {
   const rows = await q.many(sql`select formula_id from formula_favorites where user_id = ${userId}`);
-  return new Set(rows.map((r5) => r5.formulaId));
+  return new Set(rows.map((r6) => r6.formulaId));
 }
 var LESSON_REF = sql`l.id as lesson_id, l.slug, l.kind, l.number, l.title, c.kind as chapter_kind, c.code as chapter_code, c.title as chapter_title`;
-var toRef = (r5) => ({
-  lessonId: r5.lessonId,
-  slug: r5.slug,
-  label: lessonLabel(r5),
-  chapterLabel: chapterLabel({ kind: r5.chapterKind, code: r5.chapterCode, title: r5.chapterTitle })
+var toRef = (r6) => ({
+  lessonId: r6.lessonId,
+  slug: r6.slug,
+  label: lessonLabel(r6),
+  chapterLabel: chapterLabel({ kind: r6.chapterKind, code: r6.chapterCode, title: r6.chapterTitle })
 });
 async function getFavoriteLessons(q, userId) {
   const rows = await q.many(sql`
     select ${LESSON_REF}, f.created_at from lesson_favorites f join lessons l on l.id = f.lesson_id join chapters c on c.id = l.chapter_id
     where f.user_id = ${userId} and l.status = 'published' order by f.created_at desc`);
-  return rows.map((r5) => ({ ...toRef(r5), at: r5.createdAt }));
+  return rows.map((r6) => ({ ...toRef(r6), at: r6.createdAt }));
 }
 async function getLessonNote(q, userId, lessonId) {
   return await q.one(sql`select body, updated_at from lesson_notes where user_id = ${userId} and lesson_id = ${lessonId}`) ?? null;
@@ -44515,7 +45952,7 @@ async function getNotes(q, userId) {
   const rows = await q.many(sql`
     select ${LESSON_REF}, n.body, n.updated_at from lesson_notes n join lessons l on l.id = n.lesson_id join chapters c on c.id = l.chapter_id
     where n.user_id = ${userId} order by n.updated_at desc`);
-  return rows.map((r5) => ({ ...toRef(r5), body: r5.body, updatedAt: r5.updatedAt }));
+  return rows.map((r6) => ({ ...toRef(r6), body: r6.body, updatedAt: r6.updatedAt }));
 }
 async function markExampleViewed(q, userId, exampleId) {
   await q.exec(sql`
@@ -44528,19 +45965,19 @@ async function getViewedExamples(q, userId, limit = 50) {
     from example_views v join worked_examples e on e.id = v.example_id join topics t on t.id = e.topic_id
       join lessons l on l.id = t.lesson_id join chapters c on c.id = l.chapter_id
     where v.user_id = ${userId} order by v.viewed_at desc limit ${limit}`);
-  return rows.map((r5) => ({
-    ...toRef(r5),
-    exampleId: r5.exampleId,
-    level: Number(r5.level),
-    problem: r5.problem,
-    topicTitle: r5.topicTitle,
-    topicKey: topicKey({ id: r5.topicId, slug: r5.topicSlug }),
-    viewedAt: r5.viewedAt
+  return rows.map((r6) => ({
+    ...toRef(r6),
+    exampleId: r6.exampleId,
+    level: Number(r6.level),
+    problem: r6.problem,
+    topicTitle: r6.topicTitle,
+    topicKey: topicKey({ id: r6.topicId, slug: r6.topicSlug }),
+    viewedAt: r6.viewedAt
   }));
 }
 async function getViewedExampleIds(q, userId) {
   const rows = await q.many(sql`select example_id from example_views where user_id = ${userId}`);
-  return new Set(rows.map((r5) => r5.exampleId));
+  return new Set(rows.map((r6) => r6.exampleId));
 }
 async function buildSearchEntries(q, bookId, hrefs) {
   const lessons = await q.many(sql`
@@ -45224,7 +46661,7 @@ async function chapterPage(ctx) {
               /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("tbody", { children: [1, 2, 3, 4].map((lv) => /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("tr", { className: "border-t border-line", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("td", { className: "py-1.5", children: LEVEL_LABELS2[lv] }),
                 /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("td", { className: "py-1.5 text-right", children: CHAPTER_TEST_PLAN[lv] }),
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("td", { className: "py-1.5 text-right text-ink-3", children: levelCounts.find((r5) => Number(r5.level) === lv)?.n ?? 0 })
+                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("td", { className: "py-1.5 text-right text-ink-3", children: levelCounts.find((r6) => Number(r6.level) === lv)?.n ?? 0 })
               ] }, lv)) })
             ] }),
             levelCounts.length ? ctx.user ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(LinkButton, { href: `/luyen-tap/chuong/${encodeURIComponent(c.code)}/kiem-tra`, className: "mt-4", children: "L\xE0m b\xE0i ki\u1EC3m tra cu\u1ED1i ch\u01B0\u01A1ng" }) : /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(LinkButton, { href: `/dang-nhap?next=${encodeURIComponent(`/luyen-tap/chuong/${c.code}/kiem-tra`)}`, variant: "secondary", className: "mt-4", children: "\u0110\u0103ng nh\u1EADp \u0111\u1EC3 l\xE0m b\xE0i" }) : /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { className: "mt-3 text-[14px] text-ink-3", children: "Ch\u01B0\u01A1ng ch\u01B0a c\xF3 c\xE2u h\u1ECFi ch\u1EA5m t\u1EF1 \u0111\u1ED9ng." })
@@ -45259,7 +46696,7 @@ async function topicPage(ctx) {
   const idx = all.findIndex((t) => t.id === topic.id);
   const qids = await ctx.db.many(sql`
     select id from questions where topic_id = ${topic.id} and status = 'published' order by level, id limit 30`);
-  const questions = (await getQuestions(ctx.db, qids.map((r5) => r5.id))).map((q) => toView(q, false));
+  const questions = (await getQuestions(ctx.db, qids.map((r6) => r6.id))).map((q) => toView(q, false));
   const label = lessonLabel(lesson);
   const chapterName = chapterLabel({ kind: lesson.chapterKind, code: lesson.chapterCode, title: lesson.chapterTitle });
   const [examples, viewed] = await Promise.all([getTopicExamples(ctx.db, topic.id, !staff), ctx.user ? getViewedExampleIds(ctx.db, ctx.user.id) : Promise.resolve(/* @__PURE__ */ new Set())]);
@@ -46173,7 +47610,7 @@ async function searchPage(ctx) {
     };
   }
   const results = q ? searchEntries(cache.entries, q, 80) : [];
-  const kinds = ["lesson", "topic", "formula", "theory", "example"].filter((k) => results.some((r5) => r5.kind === k));
+  const kinds = ["lesson", "topic", "formula", "theory", "example"].filter((k) => results.some((r6) => r6.kind === k));
   return page(
     ctx,
     { title: q ? `T\xECm: ${q}` : "T\xECm ki\u1EBFm ki\u1EBFn th\u1EE9c" },
@@ -46200,10 +47637,10 @@ async function searchPage(ctx) {
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "space-y-8", children: kinds.map((k) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("section", { children: [
         /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("h2", { className: "mb-2 text-lg font-extrabold", children: SEARCH_KIND_LABELS[k] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Panel, { className: "divide-y divide-line", children: results.filter((r5) => r5.kind === k).map((r5, i2) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("a", { href: r5.href, className: "block px-5 py-3 hover:bg-tim-50/60", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "font-semibold text-tim-800", children: r5.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "text-[13px] text-ink-3", children: r5.context }),
-          r5.snippet && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "mt-0.5 text-[14.5px] text-ink-2", children: r5.snippet })
+        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Panel, { className: "divide-y divide-line", children: results.filter((r6) => r6.kind === k).map((r6, i2) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("a", { href: r6.href, className: "block px-5 py-3 hover:bg-tim-50/60", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "font-semibold text-tim-800", children: r6.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "text-[13px] text-ink-3", children: r6.context }),
+          r6.snippet && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "mt-0.5 text-[14.5px] text-ink-2", children: r6.snippet })
         ] }, i2)) })
       ] }, k)) }),
       !q && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(Panel, { className: "p-5", children: [
@@ -46428,16 +47865,16 @@ async function loadPool(q, textbookId, cfg, userId) {
       and (${arr(s.topicIds)}::int[] is null or qq.topic_id = any(${arr(s.topicIds)}::int[]))
       and (${arr(s.questionIds)}::int[] is null or qq.id = any(${arr(s.questionIds)}::int[]))
       and et.code = any(${cfg.types}::text[]) and qq.level = any(${cfg.levels}::int[])`);
-  return rows.map((r5) => ({
-    id: r5.id,
-    type: r5.type,
-    level: r5.level,
-    topicId: r5.topicId,
-    lessonId: r5.lessonId,
-    area: CHAPTER_AREAS[r5.chapterCode] ?? null,
-    stemKey: stemKey(r5.stem),
-    priority: r5.priority,
-    lessonOrder: r5.lessonOrder
+  return rows.map((r6) => ({
+    id: r6.id,
+    type: r6.type,
+    level: r6.level,
+    topicId: r6.topicId,
+    lessonId: r6.lessonId,
+    area: CHAPTER_AREAS[r6.chapterCode] ?? null,
+    stemKey: stemKey(r6.stem),
+    priority: r6.priority,
+    lessonOrder: r6.lessonOrder
   }));
 }
 async function createSession2(db, userId, textbookId, kind, mode, title, cfg, rand = Math.random) {
@@ -46511,17 +47948,17 @@ async function sessionQuestions(q, s, bookSlug) {
   const full = await getQuestions(q, s.questionIds);
   const reviews = await reviewInfo(q, full, bookSlug);
   const questions = full.map((f) => {
-    const r5 = reviews.get(f.id);
-    return { ...toView(f, s.mode === "practice", s.optionOrders[String(f.id)]), ...r5 ? { review: { label: r5.label, href: r5.href } } : {} };
+    const r6 = reviews.get(f.id);
+    return { ...toView(f, s.mode === "practice", s.optionOrders[String(f.id)]), ...r6 ? { review: { label: r6.label, href: r6.href } } : {} };
   });
   return { questions, full, reviews };
 }
 function responseForDisplay(type, resp, order) {
   if (!resp || typeof resp !== "object") return null;
-  const r5 = resp;
-  if (type === "mcq" && typeof r5.choice === "string") return { choice: toDisplayLabel(order, r5.choice) };
-  if (type === "true_false" && r5.values) return { values: r5.values };
-  if (typeof r5.text === "string") return { text: r5.text, ...Array.isArray(r5.images) ? { images: r5.images } : {} };
+  const r6 = resp;
+  if (type === "mcq" && typeof r6.choice === "string") return { choice: toDisplayLabel(order, r6.choice) };
+  if (type === "true_false" && r6.values) return { values: r6.values };
+  if (typeof r6.text === "string") return { text: r6.text, ...Array.isArray(r6.images) ? { images: r6.images } : {} };
   return null;
 }
 function feedbackOf(f, order, grade, review) {
@@ -46541,14 +47978,14 @@ async function existingFeedback(q, s, full, reviews) {
     from question_responses where practice_session_id = ${s.id} order by question_id, id desc`);
   const feedback = {};
   const answers = {};
-  for (const r5 of rows) {
-    const f = full.find((x) => x.id === r5.questionId);
+  for (const r6 of rows) {
+    const f = full.find((x) => x.id === r6.questionId);
     if (!f) continue;
     const order = s.optionOrders[String(f.id)];
-    const resp = r5.response;
+    const resp = r6.response;
     const correctCount = f.type === "true_false" && resp && resp.kind === "true_false" ? f.answers.filter((a) => resp.values[a.label] === a.isCorrect).length : void 0;
-    feedback[String(f.id)] = { ...feedbackOf(f, order, { status: r5.status, score: r5.score, correctCount }, reviews.get(f.id)), xpGained: 0, achievements: [] };
-    const disp = responseForDisplay(f.type, r5.response, order);
+    feedback[String(f.id)] = { ...feedbackOf(f, order, { status: r6.status, score: r6.score, correctCount }, reviews.get(f.id)), xpGained: 0, achievements: [] };
+    const disp = responseForDisplay(f.type, r6.response, order);
     if (disp) answers[String(f.id)] = disp;
   }
   return { feedback, answers };
@@ -46671,28 +48108,28 @@ async function sessionResult(q, s, bookSlug) {
   const rows = await q.many(sql`
     select distinct on (question_id) question_id, response, status, score::float as score, points_awarded::float as points_awarded, feedback
     from question_responses where practice_session_id = ${s.id} order by question_id, id desc`);
-  const byQ = new Map(rows.map((r5) => [r5.questionId, r5]));
+  const byQ = new Map(rows.map((r6) => [r6.questionId, r6]));
   const items = full.map((f, i2) => {
-    const r5 = byQ.get(f.id);
+    const r6 = byQ.get(f.id);
     const order = s.optionOrders[String(f.id)];
-    const empty = !r5 || r5.response?.kind === "empty";
+    const empty = !r6 || r6.response?.kind === "empty";
     let note;
-    if (f.type === "short_answer" && r5 && !empty) {
-      const g = gradeResponse(f.type, f.answers, f.settings, r5.response);
+    if (f.type === "short_answer" && r6 && !empty) {
+      const g = gradeResponse(f.type, f.answers, f.settings, r6.response);
       note = g.note;
     }
     return {
       view: questions[i2],
       reveal: revealAnswer(f, order),
-      response: empty ? null : responseForDisplay(f.type, r5.response, order),
-      status: empty ? "blank" : r5.status,
-      score: r5?.score ?? null,
+      response: empty ? null : responseForDisplay(f.type, r6.response, order),
+      status: empty ? "blank" : r6.status,
+      score: r6?.score ?? null,
       note,
       review: reviews.get(f.id),
       rubricHtml: f.rubric && !isAutoGraded(f.type) ? renderRich(f.rubric) : void 0,
       type: f.type,
-      pointsAwarded: r5?.pointsAwarded ?? null,
-      feedback: r5?.feedback ?? null
+      pointsAwarded: r6?.pointsAwarded ?? null,
+      feedback: r6?.feedback ?? null
     };
   });
   const stats = /* @__PURE__ */ new Map();
@@ -46784,7 +48221,7 @@ async function topicMastery(q, userId, textbookId) {
     left join stat s on s.topic_id = t.id
     where l.textbook_id = ${textbookId} and t.status = 'published' and l.status = 'published'
     order by c.sort_order, l.sort_order, t.sort_order`);
-  return rows.map((r5) => ({ ...r5, mastery: masteryOf(r5.answered, r5.recent) }));
+  return rows.map((r6) => ({ ...r6, mastery: masteryOf(r6.answered, r6.recent) }));
 }
 function formatDuration(sec) {
   if (sec === null || sec === void 0) return "\u2013";
@@ -47903,9 +49340,9 @@ function RichField({ name, label, defaultValue, initialHtml, rows = 4, hint, req
     }
     const id2 = window.setTimeout(async () => {
       renderer.current ??= await Promise.resolve().then(() => (init_richtext(), richtext_exports));
-      const r5 = renderer.current;
-      setHtml(inline ? r5.renderRichInline(value) : r5.renderRich(value));
-      setErrors(r5.findMathErrors(value));
+      const r6 = renderer.current;
+      setHtml(inline ? r6.renderRichInline(value) : r6.renderRich(value));
+      setErrors(r6.findMathErrors(value));
     }, 200);
     return () => window.clearTimeout(id2);
   }, [value, inline]);
@@ -48191,7 +49628,7 @@ async function practiceHub(ctx) {
   const preLesson = Number(ctx.query.get("bai")) || null;
   const preTopic = Number(ctx.query.get("dang")) || null;
   const preChapter = Number(ctx.query.get("chuong")) || null;
-  const total = typeCounts.reduce((s, r5) => s + r5.n, 0);
+  const total = typeCounts.reduce((s, r6) => s + r6.n, 0);
   const lessonOpts = chapters.flatMap(
     (c) => c.lessons.filter((l) => l.questionCount > 0).map((l) => ({ value: l.id, label: `${lessonLabel(l)} (${l.questionCount} c\xE2u)`, group: chapterLabel(c) }))
   );
@@ -48235,7 +49672,7 @@ async function practiceHub(ctx) {
       /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "mb-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-5", children: QUESTION_TYPES.map((t) => /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "rounded-2xl border border-line bg-white px-4 py-3", children: [
         /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "text-[14px] font-semibold", children: TYPE_LABELS[t] }),
         /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "text-[13px] text-ink-3", children: [
-          (typeCounts.find((r5) => r5.code === t)?.n ?? 0).toLocaleString("vi-VN"),
+          (typeCounts.find((r6) => r6.code === t)?.n ?? 0).toLocaleString("vi-VN"),
           " c\xE2u"
         ] })
       ] }, t)) }),
@@ -48570,13 +50007,13 @@ var STATUS_TEXT = {
   blank: { label: "Ch\u01B0a l\xE0m", tone: "gray" }
 };
 function describeAnswer(it) {
-  const r5 = it.response;
-  if (!r5) return "<em>Ch\u01B0a l\xE0m</em>";
-  if (it.type === "mcq") return r5.choice ? `Ch\u1ECDn <strong>${escapeHtml2(r5.choice)}</strong>` : "<em>Ch\u01B0a l\xE0m</em>";
+  const r6 = it.response;
+  if (!r6) return "<em>Ch\u01B0a l\xE0m</em>";
+  if (it.type === "mcq") return r6.choice ? `Ch\u1ECDn <strong>${escapeHtml2(r6.choice)}</strong>` : "<em>Ch\u01B0a l\xE0m</em>";
   if (it.type === "true_false")
-    return Object.entries(r5.values ?? {}).sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => `${k}) <strong>${v ? "\u0110\xFAng" : "Sai"}</strong>`).join(" \xB7 ") || "<em>Ch\u01B0a l\xE0m</em>";
-  if (it.type === "short_answer") return `<strong>${escapeHtml2(r5.text ?? "")}</strong>`;
-  return renderRich(r5.text || "\u2026") + (r5.images?.length ? r5.images.map((i2) => `<a href="/media/${i2}" target="_blank" rel="noreferrer"><img src="/media/${i2}" alt="\u1EA2nh b\xE0i l\xE0m" class="mt-2 h-40 w-auto rounded-lg border border-line"></a>`).join(" ") : "");
+    return Object.entries(r6.values ?? {}).sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => `${k}) <strong>${v ? "\u0110\xFAng" : "Sai"}</strong>`).join(" \xB7 ") || "<em>Ch\u01B0a l\xE0m</em>";
+  if (it.type === "short_answer") return `<strong>${escapeHtml2(r6.text ?? "")}</strong>`;
+  return renderRich(r6.text || "\u2026") + (r6.images?.length ? r6.images.map((i2) => `<a href="/media/${i2}" target="_blank" rel="noreferrer"><img src="/media/${i2}" alt="\u1EA2nh b\xE0i l\xE0m" class="mt-2 h-40 w-auto rounded-lg border border-line"></a>`).join(" ") : "");
 }
 function correctAnswerHtml(it) {
   if (it.type === "mcq" && it.reveal.correctChoice) return `<strong>${escapeHtml2(it.reveal.correctChoice)}</strong>`;
@@ -48789,7 +50226,7 @@ async function retrySessionAction(ctx) {
   if (kind === "sai") {
     const rows = await ctx.db.many(sql`
       select question_id from question_responses where practice_session_id = ${s.id} and status in ('incorrect', 'partial')`);
-    const ids = rows.map((r5) => r5.questionId);
+    const ids = rows.map((r6) => r6.questionId);
     if (!ids.length) return redirect(`/luyen-tap/ket-qua/${s.id}`, { type: "info", message: "Kh\xF4ng c\xF3 c\xE2u sai \u0111\u1EC3 l\xE0m l\u1EA1i." }, ctx);
     cfg = { ...cfg, scope: { questionIds: ids }, count: ids.length, typeCounts: void 0, levelWeights: void 0, levels: [1, 2, 3, 4], types: [...QUESTION_TYPES], order: "level", balanceAreas: false };
     title = `L\xE0m l\u1EA1i c\xE2u sai \u2013 ${s.title}`.slice(0, 200);
@@ -48834,25 +50271,25 @@ async function historyPage(ctx) {
           /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("th", { className: "w-28", children: "L\xE0m trong" }),
           /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("th", { className: "w-28" })
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("tbody", { children: rows.map((r5) => {
-          const gradedMax = (r5.maxScore ?? 0) - 0;
-          const ten = r5.status === "submitted" && gradedMax ? Math.round((r5.score ?? 0) / gradedMax * 40) / 4 : null;
+        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("tbody", { children: rows.map((r6) => {
+          const gradedMax = (r6.maxScore ?? 0) - 0;
+          const ten = r6.status === "submitted" && gradedMax ? Math.round((r6.score ?? 0) / gradedMax * 40) / 4 : null;
           return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("tr", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-[13px]", children: formatDate(r5.startedAt) }),
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-[13px]", children: formatDate(r6.startedAt) }),
             /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("td", { className: "text-[14px]", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "font-semibold", children: r5.title }),
+              /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "font-semibold", children: r6.title }),
               /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", { className: "text-[12.5px] text-ink-3", children: [
-                KIND_LABELS[r5.kind],
+                KIND_LABELS[r6.kind],
                 " \xB7 ",
-                r5.mode === "practice" ? "Luy\u1EC7n t\u1EADp" : "L\xE0m \u0111\u1EC1"
+                r6.mode === "practice" ? "Luy\u1EC7n t\u1EADp" : "L\xE0m \u0111\u1EC1"
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-[14px]", children: r5.questionIds.length }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-[14px]", children: r5.status === "submitted" ? `${r5.correctCount ?? 0}/${r5.questionIds.length}` : "\u2013" }),
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-[14px]", children: r6.questionIds.length }),
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-[14px]", children: r6.status === "submitted" ? `${r6.correctCount ?? 0}/${r6.questionIds.length}` : "\u2013" }),
             /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-[14px] font-semibold", children: ten === null ? "\u2013" : ten.toLocaleString("vi-VN") }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-[13px]", children: r5.status === "submitted" ? formatDuration(r5.durationSeconds) : /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Badge, { tone: "hl", children: "\u0110ang l\xE0m" }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-right", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("a", { href: r5.status === "submitted" ? `/luyen-tap/ket-qua/${r5.id}` : `/luyen-tap/phien/${r5.id}`, className: buttonClass("quiet", "sm"), children: r5.status === "submitted" ? "Xem l\u1EA1i" : "L\xE0m ti\u1EBFp" }) })
-          ] }, r5.id);
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-[13px]", children: r6.status === "submitted" ? formatDuration(r6.durationSeconds) : /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Badge, { tone: "hl", children: "\u0110ang l\xE0m" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-right", children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("a", { href: r6.status === "submitted" ? `/luyen-tap/ket-qua/${r6.id}` : `/luyen-tap/phien/${r6.id}`, className: buttonClass("quiet", "sm"), children: r6.status === "submitted" ? "Xem l\u1EA1i" : "L\xE0m ti\u1EBFp" }) })
+          ] }, r6.id);
         }) })
       ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(EmptyState, { icon: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(LuHistory, {}), title: "Ch\u01B0a c\xF3 l\u01B0\u1EE3t luy\u1EC7n t\u1EADp n\xE0o", action: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(LinkButton, { href: "/luyen-tap", children: "B\u1EAFt \u0111\u1EA7u luy\u1EC7n t\u1EADp" }), children: "C\xE1c l\u01B0\u1EE3t luy\u1EC7n t\u1EADp v\xE0 \u0111\u1EC1 em t\u1EA1o s\u1EBD \u0111\u01B0\u1EE3c l\u01B0u \u1EDF \u0111\xE2y." }),
       /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Pager, { page: pg.page, pages: pg.pages(total), base: "/luyen-tap/lich-su" })
@@ -48888,24 +50325,24 @@ async function wrongQuestionsPage(ctx) {
           /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("th", { className: "w-24", children: "S\u1ED1 l\u1EA7n sai" }),
           /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("th", { className: "w-32", children: "L\u1EA7n g\u1EA7n nh\u1EA5t" })
         ] }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("tbody", { children: rows.map((r5) => /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("tr", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("tbody", { children: rows.map((r6) => /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("tr", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("td", { className: "text-[14px]", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Badge, { className: "mb-1", children: TYPE_SHORT[r5.type] }),
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Badge, { className: "mb-1", children: TYPE_SHORT[r6.type] }),
             " ",
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Badge, { tone: "gray", children: LEVEL_LABELS[r5.level] }),
-            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { children: plainExcerpt(r5.stem, 140) })
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Badge, { tone: "gray", children: LEVEL_LABELS[r6.level] }),
+            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { children: plainExcerpt(r6.stem, 140) })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("td", { className: "text-[13px]", children: [
-            r5.lessonTitle ? `${r5.lessonNumber ? `B\xE0i ${r5.lessonNumber}. ` : ""}${r5.lessonTitle}` : "\u2013",
-            r5.topicTitle && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "text-ink-3", children: r5.topicTitle })
+            r6.lessonTitle ? `${r6.lessonNumber ? `B\xE0i ${r6.lessonNumber}. ` : ""}${r6.lessonTitle}` : "\u2013",
+            r6.topicTitle && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", { className: "text-ink-3", children: r6.topicTitle })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("td", { className: "text-[14px] font-semibold text-le", children: [
-            r5.wrongCount,
+            r6.wrongCount,
             "/",
-            r5.attempts
+            r6.attempts
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-[13px]", children: formatDate(r5.lastAt) })
-        ] }, r5.questionId)) })
+          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("td", { className: "text-[13px]", children: formatDate(r6.lastAt) })
+        ] }, r6.questionId)) })
       ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(EmptyState, { icon: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(LuTarget, {}), title: "Kh\xF4ng c\xF3 c\xE2u n\xE0o c\u1EA7n l\xE0m l\u1EA1i", action: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(LinkButton, { href: "/luyen-tap", children: "Luy\u1EC7n t\u1EADp ti\u1EBFp" }), children: "Tuy\u1EC7t v\u1EDDi! Nh\u1EEFng c\xE2u em l\xE0m sai s\u1EBD xu\u1EA5t hi\u1EC7n \u1EDF \u0111\xE2y \u0111\u1EC3 em luy\u1EC7n l\u1EA1i." })
     ] })
   );
@@ -48915,7 +50352,7 @@ async function retryWrongAction(ctx) {
   const book = await requireBook(ctx);
   const rows = await wrongQuestions(ctx.db, user.id, book.id, 20);
   if (!rows.length) return redirect("/luyen-tap/cau-hay-sai", { type: "info", message: "Kh\xF4ng c\xF3 c\xE2u sai \u0111\u1EC3 l\xE0m l\u1EA1i." }, ctx);
-  const ids = rows.map((r5) => r5.questionId);
+  const ids = rows.map((r6) => r6.questionId);
   const res = await createSession2(ctx.db, user.id, book.id, "retry", "practice", "L\xE0m l\u1EA1i c\xE1c c\xE2u hay sai", {
     scope: { questionIds: ids },
     types: [...QUESTION_TYPES],
@@ -48935,13 +50372,13 @@ async function progressPage(ctx) {
   const book = await requireBook(ctx);
   const rows = await topicMastery(ctx.db, user.id, book.id);
   const chapters = /* @__PURE__ */ new Map();
-  for (const r5 of rows) {
-    if (!chapters.has(r5.chapterId)) chapters.set(r5.chapterId, { code: r5.chapterCode, title: r5.chapterTitle, lessons: /* @__PURE__ */ new Map() });
-    const ch2 = chapters.get(r5.chapterId);
-    if (!ch2.lessons.has(r5.lessonId)) ch2.lessons.set(r5.lessonId, { title: r5.lessonTitle, number: r5.lessonNumber, slug: r5.lessonSlug, topics: [] });
-    ch2.lessons.get(r5.lessonId).topics.push(r5);
+  for (const r6 of rows) {
+    if (!chapters.has(r6.chapterId)) chapters.set(r6.chapterId, { code: r6.chapterCode, title: r6.chapterTitle, lessons: /* @__PURE__ */ new Map() });
+    const ch2 = chapters.get(r6.chapterId);
+    if (!ch2.lessons.has(r6.lessonId)) ch2.lessons.set(r6.lessonId, { title: r6.lessonTitle, number: r6.lessonNumber, slug: r6.lessonSlug, topics: [] });
+    ch2.lessons.get(r6.lessonId).topics.push(r6);
   }
-  const counts = Object.fromEntries(Object.keys(MASTERY_LABELS).map((m) => [m, rows.filter((r5) => r5.mastery === m && r5.questionCount > 0).length]));
+  const counts = Object.fromEntries(Object.keys(MASTERY_LABELS).map((m) => [m, rows.filter((r6) => r6.mastery === m && r6.questionCount > 0).length]));
   return page(
     ctx,
     { title: "Ti\u1EBFn \u0111\u1ED9 luy\u1EC7n t\u1EADp" },
@@ -49186,7 +50623,7 @@ async function testQuestions(q, testId) {
     from test_questions tq join questions qq on qq.id = tq.question_id join exercise_types et on et.id = qq.exercise_type_id
     left join lessons l on l.id = qq.lesson_id
     where tq.test_id = ${testId} order by tq.sort_order`);
-  return rows.map((r5) => ({ ...r5, points: Number(r5.points) }));
+  return rows.map((r6) => ({ ...r6, points: Number(r6.points) }));
 }
 async function hasSubmissions(q, testId) {
   return !!await q.one(sql`select 1 from test_results where test_id = ${testId}`);
@@ -49213,12 +50650,12 @@ async function removeQuestionFromTest(db, testId, questionId) {
 async function moveQuestionInTest(db, testId, questionId, dir) {
   await db.tx(async (t) => {
     const rows = await t.many(sql`select question_id from test_questions where test_id = ${testId} order by sort_order`);
-    const i2 = rows.findIndex((r5) => r5.questionId === questionId);
+    const i2 = rows.findIndex((r6) => r6.questionId === questionId);
     const j = i2 + dir;
     if (i2 < 0 || j < 0 || j >= rows.length) return;
     [rows[i2], rows[j]] = [rows[j], rows[i2]];
-    for (const [k, r5] of rows.entries()) {
-      await t.exec(sql`update test_questions set sort_order = ${k + 1} where test_id = ${testId} and question_id = ${r5.questionId}`);
+    for (const [k, r6] of rows.entries()) {
+      await t.exec(sql`update test_questions set sort_order = ${k + 1} where test_id = ${testId} and question_id = ${r6.questionId}`);
     }
   });
 }
@@ -49228,7 +50665,7 @@ async function setQuestionPoints(db, testId, questionId, points) {
   await db.exec(sql`update test_questions set points = ${points} where test_id = ${testId} and question_id = ${questionId}`);
 }
 async function testAssignments(q, testId) {
-  return (await q.many(sql`select class_id from test_assignments where test_id = ${testId}`)).map((r5) => r5.classId);
+  return (await q.many(sql`select class_id from test_assignments where test_id = ${testId}`)).map((r6) => r6.classId);
 }
 async function setAssignments(db, testId, user, classIds) {
   await db.tx(async (t) => {
@@ -49296,18 +50733,18 @@ async function startAttempt(db, testId, studentId) {
   });
 }
 async function getAttempt(q, resultId) {
-  const r5 = await q.one(sql`
+  const r6 = await q.one(sql`
     select r.id, r.test_id, r.student_id, u.full_name as student_name, r.attempt_no, r.status, r.draft_answers, r.started_at, r.deadline_at,
       r.submitted_at, r.score::float as score, r.max_score::float as max_score, r.pending_manual,
       t.title, t.show_answers, t.created_by as test_created_by, t.closes_at
     from test_results r join tests t on t.id = r.test_id join users u on u.id = r.student_id where r.id = ${resultId}`);
-  return r5;
+  return r6;
 }
 async function attemptQuestionViews(q, testId) {
   const tq = await testQuestions(q, testId);
-  const full = await getQuestions(q, tq.map((r5) => r5.questionId));
+  const full = await getQuestions(q, tq.map((r6) => r6.questionId));
   return full.map((f) => {
-    const row = tq.find((r5) => r5.questionId === f.id);
+    const row = tq.find((r6) => r6.questionId === f.id);
     return { ...toView(f, false, row.optionOrder), testPoints: row.points };
   });
 }
@@ -49326,12 +50763,12 @@ async function submitAttempt(db, attempt, answers) {
     const late = attempt.deadlineAt && Date.now() > attempt.deadlineAt.getTime() + GRACE_MS2;
     const source = !late && answers ? answers : locked.draftAnswers;
     const tq = await testQuestions(t, attempt.testId);
-    const full = await getQuestions(t, tq.map((r5) => r5.questionId));
+    const full = await getQuestions(t, tq.map((r6) => r6.questionId));
     let score = 0;
     let maxScore = 0;
     let pending = 0;
     for (const qf of full) {
-      const row = tq.find((r5) => r5.questionId === qf.id);
+      const row = tq.find((r6) => r6.questionId === qf.id);
       const pts = row.points;
       maxScore += pts;
       let raw = source[String(qf.id)];
@@ -49359,23 +50796,23 @@ async function submitAttempt(db, attempt, answers) {
 }
 async function resultDetails(q, attempt, reveal) {
   const tq = await testQuestions(q, attempt.testId);
-  const full = await getQuestions(q, tq.map((r5) => r5.questionId));
+  const full = await getQuestions(q, tq.map((r6) => r6.questionId));
   const responses = await q.many(sql`
     select id, question_id, response, status, points_awarded::float as points_awarded, feedback
     from question_responses where test_result_id = ${attempt.id}`);
   return full.map((f) => {
-    const r5 = responses.find((x) => x.questionId === f.id);
+    const r6 = responses.find((x) => x.questionId === f.id);
     const row = tq.find((x) => x.questionId === f.id);
-    const resp = r5?.response;
+    const resp = r6?.response;
     return {
       ...toView(f, false, row.optionOrder),
       ...reveal ? revealAnswer(f, row.optionOrder) : {},
       testPoints: row.points,
-      responseId: r5?.id ?? null,
-      response: f.type === "mcq" && resp?.choice ? { ...resp, choice: toDisplayLabel(row.optionOrder, resp.choice) } : r5?.response ?? null,
-      status: r5?.status ?? null,
-      pointsAwarded: r5?.pointsAwarded ?? null,
-      feedback: r5?.feedback ?? null,
+      responseId: r6?.id ?? null,
+      response: f.type === "mcq" && resp?.choice ? { ...resp, choice: toDisplayLabel(row.optionOrder, resp.choice) } : r6?.response ?? null,
+      status: r6?.status ?? null,
+      pointsAwarded: r6?.pointsAwarded ?? null,
+      feedback: r6?.feedback ?? null,
       autoGraded: isAutoGraded(f.type)
     };
   });
@@ -49618,12 +51055,12 @@ async function submitTestApi(ctx) {
   return json({ redirect: `/kiem-tra/ket-qua/${attempt.id}` });
 }
 function describeResponse(q) {
-  const r5 = q.response;
-  if (!r5 || r5.kind === "empty") return "<em>Kh\xF4ng tr\u1EA3 l\u1EDDi</em>";
-  if (r5.kind === "mcq") return `Ch\u1ECDn <strong>${escapeHtml2(r5.choice ?? "")}</strong>`;
-  if (r5.kind === "true_false")
-    return Object.entries(r5.values ?? {}).sort().map(([k, v]) => `${escapeHtml2(k)}) ${v ? "\u0110\xFAng" : "Sai"}`).join("; ");
-  return `<span class="whitespace-pre-wrap">${escapeHtml2(r5.text ?? "")}</span>`;
+  const r6 = q.response;
+  if (!r6 || r6.kind === "empty") return "<em>Kh\xF4ng tr\u1EA3 l\u1EDDi</em>";
+  if (r6.kind === "mcq") return `Ch\u1ECDn <strong>${escapeHtml2(r6.choice ?? "")}</strong>`;
+  if (r6.kind === "true_false")
+    return Object.entries(r6.values ?? {}).sort().map(([k, v]) => `${escapeHtml2(k)}) ${v ? "\u0110\xFAng" : "Sai"}`).join("; ");
+  return `<span class="whitespace-pre-wrap">${escapeHtml2(r6.text ?? "")}</span>`;
 }
 function ResultQuestionList({ questions, reveal }) {
   return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "space-y-4", children: questions.map((q, i2) => /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Panel, { className: "p-5", children: [
@@ -49783,14 +51220,14 @@ async function achievementsPage(ctx) {
               /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("a", { href: "/thanh-tich?pham-vi=tuan#xep-hang", role: "tab", "aria-selected": range === "week", className: cx("rounded-lg px-3 py-1", range === "week" ? "bg-white font-semibold shadow-sm" : "text-ink-2"), children: "7 ng\xE0y qua" })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Panel, { className: "p-2", children: leaders.length ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("ol", { children: leaders.map((r5) => /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("li", { className: cx("flex items-center gap-3 rounded-xl px-3 py-2.5", r5.userId === ctx.user?.id && "bg-hl-soft"), children: [
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: cx("flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold", r5.rank <= 3 ? "bg-tim-700 text-white" : "bg-mist text-ink-2"), children: r5.rank === 1 ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuCrown, { "aria-label": "H\u1EA1ng 1" }) : r5.rank }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "min-w-0 flex-1 truncate font-medium", children: r5.fullName }),
+          /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Panel, { className: "p-2", children: leaders.length ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("ol", { children: leaders.map((r6) => /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("li", { className: cx("flex items-center gap-3 rounded-xl px-3 py-2.5", r6.userId === ctx.user?.id && "bg-hl-soft"), children: [
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: cx("flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold", r6.rank <= 3 ? "bg-tim-700 text-white" : "bg-mist text-ink-2"), children: r6.rank === 1 ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(LuCrown, { "aria-label": "H\u1EA1ng 1" }) : r6.rank }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", { className: "min-w-0 flex-1 truncate font-medium", children: r6.fullName }),
             /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", { className: "font-bold tabular-nums text-tim-700", children: [
-              r5.xp,
+              r6.xp,
               " XP"
             ] })
-          ] }, r5.userId)) }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { className: "px-3 py-6 text-center text-[15px] text-ink-2", children: "Ch\u01B0a c\xF3 h\u1ECDc sinh n\xE0o c\xF3 \u0111i\u1EC3m kinh nghi\u1EC7m trong kho\u1EA3ng th\u1EDDi gian n\xE0y." }) }),
+          ] }, r6.userId)) }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { className: "px-3 py-6 text-center text-[15px] text-ink-2", children: "Ch\u01B0a c\xF3 h\u1ECDc sinh n\xE0o c\xF3 \u0111i\u1EC3m kinh nghi\u1EC7m trong kho\u1EA3ng th\u1EDDi gian n\xE0y." }) }),
           /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", { className: "mt-3 text-[13px] text-ink-3", children: "\u0110i\u1EC3m kinh nghi\u1EC7m: c\xE2u luy\u1EC7n t\u1EADp \u0111\xFAng l\u1EA7n \u0111\u1EA7u +10, c\xE2u th\u1EED th\xE1ch +20, h\u1ECDc xong m\u1ED9t m\u1EE5c +20, n\u1ED9p b\xE0i ki\u1EC3m tra +20 c\u1ED9ng \u0111i\u1EC3m theo k\u1EBFt qu\u1EA3." })
         ] })
       ] })
@@ -50488,11 +51925,11 @@ function Act({ action, fields, label, children, confirm, danger, disabled }) {
 async function swapOrder(ctx, table, parentCol, parentId, id, dir) {
   await ctx.db.tx(async (t) => {
     const rows = await t.many(sql`select id from ${sql.raw(table)} where ${sql.raw(parentCol)} = ${parentId} order by ${sql.raw(table === "worked_examples" ? "level, " : "")}sort_order, id`);
-    const i2 = rows.findIndex((r5) => r5.id === id);
+    const i2 = rows.findIndex((r6) => r6.id === id);
     const j = i2 + dir;
     if (i2 < 0 || j < 0 || j >= rows.length) return;
     [rows[i2], rows[j]] = [rows[j], rows[i2]];
-    for (const [k, r5] of rows.entries()) await t.exec(sql`update ${sql.raw(table)} set sort_order = ${k + 1}, updated_at = now() where id = ${r5.id}`);
+    for (const [k, r6] of rows.entries()) await t.exec(sql`update ${sql.raw(table)} set sort_order = ${k + 1}, updated_at = now() where id = ${r6.id}`);
   });
 }
 function FormulaForm({ action, f, idx }) {
@@ -50827,7 +52264,7 @@ function mathErrors(fields) {
 async function renumberChapters(t, textbookId) {
   const rows = await t.many(sql`
     select c.id from chapters c join semesters s on s.id = c.semester_id where c.textbook_id = ${textbookId} order by s.number, c.sort_order, c.id`);
-  for (const [i2, r5] of rows.entries()) await t.exec(sql`update chapters set sort_order = ${i2 + 1} where id = ${r5.id}`);
+  for (const [i2, r6] of rows.entries()) await t.exec(sql`update chapters set sort_order = ${i2 + 1} where id = ${r6.id}`);
 }
 async function createChapter(db, textbookId, input, userId) {
   return db.tx(async (t) => {
@@ -50850,10 +52287,10 @@ async function moveChapter(db, chapterId, dir) {
     const c = await t.one(sql`select textbook_id, semester_id from chapters where id = ${chapterId}`);
     if (!c) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y ch\u01B0\u01A1ng.");
     const rows = await t.many(sql`select id from chapters where semester_id = ${c.semesterId} order by sort_order, id`);
-    const i2 = rows.findIndex((r5) => r5.id === chapterId);
+    const i2 = rows.findIndex((r6) => r6.id === chapterId);
     const j = i2 + dir;
     if (i2 < 0 || j < 0 || j >= rows.length) return;
-    const ids = rows.map((r5) => r5.id);
+    const ids = rows.map((r6) => r6.id);
     [ids[i2], ids[j]] = [ids[j], ids[i2]];
     for (const [k, id] of ids.entries()) await t.exec(sql`update chapters set sort_order = ${k + 1} where id = ${id}`);
     await renumberChapters(t, c.textbookId);
@@ -50902,10 +52339,10 @@ async function moveLesson(db, lessonId, dir) {
     const l = await t.one(sql`select chapter_id from lessons where id = ${lessonId}`);
     if (!l) throw new ContentError("Kh\xF4ng t\xECm th\u1EA5y b\xE0i.");
     const rows = await t.many(sql`select id from lessons where chapter_id = ${l.chapterId} order by sort_order, id`);
-    const i2 = rows.findIndex((r5) => r5.id === lessonId);
+    const i2 = rows.findIndex((r6) => r6.id === lessonId);
     const j = i2 + dir;
     if (i2 < 0 || j < 0 || j >= rows.length) return;
-    const ids = rows.map((r5) => r5.id);
+    const ids = rows.map((r6) => r6.id);
     [ids[i2], ids[j]] = [ids[j], ids[i2]];
     for (const [k, id] of ids.entries()) await t.exec(sql`update lessons set sort_order = ${k + 1} where id = ${id}`);
   });
@@ -50929,7 +52366,7 @@ async function nextCode(t, table, prefix) {
   const rows = await t.many(
     table === "themes" ? sql`select code from themes where code like ${prefix + "%"}` : sql`select code from topics where code like ${prefix + "%"}`
   );
-  const used = new Set(rows.map((r5) => r5.code));
+  const used = new Set(rows.map((r6) => r6.code));
   let k = 1;
   while (used.has(`${prefix}${k}`)) k++;
   return `${prefix}${k}`;
@@ -50958,10 +52395,10 @@ async function deleteTheme(db, lessonId, themeId) {
 async function moveTheme(db, lessonId, themeId, dir) {
   await db.tx(async (t) => {
     const rows = await t.many(sql`select id from themes where lesson_id = ${lessonId} order by sort_order, id`);
-    const i2 = rows.findIndex((r5) => r5.id === themeId);
+    const i2 = rows.findIndex((r6) => r6.id === themeId);
     const j = i2 + dir;
     if (i2 < 0 || j < 0 || j >= rows.length) return;
-    const ids = rows.map((r5) => r5.id);
+    const ids = rows.map((r6) => r6.id);
     [ids[i2], ids[j]] = [ids[j], ids[i2]];
     for (const [k, id] of ids.entries()) await t.exec(sql`update themes set sort_order = ${k + 1} where id = ${id}`);
   });
@@ -51013,12 +52450,12 @@ async function moveTopic(db, topicId, dir) {
     const rows = await t.many(sql`
       select t.id, t.theme_id from topics t left join themes th on th.id = t.theme_id
       where t.lesson_id = ${tp.lessonId} order by th.sort_order nulls last, t.sort_order, t.id`);
-    const i2 = rows.findIndex((r5) => r5.id === topicId);
+    const i2 = rows.findIndex((r6) => r6.id === topicId);
     let j = i2 + dir;
     while (j >= 0 && j < rows.length && rows[j].themeId !== tp.themeId) j += dir;
     if (i2 < 0 || j < 0 || j >= rows.length) return;
     [rows[i2], rows[j]] = [rows[j], rows[i2]];
-    for (const [k, r5] of rows.entries()) await t.exec(sql`update topics set sort_order = ${k + 1} where id = ${r5.id}`);
+    for (const [k, r6] of rows.entries()) await t.exec(sql`update topics set sort_order = ${k + 1} where id = ${r6.id}`);
   });
 }
 async function setTopicStatus(db, topicId, status2, userId) {
@@ -51663,11 +53100,11 @@ async function lessonEditorAction(ctx) {
       const id = form.int("section_id");
       await ctx.db.tx(async (t) => {
         const rows = await t.many(sql`select id from lesson_sections where lesson_id = ${lessonId} order by sort_order, id`);
-        const i2 = rows.findIndex((r5) => r5.id === id);
+        const i2 = rows.findIndex((r6) => r6.id === id);
         const j = i2 + dir;
         if (i2 < 0 || j < 0 || j >= rows.length) return;
         [rows[i2], rows[j]] = [rows[j], rows[i2]];
-        for (const [k, r5] of rows.entries()) await t.exec(sql`update lesson_sections set sort_order = ${k + 1} where id = ${r5.id}`);
+        for (const [k, r6] of rows.entries()) await t.exec(sql`update lesson_sections set sort_order = ${k + 1} where id = ${r6.id}`);
       });
       await touch();
       return redirect(back);
@@ -51986,7 +53423,7 @@ function parseTable(text3) {
     row.push(cell);
     rows.push(row);
   }
-  return rows.filter((r5) => r5.some((c) => c.trim() !== ""));
+  return rows.filter((r6) => r6.some((c) => c.trim() !== ""));
 }
 function typeFromText(s) {
   const v = fold2(s).replace(/[_-]/g, " ");
@@ -52022,9 +53459,9 @@ async function prepareImport(q, textbookId, table, status2) {
   const topicByCode = new Map(topics.filter((t) => t.code).map((t) => [t.code.toUpperCase(), t]));
   const topicById = new Map(topics.map((t) => [t.id, t]));
   const lessonByCode = new Map(lessons.filter((l) => l.code).map((l) => [l.code.toUpperCase(), l.id]));
-  const ids = table.slice(1).map((r5) => Number((r5[header.indexOf("ma_cau")] ?? "").replace(/^#/, ""))).filter((n2) => Number.isInteger(n2) && n2 > 0);
+  const ids = table.slice(1).map((r6) => Number((r6[header.indexOf("ma_cau")] ?? "").replace(/^#/, ""))).filter((n2) => Number.isInteger(n2) && n2 > 0);
   const existing = new Set(
-    (await q.many(sql`select id from questions where id = any(${ids}::int[]) and textbook_id = ${textbookId} and status <> 'archived'`)).map((r5) => r5.id)
+    (await q.many(sql`select id from questions where id = any(${ids}::int[]) and textbook_id = ${textbookId} and status <> 'archived'`)).map((r6) => r6.id)
   );
   const rows = [];
   for (const [i2, cells] of table.slice(1).entries()) {
@@ -52100,7 +53537,7 @@ function csvEscape(s) {
   return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
 }
 function toCsv(rows) {
-  return "\uFEFF" + rows.map((r5) => r5.map((c) => csvEscape(c ?? "")).join(",")).join("\r\n") + "\r\n";
+  return "\uFEFF" + rows.map((r6) => r6.map((c) => csvEscape(c ?? "")).join(",")).join("\r\n") + "\r\n";
 }
 var TYPE_SHORT2 = { mcq: "TN", true_false: "DS", short_answer: "TLN", essay: "TL", geometry_essay: "HH" };
 var MATCH_TEXT = { auto: "", number: "s\u1ED1", expression: "bi\u1EC3u th\u1EE9c", factored: "nh\xE2n t\u1EED", set: "t\u1EADp nghi\u1EC7m", exact: "nguy\xEAn v\u0103n" };
@@ -52280,7 +53717,7 @@ function writeXlsx(rows, opts = {}) {
   const sheetName = xmlEscape((opts.sheetName ?? "Sheet1").slice(0, 31));
   const cols = opts.colWidths?.length ? `<cols>${opts.colWidths.map((w, i2) => `<col min="${i2 + 1}" max="${i2 + 1}" width="${w}" customWidth="1"/>`).join("")}</cols>` : "";
   const body = rows.map(
-    (r5, ri) => `<row r="${ri + 1}">${r5.map((v, ci) => `<c r="${colName(ci)}${ri + 1}" t="inlineStr" s="${ri === 0 ? 1 : 2}"><is><t xml:space="preserve">${xmlEscape(v ?? "")}</t></is></c>`).join("")}</row>`
+    (r6, ri) => `<row r="${ri + 1}">${r6.map((v, ci) => `<c r="${colName(ci)}${ri + 1}" t="inlineStr" s="${ri === 0 ? 1 : 2}"><is><t xml:space="preserve">${xmlEscape(v ?? "")}</t></is></c>`).join("")}</row>`
   ).join("");
   const sheet = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews>${cols}<sheetData>${body}</sheetData></worksheet>`;
@@ -52356,7 +53793,7 @@ function readXlsx(buf) {
     while (rows.length < rIdx) rows.push([]);
     rows[rIdx] = row;
   }
-  return rows.filter((r5) => r5.some((c) => c.trim() !== ""));
+  return rows.filter((r6) => r6.some((c) => c.trim() !== ""));
 }
 var XLSX_MIME = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
@@ -52402,10 +53839,10 @@ var STATUS_OPTIONS3 = [
 async function importPage(ctx, opts = {}) {
   requireTeacher(ctx);
   const rows = opts.rows;
-  const ok = rows?.filter((r5) => !r5.errors.length) ?? [];
-  const bad = rows?.filter((r5) => r5.errors.length) ?? [];
-  const warn = ok.filter((r5) => r5.warnings.length);
-  const updates = ok.filter((r5) => r5.updateId);
+  const ok = rows?.filter((r6) => !r6.errors.length) ?? [];
+  const bad = rows?.filter((r6) => r6.errors.length) ?? [];
+  const warn = ok.filter((r6) => r6.warnings.length);
+  const updates = ok.filter((r6) => r6.updateId);
   return page(
     ctx,
     { title: "Nh\u1EADp c\xE2u h\u1ECFi h\xE0ng lo\u1EA1t", layout: "dashboard", section: "questions", status: opts.headerErrors?.length ? 422 : 200 },
@@ -52497,23 +53934,23 @@ async function importPage(ctx, opts = {}) {
                 /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { children: "\u0110\u1EC1 b\xE0i" }),
                 /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("th", { className: "w-80", children: "Ki\u1EC3m tra" })
               ] }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("tbody", { children: rows.map((r5) => /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("tr", { className: r5.errors.length ? "bg-le-soft/50" : r5.warnings.length ? "bg-hl-soft/40" : "", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { className: "text-ink-3", children: r5.line }),
+              /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("tbody", { children: rows.map((r6) => /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("tr", { className: r6.errors.length ? "bg-le-soft/50" : r6.warnings.length ? "bg-hl-soft/40" : "", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { className: "text-ink-3", children: r6.line }),
                 /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("td", { className: "text-[13.5px]", children: [
-                  r5.topicLabel ?? /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: "text-ink-3", children: "\u2014" }),
-                  r5.updateId && /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "mt-1 text-[12px] font-semibold text-tim-700", children: [
+                  r6.topicLabel ?? /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: "text-ink-3", children: "\u2014" }),
+                  r6.updateId && /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("div", { className: "mt-1 text-[12px] font-semibold text-tim-700", children: [
                     "C\u1EADp nh\u1EADt c\xE2u #",
-                    r5.updateId
+                    r6.updateId
                   ] })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)("td", { className: "text-[13.5px]", children: [
-                  TYPE_LABELS[r5.input.type],
+                  TYPE_LABELS[r6.input.type],
                   /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("br", {}),
-                  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: "text-ink-3", children: LEVEL_LABELS[r5.input.level] })
+                  /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: "text-ink-3", children: LEVEL_LABELS[r6.input.level] })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { className: "text-[14px]", children: plainExcerpt(r5.input.stem, 140) }),
-                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { className: "text-[13px]", children: r5.errors.length ? /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("ul", { className: "list-disc space-y-0.5 pl-4 text-le", children: r5.errors.map((e, i2) => /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("li", { children: e }, i2)) }) : r5.warnings.length ? /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("ul", { className: "list-disc space-y-0.5 pl-4 text-[#7a5a00]", children: r5.warnings.map((e, i2) => /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("li", { children: e }, i2)) }) : /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: "font-semibold text-tre", children: "\u0110\u1EA1t" }) })
-              ] }, r5.line)) })
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { className: "text-[14px]", children: plainExcerpt(r6.input.stem, 140) }),
+                /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("td", { className: "text-[13px]", children: r6.errors.length ? /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("ul", { className: "list-disc space-y-0.5 pl-4 text-le", children: r6.errors.map((e, i2) => /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("li", { children: e }, i2)) }) : r6.warnings.length ? /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("ul", { className: "list-disc space-y-0.5 pl-4 text-[#7a5a00]", children: r6.warnings.map((e, i2) => /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("li", { children: e }, i2)) }) : /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("span", { className: "font-semibold text-tre", children: "\u0110\u1EA1t" }) })
+              ] }, r6.line)) })
             ] })
           ] })
         ] }),
@@ -52539,7 +53976,7 @@ async function readUpload(ctx) {
   if (tableJson) {
     try {
       const t = JSON.parse(tableJson);
-      if (Array.isArray(t) && t.every((r5) => Array.isArray(r5))) return { table: t.map((r5) => r5.map((c) => String(c ?? ""))), text: "" };
+      if (Array.isArray(t) && t.every((r6) => Array.isArray(r6))) return { table: t.map((r6) => r6.map((c) => String(c ?? ""))), text: "" };
     } catch {
     }
   }
@@ -52569,25 +54006,25 @@ async function importAction(ctx) {
   if (error) return importPage(ctx, { status: status2, headerErrors: [error] });
   const { rows, headerErrors } = await prepareImport(ctx.db, book.id, table, status2 === "draft" ? "draft" : "published");
   if (form.str("_action") !== "import" || headerErrors.length) return importPage(ctx, { table, text: text3, status: status2, rows, headerErrors });
-  const ok = rows.filter((r5) => !r5.errors.length);
+  const ok = rows.filter((r6) => !r6.errors.length);
   let created = 0;
   let updated = 0;
   let review = 0;
   const failed = [];
-  for (const r5 of ok) {
-    if (r5.updateId) {
-      const existing = await getQuestion(ctx.db, r5.updateId);
+  for (const r6 of ok) {
+    if (r6.updateId) {
+      const existing = await getQuestion(ctx.db, r6.updateId);
       if (!existing || !canEditQuestion(existing, user)) {
-        failed.push(`D\xF2ng ${r5.line}: kh\xF4ng c\xF3 quy\u1EC1n s\u1EEDa c\xE2u #${r5.updateId}.`);
+        failed.push(`D\xF2ng ${r6.line}: kh\xF4ng c\xF3 quy\u1EC1n s\u1EEDa c\xE2u #${r6.updateId}.`);
         continue;
       }
     }
-    const res = await saveQuestion(ctx.db, r5.updateId, book.id, r5.input, user.id, { forceReview: status2 === "review" });
+    const res = await saveQuestion(ctx.db, r6.updateId, book.id, r6.input, user.id, { forceReview: status2 === "review" });
     if (!res.id) {
-      failed.push(`D\xF2ng ${r5.line}: ${res.error}`);
+      failed.push(`D\xF2ng ${r6.line}: ${res.error}`);
       continue;
     }
-    if (r5.updateId) updated++;
+    if (r6.updateId) updated++;
     else created++;
     if (res.status === "review") review++;
   }
@@ -52608,12 +54045,12 @@ async function exportQuestions(ctx) {
   const book = await requireBook(ctx);
   const f = questionFilters(ctx, user.id, book.id);
   const { rows } = await listQuestions(ctx.db, f, 5e3, 0);
-  const full = await getQuestions(ctx.db, rows.map((r5) => r5.id));
+  const full = await getQuestions(ctx.db, rows.map((r6) => r6.id));
   const info = await ctx.db.many(sql`
     select qq.id, t.code as topic_code, t.title as topic_title, l.code as lesson_code, l.title as lesson_title, l.number as lesson_number,
       c.code as chapter_code, c.title as chapter_title
     from questions qq left join topics t on t.id = qq.topic_id left join lessons l on l.id = qq.lesson_id left join chapters c on c.id = l.chapter_id
-    where qq.id = any(${rows.map((r5) => r5.id)}::int[])`);
+    where qq.id = any(${rows.map((r6) => r6.id)}::int[])`);
   const byId = new Map(info.map((i2) => [i2.id, i2]));
   const table = [
     EXPORT_HEADER,
@@ -53557,8 +54994,8 @@ async function testQuestionAction(ctx) {
 async function testResultsPage(ctx) {
   const { test } = await loadTest(ctx);
   const [rows, qstats, questions] = await Promise.all([testResultsTable(ctx.db, test.id), testQuestionStats(ctx.db, test.id), testQuestions(ctx.db, test.id)]);
-  const submitted = rows.filter((r5) => r5.status && r5.status !== "in_progress");
-  const tens = submitted.map((r5) => toTenScale(r5.score ?? 0, r5.maxScore ?? 0));
+  const submitted = rows.filter((r6) => r6.status && r6.status !== "in_progress");
+  const tens = submitted.map((r6) => toTenScale(r6.score ?? 0, r6.maxScore ?? 0));
   const avg = tens.length ? tens.reduce((a, b) => a + b, 0) / tens.length : null;
   return page(
     ctx,
@@ -53582,37 +55019,37 @@ async function testResultsPage(ctx) {
             /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("th", { children: "N\u1ED9p l\xFAc" }),
             /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("th", {})
           ] }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("tbody", { children: rows.map((r5) => /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("tr", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("tbody", { children: rows.map((r6) => /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("tr", { children: [
             /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("td", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "font-semibold", children: r5.fullName }),
+              /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "font-semibold", children: r6.fullName }),
               /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("div", { className: "font-mono text-[12px] text-ink-3", children: [
                 "@",
-                r5.username
+                r6.username
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("td", { children: r5.className ?? "\u2013" }),
+            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("td", { children: r6.className ?? "\u2013" }),
             /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("td", { children: [
-              !r5.status && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(Badge, { tone: "gray", children: "Ch\u01B0a l\xE0m" }),
-              r5.status === "in_progress" && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(Badge, { tone: "hl", children: "\u0110ang l\xE0m" }),
-              r5.status === "submitted" && /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)(Badge, { tone: "cam", children: [
+              !r6.status && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(Badge, { tone: "gray", children: "Ch\u01B0a l\xE0m" }),
+              r6.status === "in_progress" && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(Badge, { tone: "hl", children: "\u0110ang l\xE0m" }),
+              r6.status === "submitted" && /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)(Badge, { tone: "cam", children: [
                 "Ch\u1EDD ch\u1EA5m ",
-                r5.pendingManual,
+                r6.pendingManual,
                 " c\xE2u"
               ] }),
-              r5.status === "graded" && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(Badge, { tone: "tre", children: "\u0110\xE3 ch\u1EA5m" }),
-              r5.attempts > 1 && /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("span", { className: "ml-1 text-[12px] text-ink-3", children: [
+              r6.status === "graded" && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(Badge, { tone: "tre", children: "\u0110\xE3 ch\u1EA5m" }),
+              r6.attempts > 1 && /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)("span", { className: "ml-1 text-[12px] text-ink-3", children: [
                 "l\u1EA7n ",
-                r5.attempts
+                r6.attempts
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("td", { className: "font-bold tabular-nums", children: r5.status && r5.status !== "in_progress" ? formatNumber(toTenScale(r5.score ?? 0, r5.maxScore ?? 0)) : "\u2013" }),
-            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("td", { className: "text-[13px] text-ink-3", children: r5.submittedAt ? formatDateTime(r5.submittedAt) : "" }),
-            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("td", { className: "whitespace-nowrap text-right", children: r5.resultId && r5.status !== "in_progress" && /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)(import_jsx_runtime34.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("a", { href: `/kiem-tra/ket-qua/${r5.resultId}`, className: buttonClass("quiet", "sm"), children: "Xem b\xE0i" }),
+            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("td", { className: "font-bold tabular-nums", children: r6.status && r6.status !== "in_progress" ? formatNumber(toTenScale(r6.score ?? 0, r6.maxScore ?? 0)) : "\u2013" }),
+            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("td", { className: "text-[13px] text-ink-3", children: r6.submittedAt ? formatDateTime(r6.submittedAt) : "" }),
+            /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("td", { className: "whitespace-nowrap text-right", children: r6.resultId && r6.status !== "in_progress" && /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)(import_jsx_runtime34.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("a", { href: `/kiem-tra/ket-qua/${r6.resultId}`, className: buttonClass("quiet", "sm"), children: "Xem b\xE0i" }),
               " ",
-              r5.pendingManual > 0 && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("a", { href: `/giao-vien/cham-bai/${r5.resultId}`, className: buttonClass("primary", "sm"), children: "Ch\u1EA5m" })
+              r6.pendingManual > 0 && /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("a", { href: `/giao-vien/cham-bai/${r6.resultId}`, className: buttonClass("primary", "sm"), children: "Ch\u1EA5m" })
             ] }) })
-          ] }, r5.studentId)) })
+          ] }, r6.studentId)) })
         ] }) : /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("div", { className: "p-5", children: /* @__PURE__ */ (0, import_jsx_runtime34.jsx)(EmptyState, { title: "Ch\u01B0a c\xF3 h\u1ECDc sinh \u0111\u01B0\u1EE3c giao \u0111\u1EC1", children: "Giao \u0111\u1EC1 cho l\u1EDBp trong trang chi ti\u1EBFt \u0111\u1EC1." }) }) }),
         /* @__PURE__ */ (0, import_jsx_runtime34.jsxs)(Panel, { className: "h-fit p-5", children: [
           /* @__PURE__ */ (0, import_jsx_runtime34.jsx)("h2", { className: "mb-3 text-lg font-extrabold", children: "T\u1EC9 l\u1EC7 \u0111\xFAng t\u1EEBng c\xE2u" }),
@@ -53727,7 +55164,7 @@ async function statsPage(ctx) {
   const classId = Number(ctx.query.get("lop")) || null;
   const selected = classes.find((c) => c.id === classId) ?? null;
   const scopeIds = selected ? [selected.id] : classes.map((c) => c.id);
-  const students = scopeIds.length ? (await ctx.db.many(sql`select distinct student_id as id from class_members where class_id = any(${scopeIds}::int[])`)).map((r5) => r5.id) : [];
+  const students = scopeIds.length ? (await ctx.db.many(sql`select distinct student_id as id from class_members where class_id = any(${scopeIds}::int[])`)).map((r6) => r6.id) : [];
   const [chapters, completion, hardest, tests] = await Promise.all([
     chapterStats(ctx.db, students, book.id),
     lessonCompletionStats(ctx.db, students, book.id),
@@ -54295,7 +55732,7 @@ async function pendingPractice(ctx, limit) {
 async function practiceGradingPage(ctx) {
   requireTeacher(ctx);
   const rows = await pendingPractice(ctx, 20);
-  const questions = await getQuestions(ctx.db, [...new Set(rows.map((r5) => r5.questionId))]);
+  const questions = await getQuestions(ctx.db, [...new Set(rows.map((r6) => r6.questionId))]);
   const byId = new Map(questions.map((q) => [q.id, q]));
   return page(
     ctx,
@@ -54309,20 +55746,20 @@ async function practiceGradingPage(ctx) {
           sub: "B\xE0i t\u1EF1 lu\u1EADn h\u1ECDc sinh l\u1EDBp th\u1EA7y/c\xF4 l\xE0m khi luy\u1EC7n t\u1EADp. H\u1EC7 th\u1ED1ng kh\xF4ng t\u1EF1 k\u1EBFt lu\u1EADn \u0111\xFAng sai c\xE2u t\u1EF1 lu\u1EADn \u2013 th\u1EA7y/c\xF4 ch\u1EA5m theo h\u01B0\u1EDBng d\u1EABn ch\u1EA5m."
         }
       ),
-      rows.length ? /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "space-y-6", children: rows.map((r5) => {
-        const q = byId.get(r5.questionId);
+      rows.length ? /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "space-y-6", children: rows.map((r6) => {
+        const q = byId.get(r6.questionId);
         if (!q) return null;
         const view = toView(q, false);
         return /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(Panel, { className: "p-5 md:p-6", children: [
           /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "mb-3 flex flex-wrap items-center gap-2 text-[13px]", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("strong", { className: "text-[15px]", children: r5.studentName }),
-            r5.className && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Badge, { tone: "gray", children: r5.className }),
+            /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("strong", { className: "text-[15px]", children: r6.studentName }),
+            r6.className && /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Badge, { tone: "gray", children: r6.className }),
             /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Badge, { children: TYPE_LABELS[q.type] }),
             /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Badge, { tone: "gray", children: LEVEL_LABELS[q.level] }),
             /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("span", { className: "text-ink-3", children: [
-              r5.sessionTitle,
+              r6.sessionTitle,
               " \xB7 ",
-              formatDate(r5.createdAt)
+              formatDate(r6.createdAt)
             ] })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Html, { className: "prose-math text-[16px]", html: view.stemHtml }),
@@ -54330,8 +55767,8 @@ async function practiceGradingPage(ctx) {
           /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "mt-4 grid gap-4 lg:grid-cols-2", children: [
             /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "rounded-xl bg-mist p-4", children: [
               /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "mb-1 text-sm font-bold text-ink-2", children: "B\xE0i l\xE0m c\u1EE7a h\u1ECDc sinh" }),
-              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Html, { className: "prose-math", html: renderRich(r5.response?.text || "(kh\xF4ng c\xF3 ch\u1EEF)") }),
-              r5.response?.images?.map((img) => /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("a", { href: `/media/${img}`, target: "_blank", rel: "noreferrer", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("img", { src: `/media/${img}`, alt: "\u1EA2nh b\xE0i l\xE0m", className: "mt-2 max-h-80 w-auto rounded-lg border border-line" }) }, img))
+              /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Html, { className: "prose-math", html: renderRich(r6.response?.text || "(kh\xF4ng c\xF3 ch\u1EEF)") }),
+              r6.response?.images?.map((img) => /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("a", { href: `/media/${img}`, target: "_blank", rel: "noreferrer", children: /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("img", { src: `/media/${img}`, alt: "\u1EA2nh b\xE0i l\xE0m", className: "mt-2 max-h-80 w-auto rounded-lg border border-line" }) }, img))
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("div", { className: "rounded-xl border border-line p-4", children: [
               /* @__PURE__ */ (0, import_jsx_runtime37.jsx)("div", { className: "mb-1 text-sm font-bold text-ink-2", children: "L\u1EDDi gi\u1EA3i tham kh\u1EA3o" }),
@@ -54342,7 +55779,7 @@ async function practiceGradingPage(ctx) {
               ] })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(PostForm, { action: `/giao-vien/cham-luyen-tap/${r5.id}`, className: "mt-4 grid gap-3 md:grid-cols-[180px_minmax(0,1fr)_auto] md:items-end", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)(PostForm, { action: `/giao-vien/cham-luyen-tap/${r6.id}`, className: "mt-4 grid gap-3 md:grid-cols-[180px_minmax(0,1fr)_auto] md:items-end", children: [
             /* @__PURE__ */ (0, import_jsx_runtime37.jsxs)("label", { className: "block text-sm font-semibold text-ink-2", children: [
               "\u0110i\u1EC3m \u0111\u1EA1t (t\u1ED1i \u0111a ",
               q.points.toLocaleString("vi-VN"),
@@ -54355,7 +55792,7 @@ async function practiceGradingPage(ctx) {
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Button, { children: "L\u01B0u \u0111i\u1EC3m" })
           ] })
-        ] }, r5.id);
+        ] }, r6.id);
       }) }) : /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(EmptyState, { title: "Kh\xF4ng c\xF3 b\xE0i t\u1EF1 lu\u1EADn n\xE0o ch\u1EDD ch\u1EA5m", children: "Khi h\u1ECDc sinh l\u1EDBp th\u1EA7y/c\xF4 n\u1ED9p c\xE2u t\u1EF1 lu\u1EADn trong luy\u1EC7n t\u1EADp, b\xE0i s\u1EBD hi\u1EC7n \u1EDF \u0111\xE2y." }),
       /* @__PURE__ */ (0, import_jsx_runtime37.jsx)(Notice, { tone: "info", className: "mt-6", children: "\u0110i\u1EC3m v\xE0 nh\u1EADn x\xE9t hi\u1EC7n ngay trong trang k\u1EBFt qu\u1EA3 luy\u1EC7n t\u1EADp c\u1EE7a h\u1ECDc sinh. B\xE0i t\u1EF1 lu\u1EADn trong \u0111\u1EC1 ki\u1EC3m tra \u0111\u01B0\u1EE3c ch\u1EA5m \u1EDF trang \u201CK\u1EBFt qu\u1EA3\u201D c\u1EE7a t\u1EEBng \u0111\u1EC1." })
     ] })
@@ -54365,7 +55802,7 @@ async function practiceGradingAction(ctx) {
   const user = requireTeacher(ctx);
   const id = intParam(ctx, "id");
   const rows = await pendingPractice(ctx, 500);
-  const row = rows.find((r5) => r5.id === id);
+  const row = rows.find((r6) => r6.id === id);
   if (!row) throw new HttpError(404, "Kh\xF4ng t\xECm th\u1EA5y b\xE0i l\xE0m ch\u1EDD ch\u1EA5m (c\xF3 th\u1EC3 \u0111\xE3 \u0111\u01B0\u1EE3c ch\u1EA5m).");
   const [q] = await getQuestions(ctx.db, [row.questionId]);
   const form = await ctx.form();
@@ -54391,56 +55828,56 @@ async function practiceGradingAction(ctx) {
 }
 
 // src/server/handlers/teacher/routes.ts
-function registerTeacherRoutes(r5) {
-  r5.get("/giao-vien", teacherHome);
-  r5.get("/giao-vien/lop", (ctx) => classesPage(ctx));
-  r5.post("/giao-vien/lop", createClassAction);
-  r5.get("/giao-vien/lop/:id", (ctx) => classDetailPage(ctx));
-  r5.post("/giao-vien/lop/:id/:action", classAction);
-  r5.get("/giao-vien/hoc-sinh", studentsPage);
-  r5.post("/giao-vien/hoc-sinh/:id/dat-lai-mat-khau", studentResetAction);
-  r5.get("/giao-vien/chuong-trinh", (ctx) => curriculumAdminPage(ctx));
-  r5.post("/giao-vien/chuong-trinh", curriculumAction);
-  r5.get("/giao-vien/chuong/:id", (ctx) => chapterEditorPage(ctx));
-  r5.post("/giao-vien/chuong/:id", chapterEditorAction);
-  r5.get("/giao-vien/dang-toan/:id", (ctx) => topicEditorPage(ctx));
-  r5.post("/giao-vien/dang-toan/:id", topicEditorAction);
-  r5.get("/giao-vien/bai-hoc/:id", (ctx) => lessonEditorPage(ctx));
-  r5.post("/giao-vien/bai-hoc/:id", lessonEditorAction);
-  r5.post("/giao-vien/anh", uploadImageAction);
-  r5.get("/giao-vien/cau-hoi", questionBankPage);
-  r5.get("/giao-vien/cau-hoi/nhap", (ctx) => importPage(ctx));
-  r5.post("/giao-vien/cau-hoi/nhap", importAction);
-  r5.get("/giao-vien/cau-hoi/nhap/mau.csv", importTemplate);
-  r5.get("/giao-vien/cau-hoi/nhap/mau.xlsx", importTemplate);
-  r5.get("/giao-vien/cau-hoi/xuat", exportQuestions);
-  r5.post("/giao-vien/cau-hoi/duyet", bulkApproveAction);
-  r5.get("/giao-vien/cau-hoi/moi", newQuestionPage);
-  r5.post("/giao-vien/cau-hoi/moi", createQuestionAction);
-  r5.get("/giao-vien/cau-hoi/:id", editQuestionPage);
-  r5.post("/giao-vien/cau-hoi/:id", updateQuestionAction);
-  r5.get("/giao-vien/cau-hoi/:id/xem", previewQuestionPage);
-  r5.post("/giao-vien/cau-hoi/:id/xoa", deleteQuestionAction);
-  r5.post("/giao-vien/cau-hoi/:id/nhan-ban", duplicateQuestionAction);
-  r5.post("/giao-vien/cau-hoi/:id/duyet", approveQuestionAction);
-  r5.post("/giao-vien/cau-hoi/:id/anh", questionImageAction);
-  r5.post("/giao-vien/cau-hoi/:id/anh/:imageId/xoa", questionImageAction);
-  r5.get("/giao-vien/de-kiem-tra", (ctx) => testsPage(ctx));
-  r5.get("/giao-vien/de-kiem-tra/tu-dong", (ctx) => generatorPage(ctx));
-  r5.post("/giao-vien/de-kiem-tra/tu-dong", generatorAction);
-  r5.get("/giao-vien/de-kiem-tra/cau-hinh/:id", (ctx) => blueprintPage(ctx));
-  r5.post("/giao-vien/de-kiem-tra/cau-hinh/:id/:action", blueprintAction);
-  r5.post("/giao-vien/de-kiem-tra", createTestAction);
-  r5.get("/giao-vien/de-kiem-tra/:id", (ctx) => testDetailPage(ctx));
-  r5.post("/giao-vien/de-kiem-tra/:id", testAction);
-  r5.get("/giao-vien/de-kiem-tra/:id/ket-qua", testResultsPage);
-  r5.post("/giao-vien/de-kiem-tra/:id/cau-hoi/:qid", testQuestionAction);
-  r5.post("/giao-vien/de-kiem-tra/:id/:action", testAction);
-  r5.get("/giao-vien/cham-bai/:id", (ctx) => gradingPage(ctx));
-  r5.post("/giao-vien/cham-bai/:id", gradingAction);
-  r5.get("/giao-vien/thong-ke", statsPage);
-  r5.get("/giao-vien/cham-luyen-tap", (ctx) => practiceGradingPage(ctx));
-  r5.post("/giao-vien/cham-luyen-tap/:id", practiceGradingAction);
+function registerTeacherRoutes(r6) {
+  r6.get("/giao-vien", teacherHome);
+  r6.get("/giao-vien/lop", (ctx) => classesPage(ctx));
+  r6.post("/giao-vien/lop", createClassAction);
+  r6.get("/giao-vien/lop/:id", (ctx) => classDetailPage(ctx));
+  r6.post("/giao-vien/lop/:id/:action", classAction);
+  r6.get("/giao-vien/hoc-sinh", studentsPage);
+  r6.post("/giao-vien/hoc-sinh/:id/dat-lai-mat-khau", studentResetAction);
+  r6.get("/giao-vien/chuong-trinh", (ctx) => curriculumAdminPage(ctx));
+  r6.post("/giao-vien/chuong-trinh", curriculumAction);
+  r6.get("/giao-vien/chuong/:id", (ctx) => chapterEditorPage(ctx));
+  r6.post("/giao-vien/chuong/:id", chapterEditorAction);
+  r6.get("/giao-vien/dang-toan/:id", (ctx) => topicEditorPage(ctx));
+  r6.post("/giao-vien/dang-toan/:id", topicEditorAction);
+  r6.get("/giao-vien/bai-hoc/:id", (ctx) => lessonEditorPage(ctx));
+  r6.post("/giao-vien/bai-hoc/:id", lessonEditorAction);
+  r6.post("/giao-vien/anh", uploadImageAction);
+  r6.get("/giao-vien/cau-hoi", questionBankPage);
+  r6.get("/giao-vien/cau-hoi/nhap", (ctx) => importPage(ctx));
+  r6.post("/giao-vien/cau-hoi/nhap", importAction);
+  r6.get("/giao-vien/cau-hoi/nhap/mau.csv", importTemplate);
+  r6.get("/giao-vien/cau-hoi/nhap/mau.xlsx", importTemplate);
+  r6.get("/giao-vien/cau-hoi/xuat", exportQuestions);
+  r6.post("/giao-vien/cau-hoi/duyet", bulkApproveAction);
+  r6.get("/giao-vien/cau-hoi/moi", newQuestionPage);
+  r6.post("/giao-vien/cau-hoi/moi", createQuestionAction);
+  r6.get("/giao-vien/cau-hoi/:id", editQuestionPage);
+  r6.post("/giao-vien/cau-hoi/:id", updateQuestionAction);
+  r6.get("/giao-vien/cau-hoi/:id/xem", previewQuestionPage);
+  r6.post("/giao-vien/cau-hoi/:id/xoa", deleteQuestionAction);
+  r6.post("/giao-vien/cau-hoi/:id/nhan-ban", duplicateQuestionAction);
+  r6.post("/giao-vien/cau-hoi/:id/duyet", approveQuestionAction);
+  r6.post("/giao-vien/cau-hoi/:id/anh", questionImageAction);
+  r6.post("/giao-vien/cau-hoi/:id/anh/:imageId/xoa", questionImageAction);
+  r6.get("/giao-vien/de-kiem-tra", (ctx) => testsPage(ctx));
+  r6.get("/giao-vien/de-kiem-tra/tu-dong", (ctx) => generatorPage(ctx));
+  r6.post("/giao-vien/de-kiem-tra/tu-dong", generatorAction);
+  r6.get("/giao-vien/de-kiem-tra/cau-hinh/:id", (ctx) => blueprintPage(ctx));
+  r6.post("/giao-vien/de-kiem-tra/cau-hinh/:id/:action", blueprintAction);
+  r6.post("/giao-vien/de-kiem-tra", createTestAction);
+  r6.get("/giao-vien/de-kiem-tra/:id", (ctx) => testDetailPage(ctx));
+  r6.post("/giao-vien/de-kiem-tra/:id", testAction);
+  r6.get("/giao-vien/de-kiem-tra/:id/ket-qua", testResultsPage);
+  r6.post("/giao-vien/de-kiem-tra/:id/cau-hoi/:qid", testQuestionAction);
+  r6.post("/giao-vien/de-kiem-tra/:id/:action", testAction);
+  r6.get("/giao-vien/cham-bai/:id", (ctx) => gradingPage(ctx));
+  r6.post("/giao-vien/cham-bai/:id", gradingAction);
+  r6.get("/giao-vien/thong-ke", statsPage);
+  r6.get("/giao-vien/cham-luyen-tap", (ctx) => practiceGradingPage(ctx));
+  r6.post("/giao-vien/cham-luyen-tap/:id", practiceGradingAction);
 }
 
 // src/server/handlers/admin.tsx
@@ -54659,79 +56096,79 @@ async function adminAccountAction(ctx) {
   }
   throw new HttpError(400);
 }
-function registerAdminRoutes(r5) {
-  r5.get("/quan-tri", adminSystemPage);
-  r5.post("/quan-tri/khoi-lop", adminGradeAction);
-  r5.get("/quan-tri/tai-khoan", (ctx) => adminAccountsPage(ctx));
-  r5.post("/quan-tri/tai-khoan", adminCreateAccount);
-  r5.post("/quan-tri/tai-khoan/:id", adminAccountAction);
+function registerAdminRoutes(r6) {
+  r6.get("/quan-tri", adminSystemPage);
+  r6.post("/quan-tri/khoi-lop", adminGradeAction);
+  r6.get("/quan-tri/tai-khoan", (ctx) => adminAccountsPage(ctx));
+  r6.post("/quan-tri/tai-khoan", adminCreateAccount);
+  r6.post("/quan-tri/tai-khoan/:id", adminAccountAction);
 }
 
 // src/server/routes.ts
 function buildRouter() {
-  const r5 = new Router();
-  r5.get("/", homePage);
-  r5.get("/chuong-trinh", programPage);
-  r5.get("/chuong-trinh/:book/ppct", teachingPlanPage);
-  r5.get("/hoc/:book", coursePage);
-  r5.get("/hoc/:book/ban-do", knowledgeMapPage);
-  r5.get("/hoc/:book/chuong/:code", chapterPage);
-  r5.get("/hoc/:book/bai/:slug", lessonPage);
-  r5.get("/hoc/:book/bai/:slug/dang/:key", topicPage);
-  r5.post("/hoc/:book/bai/:slug/hoan-thanh", completeLessonAction);
-  r5.post("/hoc/:book/bai/:slug/hoc-lai", reopenLessonAction);
-  r5.post("/hoc/:book/bai/:slug/yeu-thich", toggleFavoriteLessonAction);
-  r5.post("/hoc/:book/bai/:slug/ghi-chu", saveNoteAction);
-  r5.get("/cong-thuc", formulasPage);
-  r5.post("/cong-thuc/:id/yeu-thich", toggleFormulaFavoriteAction);
-  r5.get("/goc-hoc-tap", studyCornerPage);
-  r5.get("/tim-kiem", searchPage);
-  r5.post("/api/vi-du/:id/da-xem", exampleViewedApi);
-  r5.get("/luyen-tap", practiceHub);
-  r5.get("/luyen-tap/bai/:slug", practiceLesson);
-  r5.get("/luyen-tap/chuong/:code", practiceChapter);
-  r5.get("/luyen-tap/chuong/:code/kiem-tra", chapterTestPage);
-  r5.get("/luyen-tap/dang/:id", practiceTopic);
-  r5.post("/luyen-tap/tao", createSessionAction);
-  r5.get("/luyen-tap/phien/:id", sessionPage);
-  r5.get("/luyen-tap/ket-qua/:id", sessionResultPage);
-  r5.post("/luyen-tap/ket-qua/:id/lam-lai", retrySessionAction);
-  r5.get("/luyen-tap/lich-su", historyPage);
-  r5.get("/luyen-tap/cau-hay-sai", wrongQuestionsPage);
-  r5.post("/luyen-tap/cau-hay-sai/lam-lai", retryWrongAction);
-  r5.get("/luyen-tap/tien-do", progressPage);
-  r5.post("/api/luyen-tap/phien/:id/kiem-tra", sessionCheckApi);
-  r5.post("/api/luyen-tap/phien/:id/luu", sessionSaveApi);
-  r5.post("/api/luyen-tap/phien/:id/nop", sessionSubmitApi);
-  r5.post("/api/bai-lam/anh", uploadResponseImageApi);
-  r5.get("/thu-thach", challengePage);
-  r5.post("/api/luyen-tap/tra-loi", practiceAnswerApi);
-  r5.get("/kiem-tra", studentTestsPage);
-  r5.get("/kiem-tra/:id", testIntroPage);
-  r5.post("/kiem-tra/:id/bat-dau", startTestAction);
-  r5.get("/kiem-tra/lam/:id", takeTestPage);
-  r5.get("/kiem-tra/ket-qua/:id", testResultPage);
-  r5.post("/api/kiem-tra/luu/:id", saveDraftApi);
-  r5.post("/api/kiem-tra/nop/:id", submitTestApi);
-  r5.get("/thanh-tich", achievementsPage);
-  r5.get("/ca-nhan", (ctx) => profilePage(ctx));
-  r5.post("/ca-nhan/vao-lop", joinClassAction);
-  r5.post("/ca-nhan/mat-khau", changePasswordAction);
-  r5.get("/media/:id", mediaFile);
-  r5.get("/dang-nhap", loginPage);
-  r5.post("/dang-nhap", loginSubmit);
-  r5.get("/dang-ky", registerPage);
-  r5.post("/dang-ky", registerSubmit);
-  r5.post("/dang-xuat", logout);
-  r5.get("/cai-dat-ban-dau", setupPage);
-  r5.post("/cai-dat-ban-dau", setupSubmit);
-  r5.get("/api/suc-khoe", async (ctx) => {
+  const r6 = new Router();
+  r6.get("/", homePage);
+  r6.get("/chuong-trinh", programPage);
+  r6.get("/chuong-trinh/:book/ppct", teachingPlanPage);
+  r6.get("/hoc/:book", coursePage);
+  r6.get("/hoc/:book/ban-do", knowledgeMapPage);
+  r6.get("/hoc/:book/chuong/:code", chapterPage);
+  r6.get("/hoc/:book/bai/:slug", lessonPage);
+  r6.get("/hoc/:book/bai/:slug/dang/:key", topicPage);
+  r6.post("/hoc/:book/bai/:slug/hoan-thanh", completeLessonAction);
+  r6.post("/hoc/:book/bai/:slug/hoc-lai", reopenLessonAction);
+  r6.post("/hoc/:book/bai/:slug/yeu-thich", toggleFavoriteLessonAction);
+  r6.post("/hoc/:book/bai/:slug/ghi-chu", saveNoteAction);
+  r6.get("/cong-thuc", formulasPage);
+  r6.post("/cong-thuc/:id/yeu-thich", toggleFormulaFavoriteAction);
+  r6.get("/goc-hoc-tap", studyCornerPage);
+  r6.get("/tim-kiem", searchPage);
+  r6.post("/api/vi-du/:id/da-xem", exampleViewedApi);
+  r6.get("/luyen-tap", practiceHub);
+  r6.get("/luyen-tap/bai/:slug", practiceLesson);
+  r6.get("/luyen-tap/chuong/:code", practiceChapter);
+  r6.get("/luyen-tap/chuong/:code/kiem-tra", chapterTestPage);
+  r6.get("/luyen-tap/dang/:id", practiceTopic);
+  r6.post("/luyen-tap/tao", createSessionAction);
+  r6.get("/luyen-tap/phien/:id", sessionPage);
+  r6.get("/luyen-tap/ket-qua/:id", sessionResultPage);
+  r6.post("/luyen-tap/ket-qua/:id/lam-lai", retrySessionAction);
+  r6.get("/luyen-tap/lich-su", historyPage);
+  r6.get("/luyen-tap/cau-hay-sai", wrongQuestionsPage);
+  r6.post("/luyen-tap/cau-hay-sai/lam-lai", retryWrongAction);
+  r6.get("/luyen-tap/tien-do", progressPage);
+  r6.post("/api/luyen-tap/phien/:id/kiem-tra", sessionCheckApi);
+  r6.post("/api/luyen-tap/phien/:id/luu", sessionSaveApi);
+  r6.post("/api/luyen-tap/phien/:id/nop", sessionSubmitApi);
+  r6.post("/api/bai-lam/anh", uploadResponseImageApi);
+  r6.get("/thu-thach", challengePage);
+  r6.post("/api/luyen-tap/tra-loi", practiceAnswerApi);
+  r6.get("/kiem-tra", studentTestsPage);
+  r6.get("/kiem-tra/:id", testIntroPage);
+  r6.post("/kiem-tra/:id/bat-dau", startTestAction);
+  r6.get("/kiem-tra/lam/:id", takeTestPage);
+  r6.get("/kiem-tra/ket-qua/:id", testResultPage);
+  r6.post("/api/kiem-tra/luu/:id", saveDraftApi);
+  r6.post("/api/kiem-tra/nop/:id", submitTestApi);
+  r6.get("/thanh-tich", achievementsPage);
+  r6.get("/ca-nhan", (ctx) => profilePage(ctx));
+  r6.post("/ca-nhan/vao-lop", joinClassAction);
+  r6.post("/ca-nhan/mat-khau", changePasswordAction);
+  r6.get("/media/:id", mediaFile);
+  r6.get("/dang-nhap", loginPage);
+  r6.post("/dang-nhap", loginSubmit);
+  r6.get("/dang-ky", registerPage);
+  r6.post("/dang-ky", registerSubmit);
+  r6.post("/dang-xuat", logout);
+  r6.get("/cai-dat-ban-dau", setupPage);
+  r6.post("/cai-dat-ban-dau", setupSubmit);
+  r6.get("/api/suc-khoe", async (ctx) => {
     await ctx.db.one(sql`select 1`);
     return { type: "json", status: 200, data: { ok: true, time: (/* @__PURE__ */ new Date()).toISOString() } };
   });
-  registerTeacherRoutes(r5);
-  registerAdminRoutes(r5);
-  return r5;
+  registerTeacherRoutes(r6);
+  registerAdminRoutes(r6);
+  return r6;
 }
 
 // src/static/export.tsx
@@ -54848,7 +56285,7 @@ async function exportHtml(db, outDir, assetsDir, log = console.log) {
   const uploads = new Map(
     (await db.many(sql`
       select i.id, i.mime, i.data from images i join question_images qi on qi.image_id = i.id
-      where i.kind = 'upload' and qi.question_id = any(${full.map((q) => q.id)}::int[])`)).map((r5) => [r5.id, `data:${r5.mime};base64,${r5.data.toString("base64")}`])
+      where i.kind = 'upload' and qi.question_id = any(${full.map((q) => q.id)}::int[])`)).map((r6) => [r6.id, `data:${r6.mime};base64,${r6.data.toString("base64")}`])
   );
   const lessonSlugById = new Map(flat.map((l) => [l.id, l.slug]));
   const themes = await getThemesByLesson(db, book.id);
