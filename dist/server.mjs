@@ -44837,8 +44837,682 @@ donvi: tỉ đồng
 };
 var BANK_CHUONG_5 = [B18, B19, B20];
 
+// src/seed/toan8-bank/chuong-6.ts
+var TM = "tu-thuc-mau-thuc";
+var HB = "hai-phan-thuc-bang-nhau";
+var DK = "dieu-kien-xac-dinh-phan-thuc";
+var GT = "gia-tri-phan-thuc";
+var TT = "bai-toan-thuc-te-phan-thuc";
+var B21 = {
+  slug: "bai-21-phan-thuc-dai-so",
+  questions: [
+    mc(1, TM, "Bi\u1EC3u th\u1EE9c n\xE0o sau \u0111\xE2y KH\xD4NG ph\u1EA3i l\xE0 ph\xE2n th\u1EE9c \u0111\u1EA1i s\u1ED1?", [r5`\(\dfrac{x + 1}{0}\)`, r5`\(\dfrac{x}{3}\)`, r5`\(x^2 + 1\)`, r5`\(\dfrac{5}{x - y}\)`], "M\u1EABu c\u1EE7a ph\xE2n th\u1EE9c ph\u1EA3i kh\xE1c \u0111a th\u1EE9c 0.", [
+      "M\u1EABu b\u1EB1ng 0 n\xEAn kh\xF4ng ph\u1EA3i ph\xE2n th\u1EE9c.",
+      "T\u1EED v\xE0 m\u1EABu l\xE0 \u0111a th\u1EE9c, m\u1EABu kh\xE1c 0.",
+      "M\u1ED7i \u0111a th\u1EE9c l\xE0 m\u1ED9t ph\xE2n th\u1EE9c c\xF3 m\u1EABu b\u1EB1ng 1.",
+      "T\u1EED v\xE0 m\u1EABu l\xE0 \u0111a th\u1EE9c, m\u1EABu kh\xE1c \u0111a th\u1EE9c 0."
+    ]),
+    mc(1, TM, r5`Mẫu thức của phân thức \(\dfrac{2x - 1}{x^2 + 3}\) là`, [r5`\(x^2 + 3\)`, r5`\(2x - 1\)`, r5`\(x^2\)`, r5`\(3\)`], "M\u1EABu th\u1EE9c l\xE0 \u0111a th\u1EE9c vi\u1EBFt d\u01B0\u1EDBi g\u1EA1ch ph\xE2n s\u1ED1.", [
+      void 0,
+      "\u0110\xF3 l\xE0 t\u1EED th\u1EE9c.",
+      "Ph\u1EA3i l\u1EA5y c\u1EA3 \u0111a th\u1EE9c \u1EDF m\u1EABu.",
+      "Ph\u1EA3i l\u1EA5y c\u1EA3 \u0111a th\u1EE9c \u1EDF m\u1EABu."
+    ]),
+    mc(1, TM, "M\u1ED7i \u0111a th\u1EE9c c\u0169ng \u0111\u01B0\u1EE3c coi l\xE0 m\u1ED9t ph\xE2n th\u1EE9c c\xF3 m\u1EABu b\u1EB1ng", [r5`\(1\)`, r5`\(0\)`, "ch\xEDnh \u0111a th\u1EE9c \u0111\xF3", r5`\(x\)`], r5`\(A = \dfrac{A}{1}\).`, [
+      void 0,
+      "M\u1EABu ph\u1EA3i kh\xE1c 0.",
+      r5`\(\dfrac{A}{A} = 1\), không bằng \(A\).`,
+      r5`\(\dfrac{A}{x} \ne A\).`
+    ]),
+    mc(1, HB, r5`Hai phân thức \(\dfrac{A}{B}\) và \(\dfrac{C}{D}\) bằng nhau khi`, [r5`\(A\cdot D = B\cdot C\)`, r5`\(A\cdot C = B\cdot D\)`, r5`\(A + D = B + C\)`, r5`\(A - C = B - D\)`], "\u0110\u1ECBnh ngh\u0129a hai ph\xE2n th\u1EE9c b\u1EB1ng nhau: t\xEDch ch\xE9o b\u1EB1ng nhau.", [
+      void 0,
+      "Nh\xE2n sai c\u1EB7p.",
+      "Kh\xF4ng ph\u1EA3i \u0111\u1ECBnh ngh\u0129a.",
+      "Kh\xF4ng ph\u1EA3i \u0111\u1ECBnh ngh\u0129a."
+    ]),
+    mc(2, HB, r5`Phân thức nào sau đây bằng phân thức \(\dfrac{x}{x - 1}\)?`, [r5`\(\dfrac{x^2}{x^2 - x}\)`, r5`\(\dfrac{x + 1}{x}\)`, r5`\(\dfrac{x^2}{(x - 1)^2}\)`, r5`\(\dfrac{2x}{x - 2}\)`], r5`\(x\cdot(x^2 - x) = x^2(x - 1) = (x - 1)\cdot x^2\) nên hai phân thức bằng nhau.`, [
+      void 0,
+      "C\u1ED9ng 1 v\xE0o t\u1EED v\xE0 m\u1EABu kh\xF4ng gi\u1EEF nguy\xEAn ph\xE2n th\u1EE9c.",
+      "Ch\u1EC9 b\xECnh ph\u01B0\u01A1ng t\u1EED v\xE0 m\u1EABu kh\xF4ng gi\u1EEF nguy\xEAn ph\xE2n th\u1EE9c.",
+      "Nh\xE2n t\u1EED v\u1EDBi 2 nh\u01B0ng m\u1EABu kh\xF4ng nh\xE2n 2."
+    ]),
+    mc(2, HB, r5`Đa thức \(A\) thỏa mãn \(\dfrac{A}{x + 2} = \dfrac{x^2 - 4}{(x + 2)^2}\) là`, [r5`\(x - 2\)`, r5`\(x + 2\)`, r5`\(x^2 - 4\)`, r5`\(1\)`], r5`\(A(x + 2)^2 = (x + 2)(x^2 - 4) = (x + 2)^2(x - 2)\) nên \(A = x - 2\).`, [
+      void 0,
+      "Sai d\u1EA5u.",
+      "Ch\u01B0a chia cho \\(x + 2\\).",
+      "R\xFAt g\u1ECDn sai."
+    ]),
+    mc(1, DK, r5`Phân thức \(\dfrac{3}{x - 5}\) xác định khi`, [r5`\(x \ne 5\)`, r5`\(x \ne -5\)`, r5`\(x \ne 3\)`, r5`\(x = 5\)`], r5`Mẫu khác 0: \(x - 5 \ne 0 \iff x \ne 5\).`, [
+      void 0,
+      "Sai d\u1EA5u.",
+      "\u0110i\u1EC1u ki\u1EC7n \u0111\u1EB7t cho m\u1EABu, kh\xF4ng ph\u1EA3i t\u1EED.",
+      "Khi \u0111\xF3 m\u1EABu b\u1EB1ng 0."
+    ]),
+    mc(2, DK, r5`Phân thức \(\dfrac{x + 1}{x^2 - 9}\) xác định khi`, [r5`\(x \ne 3\) và \(x \ne -3\)`, r5`\(x \ne 3\)`, r5`\(x \ne 9\)`, r5`\(x \ne -1\)`], r5`\(x^2 - 9 = (x - 3)(x + 3) \ne 0 \iff x \ne 3\) và \(x \ne -3\).`, [
+      void 0,
+      r5`Bỏ sót \(x \ne -3\).`,
+      r5`\(x^2 \ne 9\), không phải \(x \ne 9\).`,
+      "\u0110i\u1EC1u ki\u1EC7n \u0111\u1EB7t cho m\u1EABu."
+    ]),
+    mc(3, DK, r5`Phân thức \(\dfrac{2}{x^2 + 1}\) xác định khi`, [r5`với mọi giá trị của \(x\)`, r5`\(x \ne 1\)`, r5`\(x \ne -1\)`, r5`\(x \ne 1\) và \(x \ne -1\)`], r5`\(x^2 + 1 \ge 1 > 0\) với mọi \(x\) nên mẫu luôn khác 0.`, [
+      void 0,
+      r5`Tại \(x = 1\) mẫu bằng 2.`,
+      r5`Tại \(x = -1\) mẫu bằng 2.`,
+      r5`Nhầm với \(x^2 - 1\).`
+    ]),
+    mc(2, GT, r5`Giá trị của phân thức \(\dfrac{x^2 - 1}{x + 3}\) tại \(x = 2\) là`, [r5`\(\dfrac35\)`, r5`\(1\)`, r5`\(\dfrac53\)`, r5`\(3\)`], r5`\(\dfrac{4 - 1}{2 + 3} = \dfrac35\).`, [
+      void 0,
+      "T\xEDnh sai t\u1EED.",
+      "\u0110\u1EA3o t\u1EED v\xE0 m\u1EABu.",
+      "Ch\u1EC9 t\xEDnh t\u1EED."
+    ]),
+    mc(3, GT, r5`Phân thức \(\dfrac{x - 2}{x + 1}\) có giá trị bằng 0 khi`, [r5`\(x = 2\)`, r5`\(x = -1\)`, r5`\(x = 0\)`, r5`\(x = -2\)`], r5`Phân thức bằng 0 khi tử bằng 0 và mẫu khác 0: \(x = 2\) (khi đó mẫu bằng 3).`, [
+      void 0,
+      "Khi \u0111\xF3 ph\xE2n th\u1EE9c kh\xF4ng x\xE1c \u0111\u1ECBnh.",
+      r5`Tại \(x = 0\) giá trị là \(-2\).`,
+      "Sai d\u1EA5u."
+    ]),
+    mc(3, GT, r5`Giá trị của phân thức \(\dfrac{x^2 - 4}{x - 2}\) tại \(x = 2\) là`, ["kh\xF4ng x\xE1c \u0111\u1ECBnh", r5`\(4\)`, r5`\(0\)`, r5`\(2\)`], r5`Tại \(x = 2\) mẫu bằng 0 nên phân thức không xác định, dù rút gọn được thành \(x + 2\).`, [
+      void 0,
+      r5`Thay vào \(x + 2\) sau khi rút gọn là sai vì \(x = 2\) không thỏa điều kiện xác định.`,
+      "T\u1EED b\u1EB1ng 0 nh\u01B0ng m\u1EABu c\u0169ng b\u1EB1ng 0.",
+      "Kh\xF4ng c\xF3 c\u01A1 s\u1EDF."
+    ]),
+    mc(3, TT, r5`Một ô tô đi quãng đường 150 km với vận tốc \(x\) (km/h). Phân thức biểu thị thời gian đi (giờ) là`, [r5`\(\dfrac{150}{x}\)`, r5`\(150x\)`, r5`\(\dfrac{x}{150}\)`, r5`\(150 + x\)`], "Th\u1EDDi gian b\u1EB1ng qu\xE3ng \u0111\u01B0\u1EDDng chia v\u1EADn t\u1ED1c.", [
+      void 0,
+      "\u0110\xF3 l\xE0 qu\xE3ng \u0111\u01B0\u1EDDng n\u1EBFu \u0111i 150 gi\u1EDD.",
+      "\u0110\u1EA3o ng\u01B0\u1EE3c ph\xE9p chia.",
+      "Kh\xF4ng c\xF3 \xFD ngh\u0129a."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, TM, r5`Cho phân thức \(\dfrac{x^2 + 1}{3x}\).`, [
+      [r5`Tử thức là \(x^2 + 1\).`, true, "\u0110a th\u1EE9c tr\xEAn g\u1EA1ch ph\xE2n s\u1ED1."],
+      [r5`Mẫu thức là \(3x\).`, true, "\u0110a th\u1EE9c d\u01B0\u1EDBi g\u1EA1ch ph\xE2n s\u1ED1."],
+      ["\u0110\xE2y l\xE0 m\u1ED9t \u0111a th\u1EE9c.", false, "Bi\u1EBFn n\u1EB1m \u1EDF m\u1EABu n\xEAn kh\xF4ng ph\u1EA3i \u0111a th\u1EE9c."],
+      [r5`Phân thức xác định khi \(x \ne 0\).`, true, r5`\(3x \ne 0\).`]
+    ]),
+    tf2(1, TM, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      ["M\u1ED7i s\u1ED1 th\u1EF1c l\xE0 m\u1ED9t ph\xE2n th\u1EE9c.", true, "S\u1ED1 \\(a = \\dfrac{a}{1}\\)."],
+      ["S\u1ED1 0 l\xE0 m\u1ED9t ph\xE2n th\u1EE9c.", true, r5`\(0 = \dfrac01\).`],
+      [r5`\(\dfrac1x\) là một đa thức.`, false, "Bi\u1EBFn \u1EDF m\u1EABu."],
+      [r5`\(\dfrac{2x}{5}\) là một phân thức.`, true, "T\u1EED v\xE0 m\u1EABu l\xE0 \u0111a th\u1EE9c."]
+    ]),
+    tf2(1, HB, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      [r5`\(\dfrac{x}{2} = \dfrac{3x}{6}\).`, true, r5`\(x\cdot6 = 2\cdot3x\).`],
+      [r5`\(\dfrac{x + 1}{1} = x + 1\).`, true, "\u0110a th\u1EE9c l\xE0 ph\xE2n th\u1EE9c c\xF3 m\u1EABu 1."],
+      [r5`\(\dfrac1x = \dfrac{x}{x^2}\).`, true, r5`\(1\cdot x^2 = x\cdot x\).`],
+      [r5`\(\dfrac{x + 2}{x + 3} = \dfrac23\).`, false, r5`\(3(x + 2) \ne 2(x + 3)\) nói chung.`]
+    ]),
+    tf2(2, HB, r5`Cho \(P = \dfrac{x^2 - 1}{x + 1}\) và \(Q = x - 1\).`, [
+      [r5`\((x^2 - 1)\cdot1 = (x + 1)(x - 1)\).`, true, "Hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng."],
+      [r5`\(P = Q\) với \(x \ne -1\).`, true, "T\xEDch ch\xE9o b\u1EB1ng nhau."],
+      [r5`\(P\) xác định tại \(x = -1\).`, false, "M\u1EABu b\u1EB1ng 0."],
+      [r5`\(Q\) xác định với mọi \(x\).`, true, "\u0110a th\u1EE9c lu\xF4n x\xE1c \u0111\u1ECBnh."]
+    ]),
+    tf2(2, DK, "X\xE9t t\xEDnh \u0111\xFAng sai v\u1EC1 \u0111i\u1EC1u ki\u1EC7n x\xE1c \u0111\u1ECBnh:", [
+      [r5`\(\dfrac{1}{x - 2}\) xác định khi \(x \ne 2\).`, true, "M\u1EABu kh\xE1c 0."],
+      [r5`\(\dfrac{x}{x^2 + 4}\) xác định với mọi \(x\).`, true, r5`\(x^2 + 4 > 0\).`],
+      [r5`\(\dfrac{x + 1}{x(x - 3)}\) xác định khi \(x \ne 0\) và \(x \ne 3\).`, true, "M\u1ED7i th\u1EEBa s\u1ED1 kh\xE1c 0."],
+      [r5`\(\dfrac{5}{x^2 - 1}\) xác định khi \(x \ne 1\).`, false, r5`Còn \(x \ne -1\).`]
+    ]),
+    tf2(3, DK, r5`Cho \(P = \dfrac{x + 2}{x^2 + 4x + 4}\).`, [
+      [r5`Mẫu bằng \((x + 2)^2\).`, true, "B\xECnh ph\u01B0\u01A1ng c\u1EE7a m\u1ED9t t\u1ED5ng."],
+      [r5`\(P\) xác định khi \(x \ne -2\).`, true, r5`\((x + 2)^2 \ne 0\).`],
+      [r5`\(P\) xác định khi \(x \ne 2\).`, false, r5`Mẫu bằng 0 tại \(x = -2\).`],
+      [r5`\(P = \dfrac{1}{x + 2}\) với \(x \ne -2\).`, true, r5`\((x + 2)(x + 2) = 1\cdot(x + 2)^2\).`]
+    ]),
+    tf2(2, GT, r5`Cho phân thức \(\dfrac{2x + 1}{x - 1}\).`, [
+      [r5`Tại \(x = 2\) giá trị là 5.`, true, r5`\(\dfrac{5}{1}\).`],
+      [r5`Tại \(x = 0\) giá trị là \(-1\).`, true, r5`\(\dfrac{1}{-1}\).`],
+      [r5`Tại \(x = 1\) giá trị là 0.`, false, "Ph\xE2n th\u1EE9c kh\xF4ng x\xE1c \u0111\u1ECBnh t\u1EA1i \\(x = 1\\)."],
+      [r5`Tại \(x = -\dfrac12\) giá trị là 0.`, true, "T\u1EED b\u1EB1ng 0, m\u1EABu kh\xE1c 0."]
+    ]),
+    tf2(3, GT, r5`Cho phân thức \(\dfrac{x^2 - 9}{x^2 + 3x}\).`, [
+      [r5`Điều kiện xác định: \(x \ne 0\) và \(x \ne -3\).`, true, r5`\(x(x + 3) \ne 0\).`],
+      [r5`Phân thức bằng 0 khi \(x = 3\).`, true, "T\u1EED b\u1EB1ng 0, m\u1EABu kh\xE1c 0."],
+      [r5`Phân thức bằng 0 khi \(x = -3\).`, false, "Khi \u0111\xF3 ph\xE2n th\u1EE9c kh\xF4ng x\xE1c \u0111\u1ECBnh."],
+      [r5`Tại \(x = 1\) giá trị là \(-2\).`, true, r5`\(\dfrac{1 - 9}{1 + 3}\).`]
+    ]),
+    tf2(3, TT, r5`Một vòi nước chảy riêng thì đầy bể trong \(x\) giờ (\(x > 0\)).`, [
+      [r5`Trong 1 giờ vòi chảy được \(\dfrac1x\) bể.`, true, "N\u0103ng su\u1EA5t b\u1EB1ng c\xF4ng vi\u1EC7c chia th\u1EDDi gian."],
+      [r5`Điều kiện của \(x\) là \(x > 0\).`, true, "Th\u1EDDi gian d\u01B0\u01A1ng."],
+      [r5`Trong 3 giờ vòi chảy được \(\dfrac3x\) bể.`, true, r5`\(3\cdot\dfrac1x\).`],
+      [r5`Trong 1 giờ vòi chảy được \(x\) bể.`, false, "\u0110\u1EA3o ng\u01B0\u1EE3c."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, GT, r5`Tính giá trị của phân thức \(\dfrac{x^2 + 2x}{x - 3}\) tại \(x = -1\).`, "1/4", r5`\(\dfrac{1 - 2}{-1 - 3} = \dfrac{-1}{-4} = \dfrac14\).`),
+    sa2(3, DK, r5`Tìm các giá trị của \(x\) làm phân thức \(\dfrac{x + 5}{x^2 - 4x}\) không xác định. (Viết các giá trị cách nhau bởi dấu ";")`, "x = 0; x = 4", r5`\(x^2 - 4x = x(x - 4) = 0 \iff x = 0\) hoặc \(x = 4\).`),
+    sa2(3, GT, r5`Tìm \(x\) để phân thức \(\dfrac{2x - 6}{x + 1}\) có giá trị bằng 0.`, "3", r5`Tử bằng 0: \(x = 3\); khi đó mẫu bằng 4 khác 0.`),
+    sa2(3, TT, r5`Một xe đi quãng đường 120 km với vận tốc \(x\) (km/h) và quay về với vận tốc \(x + 10\) (km/h). Tính tổng thời gian đi và về khi \(x = 30\).`, "7", r5`\(\dfrac{120}{30} + \dfrac{120}{40} = 4 + 3 = 7\) giờ.`, { unit: "gi\u1EDD" }),
+    // ---- Tự luận ----
+    es2(2, DK, r5`Tìm điều kiện xác định của các phân thức: a) \(\dfrac{x - 1}{2x + 6}\); b) \(\dfrac{3x}{x^2 - 25}\).`, r5`a) \(2x + 6 \ne 0 \iff x \ne -3\).
+b) \(x^2 - 25 = (x - 5)(x + 5) \ne 0 \iff x \ne 5\) và \(x \ne -5\).`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b, đủ hai điều kiện.`),
+    es2(2, HB, r5`Chứng tỏ các cặp phân thức sau bằng nhau:
+a) \(\dfrac{x^2 - 2x}{x^2 - 4}\) và \(\dfrac{x}{x + 2}\); b) \(\dfrac{3 - x}{x^2 - 9}\) và \(\dfrac{-1}{x + 3}\).`, r5`a) \((x^2 - 2x)(x + 2) = x(x - 2)(x + 2) = x(x^2 - 4)\). Tích chéo bằng nhau.
+b) \((3 - x)(x + 3) = -(x - 3)(x + 3) = -(x^2 - 9) = (x^2 - 9)\cdot(-1)\). Tích chéo bằng nhau.`, r5`0,5 điểm: câu a, tính đúng hai tích chéo.
+0,5 điểm: câu b, đổi dấu đúng và kết luận.`),
+    es2(3, GT, r5`Cho phân thức \(P = \dfrac{x^2 - 1}{x^2 + x}\).
+a) Tìm điều kiện xác định. b) Tính \(P\) tại \(x = 2\). c) Tìm \(x\) để \(P = 0\).`, r5`a) \(x(x + 1) \ne 0 \iff x \ne 0\) và \(x \ne -1\).
+b) \(P(2) = \dfrac{3}{6} = \dfrac12\).
+c) Tử bằng 0: \(x = 1\) hoặc \(x = -1\); đối chiếu điều kiện, loại \(x = -1\). Vậy \(x = 1\).`, r5`0,25 điểm: câu a.
+0,25 điểm: câu b.
+0,5 điểm: câu c, có đối chiếu điều kiện xác định.`),
+    es2(3, TT, r5`Một đội công nhân dự định làm 600 sản phẩm trong \(x\) ngày (\(x > 2\)). Thực tế đội hoàn thành sớm hơn dự định 2 ngày.
+a) Viết phân thức biểu thị số sản phẩm mỗi ngày theo dự định và theo thực tế.
+b) Tính hai giá trị đó khi \(x = 12\).`, r5`a) Dự định: \(\dfrac{600}{x}\) sản phẩm/ngày; thực tế: \(\dfrac{600}{x - 2}\) sản phẩm/ngày.
+b) Khi \(x = 12\): dự định 50 sản phẩm/ngày; thực tế 60 sản phẩm/ngày.`, r5`0,5 điểm: câu a, hai phân thức đúng.
+0,5 điểm: câu b, tính đúng hai giá trị.`)
+  ]
+};
+var VD = "van-dung-tinh-chat-co-ban";
+var RG = "rut-gon-phan-thuc";
+var QD = "quy-dong-mau-thuc";
+var TH = "rut-gon-tinh-gia-tri-phan-thuc-tong-hop";
+var B22 = {
+  slug: "bai-22-tinh-chat-co-ban-cua-phan-thuc-dai-so",
+  questions: [
+    mc(1, VD, r5`Đẳng thức \(\dfrac{A}{B} = \dfrac{A\cdot M}{B\cdot M}\) đúng khi`, [r5`\(M\) khác đa thức 0`, r5`\(M\) là đa thức bất kì`, r5`\(M = 0\)`, r5`\(M\) là số dương`], "Nh\xE2n c\u1EA3 t\u1EED v\xE0 m\u1EABu v\u1EDBi c\xF9ng m\u1ED9t \u0111a th\u1EE9c kh\xE1c \u0111a th\u1EE9c 0.", [
+      void 0,
+      "Kh\xF4ng \u0111\u01B0\u1EE3c nh\xE2n v\u1EDBi \u0111a th\u1EE9c 0.",
+      "Khi \u0111\xF3 m\u1EABu b\u1EB1ng 0.",
+      "\u0110a th\u1EE9c kh\xE1c 0 b\u1EA5t k\xEC \u0111\u1EC1u \u0111\u01B0\u1EE3c, kh\xF4ng ch\u1EC9 s\u1ED1 d\u01B0\u01A1ng."
+    ]),
+    mc(1, VD, r5`Theo quy tắc đổi dấu, \(\dfrac{-x}{2 - x}\) bằng`, [r5`\(\dfrac{x}{x - 2}\)`, r5`\(\dfrac{x}{2 - x}\)`, r5`\(\dfrac{x}{x + 2}\)`, r5`\(\dfrac{-x}{x + 2}\)`], "\u0110\u1ED5i d\u1EA5u c\u1EA3 t\u1EED v\xE0 m\u1EABu: \\(\\dfrac{-x}{2 - x} = \\dfrac{x}{x - 2}\\).", [
+      void 0,
+      "Ch\u1EC9 \u0111\u1ED5i d\u1EA5u t\u1EED, ch\u01B0a \u0111\u1ED5i d\u1EA5u m\u1EABu.",
+      "\u0110\u1ED5i d\u1EA5u m\u1EABu sai: \\(-(2 - x) = x - 2\\).",
+      "\u0110\u1ED5i d\u1EA5u m\u1EABu sai."
+    ]),
+    mc(2, VD, r5`Điền vào chỗ trống: \(\dfrac{x + 1}{x - 1} = \dfrac{\ldots}{x^2 - 1}\).`, [r5`\((x + 1)^2\)`, r5`\(x + 1\)`, r5`\(x^2 + 1\)`, r5`\(x^2 - 1\)`], r5`Mẫu được nhân với \(x + 1\) nên tử cũng nhân với \(x + 1\): \((x + 1)^2\).`, [
+      void 0,
+      "Ch\u01B0a nh\xE2n t\u1EED v\u1EDBi \\(x + 1\\).",
+      r5`\((x + 1)^2 \ne x^2 + 1\).`,
+      "Nh\xE2n sai."
+    ]),
+    mc(2, RG, r5`Rút gọn phân thức \(\dfrac{12x^3y}{18xy^2}\) được`, [r5`\(\dfrac{2x^2}{3y}\)`, r5`\(\dfrac{2x^3}{3y^2}\)`, r5`\(\dfrac{2x}{3y}\)`, r5`\(\dfrac{6x^2}{y}\)`], r5`Chia tử và mẫu cho \(6xy\): \(\dfrac{2x^2}{3y}\).`, [
+      void 0,
+      "Ch\u01B0a chia ph\u1EA7n bi\u1EBFn.",
+      "Chia sai s\u1ED1 m\u0169 c\u1EE7a \\(x\\).",
+      "Chia sai h\u1EC7 s\u1ED1."
+    ]),
+    mc(2, RG, r5`Rút gọn phân thức \(\dfrac{x^2 - 9}{x + 3}\) được`, [r5`\(x - 3\)`, r5`\(x + 3\)`, r5`\(x^2 - 3\)`, r5`\(-3\)`], r5`\(\dfrac{(x - 3)(x + 3)}{x + 3} = x - 3\).`, [
+      void 0,
+      "Sai d\u1EA5u.",
+      "G\u1EA1ch h\u1EA1ng t\u1EED sai.",
+      "G\u1EA1ch h\u1EA1ng t\u1EED sai."
+    ]),
+    mc(3, RG, r5`Rút gọn phân thức \(\dfrac{x^2 - 6x + 9}{x^2 - 9}\) được`, [r5`\(\dfrac{x - 3}{x + 3}\)`, r5`\(\dfrac{x + 3}{x - 3}\)`, r5`\(\dfrac{6x}{9}\)`, r5`\(1\)`], r5`\(\dfrac{(x - 3)^2}{(x - 3)(x + 3)} = \dfrac{x - 3}{x + 3}\).`, [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c k\u1EBFt qu\u1EA3.",
+      "G\u1EA1ch h\u1EA1ng t\u1EED sai.",
+      "T\u1EED v\xE0 m\u1EABu kh\xF4ng b\u1EB1ng nhau."
+    ]),
+    mc(3, RG, r5`Rút gọn phân thức \(\dfrac{2x - 2y}{y^2 - x^2}\) được`, [r5`\(\dfrac{-2}{x + y}\)`, r5`\(\dfrac{2}{x + y}\)`, r5`\(\dfrac{2}{x - y}\)`, r5`\(\dfrac{-2}{x - y}\)`], r5`\(\dfrac{2(x - y)}{-(x - y)(x + y)} = \dfrac{-2}{x + y}\).`, [
+      void 0,
+      r5`Quên dấu trừ khi đổi \(y^2 - x^2 = -(x^2 - y^2)\).`,
+      "R\xFAt g\u1ECDn sai th\u1EEBa s\u1ED1.",
+      "R\xFAt g\u1ECDn sai th\u1EEBa s\u1ED1."
+    ]),
+    mc(2, QD, r5`Mẫu thức chung đơn giản nhất của \(\dfrac{1}{2x}\) và \(\dfrac{5}{3x^2}\) là`, [r5`\(6x^2\)`, r5`\(6x^3\)`, r5`\(5x^2\)`, r5`\(3x^2\)`], "L\u1EA5y BCNN c\u1EE7a 2 v\xE0 3 l\xE0 6, l\u0169y th\u1EEBa cao nh\u1EA5t c\u1EE7a \\(x\\) l\xE0 \\(x^2\\).", [
+      void 0,
+      "L\xE0 m\u1EABu chung nh\u01B0ng ch\u01B0a \u0111\u01A1n gi\u1EA3n nh\u1EA5t.",
+      "Kh\xF4ng chia h\u1EBFt cho \\(2x\\).",
+      "Kh\xF4ng chia h\u1EBFt cho \\(2x\\)."
+    ]),
+    mc(2, QD, r5`Mẫu thức chung của \(\dfrac{1}{x - 1}\) và \(\dfrac{1}{x + 1}\) là`, [r5`\((x - 1)(x + 1)\)`, r5`\(x - 1\)`, r5`\(x + 1\)`, r5`\(2x\)`], "Hai m\u1EABu kh\xF4ng c\xF3 nh\xE2n t\u1EED chung n\xEAn m\u1EABu chung l\xE0 t\xEDch c\u1EE7a ch\xFAng.", [
+      void 0,
+      r5`Không chia hết cho \(x + 1\).`,
+      r5`Không chia hết cho \(x - 1\).`,
+      "C\u1ED9ng hai m\u1EABu kh\xF4ng \u0111\u01B0\u1EE3c m\u1EABu chung."
+    ]),
+    mc(3, QD, r5`Mẫu thức chung đơn giản nhất của \(\dfrac{5}{x^2 - 9}\) và \(\dfrac{x}{3x + 9}\) là`, [r5`\(3(x - 3)(x + 3)\)`, r5`\((x^2 - 9)(3x + 9)\)`, r5`\(x^2 - 9\)`, r5`\(3(x + 3)^2\)`], r5`\(x^2 - 9 = (x - 3)(x + 3)\); \(3x + 9 = 3(x + 3)\). Mẫu chung: \(3(x - 3)(x + 3)\).`, [
+      void 0,
+      "L\xE0 m\u1EABu chung nh\u01B0ng ch\u01B0a \u0111\u01A1n gi\u1EA3n nh\u1EA5t.",
+      "Kh\xF4ng chia h\u1EBFt cho 3.",
+      r5`Không chia hết cho \(x - 3\).`
+    ]),
+    mc(3, TH, r5`Rút gọn \(P = \dfrac{x^2 - 4}{x^2 + 2x}\) rồi tính giá trị tại \(x = -1\) được`, [r5`\(3\)`, r5`\(-3\)`, r5`\(1\)`, "kh\xF4ng x\xE1c \u0111\u1ECBnh"], r5`\(P = \dfrac{(x - 2)(x + 2)}{x(x + 2)} = \dfrac{x - 2}{x}\) (với \(x \ne 0\), \(x \ne -2\)). Tại \(x = -1\): \(\dfrac{-3}{-1} = 3\).`, [
+      void 0,
+      "Sai d\u1EA5u khi chia hai s\u1ED1 \xE2m.",
+      "R\xFAt g\u1ECDn sai.",
+      r5`\(x = -1\) thỏa mãn điều kiện xác định.`
+    ]),
+    mc(4, TH, r5`Cho \(Q = \dfrac{3x + 3}{x^2 - 1}\). Có bao nhiêu số nguyên \(x\) để \(Q\) nhận giá trị nguyên?`, [r5`\(4\)`, r5`\(2\)`, r5`\(3\)`, r5`\(6\)`], r5`\(Q = \dfrac{3}{x - 1}\) với \(x \ne \pm1\). \(Q\) nguyên khi \(x - 1 \in \{-3; -1; 1; 3\}\), tức \(x \in \{-2; 0; 2; 4\}\); cả bốn giá trị thỏa điều kiện.`, [
+      void 0,
+      "B\u1ECF s\xF3t c\xE1c \u01B0\u1EDBc \xE2m.",
+      "Lo\u1EA1i nh\u1EA7m m\u1ED9t gi\xE1 tr\u1ECB.",
+      "\u0110\u1EBFm th\u1EEBa."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, VD, "X\xE9t t\xEDnh \u0111\xFAng sai v\u1EC1 t\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n c\u1EE7a ph\xE2n th\u1EE9c:", [
+      [r5`\(\dfrac{A}{B} = \dfrac{-A}{-B}\).`, true, "Quy t\u1EAFc \u0111\u1ED5i d\u1EA5u."],
+      [r5`\(\dfrac{A}{B} = \dfrac{A + M}{B + M}\).`, false, "C\u1ED9ng c\xF9ng m\u1ED9t \u0111a th\u1EE9c kh\xF4ng gi\u1EEF nguy\xEAn ph\xE2n th\u1EE9c."],
+      ["Chia c\u1EA3 t\u1EED v\xE0 m\u1EABu cho m\u1ED9t nh\xE2n t\u1EED chung \u0111\u01B0\u1EE3c ph\xE2n th\u1EE9c b\u1EB1ng ph\xE2n th\u1EE9c \u0111\xE3 cho.", true, "T\xEDnh ch\u1EA5t c\u01A1 b\u1EA3n."],
+      [r5`\(\dfrac{x - y}{y - x} = -1\) (với \(x \ne y\)).`, true, "T\u1EED v\xE0 m\u1EABu \u0111\u1ED1i nhau."]
+    ]),
+    tf2(2, VD, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      [r5`\(\dfrac{x}{x - 2} = \dfrac{x(x + 2)}{x^2 - 4}\).`, true, r5`Nhân tử và mẫu với \(x + 2\).`],
+      [r5`\(\dfrac{3}{x + 1} = \dfrac{3x}{x^2 + x}\).`, true, r5`Nhân tử và mẫu với \(x\).`],
+      [r5`\(\dfrac{2 - x}{3 - x} = \dfrac{x - 2}{x - 3}\).`, true, "\u0110\u1ED5i d\u1EA5u c\u1EA3 t\u1EED v\xE0 m\u1EABu."],
+      [r5`\(\dfrac{x + 1}{x + 2} = \dfrac12\).`, false, "Kh\xF4ng \u0111\u01B0\u1EE3c g\u1EA1ch h\u1EA1ng t\u1EED \\(x\\)."]
+    ]),
+    tf2(2, RG, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c ph\xE9p r\xFAt g\u1ECDn:", [
+      [r5`\(\dfrac{6x^2y}{9xy^2} = \dfrac{2x}{3y}\).`, true, r5`Chia cho \(3xy\).`],
+      [r5`\(\dfrac{3x + 6}{x + 2} = 3\).`, true, r5`\(\dfrac{3(x + 2)}{x + 2}\).`],
+      [r5`\(\dfrac{x + 2}{x + 4} = \dfrac12\).`, false, "Kh\xF4ng \u0111\u01B0\u1EE3c g\u1EA1ch h\u1EA1ng t\u1EED."],
+      [r5`\(\dfrac{x^2 - 1}{x - 1} = x + 1\).`, true, "Hi\u1EC7u hai b\xECnh ph\u01B0\u01A1ng."]
+    ]),
+    tf2(2, RG, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c ph\xE9p r\xFAt g\u1ECDn:", [
+      [r5`\(\dfrac{(x - y)^2}{y - x} = y - x\).`, true, r5`\((x - y)^2 = (y - x)^2\).`],
+      [r5`\(\dfrac{5x - 10}{x - 2} = 5\).`, true, r5`\(\dfrac{5(x - 2)}{x - 2}\).`],
+      [r5`\(\dfrac{x^2 + x}{x} = x + 1\).`, true, r5`Chia cho \(x\).`],
+      [r5`\(\dfrac{x^2 + 4}{x + 2} = x + 2\).`, false, r5`\(x^2 + 4 \ne (x + 2)^2\).`]
+    ]),
+    tf2(3, RG, r5`Cho \(A = \dfrac{x^3 - 1}{x^2 - 1}\).`, [
+      [r5`\(x^3 - 1 = (x - 1)(x^2 + x + 1)\).`, true, "Hi\u1EC7u hai l\u1EADp ph\u01B0\u01A1ng."],
+      [r5`\(A = \dfrac{x^2 + x + 1}{x + 1}\) với \(x \ne \pm1\).`, true, r5`Chia tử và mẫu cho \(x - 1\).`],
+      [r5`\(A\) xác định tại \(x = 1\).`, false, "M\u1EABu b\u1EB1ng 0."],
+      [r5`Tại \(x = 0\) thì \(A = 1\).`, true, r5`\(\dfrac{-1}{-1}\).`]
+    ]),
+    tf2(2, QD, r5`Quy đồng mẫu thức hai phân thức \(\dfrac{1}{x^2 - x}\) và \(\dfrac{2}{x^2 - 1}\).`, [
+      [r5`\(x^2 - x = x(x - 1)\).`, true, "\u0110\u1EB7t nh\xE2n t\u1EED chung."],
+      [r5`Mẫu thức chung là \(x(x - 1)(x + 1)\).`, true, "L\u1EA5y c\xE1c nh\xE2n t\u1EED v\u1EDBi s\u1ED1 m\u0169 l\u1EDBn nh\u1EA5t."],
+      [r5`Nhân tử phụ của phân thức thứ nhất là \(x + 1\).`, true, "M\u1EABu chung chia cho \\(x(x - 1)\\)."],
+      [r5`\((x^2 - x)(x^2 - 1)\) là mẫu thức chung đơn giản nhất.`, false, "C\xF3 nh\xE2n t\u1EED chung \\(x - 1\\) b\u1ECB l\u1EB7p."]
+    ]),
+    tf2(3, QD, r5`Quy đồng mẫu thức hai phân thức \(\dfrac{3}{x - 2}\) và \(\dfrac{5}{2 - x}\).`, [
+      [r5`\(\dfrac{5}{2 - x} = \dfrac{-5}{x - 2}\).`, true, "\u0110\u1ED5i d\u1EA5u t\u1EED v\xE0 m\u1EABu."],
+      [r5`Có thể chọn mẫu thức chung là \(x - 2\).`, true, "Sau khi \u0111\u1ED5i d\u1EA5u, hai m\u1EABu nh\u01B0 nhau."],
+      [r5`Mẫu thức chung phải là \((x - 2)(2 - x)\).`, false, "Kh\xF4ng c\u1EA7n, v\xEC hai m\u1EABu \u0111\u1ED1i nhau."],
+      [r5`Sau khi quy đồng, tử của phân thức thứ hai là \(-5\).`, true, r5`\(\dfrac{-5}{x - 2}\).`]
+    ]),
+    tf2(3, TH, r5`Cho \(P = \dfrac{x^2 - 2x}{x^2 - 4}\).`, [
+      [r5`Điều kiện xác định: \(x \ne 2\) và \(x \ne -2\).`, true, r5`\(x^2 - 4 \ne 0\).`],
+      [r5`\(P = \dfrac{x}{x + 2}\).`, true, r5`Chia tử và mẫu cho \(x - 2\).`],
+      [r5`Tại \(x = 2\) thì \(P = \dfrac12\).`, false, r5`\(x = 2\) không thỏa điều kiện xác định.`],
+      [r5`\(P = 0\) khi \(x = 0\).`, true, "T\u1EED b\u1EB1ng 0, m\u1EABu kh\xE1c 0."]
+    ]),
+    tf2(4, TH, r5`Cho \(Q = \dfrac{2x + 4}{x^2 + 2x}\).`, [
+      [r5`\(Q = \dfrac2x\) với \(x \ne 0\), \(x \ne -2\).`, true, r5`\(\dfrac{2(x + 2)}{x(x + 2)}\).`],
+      [r5`\(x = -2\) làm \(Q\) nhận giá trị nguyên.`, false, r5`\(x = -2\) không thỏa điều kiện xác định.`],
+      [r5`Có đúng 3 số nguyên \(x\) để \(Q\) nguyên.`, true, r5`\(x \in \{-1; 1; 2\}\).`],
+      [r5`\(Q(1) = 2\).`, true, r5`\(\dfrac21\).`]
+    ]),
+    tf2(3, TH, r5`Cho \(R = \dfrac{x^2 - 1}{x^2 + 2x + 1}\).`, [
+      [r5`\(R = \dfrac{x - 1}{x + 1}\) với \(x \ne -1\).`, true, r5`\(\dfrac{(x - 1)(x + 1)}{(x + 1)^2}\).`],
+      [r5`\(R(0) = -1\).`, true, r5`\(\dfrac{-1}{1}\).`],
+      [r5`\(R = 1\) khi \(x = 0\).`, false, r5`\(R(0) = -1\).`],
+      [r5`Điều kiện xác định là \(x \ne -1\).`, true, r5`\((x + 1)^2 \ne 0\).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, RG, r5`Rút gọn phân thức \(\dfrac{x^2 + 5x}{x^2 - 25}\).`, "x/(x - 5)", r5`\(\dfrac{x(x + 5)}{(x - 5)(x + 5)} = \dfrac{x}{x - 5}\).`),
+    sa2(2, RG, r5`Rút gọn phân thức \(\dfrac{4x - 8}{x^2 - 4x + 4}\).`, "4/(x - 2)", r5`\(\dfrac{4(x - 2)}{(x - 2)^2} = \dfrac{4}{x - 2}\).`),
+    sa2(3, RG, r5`Rút gọn phân thức \(\dfrac{x^3 + 8}{x^2 - 2x + 4}\).`, "x + 2", r5`\(x^3 + 8 = (x + 2)(x^2 - 2x + 4)\) nên phân thức bằng \(x + 2\).`),
+    sa2(2, VD, r5`Tìm đa thức \(A\) thỏa mãn \(\dfrac{x}{x + 3} = \dfrac{A}{x^2 - 9}\).`, "x^2 - 3x", r5`Mẫu được nhân với \(x - 3\) nên \(A = x(x - 3) = x^2 - 3x\).`),
+    sa2(3, TH, r5`Rút gọn \(P = \dfrac{x^2 - 1}{x^2 - x}\) rồi tính giá trị của \(P\) tại \(x = 3\).`, "4/3", r5`\(P = \dfrac{(x - 1)(x + 1)}{x(x - 1)} = \dfrac{x + 1}{x}\). Tại \(x = 3\): \(\dfrac43\).`),
+    sa2(4, TH, r5`Có bao nhiêu số nguyên \(x\) để phân thức \(\dfrac{x^2 + 2x - 3}{x^2 - 2x + 1}\) nhận giá trị nguyên?`, "6", r5`Phân thức bằng \(\dfrac{(x + 3)(x - 1)}{(x - 1)^2} = \dfrac{x + 3}{x - 1} = 1 + \dfrac{4}{x - 1}\) (\(x \ne 1\)). \(x - 1 \in \{\pm1; \pm2; \pm4\}\) cho \(x \in \{-3; -1; 0; 2; 3; 5\}\): 6 giá trị.`),
+    // ---- Tự luận ----
+    es2(2, VD, r5`Dùng tính chất cơ bản của phân thức, điền đa thức thích hợp vào chỗ trống:
+a) \(\dfrac{3}{x - 2} = \dfrac{\ldots}{x^2 - 4}\); b) \(\dfrac{x^2 + 2x}{x^2 - 4} = \dfrac{x}{\ldots}\).`, r5`a) Mẫu nhân với \(x + 2\) nên tử là \(3(x + 2) = 3x + 6\).
+b) Tử chia cho \(x + 2\) nên mẫu là \((x^2 - 4) : (x + 2) = x - 2\).`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b.`),
+    es2(3, RG, r5`Rút gọn các phân thức: a) \(\dfrac{x^2 - xy}{y^2 - x^2}\); b) \(\dfrac{x^3 - 27}{x^2 + 3x + 9}\).`, r5`a) \(\dfrac{x(x - y)}{-(x - y)(x + y)} = \dfrac{-x}{x + y}\).
+b) \(\dfrac{(x - 3)(x^2 + 3x + 9)}{x^2 + 3x + 9} = x - 3\).`, r5`0,5 điểm: câu a, phân tích và đổi dấu đúng.
+0,5 điểm: câu b, dùng đúng hằng đẳng thức.`),
+    es2(3, QD, r5`Quy đồng mẫu thức hai phân thức \(\dfrac{1}{x^2 + 3x}\) và \(\dfrac{2}{x^2 - 9}\).`, r5`\(x^2 + 3x = x(x + 3)\); \(x^2 - 9 = (x - 3)(x + 3)\). Mẫu chung: \(x(x - 3)(x + 3)\).
+\(\dfrac{1}{x^2 + 3x} = \dfrac{x - 3}{x(x - 3)(x + 3)}\); \(\dfrac{2}{x^2 - 9} = \dfrac{2x}{x(x - 3)(x + 3)}\).`, r5`0,5 điểm: phân tích mẫu và tìm đúng mẫu chung.
+0,5 điểm: tìm đúng nhân tử phụ và viết hai phân thức mới.`),
+    es2(4, TH, r5`Cho \(A = \dfrac{x^2 - 4x + 4}{x^2 - 4}\).
+a) Tìm điều kiện xác định và rút gọn \(A\). b) Tính \(A\) tại \(x = 4\). c) Tìm các số nguyên \(x\) để \(A\) nhận giá trị nguyên.`, r5`a) \(x \ne \pm2\); \(A = \dfrac{(x - 2)^2}{(x - 2)(x + 2)} = \dfrac{x - 2}{x + 2}\).
+b) \(A(4) = \dfrac26 = \dfrac13\).
+c) \(A = 1 - \dfrac{4}{x + 2}\). \(x + 2 \in \{\pm1; \pm2; \pm4\}\) cho \(x \in \{-6; -4; -3; -1; 0; 2\}\); loại \(x = 2\). Vậy \(x \in \{-6; -4; -3; -1; 0\}\).`, r5`0,25 điểm: câu a.
+0,25 điểm: câu b.
+0,5 điểm: câu c, tìm đủ và loại giá trị không thỏa điều kiện.`)
+  ]
+};
+var CH = "cong-hai-phan-thuc";
+var TR2 = "tru-hai-phan-thuc";
+var CN = "cong-tru-nhieu-phan-thuc";
+var TE = "thuc-te-cong-tru-phan-thuc";
+var B23 = {
+  slug: "bai-23-phep-cong-va-phep-tru-phan-thuc-dai-so",
+  questions: [
+    mc(1, CH, r5`Kết quả của phép cộng \(\dfrac{x}{x + 1} + \dfrac{1}{x + 1}\) là`, [r5`\(1\)`, r5`\(\dfrac{x + 1}{2x + 2}\)`, r5`\(\dfrac{x}{x + 1}\)`, r5`\(2\)`], r5`\(\dfrac{x + 1}{x + 1} = 1\) (với \(x \ne -1\)).`, [
+      void 0,
+      "Kh\xF4ng c\u1ED9ng c\xE1c m\u1EABu.",
+      "Qu\xEAn c\u1ED9ng t\u1EED th\u1EE9 hai.",
+      "T\xEDnh sai."
+    ]),
+    mc(1, CH, r5`Kết quả của phép cộng \(\dfrac{2x}{x - 3} + \dfrac{5}{x - 3}\) là`, [r5`\(\dfrac{2x + 5}{x - 3}\)`, r5`\(\dfrac{2x + 5}{2x - 6}\)`, r5`\(\dfrac{7x}{x - 3}\)`, r5`\(\dfrac{2x + 5}{(x - 3)^2}\)`], "C\xF9ng m\u1EABu: c\u1ED9ng t\u1EED, gi\u1EEF nguy\xEAn m\u1EABu.", [
+      void 0,
+      "Kh\xF4ng c\u1ED9ng c\xE1c m\u1EABu.",
+      r5`\(2x + 5 \ne 7x\).`,
+      "Kh\xF4ng nh\xE2n c\xE1c m\u1EABu."
+    ]),
+    mc(2, CH, r5`Kết quả của phép cộng \(\dfrac1x + \dfrac{1}{x + 1}\) là`, [r5`\(\dfrac{2x + 1}{x(x + 1)}\)`, r5`\(\dfrac{2}{2x + 1}\)`, r5`\(\dfrac{2}{x(x + 1)}\)`, r5`\(\dfrac{1}{x}\)`], r5`\(\dfrac{x + 1 + x}{x(x + 1)} = \dfrac{2x + 1}{x(x + 1)}\).`, [
+      void 0,
+      "C\u1ED9ng t\u1EED v\u1EDBi t\u1EED, m\u1EABu v\u1EDBi m\u1EABu l\xE0 sai.",
+      "Qu\xEAn nh\xE2n t\u1EED v\u1EDBi nh\xE2n t\u1EED ph\u1EE5.",
+      "T\xEDnh sai."
+    ]),
+    mc(2, CH, r5`Kết quả của phép cộng \(\dfrac{2}{x - 1} + \dfrac{3}{1 - x}\) là`, [r5`\(\dfrac{-1}{x - 1}\)`, r5`\(\dfrac{5}{x - 1}\)`, r5`\(\dfrac{1}{x - 1}\)`, r5`\(\dfrac{5}{2x - 2}\)`], r5`\(\dfrac{3}{1 - x} = \dfrac{-3}{x - 1}\); tổng \(\dfrac{2 - 3}{x - 1} = \dfrac{-1}{x - 1}\).`, [
+      void 0,
+      "Ch\u01B0a \u0111\u1ED5i d\u1EA5u ph\xE2n th\u1EE9c th\u1EE9 hai.",
+      "Sai d\u1EA5u.",
+      "C\u1ED9ng c\xE1c m\u1EABu l\xE0 sai."
+    ]),
+    mc(1, TR2, r5`Kết quả của phép trừ \(\dfrac{5x}{x + 2} - \dfrac{3x}{x + 2}\) là`, [r5`\(\dfrac{2x}{x + 2}\)`, r5`\(2x\)`, r5`\(\dfrac{8x}{x + 2}\)`, r5`\(\dfrac{x}{x + 2}\)`], "C\xF9ng m\u1EABu: tr\u1EEB t\u1EED, gi\u1EEF nguy\xEAn m\u1EABu.", [
+      void 0,
+      "M\u1EA5t m\u1EABu.",
+      "C\u1ED9ng thay v\xEC tr\u1EEB.",
+      "T\xEDnh sai."
+    ]),
+    mc(2, TR2, r5`Phân thức đối của \(\dfrac{x - 1}{x + 2}\) là`, [r5`\(\dfrac{1 - x}{x + 2}\)`, r5`\(\dfrac{x + 2}{x - 1}\)`, r5`\(\dfrac{x + 1}{x - 2}\)`, r5`\(\dfrac{x - 1}{x - 2}\)`], r5`Phân thức đối có tử đổi dấu: \(\dfrac{-(x - 1)}{x + 2} = \dfrac{1 - x}{x + 2}\).`, [
+      void 0,
+      "\u0110\xF3 l\xE0 ph\xE2n th\u1EE9c ngh\u1ECBch \u0111\u1EA3o.",
+      "\u0110\u1ED5i d\u1EA5u sai.",
+      "\u0110\u1ED5i d\u1EA5u sai."
+    ]),
+    mc(2, TR2, r5`Kết quả của phép trừ \(\dfrac{1}{x - 2} - \dfrac{1}{x + 2}\) là`, [r5`\(\dfrac{4}{x^2 - 4}\)`, r5`\(0\)`, r5`\(\dfrac{2x}{x^2 - 4}\)`, r5`\(\dfrac{-4}{x^2 - 4}\)`], r5`\(\dfrac{(x + 2) - (x - 2)}{x^2 - 4} = \dfrac{4}{x^2 - 4}\).`, [
+      void 0,
+      "Hai ph\xE2n th\u1EE9c kh\xE1c nhau.",
+      "C\u1ED9ng thay v\xEC tr\u1EEB.",
+      "Sai d\u1EA5u khi b\u1ECF ngo\u1EB7c."
+    ]),
+    mc(2, TR2, r5`Kết quả của phép trừ \(\dfrac{x}{x - y} - \dfrac{y}{x - y}\) là`, [r5`\(1\)`, r5`\(0\)`, r5`\(\dfrac{1}{x - y}\)`, r5`\(\dfrac{x + y}{x - y}\)`], r5`\(\dfrac{x - y}{x - y} = 1\) (với \(x \ne y\)).`, [
+      void 0,
+      "T\u1EED b\u1EB1ng \\(x - y\\), kh\xF4ng b\u1EB1ng 0.",
+      "R\xFAt g\u1ECDn sai.",
+      "C\u1ED9ng thay v\xEC tr\u1EEB."
+    ]),
+    mc(3, CN, r5`Kết quả của \(\dfrac{1}{x - 1} + \dfrac{1}{x + 1} - \dfrac{2}{x^2 - 1}\) là`, [r5`\(\dfrac{2}{x + 1}\)`, r5`\(0\)`, r5`\(\dfrac{2x}{x^2 - 1}\)`, r5`\(\dfrac{2}{x - 1}\)`], r5`\(\dfrac{x + 1 + x - 1 - 2}{x^2 - 1} = \dfrac{2(x - 1)}{(x - 1)(x + 1)} = \dfrac{2}{x + 1}\).`, [
+      void 0,
+      "T\xEDnh sai t\u1EED.",
+      "Qu\xEAn tr\u1EEB ph\xE2n th\u1EE9c th\u1EE9 ba.",
+      "R\xFAt g\u1ECDn sai th\u1EEBa s\u1ED1."
+    ]),
+    mc(3, CN, r5`Kết quả của \(\dfrac{x}{x - 3} - \dfrac{3}{x + 3} - \dfrac{18}{x^2 - 9}\) là`, [r5`\(1\)`, r5`\(0\)`, r5`\(\dfrac{x + 3}{x - 3}\)`, r5`\(\dfrac{x^2 + 9}{x^2 - 9}\)`], r5`Tử sau khi quy đồng: \(x(x + 3) - 3(x - 3) - 18 = x^2 - 9\). Kết quả \(\dfrac{x^2 - 9}{x^2 - 9} = 1\).`, [
+      void 0,
+      "T\xEDnh sai t\u1EED.",
+      "R\xFAt g\u1ECDn sai.",
+      r5`Sai dấu ở \(-3(x - 3)\).`
+    ]),
+    mc(4, CN, r5`Kết quả của \(\dfrac{1}{x(x + 1)} + \dfrac{1}{(x + 1)(x + 2)}\) là`, [r5`\(\dfrac{2}{x(x + 2)}\)`, r5`\(\dfrac{1}{x(x + 2)}\)`, r5`\(\dfrac{2}{x(x + 1)(x + 2)}\)`, r5`\(\dfrac{1}{x + 2}\)`], r5`Tách: \(\dfrac1x - \dfrac{1}{x + 1} + \dfrac{1}{x + 1} - \dfrac{1}{x + 2} = \dfrac{2}{x(x + 2)}\).`, [
+      void 0,
+      "T\xEDnh sai t\u1EED.",
+      "Quy \u0111\u1ED3ng v\u1EDBi m\u1EABu \\(x(x + 1)(x + 2)\\) nh\u01B0ng t\xEDnh sai t\u1EED.",
+      "Thi\u1EBFu s\u1ED1 h\u1EA1ng."
+    ]),
+    mc(3, TE, r5`Vòi thứ nhất chảy đầy bể trong \(x\) giờ, vòi thứ hai chảy đầy bể trong \(2x\) giờ. Trong 1 giờ cả hai vòi chảy được`, [r5`\(\dfrac{3}{2x}\) bể`, r5`\(\dfrac{1}{3x}\) bể`, r5`\(\dfrac{2}{3x}\) bể`, r5`\(\dfrac{3x}{2}\) bể`], r5`\(\dfrac1x + \dfrac{1}{2x} = \dfrac{3}{2x}\) (bể).`, [
+      void 0,
+      "C\u1ED9ng th\u1EDDi gian r\u1ED3i ngh\u1ECBch \u0111\u1EA3o l\xE0 sai.",
+      "Ngh\u1ECBch \u0111\u1EA3o k\u1EBFt qu\u1EA3 \u0111\xFAng.",
+      "\u0110\xF3 l\xE0 ngh\u1ECBch \u0111\u1EA3o."
+    ]),
+    mc(3, TE, r5`Một người đi quãng đường 60 km với vận tốc \(x\) (km/h) và về với vận tốc \(x + 5\) (km/h). Thời gian về ít hơn thời gian đi là`, [r5`\(\dfrac{300}{x(x + 5)}\) giờ`, r5`\(12\) giờ`, r5`\(\dfrac{5}{x(x + 5)}\) giờ`, r5`\(\dfrac{300}{x + 5}\) giờ`], r5`\(\dfrac{60}{x} - \dfrac{60}{x + 5} = \dfrac{60(x + 5) - 60x}{x(x + 5)} = \dfrac{300}{x(x + 5)}\).`, [
+      void 0,
+      "Kh\xF4ng c\xF3 c\u01A1 s\u1EDF.",
+      "Qu\xEAn nh\xE2n 60.",
+      "Quy \u0111\u1ED3ng sai."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, CH, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      [r5`\(\dfrac{A}{M} + \dfrac{B}{M} = \dfrac{A + B}{M}\).`, true, "C\u1ED9ng hai ph\xE2n th\u1EE9c c\xF9ng m\u1EABu."],
+      [r5`\(\dfrac{A}{B} + \dfrac{C}{D} = \dfrac{A + C}{B + D}\).`, false, "Ph\u1EA3i quy \u0111\u1ED3ng m\u1EABu."],
+      ["Ph\xE9p c\u1ED9ng ph\xE2n th\u1EE9c c\xF3 t\xEDnh ch\u1EA5t giao ho\xE1n.", true, "Nh\u01B0 ph\xE9p c\u1ED9ng ph\xE2n s\u1ED1."],
+      [r5`\(\dfrac1x + \dfrac1x = \dfrac2x\).`, true, "C\xF9ng m\u1EABu."]
+    ]),
+    tf2(2, CH, r5`Cho \(S = \dfrac{3}{x + 2} + \dfrac{x}{x + 2}\).`, [
+      [r5`\(S = \dfrac{x + 3}{x + 2}\).`, true, "C\u1ED9ng t\u1EED."],
+      [r5`\(S(0) = \dfrac32\).`, true, "Thay s\u1ED1."],
+      [r5`\(S(-3) = 0\).`, true, "T\u1EED b\u1EB1ng 0, m\u1EABu kh\xE1c 0."],
+      [r5`\(S = \dfrac{3x}{x + 2}\).`, false, "C\u1ED9ng t\u1EED ch\u1EE9 kh\xF4ng nh\xE2n."]
+    ]),
+    tf2(2, CH, r5`Thực hiện phép cộng \(\dfrac{1}{2x} + \dfrac{1}{3x}\).`, [
+      [r5`Mẫu thức chung là \(6x\).`, true, "BCNN c\u1EE7a 2 v\xE0 3 l\xE0 6."],
+      [r5`Tổng bằng \(\dfrac{5}{6x}\).`, true, r5`\(\dfrac{3 + 2}{6x}\).`],
+      [r5`Tổng bằng \(\dfrac{2}{5x}\).`, false, "C\u1ED9ng t\u1EED v\u1EDBi t\u1EED, m\u1EABu v\u1EDBi m\u1EABu l\xE0 sai."],
+      [r5`Tại \(x = 1\) tổng bằng \(\dfrac56\).`, true, "Thay s\u1ED1."]
+    ]),
+    tf2(1, TR2, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      [r5`Phân thức đối của \(\dfrac2x\) là \(\dfrac{-2}{x}\).`, true, "T\u1ED5ng b\u1EB1ng 0."],
+      [r5`\(-\dfrac{A}{B} = \dfrac{A}{-B}\).`, true, "Quy t\u1EAFc \u0111\u1ED5i d\u1EA5u."],
+      [r5`\(\dfrac{A}{B} - \dfrac{C}{D} = \dfrac{A}{B} + \left(-\dfrac{C}{D}\right)\).`, true, "Quy t\u1EAFc tr\u1EEB."],
+      [r5`Phân thức đối của \(\dfrac{x - 1}{x}\) là \(\dfrac{x + 1}{x}\).`, false, r5`Phân thức đối là \(\dfrac{1 - x}{x}\).`]
+    ]),
+    tf2(2, TR2, r5`Cho \(T = \dfrac{x + 1}{x - 1} - \dfrac{2}{x - 1}\).`, [
+      [r5`\(T = \dfrac{x - 1}{x - 1}\).`, true, "Tr\u1EEB t\u1EED."],
+      [r5`\(T = 1\) với \(x \ne 1\).`, true, "R\xFAt g\u1ECDn."],
+      [r5`\(T(1) = 1\).`, false, r5`\(T\) không xác định tại \(x = 1\).`],
+      [r5`Giá trị của \(T\) không phụ thuộc vào \(x\) (với \(x \ne 1\)).`, true, r5`\(T = 1\).`]
+    ]),
+    tf2(2, TR2, "X\xE9t t\xEDnh \u0111\xFAng sai c\u1EE7a c\xE1c ph\xE9p tr\u1EEB:", [
+      [r5`\(\dfrac{x}{x - 2} - \dfrac{2}{x - 2} = 1\).`, true, r5`\(\dfrac{x - 2}{x - 2}\).`],
+      [r5`\(\dfrac3x - \dfrac1x = \dfrac2x\).`, true, "C\xF9ng m\u1EABu."],
+      [r5`\(\dfrac{x + 3}{x} - \dfrac3x = 1\).`, true, r5`\(\dfrac{x}{x}\).`],
+      [r5`\(\dfrac{2x}{x + 1} - \dfrac{2}{x + 1} = 2\).`, false, r5`Kết quả là \(\dfrac{2(x - 1)}{x + 1}\).`]
+    ]),
+    tf2(3, CN, r5`Cho \(M = \dfrac{1}{x - 1} - \dfrac{1}{x + 1}\).`, [
+      [r5`Mẫu thức chung là \(x^2 - 1\).`, true, r5`\((x - 1)(x + 1)\).`],
+      [r5`\(M = \dfrac{2}{x^2 - 1}\).`, true, r5`\(\dfrac{x + 1 - x + 1}{x^2 - 1}\).`],
+      [r5`\(M = 0\).`, false, "Hai ph\xE2n th\u1EE9c kh\xE1c nhau."],
+      [r5`\(M(2) = \dfrac23\).`, true, r5`\(\dfrac{2}{3}\).`]
+    ]),
+    tf2(4, CN, "X\xE9t t\xEDnh \u0111\xFAng sai (v\u1EDBi \u0111i\u1EC1u ki\u1EC7n c\xE1c ph\xE2n th\u1EE9c x\xE1c \u0111\u1ECBnh):", [
+      [r5`\(\dfrac{1}{x(x + 1)} = \dfrac1x - \dfrac{1}{x + 1}\).`, true, "Quy \u0111\u1ED3ng v\u1EBF ph\u1EA3i."],
+      [r5`\(\dfrac{1}{x(x + 2)} = \dfrac1x - \dfrac{1}{x + 2}\).`, false, r5`Vế phải bằng \(\dfrac{2}{x(x + 2)}\).`],
+      [r5`\(\dfrac{2}{x(x + 2)} = \dfrac1x - \dfrac{1}{x + 2}\).`, true, "Quy \u0111\u1ED3ng v\u1EBF ph\u1EA3i."],
+      [r5`\(\dfrac{1}{x(x + 1)} + \dfrac{1}{(x + 1)(x + 2)} = \dfrac{2}{x(x + 2)}\).`, true, "T\xE1ch r\u1ED3i tri\u1EC7t ti\xEAu."]
+    ]),
+    tf2(3, CN, r5`Cho \(N = \dfrac{2x}{x^2 - 1} - \dfrac{1}{x - 1}\).`, [
+      [r5`\(N = \dfrac{1}{x + 1}\).`, true, r5`\(\dfrac{2x - (x + 1)}{x^2 - 1} = \dfrac{x - 1}{x^2 - 1}\).`],
+      [r5`Mẫu thức chung là \((x - 1)(x + 1)\).`, true, r5`\(x^2 - 1 = (x - 1)(x + 1)\).`],
+      [r5`\(N(0) = 1\).`, true, r5`\(\dfrac{1}{1}\).`],
+      [r5`\(N = \dfrac{1}{x - 1}\).`, false, r5`\(N = \dfrac{1}{x + 1}\).`]
+    ]),
+    tf2(3, TE, r5`Người thứ nhất làm xong một công việc trong \(x\) giờ, người thứ hai làm xong trong \(x + 3\) giờ.`, [
+      [r5`Trong 1 giờ người thứ nhất làm được \(\dfrac1x\) công việc.`, true, "N\u0103ng su\u1EA5t."],
+      [r5`Trong 1 giờ cả hai làm được \(\dfrac{2x + 3}{x(x + 3)}\) công việc.`, true, r5`\(\dfrac1x + \dfrac{1}{x + 3}\).`],
+      [r5`Khi \(x = 6\), trong 1 giờ cả hai làm được \(\dfrac{5}{18}\) công việc.`, true, r5`\(\dfrac{15}{54}\).`],
+      [r5`Trong 1 giờ cả hai làm được \(\dfrac{2}{2x + 3}\) công việc.`, false, "C\u1ED9ng th\u1EDDi gian r\u1ED3i ngh\u1ECBch \u0111\u1EA3o l\xE0 sai."]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, CH, r5`Thực hiện phép tính \(\dfrac{x}{x - 1} + \dfrac{1}{1 - x}\) (với \(x \ne 1\)).`, "1", r5`\(\dfrac{x}{x - 1} - \dfrac{1}{x - 1} = \dfrac{x - 1}{x - 1} = 1\).`),
+    sa2(2, TR2, r5`Rút gọn \(\dfrac{x^2}{x - 2} - \dfrac{4}{x - 2}\).`, "x + 2", r5`\(\dfrac{x^2 - 4}{x - 2} = \dfrac{(x - 2)(x + 2)}{x - 2} = x + 2\).`),
+    sa2(3, CN, r5`Rút gọn \(\dfrac{1}{x - 2} + \dfrac{1}{x + 2} - \dfrac{4}{x^2 - 4}\).`, "2/(x + 2)", r5`\(\dfrac{x + 2 + x - 2 - 4}{x^2 - 4} = \dfrac{2(x - 2)}{(x - 2)(x + 2)} = \dfrac{2}{x + 2}\).`),
+    sa2(4, CN, r5`Tính giá trị của \(\dfrac{1}{x(x + 1)} + \dfrac{1}{(x + 1)(x + 2)} + \dfrac{1}{(x + 2)(x + 3)}\) tại \(x = 1\).`, "3/4", r5`Tổng bằng \(\dfrac1x - \dfrac{1}{x + 3} = \dfrac{3}{x(x + 3)}\). Tại \(x = 1\): \(\dfrac34\).`),
+    sa2(3, TE, "V\xF2i th\u1EE9 nh\u1EA5t ch\u1EA3y \u0111\u1EA7y b\u1EC3 trong 4 gi\u1EDD, v\xF2i th\u1EE9 hai ch\u1EA3y \u0111\u1EA7y b\u1EC3 trong 6 gi\u1EDD. Trong 1 gi\u1EDD c\u1EA3 hai v\xF2i ch\u1EA3y \u0111\u01B0\u1EE3c bao nhi\xEAu ph\u1EA7n b\u1EC3?", "5/12", r5`\(\dfrac14 + \dfrac16 = \dfrac{3 + 2}{12} = \dfrac{5}{12}\) (bể).`),
+    // ---- Tự luận ----
+    es2(2, CH, r5`Thực hiện phép cộng: a) \(\dfrac{3}{2x} + \dfrac{5}{4x}\); b) \(\dfrac{x}{x - 2} + \dfrac{2}{2 - x}\).`, r5`a) \(\dfrac{6}{4x} + \dfrac{5}{4x} = \dfrac{11}{4x}\).
+b) \(\dfrac{x}{x - 2} - \dfrac{2}{x - 2} = \dfrac{x - 2}{x - 2} = 1\) (với \(x \ne 2\)).`, r5`0,5 điểm: câu a, quy đồng đúng.
+0,5 điểm: câu b, đổi dấu và rút gọn đúng.`),
+    es2(2, TR2, r5`Thực hiện phép trừ: a) \(\dfrac{x + 4}{x + 2} - \dfrac{2}{x + 2}\); b) \(\dfrac{1}{x - 1} - \dfrac{2}{x^2 - 1}\).`, r5`a) \(\dfrac{x + 2}{x + 2} = 1\) (với \(x \ne -2\)).
+b) \(\dfrac{x + 1 - 2}{x^2 - 1} = \dfrac{x - 1}{(x - 1)(x + 1)} = \dfrac{1}{x + 1}\).`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b, quy đồng và rút gọn đúng.`),
+    es2(3, CN, r5`Chứng minh rằng với \(x \ne 3\) và \(x \ne -3\), giá trị của biểu thức \(\dfrac{1}{x - 3} - \dfrac{1}{x + 3} - \dfrac{6}{x^2 - 9}\) luôn bằng 0.`, r5`Mẫu chung \(x^2 - 9 = (x - 3)(x + 3)\).
+Tử: \((x + 3) - (x - 3) - 6 = 0\).
+Vậy biểu thức bằng \(\dfrac{0}{x^2 - 9} = 0\) với mọi \(x \ne \pm3\).`, r5`0,5 điểm: quy đồng đúng.
+0,5 điểm: tính đúng tử bằng 0 và kết luận.`),
+    es2(3, TE, r5`Đội A làm xong một đoạn đường trong \(x\) ngày, đội B làm xong đoạn đường đó trong \(x + 5\) ngày.
+a) Viết phân thức biểu thị phần công việc cả hai đội làm được trong một ngày.
+b) Với \(x = 10\), hỏi nếu làm chung thì hai đội làm xong trong bao nhiêu ngày?`, r5`a) \(\dfrac1x + \dfrac{1}{x + 5} = \dfrac{2x + 5}{x(x + 5)}\) (công việc).
+b) Với \(x = 10\): \(\dfrac{25}{150} = \dfrac16\) công việc mỗi ngày, nên làm chung xong trong 6 ngày.`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b.`)
+  ]
+};
+var NP = "nhan-phan-thuc";
+var CP = "chia-phan-thuc";
+var TC = "tim-thanh-phan-chua-biet-phan-thuc";
+var TH4 = "tong-hop-cac-phep-tinh-phan-thuc";
+var TT4 = "thuc-te-nhan-chia-phan-thuc";
+var B24 = {
+  slug: "bai-24-phep-nhan-va-phep-chia-phan-thuc-dai-so",
+  questions: [
+    mc(1, NP, r5`Quy tắc nhân hai phân thức: \(\dfrac{A}{B}\cdot\dfrac{C}{D} = \ldots\)`, [r5`\(\dfrac{AC}{BD}\)`, r5`\(\dfrac{A + C}{B + D}\)`, r5`\(\dfrac{AD}{BC}\)`, r5`\(\dfrac{AC}{B + D}\)`], "Nh\xE2n t\u1EED v\u1EDBi t\u1EED, m\u1EABu v\u1EDBi m\u1EABu.", [
+      void 0,
+      "Kh\xF4ng c\u1ED9ng.",
+      "\u0110\xF3 l\xE0 ph\xE9p chia.",
+      "M\u1EABu ph\u1EA3i nh\xE2n."
+    ]),
+    mc(1, NP, r5`Kết quả của phép nhân \(\dfrac{2x}{3}\cdot\dfrac{9}{4x^2}\) là`, [r5`\(\dfrac{3}{2x}\)`, r5`\(\dfrac{3x}{2}\)`, r5`\(\dfrac{2}{3x}\)`, r5`\(\dfrac{6}{x}\)`], r5`\(\dfrac{18x}{12x^2} = \dfrac{3}{2x}\).`, [
+      void 0,
+      "R\xFAt g\u1ECDn sai s\u1ED1 m\u0169.",
+      "\u0110\u1EA3o ng\u01B0\u1EE3c k\u1EBFt qu\u1EA3.",
+      "R\xFAt g\u1ECDn sai h\u1EC7 s\u1ED1."
+    ]),
+    mc(2, NP, r5`Kết quả của phép nhân \(\dfrac{x^2 - 1}{x + 3}\cdot\dfrac{x + 3}{x - 1}\) là`, [r5`\(x + 1\)`, r5`\(x - 1\)`, r5`\(1\)`, r5`\((x + 1)(x + 3)\)`], r5`\(\dfrac{(x - 1)(x + 1)(x + 3)}{(x + 3)(x - 1)} = x + 1\).`, [
+      void 0,
+      "Sai d\u1EA5u.",
+      r5`Còn thừa số \(x + 1\).`,
+      r5`\(x + 3\) đã rút gọn.`
+    ]),
+    mc(2, NP, r5`Kết quả của phép nhân \(\dfrac{x - 2}{x}\cdot\dfrac{x^2}{x^2 - 4}\) là`, [r5`\(\dfrac{x}{x + 2}\)`, r5`\(\dfrac{x}{x - 2}\)`, r5`\(\dfrac{1}{x + 2}\)`, r5`\(\dfrac{x^2}{x + 2}\)`], r5`\(\dfrac{(x - 2)x^2}{x(x - 2)(x + 2)} = \dfrac{x}{x + 2}\).`, [
+      void 0,
+      "R\xFAt g\u1ECDn sai th\u1EEBa s\u1ED1.",
+      r5`Còn thừa số \(x\).`,
+      r5`Chưa rút gọn \(x\).`
+    ]),
+    mc(1, CP, r5`Phân thức nghịch đảo của \(\dfrac{x - 1}{x + 2}\) (với \(x \ne 1\), \(x \ne -2\)) là`, [r5`\(\dfrac{x + 2}{x - 1}\)`, r5`\(\dfrac{1 - x}{x + 2}\)`, r5`\(\dfrac{x + 1}{x - 2}\)`, r5`\(\dfrac{x + 2}{1 - x}\)`], "\u0110\u1ED5i ch\u1ED7 t\u1EED v\xE0 m\u1EABu.", [
+      void 0,
+      "\u0110\xF3 l\xE0 ph\xE2n th\u1EE9c \u0111\u1ED1i.",
+      "\u0110\u1ED5i d\u1EA5u sai.",
+      "\u0110\u1ED5i ch\u1ED7 t\u1EED v\xE0 m\u1EABu nh\u01B0ng l\u1EA1i \u0111\u1ED5i d\u1EA5u m\u1EABu."
+    ]),
+    mc(1, CP, r5`Quy tắc chia hai phân thức: \(\dfrac{A}{B} : \dfrac{C}{D} = \ldots\) (với \(\dfrac{C}{D} \ne 0\))`, [r5`\(\dfrac{AD}{BC}\)`, r5`\(\dfrac{AC}{BD}\)`, r5`\(\dfrac{A - C}{B - D}\)`, r5`\(\dfrac{BC}{AD}\)`], "Nh\xE2n v\u1EDBi ph\xE2n th\u1EE9c ngh\u1ECBch \u0111\u1EA3o c\u1EE7a ph\xE2n th\u1EE9c chia.", [
+      void 0,
+      "\u0110\xF3 l\xE0 ph\xE9p nh\xE2n.",
+      "Kh\xF4ng tr\u1EEB.",
+      "\u0110\u1EA3o ng\u01B0\u1EE3c k\u1EBFt qu\u1EA3."
+    ]),
+    mc(2, CP, r5`Kết quả của phép chia \(\dfrac{6x^2}{5y} : \dfrac{3x}{10y^2}\) là`, [r5`\(4xy\)`, r5`\(2x\)`, r5`\(\dfrac{9x^3}{25y^3}\)`, r5`\(\dfrac{4x}{y}\)`], r5`\(\dfrac{6x^2}{5y}\cdot\dfrac{10y^2}{3x} = \dfrac{60x^2y^2}{15xy} = 4xy\).`, [
+      void 0,
+      "R\xFAt g\u1ECDn sai.",
+      "\u0110\xE3 nh\xE2n thay v\xEC chia.",
+      "R\xFAt g\u1ECDn sai s\u1ED1 m\u0169 c\u1EE7a \\(y\\)."
+    ]),
+    mc(2, CP, r5`Kết quả của phép chia \(\dfrac{x^2 - 9}{2x} : \dfrac{x + 3}{4x}\) là`, [r5`\(2(x - 3)\)`, r5`\(\dfrac{x - 3}{2}\)`, r5`\(2(x + 3)\)`, r5`\(\dfrac{(x + 3)^2}{8x^2}\)`], r5`\(\dfrac{(x - 3)(x + 3)}{2x}\cdot\dfrac{4x}{x + 3} = 2(x - 3)\).`, [
+      void 0,
+      "R\xFAt g\u1ECDn sai h\u1EC7 s\u1ED1.",
+      "Sai d\u1EA5u.",
+      "\u0110\xE3 nh\xE2n thay v\xEC chia."
+    ]),
+    mc(2, TC, r5`Phân thức \(M\) thỏa mãn \(M\cdot\dfrac{x + 2}{x} = \dfrac{x^2 - 4}{x^2}\) là`, [r5`\(\dfrac{x - 2}{x}\)`, r5`\(\dfrac{x + 2}{x}\)`, r5`\(\dfrac{x}{x - 2}\)`, r5`\(\dfrac{x - 2}{x^2}\)`], r5`\(M = \dfrac{x^2 - 4}{x^2} : \dfrac{x + 2}{x} = \dfrac{(x - 2)(x + 2)}{x^2}\cdot\dfrac{x}{x + 2} = \dfrac{x - 2}{x}\).`, [
+      void 0,
+      "Sai d\u1EA5u.",
+      "\u0110\u1EA3o ng\u01B0\u1EE3c k\u1EBFt qu\u1EA3.",
+      "R\xFAt g\u1ECDn sai m\u1EABu."
+    ]),
+    mc(3, TC, r5`Phân thức \(N\) thỏa mãn \(N : \dfrac{x}{x + 2} = \dfrac{(x + 2)^2}{x^2}\) là`, [r5`\(\dfrac{x + 2}{x}\)`, r5`\(\dfrac{x}{x + 2}\)`, r5`\(\dfrac{(x + 2)^3}{x^3}\)`, r5`\(1\)`], r5`\(N = \dfrac{(x + 2)^2}{x^2}\cdot\dfrac{x}{x + 2} = \dfrac{x + 2}{x}\).`, [
+      void 0,
+      "\u0110\u1EA3o ng\u01B0\u1EE3c k\u1EBFt qu\u1EA3.",
+      "\u0110\xE3 chia thay v\xEC nh\xE2n.",
+      "R\xFAt g\u1ECDn sai."
+    ]),
+    mc(3, TH4, r5`Kết quả của \(\left(\dfrac{1}{x - 1} + \dfrac{1}{x + 1}\right) : \dfrac{2x}{x^2 - 1}\) là`, [r5`\(1\)`, r5`\(0\)`, r5`\(2x\)`, r5`\(\dfrac{4x^2}{(x^2 - 1)^2}\)`], r5`Trong ngoặc bằng \(\dfrac{2x}{x^2 - 1}\); chia cho chính nó được 1.`, [
+      void 0,
+      "T\xEDnh sai trong ngo\u1EB7c.",
+      "R\xFAt g\u1ECDn sai.",
+      "\u0110\xE3 nh\xE2n thay v\xEC chia."
+    ]),
+    mc(4, TH4, r5`Kết quả của \(\left(\dfrac{x}{x - 2} - \dfrac{2}{x + 2}\right)\cdot\dfrac{x^2 - 4}{x^2 + 4}\) là`, [r5`\(1\)`, r5`\(x^2 + 4\)`, r5`\(\dfrac{x^2 + 4}{x^2 - 4}\)`, r5`\(0\)`], r5`Trong ngoặc: \(\dfrac{x(x + 2) - 2(x - 2)}{x^2 - 4} = \dfrac{x^2 + 4}{x^2 - 4}\); nhân với \(\dfrac{x^2 - 4}{x^2 + 4}\) được 1.`, [
+      void 0,
+      "R\xFAt g\u1ECDn sai.",
+      "\u0110\xF3 m\u1EDBi l\xE0 k\u1EBFt qu\u1EA3 trong ngo\u1EB7c.",
+      "T\xEDnh sai t\u1EED trong ngo\u1EB7c."
+    ]),
+    mc(3, TT4, r5`Một hình chữ nhật có diện tích \(\dfrac{x^2 - 9}{x}\) (m²) và chiều rộng \(\dfrac{x - 3}{2}\) (m). Chiều dài hình chữ nhật là`, [r5`\(\dfrac{2(x + 3)}{x}\) m`, r5`\(\dfrac{x + 3}{2x}\) m`, r5`\(\dfrac{2x}{x + 3}\) m`, r5`\(\dfrac{x + 3}{x}\) m`], r5`\(\dfrac{x^2 - 9}{x} : \dfrac{x - 3}{2} = \dfrac{(x - 3)(x + 3)}{x}\cdot\dfrac{2}{x - 3} = \dfrac{2(x + 3)}{x}\).`, [
+      void 0,
+      "\u0110\xE3 nh\xE2n thay v\xEC chia.",
+      "\u0110\u1EA3o ng\u01B0\u1EE3c k\u1EBFt qu\u1EA3.",
+      "Qu\xEAn nh\xE2n 2."
+    ]),
+    // ---- Đúng/Sai ----
+    tf2(1, NP, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      [r5`\(\dfrac{A}{B}\cdot\dfrac{C}{D} = \dfrac{AC}{BD}\).`, true, "Quy t\u1EAFc nh\xE2n."],
+      [r5`\(\dfrac{A}{B}\cdot\dfrac{B}{A} = 1\) (với \(A\), \(B\) khác 0).`, true, "Hai ph\xE2n th\u1EE9c ngh\u1ECBch \u0111\u1EA3o."],
+      ["Ph\xE9p nh\xE2n ph\xE2n th\u1EE9c c\xF3 t\xEDnh ch\u1EA5t giao ho\xE1n.", true, "Nh\u01B0 ph\xE9p nh\xE2n ph\xE2n s\u1ED1."],
+      [r5`\(\dfrac{A}{B}\cdot\dfrac{C}{D} = \dfrac{A + C}{B + D}\).`, false, "Kh\xF4ng c\u1ED9ng."]
+    ]),
+    tf2(2, NP, r5`Cho \(P = \dfrac{3x}{x + 1}\cdot\dfrac{x^2 - 1}{6x^2}\).`, [
+      [r5`\(P = \dfrac{x - 1}{2x}\).`, true, r5`\(\dfrac{3x(x - 1)(x + 1)}{(x + 1)6x^2}\).`],
+      [r5`\(P(1) = 0\).`, true, "T\u1EED b\u1EB1ng 0."],
+      [r5`\(P\) không xác định tại \(x = -1\).`, true, r5`Mẫu \(x + 1 = 0\).`],
+      [r5`\(P = \dfrac{x + 1}{2x}\).`, false, r5`\(P = \dfrac{x - 1}{2x}\).`]
+    ]),
+    tf2(2, NP, "X\xE9t t\xEDnh \u0111\xFAng sai (v\u1EDBi \u0111i\u1EC1u ki\u1EC7n c\xE1c ph\xE2n th\u1EE9c x\xE1c \u0111\u1ECBnh):", [
+      [r5`\(\dfrac{x}{y}\cdot\dfrac{y}{x} = 1\).`, true, "Ngh\u1ECBch \u0111\u1EA3o nhau."],
+      [r5`\(\dfrac{2x}{3}\cdot\dfrac{3}{2x} = 1\).`, true, "Ngh\u1ECBch \u0111\u1EA3o nhau."],
+      [r5`\(\dfrac{x^2}{y}\cdot\dfrac{y^2}{x} = xy\).`, true, r5`\(\dfrac{x^2y^2}{xy}\).`],
+      [r5`\(\dfrac{x + 1}{x}\cdot\dfrac{x}{x - 1} = 1\).`, false, r5`Kết quả là \(\dfrac{x + 1}{x - 1}\).`]
+    ]),
+    tf2(1, CP, "X\xE9t t\xEDnh \u0111\xFAng sai:", [
+      [r5`Phân thức nghịch đảo của \(\dfrac{x}{3}\) là \(\dfrac3x\) (với \(x \ne 0\)).`, true, "\u0110\u1ED5i ch\u1ED7 t\u1EED v\xE0 m\u1EABu."],
+      [r5`Phân thức nghịch đảo của \(\dfrac{-2}{x}\) là \(\dfrac{-x}{2}\).`, true, "T\xEDch b\u1EB1ng 1."],
+      [r5`\(\dfrac{A}{B} : \dfrac{C}{D} = \dfrac{A}{B}\cdot\dfrac{D}{C}\) (với \(\dfrac{C}{D} \ne 0\)).`, true, "Quy t\u1EAFc chia."],
+      ["Ph\xE2n th\u1EE9c 0 c\xF3 ph\xE2n th\u1EE9c ngh\u1ECBch \u0111\u1EA3o.", false, "Kh\xF4ng c\xF3 ph\xE2n th\u1EE9c n\xE0o nh\xE2n v\u1EDBi 0 \u0111\u01B0\u1EE3c 1."]
+    ]),
+    tf2(2, CP, r5`Cho \(Q = \dfrac{x^2 - 4}{x^2} : \dfrac{x - 2}{x}\).`, [
+      [r5`\(Q = \dfrac{x + 2}{x}\).`, true, r5`\(\dfrac{(x - 2)(x + 2)}{x^2}\cdot\dfrac{x}{x - 2}\).`],
+      [r5`Điều kiện: \(x \ne 0\) và \(x \ne 2\).`, true, "M\u1EABu kh\xE1c 0 v\xE0 ph\xE2n th\u1EE9c chia kh\xE1c 0."],
+      [r5`\(Q(1) = 3\).`, true, r5`\(\dfrac{3}{1}\).`],
+      [r5`\(Q(2) = 2\).`, false, r5`\(x = 2\) không thỏa điều kiện.`]
+    ]),
+    tf2(2, TC, r5`Cho phân thức \(A\) thỏa mãn \(A\cdot\dfrac{x - 1}{x + 2} = \dfrac{x - 1}{x}\).`, [
+      [r5`\(A = \dfrac{x + 2}{x}\).`, true, r5`\(A = \dfrac{x - 1}{x} : \dfrac{x - 1}{x + 2}\).`],
+      [r5`\(A(1) = 3\).`, true, r5`\(\dfrac31\).`],
+      [r5`\(A = \dfrac{(x - 1)^2}{x(x + 2)}\).`, false, "\u0110\xF3 l\xE0 ph\xE9p nh\xE2n, ph\u1EA3i d\xF9ng ph\xE9p chia."],
+      [r5`\(A\) tìm được bằng phép chia \(\dfrac{x - 1}{x} : \dfrac{x - 1}{x + 2}\).`, true, "Th\u1EEBa s\u1ED1 ch\u01B0a bi\u1EBFt b\u1EB1ng t\xEDch chia th\u1EEBa s\u1ED1 \u0111\xE3 bi\u1EBFt."]
+    ]),
+    tf2(3, TC, r5`Cho phân thức \(B\) thỏa mãn \(B : \dfrac{2}{x + 1} = \dfrac{x^2 - 1}{4}\).`, [
+      [r5`\(B = \dfrac{x^2 - 1}{4}\cdot\dfrac{2}{x + 1}\).`, true, "S\u1ED1 b\u1ECB chia b\u1EB1ng th\u01B0\u01A1ng nh\xE2n s\u1ED1 chia."],
+      [r5`\(B = \dfrac{x - 1}{2}\).`, true, "R\xFAt g\u1ECDn."],
+      [r5`\(B(3) = 1\).`, true, r5`\(\dfrac{2}{2}\).`],
+      [r5`\(B = \dfrac{x + 1}{2}\).`, false, r5`\(B = \dfrac{x - 1}{2}\).`]
+    ]),
+    tf2(3, TH4, r5`Cho \(E = \left(\dfrac{x}{x + 1} + \dfrac{1}{x - 1}\right)\cdot\dfrac{x^2 - 1}{x^2 + 1}\).`, [
+      [r5`Biểu thức trong ngoặc bằng \(\dfrac{x^2 + 1}{x^2 - 1}\).`, true, r5`\(x(x - 1) + (x + 1) = x^2 + 1\).`],
+      [r5`\(E = 1\) với \(x \ne \pm1\).`, true, "Nh\xE2n v\u1EDBi ngh\u1ECBch \u0111\u1EA3o."],
+      [r5`Điều kiện xác định là \(x \ne 1\) và \(x \ne -1\).`, true, "C\xE1c m\u1EABu kh\xE1c 0."],
+      [r5`\(E(0) = 0\).`, false, r5`\(E = 1\) với mọi \(x\) thỏa điều kiện.`]
+    ]),
+    tf2(4, TH4, r5`Cho \(F = \left(1 - \dfrac1x\right) : \left(x - \dfrac1x\right)\).`, [
+      [r5`\(F = \dfrac{1}{x + 1}\).`, true, r5`\(\dfrac{x - 1}{x}\cdot\dfrac{x}{(x - 1)(x + 1)}\).`],
+      [r5`Điều kiện: \(x \ne 0\), \(x \ne 1\), \(x \ne -1\).`, true, "M\u1EABu kh\xE1c 0 v\xE0 ph\xE2n th\u1EE9c chia kh\xE1c 0."],
+      [r5`Với \(x = -2\) thì \(F\) nhận giá trị nguyên.`, true, r5`\(F(-2) = -1\).`],
+      [r5`Với \(x = 0\) thì \(F\) nhận giá trị nguyên.`, false, r5`\(x = 0\) không thỏa điều kiện.`]
+    ]),
+    tf2(3, TT4, r5`Một người đi quãng đường \(\dfrac{x^2 - 1}{x}\) (km) trong \(\dfrac{x - 1}{2x}\) giờ (\(x > 1\)).`, [
+      [r5`Vận tốc là \(2(x + 1)\) km/h.`, true, r5`\(\dfrac{x^2 - 1}{x} : \dfrac{x - 1}{2x}\).`],
+      [r5`Khi \(x = 9\), vận tốc là 20 km/h.`, true, r5`\(2\cdot10\).`],
+      [r5`Vận tốc là \(\dfrac{x + 1}{2}\) km/h.`, false, "\u0110\xE3 nh\xE2n thay v\xEC chia."],
+      [r5`Điều kiện \(x > 1\) để thời gian dương.`, true, r5`\(x - 1 > 0\).`]
+    ]),
+    // ---- Trả lời ngắn ----
+    sa2(2, CP, r5`Rút gọn \(\dfrac{x^2 - 1}{x} : \dfrac{x + 1}{x^2}\).`, "x^2 - x", r5`\(\dfrac{(x - 1)(x + 1)}{x}\cdot\dfrac{x^2}{x + 1} = x(x - 1) = x^2 - x\).`),
+    sa2(3, TH4, r5`Rút gọn \(\left(\dfrac{x + 1}{x - 1} - \dfrac{x - 1}{x + 1}\right) : \dfrac{4x}{x^2 - 1}\).`, "1", r5`Trong ngoặc: \(\dfrac{(x + 1)^2 - (x - 1)^2}{x^2 - 1} = \dfrac{4x}{x^2 - 1}\); chia cho \(\dfrac{4x}{x^2 - 1}\) được 1.`),
+    sa2(3, TT4, r5`Một hình chữ nhật có diện tích \(\dfrac{x^2 + 2x}{3}\) (m²) và chiều rộng \(\dfrac{x}{6}\) (m). Tính chiều dài khi \(x = 4\).`, "12", r5`Chiều dài \(\dfrac{x(x + 2)}{3}\cdot\dfrac{6}{x} = 2(x + 2)\). Khi \(x = 4\): 12 m.`, { unit: "m" }),
+    // ---- Tự luận ----
+    es2(2, NP, r5`Thực hiện phép nhân: a) \(\dfrac{5x}{y^2}\cdot\dfrac{y^3}{10x^2}\); b) \(\dfrac{x^2 - 4}{3x}\cdot\dfrac{6x}{x + 2}\).`, r5`a) \(\dfrac{5xy^3}{10x^2y^2} = \dfrac{y}{2x}\).
+b) \(\dfrac{(x - 2)(x + 2)\cdot6x}{3x(x + 2)} = 2(x - 2)\).`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b, phân tích và rút gọn đúng.`),
+    es2(2, CP, r5`Thực hiện phép chia: a) \(\dfrac{x^2 - 25}{x + 3} : \dfrac{x - 5}{x^2 - 9}\); b) \(\dfrac{4x}{x - 1} : \dfrac{2x^2}{1 - x}\).`, r5`a) \(\dfrac{(x - 5)(x + 5)}{x + 3}\cdot\dfrac{(x - 3)(x + 3)}{x - 5} = (x + 5)(x - 3)\).
+b) \(\dfrac{4x}{x - 1}\cdot\dfrac{1 - x}{2x^2} = \dfrac{-4x(x - 1)}{2x^2(x - 1)} = -\dfrac2x\).`, r5`0,5 điểm: câu a.
+0,5 điểm: câu b, đổi dấu đúng.`),
+    es2(3, TH4, r5`Chứng minh rằng với \(x \ne \pm2\), giá trị của biểu thức \(\left(\dfrac{1}{x - 2} - \dfrac{1}{x + 2}\right)\cdot\dfrac{x^2 - 4}{8}\) không phụ thuộc vào \(x\).`, r5`Trong ngoặc: \(\dfrac{(x + 2) - (x - 2)}{x^2 - 4} = \dfrac{4}{x^2 - 4}\).
+Biểu thức bằng \(\dfrac{4}{x^2 - 4}\cdot\dfrac{x^2 - 4}{8} = \dfrac12\), không phụ thuộc vào \(x\).`, r5`0,5 điểm: tính đúng biểu thức trong ngoặc.
+0,5 điểm: nhân, rút gọn và kết luận.`),
+    es2(4, TH4, r5`Cho \(P = \left(\dfrac{x}{x - 3} - \dfrac{9}{x^2 - 3x}\right) : \dfrac{x + 3}{2}\).
+a) Tìm điều kiện xác định và rút gọn \(P\). b) Tìm các số nguyên \(x\) để \(P\) nhận giá trị nguyên.`, r5`a) Điều kiện: \(x \ne 0\), \(x \ne 3\), \(x \ne -3\).
+Trong ngoặc: \(\dfrac{x^2 - 9}{x(x - 3)} = \dfrac{x + 3}{x}\). \(P = \dfrac{x + 3}{x}\cdot\dfrac{2}{x + 3} = \dfrac2x\).
+b) \(P\) nguyên khi \(x \in \{-2; -1; 1; 2\}\); các giá trị này đều thỏa điều kiện.`, r5`0,5 điểm: câu a, đủ điều kiện và rút gọn đúng.
+0,5 điểm: câu b.`)
+  ]
+};
+var BANK_CHUONG_6 = [B21, B22, B23, B24];
+
 // src/seed/toan8-bank/index.ts
-var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3, ...BANK_CHUONG_4, ...BANK_CHUONG_5];
+var TOAN8_BANK = [...BANK_CHUONG_1, ...BANK_CHUONG_2, ...BANK_CHUONG_3, ...BANK_CHUONG_4, ...BANK_CHUONG_5, ...BANK_CHUONG_6];
 
 // src/seed/question-bank.ts
 var BANK_SOURCE = "Ng\xE2n h\xE0ng c\xE2u h\u1ECFi G\u01104 \u2013 t\u1EF1 bi\xEAn so\u1EA1n theo SGK To\xE1n 8 KNTT";
